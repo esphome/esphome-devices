@@ -1,7 +1,7 @@
 title: ESPHome-Configs.io
 description: >- # this means to ignore newlines until "baseurl:"
   A database of configuration files and guides for devices commonly flashed with https://esphome.io firmware.
-url: "https://esphome-config.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://esphome-configs.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
