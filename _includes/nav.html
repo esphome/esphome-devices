@@ -1,0 +1,41 @@
+<nav role="navigation" aria-label="Main navigation">
+  <ul class="navigation-list">
+    <strong>Device Types</strong>
+    {% assign devices = site.devices | group_by: 'type' | sort:"name" %}
+    {% for type in devices %}
+    
+      {% if type.name == "plug" | "Plug" | "socket" | "Socket" %}
+        <li>
+          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Plugs & Sockets</a>
+        </li>
+      {% endif %}
+    
+    {% endfor %}
+    <br>
+    <strong>Electrical Standards</strong>
+    {% assign devices = site.devices | group_by: 'standard' | sort:"name" %}
+    {% for standard in devices %}
+    
+      {% if standard.name == "uk" | "UK" %}
+        <li>
+          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">UK Devices</a>
+        </li>
+      {% endif %}
+
+      {% if standard.name == "us" | "US" %}
+        <li>
+          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">US Devices</a>
+        </li>
+      {% endif %}
+    
+    {% endfor %}
+
+    <br>
+    <strong>External Links</strong>
+    {% for item in site.data.external_links %}
+      <li>
+        <a href="{{ item.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ item.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
