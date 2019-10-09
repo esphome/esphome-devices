@@ -21,6 +21,13 @@ collections:
     output: true
     permalink: /devices/:path/
 
+defaults:
+  -
+    scope:
+      path: "_devices"
+    values:
+      layout: "device"
+
 # Theme Settings
 
 # Logo
