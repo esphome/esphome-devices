@@ -1,91 +1,27 @@
 <nav role="navigation" aria-label="Main navigation">
   <ul class="navigation-list">
     <strong>Device Types</strong>
-    {% assign deviceTypes_array = "" | split:"|" %}
-
-    {% for post in site.devices %}
-      {% for type in post.type %}
-        {% assign deviceTypes_array = deviceTypes_array | push: type | uniq | sort: "type" %}
-      {% endfor %}
-    {% endfor %}
-
-    {% for type in deviceTypes_array %}
-      
-      {% if type == "plug" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Plugs & Sockets</a>
-        </li>
-      {% endif %}
-
-      {% if type == "light" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Light Bulbs & LEDs</a>
-        </li>
-      {% endif %}
-
-      {% if type == "switch" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Switches & Dimmers</a>
-        </li>
-      {% endif %}
-
-      {% if type == "relay" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Relays</a>
-        </li>
-      {% endif %}
-
-      {% if type == "misc" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Miscellaneous Devices</a>
-        </li>
-      {% endif %}
-
+    {% for type in site.device-types | sort: "title" %}
+      <li>
+        <a href="{{ type.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ type.title }}</a>
+      </li>
     {% endfor %}
 
     <br>
     <strong>Electrical Standards</strong>
-    {% assign electricalStandards_array = "" | split:"|" %}
-    {% for post in site.devices %}
-      {% for standard in post.standard %}
-        {% assign electricalStandards_array = electricalStandards_array | push: standard | uniq | sort: "standard %}
-      {% endfor %}
-    {% endfor %}
-
-    {% for type in electricalStandards_array %}
-
-      {% if type == "uk" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">UK Devices</a>
-        </li>
-      {% endif %}
-
-      {% if type == "us" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">US Devices</a>
-        </li>
-      {% endif %}
-
-      {% if type == "eu" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">EU Devices</a>
-        </li>
-      {% endif %}
-
-      {% if type == "global" %}
-        <li>
-          <a href="#" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">Global Devices</a>
-        </li>
-      {% endif %}
-
+    {% for standard in site.device-standards | sort: "title" %}
+      <li>
+        <a href="{{ standard.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ standard.title }}</a>
+      </li>
     {% endfor %}
     
     <br>
     <strong>External Links</strong>
-    {% for item in site.data.external_links %}
+    {% for link in site.data.external_links %}
       <li>
-        <a href="{{ item.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ item.name }}</a>
+        <a href="{{ link.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ link.name }}</a>
       </li>
     {% endfor %}
+  
   </ul>
 </nav>

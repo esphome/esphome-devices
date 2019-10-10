@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>Device Type: {{ page.title }}</h1>
+
+<ul>
+  {% for device in site.devices %}
+    {% if device.type contains page.slug %}
+      <li>
+        <a href="{{ device.url }}">{{ device.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

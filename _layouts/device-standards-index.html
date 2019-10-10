@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>Electrical Standard: {{ page.title }}</h1>
+
+<ul>
+  {% for device in site.devices %}
+    {% if device.standard contains page.slug %}
+      <li>
+        <a href="{{ device.url }}">{{ device.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

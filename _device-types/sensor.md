@@ -1,0 +1,4 @@
+---
+slug: sensor
+title: Sensors
+---
