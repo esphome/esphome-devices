@@ -52,6 +52,9 @@ logo: "/assets/images/just-the-docs.png"
 # Enable or disable the site search
 search_enabled: true
 
+# Set the search token separator for hyphenated-word search:
+search_tokenizer_separator: /[\s/]+/
+
 
 # Heading Anchor Links
 heading_anchors: true
