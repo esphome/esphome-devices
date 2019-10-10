@@ -8,6 +8,11 @@ permalink: /adding-devices/
 
 To add a new device a new `.md` file needs to be added under the `_devices` directory in the [GitHub Repository](https://github.com/jonathanadams/esphome-configs).
 
+You will need to create a fork of the repository, create a new branch for your changes and then raise a pull request.
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<a class="github-button" href="https://github.com/jonathanadams/esphome-configs/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork jonathanadams/esphome-configs on GitHub">Fork</a>
+
 ## YAML Front Matter
 Each `.md` file created needs to contain front matter in order for the page to be generated. Details of the front matter required (and optional) is detailed below:
 
