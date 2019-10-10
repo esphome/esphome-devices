@@ -20,6 +20,12 @@ collections:
   devices:
     output: true
     permalink: /devices/:path/
+  device-types:
+    output: true
+    permalink: /types/:path/
+  device-standards:
+    output: true
+    permalink: /standards/:path/
 
 defaults:
   -
@@ -27,6 +33,16 @@ defaults:
       path: "_devices"
     values:
       layout: "device"
+  -
+    scope:
+      path: "_device-types"
+    values:
+      layout: "device-types-index"
+  -
+    scope:
+      path: "_device-standards"
+    values:
+      layout: "device-standards-index"
 
 # Theme Settings
 
