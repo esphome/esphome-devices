@@ -63,6 +63,3 @@ heading_anchors: true
 aux_links:
   "ESPHome-Configs.io on GitHub":
     - "//github.com/jonathanadams/esphome-configs"
-
-# Google Analytics
-ga_tracking: UA-124555249-2
