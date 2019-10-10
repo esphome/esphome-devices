@@ -28,7 +28,7 @@ standard: uk, us
 |------------|-----------------------------|------------------------------------------------------|
 | `title`    | Device Title                |                                                      |
 | `type`     | Type of Device              | `plug`, `light`, `switch`, `relay`, `sensor`, `misc` |
-| `standard` | Electrical standard country | `uk`, `us`                                           |
+| `standard` | Electrical standard country | `uk`, `us`, `eu`, `au`, `global`                     |
 
 ## Images
 To add images to your files do the following:
