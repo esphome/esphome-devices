@@ -5,7 +5,7 @@
 
     {% for post in site.devices %}
       {% for type in post.type %}
-        {% assign deviceTypes_array = deviceTypes_array | push: type | uniq %}
+        {% assign deviceTypes_array = deviceTypes_array | push: type | uniq | sort: "type" %}
       {% endfor %}
     {% endfor %}
 
@@ -48,7 +48,7 @@
     {% assign electricalStandards_array = "" | split:"|" %}
     {% for post in site.devices %}
       {% for standard in post.standard %}
-        {% assign electricalStandards_array = electricalStandards_array | push: standard | uniq %}
+        {% assign electricalStandards_array = electricalStandards_array | push: standard | uniq | sort: "standard %}
       {% endfor %}
     {% endfor %}
 
