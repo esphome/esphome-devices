@@ -1,4 +1,4 @@
 ---
-slug: EU
+slug: eu
 title: EU Devices
 ---
