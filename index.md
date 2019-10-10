@@ -5,7 +5,9 @@ title: Welcome
 
 # ESPHome Device Configuration Repository
 
-This website is a repository of device configuration templates and setup guides for devices running [ESPHome](https://esphome.io) firmware.
+This website is a repository of device configuration templates and setup guides for devices running [ESPHome](https://esphome.io) firmware. 
+
+The goal is to document all devices capable of running the firmware along with a basic configuration yaml that can be easily copied and uploaded which restores the device back to its original functionality. Additionaly, more advanced configuration of devices could also be documented.
 
 {% assign counter = 0 %}{% for item in site.devices %}{% assign counter=counter | plus:1 %}{% endfor %}
 There are currently **{{ counter }} devices** documented in the repository.
