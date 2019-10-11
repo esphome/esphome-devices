@@ -1,6 +1,6 @@
 ---
 title: Sonoff 4CH Pro R2
-type: Relay
+type: relay
 standard: global
 ---
 1. TOC
