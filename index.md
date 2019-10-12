@@ -13,7 +13,7 @@ The goal is to document all devices capable of running the firmware along with a
 There are currently **{{ counter }} devices** documented in the repository.
 
 ## Recently Added Devices
-{% assign devices = site.devices | sort: "date" | reverse %}
+{% assign devices = site.devices | sort: "date-published" | reverse %}
 {% for device in devices limit:10 %}
 * [{{ device.title }}]({{ device.url }})
 {% endfor %} 

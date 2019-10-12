@@ -21,16 +21,18 @@ Each `.md` file created needs to contain front matter in order for the page to b
 ```yaml
 ---
 title: Sonoff S20
+date-published: 2019-10-11
 type: plug
 standard: uk, us
 ---
 ```
 
-| Field      | Description                 | Allowable Options                                    |
-|------------|-----------------------------|------------------------------------------------------|
-| `title`    | Device Title                |                                                      |
-| `type`     | Type of Device              | `plug`, `light`, `switch`, `relay`, `sensor`, `misc` |
-| `standard` | Electrical standard country | `uk`, `us`, `eu`, `au`, `global`                     |
+| Field            | Description                 | Allowable Options                                                                 | Required? |
+| ---------------- | --------------------------- | --------------------------------------------------------------------------------- | --------- |
+| `title`          | Device Title                |                                                                                   | Yes       |
+| `date-published` | Date Published              | Formatting: `YYYY-MM-DD HH:MM:SS +/-TTTT` (Time and Timezone offset are optional) | Yes       |
+| `type`           | Type of Device              | `plug`, `light`, `switch`, `relay`, `sensor`, `misc`                              | Yes       |
+| `standard`       | Electrical standard country | `uk`, `us`, `eu`, `au`, `global`                                                  | Yes       |
 
 ## Images
 To add images to your files do the following:

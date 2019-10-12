@@ -1,5 +1,6 @@
 ---
 title: Sonoff 4CH Pro R2
+date-published: 2019-10-11
 type: relay
 standard: global
 ---

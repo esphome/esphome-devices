@@ -1,5 +1,6 @@
 ---
 title: Generic MiFlora BLE Scanner
+date-published: 2019-10-11
 type: misc
 standard: global
 ---

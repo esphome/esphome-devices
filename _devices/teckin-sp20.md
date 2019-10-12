@@ -1,5 +1,6 @@
 ---
 title: Teckin SP-20
+date-published: 2019-10-11
 type: plug
 standard: us
 ---

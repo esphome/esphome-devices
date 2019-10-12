@@ -1,5 +1,6 @@
 ---
 title: Sonoff TH10
+date-published: 2019-10-11
 type: plug
 standard: au
 ---

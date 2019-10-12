@@ -1,5 +1,6 @@
 ---
 title: Mirabella Genio Smart Universal IR Controller
+date-published: 2019-10-11
 type: misc
 standard: au
 ---

@@ -1,5 +1,6 @@
 ---
 title: Mirabella Genio White Bulb
+date-published: 2019-10-11
 type: light
 standard: au
 ---

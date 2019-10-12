@@ -1,5 +1,6 @@
 ---
 title: Sonoff RF Bridge
+date-published: 2019-10-11
 type: Misc
 standard: global
 ---
