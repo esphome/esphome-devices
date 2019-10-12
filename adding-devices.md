@@ -31,7 +31,7 @@ standard: uk, us
 | ---------------- | --------------------------- | --------------------------------------------------------------------------------- | --------- |
 | `title`          | Device Title                |                                                                                   | Yes       |
 | `date-published` | Date Published              | Formatting: `YYYY-MM-DD HH:MM:SS +/-TTTT` (Time and Timezone offset are optional) | Yes       |
-| `type`           | Type of Device              | `plug`, `light`, `switch`, `relay`, `sensor`, `misc`                              | Yes       |
+| `type`           | Type of Device              | `plug`, `light`, `switch`, `dimmer` , `relay`, `sensor`, `misc`                   | Yes       |
 | `standard`       | Electrical standard country | `uk`, `us`, `eu`, `au`, `global`                                                  | Yes       |
 
 ## Images
