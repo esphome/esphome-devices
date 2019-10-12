@@ -1,7 +1,7 @@
 ---
 title: Teckin SP-10
 type: plug
-standard: uk, us, eu
+standard: us
 ---
 
 1. TOC
