@@ -6,12 +6,14 @@ permalink: /adding-devices/
 
 # Contributing: Adding Devices
 
-To add a new device a new `.md` file needs to be added under the `_devices` directory in the [GitHub Repository](https://github.com/jonathanadams/esphome-configs).
+1. To add a new device create a new markdown (`.md`) file named after your device under the `_devices` directory in the [GitHub Repository](https://github.com/jonathanadams/esphome-configs). Please avoid using underscores in the filenames and use hypens instead as this makes for easier to understand the URLs generated when the site is built.
 
-You will need to create a fork of the repository, create a new branch for your changes and then raise a pull request.
+2. You will need to create a fork of the repository and create a new branch for your changes.
 
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<a class="github-button" href="https://github.com/jonathanadams/esphome-configs/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork jonathanadams/esphome-configs on GitHub">Fork</a>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <a class="github-button" href="https://github.com/jonathanadams/esphome-configs/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork jonathanadams/esphome-configs on GitHub">Fork</a>
+
+3. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
 
 ## YAML Front Matter
 Each `.md` file created needs to contain front matter in order for the page to be generated. Details of the front matter required (and optional) is detailed below:
