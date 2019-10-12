@@ -1,4 +1,4 @@
 ---
 slug: switch
-title: Switches & Dimmers
+title: Switches
 ---
