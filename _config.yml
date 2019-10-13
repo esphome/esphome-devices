@@ -63,3 +63,7 @@ heading_anchors: true
 aux_links:
   "ESPHome-Configs.io on GitHub":
     - "//github.com/jonathanadams/esphome-configs"
+    
+# Footer
+footer_content: >-
+  "This site is generated with <a href="https://jekyllrb.com">Jekyll</a> and powered by <a href=https://netlify.com"">Netlify</a>."
