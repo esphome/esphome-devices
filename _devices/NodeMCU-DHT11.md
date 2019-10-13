@@ -14,15 +14,15 @@ standard: global
 |---------|------------------------------------|
 | GPIO5   | Temperature & Humidity Input       |
 
-```yaml
-# This Configuration uses "substitutions" to enable you to have multiple devices of the same type 
-# while allowing you to only need to change a minimal device specific yaml configfuration file 
-# by adding specified substutions.
 
-# Then at compile time the two files are merged.
+This Configuration uses "substitutions" to enable you to have multiple devices of the same type 
+while allowing you to only need to change a minimal device specific yaml configfuration file 
+by adding specified substutions.
+
+Then at compile time the two files are merged.
 
 ## Device Specific Configuration (Substitution) Yaml File
-
+```yaml
 substitutions:
   name: nodemcu_lr
   ip: 192.168.1.21
