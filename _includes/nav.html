@@ -1,6 +1,12 @@
 <nav role="navigation" aria-label="Main navigation">
   <ul class="navigation-list">
-    <strong>Device Types</strong>
+    
+    <li>
+      <a href="/devices" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">View All Devices</a>
+    </li>
+
+    <br>
+    <strong>Device Type</strong>
     {% for type in site.device-types | sort: "title" %}
       <li>
         <a href="{{ type.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ type.title }}</a>
@@ -8,7 +14,7 @@
     {% endfor %}
 
     <br>
-    <strong>Electrical Standards</strong>
+    <strong>Electrical Standard</strong>
     {% for standard in site.device-standards | sort: "title" %}
       <li>
         <a href="{{ standard.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ standard.title }}</a>
