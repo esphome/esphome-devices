@@ -7,7 +7,8 @@ url: "https://esphome-configs.io" # the base hostname & protocol for your site, 
 markdown: kramdown
 theme: just-the-docs
 plugins:
-  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-last-modified-at
 
 exclude:
   - Gemfile
