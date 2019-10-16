@@ -388,7 +388,6 @@ switch:
         id: blue_led
         brightness: 100%
   on_turn_off:
-    - light.turn_off: red_led
     - light.turn_off: blue_led
 
 output:
