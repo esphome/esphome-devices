@@ -155,6 +155,7 @@ switch:
   on_turn_on:
     - light.turn_on:
         id: blue_led
+        brightness: 100%
   on_turn_off:
     - light.turn_off: blue_led
 
