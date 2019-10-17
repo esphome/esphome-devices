@@ -6,7 +6,8 @@ standard: us
 ---
 
 ## Basic Configuration for pure warm/cold white
-```
+
+```yaml
 sm16716:
   data_pin: GPIO14
   clock_pin: GPIO4
