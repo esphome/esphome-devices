@@ -20,7 +20,9 @@ standard: us
 | GPIO14  | Relay 4 inverted                   |
 | GPIO16  | Relay 5 not inverted               |
 ------------------------------------------------
+
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 ---
@@ -108,10 +110,4 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO00
-
-
-
-  
-  
-  
-  
+```
