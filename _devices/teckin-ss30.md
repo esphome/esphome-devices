@@ -19,7 +19,6 @@ standard: us
 | GPIO13  | Relay 2 inverted                   |
 | GPIO14  | Relay 4 inverted                   |
 | GPIO16  | Relay 5 not inverted               |
-------------------------------------------------
 
 ## Basic Configuration
 
