@@ -16,7 +16,9 @@ standard: us
 | GPIO12  | Status LED                         |
 | GPIO14  | Relay 1                            |
 ------------------------------------------------
+
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 ---
@@ -78,4 +80,4 @@ sensor:
 text_sensor:
   - platform: version
     name: "Gosund_1 ESPHome version"
-    
+```
