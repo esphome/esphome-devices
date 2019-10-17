@@ -15,7 +15,6 @@ standard: us
 | GPIO04  | Push Button inverted               |
 | GPIO12  | Status LED                         |
 | GPIO14  | Relay 1                            |
-------------------------------------------------
 
 ## Basic Configuration
 
