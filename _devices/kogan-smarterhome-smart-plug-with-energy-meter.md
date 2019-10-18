@@ -1,5 +1,5 @@
 ---
-title: Kogan Smart PLug with Energy Monitoring
+title: Kogan Smart Plug with Energy Monitoring
 date-published: 2019-10-18
 type: plug
 standard: au
