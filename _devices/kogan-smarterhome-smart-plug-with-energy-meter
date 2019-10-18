@@ -1,7 +1,9 @@
+---
 title: Kogan Smart PLug with Energy Monitoring
 date-published: 2019-10-18
 type: plug
 standard: au
+---
 
 # https://www.kogan.com/au/buy/kogan-smarterhome-smart-plug-energy-meter/
   ![alt text](/assets/images/kogan-smarterhome-smart-plug-energy-meter/kogan-smarterhome-smart-plug-energy-meter.jpg "Image Hover Text")
@@ -19,7 +21,7 @@ GPIO05  HLW8012 CF1 Pin
 
 
 # Basic Config
-
+```
 esphome:
   name: kogan_plug_1
   platform: ESP8266
@@ -105,3 +107,4 @@ sensor:
 time:
   - platform: homeassistant
     id: homeassistant_time
+```
