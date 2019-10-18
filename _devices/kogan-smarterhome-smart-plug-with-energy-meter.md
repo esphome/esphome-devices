@@ -22,7 +22,7 @@ standard: au
 
 ## Basic Config
 
-```
+```yaml
 esphome:
   name: kogan_plug_1
   platform: ESP8266
