@@ -10,8 +10,9 @@ standard: au
 
 ## GPIO Pinout
 
-| GPIO0  | Push Button                |
+| Pin    | Function                   |
 |--------|----------------------------|
+| GPIO0  | Push Button                |
 | GPIO13 | Green LED (Inverted: true) |
 | GPIO14 | Relay                      |
 | GPIO12 | HLW8012 SEL Pin            |
