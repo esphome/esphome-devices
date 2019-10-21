@@ -253,6 +253,8 @@ interval:
 
 ```
 
+Note: You will want to exclude the red_led and blue_led lights from your recorder componant, especially if you use the included Throb custom animation, since that would fill your database with the on/off blinking status updates.
+
 ## Split Configuration
 If you have several of these plugs, you may prefer to keep the shared code in one file and only put the device-specific code in the files for each plug.
 
