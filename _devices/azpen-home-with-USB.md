@@ -10,16 +10,16 @@ standard: us
 
 ## Product Images
 
-Wall side of relay board
+Wall side of relay board  
  ![alt text](/assets/images/azpen-home-with-USB/WallSide.jpeg "Wall Side of Board")
 
-Socket side of relay board
+Socket side of relay board  
  ![alt text](/assets/images/azpen-home-with-USB/SocketSide.jpeg "Socket Side of Board")
 
-ESP8266 board
+ESP8266 board  
  ![alt text](/assets/images/azpen-home-with-USB/ESPboard.jpeg "ESP board")
 
-GPIO Descriptions
+GPIO Descriptions  
  ![alt text](/assets/images/azpen-home-with-USB/GPIOs.jpeg "GPIO Descriptions")
 
 ## GPIO Pinout
