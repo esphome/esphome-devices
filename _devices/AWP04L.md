@@ -22,7 +22,7 @@ These devices come with different brands, but all have AWP04L serial number on t
 | GPIO15  | Status LED - Blue (inverted)       |
 
 ## Basic Configuration
-```
+```yaml
 # Basic Config
 
 substitutions:
@@ -259,7 +259,7 @@ Note: You will want to exclude the red_led and blue_led lights from your recorde
 If you have several of these plugs, you may prefer to keep the shared code in one file and only put the device-specific code in the files for each plug.
 
 In plug_common.yaml:
-```
+```yaml
 # Common code for AWP04L plugs
 
 esphome:
@@ -487,7 +487,7 @@ interval:
 ```
 
 Then in each plug's yaml:
-```
+```yaml
 substitutions:
   device_name: plug6
   friendly_name: Plug 6
