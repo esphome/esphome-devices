@@ -16,6 +16,7 @@ exclude:
   - LICENCE
   - docker-compose.yml
   - README.md
+  - CODE-OF-CONDUCT.md
 
 collections:
   devices:
