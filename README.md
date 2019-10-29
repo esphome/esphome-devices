@@ -5,3 +5,6 @@
 A database of configuration files and guides for devices commonly flashed with https://esphome.io firmware.
 
 Go to https://ESPHome-Configs.io to view the website.
+
+## Code of Conduct
+When contributing to this project please abide by our [Code of Conduct](CODE-OF-CONDUCT.md)

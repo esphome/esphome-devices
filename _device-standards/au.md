@@ -1,4 +1,4 @@
 ---
-slug: AU
+slug: au
 title: AU Devices
 ---

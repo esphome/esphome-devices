@@ -2,7 +2,7 @@
 title: Brilliant Smart Plug
 date-published: 2019-10-12
 type: plug
-standard: AU
+standard: au
 ---
 1. TOC
 {:toc}
