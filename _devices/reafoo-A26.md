@@ -102,7 +102,7 @@ output:
 
 light:
 - platform: rgbww
-  name: "Bulb 1"
+  name: ${friendly_name}
   red: red
   green: green
   blue: blue
@@ -241,7 +241,7 @@ output:
 
 light:
 - platform: rgbww
-  name: "Bulb 1"
+  name: ${friendly_name}
   red: red
   green: green
   blue: blue
