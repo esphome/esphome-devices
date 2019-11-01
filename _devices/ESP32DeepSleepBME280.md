@@ -1,7 +1,7 @@
 ---
 title: ESP32 Battery Powered Temperature/Humidity/AtmosphericPressure
 date-published: 2019-11-01
-type: generic ESP32 with battery connection and charger.
+type: misc
 standard: global
 ---
 Example how to use Deep Sleep. No GPIOs need to be linked on ESP32 to enable deep sleep like they do on ESP8266. You can safely set the run time to zero and the sleep time the same as the update interval. 
