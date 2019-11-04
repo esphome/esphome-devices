@@ -6,6 +6,8 @@ standard: us
 ---
 These devices come with different brands, but all have AWP04L serial number on the back sticker. FCC-ID is <a href="https://fccid.io/2ANOO-SM800">2ANOO-SM800</a>.
 
+This template has been updated with "comment:" and "captive_portal:" feautures added in ESPHome v. 1.14
+
 1. TOC
 {:toc}
 
@@ -27,10 +29,13 @@ These devices come with different brands, but all have AWP04L serial number on t
 
 substitutions:
   device_name: awp_plug
+  device_description: Energy Monitoring Smart Plug with button, blue LED, and red LED.
   friendly_name: AWP04L Plug
+  
 
 esphome:
   name: ${device_name}
+  comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
@@ -42,6 +47,8 @@ wifi:
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
     password: !secret wifipass
+
+captive_portal:
 
 # Enable logging
 logger:
@@ -264,6 +271,7 @@ In plug_common.yaml:
 
 esphome:
   name: ${device_name}
+  comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
@@ -275,6 +283,8 @@ wifi:
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
     password: !secret wifipass
+
+captive_portal:
 
 # Enable logging
 logger:
@@ -490,6 +500,7 @@ Then in each plug's yaml:
 ```yaml
 substitutions:
   device_name: plug6
+  device_description: Energy Monitoring Smart Plug connected to clothes washing machine in laundry room.
   friendly_name: Plug 6
   wattage_calibration: "4054.3 -> 721.2" #Tested using a meter and 722.0W toaster -0.8W from just this plug with toaster off
   amperage_calibration: "7.4 -> 6.103" #Tested using a meter and 6.122A toaster -0.019A from just this plug with toaster off
