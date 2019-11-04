@@ -6,6 +6,8 @@ standard: us
 ---
 5-channel PWM RGBWW smart flood light, 2700k-6500k tunable white with RGB colors, 20W, 2000LM, 120V AC, IP66 Waterproof, natively Tuya/Smart Life, works with Tuya-convert to flash to ESPHome. FCC-ID is <a href="https://fccid.io/2AI5T-SFGD-002/Internal-Photos/Internal-photos-4401574">2AI5T-SFGD-002</a>.
 
+This template has been updated with "comment:" and "captive_portal:" feautures added in ESPHome v. 1.14
+
 1. TOC
 {:toc}
 
@@ -26,10 +28,12 @@ standard: us
 #https://blakadder.github.io/templates/novostella_20W_flood.html
 substitutions:
   device_name: novoflood
+  device_description: 20W RGBWW flood light
   friendly_name: Novostella Flood Light
 
 esphome:
   name: ${device_name}
+  comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
 
@@ -40,6 +44,8 @@ wifi:
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
     password: !secret wifipass
+
+captive_portal:
 
 # Enable logging
 logger:
@@ -169,6 +175,7 @@ In novoflood_common.yaml:
 
 esphome:
   name: ${device_name}
+  comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
 
@@ -179,6 +186,8 @@ wifi:
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
     password: !secret wifipass
+
+captive_portal:
 
 # Enable logging
 logger:
@@ -299,6 +308,7 @@ Then in each bulb's yaml:
 ```yaml
 substitutions:
   device_name: novoflood1
+  device_description: 20W RGBWW flood light, West half of front yard facing the living room.
   friendly_name: Novostella Flood Light 1
 
 <<: !include novoflood_common.yaml
