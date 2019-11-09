@@ -15,11 +15,11 @@ This template has been updated with "comment:" and "captive_portal:" feautures a
 
 | Pin     | Function                           |
 |---------|------------------------------------|
-| GPIO4   | Warm White channel                 |
-| GPIO5   | Green channel                      |
-| GPIO12  | Blue channel                       |
-| GPIO14  | Cold White channel                 |
-| GPIO15  | Red channel                        |
+| GPIO4   | Red channel                        |
+| GPIO5   | Cold White channel                 |
+| GPIO12  | Green channel                      |
+| GPIO13  | Warm White channel                 |
+| GPIO14  | Blue channel                       |
 
 ## Basic Configuration
 ```yaml
