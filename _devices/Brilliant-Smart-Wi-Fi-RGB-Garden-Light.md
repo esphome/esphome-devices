@@ -13,7 +13,7 @@ standard: au
 This configuration is for the [Brilliant Smart Wi-Fi RGB Garden Light](https://www.brilliantsmart.com.au/smart-products/garden/smart-garden-kit/) 
 which comes as a kit with 4 LED RGB spotlights, a transformer and the controller.
 
-![Brilliant Smart Wi-Fi RGB Garden Light Kit](/assets/images/Brilliant-Smart-Wi-Fi-RGB-Garden-LightBrilliant-Smart-Wi-Fi-RGB-Garden-Light.jpg "Brilliant Smart Wi-Fi RGB Garden Light Kit")
+![Brilliant Smart Wi-Fi RGB Garden Light Kit](/assets/images/Brilliant-Smart-Wi-Fi-RGB-Garden-Light/Brilliant-Smart-Wi-Fi-RGB-Garden-Light.jpg "Brilliant Smart Wi-Fi RGB Garden Light Kit")
 
 ## GPIO Pinout
 
