@@ -59,3 +59,4 @@ light:
     name: "lightname"
     default_transition_length: 1s
     output: pwm_output
+```
