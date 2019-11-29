@@ -38,6 +38,8 @@ Start setting up, creating, compiling and grabbing your own firmware. This is wh
 - create your device configuration set by clicking in [SUBMIT]
 - Ignore the flashing symbol "Select upload port", just scope on your yaml file and start editing by clicking in "EDIT". If you see a message like "404 file not found", click in another home assistant menu on the left and then back in ESPHome and you'll see the code which you can work with.
 - Scroll down this page to "Basic Configuration", mark and copy the prepared code and paste it into your yaml file. Remember to adapt the following entries:
+  - line 6: Give your device a name.
+  - line 7: Give an ID name, all lower case and change spaces to underscores.
   - line 10: Set up the static ip for your device that matches to your environment. Remember this IP must be unique in your LAN.
   - lines 26, 27 and 28: gateway is the IP of your router, subnet most certainly 255.255.255.0 and dns1 again the IP of your router.
   - line 31: This is only if a red cross appears here. AP SSIDs can only contain up to 32 symbols. If you've chosen a long device name it might exceed. Either shorten the device name or delete right after AP, " (192.168.4.1)".
