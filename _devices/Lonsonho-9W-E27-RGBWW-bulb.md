@@ -5,17 +5,18 @@ type: light
 standard: global
 ---
 
-# Lonsonho 9W E27 RGBWW bulb
 This configuration is for the Lonsonho 9W E27 RGBWW bulb which is offered as a kit of 2 on [aliexpress.com]. The bulb has no special led drivers built in and uses the esp's pulse with modulation for dimming.
 
 ## GPIO Pinout
-| Pin | Function |
-| ------ | ------ |
-| GPIO4 | red channel |
-| GPIO12 | green channel |
-| GPIO14 | blue channel |
+
+| Pin    | Function           |
+|--------|--------------------|
+| GPIO4  | red channel        |
+| GPIO12 | green channel      |
+| GPIO14 | blue channel       |
 | GPIO13 | warm white channel |
-| GPIO5 | cold white channel |
+| GPIO5  | cold white channel |
+
 
 ## Getting it up and running
 ### Tuya Convert
