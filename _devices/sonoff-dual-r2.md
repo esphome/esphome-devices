@@ -8,6 +8,10 @@ standard: global
 1. TOC
 {:toc}
 
+## Product Images
+
+![alt text](/assets/images/sonoff-dual-r2/inside_pcb_1_4.jpg "PCB v1.4")
+
 ## GPIO Pinout
 
 ### Sonoff Dual R2 - PCB version 1.0
