@@ -41,7 +41,7 @@ To add images to your files do the following:
 2. Add the images to your fold using the appropriate markdown syntax:
 
   ```md
-  ![alt text](/assets/img/your-folder-name/your-image.jpg "Image Hover Text")
+  ![alt text](/assets/images/your-folder-name/your-image.jpg "Image Hover Text")
   ```
 
 ### Image Sizes

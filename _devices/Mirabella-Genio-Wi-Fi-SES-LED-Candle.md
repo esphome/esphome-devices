@@ -11,7 +11,7 @@ standard: au
 This is for [Mirabella Genio Wi-Fi SES LED Candle](https://mirabellagenio.net.au/ses-led-candle). 
 
 
-![Genio Wi-Fi SES LED Candle](/assets/img/mirabella-genio-wi-fi-ses-led-candle/mirabella-genio-wi-fi-ses-led-candle.jpg "Genio Wi-Fi SES LED Candle")
+![Genio Wi-Fi SES LED Candle](/assets/images/mirabella-genio-wi-fi-ses-led-candle/mirabella-genio-wi-fi-ses-led-candle.jpg "Genio Wi-Fi SES LED Candle")
 
 
 ## GPIO Pinout
