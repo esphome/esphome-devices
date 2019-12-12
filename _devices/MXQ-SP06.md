@@ -19,7 +19,7 @@ MXQ SP06 Smart Plug with Night Light is a small 10A 110-240V plug with built-in 
 | GPIO14  | Relay                              |
 | GPIO4   | Blue LED (HIGH = off, LOW = on)    |
 | GPIO13  | Red LED (HIGH = off, LOW = on)     |
-| GPIO12  | Night light LEDs (PWM)              |
+| GPIO12  | Night light LEDs (PWM)             |
 
 ## Basic Configuration
 ```yaml
@@ -47,7 +47,7 @@ light:
     id: night_light
     name: "${display_name} Night Light"
     output: pwm_output
-  - platform: monochromatic
+  - platform: binary
     id: blue_led
     name: "${display_name} Blue LED"
     output: blue_led_output
@@ -72,11 +72,13 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     on_multi_click:
+      # Single Press
       - timing:
         - ON for at most 1s
         - OFF for at least 0.5s
         then:
           - switch.toggle: fake_button
+      # Long Press
       - timing:
         - ON for at least 2s
         then:
