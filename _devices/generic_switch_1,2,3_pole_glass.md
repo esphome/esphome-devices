@@ -10,6 +10,7 @@ standard: us
 
 ## General Notes
 This config was created based on the 3 pole switch that I had.  I'm not sure what the pins for the 4 pole variant would be, but it would not be hard to figure it out if you have the unit.
+*I labeled the switch as Top/Middle/Bottom as the L1-L4 ports on the rear are actually inverted when installed (L4 on top, L1 on bottom).*
 
 ## Product Images
 
