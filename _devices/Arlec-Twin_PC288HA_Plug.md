@@ -47,7 +47,6 @@ api:
 
 ota:
   password: 'ota_password'
-
 sensor:
   - platform: uptime
     name: ${name} Uptime
@@ -61,27 +60,66 @@ binary_sensor:
     pin: 
       number: GPIO1
       inverted: True
-    name: ctrl
-    on_press:
-      - switch.toggle: switch_a
+    name: ${name} button
+    on_multi_click:
+      # Support a single or double click to switch on each relay
+      - timing:
+          - ON for at most 1s
+          - OFF for at least 0.5s
+        then:
+          - switch.toggle: relay_a
+
+      - timing:
+          - ON for at most 1s
+          - OFF for at most 1s
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          - switch.toggle: relay_b
+
 
 switch:
   - platform: gpio
-    id: led
-    pin: GPIO13
-    
-  - platform: gpio
     pin: GPIO14
     name: "${name} - A"
-    id: switch_a
+    id: relay_a
+    restore_mode: always off
     on_turn_on:
-      - switch.turn_off: led
+      - light.dim_relative: 
+          id: led
+          relative_brightness: 50%
     on_turn_off:
-      - switch.turn_on: led
-    
+      - light.dim_relative: 
+          id: led
+          relative_brightness: -50%
+          
   - platform: gpio
     pin: GPIO03
     name: "${name} - B"
-    id: switch_b
+    id: relay_b
+    restore_mode: always off
+    on_turn_on:
+      - light.dim_relative: 
+          id: led
+          relative_brightness: 50%
+    on_turn_off:
+      - light.dim_relative: 
+          id: led
+          relative_brightness: -50%
 
+# Use PWM controlled LED to indicate state
+light:
+  - platform: monochromatic
+    name: "${name} - LED"
+    id: led
+    internal: True
+    output: gpio13
+    restore_mode: always off
+
+output:
+  - platform: esp8266_pwm
+    id: gpio13
+    pin: 
+      number: GPIO13
+      inverted: True
 ```
