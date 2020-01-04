@@ -1,5 +1,5 @@
 ---
-title: Arlec Twin PC288HA Plug
+title: Arlec PC288HA Twin Plug
 date-published: 2020-01-04
 type: plug
 standard: au
@@ -33,20 +33,15 @@ esphome:
 wifi:
   ssid: 'ssid'
   password: 'password'
-  ap:
-    ssid: 'arlec_PC288HA_1'
-    password: 'ap_password'
-  domain: '.xxxxx.com'
   
 logger:
-
-web_server:
 
 api:
   password: 'api_password'
 
 ota:
   password: 'ota_password'
+  
 sensor:
   - platform: uptime
     name: ${name} Uptime
