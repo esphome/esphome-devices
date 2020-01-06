@@ -79,6 +79,7 @@ switch:
     name: "${name} - A"
     id: relay_a
     restore_mode: always off
+    icon: mdi:power-socket-au
     on_turn_on:
       - light.dim_relative: 
           id: led
@@ -93,6 +94,7 @@ switch:
     name: "${name} - B"
     id: relay_b
     restore_mode: always off
+    icon: mdi:power-socket-au
     on_turn_on:
       - light.dim_relative: 
           id: led
