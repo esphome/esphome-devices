@@ -90,22 +90,26 @@ switch:
     name: "${name} - A"
     id: relay_a
     restore_mode: always off
+    icon: mdi:power-socket-au
           
   - platform: gpio
     pin: GPIO04
     name: "${name} - B"
     id: relay_b
     restore_mode: always off
+    icon: mdi:power-socket-au
 
   - platform: gpio
     pin: GPIO13
     name: "${name} - C"
     id: relay_c
     restore_mode: always off
+    icon: mdi:power-socket-au
           
   - platform: gpio
     pin: GPIO12
     name: "${name} - D"
     id: relay_d
     restore_mode: always off
+    icon: mdi:power-socket-au
 ```
