@@ -34,6 +34,11 @@ api:
 ota:
 
 # Device Specific Config
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+  
 binary_sensor:
   - platform: gpio
     pin:
