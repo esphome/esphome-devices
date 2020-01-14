@@ -11,7 +11,6 @@ standard: eu
 ## Notice
 
 - This plug is flashable using the latest tuya-convert with a compiled ESPHome binary
-- While you could configurare a config that adds a switch for the button at GPIO14, actually triggering it will make the plug reset itself and the firmware.
 
 ## Product Images
 
@@ -45,6 +44,15 @@ ota:
 binary_sensor:
   - platform: status
     name: "LSC Smart Connect Bedroom Status"
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "LSC Smart Connect Power Button"
+    internal: true
+    on_press:
+      - switch.toggle: relay
 
 output:
   - platform: esp8266_pwm
