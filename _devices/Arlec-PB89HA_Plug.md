@@ -113,3 +113,74 @@ switch:
     restore_mode: always off
     icon: mdi:power-socket-au
 ```
+
+An alternate switching behavour.  short press turn on the next socket that is off (from 1 to 4) , once all are on short press will turn all off.   A double press will turn the next socket off (from 1 to 4) , once all are off a double press will turn all on.  A long press with turn alloff if any are on, or will turn all on.
+```yaml
+binary_sensor:
+  - platform: gpio
+    name: ${short_name}
+    pin:
+      number: GPIO3
+      inverted: True
+    id: button1
+    on_multi_click:
+    - timing:
+        - ON for at most 0.5s
+        - OFF for at least 0.5s
+      then:
+        lambda: |-
+          if (! id(relay1).state  ) {
+            id(relay1).turn_on();                                                                                                                                                                                                         
+          } else if ( ! id(relay2).state ) {                                                                                                                                                                                              
+            id(relay2).turn_on();                                                                                                                                                                                                         
+          } else if ( ! id(relay3).state ) {                                                                                                                                                                                              
+            id(relay3).turn_on();                                                                                                                                                                                                         
+          } else if ( ! id(relay4).state ) {                                                                                                                                                                                              
+            id(relay4).turn_on();                                                                                                                                                                                                         
+          } else {                                                                                                                                                                                                                        
+            id(relay1).turn_off();                                                                                                                                                                                                        
+            id(relay2).turn_off();                                                                                                                                                                                                        
+            id(relay3).turn_off();                                                                                                                                                                                                        
+            id(relay4).turn_off();                                                                                                                                                                                                        
+          }                                                                                                                                                                                                                               
+    - timing:
+        - ON for at most 0.5s
+        - OFF for at most 0.5s
+        - ON for at most 0.5s
+        - OFF for at least 0.2s
+      then:
+        lambda: |-
+          if ( id(relay1).state  ) {
+            id(relay1).turn_off();                                                                                                                                                                                                        
+          } else if (  id(relay2).state ) {                                                                                                                                                                                               
+            id(relay2).turn_off();                                                                                                                                                                                                        
+          } else if (  id(relay3).state ) {                                                                                                                                                                                               
+            id(relay3).turn_off();                                                                                                                                                                                                        
+          } else if (  id(relay4).state ) {                                                                                                                                                                                               
+            id(relay4).turn_off();                                                                                                                                                                                                        
+          } else {                                                                                                                                                                                                                        
+            id(relay1).turn_on();                                                                                                                                                                                                         
+            id(relay2).turn_on();                                                                                                                                                                                                         
+            id(relay3).turn_on();                                                                                                                                                                                                         
+            id(relay4).turn_on();                                                                                                                                                                                                         
+          }                                                                                                                                                                                                                               
+    - timing:
+        - ON for at least 0.5s
+        - OFF for at least 0.2s
+      then:
+        lambda: |-
+          if (id(relay1).state || 
+          id(relay2).state ||                                                                                                                                                                                                             
+          id(relay3).state ||                                                                                                                                                                                                             
+          id(relay4).state ) {                                                                                                                                                                                                            
+            id(relay1).turn_off();                                                                                                                                                                                                        
+            id(relay2).turn_off();                                                                                                                                                                                                        
+            id(relay3).turn_off();                                                                                                                                                                                                        
+            id(relay4).turn_off();                                                                                                                                                                                                        
+          } else {                                                                                                                                                                                                                        
+            id(relay1).turn_on();                                                                                                                                                                                                         
+            id(relay2).turn_on();                                                                                                                                                                                                         
+            id(relay3).turn_on();                                                                                                                                                                                                         
+            id(relay4).turn_on();                                                                                                                                                                                                         
+          }  
+```
