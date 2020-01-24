@@ -18,7 +18,7 @@ This is for [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.a
 
 | Pin     | Function                           |
 |---------|------------------------------------|          
-| GPIO0   | Push Button                             |
+| GPIO0   | Push Button                        |
 | GPIO4   | Light - Red                        |
 | GPIO5   | Light - White                      |
 | GPIO12  | Light - Green                      |
@@ -31,7 +31,6 @@ This is for [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.a
 # Basic Config
 # https://mirabellagenio.net.au/led-strip-light
 esphome:
-  name: mirabella_strip_light
   platform: ESP8266
   board: esp01_1m
 
@@ -39,7 +38,7 @@ wifi:
   ssid: 'sid'
   password: 'wifi_password'
   ap:
-    ssid: 'mirabella1'
+    ssid: 'strip_light'
     password: 'ap_password'
   
 # Enable logging
