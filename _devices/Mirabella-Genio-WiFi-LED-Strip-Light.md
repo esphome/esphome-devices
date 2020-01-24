@@ -6,7 +6,7 @@ standard: au
 ---
 
 1. TOC
-{:toc}
+
 ## General Notes
 This is for [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.au/led-strip-light). 
 
