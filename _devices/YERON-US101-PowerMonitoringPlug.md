@@ -1,3 +1,11 @@
+---
+title: Yeron US101 Plug
+date-published: 2020-1-27
+type: plug
+standard: us
+---
+
+```yaml
 esphome:
   name: yeeron_plug
   platform: ESP8266
@@ -68,4 +76,4 @@ sensor:
 time:
   - platform: homeassistant
     id: homeassistant_time
-
+```
