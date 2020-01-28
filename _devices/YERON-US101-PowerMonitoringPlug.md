@@ -1,6 +1,6 @@
 ---
 title: Yeron US101 Plug
-date-published: 2020-1-27
+date-published: 2020-01-27
 type: plug
 standard: us
 ---
