@@ -87,3 +87,4 @@ custom_component:
     lambda: |-
       auto component = new SB1UARTComponent(id(uart0), id(door));
       return {component};
+```
