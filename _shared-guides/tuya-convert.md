@@ -3,6 +3,9 @@ slug: tuya-convert
 title: Prepare a device with tuya-convert
 ---
 
+1. TOC
+{:toc}
+
 ## Introduction
 
 You can use tuya-convert to initially flash a Tuya device, without soldering.  This is especially useful for smart bulbs and other devices which can't readily be opened.
@@ -75,7 +78,7 @@ Now it's time to start setting up, creating, compiling and flashing your own fir
 ## Flashing ESPHome
 Now that you've compiled your ESPHome firmware, you're ready to upload it to your device.  If you chose to flash ESPHome directly using tuya-convert, simply pick your compiled ESPHome firmware during the tuya-convert process, and you're all done!  Otherwise, you'll need to perform an OTA update by following the instructions below.
 
-### Tasmota
+### From Tasmota
 This is where we can say thanks to the amazing feature set of Theo Arends' Tasmota firmware which allows to upload and install binary files. This is done only once; after this it'll be much easier uploading newer versions of the firmware over the air directly from ESPHome.
 
 - Your device will provide an open access point with WiFi name `tasmota`- followed by 4 numbers. Connect to this WiFi and let DHCP provide a suitable IP address on your computer automatically.
