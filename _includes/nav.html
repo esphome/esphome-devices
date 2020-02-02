@@ -20,6 +20,14 @@
         <a href="{{ standard.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ standard.title }}</a>
       </li>
     {% endfor %}
+
+    <br>
+    <strong>Shared guides</strong>
+    {% for guide in site.shared-guides | sort: "title" %}
+      <li>
+        <a href="{{ guide.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ guide.title }}</a>
+      </li>
+    {% endfor %}
     
     <br>
     <strong>External Links</strong>
