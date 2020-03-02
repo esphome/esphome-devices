@@ -4,12 +4,31 @@ date-published: 2020-03-02
 type: plug
 standard: eu
 ---
+This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
+
+More info:
+https://templates.blakadder.com/XS-A12.html
+https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A
+
+1. TOC
+{:toc}
+
+## GPIO Pinout
+
+| Pin     | Function                           |
+|---------|------------------------------------|
+| GPIO00  | PWM1 red                           |
+| GPIO02  | PWM3 blue                          |
+| GPIO04  | PWM2 green                         |
+| GPIO05  | BL0937 CF                          |
+| GPIO12  | HLWBL SELi                         |
+| GPIO14  | HLWBL CF1                          |
+| GPIO15  | Relay1                             |
+
+## Basic Configuration
+Most of this code is from from https://esphome-configs.io/devices/awp04l/
 
 ```yaml
-# This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the sticker inside the plug.
-# https://templates.blakadder.com/XS-A12.html
-# https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A
-#
 # Check or edit all secrets to match yours.
 # Power metering isn't calibrated.
 
