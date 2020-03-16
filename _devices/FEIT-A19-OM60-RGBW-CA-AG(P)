@@ -7,7 +7,7 @@ standard: us
 
 The Costco Variant:
 
-
+```yaml
 sm16716:
   data_pin: GPIO04
   clock_pin: GPIO05
@@ -49,3 +49,4 @@ light:
 power_supply:
   - id: rgb_power
     pin: GPIO13
+```
