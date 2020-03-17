@@ -7,7 +7,8 @@ url: "https://esphome-configs.io" # the base hostname & protocol for your site, 
 markdown: kramdown
 theme: just-the-docs
 plugins:
-  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-last-modified-at
 
 exclude:
   - Gemfile
@@ -15,6 +16,7 @@ exclude:
   - LICENCE
   - docker-compose.yml
   - README.md
+  - CODE-OF-CONDUCT.md
 
 collections:
   devices:
@@ -26,6 +28,9 @@ collections:
   device-standards:
     output: true
     permalink: /standards/:path/
+  shared-guides:
+    output: true
+    permalink: /guides/:path/
 
 defaults:
   -
@@ -43,6 +48,11 @@ defaults:
       path: "_device-standards"
     values:
       layout: "device-standards-index"
+  -
+    scope:
+      path: "_shared-guides"
+    values:
+      layout: "shared-guide"
 
 # Theme Settings
 

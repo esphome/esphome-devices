@@ -60,6 +60,9 @@ esp32_camera:
     sda: GPIO26
     scl: GPIO27
   data_pins: [GPIO5, GPIO18, GPIO19, GPIO21, GPIO36, GPIO39, GPIO34, GPIO35]
+  
+  # the order of the data_pins is significant, don't mix up the order
+  
   vsync_pin: GPIO25
   href_pin: GPIO23
   pixel_clock_pin: GPIO22
