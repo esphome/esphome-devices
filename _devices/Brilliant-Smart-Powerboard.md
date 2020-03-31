@@ -2,11 +2,12 @@
 title: Brilliant Smart WiFi Powerboard 20691/05
 date-published: 2020-03-18
 type: plug
-standard: au, nz
+standard: au
+---
 1. TOC
 {:toc}
 
-The Brilliant Smart Smart WiFi Powerboard 20691 is available in Australia and New Zealand. It was four individually switched AC outlets (each has a status LED that do not seem to be individual controls. There are also four USB power/charge ports, all switchable but not individually. There is a button and blue and red controllable leds. 
+The Brilliant Smart Smart WiFi Powerboard 20691 is available in Australia and New Zealand. It has four individually switched AC outlets (each has a status LED that do not seem to be individually controllable. There are also four USB power/charge ports, all switchable but not individually. There is a button and blue and red controllable leds. 
 
 ## GPIO Pinout
 
@@ -33,13 +34,13 @@ I flashed this device with tuya-convert, which worked straight off. I originally
 
 ## Code 
 
-This yaml is borrowed from the author of the Arlec PB89HA Power Board page. The multi click stuff for the switch is optional, but can be useful if you are at the powerboard.
+This yaml is borrowed from the author of the Arlec PB89HA Power Board page. The multi click stuff for the button is optional, but can be useful if you are at the powerboard.
 
-The blue led is used as a status led and flashes as wifi is connecting. The red led is settable and could be used for some sort of status indicator.
+The blue led is used as a status led and flashes as the wifi is connecting. The red led is switchable and could be used for some sort of status indicator.
 
 
 ```yaml
-multibox.yaml
+
 esphome:
   name: multibox
   platform: ESP8266
