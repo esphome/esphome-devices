@@ -95,3 +95,5 @@ status_led:
     inverted: yes
 
 ```
+
+![alt text](/assets/images/Aukey-SH-PA1-Smart-Plug/aukey-plug.jpg "Aukey SH-PA1 Smart WiFi Plug")
