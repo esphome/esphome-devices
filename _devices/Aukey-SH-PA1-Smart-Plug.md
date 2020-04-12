@@ -31,14 +31,13 @@ esphome:
     upload_speed: 115200
 
 wifi:
-  ssid: <>
-  password: <>
-  domain: .lan
+  ssid: 'ssid'
+  password: 'password'
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Fallback AP"
-    password: <>
+    password: 'fallback ap password'
 
 captive_portal:
 
@@ -47,9 +46,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: <>
+  password: 'api_password'
 ota:
-  password: <>
+  password: 'ota_password'
 
 output:
   - platform: gpio
