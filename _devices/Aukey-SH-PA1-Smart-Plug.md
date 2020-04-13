@@ -1,4 +1,3 @@
-
 ---
 title: Aukey SH-PA1 Wi-Fi Smart Plug
 date-published: 2020-04-11
