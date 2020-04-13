@@ -5,7 +5,7 @@ type: light
 standard: au
 ---
 
-As per the Arlec Grid Connect Smart LED Globe RGB, these globes are sold at Bunnings in Australia and New Zealand and can be converted using tuya-convert.
+As per the [Arlec Grid Connect Smart LED Globe RGB](https://esphome-configs.io/devices/arlec-grid-connect-smart-led-globe-rgb/), these globes are sold at Bunnings in Australia and New Zealand and can be converted using tuya-convert.
 
 However unlike the RGB version these appear to use a BP5926 chip to drive the LED's and this chip uses a PWM signal so set the colour temperature rather than a PWM signal for each colour channel.
 
