@@ -119,6 +119,31 @@ switch:
     pin: GPIO15
     id: "relay_4"
 
+
+# To use the blue led as status led, use following entries:
+
+status_led:
+  pin: 
+    number: GPIO13
+    inverted: True
+
+# OR use following entries to use it as a always-on led (plugged in == led on)
+
+output:
+  - platform: esp8266_pwm
+    id: blue_led
+    pin: GPIO13
+    inverted: True
+
+light:
+  - platform: monochromatic
+    name: "Blue LED"
+    output: blue_led
+    restore_mode: ALWAYS_ON
+    internal: true
+
+# OR use following entries to use it as a normal light
+
 output:
   - platform: esp8266_pwm
     id: blue_led
