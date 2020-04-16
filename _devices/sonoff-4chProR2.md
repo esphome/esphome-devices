@@ -47,11 +47,32 @@ binary_sensor:
       inverted: True
     name: "Sonoff S31 Button"
     on_press:
-      - switch.toggle: relay
-  - platform: status
-    name: "Sonoff S31 Status"
+      - switch.toggle: "relay_1"
+  - platform: gpio
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff S32 Button"
+    on_press:
+      - switch.toggle: "relay_2"
+  - platform: gpio
+    pin:
+      number: GPI010
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff S33 Button"
+    on_press:
+      - switch.toggle: "relay_3"
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff S34 Button"
+    on_press:
+      - switch.toggle: "relay_4"
 
-sensor:
   - platform: gpio
     pin:
       number: GPIO0
@@ -76,19 +97,27 @@ sensor:
       mode: INPUT_PULLUP
       inverted: True
     name: "Button 4"
+    
+  - platform: status
+    name: "Sonoff S34 Status"
+
 switch:
   - platform: gpio
     name: "Relay 1"
     pin: GPIO12
+    id: "relay_1"
   - platform: gpio
     name: "Relay 2"
     pin: GPIO5
+    id: "relay_2"
   - platform: gpio
     name: "Relay 3"
     pin: GPIO4
+    id: "relay_3"
   - platform: gpio
     name: "Relay 4"
     pin: GPIO15
+    id: "relay_4"
 
 output:
   - platform: esp8266_pwm
