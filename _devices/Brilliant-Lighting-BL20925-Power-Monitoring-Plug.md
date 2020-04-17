@@ -4,7 +4,7 @@ date-published: 2020-04-17
 type: plug
 standard: au
 ---
-  ![alt text](/assets/images/Brilliant-Lighting-BL20925-Power-Monitoring-Plug/Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpg "Product Image")
+  ![alt text](/assets/images/Brilliant-Lighting-BL20925-Power-Monitoring-Plug/Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpeg "Product Image")
   
 [https://www.officeworks.com.au/shop/officeworks/p/brilliant-lighting-smart-wifi-plug-with-energy-monitoring-bl20925](https://www.officeworks.com.au/shop/officeworks/p/brilliant-lighting-smart-wifi-plug-with-energy-monitoring-bl20925)
 
