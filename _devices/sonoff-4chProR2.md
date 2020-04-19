@@ -45,7 +45,6 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Sonoff S31 Button"
     on_press:
       - switch.toggle: "relay_1"
   - platform: gpio
@@ -53,15 +52,13 @@ binary_sensor:
       number: GPIO9
       mode: INPUT_PULLUP
       inverted: True
-    name: "Sonoff S32 Button"
     on_press:
       - switch.toggle: "relay_2"
   - platform: gpio
     pin:
-      number: GPI010
+      number: GPIO10
       mode: INPUT_PULLUP
       inverted: True
-    name: "Sonoff S33 Button"
     on_press:
       - switch.toggle: "relay_3"
   - platform: gpio
@@ -69,7 +66,6 @@ binary_sensor:
       number: GPIO14
       mode: INPUT_PULLUP
       inverted: True
-    name: "Sonoff S34 Button"
     on_press:
       - switch.toggle: "relay_4"
 
@@ -78,28 +74,28 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 1"
+    name: "Sonoff 4CH Pro Button 1"
   - platform: gpio
     pin:
       number: GPIO9
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 2"
+    name: "Sonoff 4CH Pro Button 2"
   - platform: gpio
     pin:
       number: GPIO10
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 3"
+    name: "Sonoff 4CH Pro Button 3"
   - platform: gpio
     pin:
       number: GPIO14
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 4"
+    name: "Sonoff 4CH Pro Button 4"
     
   - platform: status
-    name: "Sonoff S34 Status"
+    name: "Sonoff 4CH Pro Status"
 
 switch:
   - platform: gpio
@@ -118,17 +114,22 @@ switch:
     name: "Relay 4"
     pin: GPIO15
     id: "relay_4"
+```
 
+## LED Configuration
 
-# To use the blue led as status led, use following entries:
+Use *one* of the following three configurations to adjust the led to your needs.
 
+### Status LED (see https://esphome.io/components/status_led.html)
+```yaml
 status_led:
   pin: 
     number: GPIO13
     inverted: True
+```
 
-# OR use following entries to use it as a always-on led (plugged in == led on)
-
+### Always-on led (plugged in == led on)
+```yaml
 output:
   - platform: esp8266_pwm
     id: blue_led
@@ -141,6 +142,11 @@ light:
     output: blue_led
     restore_mode: ALWAYS_ON
     internal: true
+
+```
+
+### Normal light, toggleable via Home Assistant
+```yaml
 
 # OR use following entries to use it as a normal light
 
