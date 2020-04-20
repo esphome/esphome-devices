@@ -45,50 +45,110 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Sonoff S31 Button"
     on_press:
-      - switch.toggle: relay
-  - platform: status
-    name: "Sonoff S31 Status"
-
-sensor:
-  - platform: gpio
-    pin:
-      number: GPIO0
-      mode: INPUT_PULLUP
-      inverted: True
-    name: "Button 1"
+      - switch.toggle: "relay_1"
   - platform: gpio
     pin:
       number: GPIO9
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 2"
+    on_press:
+      - switch.toggle: "relay_2"
   - platform: gpio
     pin:
       number: GPIO10
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 3"
+    on_press:
+      - switch.toggle: "relay_3"
   - platform: gpio
     pin:
       number: GPIO14
       mode: INPUT_PULLUP
       inverted: True
-    name: "Button 4"
+    on_press:
+      - switch.toggle: "relay_4"
+
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Pro Button 1"
+  - platform: gpio
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Pro Button 2"
+  - platform: gpio
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Pro Button 3"
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Pro Button 4"
+    
+  - platform: status
+    name: "Sonoff 4CH Pro Status"
+
 switch:
   - platform: gpio
     name: "Relay 1"
     pin: GPIO12
+    id: "relay_1"
   - platform: gpio
     name: "Relay 2"
     pin: GPIO5
+    id: "relay_2"
   - platform: gpio
     name: "Relay 3"
     pin: GPIO4
+    id: "relay_3"
   - platform: gpio
     name: "Relay 4"
     pin: GPIO15
+    id: "relay_4"
+```
+
+## LED Configuration
+
+Use *one* of the following three configurations to adjust the led to your needs.
+
+### Status LED (see https://esphome.io/components/status_led.html)
+```yaml
+status_led:
+  pin: 
+    number: GPIO13
+    inverted: True
+```
+
+### Always-on led (plugged in == led on)
+```yaml
+output:
+  - platform: esp8266_pwm
+    id: blue_led
+    pin: GPIO13
+    inverted: True
+
+light:
+  - platform: monochromatic
+    name: "Blue LED"
+    output: blue_led
+    restore_mode: ALWAYS_ON
+    internal: true
+
+```
+
+### Normal light, toggleable via Home Assistant
+```yaml
+
+# OR use following entries to use it as a normal light
 
 output:
   - platform: esp8266_pwm
