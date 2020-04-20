@@ -147,9 +147,6 @@ light:
 
 ### Normal light, toggleable via Home Assistant
 ```yaml
-
-# OR use following entries to use it as a normal light
-
 output:
   - platform: esp8266_pwm
     id: blue_led
