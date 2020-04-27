@@ -1,41 +1,41 @@
 <nav role="navigation" aria-label="Main navigation">
   <ul class="navigation-list">
-    
-    <li>
+
+    <li class="navigation-list-item">
       <a href="/devices" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">View All Devices</a>
     </li>
 
     <br>
-    <strong>Device Type</strong>
+    <h3>Device Type</h3>
     {% for type in site.device-types | sort: "title" %}
-      <li>
+      <li class="navigation-list-item">
         <a href="{{ type.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ type.title }}</a>
       </li>
     {% endfor %}
 
     <br>
-    <strong>Electrical Standard</strong>
+    <h3>Electrical Standard</h3>
     {% for standard in site.device-standards | sort: "title" %}
-      <li>
+      <li class="navigation-list-item">
         <a href="{{ standard.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ standard.title }}</a>
       </li>
     {% endfor %}
 
     <br>
-    <strong>Shared guides</strong>
+    <h3>Shared guides</h3>
     {% for guide in site.shared-guides | sort: "title" %}
-      <li>
+      <li class="navigation-list-item">
         <a href="{{ guide.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ guide.title }}</a>
       </li>
     {% endfor %}
-    
+
     <br>
-    <strong>External Links</strong>
+    <h3>External Links</h3>
     {% for link in site.data.external_links %}
-      <li>
+      <li class="navigation-list-item">
         <a href="{{ link.url }}" class="navigation-list-link{% if page.url == node.url %} active{% endif %}">{{ link.name }}</a>
       </li>
     {% endfor %}
-  
+
   </ul>
 </nav>
