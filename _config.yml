@@ -21,16 +21,16 @@ exclude:
 collections:
   devices:
     output: true
-    permalink: /devices/:path/
+    permalink: /devices/:name/
   device-types:
     output: true
-    permalink: /types/:path/
+    permalink: /types/:name/
   device-standards:
     output: true
-    permalink: /standards/:path/
+    permalink: /standards/:name/
   shared-guides:
     output: true
-    permalink: /guides/:path/
+    permalink: /guides/:name/
 
 defaults:
   -
@@ -52,12 +52,12 @@ defaults:
     scope:
       path: "_shared-guides"
     values:
-      layout: "shared-guide"
+      layout: "shared-guides-index"
 
 # Theme Settings
 
 # Logo
-logo: "/assets/images/just-the-docs.png"
+logo: "/assets/images/esphome-logo.svg"
 
 # Enable or disable the site search
 search_enabled: true
@@ -73,6 +73,3 @@ heading_anchors: true
 aux_links:
   "ESPHome-Configs.io on GitHub":
     - "//github.com/jonathanadams/esphome-configs"
-    
-# Footer
-footer_content: "This site is generated with <a href=\"https://jekyllrb.com\">Jekyll</a> and powered by <a href=\"https://netlify.com\">Netlify</a>."
