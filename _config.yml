@@ -21,16 +21,16 @@ exclude:
 collections:
   devices:
     output: true
-    permalink: /devices/:path/
+    permalink: /devices/:name/
   device-types:
     output: true
-    permalink: /types/:path/
+    permalink: /types/:name/
   device-standards:
     output: true
-    permalink: /standards/:path/
+    permalink: /standards/:name/
   shared-guides:
     output: true
-    permalink: /guides/:path/
+    permalink: /guides/:name/
 
 defaults:
   -
