@@ -1,10 +1,8 @@
 ---
 layout: default
-title: Adding Devices
+title: "Contributing: Adding Devices"
 permalink: /adding-devices/
 ---
-
-# Contributing: Adding Devices
 
 1. To add a new device create a new markdown (`.md`) file named after your device under the `_devices` directory in the [GitHub Repository](https://github.com/jonathanadams/esphome-configs). Please avoid using underscores in the filenames and use hypens instead as this makes for easier to understand the URLs generated when the site is built.
 
@@ -16,6 +14,7 @@ permalink: /adding-devices/
 3. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
 
 ## YAML Front Matter
+
 Each `.md` file created needs to contain front matter in order for the page to be generated. Details of the front matter required (and optional) is detailed below:
 
 ```yaml
@@ -35,6 +34,7 @@ standard: uk, us
 | `standard`       | Electrical standard country | `uk`, `us`, `eu`, `au`, `global`                                                  | Yes       |
 
 ## Images
+
 To add images to your files do the following:
 
 1. Create a folder with the same name as your device `.md` file in `/assets/images` and add your images to this folder.
@@ -45,4 +45,5 @@ To add images to your files do the following:
   ```
 
 ### Image Sizes
+
 Please be considerate over image sizes to help reduce page loading times.
