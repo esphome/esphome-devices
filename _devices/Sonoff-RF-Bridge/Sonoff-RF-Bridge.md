@@ -17,6 +17,7 @@ standard: global
 | 5       | Remote Transmitter                   |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:
@@ -37,10 +38,10 @@ ota:
 binary_sensor:
 - platform: status
     name: "RF Bridge Status"
-    
+
 # use esphome log viewer to get binary transmission for sensor state.  Below are examples when using either single state or dual state sensors.
 
-# use this for single state sensors (single trigger)     
+# use this for single state sensors (single trigger)
   - platform: remote_receiver
     name: "Sensor1"
     rc_switch_raw:
@@ -49,7 +50,7 @@ binary_sensor:
 
 
 
-# use this for dual state sensors (open/closed trigger) 
+# use this for dual state sensors (open/closed trigger)
   - platform: remote_receiver
     name: "Sensor 2 Open"
     internal: yes
@@ -65,15 +66,15 @@ binary_sensor:
     internal: yes
     rc_switch_raw:
       code: '001111111110111100100111'
-      protocol: 1     
+      protocol: 1
     on_press:
       - binary_sensor.template.publish:
           id: Sensor2
-          state: OFF    
+          state: OFF
   - platform: template
     name: "Sensor2 State"
     device_class: window
-    id: Sensor2    
+    id: Sensor2
 
 
 remote_receiver:

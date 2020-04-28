@@ -19,6 +19,7 @@ standard: uk, us, eu
 | GPIO3   | TX pin (for external sensors)      |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:

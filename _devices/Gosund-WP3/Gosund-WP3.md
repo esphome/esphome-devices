@@ -19,8 +19,8 @@ standard: us
 ## Basic Configuration
 
 ```yaml
-# Basic Config
 ---
+# Basic Config
 esphome:
   name: gosund_1
   platform: ESP8266
@@ -67,7 +67,7 @@ status_led:
   pin:
     number: GPIO12
     inverted: yes
-    
+
 sensor:
   - platform: wifi_signal
     name: "Gosund_1 WiFi signal"

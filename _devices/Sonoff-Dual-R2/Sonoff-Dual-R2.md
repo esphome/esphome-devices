@@ -15,7 +15,8 @@ standard: global
 ## GPIO Pinout
 
 ### Sonoff Dual R2 - PCB version 1.0
-based on https://esphome.io/devices/sonoff.html#sonoff-dual-r2
+
+based on <https://esphome.io/devices/sonoff.html#sonoff-dual-r2>
 
 | Pin     | Function                           |
 |---------|------------------------------------|
@@ -37,10 +38,7 @@ based on https://esphome.io/devices/sonoff.html#sonoff-dual-r2
 | GPIO05  | Relay #2 and green color on LED    |
 | GPIO13  | Blue Status LED                    |
 
-
 ## Basic Configuration
-
-### Sonoff Dual R2 - PCB version 1.4
 
 ```yaml
 substitutions:

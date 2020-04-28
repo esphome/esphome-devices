@@ -106,7 +106,7 @@ binary_sensor:
               id(relay2).turn_on();
               id(relay3).turn_on();
               id(relay4).turn_on();
-              
+
             }
           }
     - timing:
@@ -121,9 +121,9 @@ binary_sensor:
         - OFF for at least 0.2s
       then:
         lambda: |-
-          if (id(relay1).state || 
-          id(relay2).state || 
-          id(relay3).state || 
+          if (id(relay1).state ||
+          id(relay2).state ||
+          id(relay3).state ||
           id(relay4).state ) {
             id(relay1).turn_off();
             id(relay2).turn_off();
@@ -164,13 +164,13 @@ status_led:
     inverted: yes
 ```
 
-##Button
+## Button
 
 * The setup will turn on plugs 1 to 4 with each short press, then once all plugs are on, turn off plugs 1 to 4 with each short press.
 * A long press will toggle all plugs on or off.
 * A double press will toggle the state of the usb ports.
 
-##Where
+## Where
 
 | Location                                                                                            | Price |
 |-----------------------------------------------------------------------------------------------------|-------|

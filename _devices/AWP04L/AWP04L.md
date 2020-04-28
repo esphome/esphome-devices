@@ -4,7 +4,7 @@ date-published: 2019-10-15
 type: plug
 standard: us
 ---
-These devices come with different brands, but all have AWP04L serial number on the back sticker. FCC-ID is <a href="https://fccid.io/2ANOO-SM800">2ANOO-SM800</a>.
+These devices come with different brands, but all have AWP04L serial number on the back sticker. FCC-ID is [2ANOO-SM800](https://fccid.io/2ANOO-SM800).
 
 This template has been updated with "comment:" and "captive_portal:" feautures added in ESPHome v. 1.14
 
@@ -24,6 +24,7 @@ This template has been updated with "comment:" and "captive_portal:" feautures a
 | GPIO15  | Status LED - Blue (inverted)       |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 
@@ -263,9 +264,11 @@ interval:
 Note: You will want to exclude the red_led and blue_led lights from your recorder componant, especially if you use the included Throb custom animation, since that would fill your database with the on/off blinking status updates.
 
 ## Split Configuration
+
 If you have several of these plugs, you may prefer to keep the shared code in one file and only put the device-specific code in the files for each plug.
 
 In plug_common.yaml:
+
 ```yaml
 # Common code for AWP04L plugs
 
@@ -497,6 +500,7 @@ interval:
 ```
 
 Then in each plug's yaml:
+
 ```yaml
 substitutions:
   device_name: plug6

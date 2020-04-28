@@ -7,8 +7,8 @@ standard: eu
 This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
 
 More info:
-https://templates.blakadder.com/XS-A12.html
-https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A
+<https://templates.blakadder.com/XS-A12.html>
+<https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A>
 
 1. TOC
 {:toc}
@@ -26,7 +26,8 @@ https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A
 | GPIO15  | Relay1                             |
 
 ## Basic Configuration
-Most of this code is from from https://esphome-configs.io/devices/awp04l/
+
+Most of this code is from from <https://esphome-configs.io/devices/awp04l/>
 
 ```yaml
 # Check or edit all secrets to match yours.
@@ -34,7 +35,7 @@ Most of this code is from from https://esphome-configs.io/devices/awp04l/
 
 substitutions:
   devicename: rgb_smart_plug_16a
-  friendly_name: RGB Smart Plug 16A 
+  friendly_name: RGB Smart Plug 16A
   device_description: Energy Monitoring 16A Smart Plug with button and RGB led.
 
 esphome:
@@ -60,7 +61,7 @@ logger:
 
 
 # Web server can be removed after enabling HA API
-web_server: 
+web_server:
   port: 80
 
 ota:
@@ -95,7 +96,7 @@ sensor:
       inverted: True
     cf_pin: GPIO5
     cf1_pin: GPIO14
-    current_resistor: 0.001 #The value of the shunt resistor for current measurement. Defaults to the Sonoff POW’s value 0.001 ohm. 
+    current_resistor: 0.001 #The value of the shunt resistor for current measurement. Defaults to the Sonoff POW’s value 0.001 ohm.
     # voltage_divider: 2401 # Commented out, using default
     power:
       name: ${friendly_name} Power
@@ -106,7 +107,7 @@ sensor:
         - calibrate_linear:
             # Map 0.0 (from sensor) to 0.0 (true value)
             - 0.0 -> 0.0 #Need to keep 0 mapped to 0 for when connected device is not drawing any power
-            - 16.9 -> 5.7 # -0.8W from just this plug 
+            - 16.9 -> 5.7 # -0.8W from just this plug
     current:
       name: ${friendly_name} Current
       unit_of_measurement: A

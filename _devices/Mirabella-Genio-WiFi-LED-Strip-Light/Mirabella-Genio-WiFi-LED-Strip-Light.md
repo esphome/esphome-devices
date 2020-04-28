@@ -8,25 +8,23 @@ standard: au
 1. TOC
 
 ## General Notes
-This is for [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.au/led-strip-light). 
 
+This is for [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.au/led-strip-light).
 
 ![Genio Wi-Fi LED Strip Light](/Mirabella-Genio-WiFi-LED-Strip-Light.jpg "Genio Wi-Fi LED Strip Light")
-
 
 ## GPIO Pinout
 
 | Pin     | Function                           |
-|---------|------------------------------------|          
+|---------|------------------------------------|
 | GPIO0   | Push Button                        |
 | GPIO4   | Light - Red                        |
 | GPIO5   | Light - White                      |
 | GPIO12  | Light - Green                      |
 | GPIO14  | Light - Blue                       |
 
-
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://mirabellagenio.net.au/led-strip-light
@@ -50,7 +48,7 @@ api:
 
 ota:
   password: 'ota_password'
-    
+
 output:
   - platform: esp8266_pwm
     id: output_red

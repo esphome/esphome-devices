@@ -14,8 +14,8 @@ standard: us
 |---------|------------------------------------|          |
 | GPIO14  | Light                              |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://www.lohas-led.com/lohas-smart-led-light-bulbs-google-home-siri-and-iftttno-hub-required-e26-daylight-5000k-dimmable-2-pack-p0238-p0238.html
@@ -53,7 +53,7 @@ output:
     id: pwm_output
     # frequency: 1000 Hz
     pin: GPIO14
-    
+
 light:
   - platform: monochromatic
     name: "lightname"

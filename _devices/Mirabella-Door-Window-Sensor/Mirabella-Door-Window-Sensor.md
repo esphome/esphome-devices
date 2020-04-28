@@ -7,6 +7,7 @@ standard: global
 
 
 ## General Notes
+
 This is for [Mirabella Genio Door & Window Sensor](https://mirabellagenio.net.au/door-%26-window-sensor).
 
 The file [sb1_uart.h](https://github.com/brandond/esphome-tuya_pir/blob/master/sb1_uart.h) must be added to your Home Assistant /config/esphome directory for a succesful compile.
@@ -15,9 +16,8 @@ Credit to [Brandon D](https://github.com/brandond) for the file and esphome conf
 
 ![Mirabella Genio Door & Window Sensor](/Mirabella-Door-Window-Sensor.jpg "Mirabella Genio Door & Window Sensor")
 
-
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://mirabellagenio.net.au/door-%26-window-sensor

@@ -17,6 +17,7 @@ standard: au
 | GPIO5   | Remote Reciever                    |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://mirabellagenio.net.au/smart-ir-controller
@@ -52,13 +53,13 @@ sensor:
   - platform: wifi_signal
     name: "ESPHome_ir1 Wifi"
     update_interval: 60s
-    
+
 remote_transmitter:
   pin: GPIO14
   carrier_duty_percent: 33%
   
 remote_receiver:
-  pin: 
+  pin:
     number: GPIO5
     inverted: True
  #dump: jvc
@@ -86,7 +87,7 @@ binary_sensor:
     sony:
       data: '0xF50'
       nbits: 12
-      
+
   - platform: remote_receiver
     name: "WIZ(RF-ON)"
     internal: true
@@ -97,7 +98,7 @@ binary_sensor:
         - switch.template.publish:
             id: wiz_rf_power
             state: ON
-            
+
   - platform: remote_receiver
     name: "WIZ(RF-OFF)"
     internal: true
@@ -108,17 +109,17 @@ binary_sensor:
             state: OFF
     jvc:
       data: '0x40BF'
-      
+
   - platform: remote_receiver
     name: "WIZ(RF-Brightness -)"
     jvc:
       data: '0x906F'
-      
+
   - platform: remote_receiver
     name: "WIZ(RF-Brightness +)"
     jvc:
       data: '0x10EF'
-      
+
   - platform: remote_receiver
     name: "WIZ(RF-1)"
     internal: true
@@ -138,7 +139,7 @@ binary_sensor:
             state: OFF
     jvc:
       data: '0x20DF'
-      
+
   - platform: remote_receiver
     name: "WIZ(RF-2)"
     internal: true
@@ -233,7 +234,7 @@ switch:
     id: wiz_rf_2
     optimistic: true
     restore_state: true
-    
+
   - platform: template
     name: WIZ mode 3
     id: wiz_rf_3
@@ -244,7 +245,7 @@ switch:
     id: wiz_rf_4
     optimistic: true
     restore_state: true  
-   
+
   - platform: template
     name: WIZ Remote Power
     id: wiz_rf_power
@@ -257,7 +258,7 @@ switch:
       - remote_transmitter.transmit_jvc:
           data: '0x40BF'
   
-    
+
 output:
   - platform: esp8266_pwm
     id: esphome_ir1_red_led

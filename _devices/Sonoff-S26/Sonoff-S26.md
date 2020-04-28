@@ -16,8 +16,8 @@ standard: uk, us, eu, au
 | GPIO12  | Relay and Red LED                  |
 | GPIO13  | Blue Status LED                    |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:

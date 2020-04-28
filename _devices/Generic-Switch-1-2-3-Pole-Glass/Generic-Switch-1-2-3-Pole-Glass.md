@@ -9,6 +9,7 @@ standard: us
 {:toc}
 
 ## General Notes
+
 This config was created based on the 3 pole switch that I had.  I'm not sure what the pins for the 4 pole variant would be, but it would not be hard to figure it out if you have the unit.
 
 There is another variant to these switches with LEDs on the buttons. These are called out below.
@@ -26,8 +27,7 @@ Rear of 3 pole switch
 Wiring of switch  
  ![alt text](/wiring.jpg "Wiring of switch")
 
-
-## GPIO Pinout (Per top to bottom when installed) 
+## GPIO Pinout (Per top to bottom when installed)
 
 | Pin     | Function                           |
 |---------|------------------------------------|
@@ -44,6 +44,7 @@ Wiring of switch
 | GPIO14  | LED, Bottom *(some switches)*      |
 
 ## Basic Configuration
+
 ```yaml
 substitutions:
   platform: ESP8266
@@ -231,9 +232,9 @@ binary_sensor:
     filters:
       - invert:
     on_press:
-      - light.toggle: 
+      - light.toggle:
           id: lightsw_1
-          
+
   - platform: gpio
     pin: GPIO05
     name: "l2 switch"
@@ -242,9 +243,9 @@ binary_sensor:
     filters:
       - invert:
     on_press:
-      - light.toggle: 
+      - light.toggle:
           id: lightsw_2
-          
+
   - platform: gpio
     pin: GPIO3
     name: "l3 switch"
@@ -253,7 +254,7 @@ binary_sensor:
     filters:
       - invert:
     on_press:
-      - light.toggle: 
+      - light.toggle:
           id: lightsw_3
 
 output:
@@ -279,7 +280,7 @@ output:
     pin: GPIO14
     id: led_3
     inverted: true
-    
+
 light:
   - platform: binary
     name: "${friendly_name} Top"

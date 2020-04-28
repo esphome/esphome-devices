@@ -13,8 +13,8 @@ standard: global
 |---------|------------------------------------|
 | N/A     | N/A                                |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://www.espressif.com/en/products/hardware/esp32/overview
@@ -51,7 +51,7 @@ sensor:
       name: "Peace Lily Soil Conductivity"
     battery_level:
       name: "Peace Lily Battery Level"
-      
+
   - platform: xiaomi_miflora
     mac_address: 'C4:7C:8D:6B:01:97'
     temperature:
@@ -62,7 +62,7 @@ sensor:
       name: "Palour Palm Illuminance"
     conductivity:
       name: "Palour Palm Soil Conductivity"  
-      
+
   - platform: xiaomi_miflora
     mac_address: '80:EA:CA:88:B3:B1'
     temperature:
@@ -73,7 +73,7 @@ sensor:
       name: "Lounge Orchid Illuminance"
     conductivity:
       name: "Lounge Orchid Soil Conductivity"
-      
+
   - platform: xiaomi_miflora
     mac_address: '80:EA:CA:88:B0:EF'
     temperature:

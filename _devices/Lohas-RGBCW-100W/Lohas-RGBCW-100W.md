@@ -7,6 +7,7 @@ standard: us
 
 1. TOC
 {:toc}
+
 ## GPIO Pinout
 
 | Pin       | Function                           |
@@ -20,13 +21,11 @@ standard: us
 | Channel 4 | Green channel                      |
 | Channel 5 | Red channel                        |
 
-
-
-
 ## Basic Configuration
+
 ```yaml
 #
-# Better description of config nuances from https://github.com/digiblur/ESPHome_LOHAS_LED 
+# Better description of config nuances from https://github.com/digiblur/ESPHome_LOHAS_LED
 #
 #
 # Basic Config
@@ -97,7 +96,7 @@ output:
       copy->channel_a = id(output_cw0);
       copy->channel_b = id(output_cw1);
       copy->channel_c = id(output_cw2);
-      return {copy}; 
+      return {copy};
     outputs:
     - id: cw
 

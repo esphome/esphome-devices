@@ -17,21 +17,23 @@ This configuration is for the Lonsonho 9W E27 RGBWW bulb which is offered as a k
 | GPIO13 | warm white channel |
 | GPIO5  | cold white channel |
 
-
 ## Getting it up and running
+
 ### Tuya Convert
+
 This bulb is a Tuya device, so you'll need to [use tuya-convert to initially get ESPHome onto it](/guides/tuya-convert/).  After that, you can use ESPHome's OTA functionality to make any changes.
 
 - Put the bulb into "smartconfig" / "autoconfig" / pairing mode by switching the bulb off and on 4 or 5 times in a row in quick succession.
 - The bulb blinks white rapidly to confirm that it has entered pairing mode.
 
 Remember to make the following changes to the example YAML config below:
-  - line 6: Give your device a name.
-  - line 7: Give an ID name, all lower case and change spaces to underscores.
-  - line 10: Set up the static ip for your device that matches to your environment. Remember this IP must be unique in your LAN.
-  - lines 26, 27 and 28: gateway is the IP of your router, subnet most certainly 255.255.255.0 and dns1 again the IP of your router.
-  - line 31: This is only if a red cross appears here. AP SSIDs can only contain up to 32 symbols. If you've chosen a long device name it might exceed. Either shorten the device name or delete right after AP, " (192.168.4.1)".
-  - line 32: You'll probably don't want to complicate your live with a WiFi password when your bulb enters access point mode. Feel free to change from password: '1234abcd' to password: ''.
+
+- line 6: Give your device a name.
+- line 7: Give an ID name, all lower case and change spaces to underscores.
+- line 10: Set up the static ip for your device that matches to your environment. Remember this IP must be unique in your LAN.
+- lines 26, 27 and 28: gateway is the IP of your router, subnet most certainly 255.255.255.0 and dns1 again the IP of your router.
+- line 31: This is only if a red cross appears here. AP SSIDs can only contain up to 32 symbols. If you've chosen a long device name it might exceed. Either shorten the device name or delete right after AP, " (192.168.4.1)".
+- line 32: You'll probably don't want to complicate your live with a WiFi password when your bulb enters access point mode. Feel free to change from password: '1234abcd' to password: ''.
 
 Once you've completed the tuya-convert process and flashed ESPHome, you can integrate your bulb in Home Assistant using a lovelace `Light` card.
 
@@ -110,7 +112,7 @@ output:
     pin: GPIO14
   - platform: esp8266_pwm
     id: output_warm_white
-    pin: GPIO13    
+    pin: GPIO13
   - platform: esp8266_pwm
     id: output_cold_white
     pin: GPIO5
@@ -123,11 +125,11 @@ light:
     red: output_red
     green: output_green
     blue: output_blue
-    warm_white: output_warm_white    
+    warm_white: output_warm_white
     cold_white: output_cold_white
     warm_white_color_temperature: 2800 K
     cold_white_color_temperature: 6200 K
-    
+
     effects:
       - random:
       - random:
@@ -138,4 +140,5 @@ light:
     # Attempt to restore state and default to ON if the physical switch is actuated.
     restore_mode: RESTORE_DEFAULT_ON
 ```
+
    [aliexpress.com]: <https://www.aliexpress.com/item/33006613923.html>

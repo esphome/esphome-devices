@@ -18,6 +18,7 @@ standard: global
 | GPIO15  | Fan Relay 4                        |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:
