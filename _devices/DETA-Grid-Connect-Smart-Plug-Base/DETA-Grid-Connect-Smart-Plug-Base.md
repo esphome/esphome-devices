@@ -1,5 +1,5 @@
 ---
-title: DETA Grid Connect Smart Switch (Single / Double)
+title: DETA Grid Connect Smart Plug Base
 date-published: 2020-04-28
 type: plug
 standard: au
