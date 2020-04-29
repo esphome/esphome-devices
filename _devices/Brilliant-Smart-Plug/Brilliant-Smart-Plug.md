@@ -15,8 +15,8 @@ standard: au
 | GPIO14  | Push Button (Inverted: true)       |
 | GPIO13  | Red LED (Inverted: true)           |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://www.brilliantsmart.com.au/smart-products/electrical/wifi-plug-with-usb-charger/

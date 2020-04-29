@@ -10,7 +10,7 @@ standard: au
 
 ## General Notes
 
-This configuration is for the [Brilliant Smart Wi-Fi RGB Garden Light](https://www.brilliantsmart.com.au/smart-products/garden/smart-garden-kit/) 
+This configuration is for the [Brilliant Smart Wi-Fi RGB Garden Light](https://www.brilliantsmart.com.au/smart-products/garden/smart-garden-kit/)
 which comes as a kit with 4 LED RGB spotlights, a transformer and the controller.
 
 ![Brilliant Smart Wi-Fi RGB Garden Light Kit](/Brilliant-Smart-Wi-Fi-RGB-Garden-Light.jpg "Brilliant Smart Wi-Fi RGB Garden Light Kit")
@@ -23,8 +23,8 @@ which comes as a kit with 4 LED RGB spotlights, a transformer and the controller
 | GPIO12  | Green Channel |
 | GPIO14  | Blue Channel  |
 
-
 ## Basic Configuration
+
 ```yaml
 esphome:
   name: garden_light
@@ -59,22 +59,22 @@ light:
           update_interval: 4s
           lambda: |-
             static int state = 0;
-            auto call = id(me).turn_on();                                                                           
-            // Transtion of 1000ms = 1s                                                                         
-            call.set_transition_length(4000);                                                                      
-            if (state == 0) {                                                                             
-              call.set_rgb(1.0, 0.0, 0.0);                                                                 
-            } else if (state == 1) {                                                                          
-              call.set_rgb(0.0, 1.0, 0.0);                                                                      
-            } else if (state == 2) {                               
-              call.set_rgb(0.0, 0.0, 1.0);                                                            
-            } else {                                                       
-              call.set_rgb(1.0, 0.0, 0.0);                                                        
-            }                                                                                       
-            call.perform();                                                                        
-            state += 1;                                                                                           
-            if (state == 2) // repeat only the red and green from christmas 
-              state = 0;   
+            auto call = id(me).turn_on();
+            // Transtion of 1000ms = 1s
+            call.set_transition_length(4000);
+            if (state == 0) {
+              call.set_rgb(1.0, 0.0, 0.0);
+            } else if (state == 1) {
+              call.set_rgb(0.0, 1.0, 0.0);
+            } else if (state == 2) {
+              call.set_rgb(0.0, 0.0, 1.0);
+            } else {
+              call.set_rgb(1.0, 0.0, 0.0);
+            }
+            call.perform();
+            state += 1;
+            if (state == 2) // repeat only the red and green from christmas
+              state = 0;
 
 output:
   - platform: esp8266_pwm

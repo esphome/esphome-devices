@@ -7,23 +7,22 @@ standard: au
 
 1. TOC
 {:toc}
-## General Notes
-This is for [Mirabella Genio Wi-Fi SES LED Candle](https://mirabellagenio.net.au/ses-led-candle). 
 
+## General Notes
+
+This is for [Mirabella Genio Wi-Fi SES LED Candle](https://mirabellagenio.net.au/ses-led-candle).
 
 ![Genio Wi-Fi SES LED Candle](/mirabella-genio-wi-fi-ses-led-candle.jpg "Genio Wi-Fi SES LED Candle")
-
 
 ## GPIO Pinout
 
 | Pin     | Function                           |
-|---------|------------------------------------|          
+|---------|------------------------------------|
 | GPIO12  | Light - Warm White                 |
 | GPIO12  | Light - Cool White                 |
 
-
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://mirabellagenio.net.au/ses-led-candle
@@ -60,11 +59,11 @@ sensor:
   - platform: wifi_signal
     name: "Mirabella LED Candle WiFi Signal"
     update_interval: 60s
-    
+
 mqtt:
   broker: MQTT_SERVER_IP
   discovery: false
-    
+
 output:
   - platform: esp8266_pwm
     id: output_warm_white

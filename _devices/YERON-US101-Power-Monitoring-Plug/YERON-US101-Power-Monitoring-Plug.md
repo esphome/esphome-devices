@@ -65,7 +65,7 @@ sensor:
     voltage_divider: "2030"   ### LOWER VALUE GIVES LOWER VOLTAGE
     change_mode_every: 8
     update_interval: 30s
-    
+
   - platform: total_daily_energy
     name: "Plug 1 Daily Energy"
     power_id: plug_2_wattage

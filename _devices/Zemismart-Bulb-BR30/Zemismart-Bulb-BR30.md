@@ -21,6 +21,7 @@ RGBW smart light bulb, BR30 shape, E27 base, 420-480lm, RGB colors + cold white,
 | GPIO15  | my9231 clock pin                   |
 
 ## Basic Configuration
+
 ```yaml
 #https://www.zemismart.com/br30-wifi-rgbw-led-light-work-with-alexa-echo-google-home-assistance-ifttt-support-tuya-app-voice-timer-control-e27-lamp-p0053-p0053.html
 substitutions:

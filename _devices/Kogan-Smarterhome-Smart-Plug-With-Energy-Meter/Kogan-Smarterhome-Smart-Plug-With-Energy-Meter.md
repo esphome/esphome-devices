@@ -19,7 +19,6 @@ standard: au
 | GPIO04 | HLW8012 CF Pin             |
 | GPIO05 | HLW8012 CF1 Pin            |
 
-
 ## Basic Config
 
 ```yaml
@@ -97,7 +96,7 @@ sensor:
     voltage_divider: "2030"   ### LOWER VALUE GIVES LOWER VOLTAGE
     change_mode_every: 8
     update_interval: 5s
-    
+
   - platform: total_daily_energy
     name: "Kogan Plug 1 Daily Energy"
     power_id: kogan_plug_1_wattage

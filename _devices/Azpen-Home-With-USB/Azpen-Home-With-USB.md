@@ -32,6 +32,7 @@ GPIO Descriptions
 | GPIO14  | Switch Input                       |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:
@@ -58,15 +59,15 @@ web_server:
   port: 80
   
 # Button on top of plug.
-binary_sensor:                         
-  - platform: gpio                     
-    pin:                               
-      number: GPIO14                    
-      mode: INPUT_PULLUP              
-      inverted: True                  
-    name: "Relay Button"             
-    on_press:                          
-      - switch.toggle: relay           
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Relay Button"
+    on_press:
+      - switch.toggle: relay
 
 # Status LED for blue light.
 status_led:
@@ -80,7 +81,7 @@ switch:
     name: "Relay"
     pin: GPIO12
     id: relay
-    
+
 # USB Relay
   - platform: gpio
     name: "USB Relay"

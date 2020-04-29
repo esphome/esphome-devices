@@ -19,13 +19,12 @@ standard: au
 | GPIO04 | HLW8012 CF Pin             |
 | GPIO05 | HLWBL CF1 Pin              |
 
-
 ## Basic Config
 
 ```yaml
 substitutions:
   devicename: brilliant_smartplug_1
-  friendly_name: Brilliant Smartplug 1 
+  friendly_name: Brilliant Smartplug 1
   device_description: Brilliant Lighting BL20925 Power Monitoring Plug with button and Blue led.
 
 
@@ -54,7 +53,7 @@ captive_portal:
 logger:
 
 # Web server can be removed after enabling HA API
-#web_server: 
+#web_server:
 #  port: 80
 
 # Enable Home Assistant API
@@ -155,7 +154,7 @@ output:
 # Output GPIOs for blue led
 - platform: esp8266_pwm # Blue
   id: brilliant_smartplug_1_blue_output
-  pin: 
+  pin:
     number: GPIO013
     inverted: True
 

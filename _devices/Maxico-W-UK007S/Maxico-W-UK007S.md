@@ -19,8 +19,8 @@ standard: uk
 | GPIO14  | CF1 Pin                            |
 | GPIO14  | Relay                              |
 
-
 ## Basic Configuration
+
 ```yaml
 # Maxcio W-UK007S
 
@@ -70,7 +70,7 @@ binary_sensor:
       - switch.toggle: relay
   - platform: status
     name: "${friendly_name} Server Status"
-    
+
 switch:
   # Relay (As Switch)
   - platform: gpio
@@ -152,7 +152,7 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
-    
+
 text_sensor:
   # Device Activity State
   # e.g. shows as active if power reading above a certain threshold

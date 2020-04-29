@@ -1,0 +1,19 @@
+---
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  markdown_lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          config_file: ".markdownlint.yaml"
+          files: .

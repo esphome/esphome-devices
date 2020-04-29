@@ -28,8 +28,8 @@ standard: global
 | GPIO32  | Power Down Pin                     |
 | GPIO4   | Camera Light                       |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://www.banggood.com/Geekcreit-ESP32-CAM-WiFi-bluetooth-Camera-Module-Development-Board-ESP32-With-Camera-Module-OV2640-p-1394679.html

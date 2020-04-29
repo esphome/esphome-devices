@@ -14,14 +14,14 @@ standard: global
 |---------|------------------------------------|
 | GPIO5   | Temperature & Humidity Input       |
 
-
-This Configuration uses "substitutions" to enable you to have multiple devices of the same type 
-while allowing you to only need to change a minimal device specific yaml configfuration file 
+This Configuration uses "substitutions" to enable you to have multiple devices of the same type
+while allowing you to only need to change a minimal device specific yaml configfuration file
 by adding specified substutions.
 
 Then at compile time the two files are merged.
 
 ## Device Specific Configuration (Substitution) Yaml File
+
 ```yaml
 substitutions:
   name: nodemcu_lr
@@ -33,6 +33,7 @@ substitutions:
 ```
 
 ## Common Configuration File (common_nodemcu_dht11.yaml)
+
 ```yaml
 esphome:
   name: ${name}
@@ -85,13 +86,13 @@ sensor:
             send_every: 2
             send_first_at: 1
       accuracy_decimals: 1        # humidity gets 0 decimals by default
-    model: DHT11                 
+    model: DHT11
     update_interval: 60s
   
   - platform: wifi_signal
     name: ${friendly_name} WiFi Signal Strength
     update_interval: 60s
-    
+
 text_sensor:
   - platform: version
     name: ${friendly_name} ESPHome Version

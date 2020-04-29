@@ -21,8 +21,8 @@ standard: global
 | GPIO15  | Relay 4 and its status LED           |
 | GPIO13  | Blue LED (HIGH = off, LOW = on)      |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:
@@ -93,7 +93,7 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     name: "Sonoff 4CH Pro Button 4"
-    
+
   - platform: status
     name: "Sonoff 4CH Pro Status"
 
@@ -120,15 +120,17 @@ switch:
 
 Use *one* of the following three configurations to adjust the led to your needs.
 
-### Status LED (see https://esphome.io/components/status_led.html)
+### Status LED (see <https://esphome.io/components/status_led.html)>
+
 ```yaml
 status_led:
-  pin: 
+  pin:
     number: GPIO13
     inverted: True
 ```
 
 ### Always-on led (plugged in == led on)
+
 ```yaml
 output:
   - platform: esp8266_pwm
@@ -146,6 +148,7 @@ light:
 ```
 
 ### Normal light, toggleable via Home Assistant
+
 ```yaml
 output:
   - platform: esp8266_pwm

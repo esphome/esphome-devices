@@ -16,8 +16,8 @@ standard: au
 | GPIO12  | Relay and Red LED                  |
 | GPIO13  | Blue Status LED                    |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:
@@ -68,18 +68,18 @@ sensor:
 switch:
   - platform: restart
     name: "Sonoffth10_1 Restart"
-    
+
 output:
   - platform: esp8266_pwm
     id: TH10_1_blue_led
     pin:
       number: GPIO13
       inverted: True
-      
+
   - platform: gpio
     id: relay
-    pin: GPIO12 
-    
+    pin: GPIO12
+
 light:
   - platform: monochromatic
     name: "Sonoff TH10_1 blue LED"

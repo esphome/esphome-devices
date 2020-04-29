@@ -37,6 +37,7 @@ standard: eu
 | GPIO13  | Status LED                            |
 
 ## Basic Configuration (2-Gang)
+
 ```yaml
 esphome:
   name: sonoff_t1_r2

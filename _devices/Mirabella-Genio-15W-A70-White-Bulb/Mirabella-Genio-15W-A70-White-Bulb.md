@@ -14,8 +14,8 @@ standard: au
 |---------|------------------------------------|
 | GPIO5   | Light                              |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 # https://mirabellagenio.net.au/wi-fi-led-a70-1400-lumen
@@ -51,11 +51,11 @@ sensor:
   - platform: wifi_signal
     name: "Mirabella 1 WiFi Signal"
     update_interval: 60s
-    
+
 switch:
   - platform: restart
     name: "Mirabella 1 Restart"
-    
+
 output:
   - platform: esp8266_pwm
     id: output1

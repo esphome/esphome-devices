@@ -24,7 +24,9 @@ It has five sockets: four individually controllable, plus one which is permanent
 | GPIO13  | Relay 3                            |
 
 ## Getting it up and running
+
 ### Tuya Convert
+
 This power strip is a Tuya device, so if you don't want to open it up and flash it directly, you can [use tuya-convert to initially get ESPHome onto it](/guides/tuya-convert/).  After that, you can use ESPHome's OTA functionality to make any further changes.
 
 - Put the power strip into "smartconfig" / "autoconfig" / pairing mode by holding the button for about 5 seconds.
@@ -60,21 +62,21 @@ ota:
   password: 'ota_password'
   
 status_led:
-  pin: 
+  pin:
     number: GPIO1
     inverted: True
   
 sensor:
   - platform: uptime
     name: ${name} Uptime
-    
+
   - platform: wifi_signal
     name: ${name} Signal
     update_interval: 300s
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO3
       inverted: True
     name: ${name} button
@@ -86,7 +88,7 @@ switch:
     id: relay_a
     restore_mode: always off
     icon: mdi:power-socket-au
-          
+
   - platform: gpio
     pin: GPIO04
     name: "${name} - B"
@@ -100,7 +102,7 @@ switch:
     id: relay_c
     restore_mode: always off
     icon: mdi:power-socket-au
-          
+
   - platform: gpio
     pin: GPIO12
     name: "${name} - D"
@@ -114,12 +116,13 @@ switch:
 To use one of these sample on-device automations, replace the whole `binary_sensor:` section from the basic configuration (above) with one from below.  Note that if you want to also expose the button to Home Assistant, you can remove the `internal: True` line.
 
 ### Toggle all sockets
+
 If any socket is turned on, pressing the button will turn all sockets off.  Otherwise, pressing the button will turn all sockets on.
 
 ```yaml
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO3
       inverted: True
     name: ${name} button
@@ -144,12 +147,13 @@ binary_sensor:
 ```
 
 ### Toggle sockets with single or double click
+
 A single click toggles the first socket; a double-click toggles the second socket.
 
 ```yaml
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO3
       inverted: True
     name: ${name} button
@@ -174,7 +178,9 @@ binary_sensor:
 ```
 
 ### Advanced (cycle + toggle all)
+
 An alternate switching behavour, where:
+
 - A short press turns on the next socket that is off (from 1 to 4)
 - Once all are on, a short press will turn all sockets off
 - A double press will turn the next socket off (from 1 to 4)
@@ -196,19 +202,19 @@ binary_sensor:
       then:
         lambda: |-
           if (! id(relay_a).state  ) {
-            id(relay_a).turn_on();                                                                                                                                                                                                         
-          } else if ( ! id(relay_b).state ) {                                                                                                                                                                                              
-            id(relay_b).turn_on();                                                                                                                                                                                                         
-          } else if ( ! id(relay_c).state ) {                                                                                                                                                                                              
-            id(relay_c).turn_on();                                                                                                                                                                                                         
-          } else if ( ! id(relay_d).state ) {                                                                                                                                                                                              
-            id(relay_d).turn_on();                                                                                                                                                                                                         
-          } else {                                                                                                                                                                                                                        
-            id(relay_a).turn_off();                                                                                                                                                                                                        
-            id(relay_b).turn_off();                                                                                                                                                                                                        
-            id(relay_c).turn_off();                                                                                                                                                                                                        
-            id(relay_d).turn_off();                                                                                                                                                                                                        
-          }                                                                                                                                                                                                                               
+            id(relay_a).turn_on();
+          } else if ( ! id(relay_b).state ) {
+            id(relay_b).turn_on();
+          } else if ( ! id(relay_c).state ) {
+            id(relay_c).turn_on();
+          } else if ( ! id(relay_d).state ) {
+            id(relay_d).turn_on();
+          } else {
+            id(relay_a).turn_off();
+            id(relay_b).turn_off();
+            id(relay_c).turn_off();
+            id(relay_d).turn_off();
+          }
     - timing:
         - ON for at most 0.5s
         - OFF for at most 0.5s
@@ -217,36 +223,36 @@ binary_sensor:
       then:
         lambda: |-
           if ( id(relay_a).state  ) {
-            id(relay_a).turn_off();                                                                                                                                                                                                        
-          } else if (  id(relay_b).state ) {                                                                                                                                                                                               
-            id(relay_b).turn_off();                                                                                                                                                                                                        
-          } else if (  id(relay_c).state ) {                                                                                                                                                                                               
-            id(relay_c).turn_off();                                                                                                                                                                                                        
-          } else if (  id(relay_d).state ) {                                                                                                                                                                                               
-            id(relay_d).turn_off();                                                                                                                                                                                                        
-          } else {                                                                                                                                                                                                                        
-            id(relay_a).turn_on();                                                                                                                                                                                                         
-            id(relay_b).turn_on();                                                                                                                                                                                                         
-            id(relay_c).turn_on();                                                                                                                                                                                                         
-            id(relay_d).turn_on();                                                                                                                                                                                                         
-          }                                                                                                                                                                                                                               
+            id(relay_a).turn_off();
+          } else if (  id(relay_b).state ) {
+            id(relay_b).turn_off();
+          } else if (  id(relay_c).state ) {
+            id(relay_c).turn_off();
+          } else if (  id(relay_d).state ) {
+            id(relay_d).turn_off();
+          } else {
+            id(relay_a).turn_on();
+            id(relay_b).turn_on();
+            id(relay_c).turn_on();
+            id(relay_d).turn_on();
+          }
     - timing:
         - ON for at least 0.5s
         - OFF for at least 0.2s
       then:
         lambda: |-
-          if (id(relay_a).state || 
-          id(relay_b).state ||                                                                                                                                                                                                             
-          id(relay_c).state ||                                                                                                                                                                                                             
-          id(relay_d).state ) {                                                                                                                                                                                                            
-            id(relay_a).turn_off();                                                                                                                                                                                                        
-            id(relay_b).turn_off();                                                                                                                                                                                                        
-            id(relay_c).turn_off();                                                                                                                                                                                                        
-            id(relay_d).turn_off();                                                                                                                                                                                                        
-          } else {                                                                                                                                                                                                                        
-            id(relay_a).turn_on();                                                                                                                                                                                                         
-            id(relay_b).turn_on();                                                                                                                                                                                                         
-            id(relay_c).turn_on();                                                                                                                                                                                                         
-            id(relay_d).turn_on();                                                                                                                                                                                                         
+          if (id(relay_a).state ||
+          id(relay_b).state ||
+          id(relay_c).state ||
+          id(relay_d).state ) {
+            id(relay_a).turn_off();
+            id(relay_b).turn_off();
+            id(relay_c).turn_off();
+            id(relay_d).turn_off();
+          } else {
+            id(relay_a).turn_on();
+            id(relay_b).turn_on();
+            id(relay_c).turn_on();
+            id(relay_d).turn_on();
           }  
 ```

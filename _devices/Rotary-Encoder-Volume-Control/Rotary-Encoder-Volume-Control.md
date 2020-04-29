@@ -24,6 +24,7 @@ You can also use this to control, for example, smart bulbs.
 | D5      | Rotary Encoder pin_a               |
 
 ## Basic Configuration for esp8266 (I used a wemos)
+
 ```yaml
 esphome:
   name: wemos
@@ -53,23 +54,25 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: true
     name: "Volume Switch Button"
-    
-sensor:   
+
+sensor:
   - platform: rotary_encoder
     name: "Rotary Encoder"
-    pin_b: 
+    pin_b:
      number: D6
      mode: INPUT
-    pin_a: 
+    pin_a:
      number: D5
      mode: INPUT
     max_value: 100
     min_value: 0
     resolution: 4
 ```
-    
+
 ## Home Assistant automations.yaml
+
 {% raw %}
+
 ```yaml
 - id: Adjust Volume on Rotary Encoder Move
   alias: Rotary Volume Change
@@ -82,9 +85,5 @@ sensor:
     data_template:
       volume_level: '{{ states.sensor.rotary_encoder.state | float / 100 }}'
 ```
+
 {% endraw %}
-    
-
-  
-
-  

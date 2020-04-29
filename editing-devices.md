@@ -1,8 +1,6 @@
 ---
 layout: default
-title: Editing Devices
+title: "Contributing: Editing Devices"
 permalink: /editing-devices/
 ---
-
-# Contributing: Editing Devices
 

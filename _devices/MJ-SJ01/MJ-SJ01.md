@@ -22,8 +22,8 @@ standard: us
 | GPIO15  | main button (input_pullup)            |
 | GPIO16  | led1 + relay (inverted)               |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 ---
@@ -63,7 +63,7 @@ wifi:
     ssid: ${friendly_name}_AP
     password: !secret wifipass
     channel: 1
-    manual_ip: 
+    manual_ip:
       static_ip: 192.168.1.1
       gateway: 192.168.1.1
       subnet: 255.255.255.0
@@ -126,14 +126,14 @@ light:
     # https://esphome.io/components/light/monochromatic.html
     name: ${friendly_name}
     output: pwm
-    default_transition_length: ${no_delay} 
+    default_transition_length: ${no_delay}
     id: dimmer
 
 
 power_supply:
   - id: relay
     # https://esphome.io/components/power_supply.html
-    pin: 
+    pin:
       number: GPIO16
       inverted: True
     enable_time: ${no_delay}
@@ -143,7 +143,7 @@ power_supply:
 binary_sensor:
   - platform: gpio
     # https://esphome.io/components/binary_sensor/gpio.html
-    pin: 
+    pin:
       number: GPIO0
       inverted: True
       mode: INPUT_PULLUP
@@ -171,7 +171,7 @@ binary_sensor:
 
   - platform: gpio
     # https://esphome.io/components/binary_sensor/gpio.html
-    pin: 
+    pin:
       number: GPIO1
       inverted: True
       mode: INPUT_PULLUP
@@ -198,7 +198,7 @@ binary_sensor:
 
   - platform: gpio
     # https://esphome.io/components/binary_sensor/gpio.html
-    pin: 
+    pin:
       number: GPIO15
       mode: INPUT_PULLUP
     name: ${friendly_name} Main Button

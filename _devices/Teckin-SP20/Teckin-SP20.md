@@ -21,7 +21,8 @@ standard: us
 | GPIO4   | Relay                              |
 
 ## Basic Configuration
-```
+
+```yaml
 # Basic Config
 
 substitutions:
@@ -47,7 +48,7 @@ wifi:
   ap:
     ssid: ${friendly_name}_AP
     password: !secret wifipass
-    
+
 web_server:
   port: 80
   
@@ -70,7 +71,7 @@ time:
 
 sensor:
   - platform: hlw8012
-    sel_pin: 
+    sel_pin:
       number: GPIO12
       inverted: True
     cf_pin: GPIO5
@@ -96,10 +97,10 @@ sensor:
     filters:
       - multiply: 0.001   # convert Wh to kWh
     unit_of_measurement: kWh
-    
+
   - platform: uptime
     name: ${friendly_name} Uptime
-    
+
   - platform: wifi_signal
     name: ${friendly_name} Wifi Signal
     update_interval: 60s
@@ -143,7 +144,7 @@ binary_sensor:
     on_press:
       - switch.toggle: relay_template
     internal: True
-      
+
 
 switch:
   - platform: gpio

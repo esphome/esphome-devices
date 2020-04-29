@@ -18,6 +18,7 @@ standard: us
 | GPIO15  | Relay                              |
 
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 ---
@@ -75,7 +76,7 @@ light:
 sensor:
   - platform: uptime
     name: SP10 Uptime
-    
+
   - platform: wifi_signal
     name: SP10 Wifi Signal
     update_interval: 60s
@@ -86,7 +87,7 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: SP10 IP
-    
+
 binary_sensor:
   - platform: gpio
     # https://esphome.io/components/binary_sensor/gpio.html
@@ -97,14 +98,14 @@ binary_sensor:
     on_press:
       - switch.toggle: relay_template
     internal: True
-    
+
 switch:
   - platform: gpio
     # https://esphome.io/components/switch/gpio
     pin: GPIO15
     id: relay
 
-  # tie the led & relay operation together and report status based on relay state   
+  # tie the led & relay operation together and report status based on relay state
   - platform: template
     # https://esphome.io/components/switch/template.html
     name: SP10

@@ -17,6 +17,7 @@ RGBW smart light bulb, A19 shape, E27 base, RGB colors + cold white, 100-240V AC
 | GPIO15  | my9231 clock pin                   |
 
 ## Basic Configuration
+
 ```yaml
 #https://www.zemismart.com/zemismart-e27-6w-wifi-rgbw-led-bulb-light-compatible-with-echo-alexa-google-home-remote-control-by-ios-amp-android-app-with-feedback-white-color-p0040-p0040.html
 substitutions:

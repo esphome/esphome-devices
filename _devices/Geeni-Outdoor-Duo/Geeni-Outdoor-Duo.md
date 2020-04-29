@@ -18,8 +18,8 @@ standard: us
 | GPIO14  | Left (when facing device) plug     |
 | GPIO16  | Right (when facing device) plug    |
 
-
 ## Basic Configuration
+
 ```yaml
 # Basic Config
 esphome:

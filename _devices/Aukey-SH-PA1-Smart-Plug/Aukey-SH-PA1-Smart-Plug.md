@@ -55,7 +55,7 @@ output:
   - platform: gpio
     pin: GPIO15
     id: plug_outlet
-    
+
   - platform: gpio
     pin:
       number: GPIO2
@@ -70,12 +70,12 @@ light:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO13
     id: mini_tree_button
     on_press:
       light.toggle: mini_tree
-      
+
   - platform: gpio
     pin: GPIO15
     id: blue_led_follows_the_relay

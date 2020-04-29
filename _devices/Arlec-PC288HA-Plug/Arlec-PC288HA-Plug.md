@@ -45,14 +45,14 @@ ota:
 sensor:
   - platform: uptime
     name: ${name} Uptime
-    
+
   - platform: wifi_signal
     name: ${name} Signal
     update_interval: 300s
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO1
       inverted: True
     name: ${name} button
@@ -81,14 +81,14 @@ switch:
     restore_mode: always off
     icon: mdi:power-socket-au
     on_turn_on:
-      - light.dim_relative: 
+      - light.dim_relative:
           id: led
           relative_brightness: 50%
     on_turn_off:
-      - light.dim_relative: 
+      - light.dim_relative:
           id: led
           relative_brightness: -50%
-          
+
   - platform: gpio
     pin: GPIO03
     name: "${name} - B"
@@ -96,11 +96,11 @@ switch:
     restore_mode: always off
     icon: mdi:power-socket-au
     on_turn_on:
-      - light.dim_relative: 
+      - light.dim_relative:
           id: led
           relative_brightness: 50%
     on_turn_off:
-      - light.dim_relative: 
+      - light.dim_relative:
           id: led
           relative_brightness: -50%
 
@@ -116,7 +116,7 @@ light:
 output:
   - platform: esp8266_pwm
     id: gpio13
-    pin: 
+    pin:
       number: GPIO13
       inverted: True
 ```
