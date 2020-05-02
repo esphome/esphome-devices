@@ -26,4 +26,4 @@ jobs:
       - name: yamllint-cli
         uses: "docker://pipelinecomponents/yamllint:latest"
         with:
-          args: yamllint -c .yamllint.yaml .
+          args: yamllint -c .yamllintrc .
