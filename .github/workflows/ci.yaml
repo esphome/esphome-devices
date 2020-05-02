@@ -10,10 +10,20 @@ jobs:
     name: Markdown Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
       - name: markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v1.1.1
         with:
           config_file: ".markdownlint.yaml"
           files: .
+  yaml_lint:
+    name: YAML Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: yamllint-cli
+        uses: "docker://pipelinecomponents/yamllint:latest"
+        with:
+          args: yamllint -c .yamllint.yaml .
