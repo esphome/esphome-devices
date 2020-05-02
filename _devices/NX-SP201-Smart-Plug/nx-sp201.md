@@ -89,7 +89,7 @@ sensor:
     #current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
     change_mode_every: 3
-    update_interval: 3s 
+    update_interval: 3s
     current:
       name: "nx-sp201_Amperage"
       unit_of_measurement: A
@@ -97,7 +97,7 @@ sensor:
       filters:
       - calibrate_linear:
           - 0.000 -> 0.0
-          - 5.069 -> 6.69   
+          - 5.069 -> 6.69
       # Make everything below 0.01A appear as just 0A.
       # Furthermore it corrects 0.013A for the power usage of the plug.
       - lambda: if (x < (0.01 - 0.013)) return 0; else return (x - 0.013);
