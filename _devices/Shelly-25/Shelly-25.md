@@ -1,6 +1,6 @@
 ---
 title: Shelly 2.5
-date-published: 2019-05-07
+date-published: 2020-05-08
 type: relay
 standard: uk, us, eu
 ---
