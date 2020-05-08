@@ -1,5 +1,6 @@
 ---
 title: Kogan Smart Plug with Energy Monitoring
+Model: KASPEMHA
 date-published: 2019-10-18
 type: plug
 standard: au
