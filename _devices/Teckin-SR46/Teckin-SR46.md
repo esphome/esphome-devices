@@ -9,6 +9,7 @@ standard: us
 {:toc}
 
 ## General Notes
+
 This plugs use tuya so you can [use tuya-convert to flash ESPHome](/guides/tuya-convert/).
 The UART ports is connected to GPIO1 and GPIO3.
 The on/off switch is on datapoint 20 and the dimmer is on datapoint 22.
