@@ -6,16 +6,16 @@ standard: us
 ---
 
 1. TOC
-{:toc}
+   {:toc}
 
 ## GPIO Pinout
 
-| Pin     | Function                           |
-|---------|------------------------------------|
-| GPIO04  | Push Button inverted               |
-| GPIO12  | Red LED                            |
-| GPIO13  | Blue LED                           |
-| GPIO14  | Relay 1                            |
+| Pin    | Function             |
+| ------ | -------------------- |
+| GPIO04 | Push Button inverted |
+| GPIO12 | Red LED              |
+| GPIO13 | Blue LED             |
+| GPIO14 | Relay 1              |
 
 ## Basic Configuration
 
@@ -29,7 +29,6 @@ esphome:
   name: "${device_name}"
   platform: ESP8266
   board: esp01_1m
-
 
 wifi:
   ssid: !secret wifi_ssid
@@ -48,7 +47,7 @@ api:
 
 ota:
   password: !secret gosund_1_ota
-  
+
 binary_sensor:
   - platform: gpio
     pin:
@@ -72,18 +71,18 @@ switch:
       - output.turn_on: led
     on_turn_off:
       - output.turn_off: led
-      
+
 status_led:
   pin:
     number: GPIO12
     inverted: yes
-    
+
 output:
   - platform: gpio
     pin: GPIO13
     inverted: true
     id: led
-    
+
 sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi signal"
@@ -98,3 +97,4 @@ text_sensor:
   - platform: version
     name: "${friendly_name} ESPHome Version"
     id: "${device_name}_esphome_version"
+```
