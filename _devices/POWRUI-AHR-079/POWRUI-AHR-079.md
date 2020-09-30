@@ -24,6 +24,7 @@ standard: us
 Pinout from [Powrui AHR-079 Power Strip Template for Tasmota](https://templates.blakadder.com/powrui_AHR-079.html)
 
 ## Basic Configuration
+
 ```yaml
 substitutions:
   devicename: ahr_079
