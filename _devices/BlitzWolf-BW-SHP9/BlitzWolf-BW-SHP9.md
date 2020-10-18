@@ -13,6 +13,23 @@ The powerstrip has four controllable relays, one for each socket, and one for th
 
 Manufacturer: [BlitzWolf](https://www.blitzwolf.com/BlitzWolf-BW-SHP9-15A-3300W-Smart-Power-Strip---3-Outlets-EU-with-Dual-USB-2.4A-Output,-Remote-Control,-Timing-Function,-Voice-Control,-Safety-Protection-and-Indicator-Light-p-417.html)
 
+## How to flash
+
+1.    Open
+
+There are 6 triangle screws to open the box 
+  ![Product outside](./BlitzWolf-BW-SHP9-Power-strip-outside.jpg "Product outside")
+  
+2.    Unmount circuit from the box
+
+6 more screws (classic ones)
+  ![Product Inside](./BlitzWolf-BW-SHP9-Power-strip-inside.jpg "Product Inside")
+
+3.    Pins
+
+Pins are at the corner, near usb ports. **Vcc is not 3V**, it needs to be >4V. 
+![Product Inside Pins](./BlitzWolf-BW-SHP9-Power-strip-connector.jpg "Product Inside")
+
 ## GPIO Pinout
 
 | Pin    | Function                   |
@@ -24,7 +41,7 @@ Manufacturer: [BlitzWolf](https://www.blitzwolf.com/BlitzWolf-BW-SHP9-15A-3300W-
 | GPIO15 | Relay4  (usb power)        |
 | GPIO00 | Blue LED                   |
 
-## Basuc Config
+## Basic Config
 
 The configuration has some default sensors for wifi reporting etc.
 There are LED's showing the state of each socked, but they are not settable through GPIO's, they just reflect the state of the socket directly.
