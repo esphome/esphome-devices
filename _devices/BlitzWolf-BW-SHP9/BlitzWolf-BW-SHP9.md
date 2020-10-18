@@ -15,19 +15,19 @@ Manufacturer: [BlitzWolf](https://www.blitzwolf.com/BlitzWolf-BW-SHP9-15A-3300W-
 
 ## How to flash
 
-1.    Open
+1. Open
 
-There are 6 triangle screws to open the box 
+There are 6 triangle screws to open the box.
   ![Product outside](./BlitzWolf-BW-SHP9-Power-strip-outside.jpg "Product outside")
   
-2.    Unmount circuit from the box
+2. Unmount circuit from the box
 
 6 more screws (classic ones)
   ![Product Inside](./BlitzWolf-BW-SHP9-Power-strip-inside.jpg "Product Inside")
 
-3.    Pins
+3. Pins
 
-Pins are at the corner, near usb ports. **Vcc is not 3V**, it needs to be >4V. 
+Pins are at the corner, near usb ports. **Vcc is not 3V**, it needs to be >4V.
 ![Product Inside Pins](./BlitzWolf-BW-SHP9-Power-strip-connector.jpg "Product Inside")
 
 ## GPIO Pinout
