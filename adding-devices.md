@@ -9,7 +9,7 @@ permalink: /adding-devices/
 2. You will need to create a fork of the repository and create a new branch for your changes.
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <a class="github-button" href="https://github.com/esphome-devices/esphome-devices/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork jonathanadams/esphome-configs on GitHub">Fork</a>
+    <a class="github-button" href="https://github.com/esphome-devices/esphome-devices/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork esphome-devices/esphome-devices on GitHub">Fork</a>
 
 3. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
 
