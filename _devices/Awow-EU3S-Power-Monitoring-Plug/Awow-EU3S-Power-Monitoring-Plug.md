@@ -8,7 +8,7 @@ standard: eu
   ![alt text](/Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S
-Equivalent devices: [Loetad EU3S 16A Power Monitoring Plug](https://esphome-configs.io/devices/loetad-eu3s-power-monitoring-plug/)
+Equivalent devices: [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
 
 Manufacturer: [Awow](https://www.awow-tech.com/)
 
@@ -42,7 +42,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
+
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: ${friendly_name}
