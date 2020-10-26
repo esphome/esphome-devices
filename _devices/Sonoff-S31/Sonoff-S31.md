@@ -40,7 +40,7 @@ ota:
 uart:
   rx_pin: RX
   baud_rate: 4800
-  
+
 binary_sensor:
   - platform: gpio
     pin:
@@ -60,13 +60,13 @@ sensor:
   - platform: cse7766
     current:
       name: "Sonoff S31 Current"
-      accuracy_decimals: 1      
+      accuracy_decimals: 1
     voltage:
       name: "Sonoff S31 Voltage"
-      accuracy_decimals: 1      
+      accuracy_decimals: 1
     power:
       name: "Sonoff S31 Power"
-      accuracy_decimals: 1      
+      accuracy_decimals: 1
 switch:
   - platform: gpio
     name: "Sonoff S31 Relay"
