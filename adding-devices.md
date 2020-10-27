@@ -4,14 +4,12 @@ title: "Contributing: Adding Devices"
 permalink: /adding-devices/
 ---
 
-1. To add a new device create a new markdown (`.md`) file named after your device under the `_devices` directory in the [GitHub Repository](https://github.com/esphome-devices/esphome-devices). Please avoid using underscores in the filenames and use hypens instead as this makes for easier to understand the URLs generated when the site is built.
-
-2. You will need to create a fork of the repository and create a new branch for your changes.
+1. To add a new device create a new markdown (`.md`) file named after your device under the `_devices` directory in the [GitHub Repository](https://github.com/esphome-devices/esphome-devices). Please avoid using underscores in the filenames and use hypens instead as this makes for easier to understand the URLs generated when the site is built. When using the _Add file_ -> _Create new file_ button in the `_devices` folder or by following [this link](https://github.com/esphome-devices/esphome-devices/new/main/_devices), Github will automatically create a fork of the repository and a new branch for your changes. 
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <a class="github-button" href="https://github.com/esphome-devices/esphome-devices/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork esphome-devices/esphome-devices on GitHub">Fork</a>
 
-3. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
+2. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
 
 ## YAML Front Matter
 
@@ -38,7 +36,7 @@ standard: uk, us
 To add images to your files do the following:
 
 1. Create a folder with the same name as your device `.md` file in `/assets/images` and add your images to this folder.
-2. Add the images to your fold using the appropriate markdown syntax:
+2. Add the images to your folder using the appropriate markdown syntax:
 
   ```md
   ![alt text](/assets/images/your-folder-name/your-image.jpg "Image Hover Text")
