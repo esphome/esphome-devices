@@ -28,6 +28,7 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 | A0      | Button                             |
 
 ## Basic Configuration
+
 ```yaml
 esphome:
   platform: ESP8266
