@@ -120,7 +120,7 @@ switch:
 
 Use *one* of the following three configurations to adjust the led to your needs.
 
-### Status LED (see <https://esphome.io/components/status_led.html)>
+### Status LED (see <https://esphome.io/components/status_led.html>)
 
 ```yaml
 status_led:
