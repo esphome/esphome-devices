@@ -39,21 +39,21 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-# Reduce log level as otherwise logs would be flooded with analog sensor readings 
+# Reduce log level as otherwise logs would be flooded with analog sensor readings
 logger:
   logs:
     sensor: INFO
     adc: INFO
 
 status_led:
-  pin: 
+  pin:
     number: GPIO02
     inverted: true
 
 output:
 - platform: gpio
   id: led1
-  pin: 
+  pin:
     number: GPIO00
     inverted: true
 
@@ -69,7 +69,7 @@ switch:
 - platform: gpio
   name: "Replay USB"
   id: switchusb
-  pin: 
+  pin:
     number: GPIO13
     inverted:  true
 
