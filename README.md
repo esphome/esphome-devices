@@ -12,4 +12,4 @@ When contributing to this project please abide by our [Code of Conduct](CODE-OF-
 
 ### This is a fork, join our effort
 
-This is a fork of https://github.com/esphome-devices/esphome-devices.  The goal is to involve more members of the ESPHome community to more actively update the devices!  Please contact us or submit an issue if you are interested!
+This is a fork of https://github.com/jonathanadams/esphome-configs.  The goal is to involve more members of the ESPHome community to more actively update the devices!  Please contact us or submit an issue if you are interested!
