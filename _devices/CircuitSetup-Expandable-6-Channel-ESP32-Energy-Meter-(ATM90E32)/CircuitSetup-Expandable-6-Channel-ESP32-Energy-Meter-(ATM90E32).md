@@ -594,10 +594,10 @@ sensor:
       gain_ct: ${current_cal}
     phase_b:
       current:
-        name: ${disp_name} CT5 Amps 
+        name: ${disp_name} CT5 Amps
         id: ct5Amps
       power:
-        name: ${disp_name} CT5 Watts 
+        name: ${disp_name} CT5 Watts
         id: ct5Watts
       gain_voltage: ${voltage_cal}
       gain_ct: ${current_cal}
