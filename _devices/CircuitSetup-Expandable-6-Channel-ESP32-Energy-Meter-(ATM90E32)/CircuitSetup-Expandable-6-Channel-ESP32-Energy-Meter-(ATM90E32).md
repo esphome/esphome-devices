@@ -46,8 +46,8 @@ substitutions:
 #  120A/40mA: SCT-016: 41787
 #  200A/100mA SCT-024: 27518
   current_cal: '27518'
-# Jameco 9VAC Transformer: 
-#  For meter versions: 
+# Jameco 9VAC Transformer:
+#  For meter versions:
 #  >= v1.3: 7305
   voltage_cal: '7305'
 
@@ -101,7 +101,7 @@ sensor:
       current:
         name: ${disp_name} CT1 Amps
         id: ct1Amps
-# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A, 
+# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A,
 # divide the gain_ct by 2 (120A CT) or 4 (200A CT) and multiply the current and power values by 2 or 4 by uncommenting the filter below
 #        filters:
 #          - multiply: 2
@@ -175,8 +175,8 @@ sensor:
     line_frequency: 60Hz
     gain_pga: 1X
     update_interval: ${update_time}
-        
-#Total Amps   
+
+#Total Amps
   - platform: template
     name: ${disp_name} Total Amps
     id: totalAmps
@@ -184,7 +184,7 @@ sensor:
     accuracy_decimals: 2
     unit_of_measurement: A
     icon: "mdi:flash"
-    update_interval: ${update_time}         
+    update_interval: ${update_time}
 #Total Watts
   - platform: template
     name: ${disp_name} Total Watts
@@ -201,19 +201,21 @@ sensor:
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
-    
+
 switch:
   - platform: restart
     name: ${disp_name} Restart  
 time:
   - platform: sntp
-    id: sntp_time      
+    id: sntp_time
 ```
 
 ## Main Board + 1 Add-on Board Configuration
+
 ```yaml
+
 substitutions:
-# Change the disp_name to something you want  
+# Change the disp_name to something you want
   disp_name: 6C
 # Interval of how often the power is updated
   update_time: 10s
@@ -226,8 +228,8 @@ substitutions:
 #  120A/40mA: SCT-016: 41787
 #  200A/100mA SCT-024: 27518
   current_cal: '27518'
-# Jameco 9VAC Transformer: 
-#  For meter versions: 
+# Jameco 9VAC Transformer:
+#  For meter versions:
 #  >= v1.3: 7305
 #  <= v1.2: 42620
   voltage_cal: '7305'
@@ -245,7 +247,7 @@ wifi:
     gateway: !secret ip_gateway
     subnet: !secret ip_subnet
     dns1: !secret ip_dns1
-    
+
 # mqtt:
 #  broker: !secret mqtt_broker
 #  username: !secret mqtt_user
@@ -282,7 +284,7 @@ sensor:
       current:
         name: ${disp_name} CT1 Amps
         id: ct1Amps
-# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A, 
+# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A,
 # divide the gain_ct by 2 (120A CT) or 4 (200A CT) and multiply the current and power values by 2 or 4 by uncommenting the filter below
 #        filters:
 #          - multiply: 2
@@ -354,7 +356,7 @@ sensor:
     cs_pin: 0
     phase_a:
       current:
-        name: ${disp_name} CT7 Amps 
+        name: ${disp_name} CT7 Amps
         id: ct7Amps
       power:
         name: ${disp_name} CT7 Watts
@@ -415,7 +417,7 @@ sensor:
     line_frequency: 60Hz
     gain_pga: 1X
     update_interval: ${update_time}
-    
+
 #Total Amps Main
   - platform: template
     name: ${disp_name} Total Amps Main
@@ -433,7 +435,7 @@ sensor:
     accuracy_decimals: 2
     unit_of_measurement: A
     icon: "mdi:flash"
-    update_interval: ${update_time}      
+    update_interval: ${update_time}
 #Total Amps
   - platform: template
     name: ${disp_name} Total Amps
@@ -443,7 +445,7 @@ sensor:
     unit_of_measurement: A
     icon: "mdi:flash"
     update_interval: ${update_time}
-    
+
 #Total Watts Main
   - platform: template
     name: ${disp_name} Total Watts Main
@@ -471,7 +473,7 @@ sensor:
     unit_of_measurement: W
     icon: "mdi:flash-circle"
     update_interval: ${update_time}
-    
+
 #kWh
   - platform: total_daily_energy
     name: ${disp_name} Total kWh
@@ -479,23 +481,26 @@ sensor:
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
-    
+
 switch:
   - platform: restart
-    name: ${disp_name} Restart  
+    name: ${disp_name} Restart
 time:
   - platform: sntp
-    id: sntp_time   
+    id: sntp_time
+
 ```
 
 ## Main Board + 5 Add-on Boards Configuration
+
 ```yaml
+
 # 5 add-on boards - 36 current channels
-# ESPHome has a limit on the amount of sensors that it can handle before running out of memory. 
+# ESPHome has a limit on the amount of sensors that it can handle before running out of memory.
 # Because of this, only the power sensor for each current channel is output
 
 substitutions:
-# Change the disp_name to something you want  
+# Change the disp_name to something you want
   disp_name: Energy_Meter
 # Interval of how often the power is updated
   update_time: 10s
@@ -508,8 +513,8 @@ substitutions:
 #  120A/40mA: SCT-016: 41787
 #  200A/100mA SCT-024: 27518
   current_cal: '11143'
-# Jameco 9VAC Transformer: 
-#  For meter versions: 
+# Jameco 9VAC Transformer:
+#  For meter versions:
 #  >= v1.3: 7305
 #  <= v1.2: 42620
   voltage_cal: '7305'
@@ -548,16 +553,16 @@ sensor:
         name: ${disp_name} CT1 Amps
         id: ct1Amps
       power:
-        name: ${disp_name} CT1 Watts 
+        name: ${disp_name} CT1 Watts
         id: ct1Watts
       gain_voltage: ${voltage_cal}
       gain_ct: ${current_cal}
     phase_b:
       current:
-        name: ${disp_name} CT2 Amps 
+        name: ${disp_name} CT2 Amps
         id: ct2Amps
       power:
-        name: ${disp_name} CT2 Watts 
+        name: ${disp_name} CT2 Watts
         id: ct2Watts
       gain_voltage: ${voltage_cal}
       gain_ct: ${current_cal}
@@ -580,10 +585,10 @@ sensor:
     cs_pin: 4
     phase_a:
       current:
-        name: ${disp_name} CT4 Amps 
+        name: ${disp_name} CT4 Amps
         id: ct4Amps
       power:
-        name: ${disp_name} CT4 Watts 
+        name: ${disp_name} CT4 Watts
         id: ct4Watts
       gain_voltage: ${voltage_cal}
       gain_ct: ${current_cal}
@@ -598,10 +603,10 @@ sensor:
       gain_ct: ${current_cal}
     phase_c:
       current:
-        name: ${disp_name} CT6 Amps 
+        name: ${disp_name} CT6 Amps
         id: ct6Amps
       power:
-        name: ${disp_name} CT6 Watts 
+        name: ${disp_name} CT6 Watts
         id: ct6Watts
       gain_voltage: ${voltage_cal}
       gain_ct: ${current_cal}
