@@ -42,7 +42,7 @@ wifi:
   password: !secret wifi_password
 
 status_led:
-  pin: 
+  pin:
     number: GPIO5
 
 output:
