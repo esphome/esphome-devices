@@ -38,7 +38,7 @@ esphome:
   name: energy_meter
   platform: ESP32
   board: nodemcu-32s
-   
+
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_pass
@@ -83,7 +83,7 @@ sensor:
       current:
         name: ${disp_name} CT1 Amps
         id: "ct1Amps"
-# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A, 
+# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A,
 # divide the gain_ct by 2 (120A CT) or 4 (200A CT) and multiply the current and power values by 2 or 4 by uncommenting the filter below
 #        filters:
 #          - multiply: 2
@@ -105,7 +105,7 @@ sensor:
       current:
         name: ${disp_name} CT2 Amps
         id: "ct2Amps"
-# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A, 
+# The max value for current that the meter can output is 65.535. If you expect to measure current over 65A,
 # divide the gain_ct by 2 (120A CT) or 4 (200A CT) and multiply the current and power values by 2 or 4 by uncommenting the filter below
 #        filters:
 #          - multiply: 2
@@ -161,13 +161,13 @@ sensor:
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
-    
+
 time:
   - platform: sntp
-    id: sntp_time    
-    
+    id: sntp_time
+
 switch:
   - platform: restart
-    name: ${disp_name} Restart     
+    name: ${disp_name} Restart
 
 ```
