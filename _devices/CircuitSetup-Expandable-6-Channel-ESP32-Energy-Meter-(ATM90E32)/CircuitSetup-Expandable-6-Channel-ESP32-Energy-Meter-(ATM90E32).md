@@ -1,5 +1,5 @@
 ---
-title: CircuitSetup Split Single Phase Energy Meter (ATM90E32) with ESP32
+title: CircuitSetup Expandable-6 Channel ESP32 Energy Meter (ATM90E32)
 date-published: 2020-10-28
 type: misc
 standard: global
