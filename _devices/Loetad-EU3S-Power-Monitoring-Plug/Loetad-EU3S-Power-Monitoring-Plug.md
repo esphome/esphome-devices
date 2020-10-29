@@ -1,16 +1,16 @@
 ---
-title: AWOW EU3S Power Monitoring Plug
-date-published: 2020-07-13
+title: Loetad EU3S Power Monitoring Plug
+date-published: 2020-08-03
 type: plug
 standard: eu
 ---
-  ![alt text](/Awow-EU3S-Power-Monitoring-Plug.jpg "Product Image")
-  ![alt text](/Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
+  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
+  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S
-Equivalent devices: [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
+Equivalent devices: [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
 
-Manufacturer: [Awow](https://www.awow-tech.com/)
+Manufacturer: Loetad
 
 ## GPIO Pinout
 
@@ -27,9 +27,9 @@ Manufacturer: [Awow](https://www.awow-tech.com/)
 
 ```yaml
 substitutions:
-  devicename: awow_eu3s_plug_1
-  friendly_name: Awow EU3S Plug 1
-  device_description: Awow EU3S Power Monitoring Plug with button and Blue led.
+  devicename: loetad_eu3s_plug_1
+  friendly_name: Loetad EU3S Plug 1
+  device_description: Loetad EU3S Power Monitoring Plug with button and Blue led.
   current_res: "0.00221" # Random value. Requires power monitoring calibration
   voltage_div: "955" # Random value. Requires power monitoring calibration
 

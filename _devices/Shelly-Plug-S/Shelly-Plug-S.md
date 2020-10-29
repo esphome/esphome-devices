@@ -177,7 +177,7 @@ sensor:
       icon: mdi:flash-outline
     power:
       name: "${channel_1} power"
-      id: vermogen
+      id: power
       unit_of_measurement: "W"
       icon: mdi:flash-outline
       on_value_range:

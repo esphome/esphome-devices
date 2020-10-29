@@ -1,7 +1,7 @@
-title: ESPHome-Configs.io
+title: esphome-devices.com
 description: >- # this means to ignore newlines until "baseurl:"
   A database of configuration files and guides for devices commonly flashed with https://esphome.io firmware.
-url: "https://esphome-configs.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.esphome-devices.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
@@ -33,23 +33,19 @@ collections:
     permalink: /guides/:name/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "_devices"
     values:
       layout: "device"
-  -
-    scope:
+  - scope:
       path: "_device-types"
     values:
       layout: "device-types-index"
-  -
-    scope:
+  - scope:
       path: "_device-standards"
     values:
       layout: "device-standards-index"
-  -
-    scope:
+  - scope:
       path: "_shared-guides"
     values:
       layout: "shared-guides-index"
@@ -65,11 +61,10 @@ search_enabled: true
 # Set the search token separator for hyphenated-word search:
 search_tokenizer_separator: /[\s/]+/
 
-
 # Heading Anchor Links
 heading_anchors: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "ESPHome-Configs.io on GitHub":
-    - "//github.com/jonathanadams/esphome-configs"
+  "esphome-devices.com on GitHub":
+    - "https://github.com/esphome-devices/esphome-devices"

@@ -109,7 +109,7 @@ sensor:
       number: GPIO12
       inverted: true
     cf_pin: GPIO05
-    cf1_pin: GPIO15
+    cf1_pin: GPIO14
     change_mode_every: 8
     update_interval: 10s
     current:
