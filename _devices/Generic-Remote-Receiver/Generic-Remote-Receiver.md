@@ -1,6 +1,6 @@
 ---
 title: Generic Remote Receiver
-date-published: 2020-10-28
+date-published: 2020-10-30
 type: sensor
 standard: global
 ---
