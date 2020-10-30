@@ -1,6 +1,6 @@
 ---
 title: Teckin SR46
-date-published: 2020-08-05
+date-published: 2020-10-29
 type: dimmer
 standard: us
 ---
