@@ -1,12 +1,15 @@
-This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
-for about 5 USD.
-
 ---
 title: Sinilink XY-WMFS
 date-published: 2020-10-31
 type: relay
 standard: global
 ---
+
+## Sinilink XY-WMFS
+
+This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
+for about 5 USD.
+
 
 ## Basic Config
 
