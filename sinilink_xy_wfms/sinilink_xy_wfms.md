@@ -10,13 +10,11 @@ standard: global
 This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
 for about 5 USD.
 
-
 ## Basic Config
 
 The following configuration is adapted from https://github.com/esphome-devices/esphome-devices/blob/main/_devices/Sinilink-XY-WFUSB-USB-Switch-Relay/Sinilink-XY-WFUSB-USB-Switch-Relay.md with only minor changes to fit the new device.
 
 There is a 3D printable case available from https://www.thingiverse.com/thing:4638431 which I remixed from https://www.thingiverse.com/thing:4146127
-
 
 ```yaml
 substitutions:
@@ -69,7 +67,7 @@ switch:
     id: green_led
     inverted: false
     restore_mode: RESTORE_DEFAULT_ON
-    
+
 #  # blue led (if _not_ used for status led)
 #  - platform: gpio
 #    pin: GPIO2
