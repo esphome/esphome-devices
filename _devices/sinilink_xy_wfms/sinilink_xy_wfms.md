@@ -1,13 +1,13 @@
 ---
-title: Sinilink XY-WMFS
+title: Sinilink XY-WFMS
 date-published: 2020-10-31
 type: relay
 standard: global
 ---
 
-## Sinilink XY-WMFS
+## Sinilink XY-WFMS
 
-![alt text](/assets/images/sinilink_xy_wfms/sinilink_xy_wfms.png "XY-WMFS front, back and flashing pinout")
+![alt text](/assets/images/sinilink_xy_wfms/sinilink_xy_wfms.png "XY-WFMS front, back and flashing pinout")
 
 Can be tricky to solder the ground connection to the PCB due to heavy ground plane, I used P50 pogo pins in a printed adapter for 6x1.25mm but the Vin- screw terminal could also be used.
 
@@ -22,8 +22,8 @@ There is a 3D printable case available from https://www.thingiverse.com/thing:46
 
 ```yaml
 substitutions:
-  devicename: xy_wmfs
-  upper_devicename: "Sinilink XY-WMFS ESP8266 Wifi Mosefet"
+  devicename: xy_wfms
+  upper_devicename: "Sinilink XY-WFMS ESP8266 Wifi Mosefet"
 
 esphome:
   name: $devicename
