@@ -7,6 +7,10 @@ standard: global
 
 ## Sinilink XY-WMFS
 
+![alt text](/assets/images/sinilink_xy_wfms/sinilink_xy_wfms.png "XY-WMFS front, back and flashing pinout")
+
+Can be tricky to solder the ground connection to the PCB due to heavy ground plane, I used P50 pogo pins in a printed adapter for 6x1.25mm but the Vin- screw terminal could also be used.
+
 This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
 for about 5 USD.
 
