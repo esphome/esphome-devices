@@ -5,14 +5,23 @@ type: relay
 standard: global
 ---
 
-## Sinilink XY-WFMS
+This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
+for about 5 USD.
+
+## Flashing
 
 ![alt text](/assets/images/sinilink_xy_wfms/sinilink_xy_wfms.png "XY-WFMS front, back and flashing pinout")
 
-Can be tricky to solder the ground connection to the PCB due to heavy ground plane, I used P50 pogo pins in a printed adapter for 6x1.25mm but the Vin- screw terminal could also be used.
+Can be tricky to solder the ground connection to the PCB due to heavy ground plane, I used P50 pogo pins in a printed adapter for 6x1.25mm but the Vin- screw terminal could also be used for conveient ground connection.
 
-This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
-for about 5 USD.
+## GPIO Pinout
+
+| Pin    | Function                    |
+| ------ | --------------------------- |
+| GPIO02 | Blue LED                    |
+| GPIO04 | Relay and Red LED           |
+| GPIO12 | Toggle Button               |
+| GPIO13 | Green LED                   |
 
 ## Basic Config
 
