@@ -10,7 +10,7 @@ for about 5 USD.
 
 ## Flashing
 
-![alt text](/assets/images/sinilink_xy_wfms/sinilink_xy_wfms.png "XY-WFMS front, back and flashing pinout")
+![alt text](/assets/images/Sinilink-XY-VFMS/sinilink-xy-wfms.png "XY-WFMS front, back and flashing pinout")
 
 Can be tricky to solder the ground connection to the PCB due to heavy ground plane, I used P50 pogo pins in a printed adapter for 6x1.25mm but the Vin- screw terminal could also be used for conveient ground connection.
 
