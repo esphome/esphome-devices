@@ -8,6 +8,36 @@ standard: us
 Another Costco Variant:
 
 ```yaml
+substitutions:
+  comment: "...any comment, like the device hostname..."
+  devicename: my_device
+  platform: ESP8266
+  board: esp01_1m
+  bulbname: my_bulb
+  
+esphome:
+  name: $devicename
+  platform: $platform
+  board: $board
+  comment: "${comment}"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+  # Define AP SSID for hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: AP_${devicename}
+
+#enable captive portal for hotspot
+captive_portal:
+
+ota:
+  password: !secret ota_pass
+
+api:
+  password: !secret api_pass
+
 sm16716:
   data_pin: GPIO12
   clock_pin: GPIO14
