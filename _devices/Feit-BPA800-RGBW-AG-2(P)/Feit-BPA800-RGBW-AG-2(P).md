@@ -5,9 +5,42 @@ type: light
 standard: us
 ---
 
-Another Costco Variant:
+Another Costco Variant
+
+Be warned that you will have to disassemble the device to flash the firmware if it is newer than about March 2020.
+Tuya changed their firmware such that tuya-convert no longer works as before.
 
 ```yaml
+substitutions:
+   comment: "...any comment, like the device hostname..."
+   devicename: my_device
+   platform: ESP8266
+   board: esp01_1m
+   bulbname: my_bulb
+
+ esphome:
+   name: $devicename
+   platform: $platform
+   board: $board
+   comment: "${comment}"
+
+ wifi:
+   ssid: !secret wifi_ssid
+   password: !secret wifi_pass
+
+   # Define SSID for hotspot (captive portal) in case wifi connection fails
+   ap:
+     ssid: AP_${devicename}
+
+ #enable captive portal for hotspot
+ captive_portal:
+
+ ota:
+   password: !secret ota_pass
+
+ api:
+   password: !secret api_pass
+
 sm16716:
   data_pin: GPIO12
   clock_pin: GPIO14
