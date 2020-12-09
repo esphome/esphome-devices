@@ -118,6 +118,7 @@ light:
   cold_white_color_temperature: 6500 K
   warm_white_color_temperature: 2700 K
   id: thelight
+  color_interlock: true #Prevent white leds being on at the same time as RGB leds
   restore_mode: ALWAYS_ON #Start with light on after reboot/power-loss event, so that it works from a dumb lightswitch
   effects:
     - random:
@@ -262,6 +263,7 @@ light:
   cold_white_color_temperature: 6500 K
   warm_white_color_temperature: 2700 K
   id: thelight
+  color_interlock: true #Prevent white leds being on at the same time as RGB leds
   restore_mode: ALWAYS_ON #Start with light on after reboot/power-loss event, so that it works from a dumb lightswitch
   effects:
     - random:
