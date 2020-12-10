@@ -1,26 +1,22 @@
 ---
 title: Gosund WP3
-date-published: 2019-10-17
+date-published: 2020-12-09
 type: plug
 standard: us
 ---
-
-1. TOC
-   {:toc}
 
 ## GPIO Pinout
 
 | Pin    | Function             |
 | ------ | -------------------- |
-| GPIO04 | Push Button inverted |
-| GPIO12 | Red LED              |
-| GPIO13 | Blue LED             |
-| GPIO14 | Relay 1              |
+| GPIO13 | Push Button inverted |
+| GPIO0  | Red LED              |
+| GPIO2  | Blue LED             |
+| GPIO15 | Relay 1              |
 
 ## Basic Configuration
 
 ```yaml
----
 substitutions:
   device_name: gosund_wp3
   friendly_name: Gosund WP3
@@ -51,7 +47,7 @@ ota:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO4
+      number: GPIO13
       mode: INPUT_PULLUP
       inverted: True
     name: "${friendly_name} Button"
@@ -66,7 +62,7 @@ switch:
   - platform: gpio
     name: "${friendly_name} Relay"
     id: "${device_name}_relay"
-    pin: GPIO14
+    pin: GPIO15
     on_turn_on:
       - output.turn_on: led
     on_turn_off:
@@ -74,12 +70,12 @@ switch:
 
 status_led:
   pin:
-    number: GPIO12
+    number: GPIO0
     inverted: yes
 
 output:
   - platform: gpio
-    pin: GPIO13
+    pin: GPIO2
     inverted: true
     id: led
 
