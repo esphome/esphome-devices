@@ -104,6 +104,10 @@ status_led:
 
 binary_sensor:
   - platform: gpio
+    pin: GPIO16
+    name: "ade7953 IRQ pin"
+    internal: true
+  - platform: gpio
     pin:
       number: GPIO13
     name: ${devicename} Switch1
@@ -313,6 +317,10 @@ switch:
 
 binary_sensor:
   - platform: gpio
+    pin: GPIO16
+    name: "ade7953 IRQ pin"
+    internal: true
+  - platform: gpio
     pin:
       number: GPIO13
     name: "${channel_1} input"
@@ -426,6 +434,10 @@ light:
     id: lightid2
 
 binary_sensor:
+  - platform: gpio
+    pin: GPIO16
+    name: "ade7953 IRQ pin"
+    internal: true
   - platform: gpio
     pin:
       number: GPIO13
@@ -633,6 +645,10 @@ light:
     id: lightid2
 
 binary_sensor:
+  - platform: gpio
+    pin: GPIO16
+    name: "ade7953 IRQ pin"
+    internal: true
   - platform: gpio
     pin:
       number: GPIO13
