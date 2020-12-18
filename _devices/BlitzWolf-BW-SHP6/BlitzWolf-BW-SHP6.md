@@ -14,15 +14,23 @@ There are two version of this plug, a 10A version and a 15A version. The pinout 
 
 ## GPIO Pinout
 
-| Pin    | Function                   |
-|--------|----------------------------|
-| GPIO13 | Button  (inverted)         |
-| GPIO00 | Red LED (inverted)         |
-| GPIO15 | Relay                      |
-| GPIO02 | Blue LED (inverted)        |
-| GPIO12 | HLW8012 - SEL              |
-| GPIO05 | HLW8012 - CF               |
-| GPIO14 | HLW8012 - CF1              |
+| Pin    | Function (<2020>)          | Function (>2020)           |
+|--------|----------------------------|----------------------------|
+| GPIO13 | Button  (inverted)         | Button  (inverted)         |
+| GPIO00 | Red LED (inverted)         | Red LED (inverted)         |
+| GPIO15 | Relay                      | Relay                      |
+| GPIO02 | Blue LED (inverted)        | Blue LED (inverted)        |
+| GPIO12 | HLW8012 - SEL              | HLW8012 - SEL              |
+| GPIO05 | HLW8012 - CF               | HLW8012 - CF               |
+| GPIO14 | HLW8012 - CF1              |                            |
+| GPIO04 |                            | HLW8012 - CF1              |
+
+## HLW8012 Calibration Values
+
+| Value   | <2020   | >2020   |
+|---------|---------|---------|
+| Current | 0.00290 | 0.00117 |
+| Voltage | 940     | 755     |
 
 ## Basic Config
 
@@ -35,6 +43,8 @@ substitutions:
   current_res: '0.00290'
   # Lower value gives lower voltage readout
   voltage_div: '940'
+  # 2020 model uses GPIO04 for CF1
+  cf1_pin: GPIO14
   # BW-SHP6, outlet with powermonitoring.
   # One button for the relay, and one red led for the relay, as well as a blue status led
   # Static IP is configured, and fast_connect is enabled, as the SSID is hidden
@@ -104,7 +114,7 @@ sensor:
       number: GPIO12
       inverted: true
     cf_pin: GPIO05
-    cf1_pin: GPIO14
+    cf1_pin: ${cf1_pin}
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
     current:
