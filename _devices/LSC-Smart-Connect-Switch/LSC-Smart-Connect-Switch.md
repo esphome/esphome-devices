@@ -8,6 +8,10 @@ standard: eu
 1. TOC
 {:toc}
 
+## Warning
+
+The latest LSC Smart Connect Switch devices use the Tuya WB2S module, which is not compatible with ESPHome! 
+
 ## Notice
 
 - This plug is flashable using the latest tuya-convert with a compiled ESPHome binary
