@@ -10,7 +10,7 @@ standard: eu
 
 ## Warning
 
-The latest LSC Smart Connect Switch devices use the Tuya WB2S module, which is not compatible with ESPHome! 
+The latest LSC Smart Connect Switch devices use the Tuya WB2S module, which is not compatible with ESPHome!
 
 ## Notice
 
