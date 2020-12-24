@@ -19,7 +19,7 @@ standard: eu
 | GPIO16 | Blue Led 1                  |
 | GPIO12 | Relay / Led 2               |
 
-## Configuration as relay with overpower
+## Configuration as relay with overpower protection
 
 ```yaml
 substitutions:
@@ -41,7 +41,7 @@ ota:
 time:
   - platform: homeassistant
     id: my_time
-    
+
 esphome:
   name: ${devicename}
   platform: ESP8266
@@ -114,7 +114,7 @@ sensor:
                 data_template:
                   message: Switch turned off because power exceeded ${max_power}W
     update_interval: 10s
-    
+
   - platform: total_daily_energy
     name: "${channel_1} daily energy"
     power_id: power
@@ -122,5 +122,5 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
-    
+
 ```
