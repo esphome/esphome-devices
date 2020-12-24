@@ -6,7 +6,7 @@ standard: eu
 ---
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## GPIO Pinout
 
