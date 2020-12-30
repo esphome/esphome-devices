@@ -4,13 +4,19 @@ date-published: 2020-08-06
 type: plug
 standard: eu
 ---
-  ![Product](./BlitzWolf-BW-SHP6.jpg "Product Image")
+
+1. TOC
+{:toc}
+
+## General Notes
 
 Model reference: BW-SHP6
 
 Manufacturer: [BlitzWolf](https://www.blitzwolfeurope.com/3840W-EU-WIFI-Smart-Socket-BlitzWolf-BW-SHP2-Wifi)
 
 There are two versions of this plug, a 10A version and a 15A version. The pinout seems to be the same.
+
+![Product](./BlitzWolf-BW-SHP6.jpg "Product Image")
 
 ## GPIO Pinout
 
