@@ -4,26 +4,32 @@ date-published: 2020-08-06
 type: plug
 standard: eu
 ---
-  ![Product](./BlitzWolf-BW-SHP6.jpg "Product Image")
+
+1. TOC
+{:toc}
+
+## General Notes
 
 Model reference: BW-SHP6
 
 Manufacturer: [BlitzWolf](https://www.blitzwolfeurope.com/3840W-EU-WIFI-Smart-Socket-BlitzWolf-BW-SHP2-Wifi)
 
-There are two version of this plug, a 10A version and a 15A version. The pinout seems to be the same.
+There are two versions of this plug, a 10A version and a 15A version. The pinout seems to be the same.
+
+![Product](./BlitzWolf-BW-SHP6.jpg "Product Image")
 
 ## GPIO Pinout
 
-| Pin    | Function (<2020>)          | Function (>2020)           |
+| Pin    | Function (<2020)           | Function (>2020)           |
 |--------|----------------------------|----------------------------|
-| GPIO13 | Button  (inverted)         | Button  (inverted)         |
-| GPIO00 | Red LED (inverted)         | Red LED (inverted)         |
-| GPIO15 | Relay                      | Relay                      |
-| GPIO02 | Blue LED (inverted)        | Blue LED (inverted)        |
+| GPIO0  | Red LED (inverted)         | Red LED (inverted)         |
+| GPIO2  | Blue LED (inverted)        | Blue LED (inverted)        |
+| GPIO4  |                            | HLW8012 - CF1              |
+| GPIO5  | HLW8012 - CF               | HLW8012 - CF               |
 | GPIO12 | HLW8012 - SEL              | HLW8012 - SEL              |
-| GPIO05 | HLW8012 - CF               | HLW8012 - CF               |
+| GPIO13 | Button (inverted)          | Button (inverted)          |
 | GPIO14 | HLW8012 - CF1              |                            |
-| GPIO04 |                            | HLW8012 - CF1              |
+| GPIO15 | Relay                      | Relay                      |
 
 ## HLW8012 Calibration Values
 
@@ -34,7 +40,7 @@ There are two version of this plug, a 10A version and a 15A version. The pinout 
 
 ## Basic Config
 
-The configuration has some default sensors for wifi reporting etc.
+The configuration has some default sensors for wifi reporting, etc.
 
 ```yaml
 substitutions:
@@ -43,7 +49,9 @@ substitutions:
   current_res: '0.00290'
   # Lower value gives lower voltage readout
   voltage_div: '940'
-  # 2020 model uses GPIO04 for CF1
+  # Max Power is 3450W for 15A and 2300W for 10A
+  max_power: '3450'
+  # 2020 model uses GPIO4 for CF1
   cf1_pin: GPIO14
   # BW-SHP6, outlet with powermonitoring.
   # One button for the relay, and one red led for the relay, as well as a blue status led
@@ -57,6 +65,7 @@ esphome:
   on_boot:
     then:
       - switch.turn_on: relay
+      - output.turn_on: led
 
 wifi:
   ssid: !secret wifissid
@@ -85,7 +94,7 @@ binary_sensor:
 # Setup of LED's used in displaying Switch status
 output:
   - platform: gpio
-    pin: GPIO00
+    pin: GPIO0
     inverted: true
     id: led
 
@@ -104,16 +113,16 @@ switch:
 # Status LED for connection
 status_led:
   pin:
-    number: GPIO02
+    number: GPIO2
     inverted: true
 
-# Sensors for Voltage (V), Current (A), Power (kW), Daily energy usage (kWh)
+# Sensors for Voltage (V), Current (A), Power (W), Daily energy usage (kWh)
 sensor:
   - platform: hlw8012
     sel_pin:
       number: GPIO12
       inverted: true
-    cf_pin: GPIO05
+    cf_pin: GPIO5
     cf1_pin: ${cf1_pin}
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
@@ -128,12 +137,14 @@ sensor:
       icon: mdi:flash-outline
     power:
       name: '${device_name} Power'
-      unit_of_measurement: 'kW'
-      accuracy_decimals: 3
+      unit_of_measurement: 'W'
       id: power
-      filters:
-        - multiply: 0.001
       icon: mdi:flash-outline
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - output.turn_off: led
+            - switch.turn_off: relay
     change_mode_every: 4
     update_interval: 10s
   - platform: total_daily_energy
@@ -141,6 +152,8 @@ sensor:
     power_id: power
     unit_of_measurement: 'kWh'
     accuracy_decimals: 5
+    filters:
+      - multiply: 0.001
 ```
 
 ## Advanced config additions
@@ -162,7 +175,7 @@ wifi:
     password: !secret appw
 ```
 
-This wll activate the internal webserver with password protection
+This will activate the internal webserver with password protection
 
 ```yaml
 web_server:
@@ -179,6 +192,30 @@ To set time locally to the same as on the HomeAssistant (better logging)
 time:
   - platform: homeassistant
     id: homeassistant_time
+```
+
+Send a notification to Home Assistant when max power is exceeded.
+
+```yaml
+sensor:
+  - platform: hlw8012
+...
+    power:
+      name: '${device_name} Power'
+      unit_of_measurement: 'W'
+      id: power
+      icon: mdi:flash-outline
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - output.turn_off: led
+            - switch.turn_off: relay
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: Message from ${device_name}
+                data_template:
+                  message: Switch turned off because power exceeded ${max_power}W
 ```
 
 To have different data shown for the device (ESPHome version) and the wifi. Will appear as sensors in HA.
