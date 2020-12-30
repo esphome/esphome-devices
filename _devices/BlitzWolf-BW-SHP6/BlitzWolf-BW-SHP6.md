@@ -63,6 +63,7 @@ esphome:
   on_boot:
     then:
       - switch.turn_on: relay
+      - output.turn_on: led
 
 wifi:
   ssid: !secret wifissid
