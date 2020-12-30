@@ -16,14 +16,14 @@ There are two versions of this plug, a 10A version and a 15A version. The pinout
 
 | Pin    | Function (<2020)           | Function (>2020)           |
 |--------|----------------------------|----------------------------|
-| GPIO13 | Button  (inverted)         | Button  (inverted)         |
-| GPIO00 | Red LED (inverted)         | Red LED (inverted)         |
-| GPIO15 | Relay                      | Relay                      |
-| GPIO02 | Blue LED (inverted)        | Blue LED (inverted)        |
+| GPIO0  | Red LED (inverted)         | Red LED (inverted)         |
+| GPIO2  | Blue LED (inverted)        | Blue LED (inverted)        |
+| GPIO4  |                            | HLW8012 - CF1              |
+| GPIO5  | HLW8012 - CF               | HLW8012 - CF               |
 | GPIO12 | HLW8012 - SEL              | HLW8012 - SEL              |
-| GPIO05 | HLW8012 - CF               | HLW8012 - CF               |
+| GPIO13 | Button (inverted)          | Button (inverted)          |
 | GPIO14 | HLW8012 - CF1              |                            |
-| GPIO04 |                            | HLW8012 - CF1              |
+| GPIO15 | Relay                      | Relay                      |
 
 ## HLW8012 Calibration Values
 
@@ -43,7 +43,7 @@ substitutions:
   current_res: '0.00290'
   # Lower value gives lower voltage readout
   voltage_div: '940'
-  # 2020 model uses GPIO04 for CF1
+  # 2020 model uses GPIO4 for CF1
   cf1_pin: GPIO14
   # BW-SHP6, outlet with powermonitoring.
   # One button for the relay, and one red led for the relay, as well as a blue status led
@@ -85,7 +85,7 @@ binary_sensor:
 # Setup of LED's used in displaying Switch status
 output:
   - platform: gpio
-    pin: GPIO00
+    pin: GPIO0
     inverted: true
     id: led
 
@@ -104,7 +104,7 @@ switch:
 # Status LED for connection
 status_led:
   pin:
-    number: GPIO02
+    number: GPIO2
     inverted: true
 
 # Sensors for Voltage (V), Current (A), Power (kW), Daily energy usage (kWh)
@@ -113,7 +113,7 @@ sensor:
     sel_pin:
       number: GPIO12
       inverted: true
-    cf_pin: GPIO05
+    cf_pin: GPIO5
     cf1_pin: ${cf1_pin}
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
