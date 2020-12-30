@@ -49,6 +49,8 @@ substitutions:
   current_res: '0.00290'
   # Lower value gives lower voltage readout
   voltage_div: '940'
+  # Max Power is 3450W for 15A and 2300W for 10A
+  max_power: '3450'
   # 2020 model uses GPIO4 for CF1
   cf1_pin: GPIO14
   # BW-SHP6, outlet with powermonitoring.
@@ -138,6 +140,11 @@ sensor:
       unit_of_measurement: 'W'
       id: power
       icon: mdi:flash-outline
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - output.turn_off: led
+            - switch.turn_off: relay
     change_mode_every: 4
     update_interval: 10s
   - platform: total_daily_energy
@@ -185,6 +192,30 @@ To set time locally to the same as on the HomeAssistant (better logging)
 time:
   - platform: homeassistant
     id: homeassistant_time
+```
+
+Send a notification to Home Assistant when max power is exceeded.
+
+```yaml
+sensor:
+  - platform: hlw8012
+...
+    power:
+      name: '${device_name} Power'
+      unit_of_measurement: 'W'
+      id: power
+      icon: mdi:flash-outline
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - output.turn_off: led
+            - switch.turn_off: relay
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: Message from ${device_name}
+                data_template:
+                  message: Switch turned off because power exceeded ${max_power}W
 ```
 
 To have different data shown for the device (ESPHome version) and the wifi. Will appear as sensors in HA.
