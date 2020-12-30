@@ -114,7 +114,7 @@ status_led:
     number: GPIO2
     inverted: true
 
-# Sensors for Voltage (V), Current (A), Power (kW), Daily energy usage (kWh)
+# Sensors for Voltage (V), Current (A), Power (W), Daily energy usage (kWh)
 sensor:
   - platform: hlw8012
     sel_pin:
@@ -135,11 +135,8 @@ sensor:
       icon: mdi:flash-outline
     power:
       name: '${device_name} Power'
-      unit_of_measurement: 'kW'
-      accuracy_decimals: 3
+      unit_of_measurement: 'W'
       id: power
-      filters:
-        - multiply: 0.001
       icon: mdi:flash-outline
     change_mode_every: 4
     update_interval: 10s
@@ -148,6 +145,8 @@ sensor:
     power_id: power
     unit_of_measurement: 'kWh'
     accuracy_decimals: 5
+    filters:
+      - multiply: 0.001
 ```
 
 ## Advanced config additions
