@@ -10,11 +10,11 @@ Model reference: BW-SHP6
 
 Manufacturer: [BlitzWolf](https://www.blitzwolfeurope.com/3840W-EU-WIFI-Smart-Socket-BlitzWolf-BW-SHP2-Wifi)
 
-There are two version of this plug, a 10A version and a 15A version. The pinout seems to be the same.
+There are two versions of this plug, a 10A version and a 15A version. The pinout seems to be the same.
 
 ## GPIO Pinout
 
-| Pin    | Function (<2020>)          | Function (>2020)           |
+| Pin    | Function (<2020)           | Function (>2020)           |
 |--------|----------------------------|----------------------------|
 | GPIO13 | Button  (inverted)         | Button  (inverted)         |
 | GPIO00 | Red LED (inverted)         | Red LED (inverted)         |
@@ -34,7 +34,7 @@ There are two version of this plug, a 10A version and a 15A version. The pinout 
 
 ## Basic Config
 
-The configuration has some default sensors for wifi reporting etc.
+The configuration has some default sensors for wifi reporting, etc.
 
 ```yaml
 substitutions:
@@ -162,7 +162,7 @@ wifi:
     password: !secret appw
 ```
 
-This wll activate the internal webserver with password protection
+This will activate the internal webserver with password protection
 
 ```yaml
 web_server:
