@@ -2,7 +2,7 @@
 title: Zemismart Moonlamp
 date-published: 2020-12-31 14:35
 type: light
-standard: global
+standard: eu
 ---
 
   ![Product image](/assets/images/Zemismart-Moonlamp/Moonlamp.jpg "Product Image")
@@ -11,7 +11,7 @@ standard: global
 
 The moonlamp has both RGB and Cold / Warm white handled by three groups of three leds.
 
-Manufacturer: [Zemismart](https://www.zemismart.com/products/christmas-gift-led-remote-control-light-compatible-with-alexa-google-home-3d-printing-children-bedroom-colorful-moon-lamp-app-121)
+Manufacturer: [Zemismart]
 
 The moonlamp is powered by USB, so no special regional plugs needed.
 
