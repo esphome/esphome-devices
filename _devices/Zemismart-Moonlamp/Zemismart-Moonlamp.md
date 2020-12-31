@@ -5,8 +5,10 @@ type: lamp
 standard: eu (USB cable)
 ---
   ![Product image](./Moonlamp.jpg "Product Image")
+  
   ![Bottom view](./BottomView.jpg "Bottom View")
-  ![LED Layout](./LedLayout.jpg "Bottom View")
+  
+  ![LED Layout](./LEDLayout.jpg "Bottom View")
 
 
 Model reference: Moonlamp
