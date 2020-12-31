@@ -1,18 +1,19 @@
 ---
 title: Zemismart Moonlamp
 date-published: 2020-12-316
-type: lamp
-standard: USB powered
-
+type: light
+standard: global
 ---
 
-  ![Product image](./Moonlamp.jpg "Product Image")
-  ![Bottom view](./BottomView.jpg "Bottom View")
-  ![LED Layout](./LEDLayout.jpg "Bottom View")
+  ![Product image](/assets/images/Zemismart-Moonlamp/Moonlamp.jpg "Product Image")
+  ![Bottom view](/assets/images/Zemismart-Moonlamp/BottomView.jpg "Bottom View")
+  ![LED Layout](/assets/images/Zemismart-Moonlamp/LEDLayout.jpg "Bottom View")
 
 The moonlamp has both RGB and Cold / Warm white handled by three groups of three leds.
 
 Manufacturer: [Zemismart](https://www.zemismart.com/products/christmas-gift-led-remote-control-light-compatible-with-alexa-google-home-3d-printing-children-bedroom-colorful-moon-lamp-app-121)
+
+The moonlamp is powered by USB, so no special regional plugs needed.
 
 ## How to flash
 
@@ -30,7 +31,7 @@ Manufacturer: [Zemismart](https://www.zemismart.com/products/christmas-gift-led-
    
    **REMEMBER to disconnect the battery and the USB power before flashing!!!!**
    
-  ![Soldering points](./SolderingPoints.png "Soldering Points")
+  ![Soldering points](/assets/images/Zemismart-Moonlamp/SolderingPoints.png "Soldering Points")
 
 There is only 1 MB on the onboard esp8266, so the code has every thing 'extra' removed to keep it small, and being able to do OTA.
 The WW and CW temperature values are unknown, so purely guesses.
