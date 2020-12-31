@@ -2,13 +2,13 @@
 title: Zemismart Moonlamp
 date-published: 2020-12-316
 type: lamp
-standard: eu (USB cable)
+standard: USB powered
+
 ---
+
   ![Product image](./Moonlamp.jpg "Product Image")
   ![Bottom view](./BottomView.jpg "Bottom View")
   ![LED Layout](./LEDLayout.jpg "Bottom View")
-
-Model reference: Moonlamp
 
 The moonlamp has both RGB and Cold / Warm white handled by three groups of three leds.
 
