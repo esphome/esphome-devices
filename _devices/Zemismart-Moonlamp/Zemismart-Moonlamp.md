@@ -1,6 +1,6 @@
 ---
 title: Zemismart Moonlamp
-date-published: 2020-12-316
+date-published: 2020-12-31 14:35
 type: light
 standard: global
 ---
