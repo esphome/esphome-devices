@@ -4,8 +4,10 @@ date-published: 2020-12-316
 type: lamp
 standard: eu (USB cable)
 ---
-  ![Product image](./BlitzWolf-BW-SHP9-Power-strip.jpg "Product Image")
-  ![Product Measurements](./BlitzWolf-BW-SHP9-Power-strip-measurement.jpg "Product Measurements")
+  ![Product image](./Moonlamp.JPG "Product Image")
+  ![Bottom view](./BottomView.JPG "Bottom View")
+  ![LED Layout](./LedLayout.JPG "Bottom View")
+  ![Soldering points](./SolderingPoints.png "Soldering Points")
 
 Model reference: Moonlamp
 
