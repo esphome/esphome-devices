@@ -28,9 +28,9 @@ The moonlamp is powered by USB, so no special regional plugs needed.
 3. Pins
 
    There are pads for RX, TX, 3.3v, GND and I00 nicely marked on the board, ignore my mess with the solder, the GND is rather large and takes a lot of heat, and the solder I have at the moment is terrible, and I'm just waiting for something new to arrive.
-   
+
    **REMEMBER to disconnect the battery and the USB power before flashing!!!!**
-   
+
   ![Soldering points](/assets/images/Zemismart-Moonlamp/SolderingPoints.png "Soldering Points")
 
 There is only 1 MB on the onboard esp8266, so the code has every thing 'extra' removed to keep it small, and being able to do OTA.
