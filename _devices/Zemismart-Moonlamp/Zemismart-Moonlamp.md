@@ -7,7 +7,7 @@ standard: eu (USB cable)
   ![Product image](./Moonlamp.jpg "Product Image")
   ![Bottom view](./BottomView.jpg "Bottom View")
   ![LED Layout](./LedLayout.jpg "Bottom View")
-  ![Soldering points](./SolderingPoints.png "Soldering Points")
+
 
 Model reference: Moonlamp
 
@@ -19,18 +19,16 @@ Manufacturer: [Zemismart](https://www.zemismart.com/products/christmas-gift-led-
 
 1. Open
 
-   There are 3 screws.
-  ![Product outside](./BlitzWolf-BW-SHP9-Power-strip-outside.jpg "Product outside")
+   There are 3 screws securing the bottom to the 3D printed moon.
   
 2. Unmount circuit from the box
 
-   5 more screws
-  ![Product Inside](./BlitzWolf-BW-SHP9-Power-strip-inside.jpg "Product Inside")
+   5 more screws, securing the diffuser to the print, and the print to the socket.
 
 3. Pins
 
-   There are pads for RX, TX, 3.3v, GND and I00 nicely marked on the board.
-  ![Product Inside Pins](./BlitzWolf-BW-SHP9-Power-strip-connector.jpg "Product Inside")
+   There are pads for RX, TX, 3.3v, GND and I00 nicely marked on the board, ignore my mess with the solder, the GND is rather large and takes a lot of heat, and the solder I have at the moment is terrible, and I'm just waiting for something new to arrive.
+  ![Soldering points](./SolderingPoints.png "Soldering Points")
 
 There is only 1 MB on the onboard esp8266, so the code has every thing 'extra' removed to keep it small, and being able to do OTA.
 The WW and CW temperature values are unknown, so purely guesses.
