@@ -35,3 +35,8 @@ The moonlamp is powered by USB, so no special regional plugs needed.
 
 There is only 1 MB on the onboard esp8266, so the code has every thing 'extra' removed to keep it small, and being able to do OTA.
 The WW and CW temperature values are unknown, so purely guesses.
+The CW/WW and colour LED's are mutually exclusive in the original firmware, probably to conserve power, this behaviour is kept in esphome.
+
+**Missing features**:
+*The original firmware claims to have touch control, so it will change colour when you tap the globe, I haven't had the luck to figure out how that is done.
+*It seems to use slightly more power when running esphome than the original firmware (the included battery doesn't last as long).
