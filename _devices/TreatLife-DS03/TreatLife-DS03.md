@@ -1,6 +1,6 @@
 ---
 title: TreatLife DS03 Fan Conroller
-date-published: 2021-1-1
+date-published: 2021-01-01
 type: dimmer
 standard: us
 ---
