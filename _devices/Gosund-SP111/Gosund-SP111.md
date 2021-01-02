@@ -24,19 +24,19 @@ Make sure the plug has that screw on the bottom!
 
 | Pin     | Function                           |
 |---------|------------------------------------|
-| GPIO00	| Led1i |
-| GPIO01	| None |
-| GPIO02	| LedLinki |
-| GPIO03	| None |
-| GPIO04	| HLWBL CF1 |
-| GPIO05	| BL0937 CF |
-| GPIO09	| None |
-| GPIO10	| None |
-| GPIO12	| HLWBL SELi |
-| GPIO13	| Button1 |
-| GPIO14	| None |
-| GPIO15	| Relay1 |
-| GPIO16	| None |
+| GPIO00 | Led1i |
+| GPIO01 | None |
+| GPIO02 | LedLinki |
+| GPIO03 | None |
+| GPIO04 | HLWBL CF1 |
+| GPIO05 | BL0937 CF |
+| GPIO09 | None |
+| GPIO10 | None |
+| GPIO12 | HLWBL SELi |
+| GPIO13 | Button1 |
+| GPIO14 | None |
+| GPIO15 | Relay1 |
+| GPIO16 | None |
 
 ## Basic Configuration
 
