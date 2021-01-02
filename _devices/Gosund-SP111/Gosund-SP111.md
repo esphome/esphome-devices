@@ -49,7 +49,6 @@ substitutions:
   # Lower value gives lower voltage readout
   voltage_div: "775"
 
-
 esphome:
   name: $devicename
   platform: ESP8266
@@ -66,11 +65,10 @@ api:
 # Enable over the air updates
 ota:
 
-wifi: 
+wifi:
   ssid: !secret wifi_name
   password: !secret wifi_pass
-  fast_connect:
-    on
+  fast_connect: on
 
 # see: https://esphome.io/components/time.html
 time:
