@@ -14,7 +14,7 @@ The device can be flashed [using tuya-convert](/guides/tuya-convert/). Fresh out
 
 Please be aware, that there is a new version of that outlet, often having the phrase `EP2` instead or in addition to `SP111`, sold starting in november 2020. For that version, the tuya script does not longer work! Also a breakless opening of the plug is much harder due to a removed screw on the bottom of the device.
 
-![Hardly visible screw](https://user-images.githubusercontent.com/6115324/103458688-caa8bd80-4d0a-11eb-999e-23f0a2d8ceee.png)
+![Hardly visible screw on original SP111](/assets/images/Gosund-SP111/gosund-sp111.JPG "Hardly visible screw on original SP111")
 
 Make sure the plug has that screw on the bottom!
 
