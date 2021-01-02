@@ -77,8 +77,6 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# captive_portal:
-
 # Enable Web server
 web_server:
   port: 80
