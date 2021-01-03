@@ -19,6 +19,7 @@ standard: uk, us, eu, au, global
 | A0      | ADC Temperature                    |
 
 ## Basic Configuration
+
 ```yaml
 substitutions:
   plug_name: shelly_1l
