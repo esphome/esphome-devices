@@ -97,6 +97,7 @@ status_led:
   pin: GPIO0
 #==============================================================
 ```
+
 In this configuration switch 1 is connected to the relay and toggles the light. Switch 2 is published as a basic binary sensor. This allows you to use a dual plate switch where only a single light is present. The first switch will control the light while the second switch can be used to trigger other automations/scenes.
-A protection automation has been added to automatically turn off the relay when the device gets too hot. 
+A protection automation has been added to automatically turn off the relay when the device gets too hot.
 Note: I used this temperature sensor configuration from another configuration, it has not been tested on accuracy.
