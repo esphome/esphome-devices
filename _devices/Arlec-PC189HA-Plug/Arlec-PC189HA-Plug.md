@@ -12,7 +12,7 @@ The Arlec PC189HA power plug is part of the [Grid Connect ecosystem](https://gri
 As at the time of writing, they can be flashed without disassembly or soldering [using tuya-convert](#tuya-convert).
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## GPIO Pinout
 
