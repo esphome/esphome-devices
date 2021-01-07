@@ -1,3 +1,11 @@
+---
+title: Gosund SP211
+date-published: 2021-01-7
+type: plug
+standard: eu
+---
+
+
 esphome:
   name: wallswitch211
   platform: ESP8266
