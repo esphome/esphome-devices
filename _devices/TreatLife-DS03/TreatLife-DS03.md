@@ -1,6 +1,6 @@
 ---
-title: TreatLife DS03 Fan Conroller
-date-published: 2021-01-01
+title: TreatLife DS03 Fan Controller
+date-published: 2021-01-06
 type: dimmer
 standard: us
 ---
