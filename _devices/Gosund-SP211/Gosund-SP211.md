@@ -5,7 +5,7 @@ type: plug
 standard: eu
 ---
 
-```
+```yaml
 esphome:
   name: wallswitch211
   platform: ESP8266
@@ -34,7 +34,7 @@ ota:
 time:
   - platform: homeassistant
     id: homeassistant_time
-    
+
 substitutions:
   plug_name: wallswitch2_01
   # Higher value gives lower watt readout
@@ -52,12 +52,12 @@ sensor:
   - platform: wifi_signal
     name: "${plug_name} - WiFi Signal"
     update_interval: 60s
-  
+
   - platform: uptime
     name: "${plug_name} - Uptime"
     icon: mdi:clock-outline
     update_interval: 60s
-    
+
   - platform: hlw8012
     sel_pin:
       number: GPIO03
@@ -66,28 +66,28 @@ sensor:
     cf1_pin: GPIO05
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
-    
+
     current:
       name: "${plug_name} - Ampere"
       unit_of_measurement: A
       accuracy_decimals: 3
       icon: mdi:flash-outline
-      
+
     voltage:
       name: "${plug_name} - Volt"
       unit_of_measurement: V
       accuracy_decimals: 1
       icon: mdi:flash-outline
-      
+
     power:
       name: "${plug_name} - Watt"
       unit_of_measurement: W
       id: "${plug_name}_Wattage"
       icon: mdi:flash-outline
-      
+
     change_mode_every: 4
     update_interval: 3s
-    
+
   - platform: total_daily_energy
     name: "${plug_name} - Dagverbruik"
     power_id: "${plug_name}_Wattage"
@@ -100,12 +100,12 @@ sensor:
 text_sensor:
   - platform: version
     name: "${plug_name} - ESPHome Version"
-  
+
 status_led:
   pin:
     number: GPIO01
     inverted: True 
-    
+
 binary_sensor:
   - platform: gpio
     id: button1
@@ -134,12 +134,12 @@ output:
     pin: GPIO02
     inverted: true
     id: led1
-  
+
   - platform: gpio
     pin: GPIO13
     inverted: true
     id: led2
-    
+
 switch:
   - platform: gpio
     pin: GPIO14
