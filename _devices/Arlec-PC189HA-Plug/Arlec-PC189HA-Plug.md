@@ -62,6 +62,7 @@ binary_sensor:
     pin:
       number: GPIO14
       inverted: True
+      mode: INPUT_PULLUP
     name: ${name} button
     filters:
       delayed_on_off: 100ms # Debouncing
