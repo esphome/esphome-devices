@@ -9,10 +9,10 @@ standard: us
 
 | Pin    | Function             |
 | ------ | -------------------- |
-| GPIO13 | Push Button inverted |
-| GPIO0  | Red LED              |
-| GPIO2  | Blue LED             |
-| GPIO15 | Relay 1              |
+| GPIO4 | Push Button inverted |
+| GPIO12  | Red LED              |
+| GPIO13  | Blue LED             |
+| GPIO14 | Relay 1              |
 
 ## Basic Configuration
 
@@ -47,7 +47,7 @@ ota:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO13
+      number: GPIO4
       mode: INPUT_PULLUP
       inverted: True
     name: "${friendly_name} Button"
@@ -62,7 +62,7 @@ switch:
   - platform: gpio
     name: "${friendly_name} Relay"
     id: "${device_name}_relay"
-    pin: GPIO15
+    pin: GPIO14
     on_turn_on:
       - output.turn_on: led
     on_turn_off:
@@ -70,12 +70,12 @@ switch:
 
 status_led:
   pin:
-    number: GPIO0
+    number: GPIO12
     inverted: yes
 
 output:
   - platform: gpio
-    pin: GPIO2
+    pin: GPIO13
     inverted: true
     id: led
 
@@ -93,4 +93,6 @@ text_sensor:
   - platform: version
     name: "${friendly_name} ESPHome Version"
     id: "${device_name}_esphome_version"
+
+
 ```
