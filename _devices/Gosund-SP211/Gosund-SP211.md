@@ -1,11 +1,11 @@
 ---
 title: Gosund SP211
-date-published: 2021-01-7
+date-published: 2021-01-07
 type: plug
 standard: eu
 ---
 
-
+```
 esphome:
   name: wallswitch211
   platform: ESP8266
@@ -162,3 +162,4 @@ switch:
       - output.turn_on: led2
     on_turn_off:
       - output.turn_off: led2
+```
