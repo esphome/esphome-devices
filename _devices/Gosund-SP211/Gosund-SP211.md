@@ -95,7 +95,7 @@ sensor:
         # Multiplication factor from W to kW is 0.001
         - multiply: 0.001
     unit_of_measurement: kWh
-    icon: mdi:clock-alert 
+    icon: mdi:clock-alert
 
 text_sensor:
   - platform: version
@@ -104,7 +104,7 @@ text_sensor:
 status_led:
   pin:
     number: GPIO01
-    inverted: True 
+    inverted: True
 
 binary_sensor:
   - platform: gpio
