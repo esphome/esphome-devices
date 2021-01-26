@@ -16,7 +16,6 @@ Manufacturer: [Delock](https://www.delock.de/produkte/G_11827/merkmale.html)
 
 The device comes pre-flashed with Tasmota. Flashing ESPHome is easily possible by uploading .bin file using the device's web interface.
 
-![Product](./Delock-11827-Power-Monitoring-Smart-Plug.jpg "Product Image")
 ![Product](./Delock-11827-Power-Monitoring-Smart-Plug-Box.jpg "Product Image Box")
 
 ## GPIO Pinout
