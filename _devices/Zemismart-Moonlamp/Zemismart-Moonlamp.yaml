@@ -57,5 +57,5 @@ light:
     blue: output_blue
     warm_white: output_warm_white
     cold_white: output_cold_white
-    warm_white_color_temperature: 2800 K
-    cold_white_color_temperature: 6200 K
+    warm_white_color_temperature: 2700 K
+    cold_white_color_temperature: 6000 K
