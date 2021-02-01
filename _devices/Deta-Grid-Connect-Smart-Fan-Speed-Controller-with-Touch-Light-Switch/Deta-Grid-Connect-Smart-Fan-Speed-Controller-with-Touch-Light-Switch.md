@@ -6,6 +6,7 @@ standard: au
 ---
 
 ## GPIO Pinout
+
 | GPIO # | Component |
 |:------:|----------:|
 | GPIO00 |   Button2 |
