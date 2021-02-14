@@ -49,7 +49,7 @@ wifi:
 
   ap:
     ssid: "fl052ha_flood_light"
-    password: "m1H32D5zmNGU"
+    password: "password"
 
 captive_portal:
 
