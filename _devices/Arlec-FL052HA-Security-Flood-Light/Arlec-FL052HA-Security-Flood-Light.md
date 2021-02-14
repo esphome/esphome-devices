@@ -30,7 +30,7 @@ You can check these versions by looking at the bottom left of the Arlec product 
 
 As the flood lights do not have any physical buttons, you will follow the same flashing method that a Tuya Edison or Bayonet bulb will follow by turning the flood light on and off three times. This will cause the flood light to start flashing indicating you have entered pairing mode.
 
-* Connect and disconnect power from flood light three times. 
+* Connect and disconnect power from flood light three times.
 * Flood light will start flashing - this indicates the device has entered pairing mode successfully and is ready to see tuya-convert.
 * Follow tuya-convert [flashing procedure](https://github.com/ct-Open-Source/tuya-convert).
 
