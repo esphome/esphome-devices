@@ -159,6 +159,17 @@ sensor:
 
 ## Advanced config additions
 
+Starting with ESPHome v1.16.1 the `hlw8012` platform sensor now supports energy, so we can add the following to the `hlw8012` platform sensor and get rid of the `total_daily_energy` platform sensor and the `homeassistant` time sensor:
+
+```yaml
+sensor:
+  - platform: hlw8012
+    energy:
+      name: "${device_name} Energy"
+      unit_of_measurement: "Wh"
+      icon: mdi:flash-outline
+```
+
 In the esphome section, you can perform actions when the device boots:
 
 ```yaml
