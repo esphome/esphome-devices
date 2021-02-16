@@ -1,3 +1,4 @@
+
 # ATTENTION! Be aware that some of these devices can do "sudden power toggles". Meaning the relays will very shortly "toggle" and thus might harm you equipment. use this totally at you own risk.
 # Although this risk is there the full functionality of these P1's can be achieved by using this ESPHome yaml. Good luck!
 
