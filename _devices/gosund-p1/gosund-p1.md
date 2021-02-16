@@ -55,12 +55,10 @@ sensor:
   - platform: wifi_signal
     name: "${plug_name} - WiFi Signal"
     update_interval: 60s
-  
   - platform: uptime
     name: "${plug_name} - Uptime"
     icon: mdi:clock-outline
     update_interval: 60s 
-    
   - platform: cse7766
     current:
       name: "${plug_name} - Ampere"
@@ -82,7 +80,6 @@ sensor:
       filters:
         - lambda: return x * 2.34245;
     update_interval: 3s
-    
   - platform: total_daily_energy
     name: "${plug_name} - Dagverbruik"
     power_id: "${plug_name}_Wattage"
@@ -91,7 +88,6 @@ sensor:
         - multiply: 0.001
     unit_of_measurement: kWh
     icon: mdi:clock-alert 
-    
   - platform: adc
     pin: GPIO17
     id: gpio17
@@ -124,15 +120,13 @@ binary_sensor:
     #on_state:
     on_press:
       - switch.toggle: relay4
-      
   - platform: template
     id: buttonrelay1
     internal: true
     on_press:
       - switch.toggle: relay1
     filters:
-      - delayed_off: 100ms
-    
+      - delayed_off: 100ms 
   - platform: template
     id: buttonrelay2
     internal: true
@@ -140,7 +134,6 @@ binary_sensor:
       - switch.toggle: relay2
     filters:
       - delayed_off: 100ms
-    
   - platform: template
     id: buttonrelay3
     internal: true
@@ -160,21 +153,18 @@ switch:
     restore_mode: RESTORE_DEFAULT_ON
     name: '${plug_name} - Switch1'
     icon: mdi:power-socket-eu
-
   - platform: gpio
     pin: GPIO12
     id: relay2
     restore_mode: RESTORE_DEFAULT_ON
     name: '${plug_name} - Switch2'
     icon: mdi:power-socket-eu
-
   - platform: gpio
     pin: GPIO13
     id: relay3
     restore_mode: RESTORE_DEFAULT_ON
     name: '${plug_name} - Switch3'
     icon: mdi:power-socket-eu
-
   - platform: gpio
     pin: GPIO05
     id: relay4
@@ -182,10 +172,8 @@ switch:
     name: '${plug_name} - Switch USB'
     icon: mdi:power-socket-eu
     inverted: yes
-
   - platform: restart
     name: "${plug_name} - ESP Restart"
-    
   - platform: template
     name: '${plug_name} - Switch off 60s (reset!)'
     turn_on_action:
