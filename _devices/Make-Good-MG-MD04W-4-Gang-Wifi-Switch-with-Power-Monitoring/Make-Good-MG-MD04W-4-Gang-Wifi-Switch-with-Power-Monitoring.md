@@ -71,7 +71,7 @@ uart:
   rx_pin: GPIO3
   tx_pin: GPIO1
   baud_rate: 9600
-  
+
 sensor:
   - platform: wifi_signal
     name: Wifi Signal Strength
@@ -104,7 +104,6 @@ sensor:
     name: "Total Daily Energy"
     power_id: total_watts
 
-
 text_sensor:
   - platform: wifi_info
     ip_address:
@@ -115,7 +114,7 @@ text_sensor:
       name: BSSID
     mac_address:
       name: Mac
-    
+
 switch:
   - platform: restart
     name: REBOOT
@@ -131,5 +130,5 @@ switch:
   - platform: tuya
     name: Switch 4
     switch_datapoint: 4
-    
+
 ```
