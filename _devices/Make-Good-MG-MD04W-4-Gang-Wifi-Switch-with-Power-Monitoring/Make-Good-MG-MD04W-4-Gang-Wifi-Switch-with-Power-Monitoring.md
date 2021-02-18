@@ -1,8 +1,9 @@
 ---
 title: Make Good MG-MD04W 4-Gang Wifi Switch with Power Monitoring
-date-published: 2021-19-02
+date-published: 2021-02-19
 type: switch
 standard: au
+
 ---
 
 ## TuyaMCU Pinout
