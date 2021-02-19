@@ -65,13 +65,11 @@ In case there is no connection to Wifi, or no API connection (normally Home Assi
 The relay is exposed to Home Assistant as a switch. As well as  some (optional) sensors with information on the ESPHome version and Wifi status
 
 ```yaml
-################
-# Basic config #
-################
+# Basic config
 
 substitutions:
   device_name: Shelly1
-
+  
 esphome:
   name: shelly_detached
   platform: ESP8266
@@ -100,7 +98,7 @@ ota:
 # Enable Web server (optional).
 web_server:
   port: 80
-  
+
 # Text sensors with general information.
 text_sensor:
   # Expose ESPHome version as sensor.
@@ -126,9 +124,7 @@ sensor:
     name: ${device_name} WiFi Signal
     update_interval: 60s
 
-###################################
-# Shelly 1 detached switch config #
-###################################
+# Shelly 1 detached switch config with multi click options and fallback in case of wifi or api fail
 
 switch:
   - platform: gpio
@@ -150,10 +146,10 @@ binary_sensor:
         - OFF for at most 1s
         - ON for at most 1s
         - OFF for at least 0.2s
-      then: 
-        - if: 
-            condition: 
-              and: 
+      then:
+        - if:
+            condition:
+              and:
                 - wifi.connected:
                 - api.connected:
             # send double click event in case wifi and api are conncected
@@ -168,10 +164,10 @@ binary_sensor:
       # long click
     - timing:
         - ON for at least 1.5s
-      then: 
-        - if: 
-            condition: 
-              and: 
+      then:
+        - if:
+            condition:
+              and:
                 - wifi.connected:
                 - api.connected:
             # send long click event in case wifi and api are conncected
@@ -187,10 +183,10 @@ binary_sensor:
     - timing:
         - ON for at most 1s
         - OFF for at least 0.5s
-      then: 
-        - if: 
-            condition: 
-              and: 
+      then:
+        - if:
+            condition:
+              and:
                 - wifi.connected:
                 - api.connected:
             # send single click event in case wifi and api are conncected
@@ -201,7 +197,7 @@ binary_sensor:
                     title: shelly ${device_name} short click
             # toggle relay in case either wifi or api are not connected
             else: 
-              - switch.toggle: shelly_relay 
+              - switch.toggle: shelly_relay
     internal: true
     id: button
 ```
