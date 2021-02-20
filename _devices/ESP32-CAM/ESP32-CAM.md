@@ -72,11 +72,12 @@ esp32_camera:
   idle_framerate: 0.1fps
 
 output:
-  - platform: gpio
+  - platform: ledc
     pin: GPIO4
-    id: gpio_4
+    channel: 2 # channel 1 is used for esp32_camera
+    id: led
 light:
-  - platform: binary
-    output: gpio_4
+  - platform: monochromatic
+    output: led
     name: espcam_02 light
 ```
