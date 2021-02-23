@@ -199,8 +199,7 @@ binary_sensor:
               - fan.turn_on:
                   id: fan_1
                   speed: LOW
-        
-    
+
 fan:
   - platform: speed
     id: fan_1
