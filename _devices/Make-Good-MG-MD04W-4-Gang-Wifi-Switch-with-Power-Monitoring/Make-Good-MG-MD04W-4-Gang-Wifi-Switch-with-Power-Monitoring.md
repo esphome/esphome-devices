@@ -74,12 +74,12 @@ uart:
 
 sensor:
   - platform: wifi_signal
-    name: Wifi Signal Strength
+    name: ${friendly_name} Wifi Signal Strength
     update_interval: 60s
   - platform: uptime
-    name: Uptime
+    name: ${friendly_name} Uptime
   - platform: tuya
-    name: Watts
+    name: ${friendly_name} Watts
     id: total_watts
     sensor_datapoint: 103
     unit_of_measurement: W
@@ -87,48 +87,48 @@ sensor:
     filters:
     - multiply: 0.1
   - platform: tuya
-    name: Amps
+    name: ${friendly_name} Amps
     sensor_datapoint: 102
     unit_of_measurement: A
     accuracy_decimals: 3
     filters:
     - multiply: 0.001
   - platform: tuya
-    name: Volts
+    name: ${friendly_name} Volts
     sensor_datapoint: 104
     unit_of_measurement: VAC
     accuracy_decimals: 0
     filters:
     - multiply: 0.1
   - platform: total_daily_energy
-    name: "Total Daily Energy"
+    name: ${friendly_name} Total Daily Energy
     power_id: total_watts
 
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: IP
+      name: ${friendly_name} IP
     ssid:
-      name: SSID
+      name: ${friendly_name} SSID
     bssid:
-      name: BSSID
+      name: ${friendly_name} BSSID
     mac_address:
-      name: Mac
+      name: ${friendly_name} Mac
 
 switch:
   - platform: restart
-    name: REBOOT
+    name: ${friendly_name} REBOOT
   - platform: tuya
-    name: Switch 1
+    name: ${friendly_name} Switch 1
     switch_datapoint: 1
   - platform: tuya
-    name: Switch 2
+    name: ${friendly_name} Switch 2
     switch_datapoint: 2
   - platform: tuya
-    name: Switch 3
+    name: ${friendly_name} Switch 3
     switch_datapoint: 3
   - platform: tuya
-    name: Switch 4
+    name: ${friendly_name} Switch 4
     switch_datapoint: 4
 
 ```
