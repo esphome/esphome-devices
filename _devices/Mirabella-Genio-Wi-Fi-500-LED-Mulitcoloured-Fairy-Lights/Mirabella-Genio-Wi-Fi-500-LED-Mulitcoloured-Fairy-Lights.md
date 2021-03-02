@@ -65,7 +65,7 @@ output:
   - platform: esp8266_pwm
     id: pinb
     pin: GPIO14
-    
+
 # Specify the pin for the button LED
   - platform: gpio
     id: status_led
@@ -84,7 +84,7 @@ light:
     name: "LED"
     internal: true
     output: status_led
-    
+
 
 #Flash the LED Light until WiFi is connected.
 interval:
@@ -99,12 +99,12 @@ interval:
           - output.turn_off: status_led
           - delay: 500ms
           - output.turn_on: status_led
-          
-          
-# Use the button as a sensor.          
+
+
+# Use the button as a sensor.
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO5
       mode: INPUT_PULLUP
       inverted: true
