@@ -13,7 +13,7 @@ standard: au
 
 This is for [Mirabella Genio Wi-Fi 500 LED Mulitcoloured Fairy Lights](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-500-led-mulitcoloured-fairy-lights/).
 
-![Mirabella Genio Wi-Fi 500 LED Mulitcoloured Fairy Lights](/Mirabella-Genio-Wi-Fi-500-LED-Mulitcoloured-Fairy-Lights.jpg "Genio Wi-Fi LED Strip Light")
+![Mirabella Genio Wi-Fi 500 LED Mulitcoloured Fairy Lights](./Mirabella-Genio-Wi-Fi-500-LED-Mulitcoloured-Fairy-Lights.jpg "Genio Wi-Fi 500 LED Fairy Lights")
 
 
 ## GPIO Pinout
