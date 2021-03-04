@@ -61,10 +61,21 @@ captive_portal:
 
 sensor:
   - platform: wifi_signal
-    name: Wifi Signal Strength
+    name: ${friendly_name} Wifi Signal Strength
     update_interval: 60s
   - platform: uptime
-    name: Uptime
+    name: ${friendly_name} Uptime
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${friendly_name} IP
+    ssid:
+      name: ${friendly_name} SSID
+    bssid:
+      name: ${friendly_name} BSSID
+    mac_address:
+      name: ${friendly_name} Mac
 
 logger:
 
@@ -79,7 +90,7 @@ light:
   - platform: binary
     output: relay_light
     id: light1
-    name: Light
+    name: ${friendly_name} Light
 
 status_led:
   pin:
@@ -189,16 +200,15 @@ binary_sensor:
                   id: fan_1
                   speed: LOW
 
-
 fan:
   - platform: speed
     id: fan_1
     output: fan_speed
-    name: Fan
+    name: ${friendly_name} Fan Speed
 
 switch:
   - platform: restart
-    name: REBOOT
+    name: ${friendly_name} REBOOT
   - platform: gpio
     id: relay_fan_1
     pin: GPIO13
