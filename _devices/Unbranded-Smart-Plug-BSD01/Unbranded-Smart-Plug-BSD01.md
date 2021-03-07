@@ -25,7 +25,7 @@ The GPIO pinout was learned from [Blakadder Tasmota](https://templates.blakadder
 
 ## Basic Configuration
 
-/// yaml
+```yaml
 # Type BSD01 plug (AliExpress x 5)
 esphome:
   name: ${lower_devicename}
@@ -160,3 +160,4 @@ text_sensor:
     mac_address:
       name: ${upper_short_devicename} Mac Address
       icon: mdi:network
+```
