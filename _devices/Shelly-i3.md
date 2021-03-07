@@ -5,7 +5,7 @@ type: sensor
 standard: global
 ---
 
-# Device Specific Config
+## Device Specific Config
 
 ```yaml
 binary_sensor:
