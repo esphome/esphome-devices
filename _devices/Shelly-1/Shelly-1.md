@@ -57,6 +57,7 @@ binary_sensor:
     internal: true
     id: switchid
 ```
+
 ## Detached switch mode
 This config will send events to Home Assistant so you can use the Shelly as detached switch. The events can be used as triggers for automations to toggle an attached (smart) light, and to perform other actions on double click and long click (e.g. turn off all the lights on the floor, start a "go to bed" automation).
 
@@ -153,13 +154,13 @@ binary_sensor:
                 - wifi.connected:
                 - api.connected:
             # send double click event in case wifi and api are conncected
-            then: 
+            then:
               - homeassistant.event:
                   event: esphome.button_pressed
                   data:
                     title: shelly ${device_name} double click
             # toggle relay in case either wifi or api are not connected
-            else: 
+            else:
               - switch.toggle: shelly_relay
       # long click
     - timing:
@@ -171,13 +172,13 @@ binary_sensor:
                 - wifi.connected:
                 - api.connected:
             # send long click event in case wifi and api are conncected
-            then: 
+            then:
               - homeassistant.event:
                   event: esphome.button_pressed
                   data:
                     title: shelly ${device_name} long click
             # toggle relay in case either wifi or api are not connected
-            else: 
+            else:
               - switch.toggle: shelly_relay
       # single click
     - timing:
@@ -190,13 +191,13 @@ binary_sensor:
                 - wifi.connected:
                 - api.connected:
             # send single click event in case wifi and api are conncected
-            then: 
+            then:
               - homeassistant.event:
                   event: esphome.button_pressed
                   data:
                     title: shelly ${device_name} short click
             # toggle relay in case either wifi or api are not connected
-            else: 
+            else:
               - switch.toggle: shelly_relay
     internal: true
     id: button
