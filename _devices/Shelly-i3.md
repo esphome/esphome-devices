@@ -1,11 +1,13 @@
 ---
 title: Shelly i3
-date-published: 28-jan-2020
+date-published: 2021-01-28
 type: sensor
 standard: global
 ---
 
 # Device Specific Config
+
+```
 binary_sensor:
   - platform: gpio
     pin:
@@ -31,3 +33,4 @@ binary_sensor:
     id: sensorid3
     filters:
       - delayed_on_off: 50ms
+```
