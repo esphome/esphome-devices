@@ -59,6 +59,7 @@ binary_sensor:
 ```
 
 ## Detached switch mode
+
 This config will send events to Home Assistant so you can use the Shelly as detached switch. The events can be used as triggers for automations to toggle an attached (smart) light, and to perform other actions on double click and long click (e.g. turn off all the lights on the floor, start a "go to bed" automation).
 
 In case there is no connection to Wifi, or no API connection (normally Home Assistant) the config will toggle the relay, so it will still toggle the attached light in cases where Wifi or HA fails.
