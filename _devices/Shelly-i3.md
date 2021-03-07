@@ -7,7 +7,7 @@ standard: global
 
 # Device Specific Config
 
-```
+```yaml
 binary_sensor:
   - platform: gpio
     pin:
