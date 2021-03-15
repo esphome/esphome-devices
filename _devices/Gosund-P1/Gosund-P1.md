@@ -94,4 +94,17 @@ binary_sensor:
   on_press:
     then:
       - switch.toggle: socket_usb
+
+output:
+  - platform: esp8266_pwm
+    id: state_led
+    pin:
+      number: GPIO0
+      inverted: true
+
+light:
+  - platform: monochromatic
+    output: state_led
+    id: state_light
+
 ```
