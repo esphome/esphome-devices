@@ -33,7 +33,7 @@ substitutions:
 esphome:
   name: ${device_name}
   platform: ESP8266
-  board: esp01_1m
+  board: esp8285
 
 wifi:
   ssid: !secret wifi_ssid
