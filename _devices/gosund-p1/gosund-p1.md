@@ -3,7 +3,7 @@ title: Gosund P1
 Model: P1
 date-published: 2021-03-21
 type: relay
-standard: uk
+standard: UK
 ---
 
 ## ATTENTION! Be aware that some of these devices can do "sudden power toggles". Meaning the relays will very shortly "toggle" and thus might harm you equipment
@@ -51,7 +51,7 @@ ota:
 time:
   - platform: homeassistant
     id: homeassistant_time
-    
+
 status_led:
   pin:
     number: GPIO02
@@ -69,7 +69,7 @@ sensor:
   - platform: uptime
     name: "${plug_name} - Uptime"
     icon: mdi:clock-outline
-    update_interval: 60s 
+    update_interval: 60s
   - platform: cse7766
     current:
       name: "${plug_name} - Ampere"
@@ -98,7 +98,7 @@ sensor:
         # Multiplication factor from W to kW is 0.001
         - multiply: 0.001
     unit_of_measurement: kWh
-    icon: mdi:clock-alert 
+    icon: mdi:clock-alert
   - platform: adc
     pin: GPIO17
     id: gpio17
@@ -137,7 +137,7 @@ binary_sensor:
     on_press:
       - switch.toggle: relay1
     filters:
-      - delayed_off: 100ms 
+      - delayed_off: 100ms
   - platform: template
     id: buttonrelay2
     internal: true
@@ -152,7 +152,7 @@ binary_sensor:
       - switch.toggle: relay3
     filters:
       - delayed_off: 100ms
-    
+
 text_sensor:
   - platform: version
     name: "${plug_name} - ESPHome Version"
