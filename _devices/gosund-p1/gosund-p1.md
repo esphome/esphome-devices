@@ -1,7 +1,18 @@
+---
+title: Gosund P1
+Model: P1
+date-published: 2021-03-21
+type: relay
+standard: uk
+---
 
-# ATTENTION! Be aware that some of these devices can do "sudden power toggles". Meaning the relays will very shortly "toggle" and thus might harm you equipment. use this totally at you own risk.
-# Although this risk is there the full functionality of these P1's can be achieved by using this ESPHome yaml. Good luck!
+## ATTENTION! Be aware that some of these devices can do "sudden power toggles". Meaning the relays will very shortly "toggle" and thus might harm you equipment
 
+## Use this totally at you own risk
+
+## Although this risk is there the full functionality of these P1's can be achieved by using this ESPHome yaml. Good luck
+
+```yaml
 esphome:
   name: p1_01
   platform: ESP8266
@@ -180,3 +191,4 @@ switch:
         - switch.turn_off: relay3
         - delay: 60s
         - switch.turn_on: relay3
+```
