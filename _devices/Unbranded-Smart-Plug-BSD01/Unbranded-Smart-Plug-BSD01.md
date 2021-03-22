@@ -122,7 +122,7 @@ output:
     number: 14
     inverted: false
     mode: OUTPUT
-    
+
 - platform: gpio
   id: led_red
   pin:
