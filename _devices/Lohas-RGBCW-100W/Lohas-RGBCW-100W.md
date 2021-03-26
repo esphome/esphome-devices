@@ -1,5 +1,5 @@
 ---
-title: Lohas LH-ZN006 RGBCW 100W Equiv Dimmable 
+title: Lohas LH-ZN006 RGBCW 100W Equiv Dimmable
 date-published: 2019-11-21
 type: light
 standard: us
@@ -30,7 +30,7 @@ standard: us
 #
 # Basic Config
 # https://www.lohas-led.com/lohas-smart-led-bulb-a21-e26-100w-equivalent-14w-rgb-cool-white-dimmable-wifi-app-controlled-alexa-google-assistant-compatible-p0230-p0230.html
-# https://www.amazon.com/dp/B07P6M2FT3/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=smarthome0610-20&linkId=e1e3160e467b68753237daf930797565&language=en_US
+# https://amzn.to/2P1Xugr
 esphome:
   name: light_name
   platform: ESP8266

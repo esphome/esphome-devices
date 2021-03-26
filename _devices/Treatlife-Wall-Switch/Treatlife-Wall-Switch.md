@@ -8,8 +8,8 @@ standard: global
 ## Notes
 
 * push button wall switch
-* 2 way bought here: <https://www.amazon.com/Treatlife-Required-Assistant-Single-Pole-Schedule/dp/B07WWYQJFR>
-* 3 way bought here: <https://www.amazon.com/Treatlife-Assistant-Control-Schedule-Required/dp/B07V3XB1QG>
+* 2 way bought here: <https://amzn.to/3stsGDw>
+* 3 way bought here: <https://amzn.to/3cs4R9u>
 * this dude shows how to flash it: <https://www.digiblur.com/2020/01/tuya-convert-23-update-flash-tuya.html>
 * unlike the 3 way switch, the 2 way switch does not have a power sense pin. To solve this issue, and allow the smart switch to be smart, this code turns the White LED on when the light is off and, led off when the light is on. This allows the LEDs pin state to be used as a power sense, to determine whether to turn the relay on or off.
 
@@ -41,7 +41,7 @@ substitutions:
   device_name: light_switch #change
   friendly_name: Light Switch #change
   icon: "mdi:light-switch"
-  
+
 esphome:
   name: ${device_name}
   platform: ESP8266
@@ -59,7 +59,7 @@ logger:
 
 api:
   password: !secret esphome_api_password
-  
+
 ota:
   password: !secret esphome_ota_password
 
@@ -144,7 +144,7 @@ substitutions:
   device_name: 3_way_light_switch #change
   friendly_name: 3 Way Light Switch #change
   icon: "mdi:light-switch"
-  
+
 esphome:
   name: ${device_name}
   platform: ESP8266
@@ -153,16 +153,16 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   fast_connect: true
-  
+
   ap:
     ssid: ${device_name}
     password: !secret esphome_ap_password
-  
+
 captive_portal:
 logger:
 api:
   password: !secret esphome_api_password
-  
+
 ota:
   password: !secret esphome_ota_password
 status_led:
@@ -210,13 +210,13 @@ switch:
       number: GPIO5
       inverted: True
     internal: True
-  
+
   - platform: gpio
     pin: GPIO12
     id: relay
     restore_mode: RESTORE_DEFAULT_OFF
     internal: True
-  
+
   - platform: template
     name: ${friendly_name}
     id: ${device_name}

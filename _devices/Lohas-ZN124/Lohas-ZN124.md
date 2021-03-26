@@ -1,5 +1,5 @@
 ---
-title: Lohas LH-ZN124 5000K 10W Dimmable 
+title: Lohas LH-ZN124 5000K 10W Dimmable
 date-published: 2019-11-21
 type: light
 standard: us
@@ -19,7 +19,7 @@ standard: us
 ```yaml
 # Basic Config
 # https://www.lohas-led.com/lohas-smart-led-light-bulbs-google-home-siri-and-iftttno-hub-required-e26-daylight-5000k-dimmable-2-pack-p0238-p0238.html
-#https://www.amazon.com/dp/B07KSB1KHP/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=smarthome0610-20&linkId=993d39c304ad1d0b4017b2472c466925&language=en_US
+# https://amzn.to/2Pe5j2m
 
 esphome:
   name: lightname

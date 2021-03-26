@@ -20,7 +20,7 @@ standard: global
 ## Basic Configuration
 
 ```yaml
-# This config is for the unit sold by Amazon (US): https://www.amazon.com/SZMDLX-Universal-Compatible-Automation-Controlled/dp/B082R44LJM/
+# This config is for the unit sold by Amazon (US): https://amzn.to/3w5z6ec
 # It can also be found on AliExpress: https://www.aliexpress.com/i/4000145673070.html
 # The AliExpress model appears to have a nightlight function, but the GPIOs for that are currently unknown.
 # The Amazon model does not mention nightlight anywhere, but the LEDs are present on the board.

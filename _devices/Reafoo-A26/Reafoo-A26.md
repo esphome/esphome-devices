@@ -22,7 +22,7 @@ standard: us
 ## Basic Configuration
 
 ```yaml
-#Reafoo smart bulb, https://smile.amazon.com/gp/product/B07W1KH7VK
+#Reafoo smart bulb, https://amzn.to/3fhC2ib
 #https://fccid.io/2AJK8-LZ803
 #https://blakadder.github.io/templates/reafoo_A26.html
 substitutions:
@@ -166,7 +166,7 @@ In reafoo_common.yaml:
 ```yaml
 # Common code for REAFOO bulbs
 
-#Reafoo smart bulb, https://smile.amazon.com/gp/product/B07W1KH7VK
+#Reafoo smart bulb, https://amzn.to/3fhC2ib
 #https://fccid.io/2AJK8-LZ803
 #https://blakadder.github.io/templates/reafoo_A26.html
 

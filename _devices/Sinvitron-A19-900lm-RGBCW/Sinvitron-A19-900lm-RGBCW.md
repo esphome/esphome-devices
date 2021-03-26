@@ -4,7 +4,7 @@ date-published: 2020-07-06
 type: light
 standard: global
 ---
-Standard RGB warm and cold white bulb. Flashable via tuya-convert. [Purchased from Amazon, pack of 2.](https://www.amazon.com/Sinvitron-Required-Equivalent-Multi-color-Changing/dp/B07RSRX1YR/)
+Standard RGB warm and cold white bulb. Flashable via tuya-convert. [Purchased from Amazon, pack of 2.](https://amzn.to/3lVKCEp)
 
 Generally don't power on both a white channel and the color channel at full brightness - this can overheat the bulb.
 

@@ -4,7 +4,7 @@ date-published: 2020-07-06
 type: plug
 standard: us
 ---
-Standard plug socket, with 2A USB port. Flashable via tuya-convert. [Purchased from Amazon.](https://www.amazon.com/gp/product/B074YGV2NK/)
+Standard plug socket, with 2A USB port. Flashable via tuya-convert. [Purchased from Amazon.](https://amzn.to/39iCxEM)
 
 At least two versions of this plug exist, but the only difference between the two is the pull-up on the pin for the button.
 
