@@ -48,7 +48,7 @@ If you choose to install the included Tasmota (or any other v8.x or later build)
 - Run `SetOption78 1` in the Tasmota console, reboot/restart your device, then "upgrade" to ESPHome
   - This option is undocumented, and likely to be removed in some future version of Tasmota
 - Use a version of ESPHome which identifies as "compatible" to Tasmota 8.x
-  - At time of writing, no released ESPHome version (up to 1.14.3) does this
+  - Fixed in https://github.com/esphome/esphome/pull/1152. Binaries compiled with ESPHome higher than 1.15.0 are compatible.
 
 ## ESPHome
 
