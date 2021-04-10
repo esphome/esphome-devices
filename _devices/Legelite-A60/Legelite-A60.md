@@ -5,7 +5,7 @@ type: light
 standard: us
 ---
 
-5-channel PWM RGBWW smart light bulb, A26 shape, E26 base, 2700k-6500k tunable white with RGB colors, 100-240V AC 50/60Hz, natively Tuya/Smart Life, works with Tuya-convert to flash to ESPHome.
+5-channel PWM RGBWW smart light bulb, A60 shape, E26 base, 2700k-6500k tunable white with RGB colors, 100-240V AC 50/60Hz, natively Tuya/Smart Life, works with Tuya-convert to flash to ESPHome.
 
 1. TOC
 {:toc}
