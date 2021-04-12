@@ -4,6 +4,7 @@ date-published: 2019-10-20
 type: switch
 standard: uk, us, eu
 ---
+[Amazon Link](https://amzn.to/2OAz8de)
 
 1. TOC
 {:toc}
@@ -71,7 +72,7 @@ The relay is exposed to Home Assistant as a switch. As well as  some (optional) 
 
 substitutions:
   device_name: Shelly1
-  
+
 esphome:
   name: shelly_detached
   platform: ESP8266
@@ -80,14 +81,14 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_pass
-  
+
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: ${device_name} Hotspot
     password: !secret hotspot_pass
-  
+
 captive_portal:
-  
+
 # Enable logging
 logger:
 
