@@ -4,7 +4,9 @@ date-published: 2021-04-15
 type: relay
 standard: global
 ---
+
 ## Product description
+
 This is a 4-relay board with an ESP-12F.
 
 Each relay has COM+NO+NC exposed. Product descriptions don't seem to specify maximum load.
@@ -16,6 +18,7 @@ I bought it from: https://es.aliexpress.com/item/1005001906928377.html (no affil
 Search for more: https://es.aliexpress.com/wholesale?SearchText=esp-12f+ac90-250v+relay+4+channel
 
 ## GPIO Pinout
+
 This board has headers for every GPIO pin on its ESP-12F.
 
 | Pin   | Comment                                                 |
@@ -53,6 +56,7 @@ This board has headers for every GPIO pin on its ESP-12F.
 | GPIO13 | Use a jumper to RY4 to enable Relay 4   |
 
 ## Basic Config
+
 ```yaml
 esphome:
   name: relayboard
