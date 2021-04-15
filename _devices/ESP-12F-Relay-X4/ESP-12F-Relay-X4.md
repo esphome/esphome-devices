@@ -63,21 +63,6 @@ esphome:
   platform: ESP8266
   board: esp12e
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pass
-
-captive_portal:
-
-logger:
-  baud_rate: 0 #Use this to free up UART pins if you want to use them for something else
-
-# Enable Home Assistant API
-api:
-
-# Enable over-the-air flashing
-ota:
-
 # Use the blue LED in the device as a status LED, which will blink if there are warnings (slow) or errors (fast)
 status_led:
   pin:
