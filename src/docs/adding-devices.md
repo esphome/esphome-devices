@@ -43,5 +43,5 @@ To add images to your files do the following:
 2. Add the images to your folder using the appropriate markdown syntax:
 
 ```md
-![alt text](/your-image.jpg "Image Hover Text")
+![alt text](your-image.jpg "Image Hover Text")
 ```
