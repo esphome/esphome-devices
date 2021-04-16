@@ -21,10 +21,15 @@ const FilterDevices = ({ filterDeviceType, filterStandard }) => {
   `);
   const filtered = data?.allMdx?.edges?.filter((e) => {
     if (filterDeviceType) {
-      return e.node.frontmatter.type === filterDeviceType;
+      return (
+        e.node.frontmatter.type?.toLowerCase() ===
+        filterDeviceType?.toLowerCase()
+      );
     }
 
-    return e?.node?.frontmatter?.standard?.includes(filterStandard);
+    return e?.node?.frontmatter?.standard
+      ?.toLowerCase()
+      ?.includes(filterStandard.toLowerCase());
   });
 
   const mapped = filtered?.map(({ node }) => {
