@@ -1,0 +1,44 @@
+# Sidebar navigation
+
+- label: 'Device Type'
+  items:
+    - label: 'Dimmers'
+      link: '/type/dimmer'
+    - label: 'Lights & LEDs'
+      link: '/type/light'
+    - label: 'Miscellaneous Devices'
+      link: '/type/misc'
+    - label: 'Plugs & Sockets'
+      link: '/type/plug'
+    - label: 'Relays'
+      link: '/type/relay'
+    - label: 'Sensors'
+      link: '/type/sensor'
+    - label: 'Switches'
+      link: '/type/switch'
+- label: 'Electrical Standard'
+  items:
+    - label: 'AU Devices'
+      link: '/standards/au'
+    - label: 'EU Devices'
+      link: '/standards/eu'
+    - label: 'Global Devices'
+      link: '/standards/global'
+    - label: 'UK Devices'
+      link: '/standards/uk'
+    - label: 'US Devices'
+      link: '/standards/us'
+- label: Shared guides
+  items:
+    - label: 'Prepare a device with tuya-convert'
+      link: '/guides/tuya-convert/'
+- label: External Links
+  items:
+    - label: "ESPHome Website"
+      link: "https://esphome.io/"
+    - label: "ESPHome Github"
+      link: "https://github.com/esphome/esphome"
+- label: Hosted By
+  items:
+    - label: "Netlify"
+      link: "https://netlify.com/"

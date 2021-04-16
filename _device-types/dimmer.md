@@ -1,4 +1,0 @@
----
-slug: dimmer
-title: Dimmers
----
