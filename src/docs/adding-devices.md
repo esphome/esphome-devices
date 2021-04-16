@@ -4,6 +4,8 @@ title: "Contributing: Adding Devices"
 permalink: /adding-devices/
 ---
 
+## Create device folder and markdown file
+
 1. To add a new device create a new folder named after your device under the `src/docs/devices` directory in the [GitHub Repository](https://github.com/esphome-devices/esphome-devices). In that folder, create a markdown (`.md`) file named `index.md` with the content. Please avoid using underscores in the filenames and use hypens instead as this makes for easier to understand the URLs generated when the site is built. When using the _Add file_ -> _Create new file_ button in the `_devices` folder or by following [this link](https://github.com/esphome-devices/esphome-devices/new/main/_devices), Github will automatically create a fork of the repository and a new branch for your changes. Just type the device name for the folder followed by a slash (`/`) and the device name (again) as the filename plus the `.md` suffix.
 
    <script async defer src="https://buttons.github.io/buttons.js"></script>
