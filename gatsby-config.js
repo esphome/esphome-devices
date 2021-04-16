@@ -26,7 +26,7 @@ module.exports = {
         },
         pluginConfig: {
           head: true,
-          anonymize_ip: true,
+          respectDNT: true,
         },
       },
     },
