@@ -13,23 +13,23 @@ module.exports = {
   },
   flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          "G-0QG5MYES89", // Google Analytics / GA
-        ],
-        gtagConfig: {
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options: {
+    //     // You can add multiple tracking ids and a pageview event will be fired for all of them.
+    //     trackingIds: [
+    //       "G-0QG5MYES89", // Google Analytics / GA
+    //     ],
+    //     gtagConfig: {
+    //       anonymize_ip: true,
+    //       cookie_expires: 0,
+    //     },
+    //     pluginConfig: {
+    //       head: true,
+    //       respectDNT: true,
+    //     },
+    //   },
+    // },
     {
       resolve: `@rocketseat/gatsby-theme-docs`,
       options: {
