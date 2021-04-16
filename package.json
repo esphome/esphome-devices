@@ -13,7 +13,6 @@
     "gatsby-plugin-google-analytics": "^3.0.0",
     "gatsby-plugin-manifest": "^3.0.0",
     "gatsby-plugin-netlify": "^3.3.0",
-    "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-offline": "^4.0.0",
     "gatsby-plugin-remove-trailing-slashes": "^3.0.0",
     "gatsby-plugin-sitemap": "^3.0.0",
