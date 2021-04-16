@@ -50,6 +50,10 @@ module.exports = {
         trackingIds: [
           "G-0QG5MYES89", // Google Analytics / GA
         ],
+        pluginConfig: {
+          head: true,
+          anonymize_ip: true,
+        },
       },
     },
   ],
