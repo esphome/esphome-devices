@@ -10,7 +10,7 @@
     "@rocketseat/gatsby-theme-docs": "^2.3.1",
     "gatsby": "^3.0.4",
     "gatsby-plugin-canonical-urls": "^3.0.0",
-    "gatsby-plugin-google-analytics": "^3.0.0",
+    "gatsby-plugin-google-gtag": "^3.3.0",
     "gatsby-plugin-manifest": "^3.0.0",
     "gatsby-plugin-netlify": "^3.3.0",
     "gatsby-plugin-offline": "^4.0.0",
