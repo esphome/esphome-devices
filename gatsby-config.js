@@ -19,7 +19,7 @@ module.exports = {
         configPath: `src/config`,
         docsPath: `src/docs`,
         repositoryUrl: `https://github.com/esphome-devices/esphome-devices`,
-        baseDir: `examples/gatsby-theme-docs`,
+        baseDir: ``,
       },
     },
     {
