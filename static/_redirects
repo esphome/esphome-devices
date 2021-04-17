@@ -1,0 +1,7 @@
+/types/dimmer     /type/dimmer
+/types/light      /type/light
+/types/misc       /type/misc
+/types/plug       /type/plug
+/types/relay      /type/relay
+/types/sensor     /type/sensor
+/types/switch     /type/switch
