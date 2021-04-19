@@ -50,9 +50,7 @@ export default function Sidebar({ isMenuOpen }) {
     );
   }
 
-  const searchIndices = [
-    { name: process.env.GATSBY_ALGOLIA_INDEX, title: `Pages` },
-  ];
+  const searchIndices = [{ name: `dev-esphome-devices`, title: `Pages` }];
 
   return (
     <Container isMenuOpen={isMenuOpen}>
