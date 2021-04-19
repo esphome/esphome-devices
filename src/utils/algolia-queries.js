@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const indexName = process.env.ALGOLIA_INDEX;
+const indexName = process.env.GATSBY_ALGOLIA_INDEX;
 
 const pageQuery = `{
   pages: allMdx {
