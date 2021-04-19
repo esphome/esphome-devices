@@ -1,11 +1,9 @@
 ---
-title: Mirabella Genio Wi-Fi Strip Light 
+title: Mirabella Genio Wi-Fi Strip Light
 date-published: 2020-01-24
 type: light
 standard: au
 ---
-
-1. TOC
 
 ## General Notes
 
@@ -15,13 +13,13 @@ This is for [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.a
 
 ## GPIO Pinout
 
-| Pin     | Function                           |
-|---------|------------------------------------|
-| GPIO0   | Push Button                        |
-| GPIO4   | Light - Red                        |
-| GPIO5   | Light - White                      |
-| GPIO12  | Light - Green                      |
-| GPIO14  | Light - Blue                       |
+| Pin    | Function      |
+| ------ | ------------- |
+| GPIO0  | Push Button   |
+| GPIO4  | Light - Red   |
+| GPIO5  | Light - White |
+| GPIO12 | Light - Green |
+| GPIO14 | Light - Blue  |
 
 ## Basic Configuration
 
@@ -33,21 +31,21 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: 'sid'
-  password: 'wifi_password'
+  ssid: "sid"
+  password: "wifi_password"
   ap:
-    ssid: 'strip_light'
-    password: 'ap_password'
-  
+    ssid: "strip_light"
+    password: "ap_password"
+
 # Enable logging
 logger:
 
 # Enable Home Assistant API
 api:
-  password: 'api_password'
+  password: "api_password"
 
 ota:
-  password: 'ota_password'
+  password: "ota_password"
 
 output:
   - platform: esp8266_pwm

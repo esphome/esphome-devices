@@ -5,9 +5,6 @@ type: relay
 standard: uk, us, eu
 ---
 
-1. TOC
-   {:toc}
-
 ## GPIO Pinout
 
 | Pin    | Function                        |

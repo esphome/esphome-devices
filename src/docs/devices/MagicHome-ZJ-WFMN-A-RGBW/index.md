@@ -5,8 +5,6 @@ type: light
 standard: global
 ---
 
-1. TOC
-
 ## General Notes
 
 MagicHome RGBW LED controller with Infrared (IR) receiver and remote.
