@@ -17,6 +17,7 @@ export default connectSearchBox(
       }}
     >
       <input
+        autoFocus
         className="SearchInput"
         type="text"
         placeholder="Search"

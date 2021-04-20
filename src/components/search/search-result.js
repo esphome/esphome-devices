@@ -49,12 +49,14 @@ const SearchResult = ({ indices, className, show }) => (
       left: "5px",
       // top: "100%",
       marginTop: "0.5em",
+      marginLeft: "1em",
       // width: "80vw",
       // maxWidth: "30em",
       boxShadow: "0 0 5px 0",
       padding: "1em",
       borderRadius: "2px",
       backgroundColor: "white",
+      width: "90%",
     }}
   >
     {indices.map((index) => (
