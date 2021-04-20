@@ -11,9 +11,35 @@ const theme = {
   faded: "#888",
 };
 
-export default function Search({ indices }) {
+export default function SearchButton({ indices }) {
+  const [showSearch, setShowSearch] = useState(false);
+
+  return showSearch ? (
+    <Search indices={indices} />
+  ) : (
+    <div
+      style={{
+        paddingLeft: "30px",
+        width: "100%",
+        textTransform: "uppercase",
+        fontSize: "14px",
+        fontWeight: "bold",
+        marginTop: "20px",
+        color: "#000000",
+        letterSpacing: "0.142em",
+      }}
+      onClick={() => {
+        setShowSearch(true);
+      }}
+    >
+      <a>Search</a>
+    </div>
+  );
+}
+
+export function Search({ indices }) {
   const rootRef = createRef();
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
   const [hasFocus, setFocus] = useState(false);
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
@@ -27,7 +53,9 @@ export default function Search({ indices }) {
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
-        onSearchStateChange={({ query }) => setQuery(query)}
+        onSearchStateChange={({ query }) => {
+          setQuery(query);
+        }}
       >
         <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
         <SearchResult
