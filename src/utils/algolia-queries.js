@@ -3,7 +3,7 @@ require("dotenv").config();
 const indexName = process.env.GATSBY_ALGOLIA_INDEX;
 
 const pageQuery = `{
-  pages: allMdx {
+  pages: allMdx(filter: {fields: {slug: {glob: "/devices/**/*"}}}) {
     edges {
       node {
         id
