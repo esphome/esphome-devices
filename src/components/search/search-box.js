@@ -15,6 +15,7 @@ export default connectSearchBox(
         color: "#000000",
         letterSpacing: "0.142em",
       }}
+      onSubmit={(e) => e.preventDefault()}
     >
       <input
         autoFocus
