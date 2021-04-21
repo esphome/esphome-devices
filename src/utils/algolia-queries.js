@@ -8,7 +8,8 @@ const pageQuery = `{
       node {
         id
         frontmatter {
-          title
+          title,
+          date_published
         }
         fields {
           slug
