@@ -8,7 +8,9 @@
   "starter-name": "gatsby-starter-rocket-docs",
   "dependencies": {
     "@rocketseat/gatsby-theme-docs": "^2.3.1",
+    "algoliasearch": "^3.35.1",
     "gatsby": "^3.0.4",
+    "gatsby-plugin-algolia": "^0.19.0",
     "gatsby-plugin-canonical-urls": "^3.0.0",
     "gatsby-plugin-google-analytics": "^3.3.0",
     "gatsby-plugin-google-gtag": "^3.3.0",
@@ -19,7 +21,8 @@
     "gatsby-plugin-sitemap": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-instantsearch-dom": "^6.10.3"
   },
   "keywords": [
     "gatsby",
