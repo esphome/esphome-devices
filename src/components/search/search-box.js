@@ -25,7 +25,11 @@ export default connectSearchBox(
         onChange={(e) => refine(e.target.value)}
         value={currentRefinement}
         onFocus={onFocus}
-        style={{ width: "90%" }}
+        style={{
+          width: "90%",
+          borderRadius: "4px",
+          padding: "4px 2px 4px 2px",
+        }}
       />
     </form>
   )
