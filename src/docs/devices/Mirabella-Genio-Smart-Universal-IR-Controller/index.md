@@ -11,7 +11,7 @@ standard: au
 | ------ | ------------------ |
 | GPIO4  | Red Status LED     |
 | GPIO14 | Remote Transmitter |
-| GPIO5  | Remote Reciever    |
+| GPIO5  | Remote Receiver    |
 
 ## Basic Configuration
 
