@@ -44,10 +44,12 @@ esptool.py -p /dev/ttyUSB0 write_flash -fs 1MB 0x0 ir_remote.bin
 ```
 
 ### Hardware Hack
+
 If you want to wake the device via the reset button on the bottom from deep sleep. You need to solder a peace of wire
 between the GPIO13 and the RESET pin of the ESP8266 MCU.
 
 ## Configuration
+
 ```yaml
 # Basic Config
 ---
