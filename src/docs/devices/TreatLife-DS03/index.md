@@ -5,6 +5,8 @@ type: dimmer
 standard: us
 ---
 
+[Amazon Link](https://amzn.to/3aOfMcG)
+
 ## Notes
 
 This TuyaMCU requires a baud rate of 115200. This will generate a error in the log saying 9600 is requested. This is to be expected and will be ignored. Setting baud rate to 9600 will cause boot issues
@@ -22,7 +24,7 @@ This TuyaMCU requires a baud rate of 115200. This will generate a error in the l
 substitutions:
   devicename: fan_switch
   friendly_name: Fan Switch
-  
+
 esphome:
   name: ${devicename}
   platform: ESP8266
@@ -51,14 +53,14 @@ uart:
   rx_pin: GPIO3
   tx_pin: GPIO1
   baud_rate: 115200
-  
+
 tuya:
 
 sensor:
   - platform: wifi_signal
     name: $friendly_name Wifi Signal
     update_interval: 60s
-  
+
   - platform: uptime
     name: $friendly_name uptime
 

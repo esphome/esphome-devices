@@ -5,14 +5,16 @@ type: plug
 standard: us
 ---
 
+[Amazon Link](https://amzn.to/3nqA29i)
+
 ## GPIO Pinout
 
-| Pin    | Function              |
-| ------ | --------------------- |
-| GPIO03 | Push Button inverted  |
-| GPIO13 | Red LED  (Status LED) |
-| GPIO01 | Blue LED              |
-| GPIO14 | Relay 1               |
+| Pin    | Function             |
+| ------ | -------------------- |
+| GPIO03 | Push Button inverted |
+| GPIO13 | Red LED (Status LED) |
+| GPIO01 | Blue LED             |
+| GPIO14 | Relay 1              |
 
 ## Basic Configuration
 
@@ -92,5 +94,4 @@ text_sensor:
   - platform: version
     name: "${friendly_name} ESPHome Version"
     id: "${device_name}_esphome_version"
-
 ```

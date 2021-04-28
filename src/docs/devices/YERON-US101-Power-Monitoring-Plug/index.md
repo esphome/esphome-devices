@@ -5,6 +5,8 @@ type: plug
 standard: us
 ---
 
+[Amazon Link](https://amzn.to/3nAvoWf)
+
 ```yaml
 esphome:
   name: yeeron_plug
@@ -13,7 +15,7 @@ esphome:
 
 web_server: # Enable Web Server (optional)
   port: 80
-  
+
 binary_sensor:
   - platform: gpio
     pin:
@@ -35,7 +37,6 @@ switch:
       inverted: true
     restore_mode: ALWAYS_OFF
     #Have not tinkered with this yet. Currently the light on the plug does not come on.
-
 
   - platform: gpio
     name: "Plug 1"
@@ -61,8 +62,8 @@ sensor:
       id: plug_2_wattage
       name: "Plug 1 Power"
       unit_of_measurement: W
-    current_resistor: "0.00087"   ### HIGHER VALUE GIVES LOWER WATTAGE
-    voltage_divider: "2030"   ### LOWER VALUE GIVES LOWER VOLTAGE
+    current_resistor: "0.00087" ### HIGHER VALUE GIVES LOWER WATTAGE
+    voltage_divider: "2030" ### LOWER VALUE GIVES LOWER VOLTAGE
     change_mode_every: 8
     update_interval: 30s
 

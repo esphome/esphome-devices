@@ -1,9 +1,11 @@
 ---
-title: Teckin SP-10
+title: Teckin SP10
 date-published: 2019-10-11
 type: plug
 standard: us
 ---
+
+[Amazon Link](https://amzn.to/3u26wcf)
 
 ## GPIO Pinout
 
