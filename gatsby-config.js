@@ -1,5 +1,10 @@
 require("dotenv").config();
 
+let skipAlgoliaPlugin = true;
+if (process.env.ALGOLIA_ADMIN_KEY) {
+  skipAlgoliaPlugin = false;
+}
+
 module.exports = {
   siteMetadata: {
     siteTitle: `ESPHome-Devices`,
@@ -74,7 +79,7 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: require("./src/utils/algolia-queries"),
-        continueOnFailure: true,
+        skipIndexing: skipAlgoliaPlugin,
       },
     },
   ],
