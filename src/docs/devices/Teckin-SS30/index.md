@@ -5,6 +5,8 @@ type: plug
 standard: us
 ---
 
+[Amazon Link](https://amzn.to/3tVURf8)
+
 ## GPIO Pinout
 
 | Pin    | Function             |
