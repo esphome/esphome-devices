@@ -5,9 +5,9 @@ type: dimmer
 standard: us
 ---
 
-Treatlife DS02S Switch![image](https://user-images.githubusercontent.com/869300/117560987-84ac8f00-b047-11eb-87cb-a5360935ba67.png)
+Treatlife DS02S Switch![image](Treatlife-DS02S.png)
 
-[Amazon Link](https://amzn.to/3hcBwCN)
+[Amazon Link](https://amzn.to/2RHB44M)
 
 ## Notes
 
