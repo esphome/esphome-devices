@@ -245,3 +245,13 @@ sensors:
     filters:
       - multiply: 0.000011574
 ```
+
+Some SHP7 devices experiences unexpected reboots after few minutes from start. Adding this sensor fixes the issue:
+
+```yaml
+binary_sensor:
+  - platform: gpio
+    pin: GPIO15
+    id: gpio15_irq
+    internal: true
+```
