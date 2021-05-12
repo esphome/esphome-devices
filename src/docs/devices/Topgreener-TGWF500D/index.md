@@ -5,9 +5,9 @@ type: dimmer
 standard: us
 ---
 
-TOPGREENER TGWF500D 3-Way Smart Dimmer Switch![image](https://user-images.githubusercontent.com/869300/117944128-bfb9f700-b2c1-11eb-8254-3e40726c0ef7.png)
+TOPGREENER TGWF500D 3-Way Smart Dimmer Switch![image](Topgreener-TGWF500D.png)
 
-[Amazon Link](https://amzn.to/2RGqTxv)
+[Amazon Link](https://amzn.to/2SA4lPl)
 
 ## Notes
 
@@ -43,7 +43,7 @@ wifi:
     password: !secret esphome_ap_password
 
 logger:
-  level: DEBUG 
+  level: DEBUG
   baud_rate: 0
 
 api:
@@ -58,7 +58,7 @@ web_server:
 uart:
   rx_pin: GPIO13
   tx_pin: GPIO15
-  baud_rate: 9600 
+  baud_rate: 9600
 
 tuya:
 
@@ -71,10 +71,10 @@ sensor:
     name: ${friendly_name} Uptime
 
 light:
-   - platform: "tuya"
-     name: ${friendly_name}
-     dimmer_datapoint: 3
-     switch_datapoint: 1
-     min_value: 10
-     max_value: 255
+  - platform: "tuya"
+    name: ${friendly_name}
+    dimmer_datapoint: 3
+    switch_datapoint: 1
+    min_value: 10
+    max_value: 255
 ```
