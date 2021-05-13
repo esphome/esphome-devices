@@ -103,4 +103,3 @@ sensor:
     update_interval: 60s
     icon: mdi:clock-outline
 ```
-
