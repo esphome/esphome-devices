@@ -6,7 +6,7 @@ type: light
 standard: eu
 ---
 
-![Product Image](./Gosund_SL2.jpg "Product Image")
+![Product Image](Gosund_SL2.jpg "Product Image")
 
 ## Gosund SL2 LED light stripe
 
