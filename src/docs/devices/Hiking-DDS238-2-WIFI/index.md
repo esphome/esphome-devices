@@ -17,19 +17,18 @@ Hiking TOMZN (Tuya)
 
 [aliexpress.com](https://www.aliexpress.com/item/1005002409492948.html)
 
-
 ## Flashing info
 
 I flashed the compiled config using tasmotizer with no issues. Desolding the ESP-Board is required as the TX/RX pins are connected to the Tuya MCU, guide [here](https://github.com/krikk/Hiking-DDS238-2-WIFI-Din-Rail-Energy-Meter-flashing-Tasmota) for Tasmota with photo's.
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO1  | Tuya MCU Tx         |
-| GPIO3  | Tuya MCU Rx         |
-| GPIO14 | LED (inverted)      |
-| GPIO16 | Button (inverted)   |
+| Pin    | Function          |
+| ------ | ----------------- |
+| GPIO1  | Tuya MCU Tx       |
+| GPIO3  | Tuya MCU Rx       |
+| GPIO14 | LED (inverted)    |
+| GPIO16 | Button (inverted) |
 
 ## Basic Configuration
 
@@ -53,7 +52,6 @@ wifi:
     password: !secret esphome_admin_password
 
 captive_portal:
-
 
 logger:
   baud_rate: 0
@@ -82,8 +80,8 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: power
-        
-sensor:   
+
+sensor:
   - platform: "tuya"
     name: "${friendly_name} Current"
     sensor_datapoint: 18
@@ -91,8 +89,8 @@ sensor:
     unit_of_measurement: "A"
     icon: "mdi:flash"
     filters:
-    - multiply: 0.001
-    
+      - multiply: 0.001
+
   - platform: "tuya"
     name: "${friendly_name} Power"
     sensor_datapoint: 19
@@ -100,7 +98,7 @@ sensor:
     unit_of_measurement: "W"
     icon: "mdi:flash"
     filters:
-    - multiply: 0.1
+      - multiply: 0.1
 
   - platform: "tuya"
     name: "${friendly_name} Voltage"
@@ -109,7 +107,7 @@ sensor:
     accuracy_decimals: 1
     icon: "mdi:flash"
     filters:
-    - multiply: 0.1
+      - multiply: 0.1
 
   - platform: "tuya"
     name: "${friendly_name} kWh +"
@@ -118,8 +116,8 @@ sensor:
     accuracy_decimals: 3
     icon: "mdi:flash"
     filters:
-    - multiply: 0.01
-    
+      - multiply: 0.01
+
   - platform: "tuya"
     name: "${friendly_name} kWh -"
     sensor_datapoint: 9
@@ -127,5 +125,5 @@ sensor:
     accuracy_decimals: 3
     icon: "mdi:flash"
     filters:
-    - multiply: 0.01
+      - multiply: 0.01
 ```
