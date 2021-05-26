@@ -57,7 +57,7 @@ binary_sensor:
     id: switchid
 ```
 
-## Detached switch mode
+## Detached switch mode for push button light switch
 
 This config will send events to Home Assistant so you can use the Shelly as detached switch. The events can be used as triggers for automations to toggle an attached (smart) light, and to perform other actions on double click and long click (e.g. turn off all the lights on the floor, start a "go to bed" automation).
 
@@ -200,5 +200,104 @@ binary_sensor:
               else:
                 - switch.toggle: shelly_relay
     internal: true
+    id: button
+```
+
+## Detached switch mode for toggle light switch
+
+This config will send events to Home Assistant so you can use the Shelly as detached switch. The events can be used as triggers for automations to toggle an attached smart light.
+
+In case the relay is switched off, the Shelly has no connection to Wifi, or no API connection to Homa Assistant can be made, the config will toggle the relay. This allows the switch to still keep turning the attached smart light on and off when WiFi or Home Assistant is unavailable.
+
+When the power drops and goes back on, the relay will default to off. This prevents lights turning on when a short power outage happens when you are away from home.
+
+The relay is exposed to Home Assistant as a switch. As well as some (optional) sensors with information on the ESPHome version and Wifi status
+
+```yaml
+substitutions:
+  device_name: "Switch Light Kitchen"
+
+esphome:
+  name: shelly1-kitchen
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "shelly1 kitchen hotspot"
+    password: !secret hotspot_pass
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable OTA updates
+ota:
+
+# Enable Web server (optional).
+web_server:
+  port: 80
+
+# Text sensors with general information.
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${device_name} IP
+
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: ${device_name} Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: ${device_name} WiFi Signal
+    update_interval: 60s
+
+# Shelly 1 detached switch config with fallback in case of wifi or api fail
+
+switch:
+  - platform: gpio
+    name: ${device_name}
+    pin: GPIO4
+    id: shelly_relay
+    # after reboot, keep the relay off. this prevents light turning on after a power outage
+    restore_mode: ALWAYS_OFF
+
+binary_sensor:
+  - platform: gpio
+    name: ${device_name} Input
+    pin:
+      number: GPIO5
+    # small delay to prevent debouncing
+    filters:
+      - delayed_on_off: 50ms
+    # config for state change of input button
+    on_state:
+        then:
+          - if:
+              condition:
+                and:
+                  - wifi.connected:
+                  - api.connected:
+                  - switch.is_on: shelly_relay
+              # toggle smart light if wifi and api are connected and relay is on
+              then:
+                - homeassistant.service:
+                    service: light.toggle
+                    data:
+                      entity_id: light.kitchen
+              # else, toggle relay
+              else:
+                - switch.toggle: shelly_relay
     id: button
 ```
