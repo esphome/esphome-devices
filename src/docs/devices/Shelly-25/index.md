@@ -123,13 +123,13 @@ switch:
   - platform: gpio
     id: shelly_relay_1
     name: ${devicename} Relay1
-    pin: GPIO15
+    pin: GPIO4
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
   - platform: gpio
     id: shelly_relay_2
     name: ${devicename} Relay2
-    pin: GPIO4
+    pin: GPIO15
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
 ```
@@ -302,13 +302,13 @@ switch:
   - platform: gpio
     id: shelly_relay_1
     name: ${channel_1} relay
-    pin: GPIO15
+    pin: GPIO4
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
   - platform: gpio
     id: shelly_relay_2
     name: ${channel_2} relay
-    pin: GPIO4
+    pin: GPIO15
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
 
