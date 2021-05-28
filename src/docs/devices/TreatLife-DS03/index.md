@@ -77,4 +77,5 @@ fan:
     name: $friendly_name Speed
     switch_datapoint: 1
     speed_datapoint: 3
+    speed_count: 4
 ```
