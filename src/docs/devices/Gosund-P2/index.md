@@ -5,7 +5,7 @@ type: plug
 standard: uk, us
 ---
 
-![Product Image](https://images-na.ssl-images-amazon.com/images/I/51lDoX42PVL._AC_SL1500_.jpg "Gosund P2 Power Strip")
+![Product Image](Gosund-P2.jpg "Gosund P2 Power Strip")
 
 ## Gosund P2 Wall Outlet
 
@@ -13,14 +13,14 @@ Smart Outlet, Gosund Wall Outlet Extender (15A/1800W), Multi WiFi Plug with 3 US
 
 ## GPIO Pinout
 
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO02 | ledlink |
+| Pin    | Function      |
+| ------ | ------------- |
+| GPIO02 | ledlink       |
 | GPIO05 | Relay4i - USB |
-| GPIO12 | Relay1|
-| GPIO13 | Relay2|
-| GPIO14 | Relay3|
-| GPIO16 | Button1|
+| GPIO12 | Relay1        |
+| GPIO13 | Relay2        |
+| GPIO14 | Relay3        |
+| GPIO16 | Button1       |
 
 ## Basic Configuration
 
@@ -59,19 +59,19 @@ switch:
     id: "${name}_switch1"
     pin: GPIO12
     inverted: no
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
   - platform: gpio
     name: "Wall ${upper_name} Switch2"
     id: "${name}_switch2"
     pin: GPIO13
     inverted: no
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
   - platform: gpio
     name: "Wall ${upper_name} Switch3"
     id: "${name}_switch3"
     pin: GPIO14
     inverted: no
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
   - platform: gpio
     name: "Wall ${upper_name} usb"
     id: "${name}_usb"
