@@ -5,6 +5,7 @@ type: plug
 standard: uk, us
 ---
 
+[Amazon Link](https://amzn.to/3g5vrGh)
 ![Product Image](Gosund-P2.jpg "Gosund P2 Power Strip")
 
 ## Gosund P2 Wall Outlet
