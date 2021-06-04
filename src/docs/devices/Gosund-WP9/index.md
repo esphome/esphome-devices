@@ -5,7 +5,7 @@ type: plug
 standard: uk, us
 ---
 
-![Product Image](https://images-na.ssl-images-amazon.com/images/I/61z-XZpjbxL._AC_SL1500_.jpg "Gosund WP9 Power Strip")
+![Product Image](Gosund-WP9.jpg "Gosund WP9 Power Strip")
 
 ## Gosund WP9 Power Strip
 
