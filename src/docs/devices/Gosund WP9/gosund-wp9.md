@@ -12,17 +12,18 @@ standard: uk, us
 Gosund Smart Power Strip Works with Alexa/Google Home, Smart Plugs WiFi Surge Protector Multi Outlet Extender, 10A 3 USB/Charging Ports for Home Office Desk Tablets, 4ft Extension Cord, White
 
 ## GPIO Pinout
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO00 | Ledi|
-| GPIO01 | Led4|
-| GPIO02 | Led3|
-| GPIO03 | Led3|
-| GPIO05 | Relay1|
-| GPIO12 | Relay3|
-| GPIO13 | Relay4|
-| GPIO14 | Relay2|
-| GPIO16 | Button1
+
+| Pin    | Function |
+| ------ | -------- |
+| GPIO00 | Ledi     |
+| GPIO01 | Led4     |
+| GPIO02 | Led3     |
+| GPIO03 | Led3     |
+| GPIO05 | Relay1   |
+| GPIO12 | Relay3   |
+| GPIO13 | Relay4   |
+| GPIO14 | Relay2   |
+| GPIO16 | Button1  |
 
 ## Basic Configuration
 
@@ -59,22 +60,22 @@ switch:
     name: "${upper_name} Switch1"
     id: "${name}_switch1"
     pin: GPIO14
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
   - platform: gpio
     name: "${upper_name} Switch2"
     id: "${name}_switch2"
     pin: GPIO12
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
   - platform: gpio
     name: "${upper_name} Switch3"
     id: "${name}_switch3"
     pin: GPIO13
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
   - platform: gpio
     name: "${upper_name} usb"
     id: "${name}_usb"
     pin: GPIO05
-    restore_mode: "RESTORE_DEFAULT_ON"    
+    restore_mode: "RESTORE_DEFAULT_ON"
     on_turn_on:
       - switch.turn_on: led
     on_turn_off:
