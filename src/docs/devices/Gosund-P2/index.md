@@ -2,7 +2,7 @@
 title: Gosund P2 Power Strip
 date-published: 2021-06-01
 type: plug
-standard: uk, us
+standard: us
 ---
 
 [Amazon Link](https://amzn.to/3g5vrGh)

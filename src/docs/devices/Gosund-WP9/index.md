@@ -2,7 +2,7 @@
 title: Gosund WP9 Power Strip
 date-published: 2021-06-01
 type: plug
-standard: uk, us
+standard: us
 ---
 
 [Amazon Link](https://amzn.to/3x9j7vJ)
