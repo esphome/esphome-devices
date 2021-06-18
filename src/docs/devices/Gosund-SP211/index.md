@@ -1,25 +1,25 @@
 ---
 title: Gosund SP211
-date-published: 2021-01-07
+date-published: 2021-06-18
 type: plug
 standard: eu
 ---
 
 ```yaml
 esphome:
-  name: wallswitch211
+  name: sp211
   platform: ESP8266
   board: esp8285
 
 wifi:
-  ssid: "ssid"
-  password: !secret wifi_key
-  domain: !secret domain
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  # domain: !secret domain
   # use_address: 192.168.6.52
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${plug_name} Fallback Hotspot"
-    password: !secret Fallback_Hotspot
+    password: !secret fallback_password
 
 captive_portal:
 
@@ -36,7 +36,7 @@ time:
     id: homeassistant_time
 
 substitutions:
-  plug_name: wallswitch2_01
+  plug_name: sp211
   # Higher value gives lower watt readout
   #current_res: "0.00520"
   current_res: "0.00130"
@@ -61,7 +61,7 @@ sensor:
   - platform: hlw8012
     sel_pin:
       number: GPIO03
-      inverted: True
+      inverted: true
     cf_pin: GPIO04
     cf1_pin: GPIO05
     current_resistor: ${current_res}
@@ -82,15 +82,15 @@ sensor:
     power:
       name: "${plug_name} - Watt"
       unit_of_measurement: W
-      id: "${plug_name}_Wattage"
+      id: "${plug_name}_power"
       icon: mdi:flash-outline
 
     change_mode_every: 4
-    update_interval: 3s
+    update_interval: 10s
 
   - platform: total_daily_energy
-    name: "${plug_name} - Dagverbruik"
-    power_id: "${plug_name}_Wattage"
+    name: "${plug_name} - Daily energy consumed"
+    power_id: "${plug_name}_power"
     filters:
         # Multiplication factor from W to kW is 0.001
         - multiply: 0.001
@@ -104,7 +104,7 @@ text_sensor:
 status_led:
   pin:
     number: GPIO01
-    inverted: True
+    inverted: true
 
 binary_sensor:
   - platform: gpio
@@ -128,6 +128,12 @@ binary_sensor:
     #on_state:
     on_press:
       - switch.toggle: relay2
+    
+    # Fix for overload bug in certain SP211 devices
+  - platform: gpio
+    id: gpio15_irq
+    pin: GPIO15
+    internal: true
 
 output:
   - platform: gpio
@@ -145,7 +151,7 @@ switch:
     pin: GPIO14
     id: relay1
     restore_mode: RESTORE_DEFAULT_OFF
-    name: '${plug_name} - Switch1'
+    name: '${plug_name} - Switch 1'
     icon: mdi:power-socket-eu
     on_turn_on:
       - output.turn_on: led1
@@ -156,7 +162,7 @@ switch:
     pin: GPIO16
     id: relay2
     restore_mode: RESTORE_DEFAULT_OFF
-    name: '${plug_name} - Switch2'
+    name: '${plug_name} - Switch 2'
     icon: mdi:power-socket-eu
     on_turn_on:
       - output.turn_on: led2
