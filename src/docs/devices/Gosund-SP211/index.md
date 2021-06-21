@@ -128,7 +128,7 @@ binary_sensor:
     #on_state:
     on_press:
       - switch.toggle: relay2
-    
+
     # Fix for overload bug in certain SP211 devices
   - platform: gpio
     id: gpio15_irq
