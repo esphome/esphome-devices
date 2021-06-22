@@ -36,7 +36,7 @@ esp32_ble_tracker:
   scan_interval: 360s
 
 sensor:
-  - platform: xiaomi_miflora
+  - platform: xiaomi_hhccjcy01
     mac_address: "80:EA:CA:88:B3:6C"
     temperature:
       name: "Peace Lily Temperature"
@@ -49,7 +49,7 @@ sensor:
     battery_level:
       name: "Peace Lily Battery Level"
 
-  - platform: xiaomi_miflora
+  - platform: xiaomi_hhccjcy01
     mac_address: "C4:7C:8D:6B:01:97"
     temperature:
       name: "Palour Palm Temperature"
@@ -60,7 +60,7 @@ sensor:
     conductivity:
       name: "Palour Palm Soil Conductivity"
 
-  - platform: xiaomi_miflora
+  - platform: xiaomi_hhccjcy01
     mac_address: "80:EA:CA:88:B3:B1"
     temperature:
       name: "Lounge Orchid Temperature"
@@ -71,7 +71,7 @@ sensor:
     conductivity:
       name: "Lounge Orchid Soil Conductivity"
 
-  - platform: xiaomi_miflora
+  - platform: xiaomi_hhccjcy01
     mac_address: "80:EA:CA:88:B0:EF"
     temperature:
       name: "Tomato Plant Temperature"
