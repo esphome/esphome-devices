@@ -8,18 +8,19 @@ standard: US
 ![Product Image](gosund_SW5.jpg "Product Image")
 
 ## Flashing
+
 For older devices, it may be possible to use Tuya Convert to flash
 
-For newer devices, use a USB to serial adapter, and solder wires onto the pads marked IO0, TX, RX, 3.3V and GND. 
+For newer devices, use a USB to serial adapter, and solder wires onto the pads marked IO0, TX, RX, 3.3V and GND.
 
 ## GPIO Pinout
 
-| Pin    | Function                       |
-| ------ | ------------------------------ |
-| GPIO0  | Button                         |
-| GPIO2  | State LED (Inverted: true)     |
-| GPIO14 | Relay                          |
-| GPIO16 | Link LED (inverted: true)      |
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO0  | Button                     |
+| GPIO2  | State LED (Inverted: true) |
+| GPIO14 | Relay                      |
+| GPIO16 | Link LED (inverted: true)  |
 
 ## Basic Configuration
 
@@ -72,7 +73,7 @@ binary_sensor:
     id: button1
     on_press:
       then:
-      - switch.toggle: relay1
+        - switch.toggle: relay1
 
 switch:
   - platform: gpio
