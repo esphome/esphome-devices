@@ -29,7 +29,6 @@ The latest LSC Smart Connect Switch devices use the Tuya WB2S module, which is n
 ## Basic configuration
 
 ```yml
-
 substitutions:
   plug_name: lsc-powerplug1
 
@@ -37,7 +36,7 @@ esphome:
   name: ${plug_name}
   platform: ESP8266
   board: esp01_1m
- 
+
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -85,9 +84,7 @@ switch:
       - light.turn_on: led
     on_turn_off:
       - light.turn_off: led
-
 ```
 
 > https://thibmaek.com/posts/flashing-esphome-to-lsc-smart-connect-action-switches-power-plugs
 > Tasmota template LSC power plug [https://templates.blakadder.com/lsc_smart_connect_power_plug.html]
-
