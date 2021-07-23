@@ -1,6 +1,6 @@
 ---
 title: LSC Smart Connect Switch
-date-published: 2019-12-11
+date-published: 2021-07-14
 type: plug
 standard: eu
 ---
@@ -24,13 +24,16 @@ The latest LSC Smart Connect Switch devices use the Tuya WB2S module, which is n
 | ------ | ----------------------------------- |
 | GPIO4  | LED (on: 0 /off: 1)                 |
 | GPIO12 | Relay (on: 1 /off: 0)               |
-| GPIO14 | Switch/button (pressed: 0 / off: 1) |
+| GPIO13 | Switch/button (pressed: 0 / off: 1) |
 
 ## Basic configuration
 
 ```yml
+substitutions:
+  plug_name: lsc-powerplug1
+
 esphome:
-  name: lsc_smart_connect_node_bedroom
+  name: ${plug_name}
   platform: ESP8266
   board: esp01_1m
 
@@ -43,45 +46,46 @@ logger:
 ota:
 
 binary_sensor:
+  # Binary sensor for the button press
   - platform: status
-    name: "LSC Smart Connect Bedroom Status"
+    name: ${plug_name}_status
   - platform: gpio
     pin:
-      number: GPIO14
+      number: GPIO13
       mode: INPUT_PULLUP
       inverted: true
-    name: "LSC Smart Connect Power Button"
+    name: ${plug_name}_button
     internal: true
     on_press:
       - switch.toggle: relay
 
 output:
+  # Relay state led
   - platform: esp8266_pwm
-    id: led
+    id: state_led
     pin:
       number: GPIO4
       inverted: true
 
 light:
+  # Relay state light
   - platform: monochromatic
-    id: status_led
-    name: "LSC Smart Connect Bedroom Light"
-    output: led
+    id: led
+    name: ${plug_name}_led
+    output: state_led
 
 switch:
+  # Switch toggles relay
   - platform: gpio
     id: relay
+    name: ${plug_name}_relay
     pin: GPIO12
-  - platform: template
-    name: "LSC Smart Connect Bedroom Relay"
-    optimistic: true
-    id: relay_and_light
-    turn_on_action:
-      - switch.turn_on: relay
-      - light.turn_on: status_led
-    turn_off_action:
-      - switch.turn_off: relay
-      - light.turn_off: status_led
+    on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led
 ```
 
-> Configuration and details from this blogpost: [https://thibmaek.com/post/flashing-esphome-to-lsc-smart-connect-action-switches-power-plugs](https://thibmaek.com/post/flashing-esphome-to-lsc-smart-connect-action-switches-power-plugs)
+https://thibmaek.com/posts/flashing-esphome-to-lsc-smart-connect-action-switches-power-plugs
+
+[Tasmota template LSC power plug](https://templates.blakadder.com/lsc_smart_connect_power_plug.html)
