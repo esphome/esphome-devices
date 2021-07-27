@@ -15,7 +15,6 @@ This TuyaMCU requires a baud rate of 9600, unlike the DS03 dimmer.
 
 July 2021 - New device purchased now has Tuya WB3S Wifi Microcontroller in place of the previous TYWE3S, which is not ESP based. Luckily, the main board still has the appropriate footprint for an ESP-12F. Further instructions on how to swap microcontrollers can be found [here](https://community.home-assistant.io/t/treatlife-dual-outlet-indoor-dimmer-plug-wb3s-to-esp-12-transplant/256798)
 
-
 ## GPIO Pinout
 
 | Pin   | Function |

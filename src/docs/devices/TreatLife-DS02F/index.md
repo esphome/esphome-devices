@@ -13,7 +13,7 @@ Treatlife DS02S Switch![image](treatlife_DS02F.jpg)
 
 This is not for the feint of heart, this device comes with a custom Tuya chip, which is not ESP based. Luckily, the main board has the appropriate footprint for an ESP-12F. Further instructions can be found [here](https://community.home-assistant.io/t/treatlife-dual-outlet-indoor-dimmer-plug-wb3s-to-esp-12-transplant/256798)
 
-The Treatlife DS02F is the same device as the DS03, but lacking the control for the light. 
+The Treatlife DS02F is the same device as the DS03, but lacking the control for the light.
 
 ## GPIO Pinout
 
