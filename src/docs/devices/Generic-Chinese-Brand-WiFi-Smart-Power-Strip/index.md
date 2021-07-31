@@ -28,7 +28,7 @@ For reference only if you want to develop something more than the basic function
 
 ## Firmware Setup
 
-I flashed this device with tuya-convert OTA, which worked straight off. I flashed it directly with ESPHome with no problem :)
+I flashed this device with tuya-convert OTA, which worked straight off. I flashed it directly with ESPHome with no problem.
 
 ## Code
 
@@ -99,7 +99,6 @@ switch:
       number: 16
       inverted: false
     id: relay_usb
-              
 
 binary_sensor:
   - platform: gpio
@@ -134,7 +133,7 @@ sensor:
   - platform: wifi_signal
     name: "${device_name} WiFi Signal Strength"
     update_interval: 60s
-    
+
 light:
   - platform: binary
     name: "${device_name} LED 1"
