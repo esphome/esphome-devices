@@ -43,7 +43,7 @@ An [external component](https://github.com/mmakaay/esphome-xiaomi_bslamp2) was c
 
 * **Possibilities to extend the device's functionality through hardware mods.** There are GPIO pins
   that are not in use. If "tinkerer" is your middle name, you can use those pins to come up with
-  your own hardware hacks to extend the device's functionality. 
+  your own hardware hacks to extend the device's functionality.
 
 ## Documentation
 
