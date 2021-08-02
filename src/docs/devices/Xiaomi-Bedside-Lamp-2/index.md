@@ -53,7 +53,8 @@ All information on how to build, flash and configure the ESPHome firmware can be
 * [Documentation index](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/README.md)
 * [Quick start guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/README.md#quick-start-guide)
 * [Flashing guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/doc/flashing.md)
-* [Configuration guide]() and an [example.yaml]()
+* [Configuration guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/doc/configuration.md)
+  and an [example.yaml](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/example.yaml)
 * [Technical details](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/doc/technical_details.md)
 
 ## Contacting the author
