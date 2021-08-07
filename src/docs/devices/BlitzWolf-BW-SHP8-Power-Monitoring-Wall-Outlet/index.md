@@ -56,7 +56,7 @@ switch:
     name: "$hostname power"
     id: relay
     pin: GPIO14
-    restore_mode: $restore_mode 
+    restore_mode: $restore_mode
     icon: "mdi:power-socket-de"
     on_turn_on:
       - light.turn_on: led
