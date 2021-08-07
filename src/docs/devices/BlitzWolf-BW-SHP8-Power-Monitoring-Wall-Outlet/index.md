@@ -1,7 +1,7 @@
 ---
 title: BlitzWolf BW-SHP8 Power Monitoring Wall Outlet
 date-published: 2021-08-07
-type: outlet
+type: plug
 standard: eu
 ---
   ![alt text](/BlitzWolf-BW-SHP8-Power-Monitoring-Wall-Outlet.jpg "Product Image")
