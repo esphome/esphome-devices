@@ -12,15 +12,15 @@ Manufacturer: [BlitzWolf](https://www.blitzwolf.com/BlitzWolf-BW-SHP8-3680W-EU-W
 
 ## GPIO Pinout
 
-| Pin    | Function                   |
-|--------|----------------------------|
-| GPIO03 | Push Button                |
-| GPIO13 | Blue LED (Inverted: true)  |
-| GPIO01 | Red LED (Inverted: true)   |
-| GPIO14 | Relay                      |
-| GPIO12 | HLWBL SEL Pin              |
-| GPIO04 | HLW8012 CF Pin             |
-| GPIO05 | HLWBL CF1 Pin              |
+| Pin    | Function                             |
+|--------|--------------------------------------|
+| GPIO03 | Push Button (inverted, input_pullup) |
+| GPIO13 | Blue LED (inverted)                  |
+| GPIO01 | Red LED (inverted)                   |
+| GPIO14 | Relay                                |
+| GPIO12 | HLWBL SEL Pin                        |
+| GPIO04 | HLW8012 CF Pin                       |
+| GPIO05 | HLWBL CF1 Pin                        |
 
 ## Config
 
