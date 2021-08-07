@@ -6,7 +6,7 @@ standard: eu
 ---
   ![alt text](/BlitzWolf-BW-SHP8-Power-Monitoring-Wall-Outlet.jpg "Product Image")
 
-Model reference: BW-SHP2
+Model reference: BW-SHP8
 
 Manufacturer: [BlitzWolf](https://www.blitzwolf.com/BlitzWolf-BW-SHP8-3680W-EU-Wifi-Smart-In-wall-Socket-with-Remote-Control-p-354.html)
 
