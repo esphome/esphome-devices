@@ -1,6 +1,6 @@
 ---
 title: Athom Smart Plug AU
-date-published: 2021-08-11
+date-published: 2021-08-12
 type: plug
 standard: au
 ---
