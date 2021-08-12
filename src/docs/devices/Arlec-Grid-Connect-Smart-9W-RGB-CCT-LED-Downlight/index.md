@@ -1,6 +1,6 @@
 ---
 title: Arlec Grid Connect Smart 9W RGB CCT LED Downlight (ALD092RHA)
-date-published: 2021-11-08
+date-published: 2021-08-11
 type: light
 standard: au
 ---
