@@ -67,13 +67,13 @@ binary_sensor:
       max_length: 8s
       then:
         - lambda: |-
-              ESP.reset(); 
+              ESP.reset();
 
 sensor:
   - platform: uptime
     name: $upper_devicename Uptime Sensor
   - platform: hlw8012
-    sel_pin: 
+    sel_pin:
       number: GPIO12
       inverted: True
     cf_pin: GPIO4
@@ -125,7 +125,7 @@ sensor:
     unit_of_measurement: kWh
     filters:
       - multiply: 0.001
-       
+
 switch:
   - platform: gpio
     id: blue_led
