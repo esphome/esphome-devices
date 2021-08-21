@@ -11,7 +11,7 @@ standard: uk
 
 ## Available from
 
-[Amazon.co.uk](https://www.amazon.co.uk/dp/B07ZSDWQQ8)
+[Amazon.co.uk](https://www.amazon.co.uk/dp/B0983HP45C)
 
 ## Flashing info
 
