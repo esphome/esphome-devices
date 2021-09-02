@@ -21,6 +21,7 @@ Available at:
 | GPIO14 | IR Blaster Array    |
 
 ## Flashing
+
 A note about flashing this device:
     - On older models of this device, [tuya-convert](https://github.com/ct-Open-Source/tuya-convert) should be able to flash this device, but I am unsure how old the device needs to be for this method to still work.
     - On newer patched devices (likely yours), [tuya-convert](https://github.com/ct-Open-Source/tuya-convert) will not work. In order to flash, gain access to the [TYWE3S](https://tasmota.github.io/docs/Pinouts/#tywe3s) board by prying off the top of the device and unscrewing the PCB from the plastic housing. On the underside of the PCB, the [TYWE3S](https://tasmota.github.io/docs/Pinouts/#tywe3s) board will reveal itself.
