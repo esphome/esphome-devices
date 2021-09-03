@@ -17,7 +17,7 @@ Available at:
 | Pin    | Function            |
 | ------ | ------------------- |
 | GPIO4  | External Blue LED   |
-| GPIO5  | IR Receiver         | 
+| GPIO5  | IR Receiver         |
 | GPIO14 | IR Blaster Array    |
 
 ## Flashing
