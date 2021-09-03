@@ -1,5 +1,5 @@
 ---
-title: Smartpoint-Wifi-Smart-Remote-Controller
+title: Smartpoint Wifi Smart Remote Controller
 date-published: 2021-09-02
 type: misc
 standard: global
