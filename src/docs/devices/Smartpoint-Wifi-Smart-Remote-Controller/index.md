@@ -5,26 +5,25 @@ type: misc
 standard: global
 ---
 
-![Product Image](/Smartpoint-Wifi-Smart-Remote-Controller.jpg "Product Image")
+![Product Image](smartpoint_wifi_smart_remote_controller.jpeg "Product Image")
 Manufacturer: [SmartPoint](https://www.smartpointco.com/product-page/smart-wifi-remote-control)
 
-Available at:
-    - [Walmart](https://www.walmart.com/ip/Smartpoint-Wifi-Smart-Remote-Controller-Compatible-with-Alexa-and-Google-Assistant-Hands-Free-Voice-Control/824016383)
-    - [Amazon](https://www.amazon.com/dp/B08NFBJCSQ/)
+Available at: - [Walmart](https://www.walmart.com/ip/Smartpoint-Wifi-Smart-Remote-Controller-Compatible-with-Alexa-and-Google-Assistant-Hands-Free-Voice-Control/824016383) - [Amazon](https://amzn.to/3n1c2LD)
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO4  | External Blue LED   |
-| GPIO5  | IR Receiver         |
-| GPIO14 | IR Blaster Array    |
+| Pin    | Function          |
+| ------ | ----------------- |
+| GPIO4  | External Blue LED |
+| GPIO5  | IR Receiver       |
+| GPIO14 | IR Blaster Array  |
 
 ## Flashing
 
 A note about flashing this device:
-    - On older models of this device, [tuya-convert](https://www.esphome-devices.com/guides/tuya-convert/) should be able to flash this device, but I am unsure how old the device needs to be for this method to still work.
-    - On newer patched devices (likely yours), [tuya-convert](https://www.esphome-devices.com/guides/tuya-convert/) will not work. In order to flash, gain access to the [TYWE3S](https://tasmota.github.io/docs/Pinouts/#tywe3s) board by prying off the top of the device and unscrewing the PCB from the plastic housing. On the underside of the PCB, the [TYWE3S](https://tasmota.github.io/docs/Pinouts/#tywe3s) board will reveal itself.
+
+- On older models of this device, [tuya-convert](https://www.esphome-devices.com/guides/tuya-convert/) should be able to flash this device, but I am unsure how old the device needs to be for this method to still work.
+- On newer patched devices (likely yours), [tuya-convert](https://www.esphome-devices.com/guides/tuya-convert/) will not work. In order to flash, gain access to the [TYWE3S](https://tasmota.github.io/docs/Pinouts/#tywe3s) board by prying off the top of the device and unscrewing the PCB from the plastic housing. On the underside of the PCB, the [TYWE3S](https://tasmota.github.io/docs/Pinouts/#tywe3s) board will reveal itself.
 
 ## Basic Configuration
 
@@ -92,12 +91,11 @@ switch:
     optimistic: true
     assumed_state: true
     turn_on_action:
-        # Data would be the IR command captured in the log by the remote receiver
+      # Data would be the IR command captured in the log by the remote receiver
       - remote_transmitter.transmit_samsung:
           data: 0xE0E09966
     turn_off_action:
-        # Data would be the IR command captured in the log by the remote receiver
+      # Data would be the IR command captured in the log by the remote receiver
       - remote_transmitter.transmit_samsung:
           data: 0xE0E019E6
-
 ```
