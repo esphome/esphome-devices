@@ -1,7 +1,7 @@
 ---
 title: Xiaomi Mi Smart LED Desk Lamp Pro
 date-published: 2021-09-09
-type: Light
+type: light
 standard: eu
 ---
 
@@ -39,7 +39,7 @@ sensor:
         - if:
             condition:
               # Check if Button is pressed while rotating
-              lambda: 'return id(button).state;'
+              lambda: "return id(button).state;"
             then:
               # If Button is pressed, change CW/WW
               - lambda: |-
@@ -83,7 +83,7 @@ output:
     id: output_ww
     power_supply: power
     frequency: 40000Hz
-    
+
 power_supply:
   - id: power
     pin: GPIO12
@@ -100,6 +100,6 @@ light:
     warm_white: output_ww
     cold_white_color_temperature: 4800 K
     warm_white_color_temperature: 2500 K #2500k is the original value of the lamp. To correct binning for 2700k to look more like 2700k use 2650k instead
-    restore_mode: ALWAYS_ON 
+    restore_mode: ALWAYS_ON
     gamma_correct: 0
 ```
