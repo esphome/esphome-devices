@@ -41,6 +41,7 @@ esphome:
 wifi:
   ssid: !secret ssid1
   password: !secret ssid1_pass
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
 
 captive_portal:
 
@@ -58,18 +59,20 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} Voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${devicename} Current B
     current_b:
       name: ${devicename} Current A
     active_power_a:
       name: ${devicename} Active Power B
-      filters:
-        - multiply: -1
+      # active_power_a is normal, so don't multiply by -1
     active_power_b:
       name: ${devicename} Active Power A
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
     update_interval: 60s
@@ -100,10 +103,6 @@ status_led:
     inverted: yes
 
 binary_sensor:
-  - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
   - platform: gpio
     pin:
       number: GPIO13
@@ -162,6 +161,7 @@ esphome:
 wifi:
   ssid: ${ssid}
   password: ${password}
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
   manual_ip:
     static_ip: ${ip}
     gateway: 192.168.xx.xx
@@ -206,8 +206,10 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${channel_2} current
       internal: true
@@ -217,8 +219,7 @@ sensor:
     active_power_a:
       name: ${channel_2} power
       id: power_channel_2
-      filters:
-        - multiply: 1
+      # active_power_a is normal, so don't multiply by -1
       on_value_range:
         - above: ${max_power}
           then:
@@ -232,6 +233,7 @@ sensor:
     active_power_b:
       name: ${channel_1} power
       id: power_channel_1
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
       on_value_range:
@@ -314,10 +316,6 @@ switch:
 
 binary_sensor:
   - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
-  - platform: gpio
     pin:
       number: GPIO13
     name: "${channel_1} input"
@@ -354,6 +352,7 @@ esphome:
 wifi:
   ssid: !secret ssid1
   password: !secret ssid1_pass
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
 
 captive_portal:
 
@@ -371,18 +370,20 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} Voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${devicename} Current B
     current_b:
       name: ${devicename} Current A
     active_power_a:
       name: ${devicename} Active Power B
-      filters:
-        - multiply: -1
+      # active_power_a is normal, so don't multiply by -1
     active_power_b:
       name: ${devicename} Active Power A
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
     update_interval: 60s
@@ -431,10 +432,6 @@ light:
     id: lightid2
 
 binary_sensor:
-  - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
   - platform: gpio
     pin:
       number: GPIO13
@@ -487,6 +484,7 @@ esphome:
 wifi:
   ssid: ${ssid}
   password: ${password}
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
   manual_ip:
     static_ip: ${ip}
     gateway: 192.168.xx.xx
@@ -531,8 +529,10 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${channel_2} current
       internal: true
@@ -542,8 +542,7 @@ sensor:
     active_power_a:
       name: ${channel_2} power
       id: power_channel_2
-      filters:
-        - multiply: 1
+      # active_power_a is normal, so don't multiply by -1
       on_value_range:
         - above: ${max_power}
           then:
@@ -557,6 +556,7 @@ sensor:
     active_power_b:
       name: ${channel_1} power
       id: power_channel_1
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
       on_value_range:
@@ -642,10 +642,6 @@ light:
     id: lightid2
 
 binary_sensor:
-  - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
   - platform: gpio
     pin:
       number: GPIO13
