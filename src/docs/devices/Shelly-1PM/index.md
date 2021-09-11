@@ -15,9 +15,10 @@ standard: uk, us, eu
 | GPIO15 | Relay control |
 
 ## Power metering switch configuration
- - Power metering
- - Switch control
- - Overheating protection
+
+- Power metering
+- Switch control
+- Overheating protection
 
 ```yaml
 substitutions:
