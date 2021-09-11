@@ -7,11 +7,12 @@ standard: uk, us, eu
 
 ## GPIO Pinout
 
-| Pin   | Function      |
-| ----- | ------------- |
-| GPIO0 | State led     |
-| GPIO4 | Relay control |
-| GPIO5 | Switch Input  |
+| Pin    | Function      |
+| ------ | ------------- |
+| GPIO0  | State led     |
+| GPIO4  | Switch input  |
+| GPIO5  | CF pin        |
+| GPIO15 | Relay control |
 
 ## Power metering switch configuration
  - Power metering
@@ -60,7 +61,7 @@ captive_portal:
 switch:
   - platform: gpio
     name: ${devicename}
-    pin: GPIO4
+    pin: GPIO15
     id: shelly_relay
     restore_mode: RESTORE_DEFAULT_OFF
 
@@ -136,4 +137,17 @@ output:
     pin:
       number: GPIO00
       inverted: true
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO4
+    filters:
+      - delayed_on_off: 50ms # small delay to prevent debouncing
+    name: "Switch ${devicename}"
+    on_press:
+      then:
+        - switch.toggle: shelly_relay
+    internal: true
+    id: switchid
 ```
