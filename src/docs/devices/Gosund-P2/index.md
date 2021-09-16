@@ -103,6 +103,7 @@ switch:
 ```
 
 For versions produced after 05/2021:
+
 ```yaml
 substitutions:
   name: plug_strip
