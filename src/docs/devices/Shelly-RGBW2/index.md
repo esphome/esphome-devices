@@ -5,8 +5,6 @@ type: light
 standard: uk, us, eu
 ---
 
-[Amazon Link](https://amzn.to/2OAz8de)
-
 ## GPIO Pinout
 
 | Pin   | Function     |
