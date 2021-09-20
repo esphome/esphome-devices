@@ -133,25 +133,25 @@ binary_sensor:
     id: light_0_touch
     on_click:
       then:
-      - if:
+        - if:
             condition:
-             - light.is_off: ${device_name}_ch1
-             - light.is_off: ${device_name}_ch2
-             - light.is_off: ${device_name}_ch3
-             - light.is_off: ${device_name}_ch4
+              - light.is_off: ${device_name}_ch1
+              - light.is_off: ${device_name}_ch2
+              - light.is_off: ${device_name}_ch3
+              - light.is_off: ${device_name}_ch4
             then:
-              - light.turn_on: 
-                 id: ${device_name}_ch1
-                 brightness: 1.0
-              - light.turn_on: 
-                 id: ${device_name}_ch2
-                 brightness: 1.0
-              - light.turn_on: 
-                 id: ${device_name}_ch3
-                 brightness: 1.0
-              - light.turn_on: 
-                 id: ${device_name}_ch4
-                 brightness: 1.0
+              - light.turn_on:
+                  id: ${device_name}_ch1
+                  brightness: 1.0
+              - light.turn_on:
+                  id: ${device_name}_ch2
+                  brightness: 1.0
+              - light.turn_on:
+                  id: ${device_name}_ch3
+                  brightness: 1.0
+              - light.turn_on:
+                  id: ${device_name}_ch4
+                  brightness: 1.0
             else:
               - light.turn_off: ${device_name}_ch1
               - light.turn_off: ${device_name}_ch2
@@ -159,61 +159,61 @@ binary_sensor:
               - light.turn_off: ${device_name}_ch4
     on_press:
       then:
-      - if:
-          condition: 
-            light.is_off: ${device_name}_ch1
-          then:
-          - delay: 0.5s
-          - while:
-              condition:
-                binary_sensor.is_on: light_0_touch
-              then:
-                - light.dim_relative:
-                    id: ${device_name}_ch1
-                    relative_brightness: 5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-                - light.dim_relative:
-                    id: ${device_name}_ch2
-                    relative_brightness: 5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-                - light.dim_relative:
-                    id: ${device_name}_ch3
-                    relative_brightness: 5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-                - light.dim_relative:
-                    id: ${device_name}_ch4
-                    relative_brightness: 5%
-                    transition_length: 0.1s
-                - delay: 0.1s                
-          else:
-          - delay: 0.5s
-          - while:
-              condition:
-                and:
-                  - binary_sensor.is_on: light_0_touch
-                  - light.is_on: ${device_name}_ch1
-              then:
-                - light.dim_relative:
-                    id: ${device_name}_ch1
-                    relative_brightness: -5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-                - light.dim_relative:
-                    id: ${device_name}_ch2
-                    relative_brightness: -5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-                - light.dim_relative:
-                    id: ${device_name}_ch3
-                    relative_brightness: -5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-                - light.dim_relative:
-                    id: ${device_name}_ch4
-                    relative_brightness: -5%
-                    transition_length: 0.1s
-                - delay: 0.1s   
+        - if:
+            condition:
+              light.is_off: ${device_name}_ch1
+            then:
+              - delay: 0.5s
+              - while:
+                  condition:
+                    binary_sensor.is_on: light_0_touch
+                  then:
+                    - light.dim_relative:
+                        id: ${device_name}_ch1
+                        relative_brightness: 5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+                    - light.dim_relative:
+                        id: ${device_name}_ch2
+                        relative_brightness: 5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+                    - light.dim_relative:
+                        id: ${device_name}_ch3
+                        relative_brightness: 5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+                    - light.dim_relative:
+                        id: ${device_name}_ch4
+                        relative_brightness: 5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+            else:
+              - delay: 0.5s
+              - while:
+                  condition:
+                    and:
+                      - binary_sensor.is_on: light_0_touch
+                      - light.is_on: ${device_name}_ch1
+                  then:
+                    - light.dim_relative:
+                        id: ${device_name}_ch1
+                        relative_brightness: -5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+                    - light.dim_relative:
+                        id: ${device_name}_ch2
+                        relative_brightness: -5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+                    - light.dim_relative:
+                        id: ${device_name}_ch3
+                        relative_brightness: -5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+                    - light.dim_relative:
+                        id: ${device_name}_ch4
+                        relative_brightness: -5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
 ```
