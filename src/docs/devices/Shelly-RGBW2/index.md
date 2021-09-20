@@ -5,16 +5,20 @@ type: light
 standard: uk, us, eu
 ---
 
+[Amazon Link](https://amzn.to/2ZcvAmy)
+
+![Product Image](Shelly-RGBW2.png "Shelly RGBW")
+
 ## GPIO Pinout
 
-| Pin   | Function     |
-| ----- | ------------ |
-| GPIO2 | Led Link     |
-| GPIO4 | PWM 4 (W)    |
-| GPI05 | Switch input |
-| GPI12 | PWM 1 (R)    |
-| GPI14 | PWM 3 (B)    |
-| GPI15 | PWM 2 (G)    |
+| Pin   | Function              |
+| ----- | --------------------- |
+| GPIO2 | Led Link              |
+| GPIO4 | PWM 4 (W)             |
+| GPI05 | Switch input          |
+| GPI12 | PWM 1 (R)             |
+| GPI14 | PWM 3 (B)             |
+| GPI15 | PWM 2 (G)             |
 | A0    | OpAmp Current Monitor |
 
 ## Configuration for RGBW
@@ -122,7 +126,6 @@ output:
     id: ${device_name}_out_ch4
     pin: GPIO4
     frequency: 1000 Hz
-
 
 binary_sensor:
   - platform: gpio
