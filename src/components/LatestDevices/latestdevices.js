@@ -18,7 +18,6 @@ const FilterDevices = () => {
               date_published
               title
               type
-              slug
               standard
             }
           }
