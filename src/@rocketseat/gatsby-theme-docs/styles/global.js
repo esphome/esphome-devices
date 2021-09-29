@@ -305,6 +305,19 @@ export default function GlobalStyle() {
           content: "flow";
           background: #e8bd36;
         }
+
+        .tag {
+          padding: 0px 4px;
+          border: 1px dotted ${theme.colors.primary};
+          border-radius: 5px;
+          color: ${theme.colors.primary};
+          font-size: 14px;
+          margin: 2px 4px;
+          font-weight: 500;
+          display: inline-block;
+          word-wrap: break-word;
+          white-space: normal;
+        }
       `}
     />
   );

@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from "react";
+import PropTypes from "prop-types";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import Layout from '../Layout';
-import SEO from '../SEO';
-import PostNav from './PostNav';
-import EditGithub from './EditGithub';
+import Layout from "../Layout";
+import SEO from "../SEO";
+import PostNav from "./PostNav";
+import EditGithub from "./EditGithub";
 
 export default function Docs({ mdx, pageContext }) {
   const { prev, next, repositoryEditUrl, repositoryProvider } = pageContext;
@@ -26,6 +26,7 @@ export default function Docs({ mdx, pageContext }) {
           repositoryEditUrl={repositoryEditUrl}
           repositoryProvider={repositoryProvider}
         />
+        <br />
         <PostNav prev={prev} next={next} />
       </Layout>
     </>
