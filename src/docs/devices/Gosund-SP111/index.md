@@ -49,7 +49,6 @@ substitutions:
 esphome:
   name: $devicename
   platform: ESP8266
-  arduino_version: 2.5.1
   board: esp8285
 
 # Enable logging
