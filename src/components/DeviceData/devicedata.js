@@ -4,7 +4,7 @@ import { TypeTag, StandardTag } from "../DeviceLink";
 const DeviceData = ({ deviceId }) => {
   const data = useStaticQuery(graphql`
     {
-      allMdx(sort: { fields: id }, filter: { id: {} }) {
+      allMdx(sort: { fields: frontmatter___title }) {
         edges {
           node {
             id
