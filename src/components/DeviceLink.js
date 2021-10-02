@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 
 export function StandardTag({ standard }) {
-  const text = standard ? standard?.toLowerCase()?.replace(" ", "") : "";
-  if (!text) {
-    return null;
-  }
-  const allStandards = Array.from(text?.split(",")?.sort() ?? []);
+  const allStandards = Array.from(
+    standard
+      ?.split(",")
+      ?.map((s) => s.trim())
+      ?.sort() ?? []
+  );
 
   return (
     <>
