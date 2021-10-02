@@ -6,11 +6,12 @@ import Layout from "../Layout";
 import SEO from "../SEO";
 import PostNav from "./PostNav";
 import EditGithub from "./EditGithub";
+import DeviceData from "../../../../components/DeviceData/devicedata";
 
 export default function Docs({ mdx, pageContext }) {
   const { prev, next, repositoryEditUrl, repositoryProvider } = pageContext;
   const { title, description, image, disableTableOfContents } = mdx.frontmatter;
-  const { headings, body } = mdx;
+  const { headings, body, id } = mdx;
   const { slug } = mdx.fields;
 
   return (
@@ -21,6 +22,7 @@ export default function Docs({ mdx, pageContext }) {
         title={title}
         headings={headings}
       >
+        <DeviceData deviceId={id} />
         <MDXRenderer>{body}</MDXRenderer>
         <EditGithub
           repositoryEditUrl={repositoryEditUrl}
