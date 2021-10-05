@@ -5,6 +5,8 @@ type: light
 standard: us
 ---
 
+Manufacturer: [Athom.tech](https://www.athom.tech/blank-1/15w-bulb-2-pack)
+
 ## Flashing Procedure
 
 Natively runs Tasmota, upload ESPHome binary to flash wirelessly.
