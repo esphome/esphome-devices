@@ -38,82 +38,80 @@ Base:  E27
 
 ```yaml
 substitutions:
-  devicename: athom-7w
-  friendly_name: My Light Bulb
+  device_name: "athom-rgbww-light"
+  friendly_name: "Athom RGBWW Light"
+  project_name: "athom.rgbww-light"
+  project_version: "1.0"
 
 esphome:
-  name: $devicename
+  name: "${device_name}"
+  name_add_mac_suffix: true
   platform: ESP8266
-  board: esp01_1m
+  board: esp8285
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: true
-  ap:
-    ssid: ESP-${devicename}
-    password: !secret fallback_password
+api:
 
-captive_portal:
+ota:
+
+logger:
 
 web_server:
   port: 80
-  auth:
-    username: !secret web_username
-    password: !secret web_password
 
-logger:
-  baud_rate: 0
+wifi:
+  ap: {} # This spawns an AP with the device name and mac address with no password.
 
-api:
-  password: !secret api_password
+captive_portal:
 
-ota:
-  password: !secret ota_password
-  safe_mode: True
+binary_sensor:
+  - platform: status
+    name: "${friendly_name} Status"
 
 sensor:
-  - platform: wifi_signal
-    name: ${friendly_name} WiFi Signal
-    update_interval: 60s
   - platform: uptime
-    name: ${friendly_name} Uptime
-    filters:
-      - lambda: return x / 60.0;
-    unit_of_measurement: minutes
+    name: "${friendly_name} Uptime Sensor"
 
 switch:
   - platform: restart
-    name: ${friendly_name} Restart
+    id: restart_switch
+    name: "${friendly_name} Restart"
 
 output:
   - platform: esp8266_pwm
-    pin: GPIO13
-    id: ct_output
-  - platform: esp8266_pwm
-    pin: GPIO5
-    id: ctbrightness_output
-  - platform: esp8266_pwm
-    pin: GPIO4
     id: red_output
+    pin: GPIO4
   - platform: esp8266_pwm
-    pin: GPIO12
     id: green_output
+    pin: GPIO12
   - platform: esp8266_pwm
-    pin: GPIO14
     id: blue_output
+    pin: GPIO14
+  - platform: esp8266_pwm
+    id: warm_white_output
+    pin: GPIO13
+  - platform: esp8266_pwm
+    id: white_output
+    pin: GPIO5
+
 
 light:
-  - platform: rgbct
-    name: $friendly_name
-    id: main_light
+  - platform: rgbww
+    name: "${friendly_name}"
     red: red_output
     green: green_output
     blue: blue_output
-    color_temperature: ct_output
-    white_brightness: ctbrightness_output
+    warm_white: warm_white_output
+    cold_white: white_output
     cold_white_color_temperature: 6000 K
     warm_white_color_temperature: 3000 K
     color_interlock: true
-    restore_mode: RESTORE_DEFAULT_OFF
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "${friendly_name} IP Address"
+      disabled_by_default: true
 ```
