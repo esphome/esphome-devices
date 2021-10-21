@@ -133,7 +133,7 @@ binary_sensor:
     pin:
       number: GPIO0
       inverted: True
-      mode: INPUT_PULLUP
+      mode: INPUT
     name: ${friendly_name} Up Button
     id: up_button
     internal: True
