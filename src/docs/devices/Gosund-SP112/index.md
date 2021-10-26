@@ -105,10 +105,16 @@ sensor:
     current:
       id: amperage
       name: Amperage
+      unit_of_measurement: A
+      accuracy_decimals: 2      
     voltage:
       id: voltage
       name: Voltage
+      unit_of_measurement: V
+      accuracy_decimals: 2         
     power:
       id: wattage
       name: Wattage
+      unit_of_measurement: W
+      accuracy_decimals: 2       
 ```
