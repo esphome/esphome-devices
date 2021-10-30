@@ -12,6 +12,7 @@ standard: au
 | GPIO4  | Red Status LED     |
 | GPIO14 | Remote Transmitter |
 | GPIO5  | Remote Receiver    |
+| GPIO13 | Push Button        |
 
 ## Basic Configuration
 
@@ -196,6 +197,14 @@ binary_sensor:
             state: ON
     jvc:
       data: "0x609F"
+  
+  # This is the physical button on the unit.
+  - platform:  gpio
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "ESPHome_ir1 Button"
 
 switch:
   - platform: restart
