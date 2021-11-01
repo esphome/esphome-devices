@@ -1,22 +1,22 @@
 ---
-title: Connect SmartHome 10W CCT Smart White LED Bulb E27 (CSH-E27WW10W)
+title: Connect SmartHome 10W CCT Smart White LED Bulb B22 (CSH-B22WW10W)
 date-published: 2021-11-01
 type: light
 standard: au
 ---
-![Connect SmartHome 10W CCT Smart White LED Bulb](connect_smarthome_CSH-E27WW10W.jpg "Connect SmartHome 10W CCT Smart White LED Bulb")
+![Connect SmartHome 10W CCT Smart White LED Bulb](connect_smarthome_CSH-B22WW10W.jpg "Connect SmartHome 10W CCT Smart White LED Bulb")
 
 ## Device Info
-This Connect Smart Bulb has an E27 Edison fitting.
+This Connect Smart Bulb has a B22 Bayonet fitting.
 
-SKU: CSH-E27WW10W
+SKU: CSH-B22WW10W
 
 **Available from:**
 - [Harvey Norman](https://www.harveynorman.com.au/)
 - [Laser](https://www.laserco.com.au/)
 
 **Manufacturer:**
-- [Connect SmartHome](https://connectsmarthome.com.au/product/connect-10w-smart-white-bulb-e27/)
+- [Connect SmartHome](https://connectsmarthome.com.au/product/connect-10w-smart-white-bulb-b22/)
 
 ## GPIO Pinout
 
@@ -29,8 +29,8 @@ SKU: CSH-E27WW10W
 
 ```yaml
 substitutions:
-  device_name: "csh-e27ww10w"
-  friendly_name: "Connect SmartHome CSH-E27WW10W"
+  device_name: "csh-B22WW10W"
+  friendly_name: "Connect SmartHome CSH-B22WW10W"
 
 esphome:
   name: ${device_name}
