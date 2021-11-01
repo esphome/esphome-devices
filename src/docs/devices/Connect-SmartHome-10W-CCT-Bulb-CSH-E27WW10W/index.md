@@ -6,6 +6,11 @@ standard: au
 ---
 ![Connect SmartHome 10W CCT Smart White LED Bulb](connect_smarthome_CSH-E27WW10W.jpg "Connect SmartHome 10W CCT Smart White LED Bulb")
 
+## Device Info
+This Connect Smart Bulb has an E27 Edison fitting
+
+SKU: CSH-E27WW10W
+
 **Available from:**
 - [Harvey Norman](https://www.harveynorman.com.au/)
 - [Laser](https://www.laserco.com.au/)
