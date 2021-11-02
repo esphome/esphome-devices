@@ -14,7 +14,7 @@ Smart Outlet, Gosund Wall Outlet Extender (15A/1800W), Multi WiFi Plug with 3 US
 
 ### Newer version
 
-**NOTE:** There are newer versions of this circulating that have an ESP8265 chip in them. If you use the `esp01_1m` config for these, they will go into a reboot loop. You must use `board: esp8285` for these devices. Possible distinguishing marks are `FCC ID: 2APUZ-P2` or a date of `05/2021` printed on the back.
+**NOTE:** There are newer versions of this circulating that have an ESP8265 chip in them. If you use the `esp01_1m` config for these, they will go into a reboot loop. You must use `board: esp8285` for these devices. Possible distinguishing marks are `FCC ID: 2APUZ-P2` or a date of `04/2021` printed on the back.
 
 These newer versions also have the USB power control and LEDs opposite of the previous version
 
@@ -31,7 +31,7 @@ These newer versions also have the USB power control and LEDs opposite of the pr
 
 ## Basic Configuration
 
-For versions produced before 05/2021:
+For versions produced before 04/2021:
 
 ```yaml
 substitutions:
@@ -102,7 +102,7 @@ switch:
     inverted: no
 ```
 
-For versions produced after 05/2021:
+For versions produced after 04/2021:
 
 ```yaml
 substitutions:
