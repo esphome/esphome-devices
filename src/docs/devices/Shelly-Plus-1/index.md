@@ -5,7 +5,7 @@ type: relay
 standard: uk, us, eu
 ---
 
-![Shelly Plus 1](https://templates.blakadder.com/assets/images/shelly_plus_1_pinout.jpg "Shelly Plus 1")
+![Shelly Plus 1](shelly_plus_1_pinout.jpg "Shelly Plus 1")
 
 ## GPIO Pinout
 
