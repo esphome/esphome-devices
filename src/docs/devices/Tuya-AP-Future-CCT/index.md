@@ -1,6 +1,6 @@
 ---
 title: Tuya AP Future CCT LED Controller
-date-published: 2021-11-01
+date-published: 2021-11-02
 type: light
 standard: global
 ---
