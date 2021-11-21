@@ -7,15 +7,15 @@ standard: eu
 
 ## GPIO Pinout
 
-| Pin    | Function    |
-| ------ | ----------- |
-| GPIO03 | modbus RX   |
-| GPIO01 | modbus TX   |
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO03 | modbus RX |
+| GPIO01 | modbus TX |
 
 ## Connection
-Use RS485 adapter like this one: https://esphome.io/_images/rs485.jpg
-This one works with 3.3V and does direction switchin automatically
 
+Use RS485 adapter like this one: https://esphome.io/_images/rs485.jpg
+This one works with 3.3V and does direction switching automatically
 
 ```yaml
 esphome:
@@ -54,20 +54,19 @@ uart:
   baud_rate: 9600
   parity: EVEN
   stop_bits: 1
-  
+
 modbus:
   id: modbus1
   # flow_control_pin: 5
   # not needed for my RS485 converter, but likely useful for ones with DE / RE pins
 
 modbus_controller:
-  - id: orno_we_514	# most likely similar devices will work as well
+  - id: orno_we_514 # most likely similar devices will work as well
     # the Modbus device addr
     address: 0x1
     modbus_id: modbus1
     setup_priority: -10
 
-    
 sensor:
   - platform: modbus_controller
     modbus_controller_id: orno_we_514
@@ -93,14 +92,14 @@ sensor:
     address: 0x112
     unit_of_measurement: ""
     value_type: U_WORD
-		#LCD activation code:
-		#bit0:active energy 
-		#bit1：reactive energy
-		#bit2：voltage 
-		#Bit3：current
-		#bit4：active power bit5：reactivepower 
-		#bit6：Apparent power 
-		#Bit7：power factor；measure mode  
+  #LCD activation code:
+  #bit0:active energy
+  #bit1：reactive energy
+  #bit2：voltage
+  #Bit3：current
+  #bit4：active power bit5：reactivepower
+  #bit6：Apparent power
+  #Bit7：power factor；measure mode
   - platform: modbus_controller
     modbus_controller_id: orno_we_514
     name: "Grid Frequency"
@@ -185,7 +184,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 2
     filters:
-      - multiply: 0.01    
+      - multiply: 0.01
   - platform: modbus_controller
     modbus_controller_id: orno_we_514
     name: "Reactive Energy"
@@ -196,7 +195,6 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 2
     filters:
-      - multiply: 0.01    
-	# see file:///E:/Users/archi/Downloads/OR-WE-514_MODBUS_Registers_List.pdf for more registers
-
+      - multiply: 0.01
+  # see file:///E:/Users/archi/Downloads/OR-WE-514_MODBUS_Registers_List.pdf for more registers
 ```
