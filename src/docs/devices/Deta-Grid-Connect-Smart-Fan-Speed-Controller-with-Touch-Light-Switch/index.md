@@ -156,7 +156,7 @@ binary_sensor:
     id: fan_power_sensor
     pin:
       number: GPIO00
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     on_press:
       then:
@@ -165,7 +165,7 @@ binary_sensor:
     id: fan_speed_sensor
     pin:
       number: GPIO05
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     on_press:
       then:
