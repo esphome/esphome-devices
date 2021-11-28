@@ -148,7 +148,7 @@ binary_sensor:
     id: fan_light_sensor
     pin:
       number: GPIO16
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     on_press:
       - light.toggle: light1
