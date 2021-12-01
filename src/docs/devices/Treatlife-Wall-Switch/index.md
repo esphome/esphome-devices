@@ -305,6 +305,7 @@ light:
 ```
 
 ## Home Assistant example automation that uses the event triggers stated above
+
 This assumes that you have defined all_lights using platform: group.
 
 ```yaml
@@ -333,5 +334,5 @@ automation:
   - service: light.turn_off
     target:
       entity_id: light.all_lights
-  mode: single  
+  mode: single
 ```
