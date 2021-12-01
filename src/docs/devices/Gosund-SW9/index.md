@@ -23,7 +23,7 @@ Use a USB to serial adapter, and solder wires onto the pads marked TX, RX, 3.3V 
 | GPIO4  | State (red) LED 2 (Inverted: true)     |
 | GPIO5  | Button 2                               |
 | GPIO12 | Relay 2                                |
-| GPIO13 | Status (green) LED (inverted: true)    |
+| GPIO13 | Status (green) LED                     |
 | GPIO14 | Relay 1                                |
 
 ## Basic Configuration
@@ -64,7 +64,7 @@ logger:
 status_led:
   pin:
     number: GPIO013
-    inverted: true
+    inverted: true # remove this to keep switch illuminated with green LEDs
 
 light:
   - platform: status_led
