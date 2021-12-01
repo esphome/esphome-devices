@@ -13,7 +13,6 @@ standard: EU
 
 Use a USB to serial adapter, and solder wires onto the pads marked TX, RX, 3.3V and GND. Hold "K2" button when connecting 3.3V to enter flash mode. Tuya Convert may work as well.
 
-
 ## GPIO Pinout
 
 | Pin    | Function                               |  
@@ -117,7 +116,7 @@ binary_sensor:
     on_press:
       then:
         - light.toggle: $entity_id_1
-        
+
   - platform: gpio
     name: "Button 2"
     id: button2
@@ -131,7 +130,7 @@ binary_sensor:
     on_press:
       then:
         - light.toggle: $entity_id_2
-    
+
   - platform: status
     name: "$name status"
 
