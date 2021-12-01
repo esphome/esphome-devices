@@ -4,7 +4,7 @@ date-published: 2021-12-01
 type: plug
 standard: au
 ---
-The Vivitar HA-1007-AU Power Strip has four individually switched AC outlets (each has a status LED that do not seem to be individually controllable. 
+The Vivitar HA-1007-AU Power Strip has four individually switched AC outlets (each has a status LED that do not seem to be individually controllable.
 There are also four USB power/charge ports, all switchable but not individually. There is a button and blue and red controllable leds.
 
 ## GPIO Pinout
@@ -27,7 +27,7 @@ There are also four USB power/charge ports, all switchable but not individually.
 
 ## Getting up and running
 
-The device can be flashed using tuya-convert. 
+The device can be flashed using tuya-convert.
 
 ## Code
 
@@ -251,4 +251,3 @@ output:
       inverted: yes
     id: state_led
 ```
-
