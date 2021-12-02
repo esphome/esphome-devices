@@ -306,28 +306,33 @@ light:
 
 ## Home Assistant example automation that uses the event triggers stated above
 
+This assumes that you have defined all_lights using platform: group.
+
 ```yaml
 automation:
 - alias: long_press_on
   trigger:
-  - event_data:
+  - platform: event
+    event_data:
       title: long_press
     event_type: esphome.light_switch
-    platform: event
   condition: []
   action:
-  - entity_id: group.all_lights
-    service: light.turn_on
+  - service: light.turn_on
+    target:
+      entity_id: light.all_lights
   mode: single
+  
 - alias: double_click_off
   trigger:
-  - event_data:
+  - platform: event
+    event_data:
       title: double_click
     event_type: esphome.light_switch
-    platform: event
   condition: []
   action:
-  - entity_id: group.all_lights
-    service: light.turn_off
+  - service: light.turn_off
+    target:
+      entity_id: light.all_lights
   mode: single
 ```
