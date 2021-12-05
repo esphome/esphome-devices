@@ -13,8 +13,6 @@ This template was built using ESPHome 2021.11.3 and does not expose the LEDs or 
 
 Inspired by the Tasmota template (https://templates.blakadder.com/globe_50029.html)
 
-The only items 
-
 ## GPIO Pinout
 
 | Pin    | Function             |
