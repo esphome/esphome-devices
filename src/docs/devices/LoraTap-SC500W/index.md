@@ -5,21 +5,21 @@ date-published: 2021-11-29
 type: relay
 standard: global
 ---
-  ![alt text](LoraTap-SC500W.png "Product Image")
+
+![alt text](LoraTap-SC500W.png "Product Image")
 
 [https://www.loratap.com/sc500w-p0108.html)
 
 ## GPIO Pinout
 
 | Pin    | Function                   |
-|--------|----------------------------|
+| ------ | -------------------------- |
 | GPIO03 | LED (inverted)             |
 | GPIO04 | S1 (external switch input) |
 | GPIO05 | S2 (external switch input) |
 | GPIO12 | Relay L1                   |
 | GPIO13 | Button                     |
 | GPIO14 | Relay L2                   |
-
 
 ## Basic Config
 
@@ -143,4 +143,3 @@ status_led:
     number: GPIO3
     inverted: true
 ```
-
