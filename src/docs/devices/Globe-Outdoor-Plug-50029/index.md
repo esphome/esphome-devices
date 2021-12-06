@@ -15,14 +15,13 @@ Inspired by the Tasmota template (https://templates.blakadder.com/globe_50029.ht
 
 ## GPIO Pinout
 
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO3  | LED 2 (inverted)     |
-| GPIO4  | Relay 2              |
-| GPIO12 | Button (inverted)    |
-| GPIO13 | Relay 1              |
-| GPIO14 | LED 1 (inverted)     |
-
+| Pin    | Function          |
+| ------ | ----------------- |
+| GPIO3  | LED 2 (inverted)  |
+| GPIO4  | Relay 2           |
+| GPIO12 | Button (inverted) |
+| GPIO13 | Relay 1           |
+| GPIO14 | LED 1 (inverted)  |
 
 ## Basic Configuration
 
@@ -198,4 +197,5 @@ substitutions:
 
 <<: !include templates/ge50029.yaml
 ```
+
 If you do that you will need to create a symbolic list to the secrets.yaml file in the same folder or the !secret syntax will not be able to resolve the secrets.
