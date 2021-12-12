@@ -28,6 +28,8 @@ Manufacturer: [BlitzWolf](https://www.blitzwolf.com/BlitzWolf-BW-SHP9-15A-3300W-
 3. Pins
 
    Pins are at the corner, near usb ports. **Vcc is not 3V**, it needs to be >4V.
+   To configure chip for flashing GPIO0 needs to be pulled down to ground at boot.
+   
   ![Product Inside Pins](./BlitzWolf-BW-SHP9-Power-strip-connector.jpg "Product Inside")
 
 ## GPIO Pinout
