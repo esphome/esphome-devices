@@ -111,7 +111,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO16
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     name: "${friendly_name} Top Button"
     #toggle relay on push
@@ -229,7 +229,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO16
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     name: "${friendly_name} 1st Button"
     #toggle relay on push
@@ -369,7 +369,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO16
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     name: "${friendly_name} 1st Button"
     #toggle relay on push
