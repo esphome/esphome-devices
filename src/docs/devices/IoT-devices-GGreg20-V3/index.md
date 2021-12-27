@@ -17,15 +17,16 @@ Sensor-side interface: pulse output
 
 MCU-side interface: GPIO with pulse counter
 
-> GGreg20_v3 is compatible with the ESP8266/ESP32 logic signal levels (3V3 ACTIVE-LOW: 3.0-3.3V HIGH and about 0.7V LOW), and will work even with the 5V logic input.
-> Sensor compatibility: any ESP8266- or ESP32- powered device
+GGreg20_v3 is compatible with the ESP8266/ESP32 logic signal levels (3V3 ACTIVE-LOW: 3.0-3.3V HIGH and about 0.7V LOW), and will work even with the 5V logic input.
+Sensor compatibility: any ESP8266- or ESP32- powered device
 
 Vendor site: https://allmylinks.com/iot-devices
 
 ## Connection
 
-> For example, it could be GPIO0 (D3). This pin is convenient because it has a built-in Flash button in most devices and boards based on the ESP8266 module - in case you need to check how the controller counts pulses without a sensor, it is possible to simulate pulses with a button.
-> ![GGreg20_V3 wired connection](https://github.com/iotdevicesdev/ggreg20-v3-homeassistant-esphome-example/blob/main/ESPHome_GGreg20_V3_and_NodeMCU_ESP8266_wired_connection.jpg)
+For example, it could be GPIO0 (D3). This pin is convenient because it has a built-in Flash button in most devices and boards based on the ESP8266 module - in case you need to check how the controller counts pulses without a sensor, it is possible to simulate pulses with a button.
+
+> ![GGreg20_V3 wired connection](image.jpg)
 
 ## Powering from a 2.4V input source
 
