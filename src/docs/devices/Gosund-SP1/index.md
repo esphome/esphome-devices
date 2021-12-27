@@ -10,7 +10,7 @@ standar: EU
 
 # Can be flashed with TUYA-CONVERT
 
-#Change IP Setting or if using DHCP delete the manual_ip setting under WIFI!
+# Change IP Setting or if using DHCP delete the manual_ip setting under WIFI!
 
 ```yaml
 substitutions:
