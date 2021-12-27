@@ -1,6 +1,6 @@
 ---
 title: Xiaomi Mi Desklamp 1S
-date-published: 2021-11-27
+date-published: 2021-12-27
 type: light
 standard: eu
 ---
