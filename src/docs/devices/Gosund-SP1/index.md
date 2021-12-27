@@ -3,14 +3,13 @@ title: Gosund SP1
 Model: SP1
 date-published: 2021-12-27
 type: relay
-standar: EU
+standard: eu
 ---
 
-# Gosund SP1 Device
+# Gosund SP1
 
-# Can be flashed with TUYA-CONVERT
-
-# Change IP Setting or if using DHCP delete the manual_ip setting under WIFI!
+- Can be flashed with Tuya-Convert
+- Change IP Setting or if using DHCP delete the manual_ip setting under WIFI!
 
 ```yaml
 substitutions:
@@ -45,7 +44,7 @@ wifi:
     ssid: ${device_name}_fallback
     password: !secret ap_password
     ap_timeout: 1min
-  use_address:  ${device_name}.local
+  use_address: ${device_name}.local
   manual_ip:
     static_ip: 192.168.XXX.XX
     gateway: 192.168.XXX.X
@@ -146,11 +145,11 @@ switch:
     optimistic: true
     id: fakebutton
     turn_on_action:
-    - switch.turn_on: relay
-    - light.turn_on: led
+      - switch.turn_on: relay
+      - light.turn_on: led
     turn_off_action:
-    - switch.turn_off: relay
-    - light.turn_off: led
+      - switch.turn_off: relay
+      - light.turn_off: led
   - platform: gpio
     id: relay
     pin: GPIO14
