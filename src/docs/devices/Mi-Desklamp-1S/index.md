@@ -18,8 +18,8 @@ esphome:
   board: esp32doit-devkit-v1
   platformio_options:
     platform: espressif32@3.4.0
-    platform_packages: 
-    - tasmota/framework-arduinoespressif32 @ 3.10006.210420
+    platform_packages:
+      - tasmota/framework-arduinoespressif32 @ 3.10006.210420
 
 # WiFi connection
 wifi:
@@ -29,7 +29,7 @@ wifi:
     ssid: ${device_name}
     password: !secret ap_password
     ap_timeout: 1min
-  use_address:  ${device_name}.local
+  use_address: ${device_name}.local
   manual_ip:
     static_ip: 192.168.XXX.X
     gateway: 192.168.XXX.X
