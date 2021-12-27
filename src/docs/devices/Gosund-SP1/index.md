@@ -6,8 +6,6 @@ type: relay
 standard: eu
 ---
 
-# Gosund SP1
-
 - Can be flashed with Tuya-Convert
 - Change IP Setting or if using DHCP delete the manual_ip setting under WIFI!
 
