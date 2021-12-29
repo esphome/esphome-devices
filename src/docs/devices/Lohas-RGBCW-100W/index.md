@@ -5,6 +5,10 @@ type: light
 standard: us
 ---
 
+## Update Warning
+
+New versions with the same model do not have ESP chips in them, and can't be flashed with ESPHome.
+
 ## GPIO Pinout
 
 | Pin       | Function      |
