@@ -225,7 +225,7 @@ interval:
     # https://esphome.io/guides/automations.html#interval
     then:
       - lambda: |-
-          auto dimmer_vals = id(dimmer).get_current_values();
+          auto dimmer_vals = id(dimmer).current_values();
           if (dimmer_vals.is_on()) {
             id(dimmer_lvl) = dimmer_vals.get_brightness();
           }
