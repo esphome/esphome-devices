@@ -7,13 +7,13 @@ standard: au
 
 ## General Notes
 
-The [Mirabella Genio Wi-Fi LED Strip Light](https://mirabellagenio.net.au/led-strip-light) features a row of both RGB and cool white LEDs alternating between the two along the strip.
+The [Mirabella Genio Wi-Fi LED Strip Light](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-led-3-metre-strip-light/) features a row of both RGB and cool white LEDs alternating between the two along the strip.
 
 ![Genio Wi-Fi LED Strip Light](/Mirabella-Genio-WiFi-LED-Strip-Light.jpg "Genio Wi-Fi LED Strip Light")
 
 They are sold at Kmart in a [3m version](https://www.kmart.com.au/product/mirabella-genio-wi-fi-led-strip-light/2622813) and a [5m version](https://www.kmart.com.au/product/mirabella-genio-wi-fi-led-strip-light/2754878).
 
-Inside is a TYWE3S module based on the ESP8266 microcontroller. It is possible to flash older units [OTA using tuya-convert](/guides/tuya-convert/) and may also work with current ones. If you attempt to flash a current unit OTA, you should update this page to include if it's still possible or not.
+Inside is a TYWE3S module based on the ESP8266 microcontroller. It is possible to flash older units [OTA using tuya-convert](/guides/tuya-convert/) and may also work with current ones. If you attempt to flash a current unit OTA, you should update this page specify if it's still possible or not.
 
 ![Genio Wi-Fi LED Strip Light Teardown](/Mirabella-Genio-WiFi-LED-Strip-Light_Teardown.jpg "Genio Wi-Fi LED Strip Light Teardown")
 
