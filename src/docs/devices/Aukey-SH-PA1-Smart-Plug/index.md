@@ -56,13 +56,21 @@ output:
     pin:
       number: GPIO2
       inverted: yes
-    id: blue_led
+    id: blue_led_output
 
 light:
   - platform: binary
     name: "Mini Tree"
     id: mini_tree
     output: plug_outlet
+    on_turn_on:
+      - light.turn_on: blue_led
+    on_turn_off:
+      - light.turn_off: blue_led
+    
+  - platform: binary
+    id: blue_led
+    output: blue_led_output
 
 binary_sensor:
   - platform: gpio
@@ -71,19 +79,6 @@ binary_sensor:
     id: mini_tree_button
     on_press:
       light.toggle: mini_tree
-
-  - platform: gpio
-    pin: GPIO15
-    id: blue_led_follows_the_relay
-    on_state:
-      then:
-        - if:
-            condition:
-              light.is_on: mini_tree
-            then:
-              - output.turn_on: blue_led
-            else:
-              - output.turn_off: blue_led
 
 status_led:
   # Red LED
