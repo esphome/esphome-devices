@@ -67,7 +67,6 @@ light:
       - light.turn_on: blue_led
     on_turn_off:
       - light.turn_off: blue_led
-    
   - platform: binary
     id: blue_led
     output: blue_led_output
