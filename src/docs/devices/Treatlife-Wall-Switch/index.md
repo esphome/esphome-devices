@@ -36,7 +36,6 @@ standard: global
 
 ## Basic Configuration (2-Way)
 
-
 ```yaml
 substitutions:
   device_name: light_switch #change
