@@ -5,6 +5,12 @@ type: plug
 standard: us
 ---
 
+## Initial Install
+
+This device cannot be converted to ESPHome using tuya-convert.
+
+You must [remove the cover and use the serial header](https://www.adventurousway.com/blog/sonoff-s31) for first upload.
+
 ## GPIO Pinout
 
 | Pin    | Function                           |
