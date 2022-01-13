@@ -19,11 +19,9 @@ avaialable on UK Amazon, eBay and Aliexpress, very cheap and small
 
 Size:approx. 36 x 25 x 16MM/1.4 x 0.9 x 0.6inch
 
-ESP-01S is removable with 4x2 header, cheap USB adapters available, but GND and GPIO0 needs connectinf for flashing
+ESP-01S is removable with 4x2 header, cheap USB adapters available, but GND and GPIO0 needs connecting for flashing
 
 Config has a few more additions than basic
-
-
 
 ## Basic Config
 
@@ -68,7 +66,7 @@ switch:
 # The following can be omitted 
   - platform: restart
     name: ${devicename} restart 
-    
+
 sensor:
   - platform: wifi_signal
     name: ${devicename} wifi signal
