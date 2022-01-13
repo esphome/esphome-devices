@@ -24,7 +24,6 @@ ESP-01S is removable with 4x2 header, cheap USB adapters available, but GND and 
 Config has a few more additions than basic
 
 ## Basic Config
-
 ```yaml
 substitutions:
   # Modify variables based on your settings
@@ -63,9 +62,9 @@ switch:
     name: "Heart switch"
     inverted: true
 
-# The following can be omitted 
+# The following can be omitted
   - platform: restart
-    name: ${devicename} restart 
+    name: ${devicename} restart
 
 sensor:
   - platform: wifi_signal
