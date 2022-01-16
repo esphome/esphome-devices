@@ -15,7 +15,7 @@ Working voltage: DC 5V
 
 Relay Load: 10A 250VAC 10A 125VAC 10A 30VDC 10A 28VDC.
 
-avaialable on UK Amazon, eBay and Aliexpress, very cheap and small
+Available on UK Amazon, eBay and Aliexpress, very cheap and small
 
 Size:approx. 36 x 25 x 16MM/1.4 x 0.9 x 0.6inch
 
@@ -24,10 +24,11 @@ ESP-01S is removable with 4x2 header, cheap USB adapters available, but GND and 
 Config has a few more additions than basic
 
 ## Basic Config
+
 ```yaml
 substitutions:
   # Modify variables based on your settings
-  hostname: 'heart'
+  hostname: "heart"
   devicename: heart light
 
 esphome:
@@ -62,7 +63,7 @@ switch:
     name: "Heart switch"
     inverted: true
 
-# The following can be omitted
+  # The following can be omitted
   - platform: restart
     name: ${devicename} restart
 
@@ -71,7 +72,7 @@ sensor:
     name: ${devicename} wifi signal
     update_interval: 600s
 
-# human readable uptime sensor output to the text sensor above
+  # human readable uptime sensor output to the text sensor above
   - platform: uptime
     name: ${devicename} Uptime in Days
     id: uptime_sensor_days
@@ -111,7 +112,7 @@ text_sensor:
     bssid:
       name: $devicename BSSID
 
-# human readable update text sensor from sensor:uptime
+  # human readable update text sensor from sensor:uptime
   - platform: template
     name: Uptime Human Readable
     id: uptime_human
