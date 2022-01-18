@@ -5,7 +5,7 @@ type: misc
 standard: global
 ---
 
-# Alfawise SJ-7 (Essential oil diffuser)
+## Alfawise SJ-7 (Essential oil diffuser)
 
 ![alt text](diffuser.png)
 
@@ -28,7 +28,7 @@ For flashing, you have to solder wires like this:
 ![alt text](https://www.tala-informatique.fr/wiki/images/e/e1/Esp-01.png)
 Use U0TXD, U0RXD, GND (and VCC if you dont want to use the diffuser power supply).
 
-Make sure to ground GPIO0 during boot. 
+Make sure to ground GPIO0 during boot.
 
 You can use the ESPHome add-on from Home Assistant Community Add-ons
 
@@ -40,7 +40,7 @@ substitutions:
   name: alfawise
   friendly_name: "alfawise SJ-7"
 
-#commands
+  #commands
   receive_timer1h: "55:AA:03:1F:09:01:2B"
   receive_timer3h: "55:AA:03:1F:09:02:2C"
   receive_timer6h: "55:AA:03:1F:09:03:2D"
@@ -121,56 +121,56 @@ time:
       # Every 1 seconds
       - seconds: /1
         then:
-        - if:
-            condition:
-              and:
-                - switch.is_off: power_low
-                - switch.is_off: power_high
-                - fan.is_on: ${name}_fan
-            then:
-              - switch.turn_on: update_fan_speed
-            else:
-              - if:
-                  condition:
-                    and:
-                      - switch.is_on: power_low
-                      - switch.is_off: power_high
-                      - or:
-                        - lambda: |-
-                            if (id(${name}_fan).speed == 2) {
-                              return true;
-                            }else{
-                              return false;
-                            }
-                        - lambda: |-
-                            if (id(${name}_fan).speed == 0) {
-                              return true;
-                            }else {
-                              return false;
-                            }
-                  then:
-                    - switch.turn_on: update_fan_speed
-                  else:
-                    - if:
-                        condition:
-                          and:
-                            - switch.is_off: power_low
-                            - switch.is_on: power_high
-                            - or:
-                              - lambda: |-
-                                  if (id(${name}_fan).speed ==1) {
-                                    return true;
-                                  }else {
-                                    return false;
-                                  }
-                              - lambda: |-
-                                  if (id(${name}_fan).speed == 0) {
-                                    return true;
-                                  }else {
-                                    return false;
-                                  }
-                        then:
-                          - switch.turn_on: update_fan_speed
+          - if:
+              condition:
+                and:
+                  - switch.is_off: power_low
+                  - switch.is_off: power_high
+                  - fan.is_on: ${name}_fan
+              then:
+                - switch.turn_on: update_fan_speed
+              else:
+                - if:
+                    condition:
+                      and:
+                        - switch.is_on: power_low
+                        - switch.is_off: power_high
+                        - or:
+                            - lambda: |-
+                                if (id(${name}_fan).speed == 2) {
+                                  return true;
+                                }else{
+                                  return false;
+                                }
+                            - lambda: |-
+                                if (id(${name}_fan).speed == 0) {
+                                  return true;
+                                }else {
+                                  return false;
+                                }
+                    then:
+                      - switch.turn_on: update_fan_speed
+                    else:
+                      - if:
+                          condition:
+                            and:
+                              - switch.is_off: power_low
+                              - switch.is_on: power_high
+                              - or:
+                                  - lambda: |-
+                                      if (id(${name}_fan).speed ==1) {
+                                        return true;
+                                      }else {
+                                        return false;
+                                      }
+                                  - lambda: |-
+                                      if (id(${name}_fan).speed == 0) {
+                                        return true;
+                                      }else {
+                                        return false;
+                                      }
+                          then:
+                            - switch.turn_on: update_fan_speed
 
 # Text sensors with UART received information.
 text_sensor:
@@ -207,7 +207,6 @@ sensor:
     name: ${name} signal
     update_interval: 60s
     accuracy_decimals: 0
-
 
 switch:
   - platform: template
@@ -248,7 +247,6 @@ switch:
         - delay: 1h
         - uart.write: [0x55, 0xaa, 0x03, 0x0e, 0x00, 0x00, 0x10]
 
-
   - platform: template
     id: timer3h
     name: ${name} Timer 3H
@@ -271,7 +269,7 @@ switch:
         return false;
       } else {
         return {};
-      }  
+      }
     turn_on_action:
       then:
         - if:
@@ -295,7 +293,6 @@ switch:
             then:
               - uart.write: [0x55, 0xAA, 0x03, 0x09, 0x01, 0x00, 0x0c]
 
-
   - platform: template
     id: timer6h
     name: ${name} Timer 6H
@@ -318,9 +315,9 @@ switch:
         return false;
       } else {
         return {};
-      }  
+      }
     turn_on_action:
-     then:
+      then:
         - if:
             condition:
               and:
@@ -342,7 +339,6 @@ switch:
                 - fan.is_on: ${name}_fan
             then:
               - uart.write: [0x55, 0xAA, 0x03, 0x09, 0x01, 0x00, 0x0c]
-
 
   - platform: template
     id: power_high
@@ -441,7 +437,7 @@ switch:
         return false;
       } else {
         return {};
-      }  
+      }
     turn_on_action:
       - uart.write: [0x55, 0xaa, 0x03, 0x02, 0x00, 0x01, 0x05]
       - uart.write: [0x55, 0xaa, 0x03, 0x02, 0x01, 0x01, 0x06]
@@ -479,7 +475,7 @@ switch:
         return false;
       } else {
         return {};
-      }  
+      }
     turn_on_action:
       - uart.write: [0x55, 0xaa, 0x03, 0x02, 0x00, 0x01, 0x05]
       - uart.write: [0x55, 0xaa, 0x03, 0x0c, 0x01, 0x00, 0x0f]
@@ -502,7 +498,6 @@ switch:
           id: lava_lamp
           state: OFF
 
-
   - platform: template
     name: ${name} Rainbow Fast
     id: rainbow_fast
@@ -520,7 +515,7 @@ switch:
         return false;
       } else {
         return {};
-      }  
+      }
     turn_on_action:
       - uart.write: [0x55, 0xaa, 0x03, 0x02, 0x00, 0x01, 0x05]
       - uart.write: [0x55, 0xaa, 0x03, 0x0c, 0x03, 0x00, 0x11]
@@ -579,7 +574,6 @@ switch:
                               speed: 2
         - switch.turn_off: update_fan_speed
 
-
 output:
   - platform: custom
     type: float
@@ -589,7 +583,6 @@ output:
       auto ${name}_fan = new FakeFanOutput();
       App.register_component(${name}_fan);
       return {${name}_fan};
-
 
 fan:
   - platform: speed
@@ -642,8 +635,8 @@ fan:
               and:
                 - lambda: return (id(${name}_fan).speed == 0);
                 - or:
-                  - switch.is_on: power_low
-                  - switch.is_on: power_high
+                    - switch.is_on: power_low
+                    - switch.is_on: power_high
             then:
               - switch.turn_off: power_high
               - switch.turn_off: power_low
@@ -672,7 +665,6 @@ fan:
                     - switch.turn_on: timer1h
 
 captive_portal:
-
 ```
 
 ## fake_fan_output.h
@@ -833,7 +825,7 @@ class UartReadLineSensor : public Component, public UARTDevice, public TextSenso
 
 ### Lovelace card
 
-For lovelace card, you need this HACS Addons : 
+For lovelace card, you need this HACS Addons :
 
 - custom:vertical-stack-in-card https://github.com/ofekashery/vertical-stack-in-card
 - custom:fan-percent-button-row https://github.com/finity69x2/fan-percent-button-row
@@ -844,7 +836,6 @@ File diffuser.png need to be in this path : config/www/
 ## Card config example
 
 ```yaml
-
 type: custom:vertical-stack-in-card
 cards:
   - type: picture-entity
@@ -925,7 +916,6 @@ cards:
             style:
               button:
                 width: 15%
-
 ```
 
 ### Lovelace card screenshot
