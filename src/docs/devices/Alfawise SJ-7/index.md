@@ -7,7 +7,7 @@ standard: global
 
 # Alfawise SJ-7 (Essential oil diffuser)
 
-![alt text](diffuseur.png)
+![alt text](diffuser.png)
 
 ## Working
 
@@ -831,13 +831,15 @@ For lovelace card, you need this HACS Addons :
 - custom:fan-percent-button-row https://github.com/finity69x2/fan-percent-button-row
 - custom:paper-buttons-row https://github.com/jcwillox/lovelace-paper-buttons-row
 
+File diffuser.png need to be in this path : config/www/
+
 ## Card config example
 ```yaml
 type: custom:vertical-stack-in-card
 cards:
   - type: picture-entity
     entity: switch.schedule_lave_linge
-    image: /local/diffuseur.png
+    image: /local/diffuser.png
     show_state: false
     show_name: false
     tap_action:
