@@ -9,23 +9,23 @@ standard: global
 
 ![alt text](diffuser.png)
 
-## Working
+### Working
 
 - All essential oil diffuser related controls (ON/OFF; LOW/HIGH; Timer 1H/3H/6H).
 - Lava lamp lighting activation, fast/slow color change, I can add stop color change button if needed.
 - OTA upgrade.
 
-## Not Working
--  Use the light like a classic bulb (just on of off and choose a color).
+### Not Working
 
-# Installation
+- Use the light like a classic bulb (just on of off and choose a color).
+
+## Installation
 
 ## Flashing
 
 For flashing, you have to solder wires like this:
 
 ![alt text](https://www.tala-informatique.fr/wiki/images/e/e1/Esp-01.png)
-
 Use U0TXD, U0RXD, GND (and VCC if you dont want to use the diffuser power supply).
 
 Make sure to ground GPIO0 during boot. 
@@ -142,7 +142,6 @@ time:
                             }else{
                               return false;
                             }
-                          
                         - lambda: |-
                             if (id(${name}_fan).speed == 0) {
                               return true;
@@ -172,7 +171,7 @@ time:
                                   }
                         then:
                           - switch.turn_on: update_fan_speed
-              
+
 # Text sensors with UART received information.
 text_sensor:
   - platform: custom
@@ -220,7 +219,7 @@ switch:
     assumed_state: false
     lambda: |-
       if (id(uart_readline).state == "${receive_timer1h}") {
-        return true;        
+        return true;
       } else if(id(uart_readline).state == "${receive_timer3h}") {
         return false;
       } else if(id(uart_readline).state == "${receive_timer6h}") {
@@ -233,7 +232,7 @@ switch:
         return false;
       } else {
         return {};
-      }   
+      }
     turn_on_action:
       then:
         - if:
@@ -259,7 +258,7 @@ switch:
     assumed_state: false
     lambda: |-
       if (id(uart_readline).state == "${receive_timer3h}") {
-        return true;        
+        return true;
       } else if(id(uart_readline).state == "${receive_timer1h}") {
         return false;
       } else if(id(uart_readline).state == "${receive_timer6h}") {
@@ -306,7 +305,7 @@ switch:
     assumed_state: false
     lambda: |-
       if (id(uart_readline).state == "${receive_timer6h}") {
-        return true;     
+        return true;
       } else if(id(uart_readline).state == "${receive_timer1h}") {
         return false;
       } else if(id(uart_readline).state == "${receive_timer3h}") {
@@ -334,7 +333,7 @@ switch:
         - uart.write: [0x55, 0xAA, 0x03, 0x09, 0x03, 0x00, 0x0e]
         - delay: 6h
         - uart.write: [0x55, 0xaa, 0x03, 0x0e, 0x00, 0x00, 0x10]
-        
+
     turn_off_action:
       then:
         - if:
@@ -364,7 +363,7 @@ switch:
         return false;
       } else {
         return {};
-      }    
+      }
     turn_on_action:
       - uart.write: [0x55, 0xAA, 0x03, 0x07, 0x02, 0x00, 0x0B]
     turn_off_action:
@@ -378,7 +377,7 @@ switch:
       - switch.template.publish:
           id: power_low
           state: OFF
-          
+
   - platform: template
     disabled_by_default: true
     id: power_low
@@ -396,7 +395,7 @@ switch:
         return false;
       } else {
         return {};
-      }    
+      }
     turn_on_action:
       - uart.write: [0x55, 0xaa, 0x03, 0x07, 0x01, 0x00, 0x0A]
 
@@ -422,7 +421,7 @@ switch:
       - uart.write: [0x55, 0xaa, 0x03, 0x03, 0x03, 0x00, 0x08]
     turn_off_action:
       - uart.write: [0x55, 0xaa, 0x03, 0x03, 0x01, 0x00, 0x06]
-      
+
   - platform: template
     name: ${name} Lava Lamp
     id: lava_lamp
@@ -462,7 +461,7 @@ switch:
       - switch.template.publish:
           id: rainbow_slow
           state: OFF
-    
+
   - platform: template
     name: ${name} Rainbow Slow
     id: rainbow_slow
@@ -529,7 +528,6 @@ switch:
     turn_off_action:
       - uart.write: [0x55, 0xaa, 0x03, 0x02, 0x00, 0x01, 0x05]
 
-          
     on_turn_on:
       - switch.template.publish:
           id: lava_lamp
@@ -655,14 +653,14 @@ fan:
                     - lambda: return (id(${name}_fan).speed == 1);
                     - switch.is_off: power_low
                   then:
-                    - switch.turn_on: power_low   
+                    - switch.turn_on: power_low
                   else:
                     - if:
                         condition:
                           - lambda: return (id(${name}_fan).speed == 2);
                           - switch.is_off: power_high
                         then:
-                          - switch.turn_on: power_high 
+                          - switch.turn_on: power_high
               - if:
                   condition:
                     and:
@@ -672,11 +670,15 @@ fan:
                   then:
                     - delay: 500ms
                     - switch.turn_on: timer1h
-    
+
 captive_portal:
+
 ```
+
 ## fake_fan_output.h
+
 ```c
+
 #include "esphome.h"
 using namespace esphome;
 
@@ -685,19 +687,23 @@ class FakeFanOutput : public Component, public FloatOutput {
     void write_state(float state) override {
       if (state < 0.1) {
         // OFF
-        
+
       } else if (state < 0.5) {
         // low speed
-         
+
       } else {
         // high speed
-         
+
       }
     }
 };
+
 ```
+
 ## uart_read_line_sensor.h
+
 ```c
+
 #include "esphome.h"
 
 
@@ -806,7 +812,7 @@ class UartReadLineSensor : public Component, public UARTDevice, public TextSenso
             sendvalue(buffer,valuesending);
             storevalue(buffer, 0x55, false, valuesending);
           }
-        } 
+        }
         storevalue(buffer, readch, false, valuesending);
       }
       else //Serial.available == 0 and nothing to read
@@ -816,14 +822,16 @@ class UartReadLineSensor : public Component, public UARTDevice, public TextSenso
           receiveUntilTimeout = false;
           sendvalue(buffer,valuesending);
         }
-      }     
+      }
     }
   }
 };
+
 ```
 
-# Home Assistant integration
-## Lovelace card
+## Home Assistant integration
+
+### Lovelace card
 
 For lovelace card, you need this HACS Addons : 
 
@@ -834,7 +842,9 @@ For lovelace card, you need this HACS Addons :
 File diffuser.png need to be in this path : config/www/
 
 ## Card config example
+
 ```yaml
+
 type: custom:vertical-stack-in-card
 cards:
   - type: picture-entity
@@ -918,13 +928,12 @@ cards:
 
 ```
 
-## Lovelace card screenshot :
+### Lovelace card screenshot
 
 ![alt text](lovelace_card_example.png)
 
-# Original firmware
+## Original firmware
+
 I have put a backup of the original firmware, and I also modified the AMA HOME APK but only for reconnect the original firmware to Wifi, ssg360 seems down.
 
 https://github.com/antibill51/Alfawise_SJ-7_HASSIO/tree/master/Original%20firmware
-
-
