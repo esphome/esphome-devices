@@ -5,22 +5,23 @@ type: plug
 standard: au
 ---
 
-![alt text](rowi.jpg "Rowi ESP32 Smart Plug AU and NZ")
+![alt text](rowi.png "Rowi ESP32 Smart Plug AU and NZ")
 
-Maker: Vaiotech (https://www.vaiotech.co.nz/products/) <br>
+Maker: Vaiotech (https://www.vaiotech.co.nz/products/)
+
 Purchase online in Australia and New Zealand: https://www.kiwi-warmer.co.nz/for-developers/
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO4  | Button              |
-| GPIO2  | Relay               |
-| GPI18  | LED RED (inverted)  |
-| GPI19  | LED GREEN (inverted)|
-| GPI21  | LED BLUE (inverted) |
-| GPI16  | I2C_SDA             |
-| GPI17  | I2C_SCL             |
+| Pin   | Function             |
+| ----- | -------------------- |
+| GPIO4 | Button               |
+| GPIO2 | Relay                |
+| GPI18 | LED RED (inverted)   |
+| GPI19 | LED GREEN (inverted) |
+| GPI21 | LED BLUE (inverted)  |
+| GPI16 | I2C_SDA              |
+| GPI17 | I2C_SCL              |
 
 ## Basic Configuration
 
