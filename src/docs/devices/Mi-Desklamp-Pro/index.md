@@ -13,7 +13,7 @@ esphome:
   platformio_options:
     platform:
      - espressif32@3.0.0
-    platform_packages: 
+    platform_packages:
      - tasmota/framework-arduinoespressif32 @ 3.10006.210420
 
 wifi:
