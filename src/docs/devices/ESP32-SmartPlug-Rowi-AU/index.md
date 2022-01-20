@@ -9,7 +9,6 @@ ESP32-based Smart Plug (Rowi), delivered with the pre-flashed ESPHome firmware -
 
 Configuration: ESP32, Embedded temperature sensor SHTC3, RGB LED.
 
-
 ![alt text](rowi.png "Rowi ESP32 Smart Plug AU and NZ")
 
 Maker: Vaiotech (https://www.vaiotech.co.nz/products/)
