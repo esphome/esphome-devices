@@ -6,8 +6,8 @@ standard: us
 ---
 
 [Virage Laboratories](https://www.viragelabs.com)
-
-[KS-604S Outlet](https://www.viragelabs.com/product/virageplug/)![image](virage_labs_KS-604S.jpg)
+![image](virage_labs_KS-604S.jpg)
+[KS-604S Outlet](https://www.viragelabs.com/product/virageplug/)
 
 ## General Notes
 
