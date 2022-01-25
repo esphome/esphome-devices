@@ -1,29 +1,22 @@
 ---
-title: VirageSwitch 120V Electrical Outlet
+title: VirageSwitch KS-602H
 date-published: 2022-01-25
-type: light
+type: switch
 standard: us
 ---
 
-Manufacturer: [Virage Laboratories Inc.](https://www.viragelabs.com/product/virageswitch/)
+[Virage Laboratories](https://www.viragelabs.com)
 
-## Flashing Procedure
+[KS-602H Switch](https://www.viragelabs.com/product/virageswitch/)![image](virage_labs_KS-602H.jpg)
 
-Comes pre-flashed with a customized Tasmota optimized for Home Assistant, OpenHab and Domoticz.  You can easily upload an ESPHome binary via OTA from the built-in web interface.
+## General Notes
 
-## Switch Specifications
+This 2-pole wall switch comes with a customized Tasmota pre-installed. It is optimized for Home Assistant, Domoticz and OpenHab but you can easily flash an ESPHome binary using the Firmware Upgrade function in the built-in web interface.
 
-Voltage: 110V
-Load Capacity: 1500W
+## GPIO Pinout (Per top to bottom when installed)
 
-## Product Images
-
-![VirageSwitch](/virage_labs_KS-602H.jpg "VirageSwitch")
-
-## GPIO Pinout
-
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO00 | Button 1             |
-| GPIO12 | Relay 1              |
-| GPIO13 | Led 1                |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO0  | Button 1 |
+| GPIO12 | Relay 1  |
+| GPIO13 | LED 1    |
