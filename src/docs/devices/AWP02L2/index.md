@@ -1,11 +1,14 @@
 ---
-title: Avatar AWP02L2 
+title: Avatar AWP02L2
 date-published: 2022-01-26
 type: plug
 standard: us
 ---
 
+[Amazon Link](https://amzn.to/3ACOgKO)
+
 ## Product Image
+
 ![image](AWP02L2.jpg)
 
 ## General Notes
@@ -14,17 +17,17 @@ Model Reference: AWP02L2
 
 Manufacturer: [Avatar](https://www.avatarcontrols.com/)
 
-The [Avatar Smart Mini WiFi Plug](https://shop.avatarcontrols.com/smart-mini-wifi-plug.html) is available at [Amazon.com](https://www.amazon.com/dp/B08ZN5J2XR). The product is sold under the Round Arc style.
+The [Avatar Smart Mini WiFi Plug](https://shop.avatarcontrols.com/smart-mini-wifi-plug.html) is available at [Amazon.com](https://amzn.to/3ACOgKO). The product is sold under the Round Arc style.
 
 This plug can be converted using [tuya-convert to flash ESPHome](/guides/tuya-convert/) (as of January 2022).
 
 ## GPIO Pinout
 
-| Pin    | Function                             |
-| ------ | ------------------------------------ |
-| GPIO2  | Blue LED (inverted)                  |
-| GPIO13 | Button (input_pullup)                |
-| GPIO15 | Relay                                |
+| Pin    | Function              |
+| ------ | --------------------- |
+| GPIO2  | Blue LED (inverted)   |
+| GPIO13 | Button (input_pullup) |
+| GPIO15 | Relay                 |
 
 ## Basic Configuration
 
@@ -41,7 +44,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
+
   ap:
     ssid: "${device_name} Fallback Hotspot"
     password: !secret wifi_fallback_pw
