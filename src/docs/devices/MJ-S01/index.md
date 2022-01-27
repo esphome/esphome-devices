@@ -5,7 +5,7 @@ type: switch
 standard: us
 ---
 
-[Amazon Link](https://amzn.to/3u246xg)
+[Amazon Link](https://amzn.to/3r3bpTx)
 
 ## General Notes
 
@@ -13,12 +13,12 @@ This switch uses tuya so you can [use tuya-convert to flash ESPHome](/guides/tuy
 
 ## GPIO Pinout
 
-| Pin    | Function                             |
-| ------ | ------------------------------------ |
-| GPIO4  | led1 (inverted)                      |
-| GPIO5  | led2 (inverted)                      |
-| GPIO13 | main button (input_pullup)           |
-| GPIO12 | relay (inverted)                     |
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO4  | led1 (inverted)            |
+| GPIO5  | led2 (inverted)            |
+| GPIO13 | main button (input_pullup) |
+| GPIO12 | relay (inverted)           |
 
 ## Basic Configuration
 
@@ -73,12 +73,12 @@ ota:
   # https://esphome.io/components/ota
 
 switch:
-    # relay output
+  # relay output
   - platform: gpio
     id: relay
     name: $friendly_name
     pin: GPIO12
-    
+
     on_turn_on: #blue when on
       - switch.turn_on: blue_led
       - switch.turn_off: red_led
