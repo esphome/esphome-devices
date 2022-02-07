@@ -6,7 +6,7 @@ standard: us
 ---
 
 This device did not have a serial number. FCC-ID is [2AKBP](https://fccid.io/2AKBP-X10S).
-This device shares the FCC-ID with [Kauf plugs](https://www.amazon.com/gp/product/B09JQ8MMNH/)
+This device shares the FCC-ID with [Kauf plugs](https://www.amazon.com/gp/product/B09JQ8MMNH/) and also [Cloudfree smartplug 2](https://cloudfree.shop/product/cloudfree-smart-plug-runs-tasmota/)
 
 This template was based on the AWP04L template and modified for this device. I used a Kill-A-Watt meter to measure voltage, current and watts of the plug with and without a downstream device turned on. The downstream device was an LED bulb. Power Factor was .93 on the Kill-A-Watt meter
 
