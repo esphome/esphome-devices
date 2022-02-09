@@ -11,7 +11,7 @@ standard: au
  
  [Flashing Tips (Home Assistant Thread)](https://community.home-assistant.io/t/tuya-tywe1s-flash-help/273747/).
  
- [Tear down, mods/enhancements, Home Assistant configs, and more detailed write up (Home Assistant Thread)](https://community.home-assistant.io/t/tuya-tywe1s-flash-help/273747/)
+ [Tear down, mods/enhancements, Home Assistant configs, and more detailed write up (Home Assistant Thread)](https://community.home-assistant.io/t/kogan-smart-air-purifier-2s-working-with-esphome/390526)
   
 
 ## GPIO Pinout
@@ -102,7 +102,7 @@ number:
     
 #5 Unknown   
   # - platform: tuya
-    # name: "${name} DP5 Unknown" #Unknown. Could Filter Left?
+    # name: "${name} DP5 Unknown" #Unknown. Could be % filter Left?
     # number_datapoint: 5
     # min_value: 0
     # max_value: 200
@@ -111,7 +111,7 @@ number:
 #11 Unknown   
 # switch:
   # - platform: tuya
-    # name: "${name} DP11 Unknown" #Unknown Could maybe be reset button or wifi connection?. Have not tested.
+    # name: "${name} DP11 Unknown" #Unknown. Could maybe be reset button or wifi connection?. Have not tested.
     # entity_category: config
     # switch_datapoint: 11
 ```
