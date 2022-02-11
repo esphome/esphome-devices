@@ -18,8 +18,8 @@ standard: au
 
 | Pin   | Function |
 | ----- | -------- |
-| GPIO3 | RX       |
-| GPIO1 | TX       |
+| GPIO13 | RX      |
+| GPIO15 | TX      |
 
 ## Basic Config
 
