@@ -113,6 +113,13 @@ sensor:
       name: ${friendly_name} Energy Power
       unit_of_measurement: W
       accuracy_decimals: 0
+    energy:
+      name: ${friendly_name} Energy
+      filters:
+        # Multiplication factor from W to kW is 0.001
+        - multiply: 0.001
+      unit_of_measurement: kWh
+      accuracy_decimals: 3
   # Total daily energy sensor
   - platform: total_daily_energy
     name: ${friendly_name} Daily Energy Usage
