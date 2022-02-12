@@ -121,7 +121,6 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
-
 # Binary sensor for the power button
 binary_sensor:
   - platform: gpio
@@ -131,26 +130,22 @@ binary_sensor:
       number: GPIO3
       inverted: true
     on_press:
-      - switch.toggle: fakebutton
+      - switch.toggle: relay
 
 switch:
   # Switch to restart the plug
   - platform: restart
     name: ${friendly_name} Restart Switch
-  # Switch to toggle the relay
-  - platform: template
-    name: ${friendly_name} Power Switch
-    optimistic: true
-    id: fakebutton
-    turn_on_action:
-      - switch.turn_on: relay
-      - light.turn_on: led
-    turn_off_action:
-      - switch.turn_off: relay
-      - light.turn_off: led
+  # Switch for the relay
   - platform: gpio
     id: relay
+    name: ${friendly_name} Power Switch
     pin: GPIO14
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led
 
 output:
   # esphome state led
