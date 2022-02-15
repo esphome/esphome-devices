@@ -49,8 +49,8 @@ ota:
 uart:
   #Serial connection between the TYWE1S and the Tuya MCU
   - id: uart_0
-    rx_pin: GPIO3
-    tx_pin: GPIO1
+    rx_pin: GPIO13
+    tx_pin: GPIO15
     baud_rate: 9600
 
 #Tuya component: https://esphome.io/components/tuya.html
