@@ -36,15 +36,20 @@ substitutions:
   password: !secret password
 
   # Higher value gives lower watt readout
-  current_res: "0.00290"
+  current_res: "0.000943"
   # Lower value gives lower voltage readout
-  voltage_div: "940"
+  voltage_div: "2066"
+  # measure a relatively strong load and enter values measured by the device vs the values your reference measurement provided here
+  power_cal_meas: "1710.0"
+  power_cal_real: "1685.0"
+
   max_power: "2000"
   max_temp: "70.0"
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:
@@ -154,6 +159,7 @@ sensor:
     pin: A0
 
   - platform: hlw8012
+    model: BL0937
     sel_pin:
       number: GPIO12
       inverted: true
@@ -163,19 +169,21 @@ sensor:
     voltage_divider: ${voltage_div}
     current:
       name: "${channel_1} current"
-      internal: true
       unit_of_measurement: "A"
       accuracy_decimals: 3
       icon: mdi:flash-outline
     voltage:
       name: "${channel_1} voltage"
-      internal: true
       unit_of_measurement: "V"
       icon: mdi:flash-outline
     power:
       name: "${channel_1} power"
       id: power
       unit_of_measurement: "W"
+      filters:
+        - calibrate_linear:
+          - 0.0 -> 0.0
+          - ${power_cal_meas} -> ${power_cal_real}
       icon: mdi:flash-outline
       on_value_range:
         - above: ${max_power}
