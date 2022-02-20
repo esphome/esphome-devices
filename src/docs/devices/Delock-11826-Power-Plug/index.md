@@ -31,19 +31,22 @@ Basic configuration with switch and power/voltage/current reporting.
 ```yaml
 substitutions:
   plug_name: delock01
-  # Higher value gives lower watt readout. Calibrate for higher accuracy.
-  current_res: "0.0009356"
-  # Lower value gives lower voltage readout. Calibrate for higher accuracy.
-  voltage_div: "2182"
 
 esphome:
   name: ${plug_name}
   platform: ESP8266
   board: esp8285
 
+# Enable Home Assistant API
+api:
+  password: !secret esphome_api_pw
+
+ota:
+  password: !secret ota_password
+
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -55,46 +58,14 @@ captive_portal:
 # Enable logging
 logger:
 
-# Enable Home Assistant API
-api:
-  password: !secret esphome_api_pw
-
-ota:
-  password: !secret esphome_ota_pw
-
 # Example configuration entry
 web_server:
   port: 80
 
-# Example configuration entry
-sensor:
-  - platform: hlw8012
-    sel_pin:
-      number: GPIO12
-      inverted: true
-    cf_pin: GPIO04
-    cf1_pin: GPIO05
-    current:
-      name: "${plug_name} Current"
-      unit_of_measurement: A
-      accuracy_decimals: 3
-    voltage:
-      name: "${plug_name} Voltage"
-      unit_of_measurement: V
-      accuracy_decimals: 1
-    power:
-      name: "${plug_name} Power"
-      unit_of_measurement: W
-      accuracy_decimals: 0
-    voltage_divider: ${voltage_div}
-    current_resistor: ${current_res}
-    change_mode_every: 3
-    update_interval: 3s
-
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO3
+      number: GPIO0
       inverted: True
     name: "${plug_name} Button"
     on_press:
@@ -107,7 +78,7 @@ switch:
 
   - platform: gpio
     name: "${plug_name} Smart Plug"
-    pin: GPIO14
+    pin: GPIO12
     id: relay
     on_turn_on:
       - switch.turn_on: led
