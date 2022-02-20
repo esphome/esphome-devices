@@ -9,32 +9,20 @@ standard: eu
 
 Model reference: 11826
 
-Manufacturer: [Delock](https://www.delock.de/produkte/G_11827/merkmale.html)
+Manufacturer: [Delock](https://www.delock.de/produkte/G_11826/merkmale.html)
 
 The device comes **pre-flashed with Tasmota**.
 Flashing ESPHome is easily possible by uploading an ESPHome .bin file using the device's web interface.
 
-![Product](./Delock-11827-Power-Monitoring-Smart-Plug-Box.jpg "Product Image Box")
+![Product](./Delock-11826-Power-Smart-Plug.jpg "Product Image")
 
 ## GPIO Pinout
 
 | Pin    | Function          |
 | ------ | ----------------- |
-| GPIO3  | Button (inverted) |
-| GPIO4  | HLW8012 - CF      |
-| GPIO5  | HLW8012 - CF1     |
-| GPIO12 | HLW8012 - SEL     |
+| GPIO0  | Button (inverted) |
+| GPIO12 | Relay             |
 | GPIO13 | LED               |
-| GPIO14 | Relay             |
-
-## HLW8012 Calibration Values
-
-| Value   |           |
-| ------- | --------- |
-| Current | 0.0009356 |
-| Voltage | 2182      |
-
-Values vary between devices, should be calibrated.
 
 ## Basic Config
 
