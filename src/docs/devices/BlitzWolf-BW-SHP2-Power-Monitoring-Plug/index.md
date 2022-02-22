@@ -11,7 +11,7 @@ Model reference: BW-SHP2
 
 Manufacturer: [BlitzWolf](https://www.blitzwolf.com/3840W-EU-WIFI-Smart-Socket-p-244.html)
 
-> :warning: **WARNING:** Latest hardware revision has replaced the ESP chip, and is no longer compatible with ESPHome.
+⚠ **WARNING:** Latest hardware revision has replaced the ESP chip, and is no longer compatible with ESPHome.
 
 ## GPIO Pinout
 
