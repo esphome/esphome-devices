@@ -5,8 +5,8 @@ date-published: 2020-07-09
 type: light
 standard: au
 ---
-  ![alt text](/Kogan-RGB%2BCool%26Warm-White-2m-LED-Strip.jpg "Product Image")  
-  
+  ![alt text](/Kogan-RGB-Cool-Warm-White-2m-LED-Strip.jpg "Product Image")
+
 [https://www.kogan.com/au/buy/kogan-smarterhome-rgb-cool-warm-white-smart-led-light-strip-2m/](https://www.kogan.com/au/buy/kogan-smarterhome-rgb-cool-warm-white-smart-led-light-strip-2m/)
 
 ## GPIO Pinout

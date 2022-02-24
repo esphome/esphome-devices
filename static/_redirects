@@ -5,3 +5,5 @@
 /types/relay      /type/relay
 /types/sensor     /type/sensor
 /types/switch     /type/switch
+/devices/Kogan-RGB+CoolandWarm-White-2m-LED-Strip/     /devices/Kogan-RGB-Cool-Warm-White-2m-LED-Strip
+/devices/Kogan-RGB+Cool&Warm-White-2m-LED-Strip        /devices/Kogan-RGB-Cool-Warm-White-2m-LED-Strip
