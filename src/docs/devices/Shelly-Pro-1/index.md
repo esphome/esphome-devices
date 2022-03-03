@@ -5,8 +5,6 @@ type: relay
 standard: uk, eu
 ---
 
-# Shelly Pro 1
-
 Information about the pinout and internals of the Shelly Pro 1.
 
 It uses the ESP32 DOWDQ6.
@@ -48,16 +46,14 @@ QF        |nc
 QG        |nc
 QH        |nc
 
-The Out 1 status LED and the reay are on the same output. From what i've seen the board looks like its beeing used for the Shelly Pro 1, Pro 2, Pro 1PM, and Pro 2PM. But i can't comfirm it.
-There are all the spaces needed for all device variants. 
+The Out 1 status LED and the relay are on the same output. From what I've seen the board looks like it's being used for the Shelly Pro 1, Pro 2, Pro 1PM, and Pro 2PM. But I can't comfirm it.
+There are all the spaces needed for all device variants.
 
 ![Shelly Pro 1 2](https://user-images.githubusercontent.com/38843794/156607379-c914f5e8-fbc2-407e-b529-71da5f173b7a.png)
-
 
 ## Programming Pinout
 
 ![Shelly Pro pinout](https://user-images.githubusercontent.com/38843794/156607973-259d2b27-976c-4b71-9198-ec737f6e95fb.png)
-
 
 ## Basic Configuration
 
@@ -102,14 +98,14 @@ light:
 #  mdc_pin: GPIO23
 #  mdio_pin: GPIO18
 #  clk_mode: GPIO17_OUT
-  
+
 
 button:
   - platform: restart
     id: restart_1
 
 binary_sensor:
-  
+
   - platform: status
     id: status_1
     on_press:
@@ -118,7 +114,7 @@ binary_sensor:
     on_release:
       then:
         switch.turn_off: rgb_b
-  
+
   - platform: gpio
     id: reset_button
     pin:
@@ -140,7 +136,7 @@ binary_sensor:
     on_press:
       then:
         switch.toggle: light1
-  
+
   - platform: gpio
     id: input2
     name: "Shelly Pro Button 2"
@@ -153,7 +149,7 @@ sn74hc595:
     clock_pin: GPIO14
     latch_pin: GPIO4
     sr_count: 1
- 
+
 switch:
   - platform: gpio
     name: "Shelly Pro Relay"
@@ -162,28 +158,28 @@ switch:
       sn74hc595: sn74hc595_hub
       number: 0
       inverted: false
-  
+
   - platform: gpio
     id: out2
     pin:
       sn74hc595: sn74hc595_hub
       number: 1
       inverted: false
- 
+
   - platform: gpio
     id: rgb_b
     pin:
       sn74hc595: sn74hc595_hub
       number: 2
       inverted: false
-  
+
   - platform: gpio
     id: rgb_g
     pin:
       sn74hc595: sn74hc595_hub
       number: 3
       inverted: false
-  
+
   - platform: gpio
     id: rgb_r
     pin:
