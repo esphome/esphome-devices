@@ -71,11 +71,20 @@ sensor:
     power:
       name: "Sonoff S31 Power"
       accuracy_decimals: 1
+      id: my_power
+  - platform: total_daily_energy
+    name: "Sonoff S31 Daily Energy"
+    power_id: my_power
+
 switch:
   - platform: gpio
     name: "Sonoff S31 Relay"
     pin: GPIO12
     id: relay
+
+time:
+  - platform: sntp
+    id: my_time
 
 status_led:
   pin: GPIO13
