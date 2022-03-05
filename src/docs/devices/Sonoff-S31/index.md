@@ -75,7 +75,7 @@ sensor:
   - platform: total_daily_energy
     name: "Sonoff S31 Daily Energy"
     power_id: my_power
-    
+
 switch:
   - platform: gpio
     name: "Sonoff S31 Relay"
