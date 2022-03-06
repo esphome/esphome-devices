@@ -86,7 +86,7 @@ light:
   - platform: binary
     name: "Relay1 LED"
     id: relay1_led
-    internal: true    
+    internal: true
     output: relay1_led_gpio
   - platform: binary
     name: "Relay2 LED"
@@ -110,7 +110,7 @@ sensor:
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
     change_mode_every: 3
-    update_interval: 3s    
+    update_interval: 3s
     current:
       name: "${display_name} Amps"
       unit_of_measurement: A
@@ -122,11 +122,11 @@ sensor:
     power:
       name: "${display_name} Watts"
       unit_of_measurement: W
-      accuracy_decimals: 0    
+      accuracy_decimals: 0
       filters:
         - calibrate_linear:
             - 0.0 -> 0.0
-            - 134 -> 58 
+            - 134 -> 58
 
 binary_sensor:
   - platform: gpio
