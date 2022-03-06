@@ -25,7 +25,6 @@ This device requires a triangle screw driver bit to [remove the cover and use th
 | GPIO27 | CF                                 |
 | GPIO26 | CF1                                |
 
-
 ## Basic Configuration
 
 ```yaml
