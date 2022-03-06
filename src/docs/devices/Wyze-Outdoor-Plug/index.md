@@ -34,7 +34,7 @@ substitutions:
   # Higher value gives lower watt readout
   current_res: "0.001"
   # Lower value gives lower voltage readout
-  voltage_div: "770"  
+  voltage_div: "770"
 
 esphome:
   name: wyzeoutdoor
@@ -151,5 +151,5 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO5
-    inverted: true  
+    inverted: true
 ```
