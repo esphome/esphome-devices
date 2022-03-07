@@ -252,17 +252,17 @@ sensor:
     name: ${channel_1} energy
     power_id: power_channel_1
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   - platform: total_daily_energy
     name: ${channel_2} energy
     power_id: power_channel_2
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   # NTC Temperature
   - platform: ntc
@@ -575,17 +575,17 @@ sensor:
     name: ${channel_1} energy
     power_id: power_channel_1
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   - platform: total_daily_energy
     name: ${channel_2} energy
     power_id: power_channel_2
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   # NTC Temperature
   - platform: ntc
