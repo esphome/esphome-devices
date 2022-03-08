@@ -5,7 +5,7 @@ type: plug
 standard: us
 ---
 
-[Amazon Link](https://amzn.to/3nqA29i)
+![alt text](gosund_WP6.jpeg "GoSund WP6 Image")
 
 ## GPIO Pinout
 
@@ -13,7 +13,7 @@ standard: us
 | ------ | -------------------- |
 | GPIO03 | Push Button inverted |
 | GPIO13 | Red LED (Status LED) |
-| GPIO01 | Blue LED             |
+| GPIO01 | Blue LED (Led1i)     |
 | GPIO14 | Relay 1              |
 
 ## Basic Configuration
