@@ -1,6 +1,6 @@
 ---
 title: Acenx SOP04-US
-date-published: 2022-02-08
+date-published: 2022-03-08
 type: plug
 standard: us
 ---
