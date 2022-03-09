@@ -5,8 +5,6 @@ type: dimmer
 standard: us
 ---
 
-[Amazon Link](https://amzn.to/3xw4Ytm)
-
 ## General Notes
 
 This plug use tuya so you can [use tuya-convert to flash ESPHome](/guides/tuya-convert/).

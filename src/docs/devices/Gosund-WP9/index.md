@@ -5,7 +5,6 @@ type: plug
 standard: us
 ---
 
-[Amazon Link](https://amzn.to/3x9j7vJ)
 ![Product Image](Gosund-WP9.jpg "Gosund WP9 Power Strip")
 
 ## Gosund WP9 Power Strip
