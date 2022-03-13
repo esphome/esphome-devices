@@ -123,6 +123,7 @@ light:
     warm_white_color_temperature: 2650K
     gamma_correct: 0
 ```
+
 ![alt text](pcb-labeled.jpg "Mi Desk Lamp Pinout ESP8266")
 
 For serial flashing you need two power wires (GND, VDDPST- AKA VCC 3.3v), two serial wires (U0RX, U0TX) and the boot mode pin (GPIO0).
