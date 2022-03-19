@@ -207,7 +207,7 @@ binary_sensor:
 
 This config will send events to Home Assistant so you can use the Shelly as detached switch. The events can be used as triggers for automations to toggle an attached smart light.
 
-In case the relay is switched off, the Shelly has no connection to Wifi, or no API connection to Homa Assistant can be made, the config will toggle the relay. This allows the switch to still keep turning the attached smart light on and off when WiFi or Home Assistant is unavailable.
+In case the relay is switched off, the Shelly has no connection to Wifi, or no API connection to Home Assistant can be made, the config will toggle the relay. This allows the switch to still keep turning the attached smart light on and off when WiFi or Home Assistant is unavailable.
 
 When the power drops and goes back on, the relay will default to off. This prevents lights turning on when a short power outage happens when you are away from home.
 
