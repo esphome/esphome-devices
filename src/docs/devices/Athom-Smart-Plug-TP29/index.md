@@ -8,7 +8,7 @@ standard: us,eu,uk
 ![alt text](Athom-EU-Plug.png "Athom Smart Plug TP29 EU")
 Maker: https://www.athom.tech/
 
-Also on Aliexpress, with preflashed Tashmota or Homekit.
+Also on Aliexpress, with preflashed Tasmota or Homekit.
 
 ## GPIO Pinout
 
