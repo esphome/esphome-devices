@@ -59,7 +59,7 @@ substitutions:
   # 1692 appears to be resonable when testing with a 60W incandescent bulb.
   voltage_div: "1692"
   # Update interval (Time) for power sensors.  Because of a hardware limitation
-  # (BL0937 swaps between current and voltage, and thows out the first value
+  # (BL0937 swaps between current and voltage, and throws out the first value
   # after the swap), voltage and current will update at quadruple the interval.
   # In order to have everything update at least every 60 seconds, an update
   # interval of 15s is needed.
