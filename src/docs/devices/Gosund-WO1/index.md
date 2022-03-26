@@ -9,7 +9,7 @@ standard: us
 
 ## Flashing
 
-Tuya Convert OTA.  As of 2022-03-25, it works out of the box with no adjustments needed.  Put the device in flash mode by long-holding either button until it starts flashing fast.  Alternately, there are exposed pins for serial, but that methods has not been tried or verified.
+As of 2022-03-25, this device can be flashed with Tuya Convert out of the box with no adjustments needed.  Put the device in flash mode by long-holding either button until it starts fast-flashing.  Alternately, there are exposed pins on the ESP board for serial connection, but that methods has not been tried or verified, as it wasn't necessary.
 
 ## GPIO Pinout
 
