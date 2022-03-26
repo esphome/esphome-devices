@@ -24,6 +24,10 @@ As of 2022-03-25, this device can be flashed with Tuya Convert OTA (over-the-air
 | GPIO14 | Bottom outlet relay                    |
 | GPIO15 | Top outlet relay                       |
 
+## General Notes
+
+These devices appear to be individually calibrated for voltage.  As a result, you will need to measure with a multimeter and adjust the voltage divider accordingly.  The observed range so far for voltage divider is 1646-1692, so the base configuration has been adjusted to be the average of range at 1670 for likely best default settings.  You can adjust the voltage divider in the substitutions section if needed.
+
 ## Basic Configuration
 
 ```yaml
@@ -56,8 +60,9 @@ substitutions:
   # Note: Voltage divider on the BL0937 may vary from device to device.
   # If your voltage appears off, adjust that number as necessary.
   # The default voltage divider is about 25% too high.
-  # 1692 appears to be resonable when testing with a 60W incandescent bulb.
-  voltage_div: "1692"
+  # In testing 4 separate devices, the range was 1646-1692, with a range
+  # average of 1670.
+  voltage_div: "1670"
   # Update interval (Time) for power sensors.  Because of a hardware limitation
   # (BL0937 swaps between current and voltage, and throws out the first value
   # after the swap), voltage and current will update at quadruple the interval.
