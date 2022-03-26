@@ -13,7 +13,7 @@ As of 2022-03-25, this device can be flashed with Tuya Convert OTA (over-the-air
 
 ## GPIO Pinout
 
-| Pin    | Function                               |  
+| Pin    | Function                               |
 | ------ | -------------------------------------- |
 | GPIO0  | Top outlet LED (Inverted: true)        |
 | GPIO2  | Status LED (Inverted: true)            |
