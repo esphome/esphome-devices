@@ -5,7 +5,7 @@ type: plug
 standard: us
 ---
 
-![Product Image](Gosund_WO1.png "Product Image")
+![Product Image](Gosund-WO1.jpg "Product Image")
 
 ## Flashing
 
