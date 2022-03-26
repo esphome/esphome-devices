@@ -133,7 +133,7 @@ sensor:
   # 730-735 when the top outlet button (left) is pressed
   # 305-310 when the bottom outlet button (right) is pressed
   # 225-230 when both buttons are pressed
-  # Because the values are far enough a part, we set wide ranges, and a filter 
+  # Because the values are far enough a part, we set wide ranges, and a filter
   # with a safe delta of 50
   # There may be other ways to handle this, but this was the method I was
   # most comfortable with.
