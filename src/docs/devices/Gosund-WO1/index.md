@@ -1,5 +1,5 @@
 ---
-title: Gosund WO1
+title: Gosund WO1 Wall Outlet
 date-published: 2022-03-25
 type: plug
 standard: us
