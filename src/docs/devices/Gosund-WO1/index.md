@@ -9,7 +9,7 @@ standard: us
 
 ## Flashing
 
-As of 2022-03-25, this device can be flashed with Tuya Convert OTA (over-the-air) out of the box with no adjustments needed.  Put the device in flash mode by long-holding either button until it starts fast-flashing.  Alternately, there are exposed pins on the ESP board for serial connection, but that methods has not been tried or verified, as it wasn't necessary.
+As of 2022-03-25, this device can be flashed with Tuya Convert OTA (over-the-air) out of the box with no adjustments needed.  Put the device in flash mode by long-holding either button until it starts fast-flashing.  Alternately, there are exposed pins on the ESP board for serial connection, but that method has not been tried or verified, as it wasn't necessary.
 
 ## GPIO Pinout
 
