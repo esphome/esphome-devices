@@ -7,15 +7,16 @@ standard: eu
 
 ## GPIO Pinout
 
-| Pin    | Function  |
-| ------ | --------- |
+| Pin    | Function             |
+| ------ | -------------------- |
 | GPIO15 | Input (HIGH = pulse) |
 
 ## Connection
 
 Pull's D8 high on pluse from energy meter (800 per kilowatt)
-  - Connect S0+ to 3.3
-  - Connect S0- to D8
+
+- Connect S0+ to 3.3
+- Connect S0- to D8
 
 ```yaml
 esphome:
