@@ -7,11 +7,11 @@ standard: au
 
 ## General Notes
 
-Brilliant Smart CCT Globe GU10 sold at OfficeWorks, part number BL20887. Provides adjustable brightness and white colour temperature (cool to warm). Based on the ESP8266 platform by way of independent PWM control of a warm LED and a cool LED. 
+Brilliant Smart CCT Globe GU10 sold at OfficeWorks, part number BL20887. Provides adjustable brightness and white colour temperature (cool to warm). Based on the ESP8266 platform by way of independent PWM control of a warm LED and a cool LED.
 
 [https://www.officeworks.com.au/shop/officeworks/p/brilliant-smart-cct-globe-gu10-bl20887](https://www.officeworks.com.au/shop/officeworks/p/brilliant-smart-cct-globe-gu10-bl20887)
 
-<img src="BL20887.png" width="200">
+![Brilliant Smart CCT Globe GU10](BL20887.png "Brilliant Smart CCT Globe GU10")
 
 ## GPIO Pinout
 
@@ -25,7 +25,7 @@ Brilliant Smart CCT Globe GU10 sold at OfficeWorks, part number BL20887. Provide
 Notes on the configuration code:
 
 - Best to use static IP address to ensure that the globe reconnects to the Home Assistant API quickly at power up
-- Customise the `substitutions` to suit your specific needs (names, IP addresses)
+- Customize the `substitutions` to suit your specific needs (names, IP addresses)
 - Use ESPHome secrets for passwords
 - If the brightness is set too low, the globe will go out. Looking into a solution for this
 - Colour temperatures in code are a guess
@@ -61,7 +61,7 @@ wifi:
     gateway: ${gateway_ip}
     subnet: ${subnet_mask}
     dns1: ${dns_ip}
-    
+
   fast_connect: on
 
   ap:
