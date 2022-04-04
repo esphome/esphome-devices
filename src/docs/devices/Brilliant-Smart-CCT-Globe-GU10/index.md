@@ -11,6 +11,8 @@ Brilliant Smart CCT Globe GU10 sold at OfficeWorks, part number BL20887. Provide
 
 [https://www.officeworks.com.au/shop/officeworks/p/brilliant-smart-cct-globe-gu10-bl20887](https://www.officeworks.com.au/shop/officeworks/p/brilliant-smart-cct-globe-gu10-bl20887)
 
+<img src="BL20887.png" width="200">
+
 ## GPIO Pinout
 
 | Pin     | Function                           |
