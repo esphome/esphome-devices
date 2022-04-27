@@ -64,9 +64,11 @@ sensor:
     name: Sonoff T1 R2 Uptime
     update_interval: 60s
 
-switch:
+button:
   - platform: restart
     name: Sonoff T1 R2 Restart
+
+switch:
   - platform: gpio
     name: Sonoff T1 R2 Switch 1
     pin: GPIO5

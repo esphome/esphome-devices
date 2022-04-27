@@ -43,6 +43,7 @@ captive_portal:
 
 # Enable logging
 logger:
+  baud_rate: 0
 
 # Enable Home Assistant API
 api:
@@ -77,4 +78,5 @@ fan:
     name: $friendly_name Speed
     switch_datapoint: 1
     speed_datapoint: 3
+    speed_count: 4
 ```

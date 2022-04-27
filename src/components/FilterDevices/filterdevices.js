@@ -1,5 +1,6 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import { DeviceLink } from "../DeviceLink";
 
 const FilterDevices = ({ filterDeviceType, filterStandard }) => {
   const data = useStaticQuery(graphql`
@@ -34,17 +35,20 @@ const FilterDevices = ({ filterDeviceType, filterStandard }) => {
 
   const mapped = filtered?.map(({ node }) => {
     return {
+      id: node.id,
       slug: node.slug,
       title: node?.frontmatter?.title,
-      type: node?.frontmatter?.type,
-      standard: node?.frontmatter?.standard,
+      type: filterDeviceType ? null : node?.frontmatter?.type,
+      standard: filterStandard
+        ? null
+        : node?.frontmatter?.standard?.toLowerCase(),
     };
   });
   return (
     <ul>
       {mapped.map((device) => (
-        <li key={device.slug}>
-          <Link to={`/${device.slug}`}>{device.title}</Link>
+        <li key={device.id}>
+          <DeviceLink {...device} />
         </li>
       ))}
     </ul>

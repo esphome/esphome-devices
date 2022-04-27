@@ -30,6 +30,7 @@ Manufacturer: [BlitzWolf](https://www.blitzwolf.com/3680W-EU-Dual-WiFi-Smart-Soc
 ## Basic Config
 
 The configuration has some default sensors for wifi reporting etc.
+Some SHP7 devices experiences unexpected reboots after few minutes from start. By adding some config for GPIO15 it is solved.
 
 ```yaml
 substitutions:
@@ -82,6 +83,10 @@ binary_sensor:
       inverted: true
     on_press:
       - switch.toggle: relay2
+  - platform: gpio
+    pin: GPIO15
+    id: gpio15_irq
+    internal: true
 
 # Setup of LED's used in displaying LED status
 output:
@@ -244,14 +249,4 @@ sensors:
     accuracy_decimals: 1
     filters:
       - multiply: 0.000011574
-```
-
-Some SHP7 devices experiences unexpected reboots after few minutes from start. Adding this sensor fixes the issue:
-
-```yaml
-binary_sensor:
-  - platform: gpio
-    pin: GPIO15
-    id: gpio15_irq
-    internal: true
 ```

@@ -63,78 +63,44 @@ api:
 ota:
   password: !secret esphome_ota_password
 
-status_led:
-  pin:
-    number: GPIO5   # Red LED
-    inverted: True
+output:
+  - platform: gpio
+    pin: GPIO12
+    id: switch_output
 
-binary_sensor:
-- platform: gpio
-  pin:
-    number: GPIO4
-    inverted: True
-  id: sensor
-  internal: True
-
-- platform: gpio
-  pin:
-    number: GPIO13
-    inverted: True
-  id: button
-  name: ${friendly_name} Button
-  on_press:
-    - switch.toggle: ${device_name}
-  internal: True
+  - platform: gpio
+    pin:
+      number: GPIO4
+    id: white_led_output
 
 light:
-- platform: binary
-  id: white_led
-  output: led_1
-  restore_mode: RESTORE_DEFAULT_ON
-  internal: True
-
-output:
-- platform: gpio
-  id: led_1
-  pin:
-    number: GPIO4
-    inverted: True
-
-switch:
-- platform: gpio
-  id: relay
-  pin:
-    number: GPIO12
-  restore_mode: RESTORE_DEFAULT_OFF
-  internal: True
-
-- platform: restart
-  name: ${friendly_name} REBOOT
-
-- platform: template
-  name: ${friendly_name}
-  id: ${device_name}
-  icon: ${icon}
-  lambda: |-
-    if (id(sensor).state) {
-      return false;
-    } else {
-      return true;
-    }
-  turn_on_action:
-  - if:
-      condition:
-      - binary_sensor.is_on: sensor
-      then:
-      - switch.turn_on: relay
-      - light.turn_off: white_led
-  turn_off_action:
-  - if:
-      condition:
-      - binary_sensor.is_off: sensor
-      then:
-      - switch.turn_off: relay
+  - platform: binary
+    name: ${friendly_name}
+    id: ${device_name}
+    output: switch_output
+    on_turn_on:
       - light.turn_on: white_led
+    on_turn_off:
+      - light.turn_off: white_led
+
+  - platform: binary
+    id: white_led
+    output: white_led_output
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+    id: ${device_name}_button
+    name: ${friendly_name} Button
+    on_press:
+      - light.toggle: ${device_name}
+
+status_led:
+  # Red LED
+  pin:
+    number: GPIO5
+    inverted: yes
 ```
 
 ## Basic Configuration (3-Way)
@@ -306,28 +272,33 @@ light:
 
 ## Home Assistant example automation that uses the event triggers stated above
 
+This assumes that you have defined all_lights using platform: group.
+
 ```yaml
 automation:
 - alias: long_press_on
   trigger:
-  - event_data:
+  - platform: event
+    event_data:
       title: long_press
     event_type: esphome.light_switch
-    platform: event
   condition: []
   action:
-  - entity_id: group.all_lights
-    service: light.turn_on
+  - service: light.turn_on
+    target:
+      entity_id: light.all_lights
   mode: single
+  
 - alias: double_click_off
   trigger:
-  - event_data:
+  - platform: event
+    event_data:
       title: double_click
     event_type: esphome.light_switch
-    platform: event
   condition: []
   action:
-  - entity_id: group.all_lights
-    service: light.turn_off
+  - service: light.turn_off
+    target:
+      entity_id: light.all_lights
   mode: single
 ```

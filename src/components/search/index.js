@@ -32,7 +32,7 @@ export default function SearchButton({ indices }) {
         setShowSearch(true);
       }}
     >
-      <a href="javascript:void(0);">Search</a>
+      <a>Search</a>
     </div>
   );
 }

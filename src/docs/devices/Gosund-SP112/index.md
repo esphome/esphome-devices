@@ -11,6 +11,8 @@ The device can be flashed [using tuya-convert](#tuya-convert). Fresh out of the 
 
 If that doesn't work out for you, disassembly and wired flashing is explained [in this (German) video](https://www.youtube.com/watch?v=hfYFB1UENTQ).
 
+**Attention**: As it turns out Tuya no longer builds them with esp chips. This means as of late 2021 you cannot flash esphome on new units.
+
 ## GPIO Pinout
 
 | Pin    | Function                       |
@@ -29,7 +31,6 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 ```yaml
 esphome:
   platform: ESP8266
-  arduino_version: 2.5.1
   board: esp01_1m
 
 wifi:
@@ -105,10 +106,16 @@ sensor:
     current:
       id: amperage
       name: Amperage
+      unit_of_measurement: A
+      accuracy_decimals: 2
     voltage:
       id: voltage
       name: Voltage
+      unit_of_measurement: V
+      accuracy_decimals: 2
     power:
       id: wattage
       name: Wattage
+      unit_of_measurement: W
+      accuracy_decimals: 2
 ```

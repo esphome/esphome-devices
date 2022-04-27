@@ -1,7 +1,7 @@
 ---
 title: Gosund SP111
 date-published: 2021-01-01
-type: switch
+type: plug
 standard: eu
 ---
 
@@ -49,7 +49,6 @@ substitutions:
 esphome:
   name: $devicename
   platform: ESP8266
-  arduino_version: 2.5.1
   board: esp8285
 
 # Enable logging

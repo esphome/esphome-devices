@@ -14,9 +14,7 @@ The DETA [Smart Plug Base](https://www.bunnings.com.au/deta-smart-plug-base-with
 
 | Pin | Function |
 | --- | -------- |
-
 | GPIO1 | Button |
-
 | GPIO13 | Blue LED |
 | GPIO14 | Relay |
 

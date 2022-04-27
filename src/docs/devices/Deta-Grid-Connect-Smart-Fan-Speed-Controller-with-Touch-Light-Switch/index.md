@@ -148,7 +148,7 @@ binary_sensor:
     id: fan_light_sensor
     pin:
       number: GPIO16
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     on_press:
       - light.toggle: light1
@@ -156,7 +156,7 @@ binary_sensor:
     id: fan_power_sensor
     pin:
       number: GPIO00
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     on_press:
       then:
@@ -165,7 +165,7 @@ binary_sensor:
     id: fan_speed_sensor
     pin:
       number: GPIO05
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: True
     on_press:
       then:
@@ -178,7 +178,7 @@ binary_sensor:
             then:
               - fan.turn_on:
                   id: fan_1
-                  speed: MEDIUM
+                  speed: 2
         - if:
             condition:
               and:
@@ -188,7 +188,7 @@ binary_sensor:
             then:
               - fan.turn_on:
                   id: fan_1
-                  speed: HIGH
+                  speed: 3
         - if:
             condition:
               and:
@@ -198,13 +198,14 @@ binary_sensor:
             then:
               - fan.turn_on:
                   id: fan_1
-                  speed: LOW
+                  speed: 1
 
 fan:
   - platform: speed
     id: fan_1
     output: fan_speed
     name: ${friendly_name} Fan Speed
+    speed_count: 3
 
 switch:
   - platform: restart
@@ -241,7 +242,7 @@ switch:
             then:
               - fan.turn_on:
                   id: fan_1
-                  speed: LOW
+                  speed: 1
         - if:
             condition:
               and:
@@ -251,7 +252,7 @@ switch:
             then:
               - fan.turn_on:
                   id: fan_1
-                  speed: MEDIUM
+                  speed: 2
         - if:
             condition:
               and:
@@ -261,6 +262,6 @@ switch:
             then:
               - fan.turn_on:
                   id: fan_1
-                  speed: HIGH
+                  speed: 3
 
 ```

@@ -41,6 +41,7 @@ esphome:
 wifi:
   ssid: !secret ssid1
   password: !secret ssid1_pass
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
 
 captive_portal:
 
@@ -58,18 +59,20 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} Voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${devicename} Current B
     current_b:
       name: ${devicename} Current A
     active_power_a:
       name: ${devicename} Active Power B
-      filters:
-        - multiply: -1
+      # active_power_a is normal, so don't multiply by -1
     active_power_b:
       name: ${devicename} Active Power A
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
     update_interval: 60s
@@ -101,10 +104,6 @@ status_led:
 
 binary_sensor:
   - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
-  - platform: gpio
     pin:
       number: GPIO13
     name: ${devicename} Switch1
@@ -123,13 +122,13 @@ switch:
   - platform: gpio
     id: shelly_relay_1
     name: ${devicename} Relay1
-    pin: GPIO15
+    pin: GPIO4
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
   - platform: gpio
     id: shelly_relay_2
     name: ${devicename} Relay2
-    pin: GPIO4
+    pin: GPIO15
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
 ```
@@ -162,6 +161,7 @@ esphome:
 wifi:
   ssid: ${ssid}
   password: ${password}
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
   manual_ip:
     static_ip: ${ip}
     gateway: 192.168.xx.xx
@@ -206,8 +206,10 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${channel_2} current
       internal: true
@@ -217,8 +219,7 @@ sensor:
     active_power_a:
       name: ${channel_2} power
       id: power_channel_2
-      filters:
-        - multiply: 1
+      # active_power_a is normal, so don't multiply by -1
       on_value_range:
         - above: ${max_power}
           then:
@@ -232,6 +233,7 @@ sensor:
     active_power_b:
       name: ${channel_1} power
       id: power_channel_1
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
       on_value_range:
@@ -250,17 +252,17 @@ sensor:
     name: ${channel_1} energy
     power_id: power_channel_1
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   - platform: total_daily_energy
     name: ${channel_2} energy
     power_id: power_channel_2
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   # NTC Temperature
   - platform: ntc
@@ -302,21 +304,17 @@ switch:
   - platform: gpio
     id: shelly_relay_1
     name: ${channel_1} relay
-    pin: GPIO15
+    pin: GPIO4
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
   - platform: gpio
     id: shelly_relay_2
     name: ${channel_2} relay
-    pin: GPIO4
+    pin: GPIO15
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
 
 binary_sensor:
-  - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
   - platform: gpio
     pin:
       number: GPIO13
@@ -354,6 +352,7 @@ esphome:
 wifi:
   ssid: !secret ssid1
   password: !secret ssid1_pass
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
 
 captive_portal:
 
@@ -371,18 +370,20 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} Voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${devicename} Current B
     current_b:
       name: ${devicename} Current A
     active_power_a:
       name: ${devicename} Active Power B
-      filters:
-        - multiply: -1
+      # active_power_a is normal, so don't multiply by -1
     active_power_b:
       name: ${devicename} Active Power A
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
     update_interval: 60s
@@ -431,10 +432,6 @@ light:
     id: lightid2
 
 binary_sensor:
-  - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
   - platform: gpio
     pin:
       number: GPIO13
@@ -487,6 +484,7 @@ esphome:
 wifi:
   ssid: ${ssid}
   password: ${password}
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
   manual_ip:
     static_ip: ${ip}
     gateway: 192.168.xx.xx
@@ -531,8 +529,10 @@ i2c:
 
 sensor:
   - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
     current_a:
       name: ${channel_2} current
       internal: true
@@ -542,8 +542,7 @@ sensor:
     active_power_a:
       name: ${channel_2} power
       id: power_channel_2
-      filters:
-        - multiply: 1
+      # active_power_a is normal, so don't multiply by -1
       on_value_range:
         - above: ${max_power}
           then:
@@ -557,6 +556,7 @@ sensor:
     active_power_b:
       name: ${channel_1} power
       id: power_channel_1
+      # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
       on_value_range:
@@ -575,17 +575,17 @@ sensor:
     name: ${channel_1} energy
     power_id: power_channel_1
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   - platform: total_daily_energy
     name: ${channel_2} energy
     power_id: power_channel_2
     filters:
-      # Multiplication factor from W to kW is 0.001
+      # Multiplication factor from W to kWh is 0.001
       - multiply: 0.001
-    unit_of_measurement: kW
+    unit_of_measurement: kWh
 
   # NTC Temperature
   - platform: ntc
@@ -642,10 +642,6 @@ light:
     id: lightid2
 
 binary_sensor:
-  - platform: gpio
-    pin: GPIO16
-    name: "ade7953 IRQ pin"
-    internal: true
   - platform: gpio
     pin:
       number: GPIO13
