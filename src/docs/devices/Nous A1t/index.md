@@ -5,6 +5,8 @@ type: plug
 standard: eu
 ---
 
+![Nous A1T](/neo_render4_tasmota.jpg  "Tasmota Version Plug")
+
 ## GPIO Pinout
 
 [see pinout](https://nous.technology/product/a1t.html?show=manual)
