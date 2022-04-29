@@ -38,8 +38,8 @@ substitutions:
   current_res: "0.00280"
   # Lower value gives lower voltage readout
   voltage_div: "775"
-  
-  
+
+
 esphome:
   name: $devicename
   comment: "Nous Smart Wifi Socket A1T (Tasmota)"
@@ -63,13 +63,13 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   fast_connect: on
-  
+
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${devicename}-AP"
 
 captive_portal:
-    
+
 # see: https://esphome.io/components/time.html
 time:
   - platform: homeassistant
@@ -87,7 +87,7 @@ status_led:
 binary_sensor:
   - platform: status
     name: "${devicename} - Status"
-    
+
   # toggle relay on/off
   - platform: gpio
     pin:
@@ -96,7 +96,7 @@ binary_sensor:
     id: "button_state"
     on_press:
       - switch.toggle: "button_switch"
-      
+
 switch:
   - platform: template
     name: "${devicename} - Switch"
@@ -116,7 +116,7 @@ switch:
   - platform: gpio
     pin: GPIO14
     id: relay
-    
+
 sensor:
   - platform: wifi_signal
     name: "${devicename} - Wifi Signal"
