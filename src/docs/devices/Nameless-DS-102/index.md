@@ -5,6 +5,10 @@ type: switch
 standard: eu
 ---
 
+## Warning 
+
+As of May 2022 these switches use a WB3S chip (BK7231T) and are no longer compatible with esphome!
+
 ## Notes
 
 - push button wall switch
