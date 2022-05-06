@@ -9,7 +9,7 @@ standard: us
 
 This device cannot be converted to ESPHome using tuya-convert.
 
-You must [remove the cover and use the serial header](https://www.adventurousway.com/blog/sonoff-s31) for first upload.
+You must [remove the cover and use the serial header](https://www.adventurousway.com/blog/sonoff-s31) for first upload. Hold down the button while powering on the device to put it into bootloader mode.
 
 ## GPIO Pinout
 
@@ -36,7 +36,10 @@ wifi:
 
 logger:
   baud_rate: 0 # (UART logging interferes with cse7766)
+  
+# Remove this line if you're not using Home Assistsant or your switch will restart every now and again
 api:
+
 ota:
 
 # Device Specific Config
@@ -81,6 +84,7 @@ switch:
     name: "Sonoff S31 Relay"
     pin: GPIO12
     id: relay
+    restore_mode: ALWAYS_ON
 
 time:
   - platform: sntp
