@@ -5,7 +5,7 @@ type: switch
 standard: eu
 ---
 
-## Warning 
+## Warning
 
 As of May 2022 these switches use a WB3S chip (BK7231T) and are no longer compatible with esphome!
 
