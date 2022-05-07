@@ -25,11 +25,11 @@ The Shelly Plus 2PM is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedd
 
 Please calibrate the NTC and the voltage / power measurements, the values below are just a rough estimate!
 
-Credit to:
-- https://templates.blakadder.com/shelly_plus_2PM.html
+Credit to: [blakadder](https://templates.blakadder.com/shelly_plus_2PM.html)
 
-## Configuration for detached switch mode and toggle light switch. 
-Includes overpower and overtemperature protection. 
+## Configuration for detached switch mode and toggle light switch
+
+Includes overpower and overtemperature protection.
 Will toggle a smart bulb in home assistant and has fallback to local power switching when connecion to home assitant is down.
 
 ```yaml
@@ -37,14 +37,14 @@ esphome:
   name: shelly-plus-2pm
   platformio_options:
     board_build.f_cpu: 160000000L
-    
+
 substitutions:
   device_name_1: "Shelly Plus 2PM Switch 1"
   device_name_2: "Shelly Plus 2PM Switch 2"
   #Home Assistant light bulb to toggle
   bulb_name_1: "light.smart_bulb_1"
   bulb_name_2: "light.smart_bulb_2"
-  
+
   max_power: "3600.0"
   max_temp: "80.0"
 
@@ -77,12 +77,12 @@ time:
 i2c:
   sda: GPIO33
   scl: GPIO25
-  
+
 output:
   - platform: gpio
     id: "relay_output_1"
     pin: GPIO13
-    
+
   - platform: gpio
     id: "relay_output_2"
     pin: GPIO12
@@ -94,7 +94,7 @@ switch:
     name: "${device_name_1} Output"
     output: "relay_output_1"
     restore_mode: RESTORE_DEFAULT_OFF
-    
+
   - platform: output
     id: "relay_2"
     name: "${device_name_2} Output"
@@ -107,7 +107,7 @@ button:
     id: "restart_device"
     name: "${device_name_1} Restart"
     entity_category: 'diagnostic'
-    
+
 #home assistant bulb to switch
 text_sensor:
   - platform: homeassistant
@@ -118,7 +118,7 @@ text_sensor:
     id: 'ha_bulb_2'
     entity_id: "${bulb_name_2}"
     internal: true
-    
+
 binary_sensor:
   #Shelly Switch Input 1
   - platform: gpio
@@ -145,8 +145,8 @@ binary_sensor:
                       entity_id: "${bulb_name_1}"
               else:
                 - switch.toggle: "relay_1"
-                
-  #Shelly Switch Input 2          
+
+  #Shelly Switch Input 2
   - platform: gpio
     name: "${device_name_2} Input"
     pin: GPIO18
@@ -171,8 +171,8 @@ binary_sensor:
                       entity_id: "${bulb_name_2}"
               else:
                 - switch.toggle: "relay_2"
-                
-  #reset button on device    
+
+  #reset button on device
   - platform: gpio
     name: "${device_name_1} Button"
     pin:
@@ -200,7 +200,7 @@ sensor:
     name: ${device_name_1} WiFi Signal
     update_interval: 60s
     entity_category: 'diagnostic'
-  
+
   #temperature sensor
   - platform: ntc
     sensor: temp_resistance_reading
@@ -235,7 +235,7 @@ sensor:
     sensor: temp_analog_reading
     configuration: DOWNSTREAM
     resistor: 6kOhm
-    
+
   - platform: adc
     id: temp_analog_reading
     pin: GPIO37
@@ -269,7 +269,7 @@ sensor:
                 data:
                   title: "Message from ${device_name_2}"
                 data_template:
-                  message: "Switch turned off because power exceeded ${max_power}W" 
+                  message: "Switch turned off because power exceeded ${max_power}W"
     active_power_b:
       name: ${device_name_1} power
       id: power_channel_1
@@ -286,7 +286,7 @@ sensor:
                 data:
                   title: "Message from ${device_name_1}"
                 data_template:
-                  message: "Switch turned off because power exceeded ${max_power}W" 
+                  message: "Switch turned off because power exceeded ${max_power}W"
     update_interval: 30s
 
 status_led:
