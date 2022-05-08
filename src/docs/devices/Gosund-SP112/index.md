@@ -100,7 +100,7 @@ sensor:
     cf_pin: GPIO05
     cf1_pin: GPIO04
     current_resistor: 0.00221
-    voltage_divider: 871
+    voltage_divider: 775
     change_mode_every: 8
     update_interval: 10s
     current:
