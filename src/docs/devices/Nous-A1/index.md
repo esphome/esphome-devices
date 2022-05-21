@@ -7,4 +7,4 @@ standard: eu
 
 ## Flashing
 
-Device is seems to be identical to the [Gosund SP111](/devices/gosund-sp111/).
+Device is seems to be identical to the [Gosund SP111](/devices/Gosund-SP111/).
