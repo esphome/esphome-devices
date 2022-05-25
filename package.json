@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "This website is a repository of device configuration templates and setup guides for devices running ESPHome firmware.",
   "author": "",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "dependencies": {
     "@rocketseat/gatsby-theme-docs": "^3.1.0",
     "algoliasearch": "^4.13.1",
