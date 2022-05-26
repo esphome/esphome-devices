@@ -14,7 +14,7 @@ When you create a merge request, Netlify will automatically compile your propose
 
 ## Development of site
 
-The site requires Node 14 to build.  Once that is running, to build locally:
+The site requires Node 18 to build.  Once that is running, to build locally:
 
 ```bash
 # Now install gatsby as configured in the esphome-devices repository:
