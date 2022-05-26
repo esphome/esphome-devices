@@ -18,6 +18,7 @@ module.exports = {
     themeColor: `#8257E6`,
     basePath: `/`,
   },
+  trailingSlash: 'never',
   flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     {
@@ -58,13 +59,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `G-0QG5MYES89`,
-    //   },
-    // },
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {

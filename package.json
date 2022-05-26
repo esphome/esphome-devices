@@ -1,28 +1,27 @@
 {
-  "name": "gatsby-starter-rocket-docs",
+  "name": "esphome-devices",
   "private": true,
   "version": "1.0.0",
-  "description": "Out of the box Gatsby Starter for creating documentation websites easily and quickly. With support for MDX, code highlight, Analytics, SEO and more",
-  "author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
-  "license": "MIT",
-  "starter-name": "gatsby-starter-rocket-docs",
+  "description": "This website is a repository of device configuration templates and setup guides for devices running ESPHome firmware.",
+  "author": "",
+  "license": "GPL-3.0",
   "dependencies": {
-    "@rocketseat/gatsby-theme-docs": "^2.4.0",
-    "algoliasearch": "^4.10.5",
-    "gatsby": "^3.14.0",
-    "gatsby-plugin-algolia": "^0.22.2",
-    "gatsby-plugin-canonical-urls": "^3.14.0",
-    "gatsby-plugin-google-analytics": "^3.14.0",
-    "gatsby-plugin-google-gtag": "^3.14.0",
-    "gatsby-plugin-manifest": "^3.14.0",
-    "gatsby-plugin-netlify": "^3.14.0",
-    "gatsby-plugin-offline": "^4.14.0",
-    "gatsby-plugin-remove-trailing-slashes": "^3.14.0",
-    "gatsby-plugin-sitemap": "^3.3.0",
-    "prop-types": "^15.7.2",
+    "@rocketseat/gatsby-theme-docs": "^3.1.0",
+    "algoliasearch": "^4.13.1",
+    "gatsby": "^4.15.1",
+    "gatsby-plugin-algolia": "^0.26.0",
+    "gatsby-plugin-canonical-urls": "^4.15.0",
+    "gatsby-plugin-google-analytics": "^4.15.0",
+    "gatsby-plugin-google-gtag": "^4.15.0",
+    "gatsby-plugin-manifest": "^4.15.0",
+    "gatsby-plugin-netlify": "^4.4.0",
+    "gatsby-plugin-offline": "^5.15.0",
+    "gatsby-plugin-remove-trailing-slashes": "^4.15.0",
+    "gatsby-plugin-sitemap": "^5.15.0",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-instantsearch-dom": "^6.12.1"
+    "react-instantsearch-dom": "^6.26.0"
   },
   "keywords": [
     "gatsby",
@@ -34,5 +33,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
+  },
+  "engines": {
+    "node": "16"
   }
 }
