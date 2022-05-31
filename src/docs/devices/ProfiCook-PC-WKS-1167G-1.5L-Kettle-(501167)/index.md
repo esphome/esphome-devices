@@ -14,12 +14,11 @@ standard: eu
 | GPIO01 | Tuya RX                               |
 | GPIO03 | Tuya TX                               |
 
-
 Pinout from [ProfiCook PC-WKS Template for Tasmota](https://templates.blakadder.com/proficook_PC-WKS_1167.html)
 
 ## Tuya Datapoints (all credits to templates.blakadder.com)
 
-# Functions
+### Functions
 
 MCU Product ID: {“p”:”h6MjwrnldNTu4kX3”,”v”:”1.0.0”,”m”:1}
 
@@ -72,12 +71,12 @@ logger:
   baud_rate: 0
 
 api:
-  password: H0uRXpMSH1r6BWmdCMiv
+  password: !secret api_password
   encryption:
-    key: rqQbgV6/QuT4f5/eHK/+npjmqAAovE6Phf1upRV4KFI=
+    key: !secret api_encryption_key
 
 ota:
-  password: H0uRXpMSH1r6BWmdCMiv
+  password: !secret ota_password
 # Device Specific Config
 uart:
   rx_pin: GPIO3
