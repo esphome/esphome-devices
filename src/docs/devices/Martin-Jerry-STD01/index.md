@@ -5,7 +5,7 @@ type: dimmer
 standard: us
 ---
 
-Martin Jerry STD01 3-Way Switch![image](Treatlife-DS02S.png)
+Martin Jerry STD01 3-Way Switch
 
 [Amazon Link](https://www.amazon.com/dp/B07N6CJW42)
 
@@ -13,12 +13,16 @@ Martin Jerry STD01 3-Way Switch![image](Treatlife-DS02S.png)
 
 This TuyaMCU requires a baud rate of 115200.
 
-When you disassemble the device, mind the thumbwheel at the bottom of the switch.  You need to pull it apart from the top first or the thumbwheel will break off.
+You only need to disassemble the "master" device - the one with five wires.  The other unit doesn't have any smarts in it.  When you disassemble the device, mind the thumbwheel at the bottom of the switch.
+![image](External_Thumbwheel.jpg)
+You need to pull it apart from the top first or the thumbwheel will break off.
+![image](Opening_Switch.jpg)
 
 The black and red wires on the harness are ground and 3.3V respectively.
 You will need to soldier wires onto GPIO0, TX, RX, and the Tuya MCU's reset pin.
-The Tuya MCU's reset pin is number 14, and is active **HIGH** - you need to connect it to VCC.
-Note that the reset button on the switch itself kills the power supply.
+![image](Wires_Soldered.jpg)
+The Tuya MCU's reset pin is number 11, and is active **HIGH** - you need to connect it to VCC.  Be careful not to lift the trace soldering, though it's not the end of the word if you do.
+Note that the reset button on the switch itself kills the power supply.  In my picture, the Tuya MCU reset is green, GPIO0 is black, TX is yellow, and RX is white.
 
 Finally, the device won't function properly if the harness isn't plugged in - the ESP and the Tuya MCU refuse to talk to each other.  I have not figured out why; I reconnected it, hooked it up to AC, and powered it up and insured it works.
 
