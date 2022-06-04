@@ -7,7 +7,7 @@ standard: us
 
 Martin Jerry STD01 3-Way Switch
 
-[Amazon Link](https://www.amazon.com/dp/B07N6CJW42)
+[Amazon Link](https://amzn.to/3Mik8su)
 
 ## Notes
 
