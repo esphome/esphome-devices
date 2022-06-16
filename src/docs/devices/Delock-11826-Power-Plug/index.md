@@ -26,7 +26,7 @@ Flashing ESPHome is easily possible by uploading an ESPHome .bin file using the 
 
 ## Basic Config
 
-Basic configuration with switch and power/voltage/current reporting.
+Basic configuration with switch.
 
 ```yaml
 substitutions:
