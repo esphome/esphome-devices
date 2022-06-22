@@ -7,8 +7,12 @@ standard: eu
   ![alt text](/Awow-EU3S-Power-Monitoring-Plug.jpg "Product Image")
   ![alt text](/Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
-Model reference: EU3S
-Equivalent devices: [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
+Model reference: EU3S  
+
+- [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
+- [CloudFree EU Plug (P1EU)](https://www.esphome-devices.com/devices/cloudfree-eu-plug-%28p1eu%29/)
+- Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
+- iQtech SmartLife Power Monitoring Plug (WS020)
 
 Manufacturer: [Awow](https://www.awow-tech.com/)
 
@@ -16,12 +20,12 @@ Manufacturer: [Awow](https://www.awow-tech.com/)
 
 | Pin    | Function                   |
 |--------|----------------------------|
-| GPIO13 | Push Button                |
 | GPIO02 | Blue LED (Inverted: true)  |
-| GPIO15 | Relay                      |
-| GPIO12 | HLWBL SEL Pin              |
 | GPIO05 | HLW8012 CF Pin             |
-| GPIO04 | HLWBL CF1 Pin              |
+| GPIO12 | HLWBL SELi Pin             |
+| GPIO13 | Push Button                |
+| GPIO14 | HLWBL CF1 Pin              |
+| GPIO15 | Relay                      |
 
 ## Basic Config
 
