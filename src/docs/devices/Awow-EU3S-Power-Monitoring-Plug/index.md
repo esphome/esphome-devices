@@ -8,6 +8,7 @@ standard: eu
   ![alt text](/Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S  
+
 - [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
 - [CloudFree EU Plug (P1EU)](https://www.esphome-devices.com/devices/cloudfree-eu-plug-%28p1eu%29/)
 - Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
