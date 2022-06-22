@@ -7,7 +7,7 @@ standard: eu
   ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
   ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
-Model reference: EU3S
+Model reference: EU3S  
 Equivalent devices: [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
 
 Manufacturer: Loetad
@@ -16,12 +16,12 @@ Manufacturer: Loetad
 
 | Pin    | Function                   |
 |--------|----------------------------|
-| GPIO13 | Push Button                |
 | GPIO02 | Blue LED (Inverted: true)  |
-| GPIO15 | Relay                      |
-| GPIO12 | HLWBL SEL Pin              |
 | GPIO05 | HLW8012 CF Pin             |
-| GPIO04 | HLWBL CF1 Pin              |
+| GPIO12 | HLWBL SELi Pin             |
+| GPIO13 | Push Button                |
+| GPIO14 | HLWBL CF1 Pin              |
+| GPIO15 | Relay                      |
 
 ## Basic Config
 
