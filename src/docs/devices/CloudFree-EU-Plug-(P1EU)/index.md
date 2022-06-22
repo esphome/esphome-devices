@@ -1,19 +1,20 @@
 ---
-title: Loetad EU3S Power Monitoring Plug
-date-published: 2020-08-03
+title: CloudFree EU Plug (P1EU)
+date-published: 2022-06-22
 type: plug
 standard: eu
 ---
-  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
-  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
+  ![alt text](/cloudfree_P1EU.jpg "Product Image")
+  ![alt text](/cloudfree_P1EU_Reference.jpg "Product Reference Image")
 
-Model reference: EU3S  
+Model reference: P1EU  
+Equivalent devices:
 - [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
-- [CloudFree EU Plug (P1EU)](https://www.esphome-devices.com/devices/cloudfree-eu-plug-%28p1eu%29/)
+- [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
 - Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
 - iQtech SmartLife Power Monitoring Plug (WS020)
 
-Manufacturer: Loetad
+Manufacturer: [CloudFree](https://cloudfree.shop/)
 
 ## GPIO Pinout
 
@@ -30,9 +31,9 @@ Manufacturer: Loetad
 
 ```yaml
 substitutions:
-  devicename: loetad_eu3s_plug_1
-  friendly_name: Loetad EU3S Plug 1
-  device_description: Loetad EU3S Power Monitoring Plug with button and Blue led.
+  devicename: cloudfree_smart_plug_1
+  friendly_name: CloudFree Smart Plug 1
+  device_description: CloudFree EU Plug (P1EU) Power Monitoring Plug with button and Blue led.
   current_res: "0.00221" # Random value. Requires power monitoring calibration
   voltage_div: "955" # Random value. Requires power monitoring calibration
 
