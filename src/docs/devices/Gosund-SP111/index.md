@@ -11,8 +11,7 @@ standard: eu
 
 Looks like device chip was replaced to non-flashable custom tasmota chip.
 
-Please be aware, that there is a new version of that outlet, often having the phrase `EP2` instead or in addition to `SP111`, sold starting in november 2020. For that version, the tuya script does not longer work! Also a breakless opening of the plug is much harder due to a removed screw on the bottom of the device.
-
+Please be aware, that there is a new version of that outlet, often having the phrase `EP2` instead or in addition to `SP111`, sold starting in November 2020. For that version, the tuya script does not longer work! Also a breakless opening of the plug is much harder due to a removed screw on the bottom of the device.
 
 ## Flashing
 
