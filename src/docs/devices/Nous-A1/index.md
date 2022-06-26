@@ -77,4 +77,3 @@ glue is less hard and the sticker can be removed more easily.
 ![nous-smart-socket-a1_3680W_2022-26.jpg](nous-smart-socket-a1_3680W_2022-26.jpg)
 
 ![nous-smart-socket-a1_3680W_2022-27.jpg](nous-smart-socket-a1_3680W_2022-27.jpg)
-
