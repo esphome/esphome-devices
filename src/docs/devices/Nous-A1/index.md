@@ -1,7 +1,7 @@
 ---
 title: Nous A1
 date-published: 2021-01-02
-type: switch
+type: plug
 standard: eu
 ---
 
