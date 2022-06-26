@@ -5,11 +5,18 @@ type: plug
 standard: eu
 ---
 
-## Flashing
+## Warning
 
-The device can be flashed [using tuya-convert](/guides/tuya-convert/). Fresh out of the factory it will be in autoconfig mode. When plugged in for the first time tuya-convert will pick it up directly.
+![Warning](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Warning.svg/260px-Warning.svg.png)
+
+Looks like device chip was replaced to non-flashable custom tasmota chip.
 
 Please be aware, that there is a new version of that outlet, often having the phrase `EP2` instead or in addition to `SP111`, sold starting in november 2020. For that version, the tuya script does not longer work! Also a breakless opening of the plug is much harder due to a removed screw on the bottom of the device.
+
+
+## Flashing
+
+The older devices can be flashed [using tuya-convert](/guides/tuya-convert/). Fresh out of the factory it will be in autoconfig mode. When plugged in for the first time tuya-convert will pick it up directly.
 
 ![Hardly visible screw on original SP111](/gosund-sp111.JPG "Hardly visible screw on original SP111")
 
