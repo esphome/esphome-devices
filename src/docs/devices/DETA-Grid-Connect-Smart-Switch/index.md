@@ -11,7 +11,8 @@ The DETA [Smart Single Switch (6911HA)](https://www.bunnings.com.au/deta-smart-s
 
 [Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang switches.
 
-Deta/Bunnings now ship the Single and Double (tbc on Triple / Quad) with ESP WB3S chips, which are not compatible with ESPHome/Tuya/Tasmota/etc. Packaging states a "Series 2" model number, eg "6911HA - Series 2"
+Deta/Bunnings now ship the Single and Double (tbc on Triple / Quad) with ESP WB3S chips, which are not compatible with ESPHome/Tuya/Tasmota/etc. Packaging states a "Series 2" model number, eg "6911HA - Series 2".
+It is still possible to convert these switches to ESPHome by replacing the WB3S chip with a ESP-12F chip and adding a 10k pull-down resister on GPIO15 as WB3S does not require it and omits it from the board in some cases.
 
 ## GPIO Pinout
 
