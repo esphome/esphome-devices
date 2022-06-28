@@ -1,7 +1,7 @@
 ---
 title: DETA Grid Connect Smart Dimmer Switch
 date-published: 2022-06-23
-type: switch
+type: dimmer
 standard: au
 ---
 
@@ -19,9 +19,6 @@ It is still possible to convert these switches to ESPHome by replacing the WB3S 
 | EN     | 10k pull-up   |
 | RES    | 10k pull-up   |
 | GPIO15 | 10k pull-down |
-
-Note that each relay shares a pin with its associated LED; it's not possible to turn either relay on/off independently of its button LED.
-The top/bottom designation here assumes that it is installed vertically, with the status LED (group of 6 dots) on the right-hand side.
 
 ## Getting it up and running
 
@@ -77,7 +74,7 @@ sensor:
 logger:
   baud_rate: 0
 
-# setup UART for tuya mcu
+# setup UART for Tuya mcu
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1
