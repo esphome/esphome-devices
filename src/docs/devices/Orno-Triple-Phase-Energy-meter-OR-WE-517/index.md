@@ -134,7 +134,7 @@ sensor:
     value_type: FP32
     filters:
       - multiply: 0.01
-#Leistung      
+#Leistung
   - platform: modbus_controller
     modbus_controller_id: orno_we_517
     name: "02_Leistung_L1"
