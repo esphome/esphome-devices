@@ -98,7 +98,7 @@ status_led:
 
 # Enable the IR receiver to dump all IR commands to the log. Change dump type to your capture remote type. Use the captured IR command to replicate that IR command. You can disable this part when you aren't capturing IR command data.
 remote_receiver:
-  pin: 
+  pin:
     number: GPIO5
     inverted: true
   dump: all
@@ -111,7 +111,7 @@ remote_transmitter:
 # Enable the underside button.
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO13
       inverted: true
     name: Underside Button
