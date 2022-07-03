@@ -9,8 +9,9 @@ standard: global
 Manufacturer: [SmartPoint](https://www.smartpointco.com/product-page/smart-wifi-remote-control)
 
 Available at:
- - [Walmart](https://www.walmart.com/ip/Smartpoint-Wifi-Smart-Remote-Controller-Compatible-with-Alexa-and-Google-Assistant-Hands-Free-Voice-Control/824016383) 
- - [Amazon](https://amzn.to/3n1c2LD)
+
+- [Walmart](https://www.walmart.com/ip/Smartpoint-Wifi-Smart-Remote-Controller-Compatible-with-Alexa-and-Google-Assistant-Hands-Free-Voice-Control/824016383)
+- [Amazon](https://amzn.to/3n1c2LD)
 
 ## GPIO Pinout
 
@@ -42,7 +43,7 @@ On newer patched devices (likely yours), [tuya-convert](https://www.esphome-devi
 - There are 6 clips holding the semi-transparent plastic top dome to the base (red arrows). The top can be removed by disengaging each of these clips.
 - There are two holes along the front (where the logo faces outwards) and back of the device that can be used to create leverage when prying the top from the clips. The hole on the back is slightly two small for the black iFixit spudger.
 - The bottom plastic is easily marred, even when using the plastic iFixit tools, and the clips may require substantial force to move.
-- (Optional) After removal of the top dome, the [TYWE3S](https://tasmota.github.io/docs/devices/TYWE3S/) ESP8266 chip can be accessed by unscrewing 3 black Phillips #1 screws (blue arrows) to disconnect the main board from the button of the outer covering. 
+- (Optional) After removal of the top dome, the [TYWE3S](https://tasmota.github.io/docs/devices/TYWE3S/) ESP8266 chip can be accessed by unscrewing 3 black Phillips #1 screws (blue arrows) to disconnect the main board from the button of the outer covering.
 
 ![Underside](./underside.jpg)
 
