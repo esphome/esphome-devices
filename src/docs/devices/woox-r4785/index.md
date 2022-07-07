@@ -11,11 +11,11 @@ standard: uk
 
 ## GPIO Pinout
 
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO04 | LED 1  |
-| GPIO05 | Relay 1          |
-| GPIO13 | Button 1  |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO04 | LED 1    |
+| GPIO05 | Relay 1  |
+| GPIO13 | Button 1 |
 
 ```yaml
 substitutions:
@@ -51,7 +51,7 @@ binary_sensor:
       - timing:
           - ON for at least 4s
         then:
-          - button.press: restart_button    
+          - button.press: restart_button
 
 button:
   - platform: restart
@@ -79,4 +79,4 @@ text_sensor:
   - <<: !include includes/text_sensor/wifi_info.yaml
 
 <<: !include includes/default.yaml
-
+```

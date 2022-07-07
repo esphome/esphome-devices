@@ -11,13 +11,13 @@ standard: uk
 
 ## GPIO Pinout
 
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO01 | CSE7766 Tx  |
-| GPIO03 | CSE7766 Rx  |
-| GPIO12 | Button 1  |
-| GPIO13 | LED 1 inverted  |
-| GPIO14 | Relay 1          |
+| Pin    | Function       |
+| ------ | -------------- |
+| GPIO01 | CSE7766 Tx     |
+| GPIO03 | CSE7766 Rx     |
+| GPIO12 | Button 1       |
+| GPIO13 | LED 1 inverted |
+| GPIO14 | Relay 1        |
 
 ```yaml
 substitutions:
@@ -57,7 +57,7 @@ switch:
     on_turn_off:
       - output.turn_off: led
     restore_mode: ALWAYS_ON
-    
+
 output:
   - platform: gpio
     pin: GPIO13
@@ -86,3 +86,4 @@ text_sensor:
   - <<: !include includes/text_sensor/wifi_info.yaml
 
 <<: !include includes/default.yaml
+```
