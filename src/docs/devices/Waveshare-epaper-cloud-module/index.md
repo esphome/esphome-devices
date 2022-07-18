@@ -1,0 +1,86 @@
+---
+title: Waveshare E-Paper Cloud module
+date-published: 2022-07-18
+type: misc
+standard: global
+---
+
+A module composed of:
+ - ESP32 chip
+ - E-Paper display of several different sizes
+ - Battery
+
+Powered by USB-C
+
+Vendor documentation:
+ - https://www.waveshare.com/2.13inch-e-paper-cloud-module.htm
+ - https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module
+
+## GPIO Pinout
+
+| PIN (e-Paper) | ESP32 | Description                                                             |
+|---------------|-------|-------------------------------------------------------------------------|
+| VCC           | VCC   | Power input (3.3V)                                                      |
+| GND           | GND   | GND                                                                     |
+| KEY           | 12    | User button                                                             |
+| SCK           | 13    | CLK pin of SPI, clock input                                             |
+| DIN           | 14    | MOSI pin of SPI, data input                                             |
+| CS            | 15    | Chip select pin of SPI, Low active                                      |
+| BUSY          | 25    | Busy pin, it indicates whether the e-Paper is busy                      |
+| RST           | 26    | Reset pin, Low active                                                   |
+| DC            | 27    | Data/Command control pin, Low for Command and High for Data             |
+| ADC           | 36    | ADC data input, the voltage detected is the 1/3 of the battery voltage. |
+
+## Flashing
+
+Make sure you have a working driver installed for the CP2102 USB to serial convertor chip. I had problems with the stock MacOS Monterey one.
+After that simply connect to the USB-C port and flash as usual.
+
+## Device Specific Config
+
+```yaml
+substitutions:
+  devicename: "waveshare"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+sensor:
+  - platform: adc
+    pin: GPIO36
+    name: "${devicename} Battery voltage"
+    id: battery_voltage
+    icon: mdi:battery
+    device_class: voltage
+    filters:
+     - multiply: 3
+    update_interval: 60s
+
+spi:
+  clk_pin: GPIO13
+  mosi_pin: GPIO14
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO12
+    name: "${devicename} button"
+    filters:
+      - delayed_on: 50ms
+    on_press:
+      - logger.log: "Button pressed"
+
+display:
+  - platform: waveshare_epaper
+    cs_pin: GPIO15
+    dc_pin: GPIO27
+    busy_pin: GPIO25
+    reset_pin: GPIO26
+    model: 2.13in-ttgo-dke
+    rotation: 270
+    full_update_every: 12 # every 12th time
+    update_interval: 60s
+    lambda: |-
+      it.println('Hello e-paper world')
+```
