@@ -6,15 +6,17 @@ standard: global
 ---
 
 A module composed of:
- - ESP32 chip
- - E-Paper display of several different sizes
- - Battery
+
+- ESP32 chip
+- E-Paper display of several different sizes
+- Battery
 
 Powered by USB-C
 
 Vendor documentation:
- - https://www.waveshare.com/2.13inch-e-paper-cloud-module.htm
- - https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module
+
+- https://www.waveshare.com/2.13inch-e-paper-cloud-module.htm
+- https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module
 
 ## GPIO Pinout
 
