@@ -15,8 +15,8 @@ Powered by USB-C
 
 Vendor documentation:
 
-- https://www.waveshare.com/2.13inch-e-paper-cloud-module.htm
-- https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module
+- [Product page](https://www.waveshare.com/2.13inch-e-paper-cloud-module.htm)
+- [Technical wiki](https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module)
 
 ## GPIO Pinout
 
