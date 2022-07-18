@@ -78,6 +78,11 @@ binary_sensor:
     on_press:
       - logger.log: "Button pressed"
 
+font:
+  - file: "gfonts://Roboto"
+    id: roboto
+    size: 20
+
 display:
   - platform: waveshare_epaper
     cs_pin: GPIO15
@@ -89,5 +94,5 @@ display:
     full_update_every: 12 # every 12th time
     update_interval: 60s
     lambda: |-
-      it.println('Hello e-paper world')
+      it.print(0, 0, id(roboto), "Hello World!");
 ```
