@@ -31,6 +31,11 @@ Vendor documentation:
 | DC            | 27    | Data/Command control pin, Low for Command and High for Data             |
 | ADC           | 36    | ADC data input, the voltage detected is the 1/3 of the battery voltage. |
 
+## Product Images
+
+![Product Image](waveshare213_front.jpg "Product front")
+![Product Image](waveshare213_back.jpg "Product back")
+
 ## Flashing
 
 Make sure you have a working driver installed for the CP2102 USB to serial convertor chip. I had problems with the stock MacOS Monterey one.
@@ -77,7 +82,7 @@ display:
     dc_pin: GPIO27
     busy_pin: GPIO25
     reset_pin: GPIO26
-    model: 2.13in-ttgo-dke
+    model: 2.13in-ttgo-dke # choose your display size here
     rotation: 270
     full_update_every: 12 # every 12th time
     update_interval: 60s
