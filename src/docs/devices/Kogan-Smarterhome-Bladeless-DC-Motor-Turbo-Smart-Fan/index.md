@@ -53,7 +53,7 @@ fan:
   - platform: tuya
     name: Your Fan Name
     switch_datapoint: 1
-    speed_datapoint: 2 
+    speed_datapoint: 2
     speed_count: 9
     oscillation_datapoint: 8
 ```
