@@ -9,12 +9,12 @@ standard: uk, eu
 
 ## GPIO Pinout
 
-| Pin    | Function                    |
-| ------ | --------------------------- |
-| GPIO12 | Switch 1 Input              |
-| GPIO14 | Switch 2 Input              |
-| GPIO26 | Switch 4 Input              |
-| GPIO27 | Switch 3 Input               |
+| Pin    | Function       |
+| ------ | -------------- |
+| GPIO12 | Switch 1 Input |
+| GPIO14 | Switch 2 Input |
+| GPIO26 | Switch 4 Input |
+| GPIO27 | Switch 3 Input |
 
 The Shelly Plus i4 is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash)
 
@@ -64,14 +64,14 @@ ota:
   password: !secret ota_password
 
 wifi:
-    ssid: !secret wifi_all_ssid
-    password: !secret wifi_all_password
-    power_save_mode: none
-    # Enable fallback hotspot (captive portal) in case wifi connection fails
-    ap:
-      ssid: ${device_ssid} Fallback Hotspot
-      password: !secret ap_password
-  
+  ssid: !secret wifi_all_ssid
+  password: !secret wifi_all_password
+  power_save_mode: none
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: ${device_ssid} Fallback Hotspot
+    password: !secret ap_password
+
 # Sensors with general information.
 sensor:
   - platform: uptime
@@ -82,7 +82,7 @@ sensor:
     name: ${friendly_name} Signal strength
     update_interval: 60s
     internal: true
-    
+
 text_sensor:
   # Expose WiFi information as sensors.
   - platform: wifi_info
@@ -92,9 +92,9 @@ text_sensor:
       name: ${friendly_name} SSID
     bssid:
       name: ${friendly_name} BSSID
-    
+
 switch:
-    # this provides for a possibility to restart from the web console or Home automation should we ever need it
+  # this provides for a possibility to restart from the web console or Home automation should we ever need it
   - platform: restart
     name: "${friendly_name} Restart"
   - platform: safe_mode
@@ -261,9 +261,9 @@ binary_sensor:
     id: button4
     filters:
       - delayed_on_off: 50ms
- ```
+```
 
- ## Basic Configuration - 4 single click buttons
+## Basic Configuration - 4 single click buttons
 
 ```yaml
 substitutions:
@@ -307,14 +307,14 @@ ota:
   password: !secret ota_password
 
 wifi:
-    ssid: !secret wifi_all_ssid
-    password: !secret wifi_all_password
-    power_save_mode: none
-    # Enable fallback hotspot (captive portal) in case wifi connection fails
-    ap:
-      ssid: ${device_ssid} Fallback Hotspot
-      password: !secret ap_password
-  
+  ssid: !secret wifi_all_ssid
+  password: !secret wifi_all_password
+  power_save_mode: none
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: ${device_ssid} Fallback Hotspot
+    password: !secret ap_password
+
 # Sensors with general information.
 sensor:
   - platform: uptime
@@ -325,7 +325,7 @@ sensor:
     name: ${friendly_name} Signal strength
     update_interval: 60s
     internal: true
-    
+
 text_sensor:
   # Expose WiFi information as sensors.
   - platform: wifi_info
@@ -335,9 +335,9 @@ text_sensor:
       name: ${friendly_name} SSID
     bssid:
       name: ${friendly_name} BSSID
-    
+
 switch:
-    # this provides for a possibility to restart from the web console or Home automation should we ever need it
+  # this provides for a possibility to restart from the web console or Home automation should we ever need it
   - platform: restart
     name: "${friendly_name} Restart"
   - platform: safe_mode
@@ -380,4 +380,4 @@ binary_sensor:
     id: button4
     filters:
       - delayed_on_off: 50ms
- ```
+```
