@@ -22,6 +22,8 @@
       link: '/standards/au'
     - label: 'EU Devices'
       link: '/standards/eu'
+    - label: 'IN Devices'
+      link: '/standards/in'
     - label: 'Global Devices'
       link: '/standards/global'
     - label: 'UK Devices'
