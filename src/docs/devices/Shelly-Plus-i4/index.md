@@ -57,15 +57,15 @@ logger:
 api:
   password: !secret api_password
   encryption:
-    key: !secret masterbedroombutton_noise_key
+    key: !secret api_encryption_key
 
 ota:
   safe_mode: true
   password: !secret ota_password
 
 wifi:
-  ssid: !secret wifi_all_ssid
-  password: !secret wifi_all_password
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   power_save_mode: none
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -300,15 +300,15 @@ logger:
 api:
   password: !secret api_password
   encryption:
-    key: !secret masterbedroombutton_noise_key
+    key: !secret api_encryption_key
 
 ota:
   safe_mode: true
   password: !secret ota_password
 
 wifi:
-  ssid: !secret wifi_all_ssid
-  password: !secret wifi_all_password
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   power_save_mode: none
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
