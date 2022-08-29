@@ -15,7 +15,6 @@ The board can be powered either via 7-30VDC or via 5VDC (separate connectors).
 
 I bought it from: https://s.click.aliexpress.com/e/_DnEOi2r (affiliation link so i can make others like this, no guarantee it will continue to exist).
 
-
 ## GPIO Pinout
 
 This board has headers for every GPIO pin on its ESP-12F.
