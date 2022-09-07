@@ -1,6 +1,6 @@
 ---
 title: Globe 4 Inch 9W Downlight 50359
-date-published: 2022-9-7
+date-published: 2022-09-07
 type: light
 standard: us
 ---
