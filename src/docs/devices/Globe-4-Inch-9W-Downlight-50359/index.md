@@ -7,9 +7,9 @@ standard: us
 
 RGBWW smart light bulb, ultra slim recessed lighting kit, RGB colors + warm/cold white (2000K to 5000K), 120V AC 50/60Hz.
 
-This device uses an incompatible module `WB2S` which needs to be replaced with an ESP module. Besides the module, this process will require heat gun, soldering tools and moderate soldering skill.
+This device uses an incompatible module [WB2S](https://fcc.report/FCC-ID/2ANDL-WB2S/4580213.pdf "FCC") which needs to be replaced with an ESP module. Besides the module, this process will require heat gun, soldering tools and moderate soldering skill.
 
-Works with [WT32C3-01N](https://www.alibaba.com/product-detail/WT32C3-01N-4MB-OEM-ESP32-wi_1600348544006.html "Alibaba") module using the following template, but can work with others as well. This ESP32-C3 chip requires DIO flash mode to avoid boot loops. If encountering brown out issues with `rst:0xf (BROWNOUT_RST)`, then try using a dedicated 3V3 power supply with 28 guage or thicker wires (may need to be soldered).
+Works with [WT32C3-01N](https://www.alibaba.com/product-detail/WT32C3-01N-4MB-OEM-ESP32-wi_1600348544006.html "Alibaba") module using the following template, but can work with others as well. This ESP32-C3 chip requires DIO flash mode to avoid boot loops. If encountering brown out issues with `rst:0xf (BROWNOUT_RST)`, then try using a dedicated 3V3 power supply with 28 guage or thicker wires (may need to be soldered). All wifi power saving must be disabled with this module by including `power_save_mode: none`, reducing packet loss and average ping time from >1000ms to around 2-3ms on average.
 
 Constant Brightness (`constant_brightness`) is set to `true`. The original WB2S balances both white channels to combined 100% duty cycle.
 Color Interlock (`color_interlock`) is set to `true` as well. The original WB2S does not enable white and color leds at the same time.
@@ -80,6 +80,7 @@ esp32:
     type: esp-idf
 
 wifi:
+  power_save_mode: none
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
