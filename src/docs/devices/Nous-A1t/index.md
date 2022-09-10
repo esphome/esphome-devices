@@ -50,6 +50,7 @@ esphome:
 
 esp8266:
   board: esp8285
+  restore_from_flash: true
 
 # Enable logging
 logger:
@@ -79,10 +80,12 @@ time:
 web_server:
   port: 80
 
-status_led:
-  pin:
-    number: GPIO13
-    inverted: True
+light:
+  - platform: status_led
+    id: led
+    pin:
+      number: GPIO13
+      inverted: true
 
 binary_sensor:
   - platform: status
@@ -111,8 +114,10 @@ switch:
       }
     turn_on_action:
       - switch.turn_on: relay
+      - light.turn_on: led
     turn_off_action:
       - switch.turn_off: relay
+      - light.turn_off: led
   - platform: gpio
     pin: GPIO14
     id: relay
