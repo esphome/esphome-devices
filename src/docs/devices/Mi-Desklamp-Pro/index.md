@@ -12,9 +12,9 @@ esphome:
   board: esp32doit-devkit-v1
   platformio_options:
     platform:
-     - espressif32@3.0.0
+     - espressif32 @ 5.1.1
     platform_packages:
-     - tasmota/framework-arduinoespressif32 @ 3.10006.210420
+     - framework-arduinoespressif32 @ 3.20004.220818
 
 wifi:
   ssid: !secret wifi_ssid
