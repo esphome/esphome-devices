@@ -118,7 +118,7 @@ sensor:
     id: temp_resistance_reading
     sensor: temp_analog_reading
     configuration: DOWNSTREAM
-    resistor: 6kOhm
+    resistor: 10kOhm
   - platform: adc
     id: temp_analog_reading
     pin: GPIO32
