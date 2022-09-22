@@ -8,13 +8,23 @@ standard: eu
 ```yaml
 esphome:
   name: midesklamppro
-  platform: ESP32
+
+# PLEASE NOTE:
+#
+# It's only possible to build this firmware on x86_64/amd64 machine due to limitations of ESP-IDF toolchain.
+# Firmware for this particular ESP32 chip in Mi Desk Lamp Pro should be built with 1 CPU core disabled and MAC CRC check bypassed.
+#
+# You may also want to temporarily replace !secrets with hardcoded strings for the first build.
+
+esp32:
   board: esp32doit-devkit-v1
-  platformio_options:
-    platform:
-     - espressif32 @ 5.1.1
-    platform_packages:
-     - framework-arduinoespressif32 @ 3.20004.220818
+  framework:
+    type: esp-idf
+    version: recommended
+    sdkconfig_options:
+      CONFIG_FREERTOS_UNICORE: y
+    advanced:
+      ignore_efuse_mac_crc: true
 
 wifi:
   ssid: !secret wifi_ssid
@@ -78,13 +88,13 @@ output:
   - platform: ledc
     pin: GPIO2
     id: output_cw
-    frequency: 40000Hz
     power_supply: power
+    frequency: 10000Hz
   - platform: ledc
     pin: GPIO4
     id: output_ww
     power_supply: power
-    frequency: 40000Hz
+    frequency: 10000Hz
 
 power_supply:
   - id: power
@@ -97,11 +107,11 @@ light:
     id: light1
     default_transition_length: 0s
     constant_brightness: true
-    name: "Lights"
+    name: "Mi Desk Lamp Pro"
     cold_white: output_cw
     warm_white: output_ww
     cold_white_color_temperature: 4800 K
     warm_white_color_temperature: 2500 K #2500k is the original value of the lamp. To correct binning for 2700k to look more like 2700k use 2650k instead
-    restore_mode: ALWAYS_ON
-    gamma_correct: 0
+    restore_mode: RESTORE_DEFAULT_OFF
+    gamma_correct: 1
 ```
