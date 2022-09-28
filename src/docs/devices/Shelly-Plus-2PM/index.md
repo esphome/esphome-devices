@@ -22,7 +22,7 @@ The PCB version number is printed on the back of the PCB.
 ![Shelly Plus 2PM PCB Versions](shellyplus2pm_pcb_versions.png "Shelly Plus 2PM PCB Versions")
 
 The version of the ESP32-U4WDH can be determined by looking at the second to last line printed on the chip. If the line contains 8 characters starting with "H", the chip is single core 160MHz. If the line contains 9 characters starting with "DH", the chip is a dual core 240MHz.
-![Shelly Plus 2PM ESP32-U4WDH Versions](ESP32-U4WDH_versions.png "Shelly Plus 2PM ESP32-U4WDHs Versions")
+![Shelly Plus 2PM ESP32-U4WDH Versions](ESP32-U4WDH_versions.png "Shelly Plus 2PM ESP32-U4WDH Versions")
 
 ## GPIO Pinout
 
