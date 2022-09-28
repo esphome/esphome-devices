@@ -215,7 +215,7 @@ esp32:
 ```yaml
 substitutions:
   devicename: "shelly-plus-2pm"
-  upper_devicename: "Shelly Plus 2PM" 
+  upper_devicename: "Shelly Plus 2PM"
   device_name_1: "Shelly Plus 2PM Switch 1"
   device_name_2: "Shelly Plus 2PM Switch 2"
   # Home Assistant light bulb to toggle
