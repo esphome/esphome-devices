@@ -6,25 +6,23 @@ standard: eu
 ---
 
 ## Hardware Versions
+
 There are currently 3 known hardware versions of the Shelly Plus 2PM. The pinout is incompatible between PCB version 0.1.5 and 0.1.9.
 
 - PCB v0.1.5 with ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash) Sold pre 2022
 - PCB v0.1.9 with ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash) Sold first half of 2022
 - PCB v0.1.9 with ESP32-U4WDH (Dual core,   240MHz, 4MB embedded flash) Sold since 2022-09-20 (or earlier)
 
-4 units bought directly from Shelly 2022-09-20 where confirmed to be PCB v0.1.9 with 3 units being dual core ESP32-U4WDH, the last a single core. 
+4 units bought directly from Shelly 2022-09-20 where confirmed to be PCB v0.1.9 with 3 units being dual core ESP32-U4WDH, the last a single core.
 The advantage of the dual core version is that it supports the arduino framework.
-
 
 The single core version of the ESP32-U4WDH will probably be discontinued according to [Espressif PCN](https://www.espressif.com/sites/default/files/pcn_downloads/PCN-2021-021%20ESP32-U4WDH%20%E5%8D%87%E7%BA%A7%E4%B8%BA%E5%8F%8C%E6%A0%B8%E5%A4%84%E7%90%86%E5%99%A8%E4%BA%A7%E5%93%81.pdf)
 
-
-The PCB version number is printed on the back of the PCB. 
-<br><img src="shellyplus2pm_pcb_versions.png" alt="pcb_versions" width="400"/>
+The PCB version number is printed on the back of the PCB.
+![Shelly Plus 2PM PCB Versions](shellyplus2pm_pcb_versions.png "Shelly Plus 2PM PCB Versions")
 
 The version of the ESP32-U4WDH can be determined by looking at the second to last line printed on the chip. If the line contains 8 characters starting with "H", the chip is single core 160MHz. If the line contains 9 characters starting with "DH", the chip is a dual core 240MHz.
-<br><img src="ESP32-U4WDH_versions.png" alt="esp32_versions" width="400"/>
-
+![Shelly Plus 2PM ESP32-U4WDH Versions](ESP32-U4WDH_versions.png "Shelly Plus 2PM ESP32-U4WDHs Versions")
 
 ## GPIO Pinout
 
@@ -42,12 +40,15 @@ The version of the ESP32-U4WDH can be determined by looking at the second to las
 | Internal Temperature        | GPIO37 | GPIO35 |
 
 ## Internal Temperature Sensor
+
 An internal NTC temperature sensor in a "DOWNSTREAM" configuration is fitted ([ESPHome reference](https://esphome.io/components/sensor/resistance.html)). Both R1 and R2 has been desoldered and found to be 10k fixed resistor and 10k@25C NTC. The Beta constant of the NTC cannot easily be measured, and is guessed to be ~3350.
 
 v0.1.5 pinout credit to: [blakadder](https://templates.blakadder.com/shelly_plus_2PM.html)
 
 ## Minimal configuration for PCB v0.1.9 and Dual Core
+
 Minimal configuration with all inputs/outputs and sensors configured
+
 ```yaml
 substitutions:
   devicename: "shelly-plus-2pm"
@@ -183,9 +184,11 @@ sensor:
 ```
 
 ## Example snippet for Single Core
+
 Shows which settings under esphome and esp32 need to be changed to support the single core 160MHz version of the chip
 
 Note that single core chips are only supported by the esp-idf framework, not arduino. This means that for instance captive portal (required for fallback AP to work) cannot be used.
+
 ```yaml
 # For Single Core ESP32
 esphome:
