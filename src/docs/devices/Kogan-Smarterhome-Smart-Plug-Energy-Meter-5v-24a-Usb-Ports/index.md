@@ -121,35 +121,34 @@ sensor:
     update_interval: 5min
 
   - platform: uptime
-    id: uptime_sec
+    id: uptime_sensor
     name: "${device_name}_uptime"
     update_interval: 5min
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + "d " : "") +
+                (hours ? to_string(hours) + "h " : "") +
+                (minutes ? to_string(minutes) + "m " : "") +
+                (to_string(seconds) + "s")
+              ).c_str();
 
 text_sensor:
   - platform: template
-    name: "${device_name}_upformat"
-    lambda: |-
-      uint32_t dur = id(uptime_sec).state;
-      int dys = 0;
-      int hrs = 0;
-      int mnts = 0;
-      if (dur > 86399) {
-        dys = trunc(dur / 86400);
-        dur = dur - (dys * 86400);
-      }
-      if (dur > 3599) {
-        hrs = trunc(dur / 3600);
-        dur = dur - (hrs * 3600);
-      }
-      if (dur > 59) {
-        mnts = trunc(dur / 60);
-        dur = dur - (mnts * 60);
-      }
-      char buffer[17];
-      sprintf(buffer, "%ud %02uh %02um %02us", dys, hrs, mnts, dur);
-      return {buffer};
+    name: "${device_name}_uptime_human"
+    id: uptime_human
+    entity_category: diagnostic
     icon: mdi:clock-start
-    update_interval: 5min
 
 time:
   - platform: homeassistant
