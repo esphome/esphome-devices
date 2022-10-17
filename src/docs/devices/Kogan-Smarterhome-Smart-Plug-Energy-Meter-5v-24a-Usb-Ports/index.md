@@ -156,6 +156,7 @@ time:
 ```
 
 ## Appendix
+
 If you are seeing incorrect power/current readings at higher power draws (i.e. current of 5A@240V while power is showing ~2000W), your unit most likely has a `BL0937` chip. You can verify this by looking at underside of the PCB, in the general area of the ESP chip. To get correct sensor results, make the following config changes:
 
 ```yaml
