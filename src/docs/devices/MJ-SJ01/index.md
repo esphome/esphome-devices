@@ -7,17 +7,18 @@ standard: us
 
 ## GPIO Pinout
 
-| Pin    | Function                             |
-| ------ | ------------------------------------ |
-| GPIO0  | up button (inverted, input_pullup)   |
-| GPIO1  | down button (inverted, input_pullup) |
-| GPIO3  | led5 (inverted)                      |
-| GPIO5  | led4 (inverted)                      |
-| GPIO12 | led3 (inverted)                      |
-| GPIO13 | pwm                                  |
-| GPIO14 | led2 (inverted)                      |
-| GPIO15 | main button (input_pullup)           |
-| GPIO16 | led1 + relay (inverted)              |
+| Pin    | Function                                           |
+| ------ | -------------------------------------------------- |
+| GPIO0  | up button (inverted, input_pullup)                 |
+| GPIO1  | down button (inverted, input_pullup)               |
+| GPIO3  | led5 (inverted)                                    |
+| GPIO4  | red led (inverted)                                 |
+| GPIO5  | led4 (inverted)                                    |
+| GPIO12 | led3 (inverted)                                    |
+| GPIO13 | pwm                                                |
+| GPIO14 | led2 (inverted)                                    |
+| GPIO15 | main button (input_pullup)                         |
+| GPIO16 | led1 + relay (inverted) + blue led + reset button  |
 
 ## Basic Configuration
 
@@ -77,6 +78,11 @@ api:
 ota:
   password: !secret esphome_ota_password
   # https://esphome.io/components/ota
+
+status_led:
+  pin:
+    number: GPIO4
+    inverted: true
 
 output:
   - platform: gpio
