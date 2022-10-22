@@ -44,7 +44,7 @@ While not strictly necessary, you may wish to backup the flash content before ov
 ❯ esptool.py --port /dev/ttyUSB0 flash_id
 
 # Read out the flash; in this case, the `flash_id` command indicated that the ESP had 2MB of built in flash memory
-❯ esptool.py --port /dev/ttyUSB0 read_flash 0x000000 0x200000 flash_backup.bin 
+❯ esptool.py --port /dev/ttyUSB0 read_flash 0x000000 0x200000 flash_backup.bin
 ```
 
 ## GPIO Pinout
