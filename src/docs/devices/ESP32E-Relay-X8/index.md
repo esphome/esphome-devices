@@ -30,7 +30,6 @@ This board has headers for every GPIO pin on its ESP32.
 | GND   |                                                         |
 | GPIO0 | 3.3V level! (Connected to a push button for programing) |
 
-
 ## Basic Config
 
 ```yaml
