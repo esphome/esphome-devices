@@ -19,6 +19,7 @@ standard: global
 ## Flashing Pinout
 
 | Pin Hole Shape | Purpose |
+| ------ | ----------------------- |
 | [ ] | 3V3 Input (do not connect if powering off of battery) |
 | ( ) | Txd |
 | ( ) | Rxd |
