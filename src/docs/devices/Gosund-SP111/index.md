@@ -68,8 +68,8 @@ api:
 ota:
 
 wifi:
-  ssid: !secret wifi_name
-  password: !secret wifi_pass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   fast_connect: on
 
 # see: https://esphome.io/components/time.html
