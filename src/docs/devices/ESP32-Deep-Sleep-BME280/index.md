@@ -97,7 +97,7 @@ sensor:
     address: 0x76
 
 deep_sleep:
-  id: deep_sleep1
+  id: deep_sleep_1
   run_duration: 10s
   sleep_duration: 60min
 
