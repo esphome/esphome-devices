@@ -43,7 +43,7 @@ substitutions:
   power_cal_meas: "1710.0"
   power_cal_real: "1685.0"
 
-  max_power: "2000"
+  max_power: "2400"
   max_temp: "70.0"
 
 esphome:
