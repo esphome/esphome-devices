@@ -20,15 +20,29 @@ standard: us
 | GPIO15 | main button (input_pullup)                         |
 | GPIO16 | led1 + relay (inverted) + blue led + reset button  |
 
-## Basic Configuration
+## Flashing
+
+The header CN is under the board, visible after removing the 4 screws.
+
+| Pin    | Function                 |
+| ------ | ------------------------ |
+| CN1-1 | TXD                       |
+| CN1-2 | RXD                       |
+| CN1-3 | GPIO2 (don't use)         |
+| CN1-4 | GPIO0 (connect to ground) |
+| CN1-5 | GROUND                    |
+| CN1-6 | VCC                       |
+
+## Light
 
 ```yaml
-# Basic Config
----
+# Light dimmer
+
 substitutions:
   #   # https://esphome.io/guides/configuration-types.html#substitutions
   device_name: martin_jerry_mj_sd01 # hostname & entity_id
   friendly_name: Martin Jerry MJ-SD01 # Displayed in HA frontend
+  ip_address: !secret martin_jerry_mj_sd01_ip # use /config/esphome/secrets.yaml
   pwm_min_power: 15% # keep dimming functional at lowest levels
   no_delay: 0s # transition when changing dimmer_lvl & relay delay
   transition_length: .5s # transition when turning on/off
@@ -37,7 +51,247 @@ substitutions:
   long_press_up: 100% # long press brightness
   long_press_down: 33% # long press brightness
   long_press_main: 50% # long press brightness
-  ip_address: !secret martin_jerry_mj_sd01_ip # use /config/esphome/secrets.yaml
+  # Number of incremental steps between 0 and 100% intensity with the up/down
+  # buttons.
+  steps: "8"
+  gamma_correct: "2.0" # Default gamma of 2.8 is generally too high.
+
+binary_sensor:
+  - platform: gpio
+    # https://esphome.io/components/binary_sensor/gpio.html
+    #name: "${friendly_name} Up Button"
+    id: up_button
+    pin:
+      number: GPIO0
+      inverted: True
+      mode: INPUT_PULLUP
+    on_press:
+      # https://esphome.io/components/binary_sensor/index.html#on-press
+      - if:
+          condition:
+            light.is_on: dimmer
+          then:
+            - lambda: !lambda |-
+                // Similar to light.dim_relative but add the flashing.
+                auto val = id(dimmer).remote_values.get_brightness();
+                if (val >= (${steps}.0f-1.0f)/${steps}.0f) {
+                  val = 1.0f;
+                } else {
+                  val += 1.0f/${steps}.0f;
+                }
+                auto call = id(dimmer).turn_on();
+                call.set_brightness(val);
+                call.perform();
+                if (val == 1.f) {
+                  id(flash_lights).execute();
+                }
+          else:
+            - light.turn_on:
+                id: dimmer
+                brightness: "${long_press_up}"
+    on_click:
+      # https://esphome.io/components/binary_sensor/index.html#on-click
+      min_length: ${long_press_min}
+      max_length: ${long_press_max}
+      then:
+        - light.turn_on:
+            id: dimmer
+            brightness: "${long_press_up}"
+  - platform: gpio
+    # https://esphome.io/components/binary_sensor/gpio.html
+    #name: "${friendly_name} Down Button"
+    id: down_button
+    pin:
+      number: GPIO1
+      inverted: True
+      mode: INPUT_PULLUP
+    on_press:
+      # https://esphome.io/components/binary_sensor/index.html#on-press
+      - if:
+          condition:
+            light.is_on: dimmer
+          then:
+            - lambda: !lambda |-
+                // Similar to light.dim_relative but add the flashing.
+                auto val = id(dimmer).remote_values.get_brightness();
+                if (val <= 1.0f/${steps}.0f) {
+                  val = .01f;
+                } else {
+                  val -= 1.0f/${steps}.0f;
+                }
+                auto call = id(dimmer).turn_on();
+                call.set_brightness(val);
+                call.perform();
+                if (val == 0.01f) {
+                  id(flash_lights).execute();
+                }
+          else:
+            - light.turn_on:
+                id: dimmer
+                brightness: "${long_press_down}"
+    on_click:
+      # https://esphome.io/components/binary_sensor/index.html#on-click
+      min_length: ${long_press_min}
+      max_length: ${long_press_max}
+      then:
+        - light.turn_on:
+            id: dimmer
+            brightness: "${long_press_down}"
+  - platform: gpio
+    # https://esphome.io/components/binary_sensor/gpio.html
+    #name: ${friendly_name} Main Button
+    id: main_button
+    pin:
+      number: GPIO15
+      mode: INPUT_PULLUP
+    on_press:
+      # TODO: Use "light.toggle: dimmer" instead of the code below if you want
+      # to keep the previous brightness by default.
+      # https://esphome.io/components/binary_sensor/index.html#on-press
+      - if:
+          condition:
+            light.is_on: dimmer
+          then:
+            - light.turn_off: dimmer
+          else:
+            - light.turn_on:
+                id: dimmer
+                brightness: "${long_press_main}"
+    on_click:
+      # https://esphome.io/components/binary_sensor/index.html#on-click
+      min_length: ${long_press_min}
+      max_length: ${long_press_max}
+      then:
+        - light.turn_on:
+            id: dimmer
+            brightness: "${long_press_main}"
+
+light:
+  - platform: status_led
+    id: ledred
+    pin:
+      number: GPIO4
+      inverted: True
+  - platform: monochromatic
+    # https://esphome.io/components/light/monochromatic.html
+    name: "${friendly_name}"
+    id: dimmer
+    output: pwm
+    default_transition_length: ${no_delay}
+    gamma_correct: "${gamma_correct}"
+    effects:
+      - flicker:
+          name: "Flicker"
+          alpha: 90%
+          intensity: 25%
+      - strobe:
+          name: "Fast Pulse"
+          colors:
+            - state: true
+              brightness: 100%
+              duration: 500ms
+            - brightness: 1%
+              duration: 750ms
+    on_state:
+      - script.execute: set_lights
+
+script:
+  - id: set_lights
+    then:
+      - lambda: |-
+          if (id(dimmer).remote_values.get_state() == 0.f) {
+            id(led2).turn_off();
+            id(led3).turn_off();
+            id(led4).turn_off();
+            id(led5).turn_off();
+            // Comment the following line out if you don't want the red LED when
+            // the dimmer is off.
+            id(ledred).turn_on().perform();
+            return;
+          }
+          id(ledred).turn_off().perform();
+          auto val = id(dimmer).remote_values.get_brightness();
+          if (val >= .1f) {
+            id(led2).turn_on();
+          } else {
+            id(led2).turn_off();
+          }
+          if (val >= .36f) {
+            id(led3).turn_on();
+          } else {
+            id(led3).turn_off();
+          }
+          if (val >= .73f) {
+            id(led4).turn_on();
+          } else {
+            id(led4).turn_off();
+          }
+          if (val >= .9f) {
+            id(led5).turn_on();
+          } else {
+            id(led5).turn_off();
+          }
+  - id: flash_lights
+    then:
+      - output.turn_on: led2
+      - output.turn_on: led3
+      - output.turn_on: led4
+      - output.turn_on: led5
+      - delay: 150ms
+      - output.turn_off: led2
+      - output.turn_off: led3
+      - output.turn_off: led4
+      - output.turn_off: led5
+      - delay: 150ms
+      - output.turn_on: led2
+      - output.turn_on: led3
+      - output.turn_on: led4
+      - output.turn_on: led5
+      - delay: 150ms
+      - output.turn_off: led2
+      - output.turn_off: led3
+      - output.turn_off: led4
+      - output.turn_off: led5
+      - delay: 150ms
+      - script.execute: set_lights
+
+output:
+  - platform: esp8266_pwm
+    # https://esphome.io/components/output/esp8266_pwm.html
+    power_supply: relay
+    pin: GPIO13
+    id: pwm
+    # Even lower frequency can be used. 120 Hz works fine in 60 Hz countries.
+    frequency: 300 Hz
+    min_power: ${pwm_min_power}
+  - platform: gpio
+    # https://esphome.io/components/output/gpio.html
+    id: led2
+    pin: GPIO14
+    inverted: true
+  - platform: gpio
+    id: led3
+    pin: GPIO12
+    inverted: true
+  - platform: gpio
+    id: led4
+    pin: GPIO5
+    inverted: true
+  - platform: gpio
+    id: led5
+    pin: GPIO3
+    inverted: true
+
+power_supply:
+  - id: relay
+    # https://esphome.io/components/power_supply.html
+    pin:
+      number: GPIO16
+      inverted: True
+    enable_time: ${no_delay}
+    keep_on_time: ${no_delay}
+
+## below is common between both light and fan
 
 esphome:
   # https://esphome.io/components/esphome
@@ -45,6 +299,11 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true
+
+sensor:
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: 600s
 
 wifi:
   # https://esphome.io/components/wifi
@@ -78,51 +337,204 @@ api:
 ota:
   password: !secret esphome_ota_password
   # https://esphome.io/components/ota
+```
 
-status_led:
-  pin:
-    number: GPIO4
-    inverted: true
+## Timed Fan control
+
+The MJ-SD01 can control a low power (<400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds as feedback on how much time is left.
+
+```yaml
+# Timed fan control
+
+substitutions:
+  #   # https://esphome.io/guides/configuration-types.html#substitutions
+  device_name: martin_jerry_mj_sd01 # hostname & entity_id
+  friendly_name: Martin Jerry MJ-SD01 # Displayed in HA frontend
+  ip_address: !secret martin_jerry_mj_sd01_ip # use /config/esphome/secrets.yaml
+  max_time: "30" # number of minutes
+  increment: "5" # number of minutes to add or remove with up/down buttons
+
+
+binary_sensor:
+  - platform: gpio
+    # https://esphome.io/components/binary_sensor/gpio.html
+    #name: "${friendly_name} Up Button"
+    id: up_button
+    pin:
+      number: GPIO0
+      inverted: True
+      mode: INPUT_PULLUP
+    on_press:
+      - lambda: !lambda |-
+          auto now = id(current_time).timestamp_now();
+          if (id(until) == 0) {
+            id(until) = now;
+          }
+          id(until) += ${increment}*60;
+          auto max = now + ${max_time}*60;
+          if (id(until) > max) {
+            id(until) = max;
+            id(flash_lights).execute();
+          }
+      - if:
+          condition:
+            switch.is_off: fan
+          then:
+            - switch.turn_on: fan
+  - platform: gpio
+    # https://esphome.io/components/binary_sensor/gpio.html
+    #name: "${friendly_name} Down Button"
+    id: down_button
+    pin:
+      number: GPIO1
+      inverted: True
+      mode: INPUT_PULLUP
+    on_press:
+      - if:
+          condition:
+            switch.is_on: fan
+          then:
+            - lambda: !lambda |-
+                id(until) -= ${increment}*60;
+                if (id(until) < id(current_time).timestamp_now()) {
+                  id(fan).turn_off();
+                }
+  - platform: gpio
+    # https://esphome.io/components/binary_sensor/gpio.html
+    #name: ${friendly_name} Main Button
+    id: main_button
+    pin:
+      number: GPIO15
+      mode: INPUT_PULLUP
+    on_press:
+      - if:
+          condition:
+            switch.is_on: fan
+          then:
+            - switch.turn_off: fan
+          else:
+            - lambda: !lambda id(until) = id(current_time).timestamp_now() + ${max_time}*60;
+            - switch.turn_on: fan
+
+switch:
+  - platform: output
+    id: fan
+    name: "${upper_devicename}"
+    output: out
+    on_turn_on:
+      - light.turn_off: ledred
+    on_turn_off:
+      - globals.set:
+          id: until
+          value: "0"
+      - light.turn_on: ledred
+
+light:
+  - platform: status_led
+    id: ledred
+    pin:
+      number: GPIO4
+      inverted: True
+
+time:
+  - platform: homeassistant
+    id: current_time
+
+globals:
+  - id: until
+    type: uint32_t
+    restore_value: no
+
+interval:
+  - interval: 250ms
+    then:
+      - lambda: |-
+          auto now = id(current_time).timestamp_now();
+          if (id(until) < now) {
+            id(fan).turn_off();
+          }
+          id(set_lights).execute();
+script:
+  - id: set_lights
+    then:
+      - lambda: |-
+          if (id(until) == 0) {
+            id(led2).turn_off();
+            id(led3).turn_off();
+            id(led4).turn_off();
+            id(led5).turn_off();
+            return;
+          }
+          auto delta = (${max_time}*60) / 5;
+          auto limit = id(current_time).timestamp_now() + delta;
+          if (id(until) >= limit) {
+            id(led2).turn_on();
+          } else {
+            id(led2).turn_off();
+          }
+          limit += delta;
+          if (id(until) >= limit) {
+            id(led3).turn_on();
+          } else {
+            id(led3).turn_off();
+          }
+          limit += delta;
+          if (id(until) >= limit) {
+            id(led4).turn_on();
+          } else {
+            id(led4).turn_off();
+          }
+          limit += delta;
+          if (id(until) >= limit) {
+            id(led5).turn_on();
+          } else {
+            id(led5).turn_off();
+          }
+  - id: flash_lights
+    then:
+      - output.turn_on: led2
+      - output.turn_on: led3
+      - output.turn_on: led4
+      - output.turn_on: led5
+      - delay: 150ms
+      - output.turn_off: led2
+      - output.turn_off: led3
+      - output.turn_off: led4
+      - output.turn_off: led5
+      - delay: 150ms
+      - output.turn_on: led2
+      - output.turn_on: led3
+      - output.turn_on: led4
+      - output.turn_on: led5
+      - delay: 150ms
+      - output.turn_off: led2
+      - output.turn_off: led3
+      - output.turn_off: led4
+      - output.turn_off: led5
+      - delay: 150ms
+      - script.execute: set_lights
 
 output:
   - platform: gpio
-    # https://esphome.io/components/output/gpio.html
-    pin: GPIO3
-    inverted: true
-    id: led5
-
+    power_supply: relay
+    pin: GPIO13
+    id: out
   - platform: gpio
-    # https://esphome.io/components/output/gpio.html
-    pin: GPIO5
-    inverted: true
-    id: led4
-
-  - platform: gpio
-    # https://esphome.io/components/output/gpio.html
-    pin: GPIO12
-    inverted: true
-    id: led3
-
-  - platform: gpio
-    # https://esphome.io/components/output/gpio.html
+    id: led2
     pin: GPIO14
     inverted: true
-    id: led2
-
-  - platform: esp8266_pwm
-    # https://esphome.io/components/output/index.html#config-output
-    pin: GPIO13
-    id: pwm
-    power_supply: relay
-    min_power: ${pwm_min_power}
-
-light:
-  - platform: monochromatic
-    # https://esphome.io/components/light/monochromatic.html
-    name: ${friendly_name}
-    output: pwm
-    default_transition_length: ${no_delay}
-    id: dimmer
+  - platform: gpio
+    id: led3
+    pin: GPIO12
+    inverted: true
+  - platform: gpio
+    id: led4
+    pin: GPIO5
+    inverted: true
+  - platform: gpio
+    id: led5
+    pin: GPIO3
+    inverted: true
 
 power_supply:
   - id: relay
@@ -130,123 +542,53 @@ power_supply:
     pin:
       number: GPIO16
       inverted: True
-    enable_time: ${no_delay}
-    keep_on_time: ${no_delay}
+    enable_time: 0s
+    keep_on_time: 0s
 
-binary_sensor:
-  - platform: gpio
-    # https://esphome.io/components/binary_sensor/gpio.html
-    pin:
-      number: GPIO0
-      inverted: True
-      mode: INPUT_PULLUP
-    name: ${friendly_name} Up Button
-    id: up_button
-    internal: True
-    on_press:
-      then:
-        - lambda: |-
-            if (id(dimmer_lvl) > .91) {
-              id(dimmer_lvl) = 1.0;
-            }
-            else if (id(dimmer_lvl) <= .91) {
-              id(dimmer_lvl) += .083;
-            };
-            id(apply_dimming).execute();
-    on_click:
-      # https://esphome.io/components/binary_sensor/index.html#on-click
-      min_length: ${long_press_min}
-      max_length: ${long_press_max}
-      then:
-        - light.turn_on:
-            id: dimmer
-            brightness: ${long_press_up}
+## below is common between both light and fan
 
-  - platform: gpio
-    # https://esphome.io/components/binary_sensor/gpio.html
-    pin:
-      number: GPIO1
-      inverted: True
-      mode: INPUT_PULLUP
-    name: ${friendly_name} Down Button
-    internal: True
-    on_press:
-      then:
-        - lambda: !lambda |-
-            if (id(dimmer_lvl) < .10) {
-              id(dimmer_lvl) = .01;
-            }
-            else if (id(dimmer_lvl) >= .10) {
-              id(dimmer_lvl) -= .083;
-            };
-            id(apply_dimming).execute();
-    on_click:
-      # https://esphome.io/components/binary_sensor/index.html#on-click
-      min_length: ${long_press_min}
-      max_length: ${long_press_max}
-      then:
-        - light.turn_on:
-            id: dimmer
-            brightness: ${long_press_down}
+esphome:
+  # https://esphome.io/components/esphome
+  name: ${device_name}
+  platform: ESP8266
+  board: esp01_1m
+  esp8266_restore_from_flash: true
 
-  - platform: gpio
-    # https://esphome.io/components/binary_sensor/gpio.html
-    pin:
-      number: GPIO15
-      mode: INPUT_PULLUP
-    name: ${friendly_name} Main Button
-    internal: True
-    on_press:
-      - light.toggle: dimmer
-    on_click:
-      # https://esphome.io/components/binary_sensor/index.html#on-click
-      min_length: ${long_press_min}
-      max_length: ${long_press_max}
-      then:
-        - light.turn_on:
-            id: dimmer
-            brightness: ${long_press_main}
+sensor:
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: 600s
 
-globals:
-  - id: dimmer_lvl
-    # https://esphome.io/guides/automations.html#bonus-2-global-variables
-    type: float
-    restore_value: no
-    initial_value: "1.0"
+wifi:
+  # https://esphome.io/components/wifi
+  ssid: !secret wifissid
+  password: !secret wifipass
+  manual_ip:
+    static_ip: ${ip_address}
+    gateway: !secret wifigateway
+    subnet: !secret wifisubnet
+    dns1: !secret wifidns
+  ap:
+    ssid: ${friendly_name}_AP
+    password: !secret wifipass
+    channel: 1
+    manual_ip:
+      static_ip: 192.168.1.1
+      gateway: 192.168.1.1
+      subnet: 255.255.255.0
 
-script:
-  - id: apply_dimming
-    # https://esphome.io/guides/automations.html#script-execute-action
-    then:
-      - lambda: |-
-          auto call = id(dimmer).turn_on();
-          call.set_brightness(id(dimmer_lvl));
-          call.perform();
-      - logger.log:
-          format: "dimmer_lvl = %.2f"
-          args: ["id(dimmer_lvl)"]
+web_server:
+  port: 80
+  # https://esphome.io/components/web_server.html
 
-interval:
-  - interval: 250ms
-    # https://esphome.io/guides/automations.html#interval
-    then:
-      - lambda: |-
-          auto dimmer_vals = id(dimmer).current_values;
-          if (dimmer_vals.is_on()) {
-            id(dimmer_lvl) = dimmer_vals.get_brightness();
-          }
-          if (id(dimmer_lvl) > .19) { id(led2).turn_on(); }
-          if (id(dimmer_lvl) < .20) { id(led2).turn_off(); }
-          if (id(dimmer_lvl) > .39) { id(led3).turn_on(); }
-          if (id(dimmer_lvl) < .40) { id(led3).turn_off(); }
-          if (id(dimmer_lvl) > .59) { id(led4).turn_on(); }
-          if (id(dimmer_lvl) < .60) { id(led4).turn_off(); }
-          if (id(dimmer_lvl) > .79) { id(led5).turn_on(); }
-          if (id(dimmer_lvl) < .80) { id(led5).turn_off(); }
-          if (!dimmer_vals.is_on()) {
-            id(led2).turn_off();
-            id(led3).turn_off();
-            id(led4).turn_off();
-            id(led5).turn_off();
-          }
+logger:
+  # https://esphome.io/components/logger
+
+api:
+  password: !secret esphome_api_password
+  # https://esphome.io/components/api
+
+ota:
+  password: !secret esphome_ota_password
+  # https://esphome.io/components/ota
 ```
