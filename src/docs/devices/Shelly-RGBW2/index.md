@@ -264,7 +264,7 @@ status_led:
 light:
   - platform: cwww
     restore_mode: ALWAYS_OFF 
-    name: "Center Strip"
+    name: "${device_name}_1"
     cold_white: ${device_name}_out_ch2
     warm_white: ${device_name}_out_ch4
     cold_white_color_temperature: 6000 K
@@ -274,7 +274,7 @@ light:
     
   - platform: cwww
     restore_mode: ALWAYS_OFF 
-    name: "Inside Strip"
+    name: "${device_name}_2"
     cold_white: ${device_name}_out_ch1
     warm_white: ${device_name}_out_ch3
     cold_white_color_temperature: 6000 K
