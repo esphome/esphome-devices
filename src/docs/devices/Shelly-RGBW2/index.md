@@ -217,3 +217,92 @@ binary_sensor:
                         transition_length: 0.1s
                     - delay: 0.1s
 ```
+
+## Configuration for 2x CWWW (dual color Cold White Warm White) lights
+This configuration disables the switch entirely and relies on software control and/or physical switch power removal.
+```yaml
+substitutions:
+  device_name: "shelly_rgbw2_cwww"
+
+esphome:
+  name: ${device_name}
+  platform: ESP8266
+  board: esp01_1m
+  on_boot:
+    then:
+      # Enable both strips at 60% Brightness, Warm Color on startup
+      - light.turn_on:
+          id: light1
+          brightness: 60%
+          color_temperature: 3500 K
+      - light.turn_on:
+          id: light2
+          brightness: 60%
+          color_temperature: 3500 K
+
+logger:
+api:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${device_name}"
+    password: !secret ap_pass
+
+ota:
+  safe_mode: True
+  password: !secret ota_pass
+
+captive_portal:
+
+status_led:
+  pin: GPIO2
+  
+light:
+  - platform: cwww
+    restore_mode: ALWAYS_OFF 
+    name: "Center Strip"
+    cold_white: ${device_name}_out_ch2
+    warm_white: ${device_name}_out_ch4
+    cold_white_color_temperature: 6000 K
+    warm_white_color_temperature: 3000 K
+    constant_brightness: true
+    id: light1
+    
+  - platform: cwww
+    restore_mode: ALWAYS_OFF 
+    name: "Inside Strip"
+    cold_white: ${device_name}_out_ch1
+    warm_white: ${device_name}_out_ch3
+    cold_white_color_temperature: 6000 K
+    warm_white_color_temperature: 3000 K
+    constant_brightness: true
+    id: light2
+
+# Example output entry
+output:
+  - platform: esp8266_pwm
+    id: ${device_name}_out_ch1
+    pin: GPIO12
+    frequency: 244 Hz
+  - platform: esp8266_pwm
+    id: ${device_name}_out_ch2
+    pin: GPIO15
+    frequency: 244 Hz
+  - platform: esp8266_pwm
+    id: ${device_name}_out_ch3
+    pin: GPIO14
+    frequency: 244 Hz
+  - platform: esp8266_pwm
+    id: ${device_name}_out_ch4
+    pin: GPIO4
+    frequency: 244 Hz
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO5
+    id: light_0_touch
+```
