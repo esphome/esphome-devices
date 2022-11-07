@@ -219,7 +219,9 @@ binary_sensor:
 ```
 
 ## Configuration for 2x CWWW (dual color Cold White Warm White) lights
+
 This configuration disables the switch entirely and relies on software control and/or physical switch power removal.
+
 ```yaml
 substitutions:
   device_name: "shelly_rgbw2_cwww"
@@ -263,7 +265,7 @@ status_led:
   
 light:
   - platform: cwww
-    restore_mode: ALWAYS_OFF 
+    restore_mode: ALWAYS_OFF
     name: "${device_name}_1"
     cold_white: ${device_name}_out_ch2
     warm_white: ${device_name}_out_ch4
@@ -271,9 +273,9 @@ light:
     warm_white_color_temperature: 3000 K
     constant_brightness: true
     id: light1
-    
+
   - platform: cwww
-    restore_mode: ALWAYS_OFF 
+    restore_mode: ALWAYS_OFF
     name: "${device_name}_2"
     cold_white: ${device_name}_out_ch1
     warm_white: ${device_name}_out_ch3
