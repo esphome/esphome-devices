@@ -72,9 +72,9 @@ sensor:
       # active_power_a is normal, so don't multiply by -1
     active_power_b:
       name: ${devicename} Active Power A
-      # active_power_b is inverted, so multiply by -1
+      # active_power_b is inverted, so take the absolute value
       filters:
-        - multiply: -1
+        - lambda: return abs(x);
     update_interval: 60s
 
   # NTC Temperature
@@ -233,9 +233,9 @@ sensor:
     active_power_b:
       name: ${channel_1} power
       id: power_channel_1
-      # active_power_b is inverted, so multiply by -1
+      # active_power_b is inverted, so take the absolute value
       filters:
-        - multiply: -1
+        - lambda: return abs(x);
       on_value_range:
         - above: ${max_power}
           then:
@@ -383,9 +383,9 @@ sensor:
       # active_power_a is normal, so don't multiply by -1
     active_power_b:
       name: ${devicename} Active Power A
-      # active_power_b is inverted, so multiply by -1
+      # active_power_b is inverted, so take the absolute value
       filters:
-        - multiply: -1
+        - lambda: return abs(x);
     update_interval: 60s
 
   # NTC Temperature
@@ -556,9 +556,9 @@ sensor:
     active_power_b:
       name: ${channel_1} power
       id: power_channel_1
-      # active_power_b is inverted, so multiply by -1
+      # active_power_b is inverted, so take the absolute value
       filters:
-        - multiply: -1
+        - lambda: return abs(x);
       on_value_range:
         - above: ${max_power}
           then:
