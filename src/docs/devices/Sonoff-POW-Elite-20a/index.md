@@ -1,5 +1,5 @@
 ---
-title: sonoff pow elite 20a (POWR320D)
+title: Sonoff POW Elite 20a (POWR320D)
 date-published: 2022-11-13
 type: plug
 standard: global
@@ -9,17 +9,16 @@ standard: global
 
 | Pin    | Function                           |
 | ------ | ---------------------------------- |
-| GPIO00  | Push Button (HIGH = off, LOW = on) |
-| GPIO02 | Relay1 (320D - bi-stable - On)           |
-| GPIO04 | Relay1 (320D - bi-stable - Off)           |
-| GPIO05  | Wifi_LED                 |
-| GPIO14 | TM1621 DA                  |
-| GPIO16 | CSE7766 Rx    |
-| GPIO18 | Status LED (HIGH = off, LOW = on)    |
-| GPIO25  | TM1621 CS    |
-| GPIO26  | TM1621 RD    |
-| GPIO27  | TM1621 WR    |
-
+| GPIO00 | Push Button (HIGH = off, LOW = on) |
+| GPIO02 | Relay1 (320D - bi-stable - On)     |
+| GPIO04 | Relay1 (320D - bi-stable - Off)    |
+| GPIO05 | Wifi_LED                           |
+| GPIO14 | TM1621 DA                          |
+| GPIO16 | CSE7766 Rx                         |
+| GPIO18 | Status LED (HIGH = off, LOW = on)  |
+| GPIO25 | TM1621 CS                          |
+| GPIO26 | TM1621 RD                          |
+| GPIO27 | TM1621 WR                          |
 
 ## Basic Configuration
 
@@ -47,7 +46,7 @@ captive_portal:
 logger:
   level: INFO
   baud_rate: 0
-    
+
 api:
   encryption:
     key: !secret api_enc
@@ -151,10 +150,10 @@ binary_sensor:
       - invert:
       - delayed_off: 10ms
     on_click:
-      - max_length: 350ms  # short press to toggle the relay
+      - max_length: 350ms # short press to toggle the relay
         then:
           switch.toggle: relay_1
-      - min_length: 360ms  # long press to cycle display info
+      - min_length: 360ms # long press to cycle display info
         max_length: 3s
         then:
           - if:
@@ -168,7 +167,7 @@ binary_sensor:
                 binary_sensor.template.publish:
                   id: page
                   state: ON
-  - platform: template  # this is a fake sensor to tell the screen which info to show on display
+  - platform: template # this is a fake sensor to tell the screen which info to show on display
     id: page
     publish_initial_state: true
     internal: true
