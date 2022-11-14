@@ -552,8 +552,9 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
-  esp8266_restore_from_flash: true
-
+  # esp8266_restore_from_flash: true 
+  # Can cause reduced flash lifetime due to frequent writes, enable as needed
+  
 sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi Signal"
@@ -577,9 +578,10 @@ wifi:
       gateway: 192.168.1.1
       subnet: 255.255.255.0
 
-web_server:
-  port: 80
+# web_server:
+  # port: 80
   # https://esphome.io/components/web_server.html
+  # Can cause high memory usage on ESP8266, enable as needed
 
 logger:
   # https://esphome.io/components/logger
