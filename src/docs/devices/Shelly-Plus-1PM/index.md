@@ -86,9 +86,12 @@ binary_sensor:
   - platform: gpio
     name: "${device_name} Switch"
     pin: GPIO4
-    on_state:
+    on_press:
       then:
-        - switch.toggle: "relay"
+        - switch.turn_on: "relay"
+    on_release:
+      then:
+        - switch.turn_off: "relay"
     filters:
       - delayed_on_off: 50ms
 
