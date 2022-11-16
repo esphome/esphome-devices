@@ -88,22 +88,12 @@ binary_sensor:
     pin: GPIO4
     on_press:
       then:
-        - switch.toggle: "relay"
+        - switch.turn_on: "relay"
+    on_release:
+      then:
+        - switch.turn_off: "relay"
     filters:
       - delayed_on_off: 50ms
-  - platform: gpio
-    name: "${device_name} Button"
-    pin:
-      number: GPIO25
-      inverted: yes
-      mode:
-        input: true
-        pullup: true
-    on_press:
-      then:
-        - switch.toggle: "relay"
-    filters:
-      - delayed_on_off: 5ms
 
 sensor:
   - platform: ntc
