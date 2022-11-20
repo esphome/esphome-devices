@@ -181,7 +181,7 @@ sensor:
     register_type: holding
     address: 0xA000
     unit_of_measurement: "kWh"
-    value_type: U_WORD
+    value_type: U_DWORD
     accuracy_decimals: 2
     filters:
       - multiply: 0.01
@@ -192,7 +192,7 @@ sensor:
     register_type: holding
     address: 0xA01E
     unit_of_measurement: "kvarh"
-    value_type: U_WORD
+    value_type: U_DWORD
     accuracy_decimals: 2
     filters:
       - multiply: 0.01
