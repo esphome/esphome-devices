@@ -110,12 +110,12 @@ light:
 The bulb is glued together using some sort of hard silicone.
 The top cover is a slightly soft, pliable plastic while the base is metal with plastic casted right onto it.
 
-0. Don't disassemble the bulb right after turning it off! Not only it can be hot, there are capacitors inside that can hold 300V!
-1. Gently run a sharp knife around the bulb in the slot between the top cover and the base
-2. Use a spudger or a flathead screwdriver to pry open the bulb - run it around and don't force it as the plastic of the bulb's base is quite brittle
-3. After removing the top cover, unscrew the 2 screws and lift the PCB with LEDs
-4. Put the screws back in halfway and use them to pull the metal cover
-5. Pull the main PCB until it unhooks from rails on the inside of the base (see picture below), then twist it to side and unhook the neutral contact spring and pull the PCB out
+1. Don't disassemble the bulb right after turning it off! Not only it can be hot, there are capacitors inside that can hold 300V!
+2. Gently run a sharp knife around the bulb in the slot between the top cover and the base
+3. Use a spudger or a flathead screwdriver to pry open the bulb - run it around and don't force it as the plastic of the bulb's base is quite brittle
+4. After removing the top cover, unscrew the 2 screws and lift the PCB with LEDs
+5. Put the screws back in halfway and use them to pull the metal cover
+6. Pull the main PCB until it unhooks from rails on the inside of the base (see picture below), then twist it to side and unhook the neutral contact spring and pull the PCB out
 
 ![mi smart led bulb inside](mi-smart-led-bulb-inside.jpg "mi smart led bulb inside")
 ![mi smart led bulb flash pins](mi-smart-led-bulb-flash-pins.jpg "mi smart led bulb flash pins")
