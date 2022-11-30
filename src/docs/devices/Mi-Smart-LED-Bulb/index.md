@@ -9,9 +9,10 @@ Basic white LED bulb without light temperature control.
 Uses an ESP8266 carrier board with 4 outputs (see pictures at the bottom), so RGBW or CCT bulbs using the same configurations are possible (that's why the config below defines 4 output PWMs but only 1 is used).
 
 Model numbers:
-* Warm white, E27 model: XMBGDP01YLK
-* Cool white, B22 model: XMBGDP02YLK
-* Cool white, E27 model: XMBGDP03YLK
+
+- Warm white, E27 model: XMBGDP01YLK
+- Cool white, B22 model: XMBGDP02YLK
+- Cool white, E27 model: XMBGDP03YLK
 
 ## Basic Configuration
 
@@ -100,7 +101,6 @@ light:
     # Ensure the light turns on by default if the physical switch is actuated.
     restore_mode: ALWAYS_ON
     default_transition_length: 0.2s
-
 ```
 
 ## Disassembly
@@ -121,9 +121,10 @@ The top cover is a slightly soft, pliable plastic while the base is metal with p
 ![mi smart led bulb flash pins](mi-smart-led-bulb-flash-pins.jpg "mi smart led bulb flash pins")
 
 Notes:
-* The controller carrier board has the pins required for flashing easily accessible and labeled, so no further disassembly is required
-* For flashing use the GND pad closer to the antenna - it has weaker thermal connection and therefore is easier to solder to
-* Watch out for the miniscule components near the base of the antenna, it's easy to knock them off! See the pinout picture - the orange rectangle marks one such ripped off component that caused the WiFi signal to be super weak thus effectively killing the bulb
+
+- The controller carrier board has the pins required for flashing easily accessible and labeled, so no further disassembly is required
+- For flashing use the GND pad closer to the antenna - it has weaker thermal connection and therefore is easier to solder to
+- Watch out for the miniscule components near the base of the antenna, it's easy to knock them off! See the pinout picture - the orange rectangle marks one such ripped off component that caused the WiFi signal to be super weak thus effectively killing the bulb
 
 ## Pinout
 
