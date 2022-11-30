@@ -14,12 +14,15 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${friendly_name}
-  platform: ESP32
+
+esp32:
   board: esp32doit-devkit-v1
-  platformio_options:
-    platform: espressif32@5.1.1
-    platform_packages:
-      - framework-arduinoespressif32 @ 3.20004.220825
+  framework:
+    type: esp-idf
+    sdkconfig_options:
+      CONFIG_FREERTOS_UNICORE: y
+    advanced:
+      ignore_efuse_mac_crc: true
 
 # WiFi connection
 wifi:
@@ -29,13 +32,10 @@ wifi:
     ssid: ${device_name}
     password: !secret ap_password
     ap_timeout: 1min
-  use_address: ${device_name}.local
-  manual_ip:
-    static_ip: 192.168.XXX.X
-    gateway: 192.168.XXX.X
-    subnet: 255.255.255.0
 
-captive_portal:
+# Unavailable for esp-idf https://github.com/esphome/feature-requests/issues/1649
+# captive_portal:
+
 # Enable logging
 logger:
 
@@ -47,9 +47,10 @@ api:
 ota:
   password: !secret ota_password
 
+# Unavailable for esp-idf https://github.com/esphome/feature-requests/issues/1649
 # Enable Web server
-web_server:
-  port: 80
+# web_server:
+#   port: 80
 
 # Sync time with Home Assistant
 time:
@@ -115,7 +116,9 @@ binary_sensor:
       mode: INPUT_PULLDOWN
     on_click:
       then:
-        - light.toggle: light1
+        - light.toggle:
+            id: light1
+            transition_length: 0.2s
 
 output:
   - platform: ledc
@@ -140,7 +143,7 @@ light:
     id: light1
     default_transition_length: 0s
     constant_brightness: true
-    name: "Lights"
+    name: "${friendly_name} Light"
     cold_white: output_cw
     warm_white: output_ww
     cold_white_color_temperature: 4800 K
