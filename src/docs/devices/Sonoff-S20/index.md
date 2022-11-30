@@ -57,5 +57,7 @@ switch:
     id: relay
 
 status_led:
-  pin: GPIO13
+  pin:
+    number: GPIO13
+    inverted: true
 ```
