@@ -21,8 +21,8 @@ The red side of the LED cannot be individually controlled without modification t
 | GPIO0  | Push Button (HIGH = off, LOW = on) |
 | GPIO12 | Relay and its status LED           |
 | GPIO13 | Blue LED (HIGH = off, LOW = on)    |
-| GPIO1  | RX pin (for external sensors)      |
-| GPIO3  | TX pin (for external sensors)      |
+| GPIO3  | RX pin (for external sensors)      |
+| GPIO1  | TX pin (for external sensors)      |
 
 ## PCB
 
