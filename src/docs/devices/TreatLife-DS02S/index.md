@@ -60,7 +60,7 @@ web_server:
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1
-  baud_rate: 9600
+  baud_rate: 9600 #This may need to be 115200 See above in the notes
 
 tuya:
 
