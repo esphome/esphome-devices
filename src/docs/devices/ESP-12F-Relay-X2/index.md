@@ -50,8 +50,8 @@ This board has headers for every GPIO pin on its ESP-12F.
 | ------ | ------------------------------------- |
 | ADC    | 0V-1V only                            |
 | EN     | Pulled up                             |
-| GPIO16 | Use a jumper to RY1 to enable Relay 1 |
-| GPIO14 | Use a jumper to RY2 to enable Relay 2 |
+| GPIO5  | Use a jumper to RY1 to enable Relay 1 |
+| GPIO4  | Use a jumper to RY2 to enable Relay 2 |
 
 ## Basic Config
 
