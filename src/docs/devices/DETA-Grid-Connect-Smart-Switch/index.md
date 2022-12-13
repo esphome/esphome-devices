@@ -29,6 +29,10 @@ It is still possible to convert these switches to ESPHome by replacing the WB3S 
 Note that each relay shares a pin with its associated LED; it's not possible to turn either relay on/off independently of its button LED.
 The top/bottom designation here assumes that it is installed vertically, with the status LED (group of 6 dots) on the right-hand side.
 
+### Suggested modification
+
+Is is possible to gain control of button LEDs by removing diode(s) D7 / D5 / D9 (3 gang, pcb7395B Rev0.1) which decouples the LED(s) from the relay output(s). You would then solder a small wire from the cathode (-) side of the diode pad to a spare GPIO pin to gain control of the button LED individually. See [this image for an example](https://community-assets.home-assistant.io/optimized/4X/f/9/b/f9b1f8ea23ccc1049ea4eda1765e3f19fb173925_2_666x500.jpeg) (blue wires) [from this forum post](https://community.home-assistant.io/t/australian-light-switch-with-motion-sensor-local-control-show-and-tell/444612)
+
 ## Getting it up and running
 
 ### Tuya Convert
