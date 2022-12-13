@@ -118,7 +118,7 @@ switch:
           then:
             - switch.turn_on: powerstrip_switch_1_gpio
     turn_off_action: # If mainswitch is off > turn off corresponding relay
-      - if: 
+      - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
