@@ -24,7 +24,7 @@ Vendor documentation:
 |---------------|-------|-------------------------------------------------------------------------|
 | VCC           | VCC   | Power input (3.3V)                                                      |
 | GND           | GND   | GND                                                                     |
-| KEY           | 12    | User button                                                             |
+| KEY           | 12    | User button, Low active                                                 |
 | SCK           | 13    | CLK pin of SPI, clock input                                             |
 | DIN           | 14    | MOSI pin of SPI, data input                                             |
 | CS            | 15    | Chip select pin of SPI, Low active                                      |
@@ -41,7 +41,8 @@ Vendor documentation:
 ## Flashing
 
 Make sure you have a working driver installed for the CP2102 USB to serial convertor chip. I had problems with the stock MacOS Monterey one.
-After that simply connect to the USB-C port and flash as usual.
+After that simply connect to the USB-C port and flash as usual (in case of problems with enter programming mode, connect IO0 to GND,
+reset the device with reset button (EN) and keep the connection between GPIO0 and GND until programming starts).
 
 ## Device Specific Config
 
@@ -61,6 +62,7 @@ sensor:
     id: battery_voltage
     icon: mdi:battery
     device_class: voltage
+    attenuation: auto # without attenuation the adc is saturated (VBat/3 > 1.1 V)
     filters:
      - multiply: 3
     update_interval: 60s
@@ -71,7 +73,12 @@ spi:
 
 binary_sensor:
   - platform: gpio
-    pin: GPIO12
+    pin:
+      number: GPIO12
+      inverted: true # user button pull IO12 to GND
+      mode:          # pin as input and enable pull up
+        input: true
+        pullup: true
     name: "${devicename} button"
     filters:
       - delayed_on: 50ms
