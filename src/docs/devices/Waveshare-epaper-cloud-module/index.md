@@ -41,7 +41,7 @@ Vendor documentation:
 ## Flashing
 
 Make sure you have a working driver installed for the CP2102 USB to serial convertor chip. I had problems with the stock MacOS Monterey one.
-After that simply connect to the USB-C port and flash as usual (in case of problems with enter programming mode, connect IO0 to GND, 
+After that simply connect to the USB-C port and flash as usual (in case of problems with enter programming mode, connect IO0 to GND,
 reset the device with reset button (EN) and keep the connection between GPIO0 and GND until programming starts).
 
 ## Device Specific Config
@@ -73,7 +73,7 @@ spi:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO12
       inverted: true # user button pull IO12 to GND
       mode:          # pin as input and enable pull up
