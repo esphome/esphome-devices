@@ -91,5 +91,7 @@ time:
     id: my_time
 
 status_led:
-  pin: GPIO13
+  pin:
+    number: GPIO13
+    inverted: True
 ```
