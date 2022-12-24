@@ -9,7 +9,7 @@ standard: global
 
 ## General Notes
 
-The Tuya ZY-M100 Sensor [Tuya ZY-M100](tuya-zy-m100.jpg) uses the UART on pin 15 and 16. This Sensor comes with a WBR3 chip and requires replacement in order to be used with ESPHome.
+The Tuya ZY-M100 Sensor uses the UART on pin 15 and 16. This Sensor comes with a WBR3 chip and requires replacement in order to be used with ESPHome.
 It is still possible to convert these switches to ESPHome by replacing the WB3S chip with a ESP-C3-12F or any ESP-12 Variant chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well.
 
 ## Flashing
@@ -20,7 +20,7 @@ To put ESP32-C3 in flash mode EN needs to be pulled high and GPIO9 need to be pu
 
 The [datasheet](https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf) references GPIO8 which needs to be pulled low during flashing, use the following board to achieve this you can purchase ([AliExpress](https://www.aliexpress.com/item/1005002668365356.html), [Amazon](https://amzn.to/3o8owSb), [Banggood](https://www.banggood.com/ESP8266-Test-Board-Burner-Development-Board-WIFI-Module-For-ESP-01-ESP-01S-ESP-12E-ESP-12F-ESP-12S-ESP-18T-p-1684992.html)) a test board for effortless flashing. Just drop the module in, plug in the USB cable, hold the boot button while powering up and flash!
 
-[Test Board](test_board.jpg)
+![Test Board](test_board.jpg "Test Board")
 
 | ESP32 Pin | USB Serial Pin | Comments |
 | --- | --- | --- |
