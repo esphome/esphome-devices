@@ -10,7 +10,7 @@ standard: global
 ## General Notes
 
 The Tuya ZY-M100 Sensor uses the UART on pin 15 and 16. This Sensor comes with a WBR3 chip and requires replacement in order to be used with ESPHome.
-It is still possible to convert these switches to ESPHome by replacing the WB3S chip with a ESP-C3-12F or any ESP-12 Variant chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well.
+It is still possible to convert these switches to ESPHome by replacing the WBR3 chip with a ESP-C3-12F or any ESP-12 Variant chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well.
 
 ## Flashing
 
@@ -47,7 +47,7 @@ ESP32's are power hungry on boot and the USB to serial adapter might not be able
 
 ## Getting it up and running
 
-The sensor is a Tuya device, however as the main W3BS chip needs to be replaced with a ESP12 Variant or ESP32-C3-12F, which is easily flashed before soldering. After that, you can use ESPHome's OTA functionality to make any further changes.
+The sensor is a Tuya device, however as the main WBR3 chip needs to be replaced with a ESP12 Variant or ESP32-C3-12F, which is easily flashed before soldering. After that, you can use ESPHome's OTA functionality to make any further changes.
 
 ## Configuration for ESP-IDF
 
