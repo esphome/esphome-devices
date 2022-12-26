@@ -20,6 +20,8 @@ standard: uk, us, eu, au
 esphome:
   name: sonoffs26_1
   platform: ESP8266
+  
+esp8266:
   board: esp01_1m
   board_flash_mode: dout
 
