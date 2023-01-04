@@ -4,50 +4,47 @@ date-published: 2021-09-09
 type: light
 standard: eu
 ---
-# Install ESPHome on Xiaomi Mi Smart LED Desk Lamp Pro
+## Install ESPHome on Xiaomi Mi Smart LED Desk Lamp Pro
 
-- [Install ESPHome on Xiaomi Mi Smart LED Desk Lamp Pro](#install-esphome-on-xiaomi-mi-smart-led-desk-lamp-pro)
-  - [Materials](#materials)
-  - [Open the Device](#open-the-device)
-  - [Solder your debugger onto the Board](#solder-your-debugger-onto-the-board)
-  - [(Optional) backup old Firmware](#optional-backup-old-firmware)
-    - [linux](#linux)
-    - [windows](#windows)
-- [Recommended Config](#recommended-config)
+### Materials
 
-## Materials
 To install ESPHome onto your Lamp you need
+
 - Soldering iron
 - Serial to USB stick
 - 3 Volt Power from extern or the Serial-USB
 
-## Open the Device
-Unplug your Lamp and remove the screw under the rubber feet. Marked in the picture. 
+### Open the Device
 
-[<img src="./screws_Image.jpg" width="600" alt="a Picture of the four screws and where they are placed under the rubber feet.">](./screws_Image.jpg "Klick to open")
-<br>
-<br>
+Unplug your Lamp and remove the screw under the rubber feet. Marked in the picture.
 
-## Solder your debugger onto the Board
+![a Picture of the four screws and where they are placed under the rubber feet.](screws_Image.jpg "a Picture of the four screws and where they are placed under the rubber feet.")
+
+### Solder your debugger onto the Board
+
 Plugin the 3Volts last.
 
-[<img src="./board_Image.jpg" width="900" alt="a Picture of the soldering spots to connect the Serial USB.">](./board_Image.jpg "Klick to open")
-<br>
-<br>
+![a Picture of the soldering spots to connect the Serial USB.](board_Image.jpg "a Picture of the soldering spots to connect the Serial USB.")
 
-## (Optional) backup old Firmware
-If you want to backup the old firmware just use esptool. <br>
+### (Optional) backup old Firmware
+
+If you want to backup the old firmware just use esptool.
+
 Just replace COM or ttyUSB.
-### linux
+
+#### Linux
+
 ```batch
 python3 -m esptool -b 115200 --port /dev/ttyUSB0 read_flash 0x00000 0x400000 your/folder/firmwaredump.bin 
 ```
-### windows
+
+#### Windows
+
 ```batch
 python.exe -m esptool -b 115200 --port COM3 read_flash 0x00000 0x400000 your/folder/firmwaredump.bin 
 ```
 
-# Recommended Config
+## Recommended Config
 
 ```yaml
 esphome:
