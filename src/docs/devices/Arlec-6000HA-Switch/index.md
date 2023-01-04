@@ -1,6 +1,6 @@
 ---
 title: Arlec 6000HA inline switch
-date-published: 2021-01-04
+date-published: 2023-01-04
 type: switch
 standard: au
 ---
