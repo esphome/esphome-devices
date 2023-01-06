@@ -4,6 +4,10 @@ date-published: 2023-01-06
 type: switch, relay, sensor, misc
 standard: global
 ---
+![alt text](ProDinoESP32Ex_2.jpg "ProDinoESP32Ex")
+
+Manufacturer: [KMP Electronics](https://kmpelectronics.eu/shop/prodino-esp32ex/)
+
 ## GPIO Pinout
 
 | Pin    | Function                           |
