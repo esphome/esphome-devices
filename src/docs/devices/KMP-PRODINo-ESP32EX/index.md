@@ -66,7 +66,7 @@ sensor:
     humidity:
      name: "Living Room Humidity1"
     update_interval: 30s
-    
+
   - platform: dht
     model: AM2302
     pin: GPIO22
@@ -75,12 +75,12 @@ sensor:
     humidity:
      name: "Living Room Humidity2"
     update_interval: 30s
-    
+
 spi:
   clk_pin: GPIO18
   mosi_pin: GPIO23
   miso_pin: GPIO19
-  
+
 # Modbus RS485 from here  
 uart:
   id: mod_bus
@@ -126,7 +126,7 @@ switch:
       number: 5
       mode: OUTPUT
       inverted: False 
-      
+
   - platform: gpio
     name: "RELAY2"     
     pin:
@@ -135,7 +135,7 @@ switch:
       number: 6
       mode: OUTPUT
       inverted: False 
-      
+
   - platform: gpio
     name: "RELAY1"     
     pin:
@@ -144,7 +144,7 @@ switch:
       number: 7
       mode: OUTPUT
       inverted: False 
-      
+
 binary_sensor:
   - platform: gpio
     name: "INPUT1"
@@ -155,7 +155,7 @@ binary_sensor:
       # One of INPUT or INPUT_PULLUP
       mode: INPUT
       inverted: True
-      
+
   - platform: gpio
     name: "INPUT2"
     pin:
@@ -165,7 +165,7 @@ binary_sensor:
       # One of INPUT or INPUT_PULLUP
       mode: INPUT
       inverted: True
-      
+
   - platform: gpio
     name: "INPUT3"
     pin:
@@ -175,7 +175,7 @@ binary_sensor:
       # One of INPUT or INPUT_PULLUP
       mode: INPUT
       inverted: True
-      
+
   - platform: gpio
     name: "INPUT4"
     pin:
@@ -185,7 +185,7 @@ binary_sensor:
       # One of INPUT or INPUT_PULLUP
       mode: INPUT
       inverted: True
-   
+
 light:
   - platform: fastled_clockless
     chipset: WS2812B
