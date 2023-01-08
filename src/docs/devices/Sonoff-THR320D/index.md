@@ -14,7 +14,7 @@ Here's a workaround: https://community.home-assistant.io/t/bootloop-workaround-f
 
 (Source: https://templates.blakadder.com/sonoff_THR320D.html)
 Most GPIO are active-low, meaning they're "on" when they're pulled low.
-In ESPHome that's often called
+In ESPHome that's often called "inverted".
 
 | Pin    | Function                                                                  |
 | ------ | ----------------------------------                                        |
