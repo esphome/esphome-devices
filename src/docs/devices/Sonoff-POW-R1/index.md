@@ -7,7 +7,7 @@ standard: global
 
 ## Product Images
 
-![alt text](/inside.jpg "inside")
+![Alt text](/inside.jpg "inside")
 
 ## GPIO Pinout
 
