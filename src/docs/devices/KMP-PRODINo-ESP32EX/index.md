@@ -1,7 +1,7 @@
 ---
 title: KMP PRODINo ESP32EX
 date-published: 2023-01-06
-type: switch, relay, sensor, misc
+type: misc
 standard: global
 ---
 ![alt text](ProDinoESP32Ex_2.jpg "ProDinoESP32Ex")
@@ -51,13 +51,13 @@ ota:
 #optional onewire
 #dallas:
 #  - pin: GPIO21
-  
+
 sensor:
  #optional onewire
  # - platform: dallas
  #   address: 0xcb021564bbacffff
  #   name: "Ds18B20 Temperature"
-  
+
   - platform: dht
     model: AM2302
     pin: GPIO21
@@ -81,7 +81,7 @@ spi:
   mosi_pin: GPIO23
   miso_pin: GPIO19
 
-# Modbus RS485 from here  
+# Modbus RS485 from here
 uart:
   id: mod_bus
   tx_pin: GPIO16
@@ -100,7 +100,7 @@ modbus_controller:
     ## the Modbus device addr
     address: 0x1
     modbus_id: modbus1
-    setup_priority: -10    
+    setup_priority: -10
 # Modbus RS485 till here
 
 mcp23s08:
@@ -119,31 +119,31 @@ switch:
       inverted: False
 
   - platform: gpio
-    name: "RELAY3"     
+    name: "RELAY3"
     pin:
       mcp23s08: mcp23s08_hub
       # Use pin number 5
       number: 5
       mode: OUTPUT
-      inverted: False 
+      inverted: False
 
   - platform: gpio
-    name: "RELAY2"     
+    name: "RELAY2"
     pin:
       mcp23s08: mcp23s08_hub
       # Use pin number 6
       number: 6
       mode: OUTPUT
-      inverted: False 
+      inverted: False
 
   - platform: gpio
-    name: "RELAY1"     
+    name: "RELAY1"
     pin:
       mcp23s08: mcp23s08_hub
       # Use pin number 7
       number: 7
       mode: OUTPUT
-      inverted: False 
+      inverted: False
 
 binary_sensor:
   - platform: gpio
@@ -192,4 +192,5 @@ light:
     pin: GPIO0
     num_leds: 1
     rgb_order: GRB
-    name: "LED WS2812B" 
+    name: "LED WS2812B"
+```
