@@ -8,11 +8,11 @@ standard: us
 ## Bootloop Workaround
 
 Some people experience a boot loop when trying to flash esphome directly.
-Here's a workaround: https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868
+Here's a workaround: <https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868>
 
 ## GPIO Pinout
 
-(Source: https://templates.blakadder.com/sonoff_THR320D.html)
+(Source: <https://templates.blakadder.com/sonoff_THR320D.html>)
 Most GPIO are active-low, meaning they're "on" when they're pulled low.
 In ESPHome that's often called "inverted".
 
@@ -70,8 +70,8 @@ wifi:
 
 captive_portal:
 
-# This will take care of the display automatically. 
-# You don't need to tell it to print something to the display manually. 
+# This will take care of the display automatically.
+# You don't need to tell it to print something to the display manually.
 # It'll update every 60s or so.
 display:
   platform: tm1621
@@ -94,7 +94,7 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     name: "${friendly_name} Button"
-    # when pressed, it toggles 2 GPIO pins, both of which are needed to 
+    # when pressed, it toggles 2 GPIO pins, both of which are needed to
     # activate the main (big) relay
     on_press:
       then:
@@ -147,14 +147,14 @@ switch:
 
 
 light:
-  # The middle (blue) LED is used as wifi status indicator. 
+  # The middle (blue) LED is used as wifi status indicator.
   - platform: status_led
     name: "${friendly_name} State"
     pin:
       number: GPIO15
       inverted: true
 
-  
+
 sensor:
   # You need to specify here that it's an SI7021 sensor.
   # This assumes you're using their device "Sonoff THS01"
