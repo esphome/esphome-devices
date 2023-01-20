@@ -138,6 +138,7 @@ switch:
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: mainRelayOn
+    restore_mode: ALWAYS_OFF
   # internal momentary switch for main relay OFF
   - platform: gpio
     id: mainRelayOff
@@ -148,20 +149,30 @@ switch:
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: mainRelayOff
-  # Rightmost (green) LED that's kinda useless
+    restore_mode: ALWAYS_OFF
+  # dry contact relay switch
+  - platform: gpio
+    id: dryContRelay
+    name: "Dry Contact Relay"
+    pin:
+      number: GPIO4
+      inverted: true
+    on_turn_on:
+      - switch.turn_on: ${name}_idk_led
+    on_turn_off:
+      - switch.turn_off: ${name}_idk_led
+  # Rightmost (green) LED; use as dry contact indicator
   - platform: gpio
     id: ${name}_idk_led
     pin:
       number: GPIO13
       inverted: true
-    restore_mode: ALWAYS_OFF
   # Leftmost (red) LED that's used to indicate the relay being on/off
   - platform: gpio
     id: ${name}_onoff_led
     pin:
       number: GPIO16
       inverted: true
-    restore_mode: ALWAYS_OFF
   # This is needed to power the external temp/humidity sensor.
   # It receives 3v from this pin, which is pulled up on boot.
   # TODO: This should probably be an internal switch.
