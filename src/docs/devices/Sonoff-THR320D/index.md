@@ -35,8 +35,8 @@ relay ON, and a pulse on pin 2 switches the relay OFF.
 
 ## Basic Configuration
 
-Internal momentary switches are used to pulse the ON/OFF pins on the main relay. 
-A template switch is used to hide the complexity of controlling the two internal 
+Internal momentary switches are used to pulse the ON/OFF pins on the main relay.
+A template switch is used to hide the complexity of controlling the two internal
 momentary switches.
 
 One shortcoming here is we don't have any way to confirm the true state of the
