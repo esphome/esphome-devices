@@ -16,12 +16,15 @@ Here's a workaround: <https://community.home-assistant.io/t/bootloop-workaround-
 Most GPIO are active-low, meaning they're "on" when they're pulled low.
 In ESPHome that's often called "inverted".
 
+The main relay is bistable/latching, meaning a pulse on pin 1 switches the
+relay ON, and a pulse on pin 2 switches the relay OFF.
+
 | Pin    | Function                                                                  |
 | ------ | ----------------------------------                                        |
 | GPIO0  | Push Button (HIGH = off, LOW = on)                                        |
 | GPIO4  | Small Relay (Dry Contact)                                                 |
-| GPIO19 | Large/Main Relay pin 1                                                    |
-| GPIO22 | Large/Main Relay pin 2, both have to be low to toggle the relay           |
+| GPIO19 | Large/Main Relay pin 1, pull low for relay ON                             |
+| GPIO22 | Large/Main Relay pin 2, pull low for relay OFF                            |
 | GPIO5  | Display (TM1621) Data                                                     |
 | GPIO17 | Display (TM1621) CS                                                       |
 | GPIO18 | Display (TM1621) Write                                                    |
@@ -31,6 +34,14 @@ In ESPHome that's often called "inverted".
 | GPIO13 | Right LED (Green)                                                         |
 
 ## Basic Configuration
+
+Internal momentary switches are used to pulse the ON/OFF pins on the main relay.
+A template switch is used to hide the complexity of controlling the two internal
+momentary switches.
+
+One shortcoming here is we don't have any way to confirm the true state of the
+main relay, and so there is a possibility that our template switch could get out
+of sync with the true state of the relay.
 
 ```yaml
 substitutions:
@@ -94,49 +105,74 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     name: "${friendly_name} Button"
-    # when pressed, it toggles 2 GPIO pins, both of which are needed to
-    # activate the main (big) relay
     on_press:
       then:
-        - switch.toggle: relay1
-        - switch.toggle: relay2
-        - switch.toggle: ${name}_onoff_led
+        - switch.toggle: mainRelayVirt
   - platform: status
     name: "${friendly_name} Status"
 
 
 
 switch:
-  # I don't fully understand this - the main relay needs 2 GPIO pins,
-  # GPIO19 and GPIO22 to be low in order to activate.
-  # There's probably a better way to do that in esphome with switch
-  # templates but I wasn't able to get that to work.
+  # virtual switch to represent the main relay
+  # as far as I know, we have no way to confirm the real state
+  - platform: template
+    id: mainRelayVirt
+    name: "Main Relay"
+    turn_on_action:
+      - switch.turn_on: mainRelayOn
+      - switch.turn_on: ${name}_onoff_led
+    turn_off_action:
+      - switch.turn_on: mainRelayOff
+      - switch.turn_off: ${name}_onoff_led
+    assumed_state: True
+    optimistic: True
+    restore_state: True
+  # internal momentary switch for main relay ON
   - platform: gpio
-    id: relay1
+    id: mainRelayOn
     internal: True
     pin:
       number: GPIO19
       inverted: true
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: mainRelayOn
+    restore_mode: ALWAYS_OFF
+  # internal momentary switch for main relay OFF
   - platform: gpio
-    id: relay2
+    id: mainRelayOff
     internal: True
     pin:
       number: GPIO22
       inverted: true
-  # Rightmost (green) LED that's kinda useless
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: mainRelayOff
+    restore_mode: ALWAYS_OFF
+  # dry contact relay switch
+  - platform: gpio
+    id: dryContRelay
+    name: "Dry Contact Relay"
+    pin:
+      number: GPIO4
+      inverted: true
+    on_turn_on:
+      - switch.turn_on: ${name}_idk_led
+    on_turn_off:
+      - switch.turn_off: ${name}_idk_led
+  # Rightmost (green) LED; use as dry contact indicator
   - platform: gpio
     id: ${name}_idk_led
     pin:
       number: GPIO13
       inverted: true
-    restore_mode: ALWAYS_OFF
   # Leftmost (red) LED that's used to indicate the relay being on/off
   - platform: gpio
     id: ${name}_onoff_led
     pin:
       number: GPIO16
       inverted: true
-    restore_mode: ALWAYS_OFF
   # This is needed to power the external temp/humidity sensor.
   # It receives 3v from this pin, which is pulled up on boot.
   # TODO: This should probably be an internal switch.
@@ -182,13 +218,9 @@ climate:
     min_heating_run_time: 300s
     min_idle_time: 30s
     heat_action:
-      - switch.turn_on: relay1
-      - switch.turn_on: relay2
-      - switch.turn_on: ${name}_onoff_led
+      - switch.turn_on: mainRelayVirt
     idle_action:
-      - switch.turn_off: relay1
-      - switch.turn_off: relay2
-      - switch.turn_off: ${name}_onoff_led
+      - switch.turn_off: mainRelayVirt
     heat_deadband: 0.5 # how many degrees can we go under the temp before starting to heat
     heat_overrun: 0.5 # how many degrees can we go over the temp before stopping
 
