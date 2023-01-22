@@ -125,12 +125,16 @@ switch:
     pin: GPIO4
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
+    # Ensure only one switch at a time is on (https://esphome.io/components/switch/gpio.html#interlocking)
+    interlock: &interlock_group [shelly_relay_1, shelly_relay_2]
+
   - platform: gpio
     id: shelly_relay_2
     name: ${devicename} Relay2
     pin: GPIO15
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
+    interlock: *interlock_group
 ```
 
 ## Configuration as relay with overpower and overtemperature protection
@@ -307,12 +311,16 @@ switch:
     pin: GPIO4
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
+    # Ensure only one switch at a time is on (https://esphome.io/components/switch/gpio.html#interlocking)
+    interlock: &interlock_group [shelly_relay_1, shelly_relay_2]
+
   - platform: gpio
     id: shelly_relay_2
     name: ${channel_2} relay
     pin: GPIO15
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
+    interlock: *interlock_group
 
 binary_sensor:
   - platform: gpio
