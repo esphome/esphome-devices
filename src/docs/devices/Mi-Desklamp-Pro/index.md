@@ -50,18 +50,11 @@ python.exe -m esptool -b 115200 --port COM3 read_flash 0x00000 0x400000 your/fol
 esphome:
   name: midesklamppro
 
-# PLEASE NOTE:
-#
-# It's only possible to build this firmware on x86_64/amd64 machine due to limitations of ESP-IDF toolchain.
-# Firmware for this particular ESP32 chip in Mi Desk Lamp Pro should be built with 1 CPU core disabled and MAC CRC check bypassed.
-#
-# You may also want to temporarily replace !secrets with hardcoded strings for the first build.
-
 esp32:
   board: esp32doit-devkit-v1
   framework:
     type: esp-idf
-    version: recommended
+    version: 4.4.1
     sdkconfig_options:
       CONFIG_FREERTOS_UNICORE: y
     advanced:
@@ -123,19 +116,42 @@ binary_sensor:
       mode: INPUT_PULLDOWN
     on_click:
       then:
-        - light.toggle: light1
+        - light.toggle:
+            id: light1
+            transition_length: 0.5s
+    filters:
+      - delayed_off: 5ms
+
+number:
+  - id: freq1
+    name: "Flicker Frequency"
+    icon: "mdi:sine-wave"
+    unit_of_measurement: "Hz"
+    platform: template
+    min_value: 0
+    max_value: 100000
+    initial_value: 100000
+    mode: box
+    step: 1
+    set_action:
+      - output.ledc.set_frequency:
+          id: output_cw
+          frequency: !lambda return x;
+      - output.ledc.set_frequency:
+          id: output_ww
+          frequency: !lambda return x;
 
 output:
   - platform: ledc
     pin: GPIO2
     id: output_cw
     power_supply: power
-    frequency: 10000Hz
+    frequency: 100000Hz
   - platform: ledc
     pin: GPIO4
     id: output_ww
     power_supply: power
-    frequency: 10000Hz
+    frequency: 100000Hz
 
 power_supply:
   - id: power
@@ -146,9 +162,9 @@ power_supply:
 light:
   - platform: cwww
     id: light1
+    name: "Mi Desk Lamp Pro"
     default_transition_length: 0s
     constant_brightness: true
-    name: "Mi Desk Lamp Pro"
     cold_white: output_cw
     warm_white: output_ww
     cold_white_color_temperature: 4800 K

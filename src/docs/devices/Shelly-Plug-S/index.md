@@ -43,6 +43,7 @@ substitutions:
   power_cal_meas: "1710.0"
   power_cal_real: "1685.0"
 
+  max_current: "10"
   max_power: "2400"
   max_temp: "70.0"
 
@@ -172,6 +173,16 @@ sensor:
       unit_of_measurement: "A"
       accuracy_decimals: 3
       icon: mdi:flash-outline
+      on_value_range:
+        - above: ${max_current}
+          then:
+            - switch.turn_off: relay
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: Message from ${devicename}
+                data_template:
+                  message: Switch turned off because current exceeded ${max_current}A
     voltage:
       name: "${channel_1} voltage"
       unit_of_measurement: "V"
