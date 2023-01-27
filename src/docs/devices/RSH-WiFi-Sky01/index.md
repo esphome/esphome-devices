@@ -9,7 +9,7 @@ Manufacturer: [tuya](https://expo.tuya.com/smart/lighting/ambient-lighting/star-
 
 ![Product Image](/Sky01.jpg "Product Image")
 
-- Original hardware mod: [3ATIVE VFX Studio](https://www.youtube.com/watch?v=YwHWbcuztuY&ab_channel=3ATIVEVFXStudio) 
+- Original hardware mod: [3ATIVE VFX Studio](https://www.youtube.com/watch?v=YwHWbcuztuY&ab_channel=3ATIVEVFXStudio)
   - [Github](https://github.com/3ative/nebula-Light)
 - Modified YAML by [kireque](https://github.com/kireque/esphome_nebula_light)
 
@@ -49,13 +49,13 @@ esphome:
   esp8266_restore_from_flash: true
   project:
     name: 'tuya.galaxy'
-    version: 'RSH-WiFi-Sky01'  
+    version: 'RSH-WiFi-Sky01'
 
 globals:
   - id: dim
     type: bool
     restore_value: no
-    initial_value: 'false'  
+    initial_value: 'false'
 
 api:
 
@@ -96,11 +96,11 @@ light:
         - light.turn_on: btn_led
     on_turn_off:
       then:
-        - light.turn_off: btn_led        
+        - light.turn_off: btn_led
 
   - platform: monochromatic
     name: ${friendly_name} Laser
-    icon: mdi:laser-pointer    
+    icon: mdi:laser-pointer
     id: laser
     output: laser_pwm
     restore_mode: ALWAYS_OFF
@@ -108,16 +108,16 @@ light:
 
   - platform: status_led
     name: ${friendly_name} Status Led
-    icon: mdi:led-outline    
-    entity_category: diagnostic    
+    icon: mdi:led-outline
+    entity_category: diagnostic
     id: ${node_name}_status_led
     pin: GPIO0
     internal: true
 
   - platform: monochromatic
     name: ${friendly_name} Button Led
-    icon: mdi:led-outline        
-    entity_category: diagnostic    
+    icon: mdi:led-outline
+    entity_category: diagnostic
     id: btn_led
     output: btn_led_pwm
     restore_mode: ALWAYS_OFF
@@ -163,7 +163,7 @@ output:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO16
       mode: INPUT_PULLDOWN_16
       inverted: true
@@ -175,7 +175,7 @@ binary_sensor:
           - ON for at most 1s
           - OFF for at least 0.350s
       then:
-        - light.toggle: rgb_light        
+        - light.toggle: rgb_light
     # double click
     - timing:
           - ON for at most 1s
@@ -188,7 +188,7 @@ binary_sensor:
     on_press:
       then:
       - if:
-          condition: 
+          condition:
               lambda: |-
                 return id(dim);
           then:
