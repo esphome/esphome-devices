@@ -77,8 +77,8 @@ sensor:
   # Mi Desk Lamp 1S Config
   - platform: rotary_encoder
     id: rotation
-    pin_a: GPIO26
-    pin_b: GPIO27
+    pin_a: GPIO27
+    pin_b: GPIO26
     resolution: 2
     on_value:
       then:
