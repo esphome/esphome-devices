@@ -169,22 +169,22 @@ text_sensor:
     name: "${friendly_name} Self Check Result"
     icon: mdi:eye
     lambda: |-
-      if (id(selfcheck).state = 0) {
+      if (id(selfcheck).state == 0) {
         return {"Checking"};
       }
-      else if (id(selfcheck).state = 1) {
+      else if (id(selfcheck).state == 1) {
         return {"Check Success"};
       }
-      else if (id(selfcheck).state = 2) {
+      else if (id(selfcheck).state == 2) {
         return {"Check Failure"};
       }
-      else if (id(selfcheck).state = 3) {
+      else if (id(selfcheck).state == 3) {
         return {"Others"};
       }
-      else if (id(selfcheck).state = 4) {
+      else if (id(selfcheck).state == 4) {
         return {"Comm Fault"};
       }
-      else if (id(selfcheck).state = 5) {
+      else if (id(selfcheck).state == 5) {
         return {"Radar Fault"};
       }
       else return {"Unknown"};
@@ -399,22 +399,22 @@ text_sensor:
     name: "${friendly_name} Self Check Result"
     icon: mdi:eye
     lambda: |-
-      if (id(selfcheck).state = 0) {
+      if (id(selfcheck).state == 0) {
         return {"Checking"};
       }
-      else if (id(selfcheck).state = 1) {
+      else if (id(selfcheck).state == 1) {
         return {"Check Success"};
       }
-      else if (id(selfcheck).state = 2) {
+      else if (id(selfcheck).state == 2) {
         return {"Check Failure"};
       }
-      else if (id(selfcheck).state = 3) {
+      else if (id(selfcheck).state == 3) {
         return {"Others"};
       }
-      else if (id(selfcheck).state = 4) {
+      else if (id(selfcheck).state == 4) {
         return {"Comm Fault"};
       }
-      else if (id(selfcheck).state = 5) {
+      else if (id(selfcheck).state == 5) {
         return {"Radar Fault"};
       }
       else return {"Unknown"};
