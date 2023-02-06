@@ -148,7 +148,7 @@ sensor:
 
     energy:
       name: "${friendly_name} - Energie"
-      unit_of_measurement: kWh
+      unit_of_measurement: Wh
       icon: mdi:calendar-clock
 
 status_led:
