@@ -6,9 +6,9 @@ standard: eu
 ---
 
 
-Basic Configuration with standard switches
+## Basic Configuration with standard switches
 
-YAML:
+```yaml
 esphome:
   name: xxx
 
@@ -77,11 +77,11 @@ switch:
     turn_off_action:
       - uart.write: [0xA0, 0x04, 0x00, 0xA4]
     optimistic: true
-    
+```  
 
-Configuration with momentary switches (push buttons with 1 sek press time)
+## Configuration with momentary switches (push buttons with 1 sek press time)
 
-YAML:
+```yaml
 esphome:
   name: xxx
 
@@ -162,4 +162,4 @@ switch:
     on_turn_on:
     - delay: 1000ms
     - switch.turn_off: relay4
-    
+```
