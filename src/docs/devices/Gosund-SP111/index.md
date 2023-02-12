@@ -175,8 +175,10 @@ switch:
     id: button_switch
     turn_on_action:
       - switch.turn_on: relay
+      - output.turn_on: red_led
     turn_off_action:
       - switch.turn_off: relay
+      - output.turn_off: led_red
   - platform: gpio
     pin: GPIO15
     id: relay
