@@ -7,7 +7,7 @@ standard: us
 
 Martin Jerry US-FC-01 Switch![image](MJ-usfc01.jpg)
 
-[Amazon Link](https://a.co/d/2o4ofR9)
+[Amazon Link](https://amzn.to/3Sb4rYI)
 
 ## Notes
 
