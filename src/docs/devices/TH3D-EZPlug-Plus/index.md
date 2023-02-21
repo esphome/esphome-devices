@@ -1,6 +1,6 @@
 ---
 title: TH3D EZPlug+
-date-published: 2022-02-20
+date-published: 2023-02-20
 type: plug
 standard: us
 ---
@@ -137,7 +137,7 @@ binary_sensor:
 light:
   - platform: status_led
     id: led
-    pin: 
+    pin:
       number: GPIO13
       inverted: True
 ```
