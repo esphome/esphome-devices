@@ -30,6 +30,8 @@ esphome:
   name: TH3D_EZPlug_Plus
   platform: ESP8266
   board: esp01_1m
+  restore_from_flash: true
+  early_pin_init: true
 
 wifi:
   ssid: !secret wifi_ssid
