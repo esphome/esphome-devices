@@ -11,11 +11,11 @@ The [WYZE Light Strip Pro](https://www.wyze.com/products/wyze-lightstrip-pro) fe
 
 Originally when I flashed the device I had converted a tasmota configuration, at this time I am unable to find the original.
 
-pic placeholder
+![Flash pins](wlpstpr_pads.jpg "Flash Pins")
 
 To flash you need to open the contoller to access the pins on the pcb
 
-pic placeholder
+![Board IO](wlpstpr_io.jpg "Board IO")
 
 The board uses V+, V-, R/Q1, and G/Q2 for the connectors. B/Q3 is unpopulated and might be connected to the ESP, I did not test this.
 
