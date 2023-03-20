@@ -54,7 +54,6 @@ esp32:
   board: esp32doit-devkit-v1
   framework:
     type: esp-idf
-    version: 4.4.1
     sdkconfig_options:
       CONFIG_FREERTOS_UNICORE: y
     advanced:
