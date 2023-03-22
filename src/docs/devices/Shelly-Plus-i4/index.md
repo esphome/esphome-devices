@@ -382,7 +382,7 @@ binary_sensor:
       - delayed_on_off: 50ms
 ```
 
-If you want to use the Arduino framework you can use the Tasmota platfomio 
+If you want to use the Arduino framework you can use the Tasmota platfomio
 (https://github.com/tasmota/platform-espressif32/) port as follows:
 
 ``` yaml
@@ -404,4 +404,3 @@ esp32:
   board: esp32doit-devkit-v1
 ### the rest of your config
 ```
-
