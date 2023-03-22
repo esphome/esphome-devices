@@ -381,3 +381,26 @@ binary_sensor:
     filters:
       - delayed_on_off: 50ms
 ```
+
+If you want to use the Arduino framework you can use the Tasmota platfomio
+(https://github.com/tasmota/platform-espressif32/) port as follows:
+
+``` yaml
+esphome:
+  name: ${device_name}
+  friendly_name: ${friendly_name}
+  platformio_options:
+      board_build.f_cpu: 160000000L
+      platform: https://github.com/tasmota/platform-espressif32/releases/download/2023.02.00/platform-espressif32.zip
+      framework: arduino
+      platform_packages:
+        - framework-arduinoespressif32 @ https://github.com/espressif/arduino-esp32#master
+      build_flags:
+        - "-DCONFIG_FREERTOS_UNICORE=1"
+        - "-DFRAMEWORK_ARDUINO_SOLO1"
+      board: esp32-solo1
+
+esp32:
+  board: esp32doit-devkit-v1
+### the rest of your config
+```
