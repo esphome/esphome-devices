@@ -16,6 +16,8 @@ standard: global
 | GPIO2  | IR Transmitter     |
 | GPIO4  | Buzzer             |
 
+[Additional pinout/design details](https://www.kincony.com/kc868-ag-iot-ir-controller.html)
+
 ## Basic Configuration
 
 ```yaml
