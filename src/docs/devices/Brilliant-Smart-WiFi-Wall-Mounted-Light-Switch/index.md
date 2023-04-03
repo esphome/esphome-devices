@@ -18,7 +18,7 @@ Ref: https://thehomeautomator.com.au/running-esphome-with-home-assistant/
 
 This yaml is cobbled together from:
 
-https://www.esphome-devices.com/devices/DETA-Grid-Connect-Smart-Switch/ (for the WiFi signal and Uptime sensors and the Restart option)
+https://devices.esphome.io/devices/DETA-Grid-Connect-Smart-Switch/ (for the WiFi signal and Uptime sensors and the Restart option)
 
 https://esphome.io/components/tuya.html
 

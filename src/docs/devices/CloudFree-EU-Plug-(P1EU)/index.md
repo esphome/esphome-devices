@@ -10,8 +10,8 @@ standard: eu
 Model reference: P1EU  
 Equivalent devices:
 
-- [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
-- [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
+- [AWOW EU3S 16A Power Monitoring Plug](https://devices.esphome.io/devices/awow-eu3s-power-monitoring-plug/)
+- [Loetad EU3S 16A Power Monitoring Plug](https://devices.esphome.io/devices/loetad-eu3s-power-monitoring-plug/)
 - Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
 - iQtech SmartLife Power Monitoring Plug (WS020)
 

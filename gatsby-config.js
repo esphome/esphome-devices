@@ -7,11 +7,11 @@ if (process.env.ALGOLIA_ADMIN_KEY) {
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `ESPHome-Devices`,
-    defaultTitle: `ESPHome-Devices`,
-    siteTitleShort: `ESPHome-Devices`,
+    siteTitle: `devices.esphome.io`,
+    defaultTitle: `devices.esphome.io`,
+    siteTitleShort: `devices.esphome.io`,
     siteDescription: `This website is a repository of device configuration templates and setup guides for devices running ESPHome firmware.`,
-    siteUrl: `https://www.esphome-devices.com`,
+    siteUrl: `https://devices.esphome.io`,
     siteAuthor: `@tekmaven`,
     siteImage: `/banner.png`,
     siteLanguage: `en`,
@@ -43,7 +43,7 @@ module.exports = {
       options: {
         configPath: `src/config`,
         docsPath: `src/docs`,
-        repositoryUrl: `https://github.com/esphome-devices/esphome-devices`,
+        repositoryUrl: `https://github.com/esphome/esphome-devices`,
         baseDir: ``,
       },
     },
@@ -62,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.esphome-devices.com`,
+        siteUrl: `https://devices.esphome.io`,
       },
     },
     `gatsby-plugin-offline`,

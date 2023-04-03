@@ -1,5 +1,5 @@
 {
-  "name": "esphome-devices",
+  "name": "devices.esphome.io",
   "private": true,
   "version": "1.0.0",
   "description": "This website is a repository of device configuration templates and setup guides for devices running ESPHome firmware.",
