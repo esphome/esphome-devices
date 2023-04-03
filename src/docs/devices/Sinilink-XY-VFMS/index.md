@@ -25,7 +25,7 @@ Can be tricky to solder the ground connection to the PCB due to heavy ground pla
 
 ## Basic Config
 
-The following configuration is adapted from https://github.com/esphome-devices/esphome-devices/blob/main/_devices/Sinilink-XY-WFUSB-USB-Switch-Relay/Sinilink-XY-WFUSB-USB-Switch-Relay.md with only minor changes to fit the new device.
+The following configuration is adapted from https://github.com/esphome/esphome-devices/blob/main/_devices/Sinilink-XY-WFUSB-USB-Switch-Relay/Sinilink-XY-WFUSB-USB-Switch-Relay.md with only minor changes to fit the new device.
 
 There is a 3D printable case available from https://www.thingiverse.com/thing:4638431 which I remixed from https://www.thingiverse.com/thing:4146127
 
