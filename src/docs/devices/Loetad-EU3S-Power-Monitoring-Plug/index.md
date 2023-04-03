@@ -9,8 +9,8 @@ standard: eu
 
 Model reference: EU3S
 
-- [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
-- [CloudFree EU Plug (P1EU)](https://www.esphome-devices.com/devices/cloudfree-eu-plug-%28p1eu%29/)
+- [AWOW EU3S 16A Power Monitoring Plug](https://devices.esphome.io/devices/awow-eu3s-power-monitoring-plug/)
+- [CloudFree EU Plug (P1EU)](https://devices.esphome.io/devices/cloudfree-eu-plug-%28p1eu%29/)
 - Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
 - iQtech SmartLife Power Monitoring Plug (WS020)
 

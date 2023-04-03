@@ -11,7 +11,7 @@ module.exports = {
     defaultTitle: `ESPHome-Devices`,
     siteTitleShort: `ESPHome-Devices`,
     siteDescription: `This website is a repository of device configuration templates and setup guides for devices running ESPHome firmware.`,
-    siteUrl: `https://www.esphome-devices.com`,
+    siteUrl: `https://devices.esphome.io`,
     siteAuthor: `@tekmaven`,
     siteImage: `/banner.png`,
     siteLanguage: `en`,
@@ -62,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.esphome-devices.com`,
+        siteUrl: `https://devices.esphome.io`,
       },
     },
     `gatsby-plugin-offline`,

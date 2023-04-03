@@ -25,7 +25,7 @@ More info:
 
 ## Basic Configuration
 
-Most of this code is from from <https://www.esphome-devices.com/devices/awp04l/>
+Most of this code is from from <https://devices.esphome.io/devices/awp04l/>
 
 ```yaml
 # Check or edit all secrets to match yours.
