@@ -48,7 +48,6 @@ switch:
     name: "a2-light1"
     pin: 15
     inverted: False
-
   - platform: gpio
     name: "a2-light2"
     pin: 2
@@ -60,7 +59,6 @@ binary_sensor:
     pin: 
       number: 36
       inverted: true
-
   - platform: gpio
     name: "a2-input2"
     pin:
