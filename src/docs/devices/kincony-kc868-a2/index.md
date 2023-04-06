@@ -10,11 +10,14 @@ standard: global
 
 | Pin    | Function           |
 | ------ | ------------------ |
-| GPIO22 | 433MHz Transmitter |
-| GPIO13 | 433MHz Receiver    |
-| GPIO23 | IR Receiver        |
-| GPIO2  | IR Transmitter     |
-| GPIO4  | Buzzer             |
+| GPIO15 | Relay1             |
+| GPIO2  | Relay2             |
+| GPIO33 | 1-wire GPIO-1      |
+| GPIO14 | 1-wire GPIO-2      |
+| GPIO35 | RS485-RXD          |
+| GPIO32 | RS485-TXD          |
+| GPIO34 | GSM-RXD            |
+| GPIO13 | GSM-TXD            |
 
 [Additional pinout/design details](https://www.kincony.com/forum/forumdisplay.php?fid=43)
 
