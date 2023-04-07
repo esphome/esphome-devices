@@ -56,7 +56,7 @@ switch:
 binary_sensor:
   - platform: gpio
     name: "a2-input1"
-    pin: 
+    pin:
       number: 36
       inverted: true
   - platform: gpio
@@ -64,3 +64,4 @@ binary_sensor:
     pin:
       number: 39
       inverted: true
+```
