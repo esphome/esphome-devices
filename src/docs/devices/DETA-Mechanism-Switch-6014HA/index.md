@@ -1,14 +1,15 @@
 ---
 title: DETA Mechanism Switch (6014HA)
-date-published: 2023-04-08
+date-published: 2023-04-09
 type: switch
 standard: au
 ---
 
 ## General Notes
+
 A smart switch that does not require a neutural, needs a minumum 20w load or a [load correction device](https://www.clipsal.com/products/detail?CatNo=31LCDA&itemno=31LCDA&tab-document-1=0)
 
-Available from [Bunnings](https://www.bunnings.com.au/deta-smart-switch-mechanism_p0346912) 
+Available from [Bunnings](https://www.bunnings.com.au/deta-smart-switch-mechanism_p0346912)
 
 ![Deta 6014 Switch](deta_6014HA.png "Deta 6014")
 
@@ -21,7 +22,9 @@ Available from [Bunnings](https://www.bunnings.com.au/deta-smart-switch-mechanis
 | GPIO16 | Relay                     |
 
 ## Conversion
-To use ESPHome, replace the WB3S with a ESP12F. 
+
+To use ESPHome, replace the WB3S with a ESP12F.
+
 - Link GPIO15 to Gnd (recommended via 10k resistor)
 - Link EN to Vcc (recommended via 10k resistor)
 
