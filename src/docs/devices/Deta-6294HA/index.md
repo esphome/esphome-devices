@@ -222,6 +222,5 @@ text_sensor:
   - platform: template
     name: Uptime
     id: uptime_human
-    icon: mdi:clock-start 
-   
+    icon: mdi:clock-start
 ```
