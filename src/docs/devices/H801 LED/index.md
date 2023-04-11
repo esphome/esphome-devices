@@ -12,7 +12,7 @@ chip.
 
 It has 5 seperate PWM outputs (each driven by a [DTU35N06](http://www.din-tek.jp/Upload/Product%20Doc/Datasheet/DTU35N06.pdf)
 MOSFET rated for 106W max power), and can be used as a [RGB](https://esphome.io/components/light/rgb.html) /
-[RGBW](https://esphome.io/components/light/rgbw.html) / [RGBWW](https://esphome.io/components/light/rgbww.html) / 
+[RGBW](https://esphome.io/components/light/rgbw.html) / [RGBWW](https://esphome.io/components/light/rgbww.html) /
 [RGBCT](https://esphome.io/components/light/rgbct.html)
 controller or configured with any combination of up to five
 [individual monochromatic PWM](/components/light/monochromatic.html) lights. See [A closer look at the H801 LED WiFi
@@ -133,13 +133,13 @@ binary_sensor:
 
 | Function       | ESP Pin |
 | -------------- | ------- |
-| R (PWM1)       |	GPIO15 |
-| G (PWM2)       |	GPIO13 |
-| B (PWM3)       |	GPIO12 |
-| W1 (PWM4)      | 	GPIO14 |
-| W2 (PWM5)      | 	GPIO4  |
-| Jumper J3      | 	GPIO0  |
-| RX             |  GPIO2  |
-| TX             |  GPIO3  |
-| LED D1 (red)   | 	GPIO5  |
-| LED D2 (green) | 	GPIO1  |
+| R (PWM1)       | GPIO15  |
+| G (PWM2)       | GPIO13  |
+| B (PWM3)       | GPIO12  |
+| W1 (PWM4)      | GPIO14  |
+| W2 (PWM5)      | GPIO4   |
+| Jumper J3      | GPIO0   |
+| RX             | GPIO2   |
+| TX             | GPIO3   |
+| LED D1 (red)   | GPIO5   |
+| LED D2 (green) | GPIO1   |
