@@ -79,7 +79,7 @@ sensor:
         id: hum
       address: 0x76
       update_interval: 10s
-      
+
     - platform: mhz19
       co2:
         name: "CO2"
@@ -90,12 +90,12 @@ sensor:
       automatic_baseline_calibration: false
       uart_id: mh
       id: mh_sensor
-      
+
     - platform: tsl2561
       name: "Ambient Light"
       update_interval: 3s
       id: light_sens
-      
+
     - platform: sgp30
       eco2:
         name: "eCO2"
@@ -156,14 +156,13 @@ switch:
       mode: OUTPUT
     restore_mode: ALWAYS_ON
     id: pms_set
-    
+
   - platform: template
     name: "CO2 Sensor Zero Calibration"
     turn_on_action:
       - mhz19.calibrate_zero: mh_sensor
       - switch.turn_off: co2_cal
     id: co2_cal
-
 
 display:
   - platform: ssd1306_i2c

@@ -14,7 +14,7 @@ from
 
 ## Device overview
 
-#### Note
+### Note
 
 The following information relates to the desk model depicted above. A
 free-standing version and a desk version with a longer arm are
@@ -87,28 +87,10 @@ output:
 
 ## Flashing
 
-#### Warning
+### Warning
 
 The circuit inside will be exposed to mains voltage. Do not connect your
-device to the mains when flashing. Flashing this device via a serial
-connection will involve precarious soldering and cutting through
-insulating heat-shrink tubing which will have to be replaced. If you are
-uncomfortable with this, or are not confident around mains voltage, do
-not attempt to do this! Using the Tuya-convert method is preferred.
-:::
-
-1.  Disconnect the device from mains voltage!
-2.  Open the device. The plastic and aluminum halves can be separated by
-    twisting the plastic part counter-clockwise. If you\'re okay with a
-    few scuffs you can also use a screwdriver (or a spudger) to separate
-    the two halves.
-3.  Remove the two screws holding the round plate with the LEDs. It is
-    connected to the main PCB with a little cable. Make note of the
-    orientation of this connection to ensure you reconnect it correctly
-    later.
-4.  Carefully remove the heat-shrink tubing around the two main PCBs.
-5.  Like any ESP device, to flash this chip using serial you\'ll need
-    3V3, GND, RX, TX and GPIO0
+device to the mains when flashing. 
 
 ![image](/iwoole_rgbw_table_lamp_connections_top.jpg)
 
@@ -119,31 +101,11 @@ any reason, you wanted to connect any other sensor or component, the
 exposed pin for GPIO5 can be used, in addition to RX (GPIO3) and TX
 (GPIO1).
 
-![image](/iwoole_rgbw_table_lamp_connections_bottom.jpg)
+Ensure GPIO0 is connected to ground to get the device into programming mode, 
+but also don\'t forget to disconnect this when you expect the device to start in normal mode.
 
-I have made the following connections, I used the pad for GPIO0 because
-I did not know of the other connection point yet.
+![image](/iwoole_rgbw_table_lamp_connections_bottom.jpg)
 
 ![image](/iwoole_rgbw_table_lamp_wires_top.jpg)
 
 ![image](/iwoole_rgbw_table_lamp_wires_bottom.jpg)
-
-6.  Flash the chip as you would with any other, using
-    [ESPHome-Flasher](https://github.com/esphome/esphome-flasher) or any
-    other tool of your choosing. While this is not meant as a tutorial
-    on flashing ESP chips, some general hints:
-
-- Always double-check your connections, and don\'t change any when the
-    ESP is powered. I fried one of these mood lights this way.
-- Ensure GPIO0 is connected to ground to get the device into
-    programming mode, but also don\'t forget to disconnect this when you
-    expect the device to start in normal mode.
-- When working with a breadboard, an FTDI adapter and jumper wires, it
-    is very easy for something to become disconnected. Try to use as few
-    wires as possible.
-
-7.  Re-apply some heat-shrink tubing or cover the PCBs in electrical
-    tape. Make sure none of the traces or solder joints are exposed
-    anymore. Re-connect the LEDs (see cable orientation in one of the
-    images above).
-8.  Screw down the plate with LEDs and close the device.

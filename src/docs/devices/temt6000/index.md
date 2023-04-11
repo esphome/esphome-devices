@@ -35,7 +35,7 @@ sensor:
 Pins on the TEMT6000. Connect `OUT` to an ADC
 pin, `GND` to `GND`, and `VCC` to `3.3V`.
 
-## Formula Explanation:
+## Formula Explanation
 
 To get the illuminance in lux, we first need to convert the measured
 voltage to the current flowing across the TEMT6000 sensor. This current
@@ -65,5 +65,4 @@ a constant value.
 
 ## See Also
 
--   [TEMT6000
-    datasheet](https://www.sparkfun.com/datasheets/Sensors/Imaging/TEMT6000.pdf)
+- [TEMT6000 datasheet](https://www.sparkfun.com/datasheets/Sensors/Imaging/TEMT6000.pdf)
