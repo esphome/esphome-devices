@@ -4,86 +4,101 @@ date-published: 2023-03-05
 type: light
 standard: global
 ---
-[2AQUQGE50029](https://fccid.io/2AQUQGE50029)
 
-The H801 is pretty affordable and easy to hack and adapt to your needs. It can be found on [AliExpress](https://s.click.aliexpress.com/e/bbnUDBZW) and other sites. The board is based on an [ESP8266EX](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)chip.
+The H801 is pretty affordable and easy to hack and adapt to your needs.
+It can be found on [AliExpress](https://s.click.aliexpress.com/e/bbnUDBZW) and other sites.
+The board is based on an [ESP8266EX](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)
+chip.
 
-It has 5 seperate PWM outputs (each driven by a [DTU35N06](http://www.din-tek.jp/Upload/Product%20Doc/Datasheet/DTU35N06.pdf) MOSFET rated
-for 106W max power), and can be used as a RGB/RGBW/RGBWW/RGBCT controller or configured with any combination of up to five individual monochromatic PWM lights. 
-See [A closer look at the H801 LED WiFi Controller](https://tinkerman.cat/post/closer-look-h801-led-wifi-controller) for more details on the hardware.
+It has 5 seperate PWM outputs (each driven by a [DTU35N06](http://www.din-tek.jp/Upload/Product%20Doc/Datasheet/DTU35N06.pdf)
+MOSFET rated for 106W max power), and can be used as a [RGB](https://esphome.io/components/light/rgb.html) /
+[RGBW](https://esphome.io/components/light/rgbw.html) / [RGBWW](https://esphome.io/components/light/rgbww.html) / 
+[RGBCT](https://esphome.io/components/light/rgbct.html)
+controller or configured with any combination of up to five
+[individual monochromatic PWM](/components/light/monochromatic.html) lights. See [A closer look at the H801 LED WiFi
+Controller](https://tinkerman.cat/post/closer-look-h801-led-wifi-controller)
+for more details on the hardware.
 
 ![Product Image](/h801.jpg "Product Image")
 
-## Basic Configuration
+## Sample configuration
 
-You can use the RGBWW and the ESP8266 Software PWM output components as below:
+You can use the [RGBWW](https://esphome.io/components/light/rgbww.html) and the
+[ESP8266 Software PWM output](https://esphome.io/components/output/esp8266_pwm.html) components using below configuration:
 
-```yaml
-    esphome:
-      name: h801light
+``` yaml
+esphome:
+  name: h801light
 
-    esp8266:
-      board: esp01_1m
+esp8266:
+  board: esp01_1m
 
-    wifi:
-      ssid: !secret wifi_ssid
-      password: !secret wifi_password
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
-    logger:
-    api:
-    ota:
+logger:
+api:
+ota:
 
-    output:
-      - platform: esp8266_pwm
-        pin: 12
-        frequency: 1000 Hz
-        id: pwm_b
-      - platform: esp8266_pwm
-        pin: 13
-        frequency: 1000 Hz
-        id: pwm_g
-      - platform: esp8266_pwm
-        pin: 15
-        frequency: 1000 Hz
-        id: pwm_r
-      - platform: esp8266_pwm
-        pin: 14
-        frequency: 1000 Hz
-        id: pwm_w1
-      - platform: esp8266_pwm
-        pin: 4
-        frequency: 1000 Hz
-        id: pwm_w2
-    light:
-      - platform: rgbww
-        name: "H801 Light"
-        red: pwm_r
-        green: pwm_g
-        blue: pwm_b
-        cold_white: pwm_w1
-        warm_white: pwm_w2
+output:
+  - platform: esp8266_pwm
+    pin: 12
+    frequency: 1000 Hz
+    id: pwm_b
+  - platform: esp8266_pwm
+    pin: 13
+    frequency: 1000 Hz
+    id: pwm_g
+  - platform: esp8266_pwm
+    pin: 15
+    frequency: 1000 Hz
+    id: pwm_r
+  - platform: esp8266_pwm
+    pin: 14
+    frequency: 1000 Hz
+    id: pwm_w1
+  - platform: esp8266_pwm
+    pin: 4
+    frequency: 1000 Hz
+    id: pwm_w2
+light:
+  - platform: rgbww
+    name: "H801 Light"
+    red: pwm_r
+    green: pwm_g
+    blue: pwm_b
+    cold_white: pwm_w1
+    warm_white: pwm_w2
 ```
 
-For RGBW lights, the `pwm_w2` output is not used (and can be removed):
+For [RGBW](https://esphome.io/components/light/rgbw.html)
+lights, the `pwm_w2` output is not used (and can be removed):
 
-```yaml
-    light:
-      - platform: rgbw
-        name: "H801 Light"
-        red: pwm_r
-        green: pwm_g
-        blue: pwm_b
-        white: pwm_w1
+``` yaml
+light:
+  - platform: rgbw
+    name: "H801 Light"
+    red: pwm_r
+    green: pwm_g
+    blue: pwm_b
+    white: pwm_w1
 ```
 
 ## Flashing
 
-You will need to solder pins to the board inside the H801 (fortunately it's pretty roomy and
-not a lot of components or stuff in the way apart from the 2 wires on the back).
+Make your node in the ESPHome dashboard and compile/upload it. (if it
+fails OTA it must be uploaded manually with your favorite ESP flasher,
+e.g. `esphome-flasher <esphome-flasher>`{.interpreted-text role="ref"})
 
-3.3V, GND, TX and RX (RX to RX and TX to TX) needs to be connected to your serial adapter, the
-two other pins must be shorted throughout the flashing process by a jumper or a breadboard cable.
-(Remember to remove it after flashing)
+You will need to solder pins to the board inside the H801 (fortunately
+it\'s pretty roomy and not a lot of components or stuff in the way apart
+from the 2 wires on the back).
+
+3.3V, GND, TX and RX (RX to RX and TX to TX) needs to be connected to
+your serial adapter, the two other pins must be shorted throughout the
+flashing process by a jumper or a breadboard cable. (Remember to remove
+it after flashing)
 
 ![Front](/h801-board-front.jpg "Front")
 
@@ -91,30 +106,30 @@ Front side of board with pins soldered on
 
 ![Back](/h801-board-back.jpg "Back")
 
-Back side of the board (don't melt the blue and red wire when soldering)
+Back side of the board (don\'t melt the blue and red wire when
+soldering)
 
 ## Add A PIR(Motion) Sensor
 
-It's possible to use the header that was soldered on for flashing as an input.
-The example below uses the TX pin as a PIR motion sensor input:
+It\'s possible to use the header that was soldered on for flashing as an
+input. The example below uses the TX pin as a PIR motion sensor input:
 
 ![PIR Sensor](/h801-pir_sensor.jpg "PIR Sensor")
 
 H801 shown with PIR connected to header pins
 
-The following can be appended to the YAML file for your H801 to configure the TX pin as a motion
-sensor input.
+The following can be appended to the YAML file for your H801 to
+configure the TX pin as a motion sensor input.
 
-```yaml
-    binary_sensor:
-      - platform: gpio
-        pin: GPIO3
-        name: "GPIO3-TX Motion"
-        device_class: motion
+``` yaml
+binary_sensor:
+  - platform: gpio
+    pin: GPIO3
+    name: "GPIO3-TX Motion"
+    device_class: motion
 ```
 
-
-## GPIO Pinout
+## Pinout
 
 | Function       | ESP Pin |
 | -------------- | ------- |
@@ -128,4 +143,3 @@ sensor input.
 | TX             |  GPIO3  |
 | LED D1 (red)   | 	GPIO5  |
 | LED D2 (green) | 	GPIO1  |
-
