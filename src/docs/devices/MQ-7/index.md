@@ -19,7 +19,7 @@ This will remove the digital output of the sensor and replace it with a digital 
 - Soldering iron / hot air station
 - 75Ω Resistor (>160mW)
 - 470Ω Resistor
-- N-channel MOSFET ($$V_{GS} < 3.3V$$ , Example: SL2310) 
+- N-channel MOSFET (V_GS < 3.3V, Example: SL2310)
 - Wires
 
 ### Steps
