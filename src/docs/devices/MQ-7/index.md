@@ -13,28 +13,28 @@ The MQ-7 sensor can be used for detecting carbon monoxide (CO) gas. This is done
 
 This will remove the digital output of the sensor and replace it with a digital input to control the heater of the MQ-7
 
-### What you need:
+### What you need
 
- - MQ-7 sensor board
- - Soldering iron / hot air station
- - 75Ω Resistor (>160mW)
- - 470Ω Resistor
- - N-channel MOSFET ([Example: SL2310](https://www.lcsc.com/product-detail/MOSFETs_Slkor-SLKORMICRO-Elec-SL2310_C400798.html))
- - Wires
+- MQ-7 sensor board
+- Soldering iron / hot air station
+- 75Ω Resistor (>160mW)
+- 470Ω Resistor
+- N-channel MOSFET (V<sub>GS</sub> < 3.3V, Example: SL2310)
+- Wires
 
-### Steps:
+### Steps
 
- - De-solder the potentiometer and the dual op-amp
- - De-solder the D0-LED (bottom)
- - Cut the PCB traces in 2 locations (see picture below)
- - Scratch off the solder mask in the marked location to provide a path to ground for the MOSFET
- - Replace the 5Ω resistor on the left with a 75Ω resistor. This will provide 1.5V to the heater when the MOSFET is turned off
- - Remove the 1kΩ resistor on the left and move it to its new position
- - Remove the capacitor above the dual op-amp and move it to its new position
- - Solder the MOSFET to the bottom center pin of the sensor and the ground pad you created
- - Add the 470Ω resistor and the wires (see picture below)
- - Optional: Add the D0-LED you removed earlier, but with reversed polarity. It will show the status of the heater
- - Check the resistance between VCC and GND. It should be ~100Ω
+- De-solder the potentiometer and the dual op-amp
+- De-solder the D0-LED (bottom)
+- Cut the PCB traces in 2 locations (see picture below)
+- Scratch off the solder mask in the marked location to provide a path to ground for the MOSFET
+- Replace the 5Ω resistor on the left with a 75Ω resistor. This will provide 1.5V to the heater when the MOSFET is turned off
+- Remove the 1kΩ resistor on the left and move it to its new position
+- Remove the capacitor above the dual op-amp and move it to its new position
+- Solder the MOSFET to the bottom center pin of the sensor and the ground pad you created
+- Add the 470Ω resistor and the wires (see picture below)
+- Optional: Add the D0-LED you removed earlier, but with reversed polarity. It will show the status of the heater
+- Check the resistance between VCC and GND. It should be ~100Ω
 
 ![Heater Mod](mq-7-heater-mod.png "Heater Mod")
 
@@ -69,7 +69,7 @@ esp32:
   board: esp32dev
   framework:
     type: arduino
-    
+
 wifi:
   ...
 
@@ -190,4 +190,3 @@ Then it can be calibrated by placing it in clean air (outdoors) to determine the
 ![HomeAssistant Device](mq-7-device.png "HomeAssistant Device")
 
 ![HomeAssistant History](mq-7-history.png "HomeAssistant History")
-
