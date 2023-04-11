@@ -5,13 +5,9 @@ type: light
 standard: global
 ---
 
-# TECKIN SB50 LED Bulb
-
-
 ![image](/teckin_sb50.jpg)
 
-
-## Note
+#### Note
 
 It is not currently possible to flash these bulbs with `tuya-convert`
 due to shipping with an updated/patched firmware. Please check [this
@@ -60,4 +56,3 @@ light:
     warm_white_color_temperature: 2800 K
     color_interlock: true # avoids simultaneous RGB and W/W
 ```
-

@@ -12,9 +12,9 @@ from
 
 ![image](/iwoole_rgbw_table_lamp.png)
 
-# 1. Device overview
+## Device overview
 
-### Note
+#### Note
 
 The following information relates to the desk model depicted above. A
 free-standing version and a desk version with a longer arm are
@@ -29,12 +29,12 @@ outputs or status LEDs are available.
 
 The MOSFETs for the different color channels are connected as follows:
 
--   GPIO04: White
--   GPIO12: Green
--   GPIO13: Blue
--   GPIO14: Red
+- GPIO04: White
+- GPIO12: Green
+- GPIO13: Blue
+- GPIO14: Red
 
-## 1.1 Internal markings
+### Internal markings
 
 ![image](/iwoole_rgbw_table_lamp_internal_1.jpg)
 
@@ -42,14 +42,14 @@ The MOSFETs for the different color channels are connected as follows:
 
 ![image](/iwoole_rgbw_table_lamp_internal_3.jpg)
 
-# 2. ESPHome configuration
+## ESPHome configuration
 
 Since there is only one RGBW light to configure the .yaml file is fairly
 straightforward. Alternatively, you could configure each channel as a
 separate light if desired. I prefer to use the `rgbw_color_interlock`
 option along with the configuration below.
 
-## 2.1 Example configuration
+### Example configuration
 
 ``` yaml
 esphome:
@@ -85,9 +85,9 @@ output:
     pin: GPIO4
 ```
 
-# 3. Flashing
+## Flashing
 
-### Warning
+#### Warning
 
 The circuit inside will be exposed to mains voltage. Do not connect your
 device to the mains when flashing. Flashing this device via a serial
@@ -133,12 +133,12 @@ I did not know of the other connection point yet.
     other tool of your choosing. While this is not meant as a tutorial
     on flashing ESP chips, some general hints:
 
--   Always double-check your connections, and don\'t change any when the
+- Always double-check your connections, and don\'t change any when the
     ESP is powered. I fried one of these mood lights this way.
--   Ensure GPIO0 is connected to ground to get the device into
+- Ensure GPIO0 is connected to ground to get the device into
     programming mode, but also don\'t forget to disconnect this when you
     expect the device to start in normal mode.
--   When working with a breadboard, an FTDI adapter and jumper wires, it
+- When working with a breadboard, an FTDI adapter and jumper wires, it
     is very easy for something to become disconnected. Try to use as few
     wires as possible.
 
@@ -147,5 +147,3 @@ I did not know of the other connection point yet.
     anymore. Re-connect the LEDs (see cable orientation in one of the
     images above).
 8.  Screw down the plate with LEDs and close the device.
-
-

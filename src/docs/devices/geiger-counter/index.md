@@ -10,7 +10,7 @@ counter, which will give you a more or less precise messurement of the
 current radation level. But it should be good enough to warn you about
 critical events.
 
-## Assembly:
+## Assembly
 
 ![image](/radiationD-v1-1-cajoe_small.jpg)
 
@@ -22,14 +22,14 @@ wrong VIN is the signal.) This setup should give you the pulse of each
 messurement or count. For more information check the Video of [Andreas
 Spiess](https://www.youtube.com/watch?v=K28Az3-gV7E).
 
-### Housing:
+### Housing
 
 I just 3D printed an small housing the avoid touching the high voltage
 Geiger Mueller tube. [Counter Tube
 Case](https://www.thingiverse.com/thing:5425224) (The tube should not be
 in direct sunlight. So maybe you will need another case.)
 
-## Configuration:
+## Configuration
 
 The block `pulse_counter` will count the radation events per minute. With the found
 specs of the tube you will be able to calculate the radiation in μSv/h.
@@ -42,7 +42,7 @@ PCB. (To make sure - check your printing on the tube)
 Spiess](https://www.youtube.com/watch?v=K28Az3-gV7E) the tube should
 have about 12 CPM as background noise.
 
-### Note:
+### Note
 
 The current version of the pack comes with the J305ß Geiger tube which
 detectes Beta and Gamma radiation. Specifications: Manufacturer: North
@@ -68,4 +68,3 @@ sensor:
       - offset: -12.0 # J305ß Geiger Mueller tube background noise 0.2 pulses / sec x 60 sec = 12 CPM (Counts per Minute)
       - multiply: 0.00812037037037 # Factor: 0.00812037037037
 ```
-

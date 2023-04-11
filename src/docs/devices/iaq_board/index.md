@@ -13,21 +13,21 @@ of the components are soldered and connected.
 
 Here is what it can measure:
 
--   Temperature / Humidity / Pressure
--   Air particles PM1, PM2.5, PM10
--   Carbon Dioxide with NDIR sensor
--   Air Quality Index by EPA, based on 24h average PM2.5 particles
--   Ambient light
--   Total VOC (volatile organic compound)
--   equivalent CO2 (not very correct compared with the NDIR sensor, but it\'s provided by the VOC sensor)
+- Temperature / Humidity / Pressure
+- Air particles PM1, PM2.5, PM10
+- Carbon Dioxide with NDIR sensor
+- Air Quality Index by EPA, based on 24h average PM2.5 particles
+- Ambient light
+- Total VOC (volatile organic compound)
+- equivalent CO2 (not very correct compared with the NDIR sensor, but it\'s provided by the VOC sensor)
 
 On top of that:
 
--   At least one OLED display to show the data (can have one more on the top of the MCU board)
--   three RGB wide angle LEDs with auto brightness. LED1 indicates PM2.5, LED2 - Air quality index, LED3 - CO2.
--   auto night dimming of the displays and LEDs (can be disabled)
--   MIN/MAX values of Temperature, PM2.5 and CO2, and 24h average PM2.5 value.
--   multi function button for selection of the data to show on the display
+- At least one OLED display to show the data (can have one more on the top of the MCU board)
+- three RGB wide angle LEDs with auto brightness. LED1 indicates PM2.5, LED2 - Air quality index, LED3 - CO2.
+- auto night dimming of the displays and LEDs (can be disabled)
+- MIN/MAX values of Temperature, PM2.5 and CO2, and 24h average PM2.5 value.
+- multi function button for selection of the data to show on the display
 
 ## ESPHome Configuration (basic)
 
@@ -109,8 +109,7 @@ sensor:
       compensation:
          temperature_source: temp
          humidity_source: hum
-      
-      
+
     - platform: template
       name: "PM2.5 24h average"
       id: pm2_5_avg
@@ -125,7 +124,7 @@ sensor:
             send_every: 1
 
 # This is a "helper" template sensor which is doing 30 sec moving average of PM2.5
-# I use it for sensing in automations controlling purifiers (with Home Assistant), 
+# I use it for sensing in automations controlling purifiers (with Home Assistant),
 # in order to remove the outlier values and making the control more smooth
     - platform: template
       name: "PM2.5 median"
@@ -152,7 +151,7 @@ light:
 switch:
   - platform: gpio
     name: "PMS7003_SET"
-    pin: 
+    pin:
       number: GPIO26
       mode: OUTPUT
     restore_mode: ALWAYS_ON
@@ -175,7 +174,7 @@ display:
     id: display1
     lambda: |-
       // enter lambda here
-      
+
   - platform: ssd1306_i2c
     model: "SSD1306 64x48"
     address: 0x3D

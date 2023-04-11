@@ -5,8 +5,6 @@ type: sensor
 standard: global
 ---
 
-# BRUH Multisensor
-
 The BRUH Multisensor is a great introductory project into Home
 Automation with an amazing setup tutorial. And fortunately ESPHome has
 complete support for all the stuff used by the Multisensor.
@@ -59,4 +57,3 @@ light:
     green: greengpio
     blue: bluegpio
 ```
-

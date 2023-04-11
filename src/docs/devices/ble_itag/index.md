@@ -108,4 +108,3 @@ information. This sensor will be exposed in the HA frontend to determine
 the state of the tag\'s battery. Note that many tags will not provide
 this service, so you will not see a valid value. If not, you can remove
 this from the config.
-

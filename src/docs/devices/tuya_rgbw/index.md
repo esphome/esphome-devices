@@ -93,5 +93,3 @@ light:
     # Ensure the light turns on by default if the physical switch is actuated.
     restore_mode: ALWAYS_OFF
 ```
-
-

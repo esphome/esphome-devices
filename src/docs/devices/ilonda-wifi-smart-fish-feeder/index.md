@@ -15,7 +15,7 @@ using [tuya-convert](https://github.com/ct-Open-Source/tuya-convert),
 ESPHome generated firmware can be uploaded allowing you to control the
 Wifi Smart Fish Feeder via Home Assistant.
 
-# Configuration
+## Configuration
 
 Thanks to the amazing [Tasmota
 template](https://templates.blakadder.com/ilonda_L88.html), managed to
@@ -101,5 +101,4 @@ and click \'Configure\'.
 
 ## See Also
 
--   [Fish Feeder diagrams and
-    pictures](https://community.openhab.org/t/ilonda-fish-feeder-openhab/99190).
+- [Fish Feeder diagrams and pictures](https://community.openhab.org/t/ilonda-fish-feeder-openhab/99190).
