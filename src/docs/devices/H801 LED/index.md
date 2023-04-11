@@ -1,6 +1,6 @@
 ---
 title: H801 RGBW LED controller
-date-published: 2023-03-05
+date-published: 2023-04-11
 type: light
 standard: global
 ---
