@@ -173,7 +173,7 @@ sensor:
     - filter_out: 0
     - heartbeat: 120s
 
-- platform: modbus_controller 
+- platform: modbus_controller
   modbus_controller_id: ${modbus_ctrl_id}
   name: ${friendly_name} Mode (modbus)
   icon: "mdi:speedometer-slow"
@@ -343,7 +343,7 @@ binary_sensor:
       return false;
     }
   on_state:
-  # When turning off the unit, it will still run for about 3 minutes at its current speed. This trick helps with that, 
+  # When turning off the unit, it will still run for about 3 minutes at its current speed. This trick helps with that,
   # it switches first to the lowest speed and then turns it off, so that those 3 minutes will be done in the most silent way.
     then:
       - if:
@@ -680,7 +680,7 @@ button:
               modbus_controller::ModbusCommandItem set_day = modbus_controller::ModbusCommandItem::create_write_single_command(controller, 203, day);
               modbus_controller::ModbusCommandItem set_month = modbus_controller::ModbusCommandItem::create_write_single_command(controller, 204, month);
               modbus_controller::ModbusCommandItem set_year = modbus_controller::ModbusCommandItem::create_write_single_command(controller, 205, year);
-              // commands have to be run in reversed order nested in on_data_func's because the queue_command normally exits the procedure 
+              // commands have to be run in reversed order nested in on_data_func's because the queue_command normally exits the procedure
               set_month.on_data_func = [=](modbus_controller::ModbusRegisterType register_type, uint16_t start_address, const std::vector<uint8_t> &data) {
                 ESP_LOGI("ModbusLambda", "Setting year to %02d", year);
                 controller->queue_command(set_year);
