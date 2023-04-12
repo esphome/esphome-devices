@@ -121,9 +121,9 @@ output:
             then:
               - switch.turn_on: relay_fan_1
               - delay: 20ms
-              - switch.turn_on: relay_fan_2
+              - switch.turn_off: relay_fan_2
               - delay: 20ms
-              - switch.turn_off: relay_fan_3
+              - switch.turn_on: relay_fan_3
         - if:
             condition:
               lambda: return (state > .7);
