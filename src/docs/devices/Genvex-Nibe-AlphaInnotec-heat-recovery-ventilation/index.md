@@ -704,3 +704,5 @@ button:
 ## Note
 
 If you get CRC errors use shorter cables and double-check for the 120 Ohm termination resistors as per MODBUS standard.
+The factory pre-installed cloud controller has to be disconnected because it acts a MODBUS Master, just like the ESPHome node
+configured as above. You can't have two MODBUS Masters in parallel like that.
