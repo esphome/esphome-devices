@@ -7,7 +7,7 @@ standard: us
 
 Treatlife DS02F Switch![image](treatlife_DS02F.jpg)
 
-[Amazon Link](https://www.amazon.com/gp/product/B08P5D3ZKW)
+[Amazon Link](https://amzn.to/400MRsE)
 
 ## Notes
 
