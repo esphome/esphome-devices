@@ -5,7 +5,7 @@ type: relay
 standard: global
 ---
 
-![](/relay-full.jpg)
+![full](/relay-full.jpg)
 
 Relays are simple electronics components that allow you to switch a high
 load using only a single pin on your board.
@@ -38,8 +38,6 @@ relay to see its current limits, what voltage it requires and so on.
 Please also note that relays are physical components - as such, they
 have a limited number of switches that can happen before they break.
 
-
 ## See Also
 
 - [How do relays work](https://www.explainthatstuff.com/howrelayswork.html).
-

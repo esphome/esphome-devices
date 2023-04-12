@@ -8,7 +8,7 @@ standard: global
 The Mirabella Genio is a Tuya-based smart bulb sold by Kmart in
 Australia.
 
-![](/mirabella-genio-b22-rgbw.jpg)
+![mirabella-genio](/mirabella-genio-b22-rgbw.jpg)
 
 ## Basic Configuration
 
@@ -34,4 +34,3 @@ output:
     # May need to use GPIO14 instead for certain globes
     pin: GPIO13
 ```
-
