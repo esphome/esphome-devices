@@ -6,7 +6,7 @@ standard: global
 ---
 
 Heat Recovery Ventilation system control via MODBUS protocol for Genvex ECO 375,
-Nibe ERS 10-500, Alpha-Innotec LG 300 ECO B(E). The Veitlation unit must contain
+Nibe ERS 10-500, Alpha-Innotec LG 300 ECO B(E). The ventilation unit must contain
 the Optima 260 (ES 960C) controller board, and have MODBUS enabled at 19600 baud.
 
 Use an RS485 transceiver like MAX485 to the device via MODBUS. Some devices come
@@ -701,8 +701,14 @@ button:
               controller->queue_command(set_hour);
 ```
 
-## Note
+## Notes
 
-If you get CRC errors use shorter cables and double-check for the 120 Ohm termination resistors as per MODBUS standard.
-The factory pre-installed cloud controller has to be disconnected because it acts a MODBUS Master, just like the ESPHome node
-configured as above. You can't have two MODBUS Masters in parallel like that.
+If you get CRC errors use shorter cables and double-check for the 120 Ohm termination
+resistors as per MODBUS standard.
+
+The factory pre-installed cloud controller has to be
+disconnected because it acts a MODBUS Master, just like the ESPHome node configured as
+above. You can't have two MODBUS Masters in parallel like that.
+
+These units were shipped with various controller boards inside, this configuration only
+matches Optima 260 (ES 960C).
