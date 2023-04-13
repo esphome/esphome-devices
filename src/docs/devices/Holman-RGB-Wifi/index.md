@@ -182,7 +182,7 @@ button:
     id: restart_button
     name: "${friendly_name} Restart"
     disabled_by_default: true
-    
+
 text_sensor:
   - platform: wifi_info
     ip_address:
