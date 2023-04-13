@@ -1,5 +1,5 @@
 ---
-title: Holman RGB Wifi connected cotnroller
+title: Holman RGB Wifi Connected Controller
 date-published: 2023-04-13
 type: light
 standard: au
