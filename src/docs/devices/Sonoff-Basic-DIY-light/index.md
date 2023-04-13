@@ -17,7 +17,7 @@ down, or Home Assistant failed etc.
 
 Use a _retractive_ style light switch. That is one that is spring
 loaded and so always returns to the ``off`` position. It's effectively
-a push button, that looks like a light switch. 
+a push button, that looks like a light switch.
 
 If you have a Sonoff BASIC V1 devices GPIO14 is already presented on a
 pin header on the PCB next to the programming pins. On the V2 and V3

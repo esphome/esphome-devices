@@ -15,7 +15,7 @@ down, or Home Assistant failed etc.
 
 Use a _retractive_ style light switch. That is one that is spring
 loaded and so always returns to the ``off`` position. It's effectively
-a push button, that looks like a light switch. 
+a push button, that looks like a light switch.
 
 We will be using GPIO4 and GPIO14 for the two retractive switches,
 again they will both short to 0V when the switch is clicked.
@@ -24,7 +24,7 @@ again they will both short to 0V when the switch is clicked.
 
 The R1 version of the Dual controls the relays via the UART:
 
-``` yaml
+```yaml
 esp8266:
   board: esp01_1m
 
@@ -146,5 +146,6 @@ light:
     id: light_2
     output: out_2
 ```
+
 The logger baud_rate: 0 is required to make sure the logged does not
 send any data over the UART or it would mess with the relays.
