@@ -12,7 +12,7 @@ Available from [Bunnings](https://www.bunnings.com.au/holman-rgb-wi-fi-garden-li
 Uses [TYWE3L](https://developer.tuya.com/en/docs/iot/wifie3lpinmodule?id=K9605uj1ar87n) module.
 Can be programmed without removing from PCB.
 
-![Holman RGB Controller](holman-rgb-controller.png "RGB Controller")
+![Holman RGB Controller](holman_rgb_controller.png "RGB Controller")
 
 ## GPIO Pinout
 
