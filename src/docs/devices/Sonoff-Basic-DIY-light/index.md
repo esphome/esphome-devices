@@ -15,7 +15,7 @@ down, or Home Assistant failed etc.
 
 ![Product Image](/sonoff_basic.jpg "Product Image")
 
-Use a _retractive_ style light switch. That is one that is spring
+Use a *retractive* style light switch. That is one that is spring
 loaded and so always returns to the ``off`` position. It's effectively
 a push button, that looks like a light switch.
 

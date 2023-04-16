@@ -7,7 +7,7 @@ standard: eu
 
 ## Flashing
 
-The device can be flashed [using tuya-convert](#tuya-convert). Fresh out of the factory it will be in autoconfig mode. When plugged in for the first time tuya-convert will pick it up directly.
+The device can be flashed [using tuya-convert](/guides/tuya-convert). Fresh out of the factory it will be in autoconfig mode. When plugged in for the first time tuya-convert will pick it up directly.
 
 If that doesn't work out for you, disassembly and wired flashing is explained [in this (German) video](https://www.youtube.com/watch?v=hfYFB1UENTQ).
 
