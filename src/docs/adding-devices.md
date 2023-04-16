@@ -27,12 +27,16 @@ standard: uk, us
 ---
 ```
 
-| Field            | Description                 | Allowable Options                                                                 | Required? |
-| ---------------- | --------------------------- | --------------------------------------------------------------------------------- | --------- |
-| `title`          | Device Title                |                                                                                   | Yes       |
-| `date-published` | Date Published              | Formatting: `YYYY-MM-DD HH:MM:SS +/-TTTT` (Time and Timezone offset are optional) | Yes       |
-| `type`           | Type of Device              | `plug`, `light`, `switch`, `dimmer` , `relay`, `sensor`, `misc`                   | Yes       |
-| `standard`       | Electrical standard country | `uk`, `us`, `eu`, `au`, `in`, `global`                                            | Yes       |
+| Field              | Description                                           | Allowable Options                                                                                                                                | Required? |
+|--------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `title`            | Device Title                                          |                                                                                                                                                  | Yes       |
+| `date-published`   | Date Published                                        | Formatting: `YYYY-MM-DD HH:MM:SS +/-TTTT` (Time and Timezone offset are optional)                                                                | Yes       |
+| `type`             | Type of Device                                        | `plug`, `light`, `switch`, `dimmer` , `relay`, `sensor`, `misc`                                                                                  | Yes       |
+| `standard`         | Electrical standard country                           | `uk`, `us`, `eu`, `au`, `in`, `global`                                                                                                           | Yes       |
+| `board`            | Type of board used in product                         | `esp8266`, `esp32`                                                                                                                               | No        |
+| `project-url`      | URL for product or GitHub Repo                        |                                                                                                                                                  | No        |
+| `made-for-esphome` | Has the manufacturer certified the device for ESPHome | `True`, `False`                                                                                                                                  | No        |
+| `difficulty`       | Difficulty rating                                     | `1`: Comes with ESPhome <br /> `2`: Plug-n-flash<br /> `3`: Disassembly required<br /> `4`: Soldering required<br /> `5`: Chip needs replacement | No        |
 
 ## Images
 

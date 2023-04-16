@@ -30,8 +30,10 @@
       link: '/standards/uk'
     - label: 'US Devices'
       link: '/standards/us'
-- label: Shared guides
+- label: Guides
   items:
+    - label: 'Adding Devices'
+      link: '/adding-devices/'
     - label: 'Prepare a device with tuya-convert'
       link: '/guides/tuya-convert/'
 # - label: External Links
