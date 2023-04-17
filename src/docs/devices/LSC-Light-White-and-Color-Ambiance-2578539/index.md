@@ -18,21 +18,22 @@ The latest LSC Light White Ambiance 2578539 devices use the Tuya BK7231T module,
 
 ![light with box](image.png)
 
+## bp5758d Pinout
+
+| Pin | Function  |
+| --- | --------- |
+| P26 | Data Pin  |
+| P24 | Clock Pin |
+
 ## GPIO Pinout
 
-bp5758d:
-| Pin    | Function                            |
-| ------ | ----------------------------------- |
-| P26    | Data Pin                            |
-| P24    | Clock Pin                           |
-
-| Channel | Function                            |
-| ------- | ----------------------------------- |
-| 2       | Red                                 |
-| 1       | Green                               |
-| 3       | Blue                                |
-| 4       | Warm White                          |
-| 5       | Cold White                          |
+| Channel | Function   |
+| ------- | ---------- |
+| 2       | Red        |
+| 1       | Green      |
+| 3       | Blue       |
+| 4       | Warm White |
+| 5       | Cold White |
 
 ## Basic configuration
 
@@ -71,7 +72,7 @@ wifi:
 
 web_server:
   port: 80
-  
+
 sensor:
   - platform: wifi_signal
     name: "WiFi Signal Sensor"
@@ -109,7 +110,6 @@ text_sensor:
     ip_address:
       name: IP Address
       entity_category: diagnostic
-
 
 binary_sensor:
   - platform: status
