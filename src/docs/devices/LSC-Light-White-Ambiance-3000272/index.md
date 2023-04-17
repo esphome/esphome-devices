@@ -183,4 +183,3 @@ light:
 #            id: the_light
 #            transition_length: 250ms
 ```
-
