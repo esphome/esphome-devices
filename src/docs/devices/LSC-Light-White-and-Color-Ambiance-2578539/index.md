@@ -16,7 +16,7 @@ The latest LSC Light White Ambiance 2578539 devices use the Tuya BK7231T module,
 
 ## Product Images
 
-![light with box](https://www.action.com/nl-nl/p/lsc-smart-connect-slimme-multicolor-ledlamp-1b6ebaed/)
+![light with box](https://www.action.com/_next/image/?url=https%3A%2F%2Faction.com%2Fhostedassets%2FCMSArticleImages%2F27%2F05%2F2578539_8712879155416-111_01_20230223144103.png&w=828&q=75)
 
 ## GPIO Pinout
 
@@ -25,7 +25,6 @@ bp5758d:
 | ------ | ----------------------------------- |
 | P26    | Data Pin                            |
 | P24    | Clock Pin                           |
-
 
 | Channel | Function                            |
 | ------- | ----------------------------------- |
@@ -208,4 +207,3 @@ light:
 #            id: the_light
 #            transition_length: 250ms
 ```
-
