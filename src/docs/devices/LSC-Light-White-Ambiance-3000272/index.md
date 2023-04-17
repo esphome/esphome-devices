@@ -17,7 +17,7 @@ The latest LSC Light White Ambiance 3000272 devices use the Tuya BK7231T module,
 
 ## Product Images
 
-![light with box]([https://www.action.com/nl-nl/p/lsc-smart-connect-slimme-ledlamp3/](https://www.action.com/_next/image/?url=https%3A%2F%2Faction.com%2Fhostedassets%2FCMSArticleImages%2F69%2F51%2F3000272_8712879146254-111_01.png&w=828&q=75))
+![light with box](https://www.action.com/_next/image/?url=https%3A%2F%2Faction.com%2Fhostedassets%2FCMSArticleImages%2F69%2F51%2F3000272_8712879146254-111_01.png&w=828&q=75))
 
 ## GPIO Pinout
 
