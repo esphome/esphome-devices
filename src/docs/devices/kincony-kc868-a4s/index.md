@@ -25,7 +25,6 @@ standard: global
 | GPIO13 | GSM_RXD                            |
 | GPIO15 | GSM_TXD                            |
 
-
 [Additional pinout/design details](https://www.kincony.com/forum/forumdisplay.php?fid=41)
 
 ## Basic Configuration
@@ -172,7 +171,7 @@ binary_sensor:
       pcf8574: pcf8574_hub_out_1
       number: 5
       mode: INPUT
-      inverted: true      
+      inverted: true
 
   - platform: gpio
     name: "a4s-input11"
@@ -180,7 +179,7 @@ binary_sensor:
        pcf8574: pcf8574_hub_out_1
        number: 6
        mode: INPUT
-       inverted: true     
+       inverted: true
 
   - platform: gpio
     name: "a4s-input12"
@@ -188,7 +187,7 @@ binary_sensor:
       pcf8574: pcf8574_hub_out_1
       number: 7
       mode: INPUT
-      inverted: true    
+      inverted: true
 
 pca9685:
     id: 'pca9685_hub'
