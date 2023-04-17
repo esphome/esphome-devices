@@ -17,7 +17,7 @@ The latest LSC Light White Ambiance 3000272 devices use the Tuya BK7231T module,
 
 ## Product Images
 
-![light with box](https://www.action.com/_next/image/?url=https%3A%2F%2Faction.com%2Fhostedassets%2FCMSArticleImages%2F69%2F51%2F3000272_8712879146254-111_01.png&w=828&q=75)
+![light with box](image.png)
 
 ## GPIO Pinout
 
@@ -47,10 +47,10 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "f6PLX5xZGJ7mklXwDKPHPWX3YBVBWHiI8Adcra5jDGM="
+    key: !secret api_encryption_key
 
 ota:
-  password: "f7baccb5t138d55052c6a5b3ee4e5df9"
+  password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -59,7 +59,7 @@ wifi:
   # Enable fallback hotspot in case wifi connection fails
   ap:
     ssid: "Lsc-Light-Warm-01"
-    password: "p8anniymDDKN"
+    password: ""
 
 #web_server:
 #  port: 80
