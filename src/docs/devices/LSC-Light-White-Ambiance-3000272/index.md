@@ -12,8 +12,8 @@ The latest LSC Light White Ambiance 3000272 devices use the Tuya BK7231T module,
 ## Notice
 
 - This light is flashable using the latest tuya-cloudcutter with a compiled ESPHome binary.
-- The LEDs are controlled by 2 PWM output (Cold and White channels) 
-- The PWM are ingested into a BP5772 chip (Tuya)
+- The LEDs are controlled by 2 PWM output (Cold and White channels).
+- The PWM are ingested into a BP5772 chip (Tuya).
 
 ## Product Images
 
@@ -181,5 +181,6 @@ light:
 #        - delay: 250ms
 #        - light.turn_off:
 #            id: the_light
-#            transition_length: 250ms```
+#            transition_length: 250ms
+```
 
