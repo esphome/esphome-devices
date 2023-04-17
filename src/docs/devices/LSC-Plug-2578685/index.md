@@ -122,14 +122,14 @@ binary_sensor:
 switch:
   - platform: gpio
     # RED
-    id: led_1 
+    id: led_1
     pin:
       number: P6
       inverted: false
 
   - platform: gpio
     # BLUE
-    id: led_2 
+    id: led_2
     pin:
       number: P26
       inverted: false
