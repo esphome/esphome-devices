@@ -1,5 +1,6 @@
 ---
 title: KinCony KC868-A4
+date-published: 2023-04-19
 type: relay
 standard: global
 ---
@@ -110,3 +111,4 @@ binary_sensor:
     pin:
       number: 14
       inverted: true
+```
