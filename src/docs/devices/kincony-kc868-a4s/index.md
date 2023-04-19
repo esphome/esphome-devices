@@ -31,9 +31,13 @@ standard: global
 
 ```yaml
 esphome:
-  name: a4s
-  platform: ESP32
+  name: KC868-A4S
+
+esp32:
   board: esp32dev
+  framework:
+    type: arduino
+  
   
 # Example configuration entry for ESP32
 i2c:
