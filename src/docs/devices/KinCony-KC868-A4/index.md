@@ -75,17 +75,17 @@ switch:
     name: "light2"
     pin: 15
     inverted: false
-   
+
   - platform: gpio
     name: "light3"
     pin: 5
     inverted: false
-   
+
   - platform: gpio
     name: "light4"
     pin: 4
     inverted: false
-   
+
 binary_sensor:
   - platform: gpio
     name: "input1"
@@ -98,13 +98,13 @@ binary_sensor:
     pin:
       number: 39
       inverted: true
-   
+
   - platform: gpio
     name: "input3"
     pin:
       number: 27
       inverted: true
-     
+
   - platform: gpio
     name: "input4"
     pin:
