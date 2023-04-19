@@ -101,3 +101,4 @@ sensor:
   - platform: dallas
     address: 0x7b062162cfe98128
     name: "asr-t2"
+```
