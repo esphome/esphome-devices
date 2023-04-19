@@ -5,7 +5,7 @@ type: relay
 standard: global
 ---
 
-![Product](https://www.kincony.com/images/KC868-A4/KC868-A4_01.jpg "Product Image")
+![Product](KC868-A4_01.jpg "Product Image")
 
 ## GPIO Pinout
 
