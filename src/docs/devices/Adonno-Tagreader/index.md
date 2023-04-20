@@ -5,7 +5,7 @@ type: sensor
 standard: global
 board: esp8266
 difficulty: 1
-made-for-esphome: true
+made-for-esphome: false
 project-url: https://shop.adonno.com/collections/frontpage/products/tag-reader-sandwitch-version
 ---
 
