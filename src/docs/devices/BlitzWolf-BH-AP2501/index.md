@@ -1,6 +1,6 @@
 ---
-title: Blitzhome BH-AP2501
-date-published: 2023-4-23
+title: BlitzWolf BH-AP2501
+date-published: 2023-04-23
 type: misc
 standard: eu
 board: esp8266
@@ -11,7 +11,7 @@ difficulty: 5
 
   ![alt text](/product.jpg "Product Image")
   ![alt text](/WBR3.jpg "Original MCU Image")
-  ![alt text](/ESP12F.jpg "Original MCU Image")
+  ![alt text](/ESP12F.jpg "ESP MCU Image")
 
 ## General Notes
 These devices run a Tuya WBR3 MCU which needs to be replaced: preferably by an ESP12F.
