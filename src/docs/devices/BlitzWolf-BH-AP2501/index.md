@@ -13,6 +13,7 @@ difficulty: 5
   ![alt text](/ESP12F.jpg "ESP MCU Image")
 
 ## General Notes
+
 These devices run a Tuya WBR3 MCU which needs to be replaced: preferably by an ESP12F.
 
 ## GPIO Pinout
@@ -127,7 +128,7 @@ output:
                         # Fan = High
                         - fan.turn_on:
                             id: tuya_fan
-                            speed: 2                        
+                            speed: 2
 
 
 fan:
@@ -141,7 +142,7 @@ fan:
     id: "tuya_fan"
     internal: True
     switch_datapoint: 1
-    speed_datapoint: 3 
+    speed_datapoint: 3
     speed_count: 4 # 1=Auto, 2=High, 3=Medium, 4=Sleep
 
 sensor:
