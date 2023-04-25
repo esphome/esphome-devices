@@ -207,3 +207,4 @@ logger:
 
 # Enable Home Assistant API
 api:
+```
