@@ -6,6 +6,7 @@ standard: global
 ---
 
 ## GPIO Pinout
+
 | Pin    | Function            |
 | ------ | ------------------- |
 | GPIO34 | ANALOG_A1           |
