@@ -57,3 +57,4 @@ switch:
     name: "am-light1"
     pin: 15
     inverted: False
+```
