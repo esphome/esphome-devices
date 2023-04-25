@@ -6,8 +6,6 @@ standard: global
 ---
 
 ## GPIO Pinout
-
-
 | Pin    | Function            |
 | ------ | ------------------- |
 | GPIO34 | ANALOG_A1           |
@@ -185,7 +183,7 @@ binary_sensor:
 
   - platform: gpio
     name: "a8-s3"
-    pin: 
+    pin:
       number: 32
       inverted: true
 
@@ -208,4 +206,3 @@ logger:
 
 # Enable Home Assistant API
 api:
-```
