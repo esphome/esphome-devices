@@ -5,7 +5,7 @@ type: relay
 standard: global
 ---
 
-![Product](https://github.com/hzkincony/esphome-devices/blob/main/kc868-a6.jpg "Product Image")
+![Product](KC868-A6.jpg "Product Image")
 
 ## GPIO Pinout
 
