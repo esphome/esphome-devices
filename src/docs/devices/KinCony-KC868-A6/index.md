@@ -5,8 +5,6 @@ type: relay
 standard: global
 ---
 
-![Product](KC868-A6.jpg "Product Image")
-
 ## GPIO Pinout
 
 | Pin    | Function            |

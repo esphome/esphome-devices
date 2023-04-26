@@ -11,15 +11,15 @@ standard: uk, us, eu
 
 ## GPIO Pinout
 
-| Pin   | Function              |
-| ----- | --------------------- |
-| GPIO2 | Led Link              |
-| GPIO4 | PWM 4 (W)             |
-| GPI05 | Switch input          |
-| GPI12 | PWM 1 (R)             |
-| GPI14 | PWM 3 (B)             |
-| GPI15 | PWM 2 (G)             |
-| A0    | OpAmp Current Monitor |
+| Pin    | Function              |
+| ------ | --------------------- |
+| GPIO2  | Led Link              |
+| GPIO4  | PWM 4 (W)             |
+| GPIO5  | Switch input          |
+| GPIO12 | PWM 1 (R)             |
+| GPIO14 | PWM 3 (B)             |
+| GPIO15 | PWM 2 (G)             |
+| A0     | OpAmp Current Monitor |
 
 ## Configuration for RGBW
 
