@@ -122,27 +122,27 @@ pcf8574:
   - id: 'pcf8574_hub_in_4'  # for a128-input channel 49-64
     i2c_id: bus_b
     address: 0x22
-    pcf8575: true   
+    pcf8575: true
 
   - id: 'pcf8574_hub_in_5'  # for a128-input channel 65-80
     i2c_id: bus_b
     address: 0x26
-    pcf8575: true   
+    pcf8575: true
 
   - id: 'pcf8574_hub_in_6'  # for a128-input channel 81-96
     i2c_id: bus_b
     address: 0x27
-    pcf8575: true   
+    pcf8575: true
 
   - id: 'pcf8574_hub_in_7'  # for a128-input channel 97-112
     i2c_id: bus_b
     address: 0x20
-    pcf8575: true   
+    pcf8575: true
 
   - id: 'pcf8574_hub_in_8'  # for a128-input channel 113-128
     i2c_id: bus_b
     address: 0x23
-    pcf8575: true   
+    pcf8575: true
 
 # Individual outputs
 switch:
@@ -912,7 +912,7 @@ switch:
       pcf8574: pcf8574_hub_out_6
       number: 15
       mode: OUTPUT
-      inverted: true      
+      inverted: true
 
   - platform: gpio
     name: "a128-light97"
