@@ -95,7 +95,7 @@ pcf8574:
 
   - id: 'pcf8574_hub_in_4'  # for input channel 25-32
     i2c_id: bus_b
-    address: 0x22    
+    address: 0x22
 
 # Individual outputs
 switch:
