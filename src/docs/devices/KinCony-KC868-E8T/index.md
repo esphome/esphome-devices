@@ -61,14 +61,14 @@ uart:
     rx_pin: GPIO39
     baud_rate: 4800
     parity: NONE
-    stop_bits: 2    
+    stop_bits: 2
 
   - id: uart_2
     tx_pin: GPIO33
     rx_pin: GPIO36
     baud_rate: 4800
     parity: NONE
-    stop_bits: 2    
+    stop_bits: 2
 
 # Enable logging
 logger:
