@@ -5,7 +5,7 @@ type: sensor
 standard: global
 ---
 
-![Product](kc868-ak.jpg "Product Image")
+![Product](kc868-ak.png "Product Image")
 
 ## GPIO Pinout
 
