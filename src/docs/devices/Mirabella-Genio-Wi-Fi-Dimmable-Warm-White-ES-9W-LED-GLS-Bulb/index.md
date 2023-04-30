@@ -7,9 +7,9 @@ standard: au
 
 ## GPIO Pinout
 
-| Pin | Function |
-|---------|------------------------------------| |
-| GPIO14 PWM | Light |
+| Pin        | Function |
+| ---------- | -------- |
+| GPIO14 PWM | Light    |
 
 ## Basic Configuration
 
@@ -30,7 +30,6 @@ wifi:
   ap:
     ssid: "genio22 Fallback Hotspot"
     password: !secret wifi_password
-
 
 # Enable logging
 logger:
