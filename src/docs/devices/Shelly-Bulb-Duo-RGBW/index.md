@@ -1,20 +1,20 @@
 ---
 title: Shelly Bulb Duo RGBW
-date-published: 2023-4-30
+date-published: 2023-04-30
 type: light
 standard: us
 ---
+
 This template was made using the Tasmota template found [here](https://github.com/arendst/mgos-to-tasmota) with the [GPIO conversion in the Tasmota docs](https://tasmota.github.io/docs/GPIO-Conversion/#gpio-conversion).
 
 ## GPIO Pinout
 
-| Pin    | Function              |
-| ------ | --------------------- |
-| GPIO5  | PWM 4 (W)             |
-| GPIO12 | PWM 2 (G)             |
-| GPIO13 | PWM 1 (R)             |
-| GPIO14 | PWM 2 (B)             |
-
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO5  | PWM 4 (W) |
+| GPIO12 | PWM 2 (G) |
+| GPIO13 | PWM 1 (R) |
+| GPIO14 | PWM 2 (B) |
 
 ## Configuration for RGBW
 
@@ -42,7 +42,7 @@ wifi:
   password: !secret wifi_password
 
 captive_portal:
-  
+
 light:
   - platform: rgbw
     name: ${friendly_name}
@@ -76,4 +76,3 @@ output:
     frequency: 1000 Hz
     id: pwm_w
 ```
-
