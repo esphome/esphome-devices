@@ -60,7 +60,7 @@ export function MadeforesphomeLogo({ made_for_esphome }) {
     <>
       {made_for_esphome === "visible" ? (
         // <Link to={`/type/${made_for_esphome}`}>
-          <a href="https://esphome.io/guides/made_for_esphome.html" target="_blank"><img src="/made-for-esphome-black-on-white.svg" width="120px" alt="Made for ESPHome Logo" /></a>
+          <a href="https://esphome.io/guides/made_for_esphome.html" target="_blank" rel="noreferrer"><img src="/made-for-esphome-black-on-white.svg" width="120px" alt="Made for ESPHome Logo" /></a>
         // </Link>
       ) : (
         <span></span>
@@ -78,7 +78,7 @@ export function DifficultyLookup({ difficulty }) {
     5: "Chip needs replacement",
   }
   return (
-      <NormalSpan>{levels[difficulty]}</NormalSpan>
+      <NormalSpan>{levels[difficulty]}, {difficulty}/5</NormalSpan>
   );
 }
 
