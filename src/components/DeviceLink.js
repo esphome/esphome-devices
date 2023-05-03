@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from '@emotion/styled';
 
+export const NormalSpan = styled.span`
+  font-weight: normal;
+`;
+export const NormalA = styled.a`
+  font-weight: normal;
+`;
 export function StandardTag({ standard }) {
   const allStandards = Array.from(
     standard
@@ -53,7 +60,7 @@ export function MadeforesphomeLogo({ made_for_esphome }) {
     <>
       {made_for_esphome === "visible" ? (
         // <Link to={`/type/${made_for_esphome}`}>
-          <img src="/made-for-esphome-black-on-white.svg" width="120px" alt="Made for ESPHome Logo" />
+          <a href="https://esphome.io/guides/made_for_esphome.html" target="_blank"><img src="/made-for-esphome-black-on-white.svg" width="120px" alt="Made for ESPHome Logo" /></a>
         // </Link>
       ) : (
         <span></span>
@@ -71,9 +78,13 @@ export function DifficultyLookup({ difficulty }) {
     5: "Chip needs replacement",
   }
   return (
-    <>
-      <span>{levels[difficulty]}</span>
-    </>
+      <NormalSpan>{levels[difficulty]}</NormalSpan>
+  );
+}
+
+export function ProjectUrl({ project_url }) {
+  return (
+      <NormalA href={project_url} >{project_url}</NormalA>
   );
 }
 

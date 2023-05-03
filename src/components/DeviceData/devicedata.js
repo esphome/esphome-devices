@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { TypeTag, StandardTag, MadeforesphomeLogo, DifficultyLookup, BoardTag } from "../DeviceLink";
+import { TypeTag, StandardTag, MadeforesphomeLogo, DifficultyLookup, BoardTag, ProjectUrl} from "../DeviceLink";
 const DeviceData = ({ deviceId }) => {
   const data = useStaticQuery(graphql`
     {
@@ -58,15 +58,15 @@ const DeviceData = ({ deviceId }) => {
         <div>
           Electrical Standard: <StandardTag standard={standard} />
         </div>
-        <div>
+        {board ? (<div>
           Board: <BoardTag board={board} />
-        </div>
-        <div>
+        </div>) : (null)}
+        {difficulty ? (<div>
           Difficulty: <DifficultyLookup difficulty={difficulty} />
-        </div>
-        <div>
-          Project URL: <a href={project_url} >{project_url}</a>
-        </div>
+        </div>) : (null)}
+        {project_url ? (<div>
+          Project URL: <ProjectUrl project_url={project_url} />
+        </div>) : (null)}
       </h4>
     );
   }
