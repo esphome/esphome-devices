@@ -1,5 +1,6 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
+
 import { DeviceLink } from "../DeviceLink";
 
 const FilterDevices = ({ filterDeviceType, filterStandard, filterBoard }) => {
@@ -52,6 +53,11 @@ const FilterDevices = ({ filterDeviceType, filterStandard, filterBoard }) => {
         : node?.frontmatter?.standard?.toLowerCase(),
     };
   });
+
+  if(mapped.length === 0) {
+    return (<div>No devices yet, <Link to="/adding-devices">please contribute!</Link></div>)
+  }
+
   return (
     <ul>
       {mapped.map((device) => (
