@@ -66,7 +66,6 @@ cd74hc4067:
 
 # Example configuration entry
 sensor:
-
   - platform: adc
     pin: 35
     id: adc35
