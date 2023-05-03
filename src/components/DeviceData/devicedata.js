@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { TypeTag, StandardTag, MadeforesphomeLogo, DifficultyLookup, BoardTag, ProjectUrl} from "../DeviceLink";
+import { TypeTag, StandardTag, MadeForESPHomeLogo, DifficultyLookup, BoardTag, ProjectUrl} from "../DeviceLink";
 const DeviceData = ({ deviceId }) => {
   const data = useStaticQuery(graphql`
     {
@@ -27,8 +27,8 @@ const DeviceData = ({ deviceId }) => {
     return e.node.id === deviceId;
   });
   const mapped = filtered?.map(({ node }) => {
-    let show_logo = "hidden"
-    if (node?.frontmatter?.made_for_esphome) {show_logo = "visible"}
+    let show_logo = false;
+    if (node?.frontmatter?.made_for_esphome) {show_logo = true}
 
     return {
       id: node.id,
@@ -48,10 +48,10 @@ const DeviceData = ({ deviceId }) => {
   if (type || standard) {
     return (
       <h4>
-        <div>
-          <MadeforesphomeLogo made_for_esphome={made_for_esphome_logo} />
+        {made_for_esphome_logo ? (<><div>
+          <MadeForESPHomeLogo />
         </div>
-        <br />
+        <br /></>) : (null)}
         <div>
           Device Type: <TypeTag type={type} />
         </div>
