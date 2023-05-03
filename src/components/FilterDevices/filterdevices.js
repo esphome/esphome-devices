@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { DeviceLink } from "../DeviceLink";
 
-const FilterDevices = ({ filterDeviceType, filterStandard }) => {
+const FilterDevices = ({ filterDeviceType, filterStandard, filterBoard }) => {
   const data = useStaticQuery(graphql`
     {
       allMdx(sort: { fields: frontmatter___title }) {
@@ -13,6 +13,7 @@ const FilterDevices = ({ filterDeviceType, filterStandard }) => {
               title
               type
               standard
+              board
             }
             slug
           }
@@ -28,6 +29,12 @@ const FilterDevices = ({ filterDeviceType, filterStandard }) => {
       );
     }
 
+    if (filterBoard) {
+      return e?.node?.frontmatter?.board
+      ?.toLowerCase()
+      ?.includes(filterBoard.toLowerCase());
+    }
+
     return e?.node?.frontmatter?.standard
       ?.toLowerCase()
       ?.includes(filterStandard.toLowerCase());
@@ -39,6 +46,7 @@ const FilterDevices = ({ filterDeviceType, filterStandard }) => {
       slug: node.slug,
       title: node?.frontmatter?.title,
       type: filterDeviceType ? null : node?.frontmatter?.type,
+      board: filterBoard ? null : node?.frontmatter?.board?.toLowerCase(),
       standard: filterStandard
         ? null
         : node?.frontmatter?.standard?.toLowerCase(),

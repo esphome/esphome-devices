@@ -30,6 +30,14 @@
       link: '/standards/uk'
     - label: 'US Devices'
       link: '/standards/us'
+- label: Boards
+  items:
+    - label: 'esp32'
+      link: '/board/esp32'
+    - label: 'esp8266'
+      link: '/board/esp8266'
+    - label: 'rp2040'
+      link: '/board/rp2040'
 - label: Guides
   items:
     - label: 'Adding Devices'
