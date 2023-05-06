@@ -3,6 +3,7 @@ title: Loetad EU3S Power Monitoring Plug
 date-published: 2020-08-03
 type: plug
 standard: eu
+board: esp8266
 ---
   ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
   ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")

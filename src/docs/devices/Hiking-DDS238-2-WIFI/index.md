@@ -3,6 +3,7 @@ title: Hiking DDS238-2 WIFI Single Phase 65A Energy Meter
 date-published: 2021-05-15
 type: misc
 standard: global
+board: esp8266
 ---
 
 ## Manufacturer

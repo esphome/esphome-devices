@@ -4,6 +4,7 @@ Model: SL2
 date-published: 2021-05-13
 type: light
 standard: eu
+board: esp8266
 ---
 
 ![Product Image](Gosund_SL2.jpg "Product Image")

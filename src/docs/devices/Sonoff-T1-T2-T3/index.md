@@ -3,6 +3,7 @@ title: Sonoff T1/T2/T3 Touch Wall Switch (R1)
 date-published: 2023-04-13
 type: switch
 standard: uk
+board: esp8266
 ---
 
 An example of how to integrate a T1 T2 or T3 Sonoff light switch (R1) into Home Assistant

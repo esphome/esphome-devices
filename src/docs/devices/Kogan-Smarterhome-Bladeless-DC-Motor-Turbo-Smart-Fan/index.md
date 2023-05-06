@@ -4,6 +4,7 @@ Model: KASBLSTFANSA
 date-published: 2022-08-02
 type: misc
 standard: au
+board: esp8266
 ---
 
 ![Product Image](Kogan-Smarterhome-Bladeless-DC-Motor-Turbo-Smart-Fan.jpg "Kogan SmarterHome Bladeless DC Motor Turbo Smart Fan")

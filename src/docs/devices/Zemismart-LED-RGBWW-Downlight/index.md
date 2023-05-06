@@ -3,6 +3,7 @@ title: Zemismart LED RGBWW Downlight
 date-published: 2023-04-12
 type: light
 standard: global
+board: esp8266
 ---
 
 The Zemismart LED RGBW Downlight is a Tuya-based downlight available

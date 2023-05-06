@@ -3,6 +3,7 @@ title: MagicHome RGBW ZJ-WFMN-A V1.1 LED Controller
 date-published: 2020-10-28
 type: light
 standard: global
+board: esp8266
 ---
 
 ## General Notes

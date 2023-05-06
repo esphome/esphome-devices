@@ -3,6 +3,7 @@ title: NX-SP201
 date-published: 2020-07-06
 type: plug
 standard: us
+board: esp8266
 ---
 
 Dual outlet, dual relay socket with single channel power monitoring. Flashable via tuya-convert.

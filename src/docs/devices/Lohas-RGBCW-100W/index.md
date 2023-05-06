@@ -3,6 +3,7 @@ title: Lohas LH-ZN006 RGBCW 100W Equiv Dimmable
 date-published: 2019-11-21
 type: light
 standard: us
+board: esp8266
 ---
 
 ## Update Warning

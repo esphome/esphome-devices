@@ -3,6 +3,7 @@ title: Generic Chinese Brand WiFi Smart Power Strip
 date-published: 2021-07-31
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![image](Generic-Chinese-Brand-WiFi-Smart-Power-Strip.jpg)

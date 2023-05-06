@@ -3,6 +3,7 @@ title: KinCony KC868-A16S
 date-published: 2023-04-27
 type: relay
 standard: global
+board: esp32
 ---
 
 ![Product](kc868-a16s.jpg "Product Image")

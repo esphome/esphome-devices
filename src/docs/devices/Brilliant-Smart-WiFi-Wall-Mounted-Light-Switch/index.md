@@ -3,6 +3,7 @@ title: Brilliant Smart WiFi Wall Mounted Light Switch
 date-published: 2021-10-21
 type: switch
 standard: au
+board: esp8266
 ---
 
 The Brilliant Smart WiFi wall mounted light switch is available in Australia. They come in single gang, twin, triple and quad gang configurations. They're a smooth glass front with round touch switches to control the lights.

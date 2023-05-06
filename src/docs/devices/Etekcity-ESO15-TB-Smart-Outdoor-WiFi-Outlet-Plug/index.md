@@ -3,6 +3,7 @@ title: Etekcity Smart Outdoor WiFi Outlet Plug ESO15-TB
 date-published: 2021-12-24
 type: plug
 standard: us
+board: esp8266
 ---
 
 Converted from [Tasmota](https://templates.blakadder.com/etekcity_ES015-TB.html).

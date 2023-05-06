@@ -3,6 +3,7 @@ title: H801 RGBW LED controller
 date-published: 2023-04-11
 type: light
 standard: global
+board: esp8266
 ---
 
 The H801 is pretty affordable and easy to hack and adapt to your needs.

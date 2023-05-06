@@ -3,6 +3,7 @@ title: TH3D EZPlug+
 date-published: 2023-02-20
 type: plug
 standard: us
+board: esp8266
 ---
 
 [TH3D Shop Link](https://www.th3dstudio.com/product/ezplug-open-source-wifi-smart-plug/)

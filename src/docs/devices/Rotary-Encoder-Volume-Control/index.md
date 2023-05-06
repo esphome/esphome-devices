@@ -3,6 +3,7 @@ title: Rotary Encoder Volume Control
 date-published: 2019-10-14
 type: misc
 standard: global
+board: esp8266
 ---
 
 ## General Notes

@@ -3,6 +3,7 @@ title: teXXmo IoT Button
 date-published: 2020-06-25
 type: misc
 standard: global
+board: esp8266
 ---
 
 ## Device Information

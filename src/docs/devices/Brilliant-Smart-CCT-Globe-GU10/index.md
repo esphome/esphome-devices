@@ -3,6 +3,7 @@ title: Brilliant Smart CCT Globe GU10
 date-published: 2022-04-04
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes

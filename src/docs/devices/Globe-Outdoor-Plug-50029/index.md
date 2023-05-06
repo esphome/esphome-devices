@@ -3,6 +3,7 @@ title: Globe Electric 2-Outlet Outdoor Plug (50029)
 date-published: 2021-12-04
 type: plug
 standard: us
+board: esp8266
 ---
 
 These devices are based on the popular Tuya platform, model on the back sticker is SK509-W-2S, the bottom of the box lists them as 50029. FCC-ID is [2AQUQGE50029](https://fccid.io/2AQUQGE50029).

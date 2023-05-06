@@ -4,6 +4,7 @@ Model: KASPEMHA
 date-published: 2019-10-18
 type: plug
 standard: au
+board: esp8266
 ---
   ![alt text](/kogan-smarterhome-smart-plug-energy-meter.jpg "Product Image")
   

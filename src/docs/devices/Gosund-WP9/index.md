@@ -3,6 +3,7 @@ title: Gosund WP9 Power Strip
 date-published: 2021-06-01
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![Product Image](Gosund-WP9.jpg "Gosund WP9 Power Strip")

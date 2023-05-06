@@ -3,6 +3,7 @@ title: Gosund SP112
 date-published: 2020-10-27
 type: switch
 standard: eu
+board: esp8266
 ---
 
 ## Flashing

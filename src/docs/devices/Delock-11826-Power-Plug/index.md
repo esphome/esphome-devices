@@ -3,6 +3,7 @@ title: Delock 11826 Power Smart Plug
 date-published: 2022-02-20
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## General Notes

@@ -3,6 +3,7 @@ title: Avatar AWP02L2
 date-published: 2022-01-26
 type: plug
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3ACOgKO)

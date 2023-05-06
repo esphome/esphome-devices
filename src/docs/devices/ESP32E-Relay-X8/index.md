@@ -3,6 +3,7 @@ title: ESP32 Realy Board x8
 date-published: 2022-10-17
 type: relay
 standard: global
+board: esp32
 ---
 
 ![Product](./image.jpg "Product Image")

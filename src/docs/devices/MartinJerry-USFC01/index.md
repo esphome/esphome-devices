@@ -3,6 +3,7 @@ title: Martin Jerry US-FC-01 Smart Ceiling Fan Controller
 date-published: 2023-02-13
 type: switch
 standard: us
+board: esp8266
 ---
 
 Martin Jerry US-FC-01 Switch![image](MJ-usfc01.jpg)

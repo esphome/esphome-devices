@@ -3,6 +3,7 @@ title: Sonoff THR320D
 date-published: 2023-01-07
 type: plug
 standard: us
+board: esp32
 ---
 
 ## Bootloop Workaround

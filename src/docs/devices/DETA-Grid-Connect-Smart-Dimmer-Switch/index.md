@@ -3,6 +3,7 @@ title: DETA Grid Connect Smart Dimmer Switch 6910HA
 date-published: 2022-06-23
 type: dimmer
 standard: au
+board: esp8266
 ---
 
 ## General Notes

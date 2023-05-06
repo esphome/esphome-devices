@@ -3,6 +3,7 @@ title: Smartpoint Wifi Smart Remote Controller
 date-published: 2021-09-02
 type: misc
 standard: global
+board: esp8266
 ---
 
 ![Product Image](smartpoint_wifi_smart_remote_controller.jpeg "Product Image")

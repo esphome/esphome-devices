@@ -3,6 +3,7 @@ title: Aukey SH-PA1 Wi-Fi Smart Plug
 date-published: 2020-04-11
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![alt text](/aukey-plug.jpg "Aukey SH-PA1 Smart WiFi Plug")

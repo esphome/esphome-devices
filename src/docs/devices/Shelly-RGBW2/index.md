@@ -3,6 +3,7 @@ title: Shelly RGBW2
 date-published: 2021-09-19
 type: light
 standard: uk, us, eu
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/2ZcvAmy)

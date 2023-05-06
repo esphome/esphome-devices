@@ -3,6 +3,7 @@ title: AVATTO S06 WiFi IR Universal Remote Controller (No Temp/No Humidity)
 date-published: 2021-04-06
 type: misc
 standard: global
+board: esp8266
 ---
 ![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
 

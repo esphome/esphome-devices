@@ -3,6 +3,7 @@ title: Martin Jerry Wall Switch MJ-S01
 date-published: 2022-01-25
 type: switch
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3r3bpTx)

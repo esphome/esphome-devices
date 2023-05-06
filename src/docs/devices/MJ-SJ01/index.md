@@ -3,6 +3,7 @@ title: Martin Jerry Dimmer MJ-SD01
 date-published: 2019-10-11
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout

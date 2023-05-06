@@ -3,6 +3,7 @@ title: Sonoff T1 R2 Touch Wall Switch
 date-published: 2020-04-06
 type: switch
 standard: eu
+board: esp8266
 ---
 
 ## Notes

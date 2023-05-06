@@ -3,6 +3,7 @@ title: KinCony KC868-AIO
 date-published: 2023-04-28
 type: relay
 standard: global
+board: esp32
 ---
 
 ![Product](kc868-aio.jpg "Product Image")

@@ -3,6 +3,7 @@ title: NodeMCU ESP8266 with Temperature & Humidity Sensor (DHT11)
 date-published: 2019-10-13
 type: sensor
 standard: global
+board: esp8266
 ---
 
 ## GPIO Pinout

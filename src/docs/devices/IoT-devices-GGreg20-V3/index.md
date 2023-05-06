@@ -3,6 +3,7 @@ title: IoT-devices GGreg20_V3 module
 date-published: 2021-12-27
 type: sensor
 standard: global
+board: esp8266
 ---
 
 ## GGreg20_V3 Ionizing radiation detector module

@@ -3,6 +3,7 @@ title: Athom GU10 Bulb
 date-published: 2021-10-05
 type: light
 standard: us
+board: esp8266
 ---
 
 Manufacturer: [Athom.tech](https://www.athom.tech/blank-1/gu10-rgbcw)

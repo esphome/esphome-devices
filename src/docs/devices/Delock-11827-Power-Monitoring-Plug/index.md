@@ -3,6 +3,7 @@ title: Delock 11827 Power Monitoring Smart Plug
 date-published: 2021-01-26
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## General Notes

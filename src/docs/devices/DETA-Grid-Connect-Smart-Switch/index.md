@@ -3,6 +3,7 @@ title: DETA Grid Connect Smart Switch (Single / Double / Triple / Quad)
 date-published: 2020-11-23
 type: switch
 standard: au
+board: esp8266
 ---
 
 ## General Notes

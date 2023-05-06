@@ -3,6 +3,7 @@ title: Arlec FL052HA Security Flood Light
 date-published: 2021-02-14
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/Arlec-FL052HA-Security-Flood-Light.png "Product Image")

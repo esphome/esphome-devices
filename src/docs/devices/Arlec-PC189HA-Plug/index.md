@@ -3,6 +3,7 @@ title: Arlec PC189HA Plug
 date-published: 2021-01-04
 type: plug
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/Arlec-PC189HA-Plug.jpg "Product Image")

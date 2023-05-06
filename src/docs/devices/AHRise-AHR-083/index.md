@@ -3,6 +3,7 @@ title: AHRise AHR-083
 date-published: 2020-10-12
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## Product Images

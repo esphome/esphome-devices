@@ -3,6 +3,7 @@ title: Teckin SP22
 date-published: 2023-03-12
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout

@@ -3,6 +3,7 @@ title: Topersun WL-SC01 Smart Plug
 date-published: 2023-04-12
 type: plug
 standard: au
+board: esp8266
 ---
 
 Topersun Smart Plugs are a Tuya-based smart plugs

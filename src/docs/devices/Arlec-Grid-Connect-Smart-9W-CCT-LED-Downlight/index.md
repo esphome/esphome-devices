@@ -3,6 +3,7 @@ title: Arlec Grid Connect Smart 9W CCT LED Downlight (ALD092CHA)
 date-published: 2021-02-05
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/Arlec-Grid-Connect-Smart-9W-CCT-LED-Downlight.jpg "Product Image")

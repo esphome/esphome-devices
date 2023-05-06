@@ -3,6 +3,7 @@ title: KTNNKG Wifi-KG2201-W
 date-published: 2020-07-05
 type: relay
 standard: global
+board: esp8266
 ---
 
 Single channel relay with 433Mhz RF module, flashable via tuya-convert or UART and GPIO0 (these, VCC, and GND are all conveniently broken out to pads). On this device, the relay is controlled by the ESP and RF signals are decoded by an RF module and sent to the ESP.

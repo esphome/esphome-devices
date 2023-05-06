@@ -3,6 +3,7 @@ title: EPEVER MPPT Solar Charge Controller (Tracer-AN Series)
 date-published: 2023-04-11
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![image](/tracer-an.jpg)

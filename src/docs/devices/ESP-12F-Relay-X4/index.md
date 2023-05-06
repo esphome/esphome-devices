@@ -3,6 +3,7 @@ title: ESP-12F_Relay_X4
 date-published: 2021-04-15
 type: relay
 standard: global
+board: esp8266
 ---
 
 ## Product description

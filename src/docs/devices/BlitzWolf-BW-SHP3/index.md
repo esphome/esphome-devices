@@ -3,6 +3,7 @@ title: BlitzWolf BW-SHP3 Power Monitoring Plug
 date-published: 2021-05-12
 type: plug
 standard: us
+board: esp8266
 ---
 
 Model reference: BW-SHP3

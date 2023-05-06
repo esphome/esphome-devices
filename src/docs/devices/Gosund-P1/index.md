@@ -4,6 +4,7 @@ Model: P1
 date-published: 2021-03-21
 type: relay
 standard: UK
+board: esp8266
 ---
 
 ## ATTENTION! Be aware that some of these devices can do "sudden power toggles". Meaning the relays will very shortly "toggle" and thus might harm you equipment

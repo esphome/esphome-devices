@@ -3,6 +3,7 @@ title: KinCony KC868-Uair
 date-published: 2023-04-28
 type: misc
 standard: global
+board: esp32
 ---
 
 ![Product](kc868-uair.jpg "Product Image")

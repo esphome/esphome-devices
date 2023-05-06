@@ -3,6 +3,7 @@ title: Feit BPA800/RGBW/AG/2
 date-published: 2021-05-11
 type: light
 standard: us
+board: esp8266
 ---
 
 Another Costco Variant. **Do not confuse with Feit BPA800/RGBW/AG/2(P) as they use different GPIO pin numbers.**

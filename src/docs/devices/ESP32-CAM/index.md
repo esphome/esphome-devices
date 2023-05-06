@@ -3,6 +3,7 @@ title: Generic ESP32-CAM
 date-published: 2019-10-11
 type: misc
 standard: global
+board: esp32
 ---
 
 ## GPIO Pinout

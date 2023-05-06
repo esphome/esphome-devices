@@ -4,6 +4,7 @@ Model: SP1
 date-published: 2021-12-27
 type: relay
 standard: eu
+board: esp8266
 ---
 
 - Can be flashed with Tuya-Convert

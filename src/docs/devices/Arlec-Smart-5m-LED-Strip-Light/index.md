@@ -3,6 +3,7 @@ title: Arlec Smart 2m/5m LED Strip Light
 date-published: 2020-01-21
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes

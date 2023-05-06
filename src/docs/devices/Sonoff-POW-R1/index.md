@@ -3,6 +3,7 @@ title: sonoff pow r1
 date-published: 2019-11-11
 type: plug
 standard: global
+board: esp8266
 ---
 
 ## Product Images

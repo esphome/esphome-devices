@@ -3,6 +3,7 @@ title: Xiaomi Mi Desklamp 1S
 date-published: 2021-12-27
 type: light
 standard: eu
+board: esp32
 ---
 
 ```yaml

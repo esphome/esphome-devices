@@ -3,6 +3,7 @@ title: IWOOLE Table Lamp
 date-published: 2023-04-11
 type: light
 standard: global
+board: esp8266
 ---
 
 The IWOOLE Table Lamp is a RGBW lamp normally configured using the Tuya

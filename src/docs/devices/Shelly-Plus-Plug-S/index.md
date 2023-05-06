@@ -3,6 +3,7 @@ title: Shelly Plus Plug S
 date-published: 2023-03-23
 type: plug
 standard: eu
+board: esp32
 ---
 
 ## GPIO Pinout

@@ -3,6 +3,7 @@ title: DETA Outdoor Double Powerpoint (6294HA)
 date-published: 2023-04-10
 type: plug
 standard: au
+board: esp8266
 ---
 
 ## General Notes

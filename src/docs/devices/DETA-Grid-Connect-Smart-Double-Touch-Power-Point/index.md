@@ -3,6 +3,7 @@ title: Deta Grid Connect Smart Double Touch Power Point
 date-published: 2020-11-19
 type: plug
 standard: au
+board: esp8266
 ---
 
 ## Deta Grid Connect Smart Double Touch Power Point

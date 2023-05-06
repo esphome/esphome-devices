@@ -3,6 +3,7 @@ title: Mirabella Genio Wi-Fi Dimmable Warm White ES 9W LED GLS Bulb
 date-published: 2023-04-30
 type: light
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout

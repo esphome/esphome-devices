@@ -3,6 +3,7 @@ title: eWeLink PCIe Computer Remote (SANT-SUD01)
 date-published: 2022-12-23
 type: misc
 standard: global
+board: esp8266
 ---
 
 A simple remote control/monitor device for use with standard PCs.

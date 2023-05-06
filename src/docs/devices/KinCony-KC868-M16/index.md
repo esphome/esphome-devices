@@ -3,6 +3,7 @@ title: KinCony KC868-M16
 date-published: 2023-05-03
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![Product](kc868-m16.jpg "Product Image")

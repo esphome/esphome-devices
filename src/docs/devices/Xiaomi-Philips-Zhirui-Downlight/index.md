@@ -3,6 +3,7 @@ title: Xiaomi Philips Zhirui Downlight
 date-published: 2022-06-20
 type: light
 standard: global
+board: esp8266
 ---
 ## Product Images
 

@@ -3,6 +3,7 @@ title: WYZE Light Strip Pro (WLPSTPR-10)
 date-published: 2023-02-24
 type: light
 standard: global
+board: esp32
 ---
 
 ## General Notes

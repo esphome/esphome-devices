@@ -3,6 +3,7 @@ title: Athom BR30 Bulb
 date-published: 2021-10-05
 type: light
 standard: us
+board: esp8266
 ---
 
 Manufacturer: [Athom.tech](https://www.athom.tech/blank-1/tasmota-br30-color-bulb)

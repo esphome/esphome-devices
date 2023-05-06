@@ -4,6 +4,7 @@ Model: KAIRPRFR2SA & KAFLTPRF2SA
 date-published: 2022-02-09
 type: misc
 standard: au
+board: esp8266
 ---
 
 ![Product Image](KoganSmartAirPurifier2S.jpg "Kogan Smart Air Purifier 2S")

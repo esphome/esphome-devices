@@ -3,6 +3,7 @@ title: Athom Smart Plug PG01V2 EU16A
 date-published: 2023-05-14
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ![alt text](athom_PG01V2-EU16A.webp "Athom Smart Plug PG01V2 EU16A")

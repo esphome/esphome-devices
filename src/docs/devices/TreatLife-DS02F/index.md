@@ -3,6 +3,7 @@ title: TreatLife DS02F Ceiling Fan Controller
 date-published: 2021-07-26
 type: switch
 standard: us
+board: esp8266
 ---
 
 Treatlife DS02F Switch![image](treatlife_DS02F.jpg)

@@ -3,6 +3,7 @@ title: MQ-7 Carbon Monoxide Sensor
 date-published: 2023-04-11
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![MQ-7 Carbon Monoxide Sensor](mq-7.png "MQ-7 Carbon Monoxide Sensor")

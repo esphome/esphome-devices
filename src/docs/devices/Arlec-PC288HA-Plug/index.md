@@ -3,6 +3,7 @@ title: Arlec PC288HA Twin Plug
 date-published: 2020-01-04
 type: plug
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout

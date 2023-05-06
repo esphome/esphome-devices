@@ -3,6 +3,7 @@ title: KinCony KC868-A8
 date-published: 2023-04-25
 type: relay
 standard: global
+board: esp32
 ---
 
 ## GPIO Pinout

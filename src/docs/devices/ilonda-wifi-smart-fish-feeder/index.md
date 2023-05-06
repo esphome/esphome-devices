@@ -3,6 +3,7 @@ title: Ilonda Wifi Smart Fish Feeder (L88)
 date-published: 2023-04-11
 type: misc
 standard: global
+board: esp8266
 ---
 
 Ilonda Wifi Smart Fish Feeder (L88) is a Tuya-based device sold by

@@ -3,6 +3,7 @@ title: Brilliant Lighting BL20925 Power Monitoring Plug
 date-published: 2020-04-17
 type: plug
 standard: au
+board: esp8266
 ---
   ![alt text](/Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpeg "Product Image")
   

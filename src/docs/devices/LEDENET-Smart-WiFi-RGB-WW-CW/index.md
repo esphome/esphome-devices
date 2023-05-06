@@ -3,6 +3,7 @@ title: LEDENET Smart WiFi Led Controller (RGB/WW/CW)
 date-published: 2020-12-17
 type: light
 standard: global
+board: esp8266
 ---
 
 ## General Notes

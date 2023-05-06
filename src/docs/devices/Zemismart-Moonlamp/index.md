@@ -3,6 +3,7 @@ title: Zemismart Moonlamp
 date-published: 2020-12-31
 type: light
 standard: global
+board: esp8266
 ---
 
 ![Product image](Moonlamp.jpg "Product Image")

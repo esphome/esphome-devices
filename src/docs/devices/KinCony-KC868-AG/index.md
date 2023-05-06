@@ -3,6 +3,7 @@ title: KinCony KC868-AG Hub
 date-published: 2023-03-25
 type: misc
 standard: global
+board: esp32
 ---
 
 

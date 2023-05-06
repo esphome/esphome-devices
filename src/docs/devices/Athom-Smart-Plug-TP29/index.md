@@ -3,6 +3,7 @@ title: Athom Smart Plug TP29
 date-published: 2021-05-14
 type: plug
 standard: us,eu,uk
+board: esp8266
 ---
 
 ![alt text](Athom-EU-Plug.png "Athom Smart Plug TP29 EU")

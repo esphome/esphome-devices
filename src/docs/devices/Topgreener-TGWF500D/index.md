@@ -3,6 +3,7 @@ title: TOPGREENER TGWF500D 3-Way Smart Dimmer Switch
 date-published: 2021-05-12
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 TOPGREENER TGWF500D 3-Way Smart Dimmer Switch![image](Topgreener-TGWF500D.png)

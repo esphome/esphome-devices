@@ -3,6 +3,7 @@ title: AirGradient-DIY
 date-published: 2021-09-23
 type: sensor
 standard: us
+board: esp8266
 ---
 
 Air environment sensor from PM2.5, CO2, Temperature and Humidity from [AirGradient](https://www.airgradient.com/diy/).
