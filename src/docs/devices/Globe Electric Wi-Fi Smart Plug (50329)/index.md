@@ -6,27 +6,28 @@ standard: us
 made-for-esphome: false
 difficulty: 2
 ---
+
 ![alt text](globe1.jpg "Globe 50359 Back")
 ![alt text](globe2.jpg "Globe 50359 Side")
 ![alt text](globe3.jpg "Globe 50359 Side")
 
-Sold at Costco model (***50207***)
+Sold at Costco model (**_50207_**)
 
 ## Custom Firmware Needed
 
 This device uses the WB2S module that comes with Tuya firmware which can be flashed to esphome using cloudcutter following instructions [here](https://digiblur.com/2023/04/10/tuya-cloudcutter-with-esphome-how-to-guide/)
 
-This requires a custom fork of esphome to complie the firmware for the WB2S module (https://github.com/esphome/esphome/pull/3509) as it is not natively support by esphome yet
+This requires a custom fork of esphome to complie the firmware for the WB2S module (<https://github.com/esphome/esphome/pull/3509>) as it is not natively support by esphome yet
 
 ## GPIO Pinout
 
 Due to the fact that this uses a custom esphome firmware the pin numbers start with a P instead of the usual GPIO
 
-| Pin    | Name   | Function                        |
-| ------ | ------ | ------------------------------- |
-| P7     | LED    | Status LED                      |
-| P26    | Button | Power Button                    |
-| P24    | Outlet | Relay                           |
+| Pin | Name   | Function     |
+| --- | ------ | ------------ |
+| P7  | LED    | Status LED   |
+| P26 | Button | Power Button |
+| P24 | Outlet | Relay        |
 
 ## Basic Configuration
 
@@ -113,7 +114,7 @@ binary_sensor:
       - delayed_on: 10ms
       - delayed_off: 10ms
     on_click:
-        - switch.toggle: outlet
+      - switch.toggle: outlet
 
   - platform: status
     name: ${friendly_name} status
@@ -128,3 +129,4 @@ switch:
       - light.turn_on: led
     on_turn_off:
       - light.turn_off: led
+```
