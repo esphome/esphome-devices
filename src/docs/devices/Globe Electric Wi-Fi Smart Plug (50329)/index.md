@@ -10,13 +10,13 @@ difficulty: 2
 ![alt text](globe2.jpg "Globe 50359 Side")
 ![alt text](globe3.jpg "Globe 50359 Side")
 
-Sold at Costco model (***50207***) 
+Sold at Costco model (***50207***)
 
 ## Custom Firmware Needed
+
 This device uses the WB2S module that comes with Tuya firmware which can be flashed to esphome using cloudcutter following instructions [here](https://digiblur.com/2023/04/10/tuya-cloudcutter-with-esphome-how-to-guide/)
 
 This requires a custom fork of esphome to complie the firmware for the WB2S module (https://github.com/esphome/esphome/pull/3509) as it is not natively support by esphome yet
-
 
 ## GPIO Pinout
 
@@ -31,7 +31,7 @@ Due to the fact that this uses a custom esphome firmware the pin numbers start w
 ## Basic Configuration
 
 ```yaml
-# Globe Electric 50329 smart plug 
+# Globe Electric 50329 smart plug
 substitutions:
   number: "1"
   device_name: globe-plug-${number}
