@@ -3,6 +3,7 @@ title: Sonoff S20
 date-published: 2019-10-10
 type: plug
 standard: uk, us, eu
+board: esp8266
 ---
 
 ## GPIO Pinout

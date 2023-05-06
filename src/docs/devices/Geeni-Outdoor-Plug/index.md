@@ -3,6 +3,7 @@ title: Geeni Outdoor Plug
 date-published: 2020-07-03
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout

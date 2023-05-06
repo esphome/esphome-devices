@@ -3,6 +3,7 @@ title: Orvibo B25
 date-published: 2022-02-04
 type: plug
 standard: uk, us, eu
+board: esp8266
 ---
 
 ## GPIO Pinout

@@ -3,6 +3,7 @@ title: 15W A70 Mirabella Genio White Bulb
 date-published: 2020-04-23
 type: light
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout

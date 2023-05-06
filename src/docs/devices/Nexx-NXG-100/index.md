@@ -4,6 +4,7 @@ Model: NXG-100
 date-published: 2020-07-26
 type: relay
 standard: us
+board: esp8266
 ---
 
 ## Product

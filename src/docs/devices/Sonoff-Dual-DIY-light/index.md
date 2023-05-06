@@ -3,6 +3,7 @@ title: Sonoff Dual R1
 date-published: 2023-04-13
 type: relay
 standard: global
+board: esp8266
 ---
 
 This is a DIY solution, and you will need to have some knowledge of

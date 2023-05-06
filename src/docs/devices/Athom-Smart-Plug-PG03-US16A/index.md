@@ -3,6 +3,7 @@ title: Athom Smart Plug PG03-US16A
 date-published: 2022-02-07
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![alt text](athom_PG03-US16A.webp "Athom Smart Plug PG03-US16A")

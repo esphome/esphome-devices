@@ -3,6 +3,7 @@ title: TreatLife DS02S Single Pole Dimmer
 date-published: 2021-05-08
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 Treatlife DS02S Switch![image](Treatlife-DS02S.png)

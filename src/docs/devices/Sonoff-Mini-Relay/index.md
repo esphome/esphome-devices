@@ -4,6 +4,7 @@ Model: IM190416001
 date-published: 2020-11-19
 type: relay
 standard: global
+board: esp8266
 ---
   ![alt text](Sonoff-Mini-Relay.png "Product Image")
 

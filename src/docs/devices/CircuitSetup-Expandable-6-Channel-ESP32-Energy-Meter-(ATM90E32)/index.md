@@ -3,6 +3,7 @@ title: CircuitSetup Expandable-6 Channel ESP32 Energy Meter (ATM90E32)
 date-published: 2020-10-28
 type: misc
 standard: global
+board: esp32
 ---
 
 ## GPIO Pinout

@@ -3,6 +3,7 @@ title: DETA Mechanism Switch (6014HA)
 date-published: 2023-04-09
 type: switch
 standard: au
+board: esp8266
 ---
 
 ## General Notes

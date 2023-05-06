@@ -3,6 +3,7 @@ title: Tuya ZY-M100 Human Presence Sensor
 date-published: 2022-12-23
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![Tuya ZY-M100](tuya-zy-m100.jpg "Tuya ZY-M100")

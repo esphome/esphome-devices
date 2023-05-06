@@ -3,6 +3,7 @@ title: Brilliant Smart Wi-Fi RGB Garden Light
 date-published: 2019-11-10
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes

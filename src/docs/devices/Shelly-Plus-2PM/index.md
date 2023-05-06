@@ -3,6 +3,7 @@ title: Shelly Plus 2PM
 date-published: 2022-05-07
 type: switch
 standard: eu
+board: esp32
 ---
 
 ## Hardware Versions

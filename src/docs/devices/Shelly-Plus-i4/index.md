@@ -3,6 +3,7 @@ title: Shelly Plus i4
 date-published: 2022-08-22
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![Shelly Plus i4](shelly_plus_i4.jpg "Shelly Plus i4")

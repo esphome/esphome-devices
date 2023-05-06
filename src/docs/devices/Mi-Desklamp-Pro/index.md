@@ -3,6 +3,7 @@ title: Xiaomi Mi Smart LED Desk Lamp Pro
 date-published: 2021-09-09
 type: light
 standard: eu
+board: esp32
 ---
 ## Install ESPHome on Xiaomi Mi Smart LED Desk Lamp Pro
 

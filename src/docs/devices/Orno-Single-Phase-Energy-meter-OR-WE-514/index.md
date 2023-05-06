@@ -3,6 +3,7 @@ title: Orno Single Phase Energy meter OR-WE-514
 date-published: 2021-11-20
 type: misc
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout

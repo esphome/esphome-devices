@@ -3,6 +3,7 @@ title: LC-Technology-4-Channel-Relay
 date-published: 2022-02-12
 type: Relays
 standard: eu
+board: esp8266
 ---
 
 

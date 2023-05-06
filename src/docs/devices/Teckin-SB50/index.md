@@ -3,6 +3,7 @@ title: Teckin SB50
 date-published: 2022-06-02
 type: light
 standard: us
+board: esp8266
 ---
 
 ## General Notes

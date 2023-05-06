@@ -3,6 +3,7 @@ title: Mirabella Genio Wi-Fi 1 USB Adaptor
 date-published: 2023-04-12
 type: plug
 standard: au
+board: esp8266
 ---
 
 Mirabella Genio Smart Plugs are a Tuya-based smart plugs

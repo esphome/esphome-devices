@@ -3,6 +3,7 @@ title: Gosund WP3
 date-published: 2020-12-09
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout

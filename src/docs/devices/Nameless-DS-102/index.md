@@ -3,6 +3,7 @@ title: Nameless DS-102 2/3-Gang Wall-Switch
 date-published: 2020-04-06
 type: switch
 standard: eu
+board: esp8266
 ---
 
 ## Warning

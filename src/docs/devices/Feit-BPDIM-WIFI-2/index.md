@@ -3,6 +3,7 @@ title: Feit BPDIM/WIFI/2
 date-published: 2020-12-04
 type: dimmer
 standard: us
+board: esp8266
 ---
 Another Costco/Feit device. This template should work with DIM/WIFI, DIM/WIFI/2, and DIM/WIFI/3, if you can flash it.
 

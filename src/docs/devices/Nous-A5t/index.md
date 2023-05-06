@@ -3,6 +3,7 @@ title: Nous A5t
 date-published: 2022-12-19
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout

@@ -3,6 +3,7 @@ title: Teckin SS30
 date-published: 2019-10-17
 type: plug
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3tVURf8)

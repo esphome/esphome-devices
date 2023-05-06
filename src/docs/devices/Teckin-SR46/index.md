@@ -3,6 +3,7 @@ title: Teckin SR46
 date-published: 2020-10-29
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 ## General Notes

@@ -3,6 +3,7 @@ title: Shelly Plus 1
 date-published: 2021-11-01
 type: relay
 standard: uk, us, eu, au
+board: esp32
 ---
 
 ![Shelly Plus 1](shelly_plus_1_pinout.jpg "Shelly Plus 1")

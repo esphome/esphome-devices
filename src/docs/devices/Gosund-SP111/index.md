@@ -3,6 +3,7 @@ title: Gosund SP111
 date-published: 2021-01-01
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## Warning

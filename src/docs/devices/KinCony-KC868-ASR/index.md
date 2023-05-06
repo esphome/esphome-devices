@@ -3,6 +3,7 @@ title: KinCony KC868-ASR
 date-published: 2023-04-19
 type: relay
 standard: global
+board: esp32
 ---
 
 

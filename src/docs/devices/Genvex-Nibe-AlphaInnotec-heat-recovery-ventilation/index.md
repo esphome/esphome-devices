@@ -3,6 +3,7 @@ title: Genvex ECO 375, Nibe ERS 10-500, Alpha-Innotec LG 300 ECO B(E) ventilatio
 date-published: 2023-04-12
 type: misc
 standard: global
+board: esp32
 ---
 
 Heat Recovery Ventilation system control via MODBUS protocol for Genvex ECO 375,

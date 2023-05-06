@@ -3,6 +3,7 @@ title: ProfiCook PC-WKS 1167G 1.5L Kettle (501167)
 date-published: 2022-06-01
 type: misc
 standard: eu
+board: esp8266
 ---
 
 ![ProfiCook Kettle](device.jpg "ProfiCook Kettle")

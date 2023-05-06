@@ -3,6 +3,7 @@ title: Arlec Grid Connect Smart 9W RGB CCT LED Downlight (ALD092RHA)
 date-published: 2021-08-11
 type: light
 standard: au
+board: esp8266
 ---
 
 Sold at Bunnings in Australia. Model number ALD092RHA.

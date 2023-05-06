@@ -3,6 +3,7 @@ title: Teckin SS33
 date-published: 2020-07-17
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout

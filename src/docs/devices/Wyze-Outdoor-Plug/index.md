@@ -3,6 +3,7 @@ title: Wyze Outdoor Plug
 date-published: 2022-03-05
 type: plug
 standard: us
+board: esp32
 ---
 
 ## Initial Install

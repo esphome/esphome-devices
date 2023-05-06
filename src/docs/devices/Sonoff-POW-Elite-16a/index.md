@@ -3,6 +3,7 @@ title: Sonoff POW Elite 16a (POWR316D)
 date-published: 2022-12-30
 type: plug
 standard: global
+board: esp32
 ---
 
 ## GPIO Pinout

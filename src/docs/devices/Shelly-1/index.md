@@ -3,6 +3,7 @@ title: Shelly 1
 date-published: 2019-10-20
 type: switch
 standard: uk, us, eu
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/2OAz8de)

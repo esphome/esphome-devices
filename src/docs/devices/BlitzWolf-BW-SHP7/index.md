@@ -3,6 +3,7 @@ title: Blitzwolf BW-SHP7 Double socket with powermonitoring
 date-published: 2020-08-06
 type: plug
 standard: eu
+board: esp8266
 ---
   ![Product Image](./BlitzWolf-BW-SHP7-Power-Monitoring-Doubleplug.jpg "Product Image")
   ![Product Measurements](./BlitzWolf-BW-SHP7-Power-Monitoring-Doubleplug-measurement.jpg "Product Measurements")

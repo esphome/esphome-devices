@@ -3,6 +3,7 @@ title: Brilliant Smart Plug
 date-published: 2019-10-12
 type: plug
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout

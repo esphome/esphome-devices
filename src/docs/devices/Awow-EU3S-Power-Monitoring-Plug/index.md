@@ -3,6 +3,7 @@ title: AWOW EU3S Power Monitoring Plug
 date-published: 2020-07-13
 type: plug
 standard: eu
+board: esp8266
 ---
   ![alt text](/Awow-EU3S-Power-Monitoring-Plug.jpg "Product Image")
   ![alt text](/Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")

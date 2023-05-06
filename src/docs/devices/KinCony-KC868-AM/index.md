@@ -3,6 +3,7 @@ title: KinCony KC868-AM
 date-published: 2023-04-18
 type: relay
 standard: global
+board: esp32
 ---
 
 

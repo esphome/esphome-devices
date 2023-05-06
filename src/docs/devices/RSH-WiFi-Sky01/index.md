@@ -3,6 +3,7 @@ title: Tuya Galaxy / Laser Star Projector (RSH-WiFi-Sky01)
 date-published: 2023-01-23
 type: light
 standard: global
+board: esp8266
 ---
 
 Manufacturer: [tuya](https://expo.tuya.com/smart/lighting/ambient-lighting/star-projector/CT9cn91vklm6mj-CT9cn98zo9cbv5-CTatr28ahrby2u)

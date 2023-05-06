@@ -3,6 +3,7 @@ title: Athom E27 7W Bulb
 date-published: 2021-10-05
 type: light
 standard: us
+board: esp8266
 ---
 
 Manufacturer: [Athom.tech](https://www.athom.tech/blank-1/7w-2-pack)

@@ -3,6 +3,7 @@ title: Shelly Bulb Duo RGBW
 date-published: 2023-04-30
 type: light
 standard: us
+board: esp8266
 ---
 
 This template was made using the Tasmota template found [here](https://github.com/arendst/mgos-to-tasmota) with the [GPIO conversion in the Tasmota docs](https://tasmota.github.io/docs/GPIO-Conversion/#gpio-conversion).

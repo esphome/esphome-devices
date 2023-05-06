@@ -3,6 +3,7 @@ title: KinCony KC868-AP
 date-published: 2023-04-28
 type: dimmer
 standard: global
+board: esp32
 ---
 
 ![Product](kc868-ap.jpg "Product Image")

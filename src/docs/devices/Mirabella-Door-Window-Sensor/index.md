@@ -3,6 +3,7 @@ title: Mirabella Genio Door & Window Sensor
 date-published: 2020-01-26
 type: sensor
 standard: global
+board: esp8266
 ---
 
 

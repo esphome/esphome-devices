@@ -3,6 +3,7 @@ title: Arlec Grid Connect Smart LED Globe CWWW (GLD112HA)
 date-published: 2021-08-20
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/GLD112HA.jpg "Product Image")

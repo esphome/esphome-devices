@@ -3,6 +3,7 @@ title: Tuya RGBW LED controller
 date-published: 2023-04-11
 type: light
 standard: global
+board: esp8266
 ---
 
 

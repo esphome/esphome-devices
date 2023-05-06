@@ -3,6 +3,7 @@ title: Xiaomi Mi Desklamp
 date-published: 2022-03-13
 type: light
 standard: global
+board: esp8266
 ---
 
 ```yaml

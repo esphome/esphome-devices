@@ -4,6 +4,7 @@ Model: SW9
 date-published: 2021-11-30
 type: switch
 standard: EU
+board: esp8266
 ---
 
 ![Product Image](gosund_sw9.jpg "Product Image")

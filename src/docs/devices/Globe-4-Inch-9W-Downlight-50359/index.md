@@ -3,6 +3,7 @@ title: Globe 4 Inch 9W Downlight 50359
 date-published: 2022-09-07
 type: light
 standard: us
+board: esp32
 ---
 
 RGBWW smart light bulb, ultra slim recessed lighting kit, RGB colors + warm/cold white (2000K to 5000K), 120V AC 50/60Hz.

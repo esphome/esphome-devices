@@ -3,6 +3,7 @@ title: Mirabella Genio Wi-Fi 500 LED Mulitcoloured Fairy Lights
 date-published: 2021-03-02
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes

@@ -3,6 +3,7 @@ title: Treatlife esp01_1m 2/3-Way Wall-Switch
 date-published: 2020-11-29
 type: switch
 standard: global
+board: esp8266
 ---
 
 ## Notes

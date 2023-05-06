@@ -3,6 +3,7 @@ title: Mirabella Genio RGBW Color Bulbs
 date-published: 2023-04-12
 type: light
 standard: global
+board: esp8266
 ---
 
 The Mirabella Genio is a Tuya-based smart bulb sold by Kmart in

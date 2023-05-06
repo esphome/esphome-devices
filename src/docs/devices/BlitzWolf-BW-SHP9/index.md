@@ -3,6 +3,7 @@ title: Blitzwolf BW-SHP9 Triple powerstrip with dual USB power
 date-published: 2020-08-06
 type: plug
 standard: eu
+board: esp8266
 ---
   ![Product image](./BlitzWolf-BW-SHP9-Power-strip.jpg "Product Image")
   ![Product Measurements](./BlitzWolf-BW-SHP9-Power-strip-measurement.jpg "Product Measurements")

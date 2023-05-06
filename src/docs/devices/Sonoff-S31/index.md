@@ -3,6 +3,7 @@ title: Sonoff S31
 date-published: 2019-10-11
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## Initial Install

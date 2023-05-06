@@ -3,6 +3,7 @@ title: Shelly DUO E27
 date-published: 2023-04-23
 type: light
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout
