@@ -6,7 +6,8 @@ standard: global
 board: esp32
 ---
 
-![Product](./image.jpg "Product Image")
+![Product front](./ac-dc-esp32-relayx4-front.jpg "Product front image")
+![Product back](./ac-dc-esp32-relayx4-back.jpg "Product back image")
 
 ## Product description
 
