@@ -39,8 +39,6 @@ If you'll power it up with 3.3V on 5V pin - the MCU will brownout.
 
 ### Internal pinout
 
-None of the relay pins needs to be inverted. LOW - relay coil is not powered, HIGH - relay coil is powered
-
 | Pin    | Function                      |
 | ------ | ----------------------------- |
 | GPIO23 | Status LED                    |
