@@ -17,6 +17,7 @@ The LEDs for active sockets are not controlled separately, they are directly con
 The RX and TX pins are missing on the main board, so for flashing, the testpad on the ESP board must be used.
 
 There are some unused GPIO pins exported to the main board. More information can be found in the picture.
+
 ## Pinout picture
 
 ![Pinout picture1](ESP-Pinout.jpg "Pinout1")
@@ -108,7 +109,7 @@ status_led:
   pin:
     number: GPIO13
     inverted: yes
-    
+
 sensor:
   # WiFi signals strength sensor
   - platform: wifi_signal
