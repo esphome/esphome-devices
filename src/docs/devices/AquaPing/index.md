@@ -1,6 +1,6 @@
 ---
 title: AquaPing
-date-published: 2023-05-10
+date-published: 2023-05-11
 type: sensor
 standard: global
 board: esp8266
@@ -16,7 +16,7 @@ Production was funded with a campaign at [Crowd Supply](https://www.crowdsupply.
 
 The sensor is highly configurable. Two-way communication is via an I2C interface that is used to retrieve sensor data and also set monitoring parameters. Two interrupt lines alert to potential leaks and/or the presence of anomalous noise. Noise mitigation is addressed with mechanical, analog, and digital filtering combined with statistical analysis that takes place entirely on the edge. Design and configuration details are provided in a 9-page user manual in the linked repository.
 
-Implementation with an ESP8266 module in Home Assistant requires the custom firmware file named *aquaping.h*. It is placed in the config/esphome/ directory and listed as an *include* in the yaml file (see below). The repository also contains a custom dashboard file with cards to display streaming data, alerts, and a control panel. 
+Implementation with an ESP8266 module in Home Assistant requires the custom firmware file named *aquaping.h*. It is placed in the config/esphome/ directory and listed as an *include* in the yaml file (see below). The repository also contains a custom dashboard file with cards to display streaming data, alerts, and a control panel.
 
 ![alt text](screenshot.jpg "Example AquaPing dashboard screenshot")
 
@@ -136,7 +136,4 @@ switch:
     id: led
     icon: "mdi:led-outline"
     optimistic: true
-``` 
-
-
-
+```
