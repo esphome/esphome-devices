@@ -1,6 +1,6 @@
 ---
 title: XtendLan chytrá venkovní zásuvka/ IP66/ dvojitá
-date-published: 2023-01-01
+date-published: 2023-05-11
 type: plug
 standard: eu
 board: esp8266
