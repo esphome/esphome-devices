@@ -59,7 +59,7 @@ binary_sensor:
   name: "AquaPing Noise Alert"
   id: noise
   icon: "mdi:volume-vibrate"
- 
+
 - platform: gpio
   pin: D4
   name: "AquaPing Leak Alert"
@@ -75,13 +75,13 @@ sensor:
     return {aquaping->quiet_count,aquaping->leak_count,aquaping->noise_count,aquaping->polling_period,aquaping->event_array_size,aquaping->trigger_threshold,aquaping->background_array_size};
 
   sensors:
-  - name: "Quiet Count Display" 
+  - name: "Quiet Count Display"
   - name: "Leak Count Display"
   - name: "Noise Count Display"
   - name: "Polling Period Display"  
-  - name: "Event Size Display" 
-  - name: "Trigger Threshold Display" 
-  - name: "Background Set Size Display" 
+  - name: "Event Size Display"
+  - name: "Trigger Threshold Display"
+  - name: "Background Set Size Display"
 
 number:
   - platform: template
@@ -128,7 +128,7 @@ number:
     id: polling_input
     icon: "mdi:timer-sand"
   
-    
+
 switch:
   - platform: template
     name: "LED Switch"
