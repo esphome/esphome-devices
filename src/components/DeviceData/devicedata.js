@@ -37,7 +37,7 @@ const DeviceData = ({ deviceId }) => {
       type: node?.frontmatter?.type,
       standard: node?.frontmatter?.standard?.toLowerCase(),
       board: node?.frontmatter?.board?.toLowerCase(),
-      project_url: node?.frontmatter?.project_url?.toLowerCase(),
+      project_url: node?.frontmatter?.project_url,
       made_for_esphome_logo: show_logo,
       difficulty: node?.frontmatter?.difficulty,
     };

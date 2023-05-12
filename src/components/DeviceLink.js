@@ -76,7 +76,7 @@ export function DifficultyLookup({ difficulty }) {
 
 export function ProjectUrl({ project_url }) {
   return (
-      <NormalA href={project_url} >{project_url}</NormalA>
+      <NormalA href={project_url} target="_blank" rel="noopener noreferrer">{project_url}</NormalA>
   );
 }
 
