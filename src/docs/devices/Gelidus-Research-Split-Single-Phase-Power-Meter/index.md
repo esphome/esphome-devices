@@ -63,6 +63,7 @@ Example
           id: ct1RAWattHours
           state_topic: ${disp_name}/ct1/reverse_active_energy
 ```
+
 Default config
 --------------
 
