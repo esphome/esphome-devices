@@ -1,8 +1,9 @@
 ---
 title: Gelidus Research Split Single Phase Power Meter 1
-date-published: 2023-04-15
+date-published: 2023-05-16
 type: sensor
 standard: us
+board: esp8266
 ---
 
   ![Product Image](./atm90e32-pm1.jpg "Gelidus Research Split Single Phase Power Meter" )
@@ -20,7 +21,7 @@ The Gelidus Split Single Phase Power Meter https://www.gelidus.ca/product/esphom
 
 This sensor is pre calibrated for the SCT013-100-50ma or SCT023-200-100ma current transformers and the integrated AC mains isolation transformer.
 
-Note: The PM1 and two 100A/50ma SCT013's supports any 200A service, the SCT023 supports larger conductors and up to a 400A service. 
+Note: The PM1 and two 100A/50ma SCT013's supports any 200A service, the SCT023 supports larger conductors and up to a 400A service.
 
 Current
 -------
@@ -36,7 +37,7 @@ A typical current_cal for the 100A/50ma SCT013 and the 200A/100ma SCT023 is ~152
 There are some variables in the manufacturing of CT's, if the highest level precision is desired then the current should be calculated
 and adjusted and the use of an option AC line transfomer is nessesary.
 
-Formula: Amps Measured / Amps Reported * current_cal value in the running yaml file = adjusted value to use. 
+Formula: Amps Measured / Amps Reported * current_cal value in the running yaml file = adjusted value to use.
 This also applies to AC voltages, however it should not normally be required.
 
 Active Energy
@@ -82,7 +83,7 @@ Default config
     mosi_pin: 13
 
   substitutions:
-  # Change the disp_name to something you want  
+  # Change the disp_name to something you want
     disp_name: PM1
   # Interval of how often the power is updated
     update_time: 15s
