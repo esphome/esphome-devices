@@ -6,7 +6,7 @@ standard: us
 board: esp32
 ---
 
-![](SonoffTHR316.jpg)
+![Sonoff THR316](SonoffTHR316.jpg)
 
 ## GPIO Pinout
 
@@ -20,7 +20,7 @@ board: esp32
 | GPIO25 | Dallas Sensor Bus Data In/Out      |
 | GPIO27 | Dallas Sensor 3.3V Power           |
 
-## Configuration using DS18b20 temperature sensor
+## Configuration using DS18B20 temperature sensor
 
 Will be exposed as a climate control system in Home Assistant.
 
@@ -148,10 +148,10 @@ binary_sensor:
                   return id(climate_control).mode == CLIMATE_MODE_OFF;
               then:
                 # We need to turn off realy due to a bug in the climate
-                # component. If the relay is on and climate control is 
+                # component. If the relay is on and climate control is
                 # turned on in idle mode (target temp < set temp) the relay
-                # will not be turned off automatically. It works fine if 
-                # the climate control is turned on in heat mode (target temp > 
+                # will not be turned off automatically. It works fine if
+                # the climate control is turned on in heat mode (target temp >
                 # set temp), i.e. the relay will be turned on.
                 - switch.turn_off: relay
                 - climate.control:
