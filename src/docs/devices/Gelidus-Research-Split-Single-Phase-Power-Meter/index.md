@@ -24,9 +24,10 @@ Note: The PM1 and two 100A/50ma SCT013's supports any 200A service, the SCT023 s
 Current
 -------
 
-Calibrations for the **Split Single Phase Energy Meter** require **gain_pga** at ``2X``:
-- 100A/50mA SCT-013:
-- 200A/100mA SCT-023:
+Calibrations for the **Split Single Phase Energy Meter** require **gain_pga** at ``2X``
+
+- 100A/50mA SCT-013
+- 200A/100mA SCT-023
 
 A typical current_cal for the 100A/50ma SCT013 and the 200A/100ma SCT023 is ~15270.
 
@@ -45,8 +46,8 @@ Forward Active Energy is used to count consumed energy, whereas Reverse Active E
 (e.g. with solar pv installations).
 The counters are reset every time a given active energy value is read from the ATM90E32 chip.
 
-Example:
---------
+Example
+-------
 
 ```yaml
   sensor:
