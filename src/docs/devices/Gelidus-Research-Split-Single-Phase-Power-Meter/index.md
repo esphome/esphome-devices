@@ -10,12 +10,10 @@ board: esp8266
 
 The PM1 board runs on an ESP12F WIFI module and is powered with 115-240V AC using an integrated isolation transformer.
 
-
 Voltage
 -------
 
 The PM1 integrates an ATM90E32 IC and is configured to measure single split phase AC lines and up to 2 AC voltages. The default configuration isolates one AC phase voltage to the ATM90E32 chip. An optional 6V AC isolation transfomer can be used to monitor both Split AC line voltages.
-
 
 The Gelidus Split Single Phase Power Meter https://www.gelidus.ca/product/esphome-power-meter-1 is ideal for most home power distributions in North America.
 
@@ -27,12 +25,10 @@ Current
 -------
 
 Calibrations for the **Split Single Phase Energy Meter** require **gain_pga** at ``2X``:
-   - 100A/50mA SCT-013:
-   - 200A/100mA SCT-023:
+- 100A/50mA SCT-013:
+- 200A/100mA SCT-023:
 
 A typical current_cal for the 100A/50ma SCT013 and the 200A/100ma SCT023 is ~15270.
-
-
 
 There are some variables in the manufacturing of CT's, if the highest level precision is desired then the current should be calculated
 and adjusted and the use of an option AC line transfomer is nessesary.
@@ -53,7 +49,6 @@ Example:
 --------
 
 ```yaml
-
   sensor:
     - platform: atm90e32
       cs_pin: 5
@@ -66,14 +61,11 @@ Example:
           name: ${disp_name} ct1 RAWattHours
           id: ct1RAWattHours
           state_topic: ${disp_name}/ct1/reverse_active_energy
-
 ```
-
 Default config
 --------------
 
 ```yaml
-
   web_server:
     port: 80
 
@@ -95,11 +87,9 @@ Default config
     voltage_cal: '4425'
 
   sensor:
-
     - platform: wifi_signal
       name: ${disp_name} WiFi Signal
       update_interval: 15s
-
     - platform: atm90e32
       cs_pin: 5
       phase_a:
@@ -148,7 +138,6 @@ Default config
       unit_of_measurement: W
       device_class: power
       update_interval: ${update_time}
-
     - platform: total_daily_energy
       name: ${disp_name} Total kWh
       power_id: totalWatts
@@ -165,5 +154,4 @@ Default config
   switch:
     - platform: restart
       name: ${disp_name} Restart
-
 ```
