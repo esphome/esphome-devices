@@ -345,7 +345,7 @@ sensor:
                 data:
                   title: Message from ${device_name}
                 data_template:
-                  message: Switch turned off because power exceeded ${max_power}WW
+                  message: Switch turned off because power exceeded ${max_power}W
 
   - platform: total_daily_energy
     name: "${channel_1} energy"
