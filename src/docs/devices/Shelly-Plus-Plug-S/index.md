@@ -39,6 +39,7 @@ substitutions:
   # Lower value gives lower voltage readout.
   voltage_div: "1830"
 
+
 esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
@@ -51,13 +52,12 @@ esphome:
 esp32:
   board: esp32doit-devkit-v1
   framework:
-    type: arduino
+    type: esp-idf
 
-preferences:
-  flash_write_interval: 300s
-
+# Enable logging
 logger:
 
+# Enable Home Assistant API
 api:
 
 ota:
@@ -65,11 +65,10 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+
+  # Enable fallback hotspot in case wifi connection fails
   ap:
     ssid: ${device_name}
-    ap_timeout: 15s
-
-captive_portal:
 
 time:
   - platform: homeassistant
@@ -80,10 +79,13 @@ globals:
     type: bool
     restore_value: false
     initial_value: 'false'
-  - id: total_energy_channel_1
+  - id: total_energy
     type: float
-    restore_value: yes
-    initial_value: "0.0"
+    restore_value: true
+    initial_value: '0.0'
+
+
+    #### only needed for RGB LED to set up a while after boot. Not available with esp-idf framework #####
 
 script:
   - id: set_rgb
@@ -212,27 +214,26 @@ light:
     on_state:
       - delay: 50ms
       - script.execute: set_rgb
-  - platform: neopixelbus
-    variant: 800KBPS
-    method:
-      type: esp32_rmt
-      channel: 0
+
+  - platform: esp32_rmt_led_strip
+    rgb_order: GRB
+    rmt_channel: 0
+    chipset: ws2812
     pin: GPIO25
     num_leds: 2
     id: rgb_light1
     internal: true
-    default_transition_length: 0s
+    default_transition_length: 700ms
     restore_mode: ALWAYS_OFF
-  - platform: neopixelbus
-    variant: 800KBPS
-    method:
-      type: esp32_rmt
-      channel: 1
+  - platform: esp32_rmt_led_strip
+    rgb_order: GRB
+    rmt_channel: 1
+    chipset: ws2812
     pin: GPIO26
     num_leds: 2
     id: rgb_light2
     internal: true
-    default_transition_length: 0s
+    default_transition_length: 700ms
     restore_mode: ALWAYS_OFF
 
 binary_sensor:
@@ -247,7 +248,11 @@ binary_sensor:
         pullup: true
     on_click:
       then:
-        - switch.toggle: "relay"
+        - if:
+            condition:
+              switch.is_off: button_lock
+            then:
+              - switch.toggle: relay
     filters:
       - delayed_on_off: 5ms
 
@@ -261,6 +266,13 @@ switch:
       - script.execute: set_rgb
     on_turn_off:
       - script.execute: set_rgb
+  - platform: template
+    entity_category: 'config'
+    name: "Button lock"
+    id: button_lock
+    optimistic: true
+    restore_state: true
+    restore_mode: ALWAYS_OFF
 
 sensor:
   - platform: ntc
@@ -269,6 +281,7 @@ sensor:
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     icon: "mdi:thermometer"
+    entity_category: 'diagnostic'
     calibration:
       b_constant: 3350
       reference_resistance: 10kOhm
@@ -310,11 +323,13 @@ sensor:
       unit_of_measurement: A
       accuracy_decimals: 3
       internal: true
+      name: "${channel_1} current"
     voltage:
       id: voltage
       unit_of_measurement: V
       accuracy_decimals: 1
-      internal: true
+      internal: false
+      name: "${channel_1} voltage"
     power:
       name: "${channel_1} power"
       unit_of_measurement: W
@@ -330,7 +345,7 @@ sensor:
                 data:
                   title: Message from ${device_name}
                 data_template:
-                  message: Switch turned off because power exceeded ${max_power} W
+                  message: Switch turned off because power exceeded ${max_power}W
 
   - platform: total_daily_energy
     name: "${channel_1} energy"
@@ -343,9 +358,9 @@ sensor:
       - lambda: !lambda |-
           static auto last_state = x;
           if (x < last_state) { // x was reset
-            id(total_energy_channel_1) += last_state;
-            ESP_LOGI("main", "Energy channel 1 was reset: %f", id(total_energy_channel_1));
+            id(total_energy) += last_state;
+            ESP_LOGI("main", "Energy channel 1 was reset: %f", id(total_energy));
           }
           last_state = x;
-          return id(total_energy_channel_1) + x;
+          return id(total_energy) + x;
 ```
