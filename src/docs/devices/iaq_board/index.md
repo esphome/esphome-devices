@@ -8,7 +8,7 @@ standard: global
 ![image](/iaq_board2.jpg)
 
 IAQ Board is a DIY device for measuring internal air quality running
-with esphome. It\'s quite small and is based on a custom PCB where part
+with esphome. It's quite small and is based on a custom PCB where part
 of the components are soldered and connected.
 
 Here is what it can measure:
