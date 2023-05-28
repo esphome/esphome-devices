@@ -40,7 +40,7 @@ The ESP module is ESP8266-S3 and the [FCC filing](https://fccid.io/2AKBPESP8266-
 
 The pins are on alternate sides:
 
-```
+```us
 
 1  3  5  7  9  11  13
 2  4  6  8  10 12  14
