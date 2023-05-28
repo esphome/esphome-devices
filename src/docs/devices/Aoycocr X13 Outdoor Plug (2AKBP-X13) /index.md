@@ -45,12 +45,14 @@ The pins are on alternate sides:
 ```
 
 The GPIOs being used are:
-* LED#1:  GPIO0, inverted
-* LED#2:  GPIO2, inverted
-* Button: GPIO13
-* Relay1: GPIO15
-* Relay2: GPIO12
+* LED#1:GPIO0, inverted
+* LED#2:GPIO2, inverted
+* Button:GPIO13
+* Relay1:GPIO15
+* Relay2:GPIO12
+
 ## Basic Configuration
+
 The below YAML template is from [Iprak](https://github.com/iprak/esphome/blob/master/x13.yaml) documentation.
 
 ```yaml
@@ -124,5 +126,5 @@ status_led:
   pin:
     number: GPIO2
     inverted: yes
-    
+
 ```
