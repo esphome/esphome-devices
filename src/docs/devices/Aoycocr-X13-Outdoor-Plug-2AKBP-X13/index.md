@@ -16,7 +16,7 @@ The device has 2 indicator LEDs under the button and 2 indiviually controllable 
 
 ## Product Image
 
-![Aoycocr-X13](https://github.com/esphome/esphome-devices/assets/104950813/418feabe-e956-4ce7-aa7f-be78a1aa2b2d)
+![Aoycocr-X13](X13.png)
 
 ## GPIO Pinout
 
