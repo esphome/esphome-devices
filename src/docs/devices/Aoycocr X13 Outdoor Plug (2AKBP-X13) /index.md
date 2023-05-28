@@ -15,9 +15,11 @@ The device has 2 indicator LEDs under the button and 2 indiviually controllable 
 [Tasmato](https://templates.blakadder.com/aoycocr_X13.html) wiki mentioned that it might not be able to use Tuya-Convert.
 
 ## Product Image
+
 ![Aoycocr-X13](https://github.com/esphome/esphome-devices/assets/104950813/418feabe-e956-4ce7-aa7f-be78a1aa2b2d)
 
 ## GPIO Pinout
+
 The GPIO pinout was learned from [Iprak](https://github.com/iprak/esphome/blob/master/Instructions/Aoycocr-x13.md) documentation.
 The ESP module is ESP8266-S3 and the [FCC filing](https://fccid.io/2AKBPESP8266-S3/Users-Manual/User-Manual-3594791) provided the pins
 
@@ -39,12 +41,14 @@ The ESP module is ESP8266-S3 and the [FCC filing](https://fccid.io/2AKBPESP8266-
 The pins are on alternate sides:
 
 ```
+
 1  3  5  7  9  11  13
 2  4  6  8  10 12  14
 
 ```
 
 The GPIOs being used are:
+
 * LED#1:GPIO0, inverted
 * LED#2:GPIO2, inverted
 * Button:GPIO13
