@@ -21,7 +21,7 @@ This device uses Beken BK7231N chip on CBU PCB module that comes with Tuya firmw
 
 This requires a custom fork of ESPHome to complie the firmware for the Beken MCU as it is not natively support by ESPHome yet (<https://github.com/esphome/esphome/pull/3509>).
 
-Cloudcutter relies on a vulnerability in the original Tuya firmware to work, so before attempting to use cloudcutter, pair the light using Tuya app on your phone (you can use a guest account), and check the firmware version (under Software Update section - be careful not to trigger the update though). The list of incompatible firmware versions is [here](https://github.com/tuya-cloudcutter/tuya-cloudcutter/wiki/Known-Patched-Firmware). In case your version is not compatible, you can either resort to alternative flashing methos that requires disassembly and wiring, or you can try buying another unit of the same model (e.g., try alternative pacakaging - 4 pack instead of 1-pack, or vice versa).
+Cloudcutter relies on a vulnerability in the original Tuya firmware to work, so before attempting to use cloudcutter, pair the light using Tuya app on your phone (you can use a guest account), and check the firmware version (under Software Update section - be careful not to trigger the update though). The list of incompatible firmware versions is [here](https://github.com/tuya-cloudcutter/tuya-cloudcutter/wiki/Known-Patched-Firmware). In case your version is not compatible, you can either resort to alternative flashing methods that requires disassembly and wiring, or you can try buying another unit of the same model (e.g., try alternative pacakaging - 4 pack instead of 1-pack, or vice versa).
 
 ## GPIO Pinout
 
