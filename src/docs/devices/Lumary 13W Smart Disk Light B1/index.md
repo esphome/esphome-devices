@@ -1,5 +1,5 @@
 ---
-title: Lumary Smart Disk Light B1
+title: Lumary 13W Smart Disk Light B1
 date-published: 2023-05-31
 type: light
 standard: us
