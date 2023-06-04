@@ -33,6 +33,9 @@ esphome:
 # Enable logging
 logger:
 
+web_server:
+  port: 80
+
 # Enable Home Assistant API
 api:
 

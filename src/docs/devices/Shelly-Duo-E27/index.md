@@ -25,6 +25,9 @@ esp8266:
 
 # Enable logging
 logger:
+# Enable Web Server to allow for direct access via IP Address
+web_server:
+  port: 80
 
 # Enable Home Assistant API
 api:
