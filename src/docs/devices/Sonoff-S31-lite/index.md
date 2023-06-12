@@ -26,8 +26,8 @@ You must [remove the cover and use the serial header](https://www.adventurousway
 
 ```yaml
 esphome:
-  name: s31lite1
-  friendly_name: s31Lite1
+  name: SonoffS31lite
+  friendly_name: SONOFF S31 Lite
 
 esp8266:
   board: nodemcuv2
