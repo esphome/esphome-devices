@@ -45,17 +45,17 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
+
 logger:
-  baud_rate: 0 # (UART logging interferes with cse7766) 
-  
+  baud_rate: 0 # (UART logging interferes with cse7766)
+
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Sonoff S31-lite  Fallback Hotspot"
     password: ""
 
 captive_portal:
-  
+
 uart:
   rx_pin: RX
   baud_rate: 4800
@@ -92,3 +92,4 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+```
