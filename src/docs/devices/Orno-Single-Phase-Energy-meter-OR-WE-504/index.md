@@ -1,6 +1,6 @@
 ---
 title: Orno Single Phase Energy meter OR-WE-504
-date-published: 2023-0613
+date-published: 2023-06-13
 type: misc
 standard: eu
 board: esp32
