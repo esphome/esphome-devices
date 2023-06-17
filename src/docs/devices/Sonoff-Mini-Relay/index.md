@@ -101,7 +101,7 @@ binary_sensor:
 switch:
   - platform: gpio
     name: ${device_name}_switch
-    icon: "mdi: lightbulb_outline"
+    icon: "mdi:lightbulb_outline"
     pin: GPIO12
     id: relay_1
     restore_mode: restore_default_off
