@@ -30,7 +30,7 @@ esphome:
   friendly_name: SONOFF S31 Lite
 
 esp8266:
-  board: nodemcuv2
+  board: esp01_1m
   framework:
     version: recommended
 
