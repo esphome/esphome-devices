@@ -86,3 +86,8 @@ switch:
     pin: GPIO0
     inverted: no
 ```
+
+## Newer WP9s that are based on Tuya with a non-ESP SOC
+
+You can opt to swapout the chip and replace with an ESP, but this is difficult and tedious.  I have done this with success, however I have since found LocalTuya which may be a better option for you.  It is still a bit tedious and you need to jump through some initial hoops, but you don't have to crack open and modify the WP9.  
+reference:  [https://github.com/rospogrigio/localtuya](https://github.com/rospogrigio/localtuya)
