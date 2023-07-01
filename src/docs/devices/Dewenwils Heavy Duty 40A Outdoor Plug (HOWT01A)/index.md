@@ -7,7 +7,7 @@ board: esp8266
 Made-for-esphome: False
 difficulty: 4
 ---
-# Dewenwils Heavy Duty 40A Outdoor Plug
+# Dewenwils HOWT01A
 
 The device has 2 indicator LEDs, 1 power button, 1 reset button and 1 controllable  double pole relay.
 The device is controlled by a ESP8266 that is from ECO-PLUGS, and the [FCC filing](https://fcc.report/FCC-ID/PAGECO-PLUGS) can be found here.
@@ -15,6 +15,7 @@ The device uses a Proprietary app that cannot be flashed to ESPHome OTA, the ini
 Link to product can be found [here](https://www.amazon.com/gp/product/B07PP2KNNH/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1).
 
 ## Product Image
+
 ![HOWT01A](https://github.com/ryansmigley/esphome-devices/assets/104950813/4a7bd27b-d218-4875-a22f-0dc72123332b)
 
 ## GPIO Pinout
