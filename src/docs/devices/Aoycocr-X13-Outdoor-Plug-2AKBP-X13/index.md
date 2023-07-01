@@ -13,6 +13,7 @@ All information provided is from [Iprak](https://github.com/iprak) documentation
 The device has 2 indicator LEDs under the button and 2 indiviually controllable outlets.
 [FCC filing](https://fccid.io/2AKBP-X13/)
 [Tasmato](https://templates.blakadder.com/aoycocr_X13.html) wiki mentioned that it might not be able to use Tuya-Convert.
+Link to product can be found [here](https://www.amazon.com/gp/product/B07TMKZ9QL/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1).
 
 ## Product Image
 
