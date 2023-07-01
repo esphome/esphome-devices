@@ -8,6 +8,8 @@ project-url: https://github.com/iprak/esphome/blob/master/x13.yaml
 Made-for-esphome: False
 difficulty: 4
 ---
+[Amazon Link](https://amzn.to/3XyT5Ag)
+
 All information provided is from [Iprak](https://github.com/iprak) documentation.
 
 The device has 2 indicator LEDs under the button and 2 indiviually controllable outlets.
