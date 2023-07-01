@@ -76,7 +76,7 @@ globals:
   - id: total_energy
     type: float
     restore_value: yes
-    initial_value: '0.0' 
+    initial_value: '0.0'
 
 binary_sensor:
   - platform: status
@@ -160,7 +160,7 @@ button:
   - platform: factory_reset
     name: "Restart with Factory Default Settings"
     id: Reset
-    
+
   - platform: safe_mode
     name: "Safe Mode"
     internal: false
@@ -189,7 +189,7 @@ text_sensor:
       name: "Connected SSID"
     mac_address:
       name: "Mac Address"
-     
+
 time:
   - platform: sntp
     id: sntp_time
