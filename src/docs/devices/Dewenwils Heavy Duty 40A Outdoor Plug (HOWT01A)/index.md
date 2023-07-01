@@ -7,7 +7,7 @@ board: esp8266
 Made-for-esphome: False
 difficulty: 4
 ---
-# Dewenwils HOWT01A
+# (HOWT01A) Dewenwils Outdoor Plug
 
 The device has 2 indicator LEDs, 1 power button, 1 reset button and 1 controllable  double pole relay.
 The device is controlled by a ESP8266 that is from ECO-PLUGS, and the [FCC filing](https://fcc.report/FCC-ID/PAGECO-PLUGS) can be found here.
