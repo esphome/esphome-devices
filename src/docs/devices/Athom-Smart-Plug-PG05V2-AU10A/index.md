@@ -4,12 +4,15 @@ date-published: 2023-07-01
 type: plug
 standard: au
 board: esp8266
+project-url: https://github.com/athom-tech/athom-configs/blob/main/athom-smart-plug-v2.yaml
+difficulty: 1
 ---
 
+![alt text](athom-plug-au-v2.webp "Athom Smart Plug AU V2 - PG05V2-AU10A")
 
 Maker: https://www.athom.tech/
 
-Also on Aliexpress, with preflashed Tashmota or Homekit.
+Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 
 ## GPIO Pinout
 
