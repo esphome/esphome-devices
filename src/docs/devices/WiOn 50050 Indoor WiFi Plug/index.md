@@ -19,7 +19,6 @@ The device uses a Proprietary app that cannot be flashed to ESPHome OTA, the ini
 
 ![WiOn 50050](https://github.com/esphome/esphome-devices/assets/104950813/1aa8fb12-ac42-4734-a246-efaacdaf8bd0)
 
-
 ## GPIO Pinout
 
 The GPIO pinout was learned from [NorthernMan54](https://gist.github.com/NorthernMan54/ef912a07482b9ab83fa80b91b5b763e8).
