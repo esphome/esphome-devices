@@ -7,7 +7,7 @@ board: esp8266
 Made-for-esphome: False
 difficulty: 4
 ---
-[Amazon Link](https://a.co/d/e9hbeVF)
+[Amazon Link](https://amzn.to/447q55e)
 
 ## WiOn 50050 Indoor WiFi Plug
 
@@ -17,7 +17,7 @@ The device uses a Proprietary app that cannot be flashed to ESPHome OTA, the ini
 
 ## Product Image
 
-![WiOn 50050](https://github.com/esphome/esphome-devices/assets/104950813/1aa8fb12-ac42-4734-a246-efaacdaf8bd0)
+![WiOn 50050](WiOn-50050.jpg)
 
 ## GPIO Pinout
 
