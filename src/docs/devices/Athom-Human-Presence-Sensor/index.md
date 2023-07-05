@@ -157,10 +157,10 @@ binary_sensor:
     lambda: |-
       if ( id(mmwave).state and id(pir).state) {
         return true;
-      } 
+      }
       else if (id(mmwave).state == 0) {
         return false;
-      } 
+      }
       else {
         return id(occupancy).state;
       }
@@ -195,7 +195,7 @@ switch:
 
 number:
   - platform: template
-    name: Farthest Detection          #Value range: 1.9 ~ 12m  Default: 6 
+    name: Farthest Detection          #Value range: 1.9 ~ 12m  Default: 6
     id: Farthest_Detection
     entity_category: config
     min_value: 1.9
@@ -209,7 +209,7 @@ number:
     set_action:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
-      - uart.write: !lambda 
+      - uart.write: !lambda
           std::string ranges = "setRange 1.8 " + str_sprintf("%.1f",id(Farthest_Detection).state) + "\r\n";
           return std::vector<uint8_t>(ranges.begin(), ranges.end());
       - delay: 500ms
@@ -232,7 +232,7 @@ number:
     set_action:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
-      - uart.write: !lambda 
+      - uart.write: !lambda
           std::string sensitivitys = "setSensitivity " + str_sprintf("%.0f",id(Maintain_Sensitivity).state) + " " + str_sprintf("%.0f",id(Trigger_Sensitivity).state) + "\r\n";
           return std::vector<uint8_t>(sensitivitys.begin(), sensitivitys.end());
       - delay: 500ms
@@ -255,7 +255,7 @@ number:
     set_action:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
-      - uart.write: !lambda 
+      - uart.write: !lambda
           std::string sensitivityss = "setSensitivity " + str_sprintf("%.0f",id(Maintain_Sensitivity).state) + " " + str_sprintf("%.0f",id(Trigger_Sensitivity).state) + "\r\n";
           return std::vector<uint8_t>(sensitivityss.begin(), sensitivityss.end());
       - delay: 500ms
@@ -326,7 +326,7 @@ number:
     set_action:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
-      - uart.write: !lambda 
+      - uart.write: !lambda
           std::string blockades = "setInhibit " + str_sprintf("%.0f",x) + "\r\n";
           return std::vector<uint8_t>(blockades.begin(), blockades.end());
       - delay: 500ms
@@ -338,7 +338,7 @@ button:
   - platform: factory_reset
     name: Restart with Factory Default Settings
     id: Reset
-    entity_category: config 
+    entity_category: config
     internal: true
   - platform: template
     name: "Reset device"
@@ -355,7 +355,7 @@ button:
   - platform: restart
     name: Restart_esp
     id: restart_esp
-    entity_category: config 
+    entity_category: config
     internal: true
   - platform: template
     name: "Restart_mmWave"
@@ -381,7 +381,7 @@ text_sensor:
       name: "Connected SSID"
     mac_address:
       name: "Mac Address"
-     
+
 time:
   - platform: sntp
     id: my_time
