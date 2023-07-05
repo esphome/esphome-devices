@@ -17,7 +17,8 @@ Maker: https://www.athom.tech/
 [Athom](https://www.athom.tech/blank-1/human-presence-sensor)
 [Aliexpress](https://www.aliexpress.com/item/3256805586518763.html)
 
-Note：Built-in CH340C serial port chip, connect the Type-C data cable to flash the firmware directly (the attached Type-C cable has no data cable, you need to prepare the Type-C data cable to flash the firmware)
+## Note
+Built-in CH340C serial port chip, connect the Type-C data cable to flash the firmware directly (the attached Type-C cable has no data cable, you need to prepare the Type-C data cable to flash the firmware)
 
 ## GPIO Pinout
 
