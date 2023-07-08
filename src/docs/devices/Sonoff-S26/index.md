@@ -20,7 +20,6 @@ board: esp8266
 # Basic Config
 esphome:
   name: sonoffs26_1
-  platform: ESP8266
   
 esp8266:
   board: esp01_1m
