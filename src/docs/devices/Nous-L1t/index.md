@@ -18,7 +18,9 @@ The device comes with Tasmota installed, but can be reflashed to ESPHome
 
 ## GPIO Pinout
 
-[see pinout](https://nous.technology/product/a1t.html?show=manual)
+[see pinout](https://nous.technology/product/l1t.html?show=manual)
+
+After tests, the pinout has been corrected from what is shown in the manual (GPIOs for button led and link/status led are swapped in my device) 
 
 | Pin    | Function   |
 | ------ | ---------- |
