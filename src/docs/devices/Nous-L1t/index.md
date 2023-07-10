@@ -77,4 +77,3 @@ status_led:
     inverted: yes
 
 ```
-
