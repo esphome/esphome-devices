@@ -12,7 +12,32 @@ using ESPHome.
 
 The device comes with Tasmota installed, but can be reflashed to ESPHome
 
+
 ![Product Image](/nous_L1T.webp "Product Image")
+
+
+## GPIO Pinout
+
+[see pinout](https://nous.technology/product/a1t.html?show=manual)
+
+| Pin    | Function   |
+| ------ | ---------- |
+| GPIO00 | Led Link   |
+| GPIO01 | None       |
+| GPIO02 | None       |
+| GPIO03 | Button 1   |
+| GPIO04 | None       |
+| GPIO05 | None       |
+| GPIO09 | None       |
+| GPIO10 | None       |
+| GPIO12 | None       |
+| GPIO13 | Relay1     |
+| GPIO14 | Led Button |
+| GPIO15 | None       |
+| GPIO16 | None       |
+|  FLAG  | None       |
+
+## Basic Configuration
 
 ``` yaml
 esphome:
