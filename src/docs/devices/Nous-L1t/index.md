@@ -12,9 +12,7 @@ using ESPHome.
 
 The device comes with Tasmota installed, but can be reflashed to ESPHome
 
-
 ![Product Image](/nous_L1T.webp "Product Image")
-
 
 ## GPIO Pinout
 
@@ -37,7 +35,6 @@ After tests, the pinout has been corrected from what is shown in the manual (GPI
 | GPIO14 | Led Button |
 | GPIO15 | None       |
 | GPIO16 | None       |
-|  FLAG  | None       |
 
 ## Basic Configuration
 
