@@ -23,8 +23,8 @@ Remove the 4 screws at the back of the device and expose the board. The board is
 
 ## Product Images
 
-![Sonoff POw Origin 16Amp External](sonoff-POWR316-external.png "Sonoff POW Origin 16Amp External") 
-![Sonoff POw Origin 16Amp Internal with labels](sonoff-POWR316-internal-labels.png "Sonoff POW Origin 16Amp Internal with labels") 
+![Sonoff POw Origin 16Amp External](sonoff-POWR316-external.png "Sonoff POW Origin 16Amp External")
+![Sonoff POw Origin 16Amp Internal with labels](sonoff-POWR316-internal-labels.png "Sonoff POW Origin 16Amp Internal with labels")
 
 ## Basic Configuration
 
