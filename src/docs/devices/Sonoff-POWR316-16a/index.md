@@ -19,17 +19,12 @@ board: esp32
 
 ## Initial Setup
 
-Remove the 4 screws at the back of the device and expose the board. The board is mounted to the front panel and can 
-be un screwed also to install a permanent 4 pin header to attach jumper cables.  
+Remove the 4 screws at the back of the device and expose the board. The board is mounted to the front panel and can be un screwed also to install a permanent 4 pin header to attach jumper cables. Hold down the button while powering on the device to put it into bootloader mode.
 
-Hold down the button while powering on the device to put it into bootloader mode.
-
-
-## Device Photos
+## Product Images
 
 ![Sonoff POw Origin 16Amp External](sonoff-POWR316-external.png "Sonoff POW Origin 16Amp External") 
 ![Sonoff POw Origin 16Amp Internal with labels](sonoff-POWR316-internal-labels.png "Sonoff POW Origin 16Amp Internal with labels") 
-
 
 ## Basic Configuration
 
