@@ -94,7 +94,6 @@ select:
     id: "dimmer_mode"
     name: "Dimming Mode"
     enum_datapoint: 4
-    optimistic: true
     options:
       0: Mode 1 # Index 0
       1: Mode 2 # Index 1
