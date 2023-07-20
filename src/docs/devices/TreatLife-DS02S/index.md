@@ -81,3 +81,18 @@ light:
     min_value: 100
     max_value: 1000
 ```
+
+## Advanced Configuration
+Below are some advanced configuration options that may be required if your dimmer is not behaving as expected.
+```yaml
+# Select Component to allow changing the Dimming mode on the MCU. This will give you a drop-down of Dimming Mode Options. Recommended to try out all and see which works best, then set it statically.
+select:
+  - platform: "tuya"
+    name: "Dimming Mode"
+    enum_datapoint: 4
+    optimistic: true
+    options:
+      0: Mode 1
+      1: Mode 2
+      2: Mode 3
+```
