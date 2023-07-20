@@ -86,7 +86,7 @@ light:
 
 Below are some advanced configuration options that may be required if your dimmer is not behaving as expected.
 
-This will add a select component to allow changing the Dimming Mode on the MCU. This will give you a drop-down of Dimming Mode Options. Recommended to try out all and see which works best, then set it statically.
+This will add a select component to allow changing the dimming mode on the MCU, giving you a drop-down of dimming mode options. Recommended to try out all and see which works best, then set it statically.
 
 ```yaml
 select:
