@@ -87,7 +87,7 @@ light:
 Below are some advanced configuration options that may be required if your dimmer is not behaving as expected.
 
 ```yaml
-# Select Component to allow changing the Dimming mode on the MCU. This will give you a drop-down of Dimming Mode Options. 
+# Select Component to allow changing the Dimming mode on the MCU. This will give you a drop-down of Dimming Mode Options.
 # Recommended to try out all and see which works best, then set it statically.
 select:
   - platform: "tuya"
