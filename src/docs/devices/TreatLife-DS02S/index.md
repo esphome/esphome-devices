@@ -86,16 +86,29 @@ light:
 
 Below are some advanced configuration options that may be required if your dimmer is not behaving as expected.
 
+This will add a select component to allow changing the Dimming Mode on the MCU. This will give you a drop-down of Dimming Mode Options. Recommended to try out all and see which works best, then set it statically.
+
 ```yaml
-# Select Component to allow changing the Dimming mode on the MCU. This will give you a drop-down of Dimming Mode Options.
-# Recommended to try out all and see which works best, then set it statically.
 select:
   - platform: "tuya"
+    id: "dimmer_mode"
     name: "Dimming Mode"
     enum_datapoint: 4
     optimistic: true
     options:
-      0: Mode 1
-      1: Mode 2
-      2: Mode 3
+      0: Mode 1 # Index 0
+      1: Mode 2 # Index 1
+      2: Mode 3 # Index 2
+```
+
+Here is a script that will set the dimming mode in a more static fashion when ESPHome Reboots. This will select based on the index of the select component instead of by name of the mode. This can still be set via drop down if this script is included, it will just set it to this value every boot.
+
+```yaml
+esphome:
+  on_boot:
+    then:
+      - delay: 30s # Wait 30 seconds because even with a priority of -200.0, it will not update the datapoint.
+      - select.set_index:
+          id: "dimmer_mode"
+          index: 2
 ```
