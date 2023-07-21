@@ -69,11 +69,6 @@ mdns:
 web_server:
   port: 80
 
-# Enable Home Assistant API
-api:
-  password: !secret api_password
-  reboot_timeout: 0s
-
 text_sensor:
   - platform: wifi_info
     ip_address:
