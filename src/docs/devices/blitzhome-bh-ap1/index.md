@@ -38,8 +38,8 @@ You can choose between the two, I prefer the first method with the `select`, but
 
 ```yaml
 substitutions:
-  name: bedroom_air_purifier
-  devicename: Bedroom Air Purifier
+  name: air-purifier
+  devicename: Air Purifier
 
 esphome:
   name: ${name}
@@ -240,8 +240,8 @@ number:
 
 ```yaml
 substitutions:
-  name: bedroom_air_purifier
-  devicename: Bedroom Air Purifier
+  name: air-purifier
+  devicename: Air Purifier
 
 esphome:
   name: ${name}
