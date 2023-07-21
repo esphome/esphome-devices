@@ -5,7 +5,7 @@ type: light
 standard: uk, us
 board: esp8266
 difficulty: 2
-made-for-esphome: no
+made-for-esphome: false
 ---
 
 ## Product Images
