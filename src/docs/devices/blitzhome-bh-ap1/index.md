@@ -10,7 +10,7 @@ difficulty: 4
 ## General Notes
 
 These devices run a Tuya TYWE3S module which needs flashing.
-Flashing and disassembly instuctions can be found [here](https://templates.blakadder.com/blitzhome_BH-AP1). 
+Flashing and disassembly instuctions can be found [here](https://templates.blakadder.com/blitzhome_BH-AP1).
 
 The BlitzWolf BW-AP1 looks awfully similiar, probably the same device, so it's possible it's compatible as well.
 
