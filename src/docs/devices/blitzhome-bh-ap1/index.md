@@ -29,7 +29,7 @@ In the first option, the device is presented as a `select` entity, with states `
 Everything is presented in one entity, no dummy output needed.
 
 The second is presenting the device as a `fan` with states `OFF`, `Speed 1`, `Speed 2`. The modes (`Auto`, `Manual`, `Sleep`) can be accessed by an additional `select`, because right now, Home Assistant does not support custom speed for fans.
-In this mode when modes `Auto` or `Sleep` is selected the `fan` entity will display `Speed 1` which is not necessarily true. 
+In this mode when modes `Auto` or `Sleep` is selected the `fan` entity will display `Speed 1` which is not necessarily true.
 Because there is not a template fan, or template output in esphome, I used a dummy pwm output for the fan on `GPIO4` which is not used. There is an option to change this by writing a custom output component for this, but it's probalby not worth the work.
 
 You can choose between the two, I prefer the first method with the `select`, but if you insist to have the device presented as a `fan` entity, you can do that as well.
