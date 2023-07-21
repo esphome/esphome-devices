@@ -82,9 +82,11 @@ switch:
     icon: mdi:power-socket-au
     on_turn_on:
       then:
+        - output.turn_on: relay2
         - output.turn_on: button_led
     on_turn_off:
       then:
+        - output.turn_off: relay2
         - output.turn_off: button_led
 
 output:
@@ -93,4 +95,8 @@ output:
     pin:
       number: GPIO13
       inverted: True
+  - platform: gpio
+    id: relay2
+    pin:
+      number: GPIO05
 ```
