@@ -98,6 +98,9 @@ sensor:
   - platform: total_daily_energy
     name: $friendly_name Total Daily Energy
     power_id: w_sensor
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
 
   - platform: wifi_signal
     name: $friendly_name Wifi RSSI
