@@ -6,7 +6,7 @@ standard: au
 board: esp8266
 ---
 
-![Bauhn ASPU-1019](bauhn-aspu-1019.jpg "Photo of the Smart Plug")
+![Bauhn ASPU-1019](bauhn_ASPU-1019.webp "Photo of the Smart Plug")
 
 The Bauhn ASPU-1019 Smart Wall Plug is sold through ALDI in Australia.
 
@@ -93,5 +93,4 @@ output:
     pin:
       number: GPIO13
       inverted: True
-
 ```
