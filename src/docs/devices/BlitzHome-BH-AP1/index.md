@@ -152,7 +152,7 @@ button:
     entity_category: config
     on_press:
       - lambda: |-
-          id(tuyadevice).set_integer_datapoint_value(11,1);
+          id(tuyadevice).set_boolean_datapoint_value(11,1);
 
 select:
   - platform: template
@@ -363,7 +363,7 @@ button:
     entity_category: config
     on_press:
       - lambda: |-
-          id(tuyadevice).set_integer_datapoint_value(11,1);
+          id(tuyadevice).set_boolean_datapoint_value(11,1);
 
 select:
   - platform: tuya
