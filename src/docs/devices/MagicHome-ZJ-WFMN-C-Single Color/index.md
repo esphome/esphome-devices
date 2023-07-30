@@ -68,5 +68,4 @@ light:
   - platform: monochromatic
     name: "LED"
     output: LED_controller
-
 ```
