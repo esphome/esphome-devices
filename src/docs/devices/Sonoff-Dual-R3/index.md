@@ -151,7 +151,8 @@ binary_sensor:
 ```
 
 Dual R3 v1.x power meter configuration
-```
+
+```yaml
 uart:
   tx_pin: GPIO25
   rx_pin: GPIO26
@@ -177,7 +178,8 @@ sensor:
 ```
 
 Dual R3 v2.x power meter configuration
-```
+
+```yaml
 uart:
   tx_pin: GPIO25
   rx_pin: GPIO26
