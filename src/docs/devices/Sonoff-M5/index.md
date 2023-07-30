@@ -84,7 +84,7 @@ sensor:
     id: sensor_rssi
     update_interval: 90s
     entity_category: "diagnostic"
-  
+
   - platform: uptime
     name: "Uptime"
     id: sensor_uptime
@@ -122,7 +122,7 @@ output:
     id: pwm_output
     pin: GPIO18
     frequency: 1000 Hz
-    
+
 binary_sensor:
   - platform: status
     name: "Status"
