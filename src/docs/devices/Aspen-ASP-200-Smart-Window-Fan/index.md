@@ -18,7 +18,7 @@ You will have to get creative when connecting the new board to the main PCB. I e
 
 ![ASP-200](asp-200.png)
 
-![ASP-200 PCB](asp-200-pcb.jpg){width=307 height=480}
+![ASP-200 PCB](asp-200-pcb.jpg =307x480)
 
 ## Basic Configuration
 
