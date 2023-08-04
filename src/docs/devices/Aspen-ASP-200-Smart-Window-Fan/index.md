@@ -113,7 +113,7 @@ sensor:
 
 ## Tuya Datapoints
 
-```
+```text
 Tuya:
   Datapoint 19: int value (value: 68)
   Datapoint 1: switch (value: OFF)
