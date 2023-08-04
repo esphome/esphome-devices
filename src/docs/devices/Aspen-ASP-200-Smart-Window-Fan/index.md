@@ -1,4 +1,3 @@
-Copy
 ---
 title: Aspen ASP-200 Smart Window Fan
 date-published: 2023-08-03
