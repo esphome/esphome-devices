@@ -14,7 +14,11 @@ You will have to get creative when connecting the new board to the main PCB. I e
 
 [Manufacturer Link](https://www.theaspen.com/products/asp-200)
 
+## Photos
+
 ![ASP-200](asp-200.png)
+
+![ASP-200 PCB](asp-200-pcb.jpg){width=307 height=480}
 
 ## Basic Configuration
 
