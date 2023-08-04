@@ -103,6 +103,12 @@ select:
       1: Exhaust
       2: Circulate
 
+sensor:
+  - platform: "tuya"
+    name: "${friendly_name} Temperature"
+    id: "${device_name_u}_temp"
+    sensor_datapoint: 19
+    unit_of_measurement: "°F"
 ```
 
 ## Tuya Datapoints
