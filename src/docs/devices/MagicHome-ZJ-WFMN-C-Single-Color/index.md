@@ -27,8 +27,9 @@ MagicHome LED controller too be used with an monochromatic LED strip.
 # Basic Config
 
 substitutions:
-  device_name: led_strip
+  device_name: led-strip
   device_description: RGB LED Strip Controller.
+  friendly_name: LED Controller
 
 esphome:
   name: ${device_name}
@@ -37,18 +38,17 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
 
 captive_portal:
 
 # Enable logging
 logger:
-  baudrate: 0 #Disable UART logging
 
 # Enable Home Assistant API
 api:
