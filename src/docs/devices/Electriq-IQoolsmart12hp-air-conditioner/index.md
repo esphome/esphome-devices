@@ -1,5 +1,5 @@
 ---
-title: electriQ IQOOL-SMART12HP
+title: electriQ IQOOL SMART12HP
 date-published: 2023-08-05
 type: misc
 standard: uk
