@@ -13,7 +13,7 @@ MagicHome LED controller too be used with an monochromatic LED strip.
 
 **information_source** Please note that MagicHome began to produce devices with BL602 chip instead of ESP. ESPHome is not compatible with BL602. Before buying make sure a controller is using the right chip.
 
-![alt text](/magichome_single_color "MagicHome LED strip controller")
+![alt text](magichome_single_color.png "MagicHome LED strip controller")
 
 ## GPIO Pinout
 
