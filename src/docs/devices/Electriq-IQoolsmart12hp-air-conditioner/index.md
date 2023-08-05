@@ -22,7 +22,6 @@ board: esp8266
 
 ```yaml
 # Basic Config
----
 substitutions:
   device_name: "electriqaircon"
   friendly_name: "Electriq air con"
