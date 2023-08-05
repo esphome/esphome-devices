@@ -1,4 +1,3 @@
-
 ---
 title: electriQ IQOOL-SMART12HP
 date-published: 2023-08-05
