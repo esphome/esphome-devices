@@ -70,7 +70,8 @@ logger:
   baud_rate: 0
 
 api:
-  password: ""
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: ""

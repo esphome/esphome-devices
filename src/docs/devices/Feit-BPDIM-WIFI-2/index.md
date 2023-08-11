@@ -52,7 +52,8 @@ ota:
   password: !secret ota_pass
 
 api:
-  password: !secret api_pass
+  encryption:
+    key: !secret encryption_key
 
 # disable serial logging by setting baud_rate to 0 because baud_rate/serial connection is used by tuyamcu
 logger:

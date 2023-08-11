@@ -40,7 +40,8 @@ status_led:
 logger:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "OTA_password"

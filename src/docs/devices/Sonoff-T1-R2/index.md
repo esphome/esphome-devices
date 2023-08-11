@@ -48,7 +48,8 @@ wifi:
   fast_connect: true
 
 api:
-  password: !secret api_secret
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_secret

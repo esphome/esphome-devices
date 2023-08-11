@@ -72,7 +72,8 @@ web_server:
 logger:
 
 api:
-  password: !secret espapipass
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret espotapass

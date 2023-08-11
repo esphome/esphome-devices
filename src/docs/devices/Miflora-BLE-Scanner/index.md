@@ -29,7 +29,9 @@ wifi:
 logger:
   #level: INFO
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
+
 ota:
   password: "ota_password"
 

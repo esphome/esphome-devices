@@ -296,7 +296,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphomeapipwd
+  encryption:
+    key: !secret api_encryption_key
 
 # Enable OTA updates
 ota:

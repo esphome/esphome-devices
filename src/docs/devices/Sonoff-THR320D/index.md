@@ -64,7 +64,8 @@ esp32:
   board: nodemcu-32s
 
 api:
-  password: "api-password-for-ha"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota-password"

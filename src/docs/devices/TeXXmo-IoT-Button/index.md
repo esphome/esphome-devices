@@ -71,7 +71,8 @@ wifi:
 captive_portal:
 
 api:
-  password: !secret ha_api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ha_api_password

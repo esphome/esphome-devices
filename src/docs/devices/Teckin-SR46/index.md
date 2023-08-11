@@ -32,7 +32,8 @@ ota:
   password: OTA_PASSWORD
 
 api:
-  password: "PASSWORD"
+  encryption:
+    key: !secret api_encryption_key
 
 wifi:
   ssid: WIFI_SSID

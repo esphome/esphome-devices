@@ -59,9 +59,8 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-    password: !secret api_ota_password
-    encryption:
-      key: !secret encryption_key
+  encryption:
+    key: !secret encryption_key
   
 ota:
     password: !secret api_ota_password

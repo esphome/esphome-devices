@@ -54,8 +54,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   reboot_timeout: 0s
+  encryption:
+    key: !secret api_encryption_key
 
 text_sensor:
   - platform: wifi_info

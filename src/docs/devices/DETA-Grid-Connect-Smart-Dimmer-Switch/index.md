@@ -54,7 +54,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

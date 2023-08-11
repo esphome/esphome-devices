@@ -67,7 +67,8 @@ ota:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret encryption_key
 
 # Enable time component for use by daily power sensor
 time:

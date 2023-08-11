@@ -56,7 +56,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 
@@ -299,7 +298,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 

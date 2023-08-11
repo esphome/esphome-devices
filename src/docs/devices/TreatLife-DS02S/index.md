@@ -50,7 +50,8 @@ logger:
   baud_rate: 0
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret esphome_ota_password

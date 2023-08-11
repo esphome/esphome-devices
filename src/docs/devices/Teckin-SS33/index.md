@@ -40,7 +40,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret ha_esp_api_pw
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret outdoor_ss33_ota
