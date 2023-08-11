@@ -66,7 +66,8 @@ logger:
   # https://esphome.io/components/logger
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret encryption_key
   # https://esphome.io/components/api
 
 ota:

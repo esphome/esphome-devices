@@ -35,7 +35,8 @@ esphome:
 logger:
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

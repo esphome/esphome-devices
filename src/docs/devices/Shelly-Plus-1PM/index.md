@@ -62,7 +62,6 @@ wifi:
 logger:
 
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 

@@ -46,7 +46,8 @@ esphome:
       - light.turn_on: switch_2_led_state
 
 api:
-  password: "PASSWORD"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "PASSWORD"

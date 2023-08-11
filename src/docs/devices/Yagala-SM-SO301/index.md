@@ -55,8 +55,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   reboot_timeout: 0s
+  encryption:
+    key: !secret api_encryption_key
 
 # Enable Web server
 web_server:

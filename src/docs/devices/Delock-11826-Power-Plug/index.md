@@ -40,7 +40,8 @@ esphome:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphome_api_pw
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

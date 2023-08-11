@@ -53,7 +53,9 @@ captive_portal:
 logger:
 # Enable Home Assistant API
 api:
-  password: "APIpassword"
+  encryption:
+    key: !secret encryption_key
+
 ota:
   password: "OTApassword"
 # Just embedded test D3 (GPIO0) button on every ESP8266 Devboard

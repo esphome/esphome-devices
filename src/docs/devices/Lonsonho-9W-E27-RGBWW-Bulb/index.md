@@ -82,7 +82,8 @@ captive_portal:
 # enabling home assistant legacy api
 api:
   # uncomment below if needed
-  # password: 'your secret api password'
+  # encryption:
+  #  key: !secret encryption_key
 
 # enabling over the air updates
 ota:

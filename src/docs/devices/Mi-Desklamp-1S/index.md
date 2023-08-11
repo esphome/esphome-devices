@@ -42,7 +42,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 # Enable over-the-air updates
 ota:

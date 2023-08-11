@@ -69,7 +69,8 @@ logger:
 
 api:
   reboot_timeout: 0s
-  password: !secret password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret password

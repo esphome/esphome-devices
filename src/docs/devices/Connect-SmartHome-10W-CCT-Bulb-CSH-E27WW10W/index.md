@@ -57,7 +57,8 @@ captive_portal:
 logger:
 
 api:
-  password: "password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "password"

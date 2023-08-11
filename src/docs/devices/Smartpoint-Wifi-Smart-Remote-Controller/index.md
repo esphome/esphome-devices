@@ -81,7 +81,8 @@ web_server:
 
 # Enable HomeAssistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 # Enable OTA updates
 ota:

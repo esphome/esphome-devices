@@ -93,7 +93,9 @@ logger:
 
 # Enable Home Assistant API
 ota: {"password": !secret ota_password }
-api: {"password": !secret api_password }
+api:
+  encryption:
+    key: !secret encryption_key
 
 # Enable NTP
 time:

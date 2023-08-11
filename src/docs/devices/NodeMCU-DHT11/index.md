@@ -51,7 +51,8 @@ wifi:
 logger:
 
 api:
-  #password: !secret esphome_api_pwd
+  # encryption:
+  #  key: !secret encryption_key
 
 ota:
   #password: !secret esphome_ota_pwd

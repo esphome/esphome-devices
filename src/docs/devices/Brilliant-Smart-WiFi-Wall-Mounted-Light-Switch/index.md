@@ -43,7 +43,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret garage_ota_password

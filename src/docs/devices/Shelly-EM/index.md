@@ -34,7 +34,6 @@ logger:
 
 # Enable HA API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_key
 

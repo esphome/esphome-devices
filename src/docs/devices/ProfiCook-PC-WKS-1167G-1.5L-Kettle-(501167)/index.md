@@ -72,7 +72,6 @@ logger:
   baud_rate: 0
 
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 

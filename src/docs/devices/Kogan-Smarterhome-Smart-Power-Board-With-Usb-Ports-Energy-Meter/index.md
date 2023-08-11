@@ -64,7 +64,8 @@ web_server:
   
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

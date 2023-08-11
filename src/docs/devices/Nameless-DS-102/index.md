@@ -59,7 +59,8 @@ wifi:
   fast_connect: true
 
 api:
-  password: !secret api_secret
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_secret
@@ -158,7 +159,8 @@ wifi:
   fast_connect: true
 
 api:
-  password: !secret api_secret
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_secret

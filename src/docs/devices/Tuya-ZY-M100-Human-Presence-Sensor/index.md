@@ -78,7 +78,6 @@ esp32:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 
@@ -289,7 +288,6 @@ esp32:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 

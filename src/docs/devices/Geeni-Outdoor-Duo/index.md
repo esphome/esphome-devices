@@ -32,7 +32,8 @@ wifi:
 logger:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "OTA_password"
