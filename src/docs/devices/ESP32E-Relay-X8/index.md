@@ -38,6 +38,16 @@ esphome:
   name: ESP32 relayboard
   platform: ESP32
   board: esp32dev
+
+# Status LED
+light:
+  - platform: status_led
+    name: "RelayBoard Led"
+    restore_mode: ALWAYS_ON
+    pin:
+      number: GPIO23
+      inverted: true
+
 # 8 relay outputs, exposed as switches in Home Assistant
 switch:
   - platform: gpio
