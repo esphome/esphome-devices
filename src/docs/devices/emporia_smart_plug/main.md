@@ -20,12 +20,12 @@ You must dissasemble the case to access the VDD, GND, RX, and TX pins. They can 
 | GPIO15 | RED LED (HIGH = on, LOW = off)     |
 | GPIO12 | BL0937 SEL                         |
 | GPIO5  | BL0937 CF                          |
-| GPIO14 | BL0937 CF1                         |      
+| GPIO14 | BL0937 CF1                         |
 |        | Blue LED                           |
 
 ## Basic Configuration
 
-```
+```yaml
 # Basic Config
 esphome:
   name: emporia_smart_plug
@@ -48,13 +48,13 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO13
-      mode: INPUT_PULLUP    
+      mode: INPUT_PULLUP
       inverted: True
     name: "Emporia Smart Plug Button"
     on_press:
       - switch.toggle: relay
   - platform: status
-    name: "Emporia Smart Plug Status"    
+    name: "Emporia Smart Plug Status"
 
 sensor:
   - platform: wifi_signal
@@ -64,7 +64,7 @@ sensor:
     model: BL0937  
     sel_pin:
       number: 12
-      inverted: true          
+      inverted: true
     cf_pin: 5
     cf1_pin: 14
     current:
@@ -76,7 +76,7 @@ sensor:
       id: my_power
     energy:
       name: "Emporia Smart Plug Energy"
-    update_interval: 30s 
+    update_interval: 30s
   - platform: total_daily_energy
     name: "Emporia Smart Plug Daily Energy"
     power_id: my_power
@@ -101,5 +101,3 @@ light:
     id: status_light
     internal: true
 ```
-test
-
