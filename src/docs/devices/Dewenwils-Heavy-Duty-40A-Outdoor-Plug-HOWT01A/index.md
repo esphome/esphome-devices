@@ -32,7 +32,7 @@ The GPIOs being used are:
 ## Enter Flash Mode
 
 In order to get the ESP chip into flash mode I did the following:
-Hold GPIO0 to ground, then apply power. My connections were soldered, so I left GPIO0 connected to ground for the duration of the flash. 
+Hold GPIO0 to ground, then apply power. My connections were soldered, so I left GPIO0 connected to ground for the duration of the flash.
 Once log showed a successful flash I removed the GPIO0, TX and RX pins and rebooted device.
   
 ## Basic Configuration
