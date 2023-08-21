@@ -6,7 +6,7 @@ standard: global
 board: esp32
 ---
 
-![Product](./image.jpg "Product Image")
+![Product](image.jpg "Product Image")
 
 ## Product description
 
