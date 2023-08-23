@@ -1,14 +1,14 @@
 ---
-title: LoraTap In-Wall
-model: SC511WSC
+title: LoraTap In-Wall SC511WSC
 date-published: 2023-08-22
-category: cover
-type: Curtain Module
+type: misc
 standard: global
 board: esp8266
-image: https://user-images.githubusercontent.com/5904370/73791682-170a1700-47a3-11ea-813e-bd19a2d4e700.png
-mlink: https://www.loratap.com/tuya-smart-life-wifi-curtain-blind-switch-module-with-remote-for-roller-shutter-electric-motor-google-home-aelxa-echo-smart-home-p0109.html
 ---
+
+!["Product Image"](image.png "Product Image")
+
+[Product Link](https://www.loratap.com/tuya-smart-life-wifi-curtain-blind-switch-module-with-remote-for-roller-shutter-electric-motor-google-home-aelxa-echo-smart-home-p0109.html)
 
 Works with RF Remote
 
@@ -118,7 +118,7 @@ binary_sensor:
             if (id(cover1).current_operation == COVER_OPERATION_IDLE) {
               // Cover is idle, check current state and open cover.
               id(cover1).make_call().set_command_open().perform();
-            } 
+            }
             else {
               // Cover is opening/closing. Stop it.
               id(cover1).make_call().set_command_stop().perform();
@@ -137,7 +137,7 @@ binary_sensor:
             if (id(cover1).current_operation == COVER_OPERATION_IDLE) {
               // Cover is idle, check current state and close cover.
               id(cover1).make_call().set_command_close().perform();
-            } 
+            }
             else {
               // Cover is opening/closing. Stop it.
               id(cover1).make_call().set_command_stop().perform();
