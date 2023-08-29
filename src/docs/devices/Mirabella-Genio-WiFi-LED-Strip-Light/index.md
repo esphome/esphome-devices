@@ -3,6 +3,7 @@ title: Mirabella Genio Wi-Fi Strip Light
 date-published: 2020-01-24
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -31,7 +32,7 @@ Inside is a TYWE3S module based on the ESP8266 microcontroller. It is possible t
 
 ```yaml
 # Config for Mirabella Genio WiFi LED Strip Light
-# https://www.esphome-devices.com/devices/Mirabella-Genio-WiFi-LED-Strip-Light/
+# https://devices.esphome.io/devices/Mirabella-Genio-WiFi-LED-Strip-Light/
 esphome:
   platform: ESP8266
   board: esp01_1m
@@ -48,7 +49,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "ota_password"

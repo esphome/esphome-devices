@@ -3,6 +3,7 @@ title: Yagala SM-SO301
 date-published: 2020-10-12
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## Product Images
@@ -54,8 +55,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   reboot_timeout: 0s
+  encryption:
+    key: !secret api_encryption_key
 
 # Enable Web server
 web_server:

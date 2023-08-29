@@ -3,6 +3,7 @@ title: Deta 10W 940lm Grid Connect Smart LED RGB CWWW Downlight (DET902HA)
 date-published: 2021-02-05
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/Deta-10W-940lm-Grid-Connect-Smart-LED-Downlight.jpg "Product Image")

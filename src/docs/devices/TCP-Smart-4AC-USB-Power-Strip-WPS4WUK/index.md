@@ -3,6 +3,7 @@ title: TCP Smart 4AC+USB Power Strip WPS4WUK
 date-published: 2020-06-12
 type: plug
 standard: uk
+board: esp8266
 ---
 
 ## Manufacturer

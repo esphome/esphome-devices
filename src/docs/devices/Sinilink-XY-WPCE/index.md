@@ -3,6 +3,7 @@ title: Sinilink PCIe Computer Remote (XY-WPCE)
 date-published: 2022-10-22
 type: misc
 standard: global
+board: esp8266
 ---
 
 A simple remote control/monitor device for use with standard PCs.

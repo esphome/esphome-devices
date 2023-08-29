@@ -3,6 +3,7 @@ title: RGB Smart Plug 16A with power monitoring
 date-published: 2020-03-02
 type: plug
 standard: eu
+board: esp8266
 ---
 
 This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
@@ -25,7 +26,7 @@ More info:
 
 ## Basic Configuration
 
-Most of this code is from from <https://www.esphome-devices.com/devices/awp04l/>
+Most of this code is from from <https://devices.esphome.io/devices/awp04l/>
 
 ```yaml
 # Check or edit all secrets to match yours.
@@ -66,7 +67,8 @@ ota:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret encryption_key
 
 # Enable time component for use by daily power sensor
 time:

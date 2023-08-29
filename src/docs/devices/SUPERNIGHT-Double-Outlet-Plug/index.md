@@ -3,6 +3,7 @@ title: SUPERNIGHT Double Outlet Plug
 date-published: 2022-04-12
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![Product Image](SUPERNIGHT-Double-Outlet-Plug.jpg "Product Image")

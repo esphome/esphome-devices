@@ -3,6 +3,7 @@ title: TreatLife DS03 Fan Controller
 date-published: 2021-01-06
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3aOfMcG)

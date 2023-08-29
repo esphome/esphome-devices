@@ -3,6 +3,7 @@ title: Nous A1t
 date-published: 2022-04-29
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ![Nous A1T](neo_render4_tasmota.jpg  "Tasmota Version Plug")

@@ -4,6 +4,7 @@ Model: KASPEMHUSBA
 date-published: 2020-05-25
 type: plug
 standard: au
+board: esp8266
 ---
   ![alt text](kogan-smarterhome-smart-plug-energy-meter-5v-24a-usb-ports.jpg "Product Image")
 
@@ -51,7 +52,8 @@ logger:
   
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

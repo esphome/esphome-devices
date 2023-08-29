@@ -3,6 +3,7 @@ title: Sonoff T1 R2 Touch Wall Switch
 date-published: 2020-04-06
 type: switch
 standard: eu
+board: esp8266
 ---
 
 ## Notes
@@ -47,7 +48,8 @@ wifi:
   fast_connect: true
 
 api:
-  password: !secret api_secret
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_secret

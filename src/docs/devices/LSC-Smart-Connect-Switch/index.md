@@ -3,6 +3,7 @@ title: LSC Smart Connect Switch
 date-published: 2021-07-14
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## Warning

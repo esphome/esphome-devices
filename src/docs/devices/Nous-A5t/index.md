@@ -3,11 +3,12 @@ title: Nous A5t
 date-published: 2022-12-19
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout
 
-[see pinout](https://nous.technology/product/a1t.html?show=manual)
+[see pinout](https://nous.technology/product/a5t.html?show=manual)
 
 | Pin    | Function   |
 | ------ | ---------- |
@@ -75,8 +76,6 @@ binary_sensor:
       - switch.toggle: button_switch2
       - switch.toggle: button_switch3
 
-# Small buttons currently not working
-
 sensor:
   - platform: wifi_signal
     name: "${friendly_name} - Wifi Signal"
@@ -96,10 +95,23 @@ sensor:
     unit_of_measurement: kWh
     icon: mdi:calendar-clock
 
+  # Small buttons over ADC - see https://templates.blakadder.com/nous_A5T.html
   - platform: adc
     pin: VCC
-    name: "${friendly_name} - VCC Volt"
-    icon: mdi:flash-outline
+    id: a0_vcc
+    update_interval: 1s
+    internal: true
+    on_value_range:
+      - below: 4
+        then:
+          - lambda: !lambda |-
+              if (id(a0_vcc).state > 3) {
+                id(relay1).toggle();
+              } else if (id(a0_vcc).state <= 3 && id(a0_vcc).state > 2) {
+                id(relay2).toggle();
+              } else {
+                id(relay3).toggle();
+              }
 
   - platform: cse7766
     current:
@@ -148,7 +160,7 @@ sensor:
 
     energy:
       name: "${friendly_name} - Energie"
-      unit_of_measurement: kWh
+      unit_of_measurement: Wh
       icon: mdi:calendar-clock
 
 status_led:

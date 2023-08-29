@@ -3,6 +3,7 @@ title: Shelly Plug 2
 date-published: 2020-12-24
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout

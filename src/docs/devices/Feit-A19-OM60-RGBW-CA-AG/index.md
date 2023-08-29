@@ -3,6 +3,7 @@ title: Feit A19 OM60-RGBW-CA-CR
 date-published: 2019-10-17
 type: light
 standard: us
+board: esp8266
 ---
 
 ## Basic Configuration for pure warm/cold white

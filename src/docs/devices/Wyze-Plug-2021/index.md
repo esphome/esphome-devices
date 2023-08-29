@@ -3,6 +3,7 @@ title: Wyze Plug (2021)
 date-published: 2022-12-13
 type: plug
 standard: us
+board: esp32
 ---
 
 ## Initial Install

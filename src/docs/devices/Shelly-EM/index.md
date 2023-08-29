@@ -3,6 +3,7 @@ title: Shelly EM
 date-published: 2022-06-19
 type: sensor
 standard: uk, us, eu
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -33,7 +34,6 @@ logger:
 
 # Enable HA API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_key
 

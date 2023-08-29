@@ -3,6 +3,7 @@ title: ESP32 Battery Powered Temperature/Humidity/AtmosphericPressure
 date-published: 2019-11-01
 type: misc
 standard: global
+board: esp32
 ---
 How to use Deep Sleep with bme280 and esp32. This sensor is very power efficient only drawing a few uA when idle and a couple of mA when being read. No GPIOs need to be linked on ESP32 to enable deep sleep like they do on ESP8266.
 

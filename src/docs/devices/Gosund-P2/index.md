@@ -3,6 +3,7 @@ title: Gosund P2 Power Strip
 date-published: 2021-06-01
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![Product Image](Gosund-P2.jpg "Gosund P2 Power Strip")

@@ -3,6 +3,7 @@ title: Wipro Next 20W CCT Batten
 date-published: 2022-08-25
 type: light
 standard: in
+board: esp8266
 ---
 
 T5 Sized Tubelight with CCT & Dimming supports, limits being 2700K-6500K. Works natively with either Tuya/Smart Life/Wipro Smart Home. Based on TYWE3L.

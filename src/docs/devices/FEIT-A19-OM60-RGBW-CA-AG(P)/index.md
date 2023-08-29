@@ -3,6 +3,7 @@ title: FEIT A19 OM60/RGBW/CA/AG(P)
 date-published: 2020-03-06
 type: light
 standard: us
+board: esp8266
 ---
 
 The Costco Variant:

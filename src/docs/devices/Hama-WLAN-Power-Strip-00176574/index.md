@@ -3,6 +3,7 @@ title: Hama WLAN Power Strip 00176574
 date-published: 2022-12-05
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## Product Images

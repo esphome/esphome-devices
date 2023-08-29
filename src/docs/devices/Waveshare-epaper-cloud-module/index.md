@@ -3,6 +3,7 @@ title: Waveshare E-Paper Cloud module
 date-published: 2022-07-18
 type: misc
 standard: global
+board: esp32
 ---
 
 A module composed of:

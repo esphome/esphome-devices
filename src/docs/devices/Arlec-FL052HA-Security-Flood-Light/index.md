@@ -3,6 +3,7 @@ title: Arlec FL052HA Security Flood Light
 date-published: 2021-02-14
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/Arlec-FL052HA-Security-Flood-Light.png "Product Image")
@@ -53,7 +54,8 @@ captive_portal:
 logger:
 
 api:
-  password: "password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "password"

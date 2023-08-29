@@ -3,6 +3,7 @@ title: Geeni Outdoor Duo
 date-published: 2019-12-27
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -31,7 +32,8 @@ wifi:
 logger:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "OTA_password"

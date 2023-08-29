@@ -3,6 +3,7 @@ title: AWP04L Power Monitoring Plug
 date-published: 2019-10-15
 type: plug
 standard: us
+board: esp8266
 ---
 
 These devices come with different brands, but all have AWP04L serial number on the back sticker. FCC-ID is [2ANOO-SM800](https://fccid.io/2ANOO-SM800).

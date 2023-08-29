@@ -3,6 +3,7 @@ title: MXQ SP06 Smart Plug with Night Light
 date-published: 2019-12-12
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## Description

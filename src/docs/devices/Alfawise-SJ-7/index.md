@@ -3,6 +3,7 @@ title: Alfawise SJ-7
 date-published: 2021-01-18
 type: misc
 standard: global
+board: esp8266
 ---
 
 ## Alfawise SJ-7 (Essential oil diffuser)

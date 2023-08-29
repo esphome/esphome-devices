@@ -3,6 +3,7 @@ title: Shelly Plug US
 date-published: 2021-10-16
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![picture of Shelly Plug US](shelly_plug_us.jpg "Shelly Plug US")
@@ -30,9 +31,9 @@ When the `max_power` is exceeded, the relay will be switched off and a persisten
 Credit and thanks to
 
 - https://templates.blakadder.com/shelly_plug_US.html for documenting the GPIO pins though I found some errors.
-- https://github.com/esphome-devices/esphome-devices/blob/main/src/docs/devices/Shelly-Plug-S/index.md, much of this borrows from it.
+- https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Shelly-Plug-S/index.md, much of this borrows from it.
 - https://www.reddit.com/r/homeautomation/comments/ps9iey/esphome_config_for_shelly_plug_us/, magic numbers for tuning sensors
-- https://www.esphome-devices.com/devices/Aoycocr-X10S-Plug/, identical looking device from another manufacturer
+- https://devices.esphome.io/devices/Aoycocr-X10S-Plug/, identical looking device from another manufacturer
 - https://fccid.io/2ALAY-SHELLY, FCC documentation including several pictures of the circuts.
 
 ```yaml
@@ -67,7 +68,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: ${api_pass}
+  encryption:
+    key: !secret api_key
 
 ota:
   password: ${ota_pass}

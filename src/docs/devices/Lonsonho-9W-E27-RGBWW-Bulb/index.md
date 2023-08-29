@@ -3,6 +3,7 @@ title: Lonsonho 9W E27 RGBWW bulb
 date-published: 2019-11-29
 type: light
 standard: global
+board: esp8266
 ---
 
 This configuration is for the Lonsonho 9W E27 RGBWW bulb which is offered as a kit of 2 on [aliexpress.com]. The bulb has no special LED drivers built in and uses the ESP's pulse width modulation for dimming.
@@ -81,7 +82,8 @@ captive_portal:
 # enabling home assistant legacy api
 api:
   # uncomment below if needed
-  # password: 'your secret api password'
+  # encryption:
+  #  key: !secret encryption_key
 
 # enabling over the air updates
 ota:

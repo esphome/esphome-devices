@@ -3,6 +3,7 @@ title: Feit BPA800/RGBW/AG/2(P)
 date-published: 2020-12-01
 type: light
 standard: us
+board: esp8266
 ---
 
 Another Costco Variant. **Do not confuse with Feit BPA800/RGBW/AG/2 as they use different GPIO pin numbers.**
@@ -38,7 +39,8 @@ substitutions:
    password: !secret ota_pass
 
  api:
-   password: !secret api_pass
+   encryption:
+    key: !secret encryption_key
 
 sm16716:
   data_pin: GPIO12

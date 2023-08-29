@@ -3,6 +3,7 @@ title: Shelly 1L
 date-published: 2021-01-03
 type: relay
 standard: uk, us, eu, au, global
+board: esp8266
 ---
 
 ## GPIO Pinout

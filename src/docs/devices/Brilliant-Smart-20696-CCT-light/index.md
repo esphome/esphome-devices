@@ -3,6 +3,7 @@ title: Brilliant Smart 20696/20874 WiFi A60 LED 8.5W 800LM CCT light
 date-published: 2021-11-12
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Brilliant Smart 20696/20874 WiFi A60 LED 8.5W 800LM CCT light](390a449d-16dd-4ad4-8420-243c7c56df39.jpeg "Brilliant Smart 20696/20874 WiFi A60 LED 8.5W 800LM CCT light")
@@ -38,7 +39,9 @@ esphome:
 
 logger:
 api:
-  password: "password"
+  encryption:
+    key: !secret api_encryption_key
+
 ota:
   password: "password"
 wifi:

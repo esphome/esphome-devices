@@ -3,14 +3,15 @@ title: Loetad EU3S Power Monitoring Plug
 date-published: 2020-08-03
 type: plug
 standard: eu
+board: esp8266
 ---
   ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
   ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S
 
-- [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
-- [CloudFree EU Plug (P1EU)](https://www.esphome-devices.com/devices/cloudfree-eu-plug-%28p1eu%29/)
+- [AWOW EU3S 16A Power Monitoring Plug](https://devices.esphome.io/devices/awow-eu3s-power-monitoring-plug/)
+- [CloudFree EU Plug (P1EU)](https://devices.esphome.io/devices/cloudfree-eu-plug-%28p1eu%29/)
 - Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
 - iQtech SmartLife Power Monitoring Plug (WS020)
 
@@ -68,7 +69,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret OTA_Password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret OTA_Password

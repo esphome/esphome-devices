@@ -3,6 +3,7 @@ title: Shelly 2.5
 date-published: 2020-05-08
 type: relay
 standard: uk, us, eu
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -192,7 +193,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: ${password}
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: ${password}
@@ -519,7 +521,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: ${password}
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: ${password}

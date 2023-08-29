@@ -3,6 +3,7 @@ title: Gosund SP111
 date-published: 2021-01-01
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## Warning
@@ -175,8 +176,10 @@ switch:
     id: button_switch
     turn_on_action:
       - switch.turn_on: relay
+      - output.turn_on: led_red
     turn_off_action:
       - switch.turn_off: relay
+      - output.turn_off: led_red
   - platform: gpio
     pin: GPIO15
     id: relay

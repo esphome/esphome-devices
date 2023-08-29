@@ -3,6 +3,7 @@ title: Maxico W-UK007S
 date-published: 2019-10-21
 type: plug
 standard: uk
+board: esp8266
 ---
 
 ## GPIO Pinout

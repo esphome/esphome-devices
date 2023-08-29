@@ -3,6 +3,7 @@ title: Arlec PC288HA Twin Plug
 date-published: 2020-01-04
 type: plug
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -35,7 +36,8 @@ wifi:
 logger:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

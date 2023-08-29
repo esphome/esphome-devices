@@ -3,6 +3,7 @@ title: Orno Triple-Phase Energy meter OR-WE-520
 date-published: 2022-03-30
 type: misc
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout

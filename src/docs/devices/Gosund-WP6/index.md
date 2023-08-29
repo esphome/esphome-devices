@@ -3,6 +3,7 @@ title: Gosund WP6
 date-published: 2021-04-02
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![alt text](gosund_WP6.jpeg "GoSund WP6 Image")

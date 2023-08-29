@@ -4,6 +4,7 @@ Model: SC500W
 date-published: 2021-11-29
 type: relay
 standard: global
+board: esp8266
 ---
 
 ![alt text](LoraTap-SC500W.png "Product Image")
@@ -55,7 +56,8 @@ logger:
 
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

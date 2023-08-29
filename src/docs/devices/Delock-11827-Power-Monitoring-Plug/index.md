@@ -3,6 +3,7 @@ title: Delock 11827 Power Monitoring Smart Plug
 date-published: 2021-01-26
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## General Notes
@@ -69,7 +70,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphome_api_pw
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret esphome_ota_pw

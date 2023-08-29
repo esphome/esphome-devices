@@ -3,6 +3,7 @@ title: Teckin SS30
 date-published: 2019-10-17
 type: plug
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3tVURf8)
@@ -43,7 +44,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret ha_esp_api_pw
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret bedroom_ss30_ota

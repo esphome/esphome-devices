@@ -3,6 +3,7 @@ title: eWeLink PCIe Computer Remote (SANT-SUD01)
 date-published: 2022-12-23
 type: misc
 standard: global
+board: esp8266
 ---
 
 A simple remote control/monitor device for use with standard PCs.
@@ -108,6 +109,14 @@ switch:
         return false;
       }
 
+#Replace the lambda function above with the one below if you have inverted the relay output
+#    lambda: |-
+#      if (id(power_status_pulses).state > 60.0f) {
+#        return false;
+#      } else {
+#        return true;
+#      }
+
     # Mimic the user pressing the button
     turn_on_action:
       - script.execute: regular_press
@@ -117,5 +126,7 @@ switch:
 output:
   - platform: gpio
     id: out_relay
+    #Inverts relay operation, this avoids force shutdown behavior on some motherboards. Uncomment here and replace the above lambda if you are having this problem.
+    #inverted: True
     pin: GPIO12
 ```

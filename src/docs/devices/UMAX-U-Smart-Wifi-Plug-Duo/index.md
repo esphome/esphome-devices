@@ -3,6 +3,7 @@ title: UMAX U-Smart Wifi Plug Duo
 date-published: 2021-05-14
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ![alt text](umax-wifi-plug-duo.jpeg "UMAX U-Smart Wifi Plug Duo")

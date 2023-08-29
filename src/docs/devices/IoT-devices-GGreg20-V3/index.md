@@ -3,6 +3,7 @@ title: IoT-devices GGreg20_V3 module
 date-published: 2021-12-27
 type: sensor
 standard: global
+board: esp8266
 ---
 
 ## GGreg20_V3 Ionizing radiation detector module
@@ -52,7 +53,9 @@ captive_portal:
 logger:
 # Enable Home Assistant API
 api:
-  password: "APIpassword"
+  encryption:
+    key: !secret encryption_key
+
 ota:
   password: "OTApassword"
 # Just embedded test D3 (GPIO0) button on every ESP8266 Devboard
