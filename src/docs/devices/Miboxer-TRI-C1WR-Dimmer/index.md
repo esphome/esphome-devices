@@ -180,7 +180,7 @@ light:
     icon: "${light_icon}"
 
 # Disable Dimming Function
-switch: 
+switch:
   - platform: "tuya"
     id: "${main_device_id}_mode"
     name: "${friendly_name} Switch Only Mode"
@@ -335,7 +335,7 @@ light:
     icon: "${light_icon}"
 
 # Disable Dimming Function
-switch: 
+switch:
   - platform: "tuya"
     id: "${main_device_id}_mode"
     name: "${friendly_name} Switch Only Mode"
