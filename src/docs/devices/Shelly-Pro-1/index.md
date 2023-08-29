@@ -3,6 +3,7 @@ title: Shelly Pro 1
 date-published: 2022-03-03
 type: relay
 standard: uk, eu
+board: esp32
 ---
 
 Information about the pinout and internals of the Shelly Pro 1.

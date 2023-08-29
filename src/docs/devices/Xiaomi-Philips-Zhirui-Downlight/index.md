@@ -3,6 +3,7 @@ title: Xiaomi Philips Zhirui Downlight
 date-published: 2022-06-20
 type: light
 standard: global
+board: esp8266
 ---
 ## Product Images
 
@@ -42,8 +43,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   reboot_timeout: 0s
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

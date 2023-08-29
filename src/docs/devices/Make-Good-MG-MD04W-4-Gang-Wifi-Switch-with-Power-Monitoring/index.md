@@ -4,6 +4,7 @@ date-published: 2021-02-19
 type: switch
 standard: au
 
+board: esp8266
 ---
 
 ## TuyaMCU Pinout

@@ -3,6 +3,7 @@ title: Gosund 13A Power Monitoring Plug UP111
 date-published: 2021-01-11
 type: plug
 standard: uk
+board: esp8266
 ---
 
 ## Manufacturer

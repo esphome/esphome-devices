@@ -3,6 +3,7 @@ title: Novostella 20W Flood Light
 date-published: 2019-10-29
 type: light
 standard: us
+board: esp8266
 ---
 
 5-channel PWM RGBWW smart flood light, 2700k-6500k tunable white with RGB colors, 20W, 2000LM, 120V AC, IP66 Waterproof, natively Tuya/Smart Life, works with Tuya-convert to flash to ESPHome. FCC-ID is [2AI5T-SFGD-002](https://fccid.io/2AI5T-SFGD-002/Internal-Photos/Internal-photos-4401574).

@@ -3,6 +3,7 @@ title: Athom Smart Plug AU
 date-published: 2021-08-12
 type: plug
 standard: au
+board: esp8266
 ---
 
 ![alt text](Athom-Plug-AU.png "Athom Smart Plug AU")

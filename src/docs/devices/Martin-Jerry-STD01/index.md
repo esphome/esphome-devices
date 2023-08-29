@@ -3,6 +3,7 @@ title: Martin Jerry STD01
 date-published: 2022-06-04
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 Martin Jerry STD01 3-Way Switch

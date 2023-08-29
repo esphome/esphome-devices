@@ -3,6 +3,7 @@ title: Sonoff POW Elite 20a (POWR320D)
 date-published: 2022-11-13
 type: plug
 standard: global
+board: esp32
 ---
 
 ## GPIO Pinout
@@ -30,6 +31,16 @@ substitutions:
 
 esphome:
   name: $device_name
+  on_boot: # Set the initial state of the template switch to the actual relay state. This will NOT change the state.
+    priority: 250.0 # Wait until WiFi is connected to allow the sensor some time to settle
+    then:
+      - if:
+          condition:
+            lambda: 'return id(v_sensor).state > 10;'
+          then:
+            - switch.turn_on: relay_1
+          else:
+            - switch.turn_off: relay_1
 
 esp32:
   board: nodemcu-32s
@@ -45,7 +56,6 @@ captive_portal:
 
 logger:
   level: INFO
-  baud_rate: 0
 
 api:
   encryption:
@@ -97,6 +107,9 @@ sensor:
   - platform: total_daily_energy
     name: $friendly_name Total Daily Energy
     power_id: w_sensor
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
 
   - platform: wifi_signal
     name: $friendly_name Wifi RSSI
@@ -171,6 +184,19 @@ binary_sensor:
     id: page
     publish_initial_state: true
     internal: true
+  - platform: template
+    name: $friendly_name Load
+    id: load_on
+    lambda: |-
+      if (isnan(id(w_sensor).state)) {
+        return {};
+      } else if (id(w_sensor).state > 4) {
+        // Running
+        return true;
+      } else {
+        // Not running
+        return false;
+      }
 
 display:
   platform: tm1621
@@ -204,16 +230,6 @@ switch:
     name: $friendly_name
     optimistic: true
     id: relay_1
-    lambda: |-
-      if (isnan(id(w_sensor).state)) {
-        return {};
-      } else if (id(w_sensor).state > 4) {
-        // Running
-        return true;
-      } else {
-        // Not running
-        return false;
-      }
     turn_off_action:
       - switch.turn_on: relay_off
     turn_on_action:

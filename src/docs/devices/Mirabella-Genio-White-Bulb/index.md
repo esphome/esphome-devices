@@ -3,6 +3,7 @@ title: Mirabella Genio White Bulb
 date-published: 2019-10-11
 type: light
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -37,7 +38,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "ota_password"

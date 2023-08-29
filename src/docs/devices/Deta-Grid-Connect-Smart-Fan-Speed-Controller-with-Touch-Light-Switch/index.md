@@ -3,6 +3,7 @@ title: Deta Grid Connect Smart Fan Speed Controller with Touch Light Switch
 date-published: 2021-02-02
 type: switch
 standard: au
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -121,9 +122,9 @@ output:
             then:
               - switch.turn_on: relay_fan_1
               - delay: 20ms
-              - switch.turn_on: relay_fan_2
+              - switch.turn_off: relay_fan_2
               - delay: 20ms
-              - switch.turn_off: relay_fan_3
+              - switch.turn_on: relay_fan_3
         - if:
             condition:
               lambda: return (state > .7);

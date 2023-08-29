@@ -3,6 +3,7 @@ title: Generic Glass Touch Switch with 1, 2, 3 pole variants
 date-published: 2019-12-30
 type: switch
 standard: us
+board: esp8266
 ---
 
 ## General Notes

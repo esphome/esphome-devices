@@ -3,9 +3,10 @@ title: ESP32 Realy Board x8
 date-published: 2022-10-17
 type: relay
 standard: global
+board: esp32
 ---
 
-![Product](./image.jpg "Product Image")
+![Product](image.jpg "Product Image")
 
 ## Product description
 
@@ -37,6 +38,16 @@ esphome:
   name: ESP32 relayboard
   platform: ESP32
   board: esp32dev
+
+# Status LED
+light:
+  - platform: status_led
+    name: "RelayBoard Led"
+    restore_mode: ALWAYS_ON
+    pin:
+      number: GPIO23
+      inverted: true
+
 # 8 relay outputs, exposed as switches in Home Assistant
 switch:
   - platform: gpio

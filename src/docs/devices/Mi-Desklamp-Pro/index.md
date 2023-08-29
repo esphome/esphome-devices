@@ -3,6 +3,7 @@ title: Xiaomi Mi Smart LED Desk Lamp Pro
 date-published: 2021-09-09
 type: light
 standard: eu
+board: esp32
 ---
 ## Install ESPHome on Xiaomi Mi Smart LED Desk Lamp Pro
 
@@ -54,7 +55,6 @@ esp32:
   board: esp32doit-devkit-v1
   framework:
     type: esp-idf
-    version: 4.4.1
     sdkconfig_options:
       CONFIG_FREERTOS_UNICORE: y
     advanced:
@@ -69,7 +69,8 @@ logger:
 
 api:
   reboot_timeout: 0s
-  password: !secret password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret password

@@ -3,6 +3,7 @@ title: Gosund SP211
 date-published: 2021-06-18
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ```yaml

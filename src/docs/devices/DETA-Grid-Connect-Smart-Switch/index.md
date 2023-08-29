@@ -3,6 +3,7 @@ title: DETA Grid Connect Smart Switch (Single / Double / Triple / Quad)
 date-published: 2020-11-23
 type: switch
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -63,7 +64,8 @@ wifi:
   fast_connect: on
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password
@@ -170,7 +172,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password
@@ -299,7 +302,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

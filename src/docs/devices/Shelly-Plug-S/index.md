@@ -3,6 +3,7 @@ title: Shelly Plug S
 date-published: 2020-07-13
 type: plug
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -82,7 +83,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: ${password}
+  encryption:
+    key: !secret api_key
 
 ota:
   password: ${password}

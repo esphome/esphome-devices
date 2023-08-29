@@ -3,6 +3,7 @@ title: Etekcity Voltson ESW01-EU
 date-published: 2020-10-28
 type: switch
 standard: eu
+board: esp8266
 ---
 
 ## Flashing

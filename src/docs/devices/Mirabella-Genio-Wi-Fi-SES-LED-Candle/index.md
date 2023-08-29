@@ -3,6 +3,7 @@ title: Mirabella Genio Wi-Fi SES LED Candle
 date-published: 2019-12-06
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -44,7 +45,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "ota_password"

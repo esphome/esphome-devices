@@ -4,6 +4,7 @@ date-published: 2021-06-13
 type: plug
 
 standard: au
+board: esp8266
 ---
 
 ## General Notes

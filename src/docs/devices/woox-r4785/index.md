@@ -3,6 +3,7 @@ title: WOOX R4785
 date-published: 2022-07-07
 type: plug
 standard: uk
+board: esp8266
 ---
 
 ## Product Images

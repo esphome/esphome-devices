@@ -3,6 +3,7 @@ title: Gosund SW5
 date-published: 2021-07-07
 type: switch
 standard: US
+board: esp8266
 ---
 
 ![Product Image](gosund_SW5.jpg "Product Image")

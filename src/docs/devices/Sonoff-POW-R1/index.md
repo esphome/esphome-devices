@@ -1,13 +1,14 @@
 ---
-title: sonoff pow r1
+title: Sonoff POWR1
 date-published: 2019-11-11
 type: plug
 standard: global
+board: esp8266
 ---
 
 ## Product Images
 
-![alt text](/inside.jpg "inside")
+![A picture of the PCB inside of the SONOFF POWR1](/inside.jpg "inside")
 
 ## GPIO Pinout
 

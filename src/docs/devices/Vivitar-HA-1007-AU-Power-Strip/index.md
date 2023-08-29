@@ -3,6 +3,7 @@ title: Vivitar HA-1007-AU Power Strip
 date-published: 2021-12-01
 type: plug
 standard: au
+board: esp8266
 ---
 The Vivitar HA-1007-AU Power Strip has four individually switched AC outlets (each has a status LED that do not seem to be individually controllable.
 There are also four USB power/charge ports, all switchable but not individually. There is a button and blue and red controllable leds.
@@ -74,7 +75,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "****"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "****"

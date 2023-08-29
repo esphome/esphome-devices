@@ -3,6 +3,7 @@ title: ESP-12F_Relay_X8
 date-published: 2022-08-28
 type: relay
 standard: global
+board: esp8266
 ---
 
 ![Product](./image.jpg "Product Image")

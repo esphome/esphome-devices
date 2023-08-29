@@ -30,8 +30,18 @@
       link: '/standards/uk'
     - label: 'US Devices'
       link: '/standards/us'
-- label: Shared guides
+- label: Boards
   items:
+    - label: 'ESP32'
+      link: '/board/esp32'
+    - label: 'ESP8266'
+      link: '/board/esp8266'
+    - label: 'RP2040'
+      link: '/board/rp2040'
+- label: Guides
+  items:
+    - label: 'Adding Devices'
+      link: '/adding-devices/'
     - label: 'Prepare a device with tuya-convert'
       link: '/guides/tuya-convert/'
 # - label: External Links

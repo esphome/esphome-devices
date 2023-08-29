@@ -3,6 +3,7 @@ title: Unbranded Smart Plug BSD01
 date-published: 2021-02-09
 type: plug
 standard: global, us
+board: esp8266
 ---
 
 This device did not have a serial number, brand name or FCC ID. Bought from AliExpress. The plugs I received did not respond to tuya-convert so a hard flash was necessary.
@@ -56,9 +57,10 @@ wifi:
 captive_portal:
 
 api:
-  password: !secret api_password
   port: 6053
   reboot_timeout: 15min
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

@@ -3,6 +3,7 @@ title: FEIT OM100/RGBW/CA/AG
 date-published: 2020-07-01
 type: light
 standard: us
+board: esp8266
 ---
 
 ## OM 100 Feit Electric (Lowe's)

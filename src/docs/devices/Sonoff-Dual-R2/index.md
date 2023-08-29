@@ -3,6 +3,7 @@ title: Sonoff Dual R2
 date-published: 2019-12-04
 type: relay
 standard: global
+board: esp8266
 ---
 
 ## Product Images

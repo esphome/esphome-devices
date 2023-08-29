@@ -3,6 +3,7 @@ title: Brilliant Smart WiFi Wall Mounted Light Switch
 date-published: 2021-10-21
 type: switch
 standard: au
+board: esp8266
 ---
 
 The Brilliant Smart WiFi wall mounted light switch is available in Australia. They come in single gang, twin, triple and quad gang configurations. They're a smooth glass front with round touch switches to control the lights.
@@ -18,7 +19,7 @@ Ref: https://thehomeautomator.com.au/running-esphome-with-home-assistant/
 
 This yaml is cobbled together from:
 
-https://www.esphome-devices.com/devices/DETA-Grid-Connect-Smart-Switch/ (for the WiFi signal and Uptime sensors and the Restart option)
+https://devices.esphome.io/devices/DETA-Grid-Connect-Smart-Switch/ (for the WiFi signal and Uptime sensors and the Restart option)
 
 https://esphome.io/components/tuya.html
 
@@ -42,7 +43,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret garage_ota_password

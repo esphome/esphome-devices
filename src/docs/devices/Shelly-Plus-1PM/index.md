@@ -3,6 +3,7 @@ title: Shelly Plus 1PM
 date-published: 2021-11-01
 type: relay
 standard: uk, us, eu
+board: esp32
 ---
 
 ![Shelly Plus 1PM](shelly_plus_1pm_pinout.jpg "Shelly Plus 1PM")
@@ -61,7 +62,6 @@ wifi:
 logger:
 
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 

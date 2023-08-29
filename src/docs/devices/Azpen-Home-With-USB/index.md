@@ -3,6 +3,7 @@ title: Azpen Home with USB port
 date-published: 2019-10-21
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## Product Images

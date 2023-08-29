@@ -3,6 +3,7 @@ title: Sinvitron A19 900lm RGBCW
 date-published: 2020-07-06
 type: light
 standard: global
+board: esp8266
 ---
 
 Standard RGB warm and cold white bulb. Flashable via tuya-convert. [Purchased from Amazon, pack of 2.](https://amzn.to/3lVKCEp)

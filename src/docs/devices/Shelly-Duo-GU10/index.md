@@ -3,6 +3,7 @@ title: Shelly DUO GU10
 date-published: 2022-06-14
 type: light
 standard: eu
+board: esp8266
 ---
 
 ## GPIO Pinout

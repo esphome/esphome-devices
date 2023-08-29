@@ -3,6 +3,7 @@ title: CloudFree EU Plug (P1EU)
 date-published: 2022-06-22
 type: plug
 standard: eu
+board: esp8266
 ---
   ![alt text](/cloudfree_P1EU.jpg "Product Image")
   ![alt text](/cloudfree_P1EU_Reference.jpg "Product Reference Image")
@@ -10,8 +11,8 @@ standard: eu
 Model reference: P1EU  
 Equivalent devices:
 
-- [AWOW EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/awow-eu3s-power-monitoring-plug/)
-- [Loetad EU3S 16A Power Monitoring Plug](https://www.esphome-devices.com/devices/loetad-eu3s-power-monitoring-plug/)
+- [AWOW EU3S 16A Power Monitoring Plug](https://devices.esphome.io/devices/awow-eu3s-power-monitoring-plug/)
+- [Loetad EU3S 16A Power Monitoring Plug](https://devices.esphome.io/devices/loetad-eu3s-power-monitoring-plug/)
 - Maxus Brio Head 16A Power Monitoring Plug (BRIO-W-HEAD16)
 - iQtech SmartLife Power Monitoring Plug (WS020)
 
@@ -69,7 +70,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret OTA_Password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret OTA_Password

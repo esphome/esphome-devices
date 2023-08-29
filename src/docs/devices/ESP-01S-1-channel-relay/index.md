@@ -3,6 +3,7 @@ title: ESP-01S-1-channel-relay
 date-published: 2022-01-13
 type: relay
 standard: global
+board: esp8266
 ---
 
 ## Product description

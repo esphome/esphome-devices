@@ -3,6 +3,7 @@ title: POWRUI AHR-079
 date-published: 2020-09-29
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout

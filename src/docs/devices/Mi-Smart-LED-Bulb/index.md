@@ -3,6 +3,7 @@ title: Xiaomi Mi Smart LED Bulb
 date-published: 2022-11-30
 type: light
 standard: uk,eu,au,in
+board: esp8266
 ---
 
 Basic white LED bulb without light temperature control.

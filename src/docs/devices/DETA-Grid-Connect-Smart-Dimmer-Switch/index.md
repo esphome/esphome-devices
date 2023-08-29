@@ -3,6 +3,7 @@ title: DETA Grid Connect Smart Dimmer Switch 6910HA
 date-published: 2022-06-23
 type: dimmer
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -53,7 +54,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

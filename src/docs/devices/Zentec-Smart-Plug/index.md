@@ -3,6 +3,7 @@ title: Zentec Smart Plug
 date-published: 2020-07-06
 type: plug
 standard: us
+board: esp8266
 ---
 
 Standard plug socket, with 2A USB port. Flashable via tuya-convert. [Purchased from Amazon.](https://amzn.to/39iCxEM)

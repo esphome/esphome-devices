@@ -3,6 +3,7 @@ title: Teckin SB50
 date-published: 2022-06-02
 type: light
 standard: us
+board: esp8266
 ---
 
 ## General Notes
@@ -38,7 +39,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

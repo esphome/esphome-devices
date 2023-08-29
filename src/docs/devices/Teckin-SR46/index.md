@@ -3,6 +3,7 @@ title: Teckin SR46
 date-published: 2020-10-29
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 ## General Notes
@@ -31,7 +32,8 @@ ota:
   password: OTA_PASSWORD
 
 api:
-  password: "PASSWORD"
+  encryption:
+    key: !secret api_encryption_key
 
 wifi:
   ssid: WIFI_SSID

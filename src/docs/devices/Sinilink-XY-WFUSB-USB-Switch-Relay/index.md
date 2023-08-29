@@ -3,6 +3,7 @@ title: Sinilink XY-WFUSB USB Switch Relay
 date-published: 2020-07-25
 type: relay
 standard: global
+board: esp8266
 ---
 
 This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFUSB)
