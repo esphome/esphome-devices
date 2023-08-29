@@ -1,16 +1,22 @@
 ---
-title: Tuya ZY-M100 Human Presence Sensor
-date-published: 2022-12-23
-type: sensor
+title: Miboxer TRI-C1WR Dimmer Module
+date-published: 2024-08-29
+type: dimmer
 standard: global
+made-for-esphome: false
+difficulty: 5
 ---
 
-![Tuya ZY-M100](tuya-zy-m100.jpg "Tuya ZY-M100")
+![Miboxer TRI-C1WR Dimmer Module](miboxer-tri-c1wr.webp "Miboxer TRI-C1WR Dimmer Module")
+
+![PCB Top](miboxer-tri-c1wr-pcb-top.jpg "PCB Top")
+
+![PCB Bottom](miboxer-tri-c1wr-pcb-bottom.jpg "PCB Bottom")
 
 ## General Notes
 
-The Tuya ZY-M100 Sensor uses the UART on pin 15 and 16. This Sensor comes with a WBR3 chip and requires replacement in order to be used with ESPHome.
-It is still possible to convert these switches to ESPHome by replacing the WBR3 chip with an Espressif ESP8685-WROOM-04-H2/H4 or Ai Thinker ESP-C3-12F or any ESP-12 Variant chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well.
+The Miboxer TRI-C1WR Dimmer Module uses the UART to communicate with Tuya MCU. This Sensor comes with a CB2S chip and requires replacement in order to be used with ESPHome.
+It is still possible to convert these switches to ESPHome by replacing the WBR3 chip with an Espressif ESP8685-WROOM-03-H2/H4 or Wireless Tag WT32C3-01N or an esp8266 ESP-02 chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well, these were replaced with official espressif ESP8685-WROOM-03-H4 modules
 
 ## Flashing
 
@@ -53,20 +59,18 @@ The sensor is a Tuya device, however as the main WBR3 chip needs to be replaced 
 
 ```yaml
 substitutions:
-  device_ssid: "Tuya Sensor"
-  device_name: tuyasensor
-  device_description: "Tuya ZY-M100 Human Prescence Sensor ESP32-C3 ESP-IDF"
-  friendly_name: "Tuya ZY-M100 Human Prescence Sensor"
-  main_device_id: "tuyasensor" # Put the name that you want to see in Home Assistant.
-  project_name: "tuya.zy-m100-wifi-esp-idf"
+  device_ssid: "Tuya Dimmer"
+  device_name: tuyadimmer
+  device_description: "Miboxer TRI-C1WR Dimmer Module ESP32-C3 ESP-IDF"
+  friendly_name: "Miboxer TRI-C1WR Dimmer Module"
+  main_device_id: "tuyadimmer" # Put the name that you want to see in Home Assistant.
+  light_icon: "mdi:lightbulb-spot"
+  project_name: "miboxer.tri-c1wr-esp-idf"
   project_version: "1.0"
 
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  project:
-    name: tuya.zy-m100-wifi
-    version: "1.0"
   platformio_options:
     board_build.flash_mode: dio
   project:
@@ -103,7 +107,7 @@ wifi:
 uart:
   rx_pin: GPIO20
   tx_pin: GPIO21
-  baud_rate: 115200
+  baud_rate: 9600
 
 # Register the Tuya MCU connection
 tuya:
@@ -137,24 +141,6 @@ sensor:
                 (minutes ? to_string(minutes) + "m " : "") +
                 (to_string(seconds) + "s")
               ).c_str();
-    # Light Sensor
-  - platform: tuya
-    name: "${friendly_name} Light Intensity"
-    id: light_intensity
-    sensor_datapoint: 104
-    unit_of_measurement: "lux"
-    icon: "mdi:brightness-5"
-    device_class: "illuminance"
-    state_class: "measurement"
-    # Distance from Detected Object
-  - platform: "tuya"
-    name: "${friendly_name} Target Distance"
-    id: target_distance
-    sensor_datapoint: 9
-    unit_of_measurement: "cm"
-    icon: "mdi:eye"
-    device_class: "distance"
-    state_class: "measurement"
 
 text_sensor:
   # Expose WiFi information as sensors.
@@ -181,91 +167,46 @@ button:
     id: "restart_device_safe_mode"
     name: "${friendly_name} Restart (Safe Mode)"
     entity_category: "diagnostic"
+
+# Dimmer Function
+light:
+  - platform: "tuya"
+    name: "${friendly_name}"
+    id: ${main_device_id}
+    dimmer_datapoint: 22
+    switch_datapoint: 20
+    min_value: 10
+    max_value: 1000
+    icon: "${light_icon}"
+
+# Disable Dimming Function
+switch:
+  - platform: "tuya"
+    id: "${main_device_id}_mode"
+    name: "${friendly_name} Switch Only Mode"
+    switch_datapoint: 102
+
+# Minimum Brightness
 number:
-    # Sensitivity
   - platform: "tuya"
-    name: "${friendly_name} Sensitivity"
-    number_datapoint: 2
+    name: "${friendly_name} Minimum Brightness"
+    number_datapoint: 103
     min_value: 0
-    max_value: 9
+    max_value: 255
     step: 1
-    icon: "mdi:ray-vertex"
-    # Min Detection Distance
-  - platform: "tuya"
-    name: "${friendly_name} Near Detection"
-    number_datapoint: 3
-    min_value: 0
-    max_value: 1000
-    step: 1
-    mode: slider
-    unit_of_measurement: "cm"
-    icon: "mdi:signal-distance-variant"
-    # Max Detection Distance
-  - platform: "tuya"
-    name: "${friendly_name} Far Detection"
-    number_datapoint: 4
-    min_value: 0
-    max_value: 1000
-    step: 1
-    mode: slider
-    unit_of_measurement: "cm"
-    icon: "mdi:signal-distance-variant"
-    # Detection Delay
-  - platform: "tuya"
-    name: "${friendly_name} Detection Delay"
-    number_datapoint: 101
-    min_value: 0
-    max_value: 100
-    step: 1
-    unit_of_measurement: "s"
-    mode: slider
-    icon: "mdi:clock"
-    # Fading Time - Cool Down Period
-  - platform: "tuya"
-    name: "${friendly_name} Fading Time"
-    number_datapoint: 102
-    min_value: 0
-    max_value: 1500
-    step: 1
-    unit_of_measurement: "s"
-    mode: slider
-    icon: "mdi:clock"
-
-select:
-    # Self Check Enum
-  - platform: "tuya"
-    name: "${friendly_name} Self Check Result"
-    icon: mdi:eye
-    enum_datapoint: 6
-    options:
-      0: Checking
-      1: Check Success
-      2: Check Failure
-      3: Others
-      4: Comm Fault
-      5: Radar Fault
-
-binary_sensor:
-    # Status
-  - platform: status
-    name: "${friendly_name} Status"
-    # Occupancy Binary Sensor
-  - platform: "tuya"
-    name: "${friendly_name} Presence State"
-    sensor_datapoint: 1
-    device_class: occupancy
 ```
 
 ## Configuration for Arduino (not recommended, but has been working fine for ages)
 
 ```yaml
 substitutions:
-  device_ssid: "Tuya Sensor"
-  device_name: tuyasensor
-  device_description: "Tuya ZY-M100 Human Prescence Sensor ESP32-C3 Arduino"
-  friendly_name: "Tuya ZY-M100 Human Prescence Sensor"
-  main_device_id: "tuyasensor" # Put the name that you want to see in Home Assistant.
-  project_name: "tuya.zy-m100-wifi-arduino"
+  device_ssid: "Tuya Dimmer"
+  device_name: tuyadimmer
+  device_description: "Miboxer TRI-C1WR Dimmer Module ESP32-C3 ESP-IDF"
+  friendly_name: "Miboxer TRI-C1WR Dimmer Module"
+  main_device_id: "tuyadimmer" # Put the name that you want to see in Home Assistant.
+  light_icon: "mdi:lightbulb-spot"
+  project_name: "miboxer.tri-c1wr-arduino"
   project_version: "1.0"
 
 esphome:
@@ -314,7 +255,7 @@ web_server:
 uart:
   rx_pin: GPIO20
   tx_pin: GPIO21
-  baud_rate: 115200
+  baud_rate: 9600
 
 # Register the Tuya MCU connection
 tuya:
@@ -355,24 +296,6 @@ sensor:
     lambda: return temperatureRead();
     unit_of_measurement: °C
     accuracy_decimals: 2
-    # Light Sensor
-  - platform: tuya
-    name: "${friendly_name} Light Intensity"
-    id: light_intensity
-    sensor_datapoint: 104
-    unit_of_measurement: "lux"
-    icon: "mdi:brightness-5"
-    device_class: "illuminance"
-    state_class: "measurement"
-    # Distance from Detected Object
-  - platform: "tuya"
-    name: "${friendly_name} Target Distance"
-    id: target_distance
-    sensor_datapoint: 9
-    unit_of_measurement: "cm"
-    icon: "mdi:eye"
-    device_class: "distance"
-    state_class: "measurement"
 
 text_sensor:
   # Expose WiFi information as sensors.
@@ -400,77 +323,30 @@ button:
     name: "${friendly_name} Restart (Safe Mode)"
     entity_category: "diagnostic"
 
+# Dimmer Function
+light:
+  - platform: "tuya"
+    name: "${friendly_name}"
+    id: ${main_device_id}
+    dimmer_datapoint: 22
+    switch_datapoint: 20
+    min_value: 10
+    max_value: 1000
+    icon: "${light_icon}"
+
+# Disable Dimming Function
+switch:
+  - platform: "tuya"
+    id: "${main_device_id}_mode"
+    name: "${friendly_name} Switch Only Mode"
+    switch_datapoint: 102
+
+# Minimum Brightness
 number:
-    # Sensitivity
   - platform: "tuya"
-    name: "${friendly_name} Sensitivity"
-    number_datapoint: 2
+    name: "${friendly_name} Minimum Brightness"
+    number_datapoint: 103
     min_value: 0
-    max_value: 9
+    max_value: 255
     step: 1
-    icon: "mdi:ray-vertex"
-    # Min Detection Distance
-  - platform: "tuya"
-    name: "${friendly_name} Near Detection"
-    number_datapoint: 3
-    min_value: 0
-    max_value: 1000
-    step: 1
-    mode: slider
-    unit_of_measurement: "cm"
-    icon: "mdi:signal-distance-variant"
-    # Max Detection Distance
-  - platform: "tuya"
-    name: "${friendly_name} Far Detection"
-    number_datapoint: 4
-    min_value: 0
-    max_value: 1000
-    step: 1
-    mode: slider
-    unit_of_measurement: "cm"
-    icon: "mdi:signal-distance-variant"
-    # Detection Delay
-  - platform: "tuya"
-    name: "${friendly_name} Detection Delay"
-    number_datapoint: 101
-    min_value: 0
-    max_value: 100
-    step: 1
-    unit_of_measurement: "s"
-    mode: slider
-    icon: "mdi:clock"
-    # Fading Time - Cool Down Period
-  - platform: "tuya"
-    name: "${friendly_name} Fading Time"
-    number_datapoint: 102
-    min_value: 0
-    max_value: 1500
-    step: 1
-    unit_of_measurement: "s"
-    mode: slider
-    icon: "mdi:clock"
-
-select:
-    # Self Check Enum
-  - platform: "tuya"
-    name: "${friendly_name} Self Check Result"
-    icon: mdi:eye
-    enum_datapoint: 6
-    options:
-      0: Checking
-      1: Check Success
-      2: Check Failure
-      3: Others
-      4: Comm Fault
-      5: Radar Fault
-
-binary_sensor:
-    # Status
-  - platform: status
-    name: "${friendly_name} Status"
-    # Occupancy Binary Sensor
-  - platform: "tuya"
-    name: "${friendly_name} Presence State"
-    sensor_datapoint: 1
-    device_class: occupancy
 ```
