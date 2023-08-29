@@ -162,11 +162,11 @@ button:
   - platform: restart
     id: "restart_device"
     name: "${friendly_name} Restart"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
   - platform: safe_mode
     id: "restart_device_safe_mode"
     name: "${friendly_name} Restart (Safe Mode)"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
 
 # Dimmer Function
 light:
@@ -317,11 +317,11 @@ button:
   - platform: restart
     id: "restart_device"
     name: "${friendly_name} Restart"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
   - platform: safe_mode
     id: "restart_device_safe_mode"
     name: "${friendly_name} Restart (Safe Mode)"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
 
 # Dimmer Function
 light:

@@ -66,7 +66,7 @@ esphome:
   comment: ${device_description}
   project:
     name: tuya.zy-m100-wifi
-    version: '1.0'
+    version: "1.0"
   platformio_options:
     board_build.flash_mode: dio
   project:
@@ -176,12 +176,11 @@ button:
   - platform: restart
     id: "restart_device"
     name: "${friendly_name} Restart"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
   - platform: safe_mode
     id: "restart_device_safe_mode"
     name: "${friendly_name} Restart (Safe Mode)"
-    entity_category: 'diagnostic'
-
+    entity_category: "diagnostic"
 number:
     # Sensitivity
   - platform: "tuya"
@@ -395,11 +394,11 @@ button:
   - platform: restart
     id: "restart_device"
     name: "${friendly_name} Restart"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
   - platform: safe_mode
     id: "restart_device_safe_mode"
     name: "${friendly_name} Restart (Safe Mode)"
-    entity_category: 'diagnostic'
+    entity_category: "diagnostic"
 
 number:
     # Sensitivity
