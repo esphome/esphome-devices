@@ -25,9 +25,9 @@ board: esp8266
 ## Basic Configuration
 
 ```yaml
-# Basic Config
+# BASICS
 esphome:
-  name: hama-wlan-power-strip-00176574
+  name: powerstrip #hama-wlan-power-strip-00176574
 esp8266:
   board: esp01_1m
   restore_from_flash: True
@@ -41,160 +41,166 @@ wifi:
     password: !secret wifi_password
 captive_portal:
 
+
 switch:
-# Relays (GPIO)
+  # RELAYS
   - platform: gpio
     pin: 5
-    id: powerstrip_switch_1_gpio
+    id: powerstrip_relay_1
   - platform: gpio
     pin: 12
-    id: powerstrip_switch_3_gpio
+    id: powerstrip_relay_3
   - platform: gpio
     pin: 13
-    id: powerstrip_switch_4_gpio
+    id: powerstrip_relay_4
   - platform: gpio
     pin: 4
-    id: powerstrip_switch_2_gpio
+    id: powerstrip_relay_2
   - platform: gpio
     pin: 14
-    id: powerstrip_switch_5_gpio
+    id: powerstrip_relay_5
+  # LED (MAINSWITCH)
   - platform: gpio
     pin:
       number: 1
       inverted: true
     id: powerstrip_switch_main
     name: "POWERSTRIP: Switch Main"
-    on_turn_on: # Turns on all relays (GPIO) if the coresponding switch is on
+    on_turn_on: # If all relays are off > Turn on relays with enabled switch
       if:
         condition:
           not:
-            - switch.is_on: powerstrip_switch_1_gpio
-            - switch.is_on: powerstrip_switch_2_gpio
-            - switch.is_on: powerstrip_switch_3_gpio
-            - switch.is_on: powerstrip_switch_4_gpio
-            - switch.is_on: powerstrip_switch_5_gpio
+            - switch.is_on: powerstrip_relay_1
+            - switch.is_on: powerstrip_relay_2
+            - switch.is_on: powerstrip_relay_3
+            - switch.is_on: powerstrip_relay_4
+            - switch.is_on: powerstrip_relay_5
         then:
           - if:
               condition:
                 switch.is_on: powerstrip_switch_1
               then:
-                switch.turn_on: powerstrip_switch_1_gpio
+                switch.turn_on: powerstrip_relay_1
           - if:
               condition:
                 switch.is_on: powerstrip_switch_2
               then:
-                switch.turn_on: powerstrip_switch_2_gpio
+                switch.turn_on: powerstrip_relay_2
           - if:
               condition:
                 switch.is_on: powerstrip_switch_3
               then:
-                switch.turn_on: powerstrip_switch_3_gpio
+                switch.turn_on: powerstrip_relay_3
           - if:
               condition:
                 switch.is_on: powerstrip_switch_4
               then:
-                switch.turn_on: powerstrip_switch_4_gpio
+                switch.turn_on: powerstrip_relay_4
           - if:
               condition:
                 switch.is_on: powerstrip_switch_5
               then:
-                switch.turn_on: powerstrip_switch_5_gpio
-    on_turn_off: # Turns off all relays (GPIO)
-      - switch.turn_off: powerstrip_switch_1_gpio
-      - switch.turn_off: powerstrip_switch_2_gpio
-      - switch.turn_off: powerstrip_switch_3_gpio
-      - switch.turn_off: powerstrip_switch_4_gpio
-      - switch.turn_off: powerstrip_switch_5_gpio
+                switch.turn_on: powerstrip_relay_5
+    on_turn_off: # Turn off all relays
+      - switch.turn_off: powerstrip_relay_1
+      - switch.turn_off: powerstrip_relay_2
+      - switch.turn_off: powerstrip_relay_3
+      - switch.turn_off: powerstrip_relay_4
+      - switch.turn_off: powerstrip_relay_5
 
-# Switches
+  # SWITCH 1
   - platform: template
     id: powerstrip_switch_1
     name: "POWERSTRIP: Switch 1"
     optimistic: True
-    restore_state: yes
-    turn_on_action: # If mainswitch is on > turn off corresponding relay
+    restore_mode: RESTORE_DEFAULT_OFF
+    turn_on_action: # If mainswitch is on > turn on corresponding relay
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_on: powerstrip_switch_1_gpio
-    turn_off_action: # If mainswitch is off > turn off corresponding relay
+            - switch.turn_on: powerstrip_relay_1
+    turn_off_action: # If mainswitch is on > turn off corresponding relay
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_off: powerstrip_switch_1_gpio
+            - switch.turn_off: powerstrip_relay_1
+  # SWITCH 2
   - platform: template
-    name: "POWERSTRIP: Switch 2"
     id: powerstrip_switch_2
+    name: "POWERSTRIP: Switch 2"
     optimistic: True
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_on: powerstrip_switch_2_gpio
+            - switch.turn_on: powerstrip_relay_2
     turn_off_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_off: powerstrip_switch_2_gpio
+            - switch.turn_off: powerstrip_relay_2
+  # SWITCH 3
   - platform: template
-    name: "POWERSTRIP: Switch 3"
     id: powerstrip_switch_3
+    name: "POWERSTRIP: Switch 3"
     optimistic: True
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_on: powerstrip_switch_3_gpio
+            - switch.turn_on: powerstrip_relay_3
     turn_off_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_off: powerstrip_switch_3_gpio
+            - switch.turn_off: powerstrip_relay_3
+  # SWITCH 4
   - platform: template
-    name: "POWERSTRIP: Switch 4"
     id: powerstrip_switch_4
+    name: "POWERSTRIP: Switch 4"
     optimistic: True
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_on: powerstrip_switch_4_gpio
+            - switch.turn_on: powerstrip_relay_4
     turn_off_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_off: powerstrip_switch_4_gpio
+            - switch.turn_off: powerstrip_relay_4
+  # SWITCH 5
   - platform: template
-    name: "POWERSTRIP: Switch 5"
     id: powerstrip_switch_5
+    name: "POWERSTRIP: Switch 5"
     optimistic: True
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_on: powerstrip_switch_5_gpio
+            - switch.turn_on: powerstrip_relay_5
     turn_off_action:
       - if:
           condition:
             - switch.is_on: powerstrip_switch_main
           then:
-            - switch.turn_off: powerstrip_switch_5_gpio
+            - switch.turn_off: powerstrip_relay_5
 
 binary_sensor:
-# Button (GPIO)
+  # BUTTON
   - platform: gpio
     pin:
       number: 3
@@ -205,7 +211,7 @@ binary_sensor:
     - max_length: 2000ms # Short press toggles mainswitch
       then:
         - switch.toggle: powerstrip_switch_main
-    - min_length: 2001ms # Long press turns on all switches & relays (GPIO)
+    - min_length: 2001ms # Long press turns on all switches
       max_length: 20000ms
       then:
         - switch.turn_on: powerstrip_switch_main
