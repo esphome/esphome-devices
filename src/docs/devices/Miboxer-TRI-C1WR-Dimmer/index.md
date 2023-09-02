@@ -1,6 +1,6 @@
 ---
 title: Miboxer TRI-C1WR Dimmer Module
-date-published: 2024-08-29
+date-published: 2023-08-31
 type: dimmer
 standard: global
 made-for-esphome: false
@@ -15,8 +15,8 @@ difficulty: 5
 
 ## General Notes
 
-The Miboxer TRI-C1WR Dimmer Module uses the UART to communicate with Tuya MCU. This Sensor comes with a CB2S chip and requires replacement in order to be used with ESPHome.
-It is still possible to convert these switches to ESPHome by replacing the WBR3 chip with an Espressif ESP8685-WROOM-03-H2/H4 or Wireless Tag WT32C3-01N or an esp8266 ESP-02 chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well, these were replaced with official espressif ESP8685-WROOM-03-H4 modules
+The Miboxer TRI-C1WR Dimmer Module uses the UART to communicate with Tuya MCU. This dimmer comes with a CB2S chip and requires replacement in order to be used with ESPHome.
+It is still possible to convert these switches to ESPHome by replacing the CB2S chip with an Espressif ESP8685-WROOM-03-H2/H4 or Wireless Tag WT32C3-01N or an esp8266 ESP-02 chip and this process will require heat gun, soldering tools and moderate soldering skill, for all chip replacements can be made easier with low melt solder as well, these were replaced with official espressif ESP8685-WROOM-03-H4 modules
 
 ## Flashing
 
@@ -24,7 +24,7 @@ Flash using ESP Web install and select ESP32-C3 option.
 
 To put ESP32-C3 in flash mode EN needs to be pulled high and GPIO9 need to be pulled low. May take a 2-3 attempts, but just disconnect and reconnect 3V3 while keeping GPIO9 pulled low and click the retry button again until it works.
 
-The [datasheet](https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf) references GPIO8 which needs to be pulled low during flashing, use the following board to achieve this you can purchase ([AliExpress](https://www.aliexpress.com/item/1005002668365356.html), [Amazon](https://amzn.to/3o8owSb), [Banggood](https://www.banggood.com/ESP8266-Test-Board-Burner-Development-Board-WIFI-Module-For-ESP-01-ESP-01S-ESP-12E-ESP-12F-ESP-12S-ESP-18T-p-1684992.html)) a test board for effortless flashing. Just drop the module in, plug in the USB cable, hold the boot button while powering up and flash!
+The [datasheet](https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf) references GPIO8 which needs to be pulled low during flashing, best to solder a push switch or something that can act as a reset switch to allow ESP32-C3 to boot in flashing mode.
 
 ![Test Board](test_board.jpg "Test Board")
 
@@ -53,7 +53,7 @@ ESP32's are power hungry on boot and the USB to serial adapter might not be able
 
 ## Getting it up and running
 
-The sensor is a Tuya device, however as the main WBR3 chip needs to be replaced with a ESP12 Variant or ESP32-C3-12F, which is easily flashed before soldering. After that, you can use ESPHome's OTA functionality to make any further changes.
+The Dimmer Module is a TuyaMCU device, however as the main CB2S chip needs to be replaced with a Espressif ESP8685-WROOM-03-H2/H4 or Wireless Tag WT32C3-01N or an esp8266 ESP-02 chip, which is easily flashed before soldering. After that, you can use ESPHome's OTA functionality to make any further changes.
 
 ## Configuration for ESP-IDF
 
