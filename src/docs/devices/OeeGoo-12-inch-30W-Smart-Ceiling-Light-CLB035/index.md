@@ -21,7 +21,7 @@ A Sparkleiot ESP32-C3F module is used here and was pre-programmed using an ESP t
 
 ## PWM Settings
 
-Each set of LEDs (R,G,B,C,W) is controlled by a PWM output. The max duty cycle was measured with an oscilloscope from the Tuya module. 
+Each set of LEDs (R,G,B,C,W) is controlled by a PWM output. The max duty cycle was measured with an oscilloscope from the Tuya module.
 
 ## YAML File
 
