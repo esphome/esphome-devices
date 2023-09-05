@@ -56,7 +56,6 @@ captive_portal:
 
 logger:
   level: INFO
-  baud_rate: 0
 
 api:
   encryption:
