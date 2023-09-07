@@ -1,9 +1,8 @@
 ---
 title: OeeGoo 12 Inch 30W Smart Ceiling Light (RGB/CW)
-date-published: 2023-08-13
+date-published: 2023-09-07
 type: light
 standard: us
-board: esp32
 difficulty: 5
 ---
 ![Product Image](Oeegoo_light.png "Product Image")
@@ -135,3 +134,4 @@ output:
     id: output_pwm5
     pin: GPIO5
     zero_means_zero: True
+```
