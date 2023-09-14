@@ -104,6 +104,7 @@ sensor:
   - platform: adc
     pin: GPIO34
     name: "${display_name} LUX"
+    id: lux_sensor
     device_class: illuminance
     unit_of_measurement: lx
     attenuation: 11db
