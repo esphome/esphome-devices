@@ -27,6 +27,7 @@ This device requires a triangle screw driver bit to [remove the cover and use th
 | GPIO26 | CF1                                |
 
 ## Notes
+
 - The Lux sensor is a binary sensor and can be used like a daylight sensor. (e.g. turn on lights when it gets dark)
 - This device can be used as a Bluetooh proxy in Home Assistant see the [docs on how to enable](https://esphome.io/components/bluetooth_proxy)
 
@@ -170,4 +171,3 @@ status_led:
     number: GPIO5
     inverted: true
 ```
-
