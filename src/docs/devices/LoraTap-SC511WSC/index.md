@@ -17,10 +17,10 @@ Works with RF Remote
 | Pin    | Function                   |
 | ------ | -------------------------- |
 | GPIO03 | LED (inverted)             |
-| GPIO04 | S1 (external open switch input) |
-| GPIO05 | S2 (external close switch input) |
+| GPIO04 | S1 (external open switch input)/Open switch from remote |
+| GPIO05 | S2 (external close switch input)/Open switch from remote |
 | GPIO12 | Open Relay L1                   |
-| GPIO13 | Reset Button                     |
+| GPIO13 | Stop switch from remote                     |
 | GPIO14 | close Relay L2                   |
 
 ## Basic Config
@@ -39,8 +39,8 @@ substitutions:
   ledlinki: GPIO03
   open_switch: GPIO04
   close_switch: GPIO05
+  stop_switch: GPIO13
   close_relay: GPIO14
-  reset_button: GPIO13
   open_relay: GPIO12
   pin_relay3: GPIO15
   interlock_time: 200ms
@@ -142,6 +142,20 @@ binary_sensor:
               // Cover is opening/closing. Stop it.
               id(cover1).make_call().set_command_stop().perform();
             }
+#
+  - platform: gpio
+    name: ${friendly_name} remote stop switch
+    pin: ${stop_switch}
+    id: stop_cover_switch
+    disabled_by_default: true
+    filters:
+      - invert:
+    on_press:
+      then:
+        - lambda: |
+            //Stop cover.
+            id(cover1).make_call().set_command_stop().perform();
+
 #
 switch:
 #  - platform: restart
