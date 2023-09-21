@@ -18,6 +18,7 @@ Available on Amazon (preflashed with Tasmota)
 | Pin    | Function            |
 | ------ | ------------------- |
 | GPIO3  | HLWBL Sel_i         |
+| GPIO4  | Button_i            |
 | GPIO5  | Led_i               |
 | GPIO12 | Relay               |
 | GPIO13 | BL0937 CF           |
