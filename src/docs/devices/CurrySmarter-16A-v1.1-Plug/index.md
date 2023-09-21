@@ -10,7 +10,8 @@ difficulty: 2
 
 ![alt text](currysmarter.jpg "CurrySmarter 16A v1.1 Plug")
 Maker: <https://currysmarter.com/>
-Available on Amazon preflashed with Tasmota
+
+Available on Amazon (preflashed with Tasmota)
 
 ## GPIO Pinout
 
