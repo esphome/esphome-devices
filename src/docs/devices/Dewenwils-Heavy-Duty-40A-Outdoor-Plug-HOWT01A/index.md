@@ -1,5 +1,5 @@
 ---
-title: Dewenwils Heavy Duty 40A Outdoor Plug (HOWT01A)
+title: Dewenwils Heavy Duty 40A Outdoor Plug (HOWT01A & TM-050B)
 date-published: 2023-07-01
 type: switch
 standard: us
@@ -9,7 +9,7 @@ difficulty: 4
 ---
 [Amazon Link](https://amzn.to/436Dyc6)
 
-## Dewenwils Heavy Duty 40A Outdoor Plug (HOWT01A)
+## Dewenwils Heavy Duty 40A Outdoor Plug (HOWT01A & TM-050B)
 
 The device has 2 indicator LEDs, 1 power button, 1 reset button and 1 controllable  double pole relay.
 The device is controlled by a ESP8266 that is from ECO-PLUGS, and the [FCC filing](https://fcc.report/FCC-ID/PAGECO-PLUGS) can be found here.
@@ -28,6 +28,7 @@ The GPIOs being used are:
 
 * Button: GPIO13
 * Relay1: GPIO15
+* Blue LED: GPIO02
 
 ## Enter Flash Mode
 
@@ -82,6 +83,25 @@ switch:
     pin: GPIO15
     id: relay1
     icon: "mdi:power-socket-us"
+
+output:
+  - platform: gpio
+    id: blue_led
+    pin: GPIO02
+    inverted: true
+
+interval:
+  - interval: 1s
+    then:
+     if:
+       condition:
+         wifi.connected:
+       then:
+         - output.turn_on: blue_led
+       else:  #blinks if wi-fi isn't connected
+         - output.turn_on: blue_led
+         - delay: 500ms
+         - output.turn_off: blue_led
 
 captive_portal:
 ```
