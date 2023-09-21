@@ -66,7 +66,7 @@ binary_sensor:
           - OFF for at least 0.2s
         then:
           - switch.toggle: relay
-          
+
 sensor:
   - platform: hlw8012
     model: BL0937
@@ -107,7 +107,7 @@ sensor:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
     unit_of_measurement: "%"
     entity_category: "diagnostic"
-    
+
   - platform: uptime
     name: Uptime
 
@@ -128,4 +128,3 @@ wifi:
 
 captive_portal:
 ```
-
