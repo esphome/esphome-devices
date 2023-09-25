@@ -16,9 +16,9 @@ This guid builds on the custom switch example to allow control of these modules 
 ```c++
 #include "esphome.h"
 #include "mLink.h"
- 
+
 #define I2C_ADD 0x52        // Default I2C address
- 
+
 class mLinkRelay : public Component, public Switch
 {
   private:
@@ -30,13 +30,13 @@ class mLinkRelay : public Component, public Switch
   {
     relay = i;
   }
- 
+
   void setup() override
   {
     ml.init();
   }
- 
- 
+
+
   void write_state(bool state) override
   {
     // This will be called every time the user requests a state change.
@@ -58,13 +58,12 @@ class mLinkRelay : public Component, public Switch
         ml.SET_RLY3(I2C_ADD, state);
         break;
     }
- 
+
     // Acknowledge new state by publishing it
     publish_state(state);
     }
 };
 ```
-
 
 In your YAML file add the following:
 
