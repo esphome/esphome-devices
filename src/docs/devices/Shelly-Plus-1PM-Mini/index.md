@@ -1,6 +1,6 @@
 ---
 title: Shelly 1 Plus 1PM Mini
-date-published: 27-09-23
+date-published: 2023-09-27
 type: relay
 standard: uk, us, eu
 board: esp32c3
