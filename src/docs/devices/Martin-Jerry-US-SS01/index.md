@@ -85,6 +85,7 @@ binary_sensor:
     pin:
       number: GPIO03
       mode: INPUT_PULLUP
+      inverted: true
     name: Main Button
     on_press:
       - switch.toggle: relay
