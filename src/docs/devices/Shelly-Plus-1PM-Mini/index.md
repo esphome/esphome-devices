@@ -18,7 +18,7 @@ board: esp32c3
 
 ## Serial Pinout
 
-![Shelly Plus 1PM Mini](shelly_plus_1pm_mini_pinout.jpg "Shelly Plus 1PM Mini")
+![Shelly Plus 1PM Mini](shelly_plus_1pm_mini.png "Shelly Plus 1PM Mini")
 
 ## Basic Configuration
 
