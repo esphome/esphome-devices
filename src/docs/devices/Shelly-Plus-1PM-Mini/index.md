@@ -43,7 +43,6 @@ esp32:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  use_address: 192.168.20.89
   ap:
     ssid: "$(device_name) Fallback Hotspot"
     password: !secret wifi_password
