@@ -1,5 +1,5 @@
 ---
-title: Shelly 1 Plus 1PM Mini
+title: Shelly Plus 1PM Mini
 date-published: 2023-09-27
 type: relay
 standard: uk, us, eu
