@@ -1,5 +1,5 @@
 ---
-title: AC/DC powered ESP32 Realy Board x4
+title: AC/DC powered ESP32 Relay Board x4
 date-published: 2023-05-06
 type: relay
 standard: global
