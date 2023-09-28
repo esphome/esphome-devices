@@ -9,7 +9,7 @@ difficulty: 4
 
 ## Notes
 
-![header](/woox-r6087-large.png "Woox R6087")
+![Woox R6087](woox-r6087-large.jpg "Woox R6087")
 
 ## GPIO Pinout
 
