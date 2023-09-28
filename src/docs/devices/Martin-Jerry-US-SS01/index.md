@@ -5,7 +5,7 @@ type: switch
 standard: us
 board: esp8266
 ---
-[Amazon Link](https://amzn.to/3RCZfys)
+[Amazon Link](https://amzn.to/3RAaQhx)
 
 [Device on Martin Jerry](https://www.martinjerry.com/us-ss01-support)
 
