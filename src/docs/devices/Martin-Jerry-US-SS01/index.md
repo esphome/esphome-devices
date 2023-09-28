@@ -5,10 +5,9 @@ type: switch
 standard: us
 board: esp8266
 ---
+[Amazon Link](https://amzn.to/3RCZfys)
 
-Martin Jerry US-SS01 Smart Switch
-
- [Device on Martin Jerry]([https://amzn.to/3Mik8su](https://www.martinjerry.com/us-ss01-support))
+[Device on Martin Jerry](https://www.martinjerry.com/us-ss01-support)
 
 ## GPIO Pinout
 
