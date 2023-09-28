@@ -6,7 +6,7 @@ standard: uk, us, eu, au
 board: esp32
 ---
 
-![Shelly Plus 1 Mini](shelly_plus_1_mini_pinout.png "Shelly Plus 1_mini")
+![Shelly Plus 1 Mini](shelly_plus_1_mini_pinout.png "Shelly Plus 1 Mini")
 
 ## GPIO Pinout
 
@@ -18,6 +18,7 @@ board: esp32
 | GPIO10 | Switch input                |
 
 The Shelly Plus 1 Mini is based on the ESP32-C3 (Single core, 160MHz, 4MB embedded flash)
+To enter bootloader mode, GPIO9 needs to be pulled down (connected to ground).
 
 ## Configuration as relay
 
