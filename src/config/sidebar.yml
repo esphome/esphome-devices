@@ -31,7 +31,9 @@
     - label: 'US Devices'
       link: '/standards/us'
 - label: Boards
-  items:
+  items: 
+    - label: 'BK72xx'
+      link: '/board/bk72xx'
     - label: 'ESP32'
       link: '/board/esp32'
     - label: 'ESP8266'
