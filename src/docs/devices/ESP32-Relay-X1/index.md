@@ -16,6 +16,8 @@ Each relay has COM+NO+NC exposed. Each relay supports 10Amp max load.
 
 The board can be powered either via 7-30VDC or via 5VDC (separate connectors).
 
+The onboard button is connected to GPI00
+
 I bought it from aliexpress.
 
 ## GPIO Pinout
@@ -79,4 +81,18 @@ switch:
     pin: GPIO16
     name: "ESP32 Relay"
     id: ESP32_relay
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+    name: Button
+    filters:
+      - invert
+      - delayed_on_off: 50ms
+    on_press:
+      then:
+        - switch.turn_on: ESP32_relay      
+
 ```
