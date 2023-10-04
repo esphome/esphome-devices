@@ -3,7 +3,7 @@ title: Tuya AP-Future-RGBCCT LED Controller (AP-02-5CH-V2)
 date-published: 2023-10-04
 type: light
 standard: global
-board: WB3S
+board: BK72xx
 ---
 
 Available on AliExpress: [WIFI RGBCCT](https://aliexpress.com/item/1005005724297417.html)
