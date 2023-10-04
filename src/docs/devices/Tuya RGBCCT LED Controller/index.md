@@ -1,10 +1,12 @@
 ---
-title: Tuya RGBCCT LED Controller (AP-02-5CH-V2)
+title: Tuya AP-Future-RGBCCT LED Controller (AP-02-5CH-V2)
 date-published: 2023-10-04
 type: light
 standard: global
 board: WB3S
 ---
+
+Available on AliExpress: [WIFI RGBCCT](https://de.aliexpress.com/item/1005005724297417.html?spm=a2g0o.order_list.order_list_main.22.200a5c5fOrojqS&gatewayAdapt=glo2deu)
 
 This controller is a RGB CCT PWM Controller baed on the WB3S chipset by TUYA. 
 Since LibreTiny is supported by ESPHome since 2023.09 it is possible to use this chipset.
@@ -12,6 +14,7 @@ Since LibreTiny is supported by ESPHome since 2023.09 it is possible to use this
 It is possible to convert this device with [Tuya-Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) with the following profile:
 [TY-02-1CH LED Strip](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/blob/master/devices/tuya-generic-ty-02-1ch-led-strip.json)
 
+![Product Image](image.png "Product Image")
 
 ## Sample configuration
 
