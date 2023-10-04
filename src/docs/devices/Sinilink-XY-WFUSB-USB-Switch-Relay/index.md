@@ -30,15 +30,15 @@ GPIO0 has to be connected to GND to enter programming mode.
 
 ## GPIO Pinout
 
-| Pin    | Function                    |
-| ------ | --------------------------- |
-| GPIO00 | ?                           |
-| GPIO01 | ?                           |
-| GPIO03 | ?                           |
-| GPIO04 | Toggle Button               |
-| GPIO05 | Relay and Red LED           |
-| GPIO14 | Green LED                   |
-| GPIO16 | Blue LED                    |
+| Pin    | Function             | Note                                                               |
+| ------ | -------------------- | ------------------------------------------------------------------ |
+| GPIO00 | User (Pad GPIO-0)    | Pulled-up to HIGH, boot fails if pulled LOW                        |
+| GPIO01 | User (Pad TX)        | HIGH at boot, spits debug output at boot, boot fails if pulled LOW |
+| GPIO03 | User (Pad RX)        | HIGH at boot                                                       |
+| GPIO04 | Toggle Button        | Pin input LOW when button is pressed                               |
+| GPIO05 | Relay and Red LED    | USB socket power with LED is ON when pin output HIGH               |
+| GPIO14 | Green LED            | LED is ON when pin output HIGH                                     |
+| GPIO16 | Blue LED             | LED is ON when pin output HIGH                                     |
 
 ## Basic Config
 
