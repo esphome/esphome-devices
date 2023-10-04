@@ -6,9 +6,9 @@ standard: global
 board: WB3S
 ---
 
-Available on AliExpress: [WIFI RGBCCT](https://de.aliexpress.com/item/1005005724297417.html?spm=a2g0o.order_list.order_list_main.22.200a5c5fOrojqS&gatewayAdapt=glo2deu)
+Available on AliExpress: [WIFI RGBCCT](https://aliexpress.com/item/1005005724297417.html)
 
-This controller is a RGB CCT PWM Controller baed on the WB3S chipset by TUYA. 
+This controller is a RGB CCT PWM Controller baed on the WB3S chipset by TUYA.
 Since LibreTiny is supported by ESPHome since 2023.09 it is possible to use this chipset.
 
 It is possible to convert this device with [Tuya-Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) with the following profile:
@@ -17,7 +17,6 @@ It is possible to convert this device with [Tuya-Cloudcutter](https://github.com
 ![Product Image](image.png "Product Image")
 
 ## Sample configuration
-
 
 ``` yaml
 esphome:
