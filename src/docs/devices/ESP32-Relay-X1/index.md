@@ -93,6 +93,6 @@ binary_sensor:
       - delayed_on_off: 50ms
     on_press:
       then:
-        - switch.turn_on: ESP32_relay      
+        - switch.turn_on: ESP32_relay
 
 ```
