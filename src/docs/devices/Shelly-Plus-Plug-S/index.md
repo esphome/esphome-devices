@@ -271,7 +271,6 @@ switch:
     name: "Button lock"
     id: button_lock
     optimistic: true
-    restore_state: true
     restore_mode: ALWAYS_OFF
 
 sensor:
