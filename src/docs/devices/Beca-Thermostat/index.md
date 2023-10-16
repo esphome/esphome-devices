@@ -73,6 +73,11 @@ by desoldering the WB3S and soldering pinout-compatible Espressif modules such
 as the ESP12-E. **This is not required anymore**, as the thermostat has been
 confirmed to work with the BK7231T support introduced with ESPHome 2023.9.0.
 
+Be aware that the dual-band variants, such as the BHT-002-GCLW**DB**, ship with
+the Tuya WBR3D module, utilizing the Realtek RTL8720DN chip. It's important to
+note that as of late 2023, LibreTiny, and therefore ESPHome, do not offer
+support for this particular chipset.
+
 ## Flashing
 
 It is often possible to use [tuya-convert](/guides/tuya-convert/) for the
