@@ -4,7 +4,7 @@ date-published: 2023-10-16
 type: misc
 standard: global
 board: esp32
-project-url: https://github.com/martydingo/esphome-axp192
+project-url: https://shop.m5stack.com/products/m5stickc-plus-esp32-pico-mini-iot-development-kit
 ---
 
 ## Product Images
@@ -30,7 +30,13 @@ project-url: https://github.com/martydingo/esphome-axp192
 | GPIO26 | I2S LRCLK         |
 | GPIO35 | Microphone Data   |
 
-## Basic configuration
+## External Component
+
+[ESPHome AXP192 Component by martydingo]("https://github.com/martydingo/esphome-axp192")
+
+This custom component it to implement support for the AXP192 for both the M5Stick-C. It is required to turn on the backlight. 
+
+## Example Configuration
 
 ```yml
 substitutions:
