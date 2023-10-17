@@ -4,7 +4,7 @@ date-published: 2023-10-16
 type: misc
 standard: global
 board: esp32
-project-url: https://shop.m5stack.com/products/m5stickc-plus-esp32-pico-mini-iot-development-kit
+project-url: https://docs.m5stack.com/en/core/m5stickc_plus
 ---
 
 ## Product Images
