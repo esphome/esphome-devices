@@ -11,6 +11,10 @@ project-url: https://docs.m5stack.com/en/core/fire
 
 ![M5Stack Fire](M5StackFire.webp "M5Stack Fire")
 
+## Description
+
+M5Stack FIRE Kit features an ESP32 Core, 16M Flash + 8M PSRAM, 9-Axis IMU sensor (6-Axis posture acceleration measurement + 3-Axis magnetic measurement), power management IC, speaker, microphone, and a 2 inch 320x240 LCD screen. The middle part is called M5GO base which provides a 500 mAh battery, M-BUS socket, LED bar and three more GROVE Ports. The bottom part is a charge table, which can be connected to the M5GO base via POGO pins.
+
 ## GPIO Pinout
 
 |   Pin  | Function    |
