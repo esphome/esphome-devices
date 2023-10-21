@@ -99,9 +99,9 @@ instructions below.
    `calibration -> power` entries in your configuration.
 
 1. The `angleN` values from the `angles` section will go into the
-   `calibration -> phase_angle` entries in your
-   configuration. `angle0` is for `phase A`, `angle1` is for `phase
-   B`, and `angle2` is for `phase C`.
+   `calibration -> phase_angle` entries in your configuration.
+   `angle0` is for `phase A`, `angle1` is for `phase B`, and `angle2`
+   is for `phase C`.
 
 ## Example Configuration
 
