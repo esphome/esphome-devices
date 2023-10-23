@@ -190,7 +190,7 @@ binary_sensor:
 
 ### 3 Gang Configuration
 
-#### **Not updated for BK72XX**
+> **Note**: Not updated for BK72XX.
 
 ```yaml
 substitutions:
@@ -322,7 +322,7 @@ switch:
 
 ### 4 Gang Configuration
 
-#### **Not updated for BK72XX**
+> **Note**: Not updated for BK72XX.
 
 ```yaml
 substitutions:
