@@ -9,7 +9,7 @@ board: wb2s
 
 ## General Notes
 
-The [DETA 6294HA Outdoor Double Powerpoint](https://detaelectrical.com.au/product/deta-grid-connect-smart-outdoor-double-powerpoint/) is supplied with a WB2S module that ~~requires replacing with a ESP-02S or equivalent module~~ can be reprogrammed to tinytuya OTA using tuya-cloudcutter.
+The [DETA 6294HA Outdoor Double Powerpoint](https://detaelectrical.com.au/product/deta-grid-connect-smart-outdoor-double-powerpoint/) is supplied with a WB2S module that ~~requires replacing with a ESP-02S or equivalent module~~ can be reprogrammed to LibreTiny OTA using tuya-cloudcutter.
 My units had MCU version 1.1.3 but the deta-6920ha-double-touch-outlet-v1.1.4 profile worked to flash kickstart firmware.
 
 Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As RX1 pin is used, you must program the device before installing module.
