@@ -9,7 +9,7 @@ board: bk72xx
 ## Deta Grid Connect Smart Double Touch Power Point
 
 Sold by [Bunnings Warehouse](https://www.bunnings.com.au/deta-grid-connect-smart-double-touch-power-point_p0098813)
-this is a AU/NZ standard wall outlet/powerpoint based on the Beken BK7231T module. Now that ESPHome natively supports BK72XX microcontrollers, you can also put ESPHome directly onto the device. 
+this is a AU/NZ standard wall outlet/powerpoint based on the Beken BK7231T module. Now that ESPHome natively supports BK72XX microcontrollers, you can also put ESPHome directly onto the device.
 
 ## Getting it up and running
 
@@ -18,6 +18,7 @@ this is a AU/NZ standard wall outlet/powerpoint based on the Beken BK7231T modul
 [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the process of flashing Tuya-based devices. It allows you to bypass the need for physically opening the device and swapping out chips. By leveraging the cloud APIs, Cloudcutter enables you to flash the firmware remotely, making it a convenient and less intrusive option. Follow the instructions on the [Cloudcutter GitHub repository](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to use this method for flashing your Deta 6294HA device.
 
 ### Disassembly
+
 If you can't or don't wish to use Cloudcutter, you can flash directly to the outlet with USB to serial adapter.
 
 To disassemble the outlet in order to flash, remove the front plastic face (secured by clips on each side),
@@ -40,7 +41,7 @@ that sat underneath the panel.
 substitutions:
   device_name: deta_double_powerpoint
   friendly_name: "Deta Double Powerpoint"
-  
+
 #################################
 
 esphome:
@@ -62,9 +63,9 @@ status_led:
     number: P8
     inverted: true
 
-## ----------------- ## 
+## ----------------- ##
 ##      Buttons      ##
-## ----------------- ## 
+## ----------------- ##
 binary_sensor:
   # Left Button
   - platform: gpio
@@ -139,4 +140,5 @@ switch:
     turn_on_action:
       - switch.turn_on: relay_right
     turn_off_action:
-      - switch.turn_off: relay_right```
+      - switch.turn_off: relay_right
+```
