@@ -1,27 +1,29 @@
 ---
 title: DETA Outdoor Double Powerpoint (6294HA)
-date-published: 2023-04-10
-type: plug
+date-published: 2023-10-24
+type: socket
 standard: au
-board: esp8266
+~~board: esp8266~~
+board: wb2s
 ---
 
 ## General Notes
 
-The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) is supplied with a WB2S module that requires replacing with a ESP-02S or equivalent module.
+The [DETA 6294HA Outdoor Double Powerpoint](https://detaelectrical.com.au/product/deta-grid-connect-smart-outdoor-double-powerpoint/) is supplied with a WB2S module that ~~requires replacing with a ESP-02S or equivalent module~~ can be reprogrammed to tinytuya OTA using tuya-cloudcutter.
+My units had MCU version 1.1.3 but the deta-6920ha-double-touch-outlet-v1.1.4 profile worked to flash kickstart firmware.
 
-Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As RX pin is used, you must program the device before installing module.
+Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As RX1 pin is used, you must program the device before installing module.
 
 ## GPIO Pinout
 
 | Pin    | Function                  |
 | ------ | ------------------------- |
-| GPIO03 | RX for CSE7766            |
-| GPIO04 | Button 1 (inverted)       |
-| GPIO05 | LED (inverted)            |
-| GPIO12 | Button 2 (inverted)       |
-| GPIO13 | Relay 1                   |
-| GPIO14 | Relay 2                   |
+| RX1    | RX for CSE7766            |
+| P7     | Button 1 INPUT (inverted) |
+| P24    | Button 2 INPUT (inverted) |
+| P6     | Relay 1                   |
+| P26    | Relay 2                   |
+| P8     | Status LED                |
 
 ## Calibration
 
@@ -32,74 +34,51 @@ Frenck has an excellant [article](https://frenck.dev/calibrating-an-esphome-flas
 Includes examples of calibration data, change as required.
 
 ```yaml
+# DETA 6294HA Grid Connect Smart Outdoor Double Powerpoint
+# https://detaelectrical.com.au/product/deta-grid-connect-smart-outdoor-double-powerpoint/
 substitutions:
-  name: "deta-outdoor-2g-01"
-  friendly_name: "DETA Outdoor 2G"
+  devicename: "deta-outdoor-double-outlet-1"
+  fr_name: "outdoor_outlet_1"
   project_name: "DETA.6294HA"
-  project_version: "1.0"
-  device_description: "Outdoor Power Switch"
+  project_version: "2.0"
 
 esphome:
-  name: "${name}"
-  comment: "${device_description}"
+  name: "${devicename}"
+  friendly_name: "${fr_name}"
   project:
     name: "${project_name}"
     version: "${project_version}"
 
-esp8266:
-  board: esp01_1m
+bk72xx:
+  board: wb2s
 
-# Enable logging (no UART)
-logger:
-  level: DEBUG
-  baud_rate: 0
-
-# Enable Home Assistant API
 api:
   encryption:
-    key: "your key"
+    key: !secret api_encryption_key
 
 ota:
-  password: "your password"
+  password: !secret ota_password
+
+logger:
+#  level: WARN
+  baud_rate: 0 # Enable logging (no UART)
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret my_wifi_ssid
+  password: !secret my_wifi_pwd
+#  manual_ip:
+#    static_ip: 192.168.XXX.XXX
+#    gateway: 192.168.XXX.XXX
+#    subnet: 255.255.255.0
+#  power_save_mode: light
   ap:
-    ssid: "Deta-Outdoor-2G-01"
-    password: "fallback password"
-
-captive_portal:
+    ssid: $devicename
+    password: !secret ap_password
 
 sensor:
   - platform: wifi_signal
-    name: "${friendly_name} wifi signal"
-    update_interval: 600s
-  - platform: uptime
-    name: Uptime Sensor
-    id: uptime_sensor
+    name: $devicename WiFi Signal
     update_interval: 60s
-    disabled_by_default: true
-    on_raw_value:
-      then:
-        - text_sensor.template.publish:
-            id: uptime_human
-            state: !lambda |-
-              int seconds = round(id(uptime_sensor).raw_state);
-              int days = seconds / (24 * 3600);
-              seconds = seconds % (24 * 3600);
-              int hours = seconds / 3600;
-              seconds = seconds % 3600;
-              int minutes = seconds /  60;
-              seconds = seconds % 60;
-              return (
-                (days ? to_string(days) + "d " : "") +
-                (hours ? to_string(hours) + "h " : "") +
-                (minutes ? to_string(minutes) + "m " : "") +
-                (to_string(seconds) + "s")
-              ).c_str();
   - platform: cse7766
     update_interval: 3s
     current:
@@ -132,96 +111,58 @@ sensor:
           - 0.0 -> 0.00
           - 9.32028 -> 15.13
           - 1138.26147 -> 2023
+
+captive_portal:
+
+web_server:
+
 uart:
-  rx_pin: RX
+  rx_pin: RX1
   baud_rate: 4800
 
-status_led:
-  pin:
-    number: GPIO5
-    inverted: True
+light:
+  - platform: status_led
+    name: status
+    internal: True
+    pin:
+      number: P8
+      inverted: False
 
 switch:
-  # Top (or only) button
   - platform: gpio
-    pin: GPIO13
+    pin: P6
+    name: relay1
     id: relay1
-  # Bottom button (for Smart Double Switch - delete for single switch)
   - platform: gpio
-    pin: GPIO14
+    pin: P26
+    name: relay2
     id: relay2
-  - platform: template
-    name: "${friendly_name} Left Socket"
-    id: relay_template1
-    lambda: |-
-      if (id(relay1).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-      - switch.turn_on: relay1
-    turn_off_action:
-      - switch.turn_off: relay1
-
-  - platform: template
-    name: "${friendly_name} Right Socket"
-    id: relay_template2
-    lambda: |-
-      if (id(relay2).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-      - switch.turn_on: relay2
-    turn_off_action:
-      - switch.turn_off: relay2
 
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO4
+      number: P7
       mode: INPUT
       inverted: True
-    id: button1
-    name: "${friendly_name} Left Button"
+    id: leftbutton
+    name: "${fr_name} Left Button"
     on_click:
-      - min_length: 300ms
-        max_length: 1000ms
-        then:
-          - switch.toggle: relay_template1
+      min_length: 200ms
+      max_length: 1800ms
+      then:
+        - switch.toggle: relay1
     internal: True
   - platform: gpio
     pin:
-      number: GPIO12
+      number: P24
       mode: INPUT
       inverted: True
-    id: button2
-    name: "${friendly_name} Right Button"
+    id: rightbutton
+    name: "${fr_name} Right Button"
     on_click:
-      - min_length: 300ms
-        max_length: 1000ms
-        then:
-          - switch.toggle: relay_template2
+      min_length: 200ms
+      max_length: 1800ms
+      then:
+        - switch.toggle: relay2
     internal: True
-
-button:
-  - platform: restart
-    id: restart_button
-    name: "${friendly_name} Restart"
-    disabled_by_default: true
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-      disabled_by_default: true
-    bssid:
-      name: "${friendly_name} BSSID"
-      disabled_by_default: true
-  - platform: template
-    name: Uptime
-    id: uptime_human
-    icon: mdi:clock-start
 ```
