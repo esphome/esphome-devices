@@ -109,9 +109,9 @@ status_led:
     number: P8
     inverted: true
 
-## ----------------- ## 
+## ----------------- ##
 ##      Buttons      ##
-## ----------------- ## 
+## ----------------- ##
 binary_sensor:
   # Left Button
   - platform: gpio
@@ -149,7 +149,7 @@ binary_sensor:
 
 ## -------------------------------------------
 ## Switch & template for switch
-## Light & output for light 
+## Light & output for light
 
 ## ---------------- ##
 ##      Relays      ##
