@@ -1,19 +1,28 @@
 ---
 title: DETA Outdoor Double Powerpoint (6294HA)
-date-published: 2023-04-10
+date-published: 2023-10-23
 type: plug
 standard: au
-board: esp8266
+board: bk72xx
 ---
 
 ## General Notes
 
-The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) is supplied with a WB2S module that requires replacing with a ESP-02S or equivalent module.
+The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) is supplied with a WB2S module. There are now two methods to make this device compatible with ESPHome:
 
-Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As RX pin is used, you must program the device before installing module.
+1. **Use [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash the device.**
+2. **Swap out the chip with a compatible one.**
+
+##### Using Cloudcutter
+
+[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the process of flashing Tuya-based devices. It allows you to bypass the need for physically opening the device and swapping out chips. By leveraging the cloud APIs, Cloudcutter enables you to flash the firmware remotely, making it a convenient and less intrusive option. Follow the instructions on the [Cloudcutter GitHub repository](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to use this method for flashing your Deta 6294HA device.
+
+##### Note on Power Monitoring
+Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As the RX pin is used, you must program the device before installing the module.
 
 ## GPIO Pinout
 
+#### ESP-Based Pinout
 | Pin    | Function                  |
 | ------ | ------------------------- |
 | GPIO03 | RX for CSE7766            |
@@ -23,9 +32,19 @@ Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As RX 
 | GPIO13 | Relay 1                   |
 | GPIO14 | Relay 2                   |
 
+#### BK72XX-Based Pinout
+| Pin    | Function                  |
+| ------ | ------------------------- |
+| RX1    | RX for CSE7766            |
+| P7     | Button 1 (inverted)       |
+| P8     | LED (inverted)            |
+| P24    | Button 2 (inverted)       |
+| P6     | Relay 1                   |
+| P26    | Relay 2                   |
+
 ## Calibration
 
-Frenck has an excellant [article](https://frenck.dev/calibrating-an-esphome-flashed-power-plug/#7-applying-corrections-to-the-firmware) for calibrating the filters.
+Frenck has an excellent [article](https://frenck.dev/calibrating-an-esphome-flashed-power-plug/#7-applying-corrections-to-the-firmware) for calibrating the filters.
 
 ## Configuration
 
