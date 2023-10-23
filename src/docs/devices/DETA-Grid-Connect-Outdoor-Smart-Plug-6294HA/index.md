@@ -6,23 +6,42 @@ standard: au
 board: bk72xx
 ---
 
-## General Notes
+## Overview
 
-The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) is supplied with a WB2S module. There are now two methods to make this device compatible with ESPHome:
+The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) comes with a WB2S module. You have two options to make it ESPHome-compatible:
 
-1. **Use [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash the device.**
-2. **Swap out the chip with a compatible one.**
+1. **[Cloudcutter Flashing](#using-cloudcutter)**
+2. **[Chip Replacement](#chip-replacement)**
 
-##### Using Cloudcutter
+---
 
-[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the process of flashing Tuya-based devices. It allows you to bypass the need for physically opening the device and swapping out chips. By leveraging the cloud APIs, Cloudcutter enables you to flash the firmware remotely, making it a convenient and less intrusive option. Follow the instructions on the [Cloudcutter GitHub repository](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to use this method for flashing your Deta 6294HA device.
+### Table of Contents
 
-##### Note on Power Monitoring
-Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As the RX pin is used, you must program the device before installing the module.
+- [Overview](#overview)
+- [Using Cloudcutter](#using-cloudcutter)
+- [Note on Power Monitoring](#note-on-power-monitoring)
+- [GPIO Pinout](#gpio-pinout)
+- [Calibration](#calibration)
+- [Configuration](#configuration)
 
-## GPIO Pinout
+---
+
+### Using Cloudcutter
+
+[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware remotely, eliminating the need to physically open the device. [Follow these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Deta 6294HA device using Cloudcutter.
+
+---
+
+### Note on Power Monitoring
+
+Power measurement uses the HLW8032 or CSE7766 protocol at 4800 baud. Program the device before installing the module as the RX pin is used.
+
+---
+
+### GPIO Pinout
 
 #### ESP-Based Pinout
+
 | Pin    | Function                  |
 | ------ | ------------------------- |
 | GPIO03 | RX for CSE7766            |
@@ -33,6 +52,7 @@ Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As the
 | GPIO14 | Relay 2                   |
 
 #### BK72XX-Based Pinout
+
 | Pin    | Function                  |
 | ------ | ------------------------- |
 | RX1    | RX for CSE7766            |
@@ -42,205 +62,163 @@ Power measuring uses a HLW8032, CSE7766 compatible protocol at 4800 baud. As the
 | P6     | Relay 1                   |
 | P26    | Relay 2                   |
 
-## Calibration
+---
 
-Frenck has an excellent [article](https://frenck.dev/calibrating-an-esphome-flashed-power-plug/#7-applying-corrections-to-the-firmware) for calibrating the filters.
+### Calibration
 
-## Configuration
+For calibration, check out Frenck's [comprehensive guide](https://frenck.dev/calibrating-an-esphome-flashed-power-plug/#7-applying-corrections-to-the-firmware).
 
-Includes examples of calibration data, change as required.
+---
+
+### Configuration
+
+> **Note:** The configuration examples include calibration data. Modify as needed.
 
 ```yaml
 substitutions:
-  name: "deta-outdoor-2g-01"
-  friendly_name: "DETA Outdoor 2G"
-  project_name: "DETA.6294HA"
-  project_version: "1.0"
-  device_description: "Outdoor Power Switch"
+  devicename: "patio-power-point-1"
+  deviceid: patio_power_point_1
+  friendlyname: "Patio Power Point 1"
+  devicemodel: Deta Grid Connect 6294HA
+
+  # Left Socket
+  friendlyname_left: Pond Pump
+  deviceicon_left: "mdi:fountain"
+  # Right Socket
+  friendlyname_right: Garden Lights
+  deviceicon_right: "mdi:light-flood-up"
+
+#################################
 
 esphome:
-  name: "${name}"
-  comment: "${device_description}"
-  project:
-    name: "${project_name}"
-    version: "${project_version}"
+  name: ${devicename}
 
-esp8266:
-  board: esp01_1m
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
 
-# Enable logging (no UART)
-logger:
-  level: DEBUG
-  baud_rate: 0
+packages:
+  device_base: !include { file: common/device_base.yaml, vars: { friendlyname : 'Patio Power Point 1'} }
 
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "your key"
+#################################
 
-ota:
-  password: "your password"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Deta-Outdoor-2G-01"
-    password: "fallback password"
-
-captive_portal:
-
-sensor:
-  - platform: wifi_signal
-    name: "${friendly_name} wifi signal"
-    update_interval: 600s
-  - platform: uptime
-    name: Uptime Sensor
-    id: uptime_sensor
-    update_interval: 60s
-    disabled_by_default: true
-    on_raw_value:
-      then:
-        - text_sensor.template.publish:
-            id: uptime_human
-            state: !lambda |-
-              int seconds = round(id(uptime_sensor).raw_state);
-              int days = seconds / (24 * 3600);
-              seconds = seconds % (24 * 3600);
-              int hours = seconds / 3600;
-              seconds = seconds % 3600;
-              int minutes = seconds /  60;
-              seconds = seconds % 60;
-              return (
-                (days ? to_string(days) + "d " : "") +
-                (hours ? to_string(hours) + "h " : "") +
-                (minutes ? to_string(minutes) + "m " : "") +
-                (to_string(seconds) + "s")
-              ).c_str();
-  - platform: cse7766
-    update_interval: 3s
-    current:
-      name: current
-      unit_of_measurement: A
-      accuracy_decimals: 3
-      filters:
-        # Map from sensor -> measured value
-        - calibrate_linear:
-          - 0.0 -> 0.00
-          - 0.02673 -> 0.056
-          - 7.99895 -> 7.679
-    voltage:
-      name: voltage
-      unit_of_measurement: V
-      accuracy_decimals: 1
-      filters:
-      # Map from sensor -> measured value
-        - calibrate_linear:
-          - 0.0 -> 0.0
-          - 121.08233 -> 227.9
-    power:
-      id: power
-      name: power
-      unit_of_measurement: W
-      accuracy_decimals: 0
-      filters:
-        # Map from sensor -> measured value
-        - calibrate_linear:
-          - 0.0 -> 0.00
-          - 9.32028 -> 15.13
-          - 1138.26147 -> 2023
-uart:
-  rx_pin: RX
-  baud_rate: 4800
-
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
 status_led:
   pin:
-    number: GPIO5
-    inverted: True
+    number: P8
+    inverted: true
+
+## ----------------- ## 
+##      Buttons      ##
+## ----------------- ## 
+binary_sensor:
+  # Left Button
+  - platform: gpio
+    pin:
+      number: P7
+      mode: INPUT
+      inverted: True
+    id: left_button
+    on_press:
+      then:
+        - switch.toggle: left_outlet
+    # on_click:
+    #   - min_length: 300ms
+    #     max_length: 1000ms
+    #     then:
+    #       - switch.toggle: left_outlet
+    internal: True
+
+  # Right Button
+  - platform: gpio
+    pin:
+      number: P24
+      mode: INPUT_PULLUP
+      inverted: True
+    id: right_button
+    # on_press:
+    #   then:
+    #     - light.toggle: right_outlet
+    on_click:
+      - min_length: 50ms
+        max_length: 1000ms
+        then:
+          - light.toggle: right_outlet
+    internal: True
+
+## -------------------------------------------
+## Switch & template for switch
+## Light & output for light 
+
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
+output:
+  # Right Relay
+  - platform: gpio
+    pin: P26
+    id: relay_2
 
 switch:
-  # Top (or only) button
+  ## ---------------- ##
+  ##      Relays      ##
+  ## ---------------- ##
+  # Left Relay
   - platform: gpio
-    pin: GPIO13
-    id: relay1
-  # Bottom button (for Smart Double Switch - delete for single switch)
-  - platform: gpio
-    pin: GPIO14
-    id: relay2
+    pin: P6
+    id: relay_1
+
+  ## ---------------- ##
+  ##     Switches     ##
+  ## ---------------- ##
+  # Left Switch (Templated)
   - platform: template
-    name: "${friendly_name} Left Socket"
-    id: relay_template1
+    name: ${friendlyname_left}
+    id: left_outlet
+    icon: $deviceicon_left
     lambda: |-
-      if (id(relay1).state) {
+      if (id(relay_1).state) {
         return true;
       } else {
         return false;
       }
     turn_on_action:
-      - switch.turn_on: relay1
+      - switch.turn_on: relay_1
     turn_off_action:
-      - switch.turn_off: relay1
+      - switch.turn_off: relay_1
 
-  - platform: template
-    name: "${friendly_name} Right Socket"
-    id: relay_template2
-    lambda: |-
-      if (id(relay2).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-      - switch.turn_on: relay2
-    turn_off_action:
-      - switch.turn_off: relay2
+## ---------------- ##
+##     Switches     ##
+## ---------------- ##
+light:
+  # Right Outlet
+  - platform: binary
+    name:  ${friendlyname_right}
+    icon: ${deviceicon_right}
+    output: relay_2
+    restore_mode: RESTORE_AND_OFF
+    id: right_outlet
 
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO4
-      mode: INPUT
-      inverted: True
-    id: button1
-    name: "${friendly_name} Left Button"
-    on_click:
-      - min_length: 300ms
-        max_length: 1000ms
-        then:
-          - switch.toggle: relay_template1
-    internal: True
-  - platform: gpio
-    pin:
-      number: GPIO12
-      mode: INPUT
-      inverted: True
-    id: button2
-    name: "${friendly_name} Right Button"
-    on_click:
-      - min_length: 300ms
-        max_length: 1000ms
-        then:
-          - switch.toggle: relay_template2
-    internal: True
 
-button:
-  - platform: restart
-    id: restart_button
-    name: "${friendly_name} Restart"
-    disabled_by_default: true
+## ------------------ ##
+##  Power Monitoring  ##
+## ------------------ ##
+logger:
+  baud_rate: 0
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-      disabled_by_default: true
-    bssid:
-      name: "${friendly_name} BSSID"
-      disabled_by_default: true
-  - platform: template
-    name: Uptime
-    id: uptime_human
-    icon: mdi:clock-start
+uart:
+  rx_pin: RX1
+  baud_rate: 4800
+
+sensor:
+  - platform: cse7766
+    current:
+      name: "${friendlyname} Current"
+    voltage:
+      name: "${friendlyname} Voltage"
+    power:
+      name: "${friendlyname} Power"
+    energy:
+      name: "${friendlyname} Energy"
 ```
