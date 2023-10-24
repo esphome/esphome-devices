@@ -175,8 +175,6 @@ deep_sleep:
 # Microphone and Speaker
 i2s_audio:
   i2s_lrclk_pin: GPIO13
-  i2s_bclk_pin: GPIO32
-  i2s_mclk_pin: GPIO0
 
 microphone:
   - platform: i2s_audio
