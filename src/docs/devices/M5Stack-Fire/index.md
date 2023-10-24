@@ -155,14 +155,16 @@ light:
     name: ${friendly_name} Backlight
     id: backlight
     restore_mode: ALWAYS_ON
-  - platform: fastled_clockless # side light
-    chipset: SK6812
+  - platform: esp32_rmt_led_strip
+    rgb_order: GRB
     pin: GPIO15
     num_leds: 10
-    rgb_order: GRB
-    id: side_light
-    name: ${friendly_name} Side Light
+    rmt_channel: 1
+    chipset: SK6812
+    name: "${friendly_name} Side Light"
     restore_mode: ALWAYS_OFF
+    id: side_light
+    default_transition_length: 0s
 
 # Deep Sleep
 deep_sleep:
