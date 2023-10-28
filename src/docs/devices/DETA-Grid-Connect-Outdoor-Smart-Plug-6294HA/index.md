@@ -8,23 +8,7 @@ board: bk72xx
 
 ## Overview
 
-The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) comes with a WB2S module. You have two options to make it ESPHome-compatible:
-
-1. **[Cloudcutter Flashing](#using-cloudcutter)**
-2. **[Chip Replacement](#chip-replacement)**
-
----
-
-### Table of Contents
-
-- [Overview](#overview)
-- [Using Cloudcutter](#using-cloudcutter)
-- [Note on Power Monitoring](#note-on-power-monitoring)
-- [GPIO Pinout](#gpio-pinout)
-- [Calibration](#calibration)
-- [Configuration](#configuration)
-
----
+The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) comes with a WB2S module.
 
 ### Using Cloudcutter
 
