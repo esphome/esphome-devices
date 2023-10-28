@@ -53,6 +53,10 @@ esphome:
 
 esp8266:
   board: esp8285
+  restore_from_flash: true
+
+preferences:
+  flash_write_interval: 1min
 
 # Enable logging
 logger:
@@ -164,7 +168,7 @@ binary_sensor:
       else {
         return id(occupancy).state;
       }
-  
+
 sensor:
   - platform: uptime
     name: "Uptime Sensor"
@@ -185,7 +189,7 @@ switch:
     internal: true
     entity_category: config
     optimistic: true
-    restore_state: false
+    restore_mode: DISABLED
     turn_on_action:
       - uart.write: "sensorStart\r\n"
     turn_off_action:
@@ -311,7 +315,7 @@ number:
       - switch.turn_on: mmwave_sensor
 
 
-  - platform: template  
+  - platform: template
     name: Blockade Time                  #Configure block time        Value range: 1 ～ 255, default 1 seconds.
     id: Blockade_Time
     entity_category: config
