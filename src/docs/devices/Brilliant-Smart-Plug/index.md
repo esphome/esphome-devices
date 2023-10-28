@@ -74,7 +74,7 @@ switch:
     pin: GPIO5
     id: relay
     on_turn_on:
-    - output.turn_off: light_output #turn status led OFF so LED is blue when relay is on 
+    - output.turn_off: light_output #turn status led OFF so LED is blue when relay is on
     on_turn_off:
     - output.turn_on: light_output #turn status led ON so LED is red when relay==off && status==ok
 
