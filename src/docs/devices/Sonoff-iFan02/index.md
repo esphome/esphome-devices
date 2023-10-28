@@ -68,7 +68,7 @@ output:
             id(fan2sw).turn_off();
             id(fan3sw).turn_off();
             id(fan4sw).turn_off();
-          } 
+          }
           else if (state < 0.5) {
             id(fan2sw).turn_on();
             id(fan3sw).turn_off();
