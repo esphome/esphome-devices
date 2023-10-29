@@ -75,6 +75,19 @@ ip5306:
 
 Using the [IP5306 ESPHome Component]("https://github.com/ssieb/custom_components/tree/master/components/ip5306") by [@ssieb]("https://github.com/ssieb")
 
+## Wifi Issues due to GPIO15
+
+When the M5GO bottom is attached, GPIO15 (side lights pin) needs to be setup as an output pin, otherwise Wifi will fail to connect frequently. If you do not want to setup the side lights component (to save memory, for example), you can use the following alternative instead:
+
+```yml
+output:
+  - platform: gpio
+    id: wifi_fix_output
+    pin: GPIO15
+```
+
+Source: [Official M5Stack repo](https://github.com/m5stack/M5Unified/blob/d26d2415f409b664631ff066ceeaffd6a753a4ff/src/M5Unified.cpp#L499).
+
 ## Example Configuration
 
 ```yml
