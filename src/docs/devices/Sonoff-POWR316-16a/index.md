@@ -13,7 +13,6 @@ board: esp32
 | GPIO00 | Push Button (HIGH = off, LOW = on) |
 | GPIO05 | Wifi_LED                           |
 | GPIO13 | Relay1                             |
-| GPIO14 | TM1621 DA                          |
 | GPIO16 | CSE7766 Rx                         |
 | GPIO18 | Status LED (HIGH = off, LOW = on)  |
 
