@@ -123,9 +123,4 @@ switch:
     name: "${dev_nice_name} - Relay Switch"
     pin: GPIO13
     id: relay
-
-status_led:
-  pin:
-    number: GPIO16
-    inverted: yes
 ```
