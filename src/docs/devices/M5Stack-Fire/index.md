@@ -17,21 +17,21 @@ M5Stack FIRE Kit features an ESP32 Core, 16M Flash + 8M PSRAM, 9-Axis IMU sensor
 
 ## GPIO Pinout
 
-|   Pin  | Function    |
-|:------:|-------------|
-| GPIO39 |   Button A  |
-| GPIO38 |   Button B  |
-| GPIO37 |   Button C  |
+|  Pin   | Function       |
+| :----: | -------------- |
+| GPIO39 | Button A       |
+| GPIO38 | Button B       |
+| GPIO37 | Button C       |
 | GPIO34 | Microphone Pin |
-| GPIO25 | Speaker Pin 1 |
-| GPIO26 | Speaker Pin 2 |
-| GPIO22 | GROVE A SCL |
-| GPIO21 | GROVE A SDA |
-| GPIO36 | GROVE B SCL |
-| GPIO26 | GROVE B SDA |
-| GPIO16 | GROVE C RXD |
-| GPIO17 | GROVE C TXD |
-| GPIO15 | SIG Pin     |
+| GPIO25 | Speaker Pin 1  |
+| GPIO26 | Speaker Pin 2  |
+| GPIO22 | GROVE A SCL    |
+| GPIO21 | GROVE A SDA    |
+| GPIO36 | GROVE B SCL    |
+| GPIO26 | GROVE B SDA    |
+| GPIO16 | GROVE C RXD    |
+| GPIO17 | GROVE C TXD    |
+| GPIO15 | SIG Pin        |
 
 ### MBus Pin Map
 
@@ -41,8 +41,8 @@ M5Stack FIRE Kit features an ESP32 Core, 16M Flash + 8M PSRAM, 9-Axis IMU sensor
 
 ![MPU6886 BMM150](MPU6886_BMM150.webp "MPU6886 BMM150")
 
-| I2C Address | Function                                |
-|-------------|-----------------------------------------|
+| I2C Address | Function                             |
+| ----------- | ------------------------------------ |
 | 0x68        | MPU6886 6-Axis MotionTracking Sensor |
 | 0x10        | BMM150 3-Axis Geomagnetic Sensor     |
 
@@ -51,8 +51,8 @@ M5Stack FIRE Kit features an ESP32 Core, 16M Flash + 8M PSRAM, 9-Axis IMU sensor
 M5Stack Fire uses a customized version of the IP5306 Power Management circuit
 [Customized IP5306 Datasheet]("https://github.com/m5stack/M5-Schematic/blob/master/Core/IIC_IP5306_REG_V1.4.pdf")
 
-| I2C Address | Function                                |
-|-------------|-----------------------------------------|
+| I2C Address | Function                |
+| ----------- | ----------------------- |
 | 0x75        | IP5306 Power Management |
 
 ### IP5306 Example Configuration
@@ -62,7 +62,7 @@ external_components:
   - source:
       type: git
       url: https://github.com/ssieb/custom_components
-    components: [ ip5306 ]
+    components: [ip5306]
 
 ip5306:
   battery_level:
@@ -102,7 +102,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
+
   ap:
     ssid: ${friendly_name} Fallback Hotspot
     password: !secret wifi_password
@@ -120,7 +120,7 @@ external_components:
   - source:
       type: git
       url: https://github.com/ssieb/custom_components
-    components: [ ip5306 ]
+    components: [ip5306]
 
 i2c:
   sda: 21
