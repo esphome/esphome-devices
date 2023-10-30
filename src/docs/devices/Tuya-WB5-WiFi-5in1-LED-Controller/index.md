@@ -63,7 +63,8 @@ There are 2 ways of flashing ESPHome on to this controller.
 ## YAML configurations for the different output modes
 
 ### Single Color
-```yaml 
+
+```yaml
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -132,8 +133,10 @@ light:
     #color_datapoint: 24
     #color_type: hsv
 ```
+
 ### CCT
-```yaml 
+
+```yaml
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -202,8 +205,10 @@ light:
     #color_datapoint: 24
     #color_type: hsv
 ```
+
 ### RGB
-```yaml 
+
+```yaml
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -272,8 +277,10 @@ light:
     color_datapoint: 24
     color_type: hsv
 ```
+
 ### RGBW
-```yaml 
+
+```yaml
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -342,8 +349,10 @@ light:
     color_datapoint: 24
     color_type: hsv
 ```
+
 ### RGBWW
-```yaml 
+
+```yaml
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
