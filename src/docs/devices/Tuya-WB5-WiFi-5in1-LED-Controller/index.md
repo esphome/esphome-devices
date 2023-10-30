@@ -35,8 +35,8 @@ There are 2 ways of flashing ESPHome on to this controller.
 1. Get a UF2 file from the ESPHome Home Assistant addon. first create a new device(Just select ESP32 The yaml file below changes the controller to bk72xx) then copy the yaml file coresponding with your led strip in the edit window and lastly click install(Top Right) and manual download the file as a UF2 package. **IMPORTANT: Change the api encription key with a random genarated key from [here](https://esphome.io/components/api.html#configuration-variables), change the ota password if you want to use ota and change the ap password if you want to have a fallback ap.**
 2. Get a USB to serial converter that can work with 3.3V. Example:
 ![usb serial adapter](usb-serial-adapter.jpg "usb serial adapter")
-1. Set the jumper to 3.3V if you have one (image is set to 5V).
-2. Connect the the pins of the converter to the controller as follows. (see pinout)
+3. Set the jumper to 3.3V if you have one (image is set to 5V).
+4. Connect the the pins of the converter to the controller as follows. (see pinout)
    - GND -> GND
    - VCC -> 3.3V
    - TX -> RX
@@ -50,21 +50,22 @@ There are 2 ways of flashing ESPHome on to this controller.
    or (what i use (verry expensive)) PCBite SP10 probes from the top.
    ![usb serial adapter](pcbite.jpg "usb serial adapter")
    You can manualy tap the RST pin with a jumper wire if you use probes.
-3. Connect the serial converter to a computer.
-4. Download and launch [Itciptool](https://github.com/libretiny-eu/ltchiptool)
-5. Select the flasshing tab.
-6. Select the correct device port.
-7. Load the UF2 file you downloaded in step 1 as input file.
-8. Tick the Auto-detect advanced parameters box.
-9. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the RST pin you have to connect the RST pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.)
-10. Now it should write the program and connect to your wifi network. If not, connect to the hotspot it created and setup your wifi manualy.
-11. **To make sure the controller will function correctly pres the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.** ![Outout Modes](Outout-Mode.jpg "Outout Modes")
+5. Connect the serial converter to a computer.
+6. Download and launch [Itciptool](https://github.com/libretiny-eu/ltchiptool)
+7. Select the flasshing tab.
+8. Select the correct device port.
+9. Load the UF2 file you downloaded in step 1 as input file.
+10. Tick the Auto-detect advanced parameters box.
+11. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the RST pin you have to connect the RST pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.)
+12. Now it should write the program and connect to your wifi network. If not, connect to the hotspot it created and setup your wifi manualy.
+13. **To make sure the controller will function correctly pres the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.** ![Outout Modes](Outout-Mode.jpg "Outout Modes")
 
 ## YAML configurations for the different output modes
 
 ### Single Color
 
 ```yaml
+
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -118,10 +119,10 @@ light:
     switch_datapoint: 20
 
     # for brightness
-    dimmer_datapoint: 22 
+    dimmer_datapoint: 22
     min_value: 0
     max_value: 1000 # Max value is 1000 (default is 255)
-    
+
     # for Correlated Color Temperature(CCT) or white channels
     #color_temperature_datapoint: 23
     #color_temperature_invert: true #set to true if connected as stated on the controller
@@ -132,11 +133,13 @@ light:
     # for RGB channels
     #color_datapoint: 24
     #color_type: hsv
+
 ```
 
 ### CCT
 
 ```yaml
+
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -190,10 +193,10 @@ light:
     switch_datapoint: 20
 
     # for brightness
-    dimmer_datapoint: 22 
+    dimmer_datapoint: 22
     min_value: 0
     max_value: 1000 # Max value is 1000 (default is 255)
-    
+
     # for Correlated Color Temperature(CCT) or white channels
     color_temperature_datapoint: 23
     color_temperature_invert: true #set to true if connected as stated on the controller
@@ -204,11 +207,13 @@ light:
     # for RGB channels
     #color_datapoint: 24
     #color_type: hsv
+
 ```
 
 ### RGB
 
 ```yaml
+
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -262,10 +267,10 @@ light:
     switch_datapoint: 20
 
     # for brightness
-    #dimmer_datapoint: 22 
+    #dimmer_datapoint: 22
     #min_value: 0
     #max_value: 1000 # Max value is 1000 (default is 255)
-    
+
     # for Correlated Color Temperature(CCT) or white channels
     #color_temperature_datapoint: 23
     #color_temperature_invert: true #set to true if connected as stated on the controller
@@ -276,11 +281,13 @@ light:
     # for RGB channels
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 ### RGBW
 
 ```yaml
+
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -334,10 +341,10 @@ light:
     switch_datapoint: 20
 
     # for brightness
-    dimmer_datapoint: 22 
+    dimmer_datapoint: 22
     min_value: 0
     max_value: 1000 # Max value is 1000 (default is 255)
-    
+
     # for Correlated Color Temperature(CCT) or white channels
     #color_temperature_datapoint: 23
     #color_temperature_invert: true #set to true if connected as stated on the controller
@@ -348,11 +355,13 @@ light:
     # for RGB channels
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 ### RGBWW
 
 ```yaml
+
 esphome:
   name: WB5 LED Controller
   friendly_name: WB5 LED Controller
@@ -406,10 +415,10 @@ light:
     switch_datapoint: 20
 
     # for brightness
-    dimmer_datapoint: 22 
+    dimmer_datapoint: 22
     min_value: 0
     max_value: 1000 # Max value is 1000 (default is 255)
-    
+
     # for Correlated Color Temperature(CCT) or white channels
     color_temperature_datapoint: 23
     color_temperature_invert: true #set to true if connected as stated on the controller
@@ -420,4 +429,5 @@ light:
     # for RGB channels
     color_datapoint: 24
     color_type: hsv
+
 ```
