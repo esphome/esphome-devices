@@ -7,18 +7,17 @@ board: bk72xx
 made-for-esphome: false
 difficulty: 2
 ---
-# Tuya WB5 WiFi 5 in 1 LED Controller
 ![WB5 WiFi 5 in 1 LED Controller](WB5-WiFi-5IN1-LED-Controller.jpg "WB5 WiFi 5 in 1 LED Controller")
 
 This is a LED controller that can work with single color, CCT, RGB, RGBW and RGBWW led strips. Its sold on aliexpress by a few diferent sellers there are also a few varients with screw terminals that may or may not work.([exact one I got](https://www.aliexpress.com/item/1005003081976104.html?spm=a2g0o.order_list.order_list_main.41.3d091802QzgWWc)) It can be controlled via a rf remote or wifi. The controller is based on a Tuya CB3L(BK7231N) and a Tuya mcu. This means that the leds are not directly controlled by the BK7231N which you can flash with ESPHome. There are also varients with a Tuya CB3S but this controller is identical except for a few more gpio pins. This controller supports bluethooth but it is not yet implemented into ESPHome. 
 
-# Setup
+## Setup
 
 There are 2 ways of flashing ESPHome on to this controller. 
 - [Tuya Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) (No disassembly required, follow guide on their github page.)
 - Manual flashing (Disassembly required, soldering required depending on your tools and skillset.)
 
-# Pinout
+## Pinout
 ![WB5 pcb](WB5-pcb.jpg "WB5 pcb")
 
 | Pin | Function                                                                      |
@@ -29,7 +28,7 @@ There are 2 ways of flashing ESPHome on to this controller.
 | TX1 | Recieve pin connected to the Tuya MCU also used for programming.              |
 | RST | The reset pin, connect momentaraly to ground to reset(reboot) the controller. |
 
-# Manual Flashing guide
+## Manual Flashing guide
 1. Get a UF2 file from the ESPHome Home Assistant addon. first create a new device(Just select ESP32 The yaml file below changes the controller to bk72xx) then copy the yaml file coresponding with your led strip in the edit window and lastly click install(Top Right) and manual download the file as a UF2 package. **IMPORTANT: Change the api encription key with a random genarated key from [here](https://esphome.io/components/api.html#configuration-variables), change the ota password if you want to use ota and change the ap password if you want to have a fallback ap.**
 2. Get a USB to serial converter that can work with 3.3V. Example: 
 ![usb serial adapter](usb-serial-adapter.jpg "usb serial adapter")
@@ -59,8 +58,8 @@ There are 2 ways of flashing ESPHome on to this controller.
 11. **To make sure the controller will function correctly pres the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.**
 ![Outout Modes](Outout-Mode.jpg "Outout Modes")
     
-# YAML configurations for the different output modes
-## Single Color
+## YAML configurations for the different output modes
+### Single Color
 ```yaml 
 esphome:
   name: WB5 LED Controller
@@ -130,7 +129,7 @@ light:
     #color_datapoint: 24
     #color_type: hsv
 ```
-## CCT
+### CCT
 ```yaml 
 esphome:
   name: WB5 LED Controller
@@ -200,7 +199,7 @@ light:
     #color_datapoint: 24
     #color_type: hsv
 ```
-## RGB
+### RGB
 ```yaml 
 esphome:
   name: WB5 LED Controller
@@ -270,7 +269,7 @@ light:
     color_datapoint: 24
     color_type: hsv
 ```
-## RGBW
+### RGBW
 ```yaml 
 esphome:
   name: WB5 LED Controller
@@ -340,7 +339,7 @@ light:
     color_datapoint: 24
     color_type: hsv
 ```
-## RGBWW
+### RGBWW
 ```yaml 
 esphome:
   name: WB5 LED Controller
