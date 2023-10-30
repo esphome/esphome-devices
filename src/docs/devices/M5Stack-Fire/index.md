@@ -18,7 +18,7 @@ M5Stack FIRE Kit features an ESP32 Core, 16M Flash + 8M PSRAM, 9-Axis IMU sensor
 ## GPIO Pinout
 
 |  Pin   | Function       |
-| :----: | -------------- |
+| ------ | -------------- |
 | GPIO39 | Button A       |
 | GPIO38 | Button B       |
 | GPIO37 | Button C       |
