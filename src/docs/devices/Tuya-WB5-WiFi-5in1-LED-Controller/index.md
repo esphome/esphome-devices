@@ -9,15 +9,17 @@ difficulty: 2
 ---
 ![WB5 WiFi 5 in 1 LED Controller](WB5-WiFi-5IN1-LED-Controller.jpg "WB5 WiFi 5 in 1 LED Controller")
 
-This is a LED controller that can work with single color, CCT, RGB, RGBW and RGBWW led strips. Its sold on aliexpress by a few diferent sellers there are also a few varients with screw terminals that may or may not work.([exact one I got](https://www.aliexpress.com/item/1005003081976104.html?spm=a2g0o.order_list.order_list_main.41.3d091802QzgWWc)) It can be controlled via a rf remote or wifi. The controller is based on a Tuya CB3L(BK7231N) and a Tuya mcu. This means that the leds are not directly controlled by the BK7231N which you can flash with ESPHome. There are also varients with a Tuya CB3S but this controller is identical except for a few more gpio pins. This controller supports bluethooth but it is not yet implemented into ESPHome. 
+This is a LED controller that can work with single color, CCT, RGB, RGBW and RGBWW led strips. Its sold on aliexpress by a few diferent sellers there are also a few varients with screw terminals that may or may not work.([exact one I got](https://www.aliexpress.com/item/1005003081976104.html?spm=a2g0o.order_list.order_list_main.41.3d091802QzgWWc)) It can be controlled via a rf remote or wifi. The controller is based on a Tuya CB3L(BK7231N) and a Tuya mcu. This means that the leds are not directly controlled by the BK7231N which you can flash with ESPHome. There are also varients with a Tuya CB3S but this controller is identical except for a few more gpio pins. This controller supports bluethooth but it is not yet implemented into ESPHome.
 
 ## Setup
 
-There are 2 ways of flashing ESPHome on to this controller. 
+There are 2 ways of flashing ESPHome on to this controller.
+
 - [Tuya Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) (No disassembly required, follow guide on their github page.)
 - Manual flashing (Disassembly required, soldering required depending on your tools and skillset.)
 
 ## Pinout
+
 ![WB5 pcb](WB5-pcb.jpg "WB5 pcb")
 
 | Pin | Function                                                                      |
@@ -29,8 +31,9 @@ There are 2 ways of flashing ESPHome on to this controller.
 | RST | The reset pin, connect momentaraly to ground to reset(reboot) the controller. |
 
 ## Manual Flashing guide
+
 1. Get a UF2 file from the ESPHome Home Assistant addon. first create a new device(Just select ESP32 The yaml file below changes the controller to bk72xx) then copy the yaml file coresponding with your led strip in the edit window and lastly click install(Top Right) and manual download the file as a UF2 package. **IMPORTANT: Change the api encription key with a random genarated key from [here](https://esphome.io/components/api.html#configuration-variables), change the ota password if you want to use ota and change the ap password if you want to have a fallback ap.**
-2. Get a USB to serial converter that can work with 3.3V. Example: 
+2. Get a USB to serial converter that can work with 3.3V. Example:
 ![usb serial adapter](usb-serial-adapter.jpg "usb serial adapter")
 1. Set the jumper to 3.3V if you have one (image is set to 5V).
 2. Connect the the pins of the converter to the controller as follows. (see pinout)
@@ -50,15 +53,15 @@ There are 2 ways of flashing ESPHome on to this controller.
 3. Connect the serial converter to a computer.
 4. Download and launch [Itciptool](https://github.com/libretiny-eu/ltchiptool)
 5. Select the flasshing tab.
-6. Select the correct device port 
+6. Select the correct device port.
 7. Load the UF2 file you downloaded in step 1 as input file.
 8. Tick the Auto-detect advanced parameters box.
-9. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the RST pin you have to connect the RST pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.) 
+9. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the RST pin you have to connect the RST pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.)
 10. Now it should write the program and connect to your wifi network. If not, connect to the hotspot it created and setup your wifi manualy.
-11. **To make sure the controller will function correctly pres the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.**
-![Outout Modes](Outout-Mode.jpg "Outout Modes")
-    
+11. **To make sure the controller will function correctly pres the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.** ![Outout Modes](Outout-Mode.jpg "Outout Modes")
+
 ## YAML configurations for the different output modes
+
 ### Single Color
 ```yaml 
 esphome:
