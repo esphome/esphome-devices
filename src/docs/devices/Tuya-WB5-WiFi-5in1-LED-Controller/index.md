@@ -15,7 +15,7 @@ This is a LED controller that can work with single color, CCT, RGB, RGBW and RGB
 
 There are 2 ways of flashing ESPHome on to this controller.
 
-- [Tuya Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) (No disassembly required, follow guide on their github page.)
+- [Tuya Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) (No disassembly required, follow guide on their github page.) **IMPORTANT: Read step 13 of manual flashing instructions!!!**
 - Manual flashing (Disassembly required, soldering required depending on your tools and skillset.)
 
 ## Pinout
@@ -58,7 +58,7 @@ There are 2 ways of flashing ESPHome on to this controller.
 10. Tick the Auto-detect advanced parameters box.
 11. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the RST pin you have to connect the RST pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.)
 12. Now it should write the program and connect to your wifi network. If not, connect to the hotspot it created and setup your wifi manualy.
-13. **To make sure the controller will function correctly pres the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.** ![Outout Modes](Outout-Mode.jpg "Outout Modes")
+13. **To make sure the controller will function correct press the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.** ![Outout Modes](Outout-Mode.jpg "Outout Modes")
 
 ## YAML configurations for the different output modes
 
