@@ -1,6 +1,6 @@
 ---
 title: M5Stack M5StickC PLUS
-date-published: 2023-10-16
+date-published: 2023-11-13
 type: misc
 standard: global
 board: esp32
@@ -138,9 +138,10 @@ font:
     id: roboto
     size: 12
 
-# builtin 80x160 TFT
+# 1.14 inch, 135*240 Colorful TFT LCD, ST7789v2
 display:
-  - platform: st7735
+  - platform:  st7789v
+    model: TTGO TDisplay 135x240
     cs_pin: GPIO5
     dc_pin: GPIO23
     reset_pin: GPIO18
