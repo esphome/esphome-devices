@@ -3,10 +3,10 @@ title: Teckin SS42
 date-published: 2023-11-08
 type: plug
 standard: eu
-board: esp8285
+board: esp8286
 ---
 
-![image](/teckin-ss42.jpg)
+![image](teckin-ss42.webp)
 
 ## GPIO Pinout
 
