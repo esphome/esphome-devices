@@ -40,6 +40,8 @@
       link: '/board/esp8266'
     - label: 'RP2040'
       link: '/board/rp2040'
+    - label: 'RTL87xx'
+      link: '/board/rtl87xx'
 - label: Guides
   items:
     - label: 'Adding Devices'
