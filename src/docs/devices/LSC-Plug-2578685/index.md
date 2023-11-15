@@ -24,20 +24,22 @@ The latest LSC smart plug 2578685 devices use the Tuya BK7231N module, which is 
 ## GPIO Pinout
 
 Pinout for Version with BK7231T
-| Pin | Function       |
-| --- | -------------- |
-| P7  | Switch button  |
-| P26 | Blue LED       |
-| P6  | Red LED        |
-| P8  | Relay          |
+
+| Pin | Function      |
+| --- | ------------- |
+| P7  | Switch button |
+| P26 | Blue LED      |
+| P6  | Red LED       |
+| P8  | Relay         |
 
 Pinout for Version with BK7231N (Relay and LED Swapped)
-| Pin | Function       |
-| --- | -------------- |
-| P7  | Switch button  |
-| P26 | Blue LED       |
-| P8  | Red LED        |
-| P6  | Relay          |
+
+| Pin | Function      |
+| --- | ------------- |
+| P7  | Switch button |
+| P26 | Blue LED      |
+| P8  | Red LED       |
+| P6  | Relay         |
 
 ## Basic configuration
 
@@ -78,7 +80,7 @@ wifi:
 
 #web_server:
 #  port: 80
-  
+
 sensor:
   - platform: wifi_signal
     name: "WiFi Signal Sensor"
@@ -204,10 +206,9 @@ text_sensor:
     version:
       name: LibreTiny Version
 
-
 status_led:
   pin: P26
-  
+
 binary_sensor:
   - platform: status
     name: lsc-plug-1_status
