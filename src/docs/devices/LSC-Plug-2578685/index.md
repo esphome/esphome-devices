@@ -8,7 +8,7 @@ board: bk72xx
 
 ## Warning
 
-The latest LSC smart plug 2578685 devices use the Tuya BK7231N module, which is not compatible with ESPHome! 
+The latest LSC smart plug 2578685 devices use the Tuya BK7231N module, which is not compatible with ESPHome!
 
 ## Notice
 
@@ -22,6 +22,7 @@ The latest LSC smart plug 2578685 devices use the Tuya BK7231N module, which is 
 ![plug](lsc-plug-no-box2578685.jpg)
 
 ## GPIO Pinout
+
 Pinout for Version with BK7231T
 | Pin | Function       |
 | --- | -------------- |
@@ -38,10 +39,10 @@ Pinout for Version with BK7231N (Relay and LED Swapped)
 | P8  | Red LED        |
 | P6  | Relay          |
 
-
-
 ## Basic configuration
+
 Version for BK7231T:
+
 ```yml
 substitutions:
   name: lsc-switch-01
@@ -170,6 +171,7 @@ button:
 ```
 
 Version for BK7231N:
+
 ```yml
 esphome:
   name: lsc-plug-1
