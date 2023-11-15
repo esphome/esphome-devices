@@ -16,7 +16,7 @@ board: esp8266
 | GPIO5  | Switch 2 Input                  |
 | GPIO12 | i2c SDA                         |
 | GPIO13 | Switch 1 Input                  |
-| GPIO14 | 12c SCL                         |
+| GPIO14 | i2c SCL                         |
 | GPIO15 | Relay 2                         |
 | GPIO16 | ADE7953 IRQ (power measurement) |
 | GPIOA0 | Internal Temperature            |
