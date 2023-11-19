@@ -173,6 +173,7 @@ Unlike the H801, the H802 has no LEDs of its own.
 Note that the RGBW pinout is reversed compared to the H801.
 
 When flashing, instead of connecting 3V3, you can power the device from its usual power supply.
+Connect RX to TX and TX to RX.
 
 Serial logging did not work for the author of this section.
 If you get it to work, please update this text!
