@@ -6,6 +6,8 @@ standard: global
 board: esp8266
 ---
 
+If you have an H802, read this page, then scroll down to the [H802 section](#h802).
+
 The H801 is pretty affordable and easy to hack and adapt to your needs.
 It can be found on [AliExpress](https://s.click.aliexpress.com/e/bbnUDBZW) and other sites.
 The board is based on an [ESP8266EX](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)
@@ -144,3 +146,33 @@ binary_sensor:
 | TX             | GPIO3   |
 | LED D1 (red)   | GPIO5   |
 | LED D2 (green) | GPIO1   |
+
+## H802
+
+The H802 is a very similar device, with four channels (RGBW) instead of five.
+
+It looks like this:
+
+![H802 case photo](/H802WiFi-1.jpg "H802 case photo")
+
+![H802 board photo with annotations](/h802-board-photo-annotated.jpg "H802 board photo with annotations")
+
+Pinout:
+
+| Function       | ESP Pin |
+| -------------- | ------- |
+| R (PWM1)       | GPIO14  |
+| G (PWM2)       | GPIO12  |
+| B (PWM3)       | GPIO13  |
+| W (PWM4)       | GPIO15  |
+| Jumper J3      | GPIO0   |
+| RX             | GPIO2   |
+| TX             | GPIO3   |
+
+Unlike the H801, the H802 has no LEDs of its own.
+Note that the RGBW pinout is reversed compared to the H801.
+
+When flashing, instead of connecting 3V3, you can power the device from its usual power supply.
+
+Serial logging did not work for the author of this section.
+If you get it to work, please update this text!
