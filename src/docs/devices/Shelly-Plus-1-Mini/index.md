@@ -86,7 +86,7 @@ binary_sensor:
 sensor:
   - platform: ntc
     sensor: temp_resistance_reading
-    name: "Temperature"
+    name: "${device_name} Temperature"
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     icon: "mdi:thermometer"
