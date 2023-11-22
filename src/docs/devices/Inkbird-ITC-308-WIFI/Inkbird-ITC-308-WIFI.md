@@ -22,7 +22,8 @@ The TYWE3S sits on a daughter board which needs to be desoldered before flashing
 
 ## Board Configuration
 
-```esphome:
+```yaml
+esphome:
   # Required to get the relay status at boot
   on_boot:
     priority: 600
