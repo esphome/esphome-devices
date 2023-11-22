@@ -91,7 +91,7 @@ text_sensor:
     update_interval: 60s
 
 number:
-  # Calibration
+  # Temperature Calibration
   - platform: "tuya"
     name: "Calibration"
     number_datapoint: 102
