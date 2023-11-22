@@ -156,3 +156,4 @@ number:
     step: 0.1
     multiply: 10
     icon: mdi:thermometer
+    
