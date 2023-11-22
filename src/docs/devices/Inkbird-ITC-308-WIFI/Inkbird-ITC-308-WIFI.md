@@ -155,4 +155,4 @@ number:
     max_value: 15
     step: 0.1
     multiply: 10
-    icon: mdi:thermometer```
+    icon: mdi:thermometer
