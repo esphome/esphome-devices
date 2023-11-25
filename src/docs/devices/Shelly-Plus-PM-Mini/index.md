@@ -7,7 +7,7 @@ board: esp32
 difficulty: 4
 ---
 
-This is effectively an Shelly Plus 1PM Mini, but without the relay and the switch.
+This is effectively a Shelly Plus 1PM Mini, but without the relay and the switch.
 
 ## GPIO Pinout
 
