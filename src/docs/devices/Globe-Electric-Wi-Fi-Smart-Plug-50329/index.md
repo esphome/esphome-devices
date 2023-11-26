@@ -3,6 +3,7 @@ title: Globe Electric Wi-Fi Smart Plug 50359
 date-published: 2023-05-05
 type: plug
 standard: us
+board: bk72xx
 made-for-esphome: false
 difficulty: 2
 ---
@@ -17,7 +18,7 @@ Sold at Costco model (**_50207_**)
 
 This device uses the WB2S module that comes with Tuya firmware which can be flashed to esphome using cloudcutter following instructions [here](https://digiblur.com/2023/04/10/tuya-cloudcutter-with-esphome-how-to-guide/)
 
-This requires a custom fork of esphome to complie the firmware for the WB2S module (<https://github.com/esphome/esphome/pull/3509>) as it is not natively support by esphome yet
+Support for WB2S modules is available in ESPhome 2023.9.0 (<https://github.com/esphome/esphome/pull/3509>).
 
 ## GPIO Pinout
 
@@ -43,10 +44,8 @@ esphome:
   name: ${device_name}
   comment: ${device_description}
 
-libretiny:
-  board: generic-bk7231t-qfn32-tuya
-  framework:
-    version: dev
+bk72xx:
+  board: wb2s
 
 # Enable logging
 logger:
