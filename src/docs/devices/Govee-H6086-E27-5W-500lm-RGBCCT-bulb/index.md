@@ -4,7 +4,7 @@ date-published: 2023-11-28
 type: bulb
 standard: global
 board: rtl87xx
-difficulty: Soldering required, 4/5
+difficulty: 4
 ---
 
 Uses T103 module. CPU is RTL8710BN.

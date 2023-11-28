@@ -45,7 +45,7 @@ esp32:
     sdkconfig_options:
       CONFIG_BT_BLE_50_FEATURES_SUPPORTED: y
       CONFIG_BT_BLE_42_FEATURES_SUPPORTED: y
-      CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"    
+      CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"
 # Would not boot with the stock ESP32-C3 ESPHome 2023.9 default YAML config until I added/change the settings above for ESP32C3
 
 logger:
@@ -56,7 +56,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-#  domain: !secret wifi_mydomain   
+#  domain: !secret wifi_mydomain
   ap:
 
 #magic switch mode
@@ -75,7 +75,7 @@ esp32_ble_tracker:
     active: true
 
 bluetooth_proxy:
-  active: true    
+  active: true
 
 binary_sensor:
   - platform: gpio

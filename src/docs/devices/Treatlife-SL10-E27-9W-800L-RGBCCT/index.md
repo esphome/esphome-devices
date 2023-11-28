@@ -87,5 +87,5 @@ output:
   - platform: sm2135
     id: output_coldwhite
     channel: 3
-    
+
 ```
