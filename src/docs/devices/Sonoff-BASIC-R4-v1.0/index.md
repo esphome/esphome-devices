@@ -10,7 +10,7 @@ Sonoff BASIC R4 is upgraded with esp32c3 and a new 'magic mode switch' feature t
 
 Pinouts and pictures are taken from [digiblur's website](https://digiblur.com/wiki/devices/relays/sonoff-basic-r4/)
 
-![alt text](/sonoff_basic_r4.webp "Sonoff BASIC R4")
+![alt text](sonoff_basic_r4.webp "Sonoff BASIC R4")
 
 ## GPIO Pinout
 
@@ -23,9 +23,9 @@ Pinouts and pictures are taken from [digiblur's website](https://digiblur.com/wi
 
 ## PCB
 
-![alt text](/sonoff_basic_r4_pcb.webp "Sonoff BASIC R4 PCB")
+![alt text](sonoff_basic_r4_pcb.webp "Sonoff BASIC R4 PCB")
 
-![alt text](/sonoff_basic_r4_pcb_rear.webp "Sonoff BASIC R4 PCB rear")
+![alt text](sonoff_basic_r4_pcb_rear.webp "Sonoff BASIC R4 PCB rear")
 
 ## Basic Configuration
 
