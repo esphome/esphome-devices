@@ -62,7 +62,6 @@ output:
 - platform: ledc
   id: red_color
   pin: GPIO10
-  frequency: 1220Hz
   inverted: False
 - platform: ledc
   id: green_color
