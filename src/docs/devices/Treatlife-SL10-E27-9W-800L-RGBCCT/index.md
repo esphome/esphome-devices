@@ -17,7 +17,7 @@ Treatlife SL10 PCB differs from the previous ESP based SL10 that now has BK7231T
 
 ## Picture
 
-Treatlife SL10 Bulb ![image](IMG_8127.jpg)
+Treatlife SL10 Bulb ![image](treatlife_sl10_led_driver.jpg)
 
 ## Basic Configuration
 
