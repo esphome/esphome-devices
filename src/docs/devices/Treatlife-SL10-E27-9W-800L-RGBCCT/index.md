@@ -15,9 +15,9 @@ Treatlife SL10 PCB differs from the previous ESP based SL10 that now has BK7231T
 | GPIO8  | SM2135 Data Pin  |
 | GPIO7  | SM2135 Clock Pin          |
 
-## PCB
+## Picture
 
-![alt text](/IMG_8127.JPG.jpg "Treatlife SL10 Led Driver & W8P chip")
+Treatlife SL10 Bulb ![image](IMG_8127.JPG)
 
 ## Basic Configuration
 
