@@ -17,9 +17,7 @@ Treatlife SL10 PCB differs from the previous ESP based SL10 that now has BK7231T
 
 ## PCB
 
-![alt text](/Sonoff-BASIC-R2-v1.4_pcb.jpg "Sonoff BASIC R2 v1.4 PCB")
-
-![alt text](/Sonoff-BASIC-R2-v1.4_pcb_rear.jpg "Sonoff BASIC R2 v1.4 PCB rear")
+![alt text](/IMG_8127.JPG.jpg "Treatlife SL10 Led Driver & W8P chip")
 
 ## Basic Configuration
 
