@@ -15,10 +15,6 @@ Treatlife SL10 PCB differs from the previous ESP based SL10 that now has BK7231T
 | GPIO8  | SM2135 Data Pin  |
 | GPIO7  | SM2135 Clock Pin          |
 
-## Picture
-
-Treatlife SL10 Bulb ![image](treatlife_sl10_led_driver.jpg)
-
 ## Basic Configuration
 
 ```yaml
@@ -92,9 +88,4 @@ output:
     id: output_coldwhite
     channel: 3
     
-  - platform: gpio
-    id: blue_led
-    pin:
-      number: GPIO13
-      inverted: True
 ```
