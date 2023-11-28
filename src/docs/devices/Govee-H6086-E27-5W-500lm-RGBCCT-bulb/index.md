@@ -1,7 +1,7 @@
 ---
 title: Govee E27 5W 500lm RGBCCT Bulb
 date-published: 2023-11-28
-type: bulb
+type: light
 standard: global
 board: rtl87xx
 difficulty: 4

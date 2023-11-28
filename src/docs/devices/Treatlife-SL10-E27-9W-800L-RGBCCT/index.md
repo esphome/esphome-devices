@@ -1,7 +1,7 @@
 ---
 title: Treatlife SL10 E27 9W 800L RGBCCT Bulb
 date-published: 2023-11-28
-type: bulb
+type: light
 standard: global
 board: bk72xx
 ---
