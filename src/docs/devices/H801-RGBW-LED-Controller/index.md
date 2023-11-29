@@ -166,8 +166,8 @@ Pinout:
 | B (PWM3)       | GPIO13  |
 | W (PWM4)       | GPIO15  |
 | Jumper J3      | GPIO0   |
-| RX             | GPIO2   |
-| TX             | GPIO3   |
+| RX             | unknown |
+| TX             | GPIO2   |
 
 Unlike the H801, the H802 has no LEDs of its own.
 Note that the RGBW pinout is reversed compared to the H801.
@@ -175,5 +175,47 @@ Note that the RGBW pinout is reversed compared to the H801.
 When flashing, instead of connecting 3V3, you can power the device from its usual power supply.
 Connect RX to TX and TX to RX.
 
-Serial logging did not work for the author of this section.
-If you get it to work, please update this text!
+Sample configuration:
+
+```yaml
+esphome:
+  name: h802light
+
+esp8266:
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+logger:
+  hardware_uart: UART1
+api:
+ota:
+
+output:
+  - platform: esp8266_pwm
+    pin: 13
+    frequency: 1000 Hz
+    id: pwm_b
+  - platform: esp8266_pwm
+    pin: 12
+    frequency: 1000 Hz
+    id: pwm_g
+  - platform: esp8266_pwm
+    pin: 14
+    frequency: 1000 Hz
+    id: pwm_r
+  - platform: esp8266_pwm
+    pin: 15
+    frequency: 1000 Hz
+    id: pwm_w1
+light:
+  - platform: rgbw
+    name: "H802 Light"
+    red: pwm_r
+    green: pwm_g
+    blue: pwm_b
+    white: pwm_w1
+
+```
