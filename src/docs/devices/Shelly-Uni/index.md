@@ -9,15 +9,12 @@ difficulty: 2
 
 ## Notes
 
-Shelly UNI is the smallest universal module 
-- with two available digital inputs and potential-free outputs, 
-- providing endless functionalities.
+Shelly UNI is the smallest universal module with two available digital inputs and potential-free outputs, providing endless functionalities.
 
 - 2 digital inputs
 - 2 potential-free outputs
 - ADC can measure any voltage from 0 to 30 VDC
-- supports DS18B20 temperature sensors 
-  or a DHT22 humidity and temperature sensor, ...
+- supports DS18B20 temperature sensors or a DHT22 humidity and temperature sensor, ...
 
 ![device](/shelly_uni_625x625.webp "Device picture")
 ![wiring](/shelly_uni_scheme-1536x717.jpg "Wiring diagrams")
