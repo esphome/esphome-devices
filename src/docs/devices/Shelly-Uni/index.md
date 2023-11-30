@@ -67,7 +67,7 @@ external_components:
   - source: github://nrandell/dallasng
 
 dallasng:
-  - pin: 
+  - pin:
       number: GPIO05
       mode:
         input: True
