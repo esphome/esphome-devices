@@ -166,7 +166,7 @@ Pinout:
 | B (PWM3)       | GPIO13  |
 | W (PWM4)       | GPIO15  |
 | Jumper J3      | GPIO0   |
-| RX             | unknown |
+| RX             | GPIO3   |
 | TX             | GPIO2   |
 
 Unlike the H801, the H802 has no LEDs of its own.
