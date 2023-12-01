@@ -8,22 +8,21 @@ board: ebk72xx
 
 ![Product Image](/Arlec-PC191HA-Plug.jpg "Product Image")
 
-The Arlec PC191HA power plug is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
-These are available in White (PC191HA) or Black (PC191BKHA), and in 4-packs of White and Black - which are identical. 
-It is compact, easily fitting side-by-side in double wall sockets. 
+The Arlec PC191HA power plug is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.  
+These are available in White (PC191HA) or Black (PC191BKHA), and in 4-packs of White and Black - which are identical.  
+It is compact, easily fitting side-by-side in double wall sockets.  
 
-The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) 
-and is supplied with Tuya firmware. 
-As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).
+The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) and is supplied with Tuya firmware.  
+As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).  
 
-NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module. 
+NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  
 
-Bunnings also have similar-looking Arlec Grid Connect variations: 
-     - PC192HA with USB, 
-     - PCTH01HA with Temperature And Humidity Sensor, 
-     - PC287HA Twin Socket with Energy Meter and Surge Protection, 
+Bunnings also have similar-looking Arlec Grid Connect variations:
+     - PC192HA with USB,
+     - PCTH01HA with Temperature And Humidity Sensor,
+     - PC287HA Twin Socket with Energy Meter and Surge Protection,
      - PC193HA Multi-Function Socket With USB
-I have NOT looked at any of these variations to find out if they are similar to PC191HA. 
+I have NOT looked at any of these variations to find out if they are similar to PC191HA.  
 
 
 ## GPIO Pinout
@@ -42,16 +41,13 @@ I have NOT looked at any of these variations to find out if they are similar to 
 
 ### Using Cloudcutter
 
-Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware remotely, 
-eliminating the need to physically open the device. Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) 
-to flash your Arlec PC1914HA device using Cloudcutter.
-After that, you can use ESPHome's OTA functionality to make any further changes.
+Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware remotely, eliminating the need to physically open the device. Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.  
+After that, you can use ESPHome's OTA functionality to make any further changes.  
 
 ### Note on Power Monitoring
 
-Power measurement uses the BL0937 chip, which is similar to HLW8012 except CF and CF1 are inverted. 
-I found that setting current_resistor to give an accurate Amperage does NOT also give the correct Wattage,
- so instead I calculate current from power and voltage. 
+Power measurement uses the BL0937 chip, which is similar to HLW8012 except CF and CF1 are inverted.  
+I found that setting current_resistor to give an accurate Amperage does NOT also give the correct Wattage, so instead I calculate current from power and voltage.  
 
 ## Basic Configuration
 
@@ -87,7 +83,7 @@ ota:
 # PC191HA basic switch operation - button, relay and LED
 #
     # button is momentary on - shows "on" in HA except for the moment the button is being pressed
-    # LED should have same on/off state as the relay 
+    # LED should have same on/off state as the relay.  
     # there is also a wifi_LED, but it is not seen from outside the case
 
 binary_sensor:    # the button
@@ -148,8 +144,8 @@ sensor:
 
     update_interval: 15      # How often to measure and report values
 
-    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin, 
-    #   but it can change the value of sel_pin periodically 
+    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,  
+    #   but it can change the value of sel_pin periodically
     initial_mode: "VOLTAGE"       # reports VOLTAGE or CURRENT
     change_mode_every: 4          # how many times to report before swapping between
         #   reporting Voltage or Current. Note that the first value reported should be ignored as inaccurate
@@ -177,7 +173,7 @@ sensor:
       filters:
         - skip_initial: 2
 
-    # power should simply be current x voltage -- except that the pc191ha doesn't follow that formula.
+    # power should simply be current x voltage -- except that the pc191ha doesn't follow that formula.  
     # Setting current_resistor to give an accurate Amperage does NOT also give the correct Wattage
     # so here I calculate current from power and voltage
 
