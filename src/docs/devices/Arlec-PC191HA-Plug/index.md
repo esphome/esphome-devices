@@ -24,7 +24,6 @@ Bunnings also have similar-looking Arlec Grid Connect variations:
      - PC193HA Multi-Function Socket With USB
 I have NOT looked at any of these variations to find out if they are similar to PC191HA.  
 
-
 ## GPIO Pinout
 
 | Pin | Function                             |
