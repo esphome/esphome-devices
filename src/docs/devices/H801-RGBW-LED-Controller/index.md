@@ -217,5 +217,4 @@ light:
     green: pwm_g
     blue: pwm_b
     white: pwm_w1
-
 ```
