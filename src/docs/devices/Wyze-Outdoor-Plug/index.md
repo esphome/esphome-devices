@@ -158,8 +158,8 @@ binary_sensor:
     name: ${display_name} daylight
     device_class: light
     lambda: |-
-        // the senor reads 3.1 volts if there is light and 0.5 if there is not light not much inbetween
-        if (id(lux_sensor).state > 2) {
+        // the senor reads .31 volts if there is light and 0.05 if there is not light not much inbetween
+        if (id(lux_sensor).state > .2) {
           // there is daylight outside.
           return true;
         } else {
