@@ -6,7 +6,7 @@ standard: au
 board: ebk72xx
 ---
 
-![Product Image](/Arlec-PC191HA-Plug.jpg "Product Image")
+![Product Image](Arlec-PC191HA-Plug.jpg "Product Image")
 
 The Arlec PC191HA power plug is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.  
 These are available in White (PC191HA) or Black (PC191BKHA), and in 4-packs of White and Black - which are identical.  
