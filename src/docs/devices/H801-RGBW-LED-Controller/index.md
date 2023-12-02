@@ -92,7 +92,7 @@ light:
 
 Make your node in the ESPHome dashboard and compile/upload it. (if it
 fails OTA it must be uploaded manually with your favorite ESP flasher,
-e.g. `esphome-flasher <esphome-flasher>`{.interpreted-text role="ref"})
+e.g. `esphome-flasher <esphome-flasher>`
 
 You will need to solder pins to the board inside the H801 (fortunately
 it\'s pretty roomy and not a lot of components or stuff in the way apart
@@ -166,7 +166,7 @@ Pinout:
 | B (PWM3)       | GPIO13  |
 | W (PWM4)       | GPIO15  |
 | Jumper J3      | GPIO0   |
-| RX             | unknown |
+| RX             | GPIO3   |
 | TX             | GPIO2   |
 
 Unlike the H801, the H802 has no LEDs of its own.
@@ -217,5 +217,4 @@ light:
     green: pwm_g
     blue: pwm_b
     white: pwm_w1
-
 ```
