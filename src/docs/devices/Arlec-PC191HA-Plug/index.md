@@ -17,6 +17,7 @@ The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module
 NOTE: In May 2023 Bunning is now selling "series 2" units, which use a CB2S module. These are clearly labelled in the bottom right corner of the box, and on the unit itself.   I understand that these work if you change the bk72xx: board: to cb2s in the yaml configuration below.  
 
 Bunnings also have similar-looking Arlec Grid Connect variations:
+
 - PC192HA with USB,
 - PCTH01HA with Temperature And Humidity Sensor,
 - PC287HA Twin Socket with Energy Meter and Surge Protection,
