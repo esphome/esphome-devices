@@ -1,5 +1,5 @@
 ---
-title: Generic Tuya Switch 3 Gang UK
+title: LSPS5 Tuya Switch 3 Gang No Neutral
 date-published: 2023-12-04
 type: switch
 standard: uk
@@ -126,7 +126,136 @@ status_led:
     inverted: False
 ```
 
-Decoupled mode & toggle/dimming lights via homeassistant
-
-
 Decoupled mode & toggle/dimming lights using device group.
+Add this configuration on the lights
+
+Example using button 2 to control lights in the same device group 
+```yaml
+globals:
+  - id: counter
+    type: int
+    restore_value: False
+    initial_value: "0"
+
+  - id: bool_dim_or_bright #false = dim, true = brighten
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+external_components:
+  - source: github://cossid/tasmotadevicegroupsforesphome@main
+    components: [ device_groups ]
+    refresh: 10 min
+
+device_groups:
+  - group_name: "test3g"     # Tasmota device group name
+    lights:
+      - internal_light
+
+output:
+  - platform: template
+    id: dummy_output
+    type: float
+    write_action:
+      - lambda: return;
+
+light:
+  - platform: rgbww
+    id: internal_light
+    color_interlock: true
+    cold_white_color_temperature: 6500 K
+    warm_white_color_temperature: 2700 K
+    red: dummy_output
+    green: dummy_output
+    blue: dummy_output
+    cold_white: dummy_output
+    warm_white: dummy_output
+
+binary_sensor:
+
+  - platform: gpio
+    pin:
+      number: GPIO26
+      mode: INPUT_PULLUP
+      inverted: True
+    name: $devicename Button 2
+    id: button2
+    on_multi_click:
+        # single click
+      - timing:
+          - ON for at most 1s
+          - OFF for at least 0.5s
+        then:         
+          - light.toggle: internal_light
+# double click to change          
+      - timing:
+          - ON for at most 1s
+          - OFF for at most 1s
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          - lambda: |- 
+              auto call = id(internal_light).turn_on();
+
+              if (id(counter) == 0) {
+                call.set_cold_white(1.0);
+                call.set_brightness(1.0);
+              }
+
+              if (id(counter) == 1) {
+                call.set_cold_white(0.0);
+                call.set_warm_white(1.0);
+                call.set_brightness(0.5);
+              }
+
+              if (id(counter) == 2) {
+                call.set_rgb(1, 0.1, 0.1);
+                call.set_brightness(1);
+              }
+
+              if (id(counter) < 2) { //Or your maximum effects
+                id(counter) += 1;
+              } else {
+                id(counter) = 0;
+              }
+
+              call.perform();
+
+    on_press:
+      then:
+      - if:
+          condition: 
+              lambda: |-
+                return id(bool_dim_or_bright);
+# When above condition evaluates to true - brighter function else dimmer
+          then:
+          - delay: 0.5s
+          - while:
+              condition:
+                binary_sensor.is_on: button2
+              then:
+                - light.dim_relative:
+                    id: internal_light
+                    relative_brightness: 5%
+                    transition_length: 0.1s
+                - delay: 0.1s
+          - lambda: |-
+              id(bool_dim_or_bright) = (false);
+          else:
+          - delay: 0.5s
+          - while:
+              condition:
+                and:
+                  - binary_sensor.is_on: button2
+# This is to set the minimum value so that touch sensor only allows pre-set minimum
+                  # - sensor.in_range:
+                  #     id: local_brightness
+                  #     above: 10
+              then:
+                - light.dim_relative:
+                    id: internal_light
+                    relative_brightness: -5%
+                    transition_length: 0.1s
+                - delay: 0.1s
+          - lambda: |-
+              id(bool_dim_or_bright) = (true);
