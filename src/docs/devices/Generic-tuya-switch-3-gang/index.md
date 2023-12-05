@@ -6,6 +6,9 @@ standard: eu
 board: bk72xx
 ---
 
+![alt text](front.jpg "LSPS5 front")
+![alt text](back.jpg "LSPS5 back")
+
 - Has a BK7231N chip.
 - Push button wall switch
 - Can be cloudcut using tuya-cloudcutter
@@ -45,9 +48,7 @@ board: bk72xx
 
 ## PCB
 
-![alt text](/Sonoff-BASIC-R2-v1.4_pcb.jpg "Sonoff BASIC R2 v1.4 PCB")
-
-![alt text](/Sonoff-BASIC-R2-v1.4_pcb_rear.jpg "Sonoff BASIC R2 v1.4 PCB rear")
+![alt text](pcb.jpg "PCB")
 
 ## Basic Configuration (1 gang)
 
