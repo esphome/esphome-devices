@@ -11,7 +11,6 @@ sold by Bunnings and Kmart respectively in Australia.  This configuration is val
 
 ![image](https://github.com/esphome/esphome-devices/assets/26052829/ab4314df-4893-437f-9a3a-22a12e073af6)
 
-
 ## Basic Configuration
 
 ``` yaml
