@@ -16,11 +16,12 @@ board: bk72xx
 The 2 way switch does not have a power sense pin. To solve this issue, and allow the smart switch to be smart, this code turns the White LED on when the light is off and, led off when the light is on. This allows the LEDs pin state to be used as a power sense, to determine whether to turn the relay on or off.
 
 Additional notes on flashing via USB with the `esphome` CLI:
-- Connect the UART bridge with the board connected to it, to the computer
-- Run `esphome upload <configfile>`
-- Press and hold the reset button on the board, then select port
-- Release the reset button
-- If you see errors like `read failed: [Errno 6] Device not configured`, try releasing the button 1-2 seconds later
+
+* Connect the UART bridge with the board connected to it, to the computer
+* Run `esphome upload <configfile>`
+* Press and hold the reset button on the board, then select port
+* Release the reset button
+* If you see errors like `read failed: [Errno 6] Device not configured`, try releasing the button 1-2 seconds later
 
 ![BK7231S](BK7231S.jpg "BK7231S, aka WB3S board")
 
