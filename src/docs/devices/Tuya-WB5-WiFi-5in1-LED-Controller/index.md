@@ -22,13 +22,13 @@ There are 2 ways of flashing ESPHome on to this controller.
 
 ![WB5 pcb](WB5-pcb.jpg "WB5 pcb")
 
-| Pin | Function                                                                      |
-| --- | ----------------------------------------------------------------------------- |
-| GND | Ground connection of the controller.                                          |
-| 3V3 | 3.3V input to power the controller.                                           |
-| RX1 | Transmit pin connected to the Tuya MCU, also used for programming.            |
-| TX1 | Recieve pin connected to the Tuya MCU also used for programming.              |
-| RST | The reset pin, connect momentaraly to ground to reset(reboot) the controller. |
+| Pin | Function                                                                             |
+| --- | ------------------------------------------------------------------------------------ |
+| GND | Ground connection of the controller.                                                 |
+| 3V3 | 3.3V input to power the controller.                                                  |
+| RX1 | Transmit pin connected to the Tuya MCU, also used for programming.                   |
+| TX1 | Recieve pin connected to the Tuya MCU also used for programming.                     |
+| EN  | The Enable pin, connect momentaraly to ground to put the controller in program mode. |
 
 ## Manual Flashing guide
 
@@ -41,7 +41,7 @@ There are 2 ways of flashing ESPHome on to this controller.
    - VCC -> 3.3V
    - TX -> RX
    - RX -> TX
-   - DTR -> RST(optional)
+   - DTR -> EN(optional)
    This can be done by soldering wires to the controller, using a spring loaded tool like a test probe hook
    ![test probe hook](probe-hook.jpg "test probe hook")
    ![test probe hook](Probe-Test-Lead.jpg "test probe hook")
@@ -49,14 +49,14 @@ There are 2 ways of flashing ESPHome on to this controller.
    ![pins](pins.jpg "pins")
    or (what i use (verry expensive)) PCBite SP10 probes from the top.
    ![usb serial adapter](pcbite.jpg "usb serial adapter")
-   You can manualy tap the RST pin with a jumper wire if you use probes.
+   You can manualy tap the EN pin with a jumper wire if you use probes.
 5. Connect the serial converter to a computer.
 6. Download and launch [Itciptool](https://github.com/libretiny-eu/ltchiptool)
 7. Select the flasshing tab.
 8. Select the correct device port.
 9. Load the UF2 file you downloaded in step 1 as input file.
 10. Tick the Auto-detect advanced parameters box.
-11. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the RST pin you have to connect the RST pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.)
+11. Click start. (If blue text apears in the black box at the bottom make sure everithing is connected properly and if you did not connect the EN pin you have to connect the EN pin to GND for a second while GND and 3V3 are stil connected. You can just touch a wire to the pins by hand.)
 12. Now it should write the program and connect to your wifi network. If not, connect to the hotspot it created and setup your wifi manualy.
 13. **To make sure the controller will function correct press the button on the controller to cycle the output mode to the correct type of ledstrip you have connected. It's not dangerous to set the mode wrong, but if not configured correct the controller will not function as expected!!! See the manual you got with the controller or the image below to change the mode.** ![Outout Modes](Outout-Mode.jpg "Outout Modes")
 
