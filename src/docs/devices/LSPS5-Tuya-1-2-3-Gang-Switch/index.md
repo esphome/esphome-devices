@@ -17,34 +17,34 @@ board: bk72xx
 
 ### 1-Gang Version
 
-| Pin    | Function                           |
-| ------ | ---------------------------------- |
-| GPIO26 | Button 1     |
-| GPIO7  | Relay 1  |
-| GPIO8 | Relay 1     |
-| GPIO6  | Wifi LED indicator    |
+| Pin    | Function           |
+| ------ | ------------------ |
+| GPIO26 | Button 1           |
+| GPIO7  | Relay 1            |
+| GPIO8  | Relay 1            |
+| GPIO6  | Wifi LED indicator |
 
 ### 2-Gang Version
 
-| Pin    | Function                           |
-| ------ | ---------------------------------- |
-| GPIO14  | Button 1  |
-| GPIO24 | Button 2                              |
-| GPIO7  | Relay 1  |
-| GPIO9 | Relay 2                              |
-| GPIO6  | Wifi LED indicator    |
+| Pin    | Function           |
+| ------ | ------------------ |
+| GPIO14 | Button 1           |
+| GPIO24 | Button 2           |
+| GPIO7  | Relay 1            |
+| GPIO9  | Relay 2            |
+| GPIO6  | Wifi LED indicator |
 
 ### 3-Gang Version
 
-| Pin    | Function                           |
-| ------ | ---------------------------------- |
-| GPIO14  | Button 1  |
-| GPIO26 | Button 2     |
-| GPIO24 | Button 3                              |
-| GPIO7  | Relay 1  |
-| GPIO8 | Relay 2     |
-| GPIO9 | Relay 3                              |
-| GPIO6  | Wifi LED indicator    |
+| Pin    | Function           |
+| ------ | ------------------ |
+| GPIO14 | Button 1           |
+| GPIO26 | Button 2           |
+| GPIO24 | Button 3           |
+| GPIO7  | Relay 1            |
+| GPIO8  | Relay 2            |
+| GPIO9  | Relay 3            |
+| GPIO6  | Wifi LED indicator |
 
 ## PCB
 
@@ -59,7 +59,7 @@ substitutions:
 
 esphome:
   name: $devicename
-  friendly_name: $friendlyname 
+  friendly_name: $friendlyname
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -67,8 +67,8 @@ bk72xx:
     version: latest
 
 # Enable logging
-logger: 
-  
+logger:
+
 # Enable Home Assistant API
 api:
 
@@ -84,7 +84,7 @@ wifi:
     password: !secret ap_password
 
 captive_portal:
-  
+
 web_server:
   port: 80
 
@@ -127,7 +127,7 @@ substitutions:
 
 esphome:
   name: $devicename
-  friendly_name: $friendlyname 
+  friendly_name: $friendlyname
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -135,8 +135,8 @@ bk72xx:
     version: latest
 
 # Enable logging
-logger: 
-  
+logger:
+
 # Enable Home Assistant API
 api:
 
@@ -152,7 +152,7 @@ wifi:
     password: !secret ap_password
 
 captive_portal:
-  
+
 web_server:
   port: 80
 
@@ -170,7 +170,7 @@ switch:
   - platform: gpio
     name: $devicename Switch 2
     pin: GPIO9
-    id: relay_2   
+    id: relay_2
 
 binary_sensor:
   - platform: status
@@ -209,7 +209,7 @@ substitutions:
 
 esphome:
   name: $devicename
-  friendly_name: $friendlyname 
+  friendly_name: $friendlyname
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -217,8 +217,8 @@ bk72xx:
     version: latest
 
 # Enable logging
-logger: 
-  
+logger:
+
 # Enable Home Assistant API
 api:
 
@@ -234,7 +234,7 @@ wifi:
     password: !secret ap_password
 
 captive_portal:
-  
+
 web_server:
   port: 80
 
@@ -253,12 +253,12 @@ switch:
     name: $devicename Switch 2
     pin: GPIO8
     id: relay_2
-#    restore_mode: ALWAYS_ON
+  #    restore_mode: ALWAYS_ON
 
   - platform: gpio
     name: $devicename Switch 3
     pin: GPIO9
-    id: relay_3   
+    id: relay_3
 
 binary_sensor:
   - platform: status
@@ -282,7 +282,6 @@ binary_sensor:
     on_press:
       - switch.toggle: relay_2
 
-
   - platform: gpio
     pin:
       number: GPIO24
@@ -298,18 +297,20 @@ status_led:
     inverted: False
 ```
 
-## Decoupled mode & toggle/dimming lights using device group.
+## Decoupled mode & toggle/dimming lights using device group
+
 Add this configuration below
-1) For lights
+
+1. For lights
 
 ```yaml
 external_components:
   - source: github://cossid/tasmotadevicegroupsforesphome@main
-    components: [ device_groups ]
+    components: [device_groups]
     refresh: 10 min
 
 device_groups:
-  - group_name: "cornerlights"     # Tasmota device group name
+  - group_name: "cornerlights" # Tasmota device group name
     lights:
       - light_treatlife_corner
 
@@ -328,9 +329,11 @@ light:
     default_transition_length: 0.5s
     restore_mode: RESTORE_DEFAULT_ON
 ```
-2) For switch
 
-Example using button 2 to control lights in the same device group 
+2. For switch
+
+Example using button 2 to control lights in the same device group
+
 ```yaml
 substitutions:
   devicename: 3gang-switch
@@ -338,7 +341,7 @@ substitutions:
 
 esphome:
   name: $devicename
-  friendly_name: $friendlyname 
+  friendly_name: $friendlyname
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -346,8 +349,8 @@ bk72xx:
     version: latest
 
 # Enable logging
-logger: 
-  
+logger:
+
 # Enable Home Assistant API
 api:
 
@@ -363,7 +366,7 @@ wifi:
     password: !secret ap_password
 
 captive_portal:
-  
+
 web_server:
   port: 80
 
@@ -376,7 +379,7 @@ globals:
   - id: bool_dim_or_bright #false = dim, true = brighten
     type: bool
     restore_value: no
-    initial_value: 'false'
+    initial_value: "false"
 
 sensor:
   - platform: uptime
@@ -385,11 +388,11 @@ sensor:
 
 external_components:
   - source: github://cossid/tasmotadevicegroupsforesphome@main
-    components: [ device_groups ]
+    components: [device_groups]
     refresh: 10 min
 
 device_groups:
-  - group_name: "cornerlights"     # Tasmota device group name
+  - group_name: "cornerlights" # Tasmota device group name
     lights:
       - internal_light
 
@@ -427,7 +430,7 @@ switch:
   - platform: gpio
     name: $devicename Switch 3
     pin: GPIO9
-    id: relay_3   
+    id: relay_3
 
 binary_sensor:
   - platform: status
@@ -450,7 +453,7 @@ binary_sensor:
     name: $devicename Button 2
     id: button2
     on_multi_click:
-        # single click
+      # single click
       - timing:
           - ON for at most 1s
           - OFF for at least 0.5s
@@ -465,14 +468,14 @@ binary_sensor:
               # toggle relay in case  wifi is not connected
               else:
                 - switch.toggle: relay_2
-# double click to switch to cold or warm light          
+      # double click to switch to cold or warm light
       - timing:
           - ON for at most 1s
           - OFF for at most 1s
           - ON for at most 1s
           - OFF for at least 0.2s
         then:
-          - lambda: |- 
+          - lambda: |-
               auto call = id(internal_light).turn_on();
 
               if (id(counter) == 0) { //Cold white with 100% brightness
@@ -493,43 +496,42 @@ binary_sensor:
               }
 
               call.perform();
-              
-#long press for dimming
+
+    #long press for dimming
     on_press:
       then:
-      - if:
-          condition: 
+        - if:
+            condition:
               lambda: |-
                 return id(bool_dim_or_bright);
-# When above condition evaluates to true - brighter function else dimmer
-          then:
-          - delay: 0.5s
-          - while:
-              condition:
-                binary_sensor.is_on: button2
-              then:
-                - light.dim_relative:
-                    id: internal_light
-                    relative_brightness: 5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-          - lambda: |-
-              id(bool_dim_or_bright) = (false);
-          else:
-          - delay: 0.5s
-          - while:
-              condition:
-                and:
-                  - binary_sensor.is_on: button2
-              then:
-                - light.dim_relative:
-                    id: internal_light
-                    relative_brightness: -5%
-                    transition_length: 0.1s
-                - delay: 0.1s
-          - lambda: |-
-              id(bool_dim_or_bright) = (true);
-
+            # When above condition evaluates to true - brighter function else dimmer
+            then:
+              - delay: 0.5s
+              - while:
+                  condition:
+                    binary_sensor.is_on: button2
+                  then:
+                    - light.dim_relative:
+                        id: internal_light
+                        relative_brightness: 5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+              - lambda: |-
+                  id(bool_dim_or_bright) = (false);
+            else:
+              - delay: 0.5s
+              - while:
+                  condition:
+                    and:
+                      - binary_sensor.is_on: button2
+                  then:
+                    - light.dim_relative:
+                        id: internal_light
+                        relative_brightness: -5%
+                        transition_length: 0.1s
+                    - delay: 0.1s
+              - lambda: |-
+                  id(bool_dim_or_bright) = (true);
 
   - platform: gpio
     pin:
@@ -544,3 +546,4 @@ status_led:
   pin:
     number: GPIO6
     inverted: False
+```
