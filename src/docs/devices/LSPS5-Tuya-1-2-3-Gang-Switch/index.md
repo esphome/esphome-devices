@@ -301,7 +301,7 @@ status_led:
 
 Add this configuration below
 
-1. For lights
+### For lights
 
 ```yaml
 external_components:
@@ -330,7 +330,7 @@ light:
     restore_mode: RESTORE_DEFAULT_ON
 ```
 
-2. For switch
+### For switch
 
 Example using button 2 to control lights in the same device group
 
