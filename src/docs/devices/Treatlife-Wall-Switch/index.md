@@ -3,20 +3,32 @@ title: Treatlife esp01_1m 2/3-Way Wall-Switch
 date-published: 2020-11-29
 type: switch
 standard: global
-board: esp8266
+board: ["esp8266", "bk72xx"]
 ---
 
 ## Notes
 
-* push button wall switch
+* Push button wall switch
 * 2 way bought here: <https://amzn.to/3stsGDw>
 * 3 way bought here: <https://amzn.to/3cs4R9u>
-* this dude shows how to flash it: <https://www.digiblur.com/2020/01/tuya-convert-23-update-flash-tuya.html>
-* unlike the 3 way switch, the 2 way switch does not have a power sense pin. To solve this issue, and allow the smart switch to be smart, this code turns the White LED on when the light is off and, led off when the light is on. This allows the LEDs pin state to be used as a power sense, to determine whether to turn the relay on or off.
+* Recent variants feature the BK7231S board (`WB3S` label on the chip)
+* Flashing instructions (ESP8266 only): <https://www.digiblur.com/2020/01/tuya-convert-23-update-flash-tuya.html>
+* Flashing instructions (BK7231S, disassembly and soldering required): <https://youtu.be/-a5hV1y5aIU?t=85>
+
+Unlike the 3 way switch, the 2 way switch does not have a power sense pin. To solve this issue, and allow the smart switch to be smart, this code turns the White LED on when the light is off and, led off when the light is on. This allows the LEDs pin state to be used as a power sense, to determine whether to turn the relay on or off.
+
+Additional notes on flashing BK7231S via USB with the `esphome` CLI:
+- Connect the UART bridge with the board connected to it, to the computer
+- Run `esphome upload <configfile>`
+- Press and hold the reset button on the board, then select port
+- Release the reset button
+- If you see errors like `read failed: [Errno 6] Device not configured`, try releasing the button 1-2 seconds later
+
+![BK7231S](BK7231S.jpg "BK7231S, aka WB3S board")
 
 ## GPIO Pinout
 
-### 2-Way Version
+### 2-Way Version (ESP8266)
 
 | Pin     | Function                              |
 |---------|---------------------------------------|
@@ -24,6 +36,15 @@ board: esp8266
 | GPIO5   | Status LED                            |
 | GPIO12  | Relay 1                               |
 | GPIO13  | Button 1                              |
+
+### 2-Way Version (BK7231S)
+
+| Pin | Function                              |
+|-----|---------------------------------------|
+| P9  | White LED (Power Sensor)              |
+| P8  | Status LED                            |
+| P24 | Relay 1                               |
+| P6  | Button 1                              |
 
 ### 3-Way Version
 
@@ -35,6 +56,10 @@ board: esp8266
 | GPIO13  | Button 1                              |
 | GPIO14  | Power Sensor                          |
 
+### 3-Way Version (BK7231S)
+
+Needs contribution.
+
 ## Basic Configuration (2-Way)
 
 ```yaml
@@ -43,10 +68,17 @@ substitutions:
   friendly_name: Light Switch #change
   icon: "mdi:light-switch"
 
-esphome:
-  name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
+# # Uncomment this for BK7231S-based boards
+# bk72xx:
+#   board: generic-bk7231t-qfn32-tuya # Ref: https://docs.libretiny.eu/boards/generic-bk7231t-qfn32-tuya/
+# esphome:
+#   name: ${device_name}
+
+# # Uncomment this for ESP8266-based boards
+# esphome:
+#   name: ${device_name}
+#   platform: ESP8266
+#   board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid
@@ -67,18 +99,26 @@ ota:
 
 output:
   - platform: gpio
-    pin: GPIO12
     id: switch_output
+    # # Uncomment for BK7131S
+    # pin: P24 # For BK7231S use "", for ESP8266 use ""
+
+    # # Uncomment for ESP8266
+    # pin: GPIO12
 
   - platform: gpio
-    pin:
-      number: GPIO4
     id: white_led_output
+    pin:
+      # # Uncomment for BK7131S
+      # number: P9
+
+      # # Uncomment for ESP8266
+      # pin: GPIO4
 
 light:
   - platform: binary
-    name: ${friendly_name}
     id: ${device_name}
+    name: ${friendly_name}
     output: switch_output
     on_turn_on:
       - light.turn_on: white_led
@@ -91,21 +131,32 @@ light:
 
 binary_sensor:
   - platform: gpio
-    pin:
-      number: GPIO13
     id: ${device_name}_button
     name: ${friendly_name} Button
+    pin:
+      # # Uncomment for BK7231S
+      # number: P6
+
+      # # Uncomment for ESP8266
+      # number: GPIO13
     on_press:
       - light.toggle: ${device_name}
 
 status_led:
   # Red LED
   pin:
-    number: GPIO5
+    # # Uncomment for BK7231S
+    # number: P8
+
+    # # Uncomment for ESP8266
+    # number: GPIO5
+
     inverted: yes
 ```
 
 ## Basic Configuration (3-Way)
+
+ESP8266 configuration only, BK7231S needs to be contributed.
 
 ```yaml
 substitutions:
@@ -291,7 +342,7 @@ automation:
     target:
       entity_id: light.all_lights
   mode: single
-  
+
 - alias: double_click_off
   trigger:
   - platform: event
