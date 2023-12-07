@@ -41,8 +41,8 @@ ota:
 
 
 wifi:
-  ssid: 
-  password: 
+  ssid: ""
+  password: ""
   fast_connect: True
   power_save_mode: none
 
