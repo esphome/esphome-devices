@@ -26,8 +26,8 @@ board: esp8266
 
 ```yaml
 esphome:
-  name: KMC-Smart-Outlet
-  friendly_name: KMC-Smart-Outlet
+  name: KMC-Smart-Tap
+  friendly_name: KMC-Smart-Tap
 
 esp8266:
   board: esp01_1m
