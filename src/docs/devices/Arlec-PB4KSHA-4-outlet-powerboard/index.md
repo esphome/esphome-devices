@@ -7,7 +7,7 @@ board: bk72xx
 difficulty: 4
 ---
 
-https://github.com/Kaldek/esphome-devices/blob/patch-2/src/docs/devices/Arlec-PB4KSHA-4-outlet-powerboard/arlec_PB4KSHA.jpg
+!https://github.com/Kaldek/esphome-devices/blob/patch-2/src/docs/devices/Arlec-PB4KSHA-4-outlet-powerboard/arlec_PB4KSHA.jpg
 
 The Arlec PB4KSHA power board is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
 It has four sockets but all are controlled as a group via a single relay.
