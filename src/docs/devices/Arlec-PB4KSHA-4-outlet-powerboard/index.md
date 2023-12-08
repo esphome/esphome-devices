@@ -14,10 +14,10 @@ The controller board is a Tuya WB2S which ues a BK7231T chip.
 
 ## BK7231 Pinout
 
-| Pin    | Function                |
-| ------ | ----------------------- |
+| Pin | Function                |
+| ----| ----------------------- |
 | P6  | LED (Inverted: true)    |
-| P11  | Button  |
+| P11 | Button                  |
 | P26 | Relay 1                 |
 
 ## Getting it up and running
