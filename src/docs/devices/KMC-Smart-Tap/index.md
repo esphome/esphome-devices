@@ -6,7 +6,7 @@ type: plug
 standard: us
 board: esp8266
 ---
-
+  ![alt text](KMC-Smart-Tap.jpg "Product Image")
 [https://kmc.co/products/smart-tap](https://kmc.co/products/smart-tap)
 
 ## GPIO Pinout
