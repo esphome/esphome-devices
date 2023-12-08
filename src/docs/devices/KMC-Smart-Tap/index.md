@@ -14,7 +14,7 @@ board: esp8266
 | Pin    | Function                   |
 |--------|----------------------------|
 | GPIO16 | Push Button                |
-| GPIO01 | Blue LED  (Inverted: true) |
+| GPIO1  | Blue LED (Inverted: true)  |
 | GPIO15 | Outlet 1                   |
 | GPIO13 | Outlet 2                   |
 | GPIO14 | Outlet 3                   |
