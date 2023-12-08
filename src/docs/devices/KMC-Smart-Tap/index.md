@@ -1,5 +1,5 @@
 ---
-title: KMC Smart Tap Outlet With Energy Meter with three relays and one always on outlet
+title: KMC Smart Tap Outlet With Energy Meter (3 Outlet Relays + 1 Always On Outlet)
 Model: 30608
 date-published: 2023-12-08
 type: plug
