@@ -82,9 +82,9 @@ sensor:
 
 text_sensor:
   - platform: version
-    name: "KMC01 ESPHome Version" 
+    name: "KMC01 ESPHome Version"
 
-button: 
+button:
   - platform: restart
     name: "KMC01 Restart" # optional device restart switch
 
@@ -122,7 +122,7 @@ binary_sensor:
         - ON for at least 1s
         - OFF for at least 0.2s
       then:
-        # Triple Click Toggle Outlet 3 On/Off 
+        # Triple Click Toggle Outlet 3 On/Off
         # (Two presses followed by a long press)
         - logger.log: "Triple Click"
         - switch.toggle: outlet_3
