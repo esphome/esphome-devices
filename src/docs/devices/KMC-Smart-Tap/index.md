@@ -1,5 +1,5 @@
 ---
-title: KMC Smart Tap Outlet With Energy Meter (3 Outlet Relays + 1 Always On Outlet)
+title: KMC Smart Tap Outlet With Energy Meter 
 Model: 30608
 date-published: 2023-12-08
 type: plug
@@ -150,5 +150,5 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO1
-    inverted: yes # yes for on/no for off
+    inverted: yes # yes for off/no for on
 ```
