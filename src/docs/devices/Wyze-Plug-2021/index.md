@@ -24,9 +24,9 @@ A current device purchased in late 2023 has a model number of WLPP1CFH, which us
 
 | Pin    | Function                           |
 | ------ | ---------------------------------- |
-| GPIO15 | Button                             |
-| GPIO16 | Relay                              |
-| GPIO19 | Relay LED                          |
+| GPIO10 | Button                             |
+| GPIO0  | Relay                              |
+| GPIO1  | Relay LED                          |
 
 ## Basic Configuration
 
