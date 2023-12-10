@@ -47,9 +47,11 @@ It is required to hold the device's button down to boot into flashing mode until
 ```yaml
 # Change the below substitutions to something you prefer, and update the number for each new device you create
 substitutions:
-  devicename: esphome-70011-plug-1
-  upper_devicename: 70011 SmartPlug 1
+  name: si-smartplug-model-70011
+  friendly_name: si-smartplug-model-70011
 
+```
+```yaml
 # BELOW IS COMMON CODE
 esphome:
   name: si-smartplug-model-70011
@@ -93,3 +95,4 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+```
