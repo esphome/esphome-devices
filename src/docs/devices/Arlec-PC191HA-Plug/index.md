@@ -40,7 +40,8 @@ I have NOT looked at any of these variations to find out if they are similar to 
 
 ### Using Cloudcutter
 
-Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware over Wi-fi, eliminating the need to physically open the device. Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.    
+Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware over Wi-fi, eliminating the need to physically open the device.  
+Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.  
 After that, you can use ESPHome's OTA functionality to make any further changes.  
 
 ### Note on Power Monitoring
