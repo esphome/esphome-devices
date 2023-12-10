@@ -1,9 +1,9 @@
 ---
-title: Arlec Grid Connect Smart Plug In Socket With Energy Meter (PC191HA or PC191BKHA) Plug
+title: Arlec Grid Connect Smart Plug In Socket With Energy Meter (PC191HA or PC191BKHA)
 date-published: 2023-11-23
 type: plug
 standard: au
-board: ebk72xx
+board: bk72xx
 ---
 
 ![Product Image](Arlec-PC191HA-Plug.jpg "Product Image")
@@ -15,7 +15,7 @@ It is compact, easily fitting side-by-side in double wall sockets.
 The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) and is supplied with Tuya firmware.  
 As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).  
 
-NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  
+NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  These are clearly labelled as series 2 in bottom right corner of the box, and on the unit.  
 
 Bunnings also have similar-looking Arlec Grid Connect variations:
      - PC192HA with USB,
@@ -40,7 +40,7 @@ I have NOT looked at any of these variations to find out if they are similar to 
 
 ### Using Cloudcutter
 
-Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware remotely, eliminating the need to physically open the device. Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.  
+Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware over Wi-fi, eliminating the need to physically open the device. Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.    
 After that, you can use ESPHome's OTA functionality to make any further changes.  
 
 ### Note on Power Monitoring
@@ -73,7 +73,7 @@ logger:
 
 api:
   encryption:
-    key: !secret api_encryption_key
+    key: "api_encryption_key"
 
 ota:
   password: "ota_password"
@@ -117,7 +117,6 @@ output:        # the light in the button
     pin: P26
     restore_mode: always off   # default when power is turned on
 
-
 #
 # PC191HA sensors - power monitoring and wifi signal
 #
@@ -143,8 +142,8 @@ sensor:
 
     update_interval: 15      # How often to measure and report values
 
-    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,  
-    #   but it can change the value of sel_pin periodically
+    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
+    #   but it can change the value of sel_pin periodically  
     initial_mode: "VOLTAGE"       # reports VOLTAGE or CURRENT
     change_mode_every: 4          # how many times to report before swapping between
         #   reporting Voltage or Current. Note that the first value reported should be ignored as inaccurate
@@ -197,5 +196,5 @@ sensor:
 ## References
 
 https://www.elektroda.com/rtvforum/topic3944452.html - breakdown of PC191HA and discussion, including about series 2
-https://templates.blakadder.com/arlec_PC191HA.html   - TASMOTA definition, which advises to replace the WV2S module
+https://templates.blakadder.com/arlec_PC191HA.html   - TASMOTA definition, which advises to replace the WB2S module
 https://community.home-assistant.io/t/energy-consumption-and-arlec-grid-connect-tuya-smart-plug/335508/55
