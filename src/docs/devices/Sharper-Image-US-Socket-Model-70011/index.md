@@ -9,8 +9,8 @@ made-for-esphome: False
 difficulty: 3
 ---
 
-![Sharper Image 70011](plug-front.jpg "Front photo of the Smart Plug")
-![Sharper Image 70011](plug-back.jpg "Back photo of the Smart Plug")
+<img src="plug-front.jpg" width="300" height="400" alt="Front photo of the Smart Plug">
+<img src="plug-back.jpg" width="300" height="400" alt="Back photo of the Smart Plug">
 
 The Sharper Image 70011 Smart Wall Plug was sold at various retailers such as Target and Amazon. It is a rebranded KMC 70011 smart plug without the HLW8012 energy monitoring chip.
 
@@ -28,7 +28,7 @@ They can be flashed with soldering or without soldering by using jumpers. The bo
 
 ### Serial Flashing
 
-![Sharper Image 70011](plug-flashing.jpg "Photo of the Smart Plug connected to a serial flasher")
+<img src="plug-flashing.jpg alt="Photo of the Smart Plug connected to a serial flasher">
 
 In order to program the Smart Plug, it's necessary to solder leads or place jumpers onto the esp8266 carrierboard as shown below. ESP devices should always be flashed in 3.3V mode.
 
