@@ -71,7 +71,7 @@ logger:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-#  domain: !secret wifi_mydomain   
+#  domain: !secret wifi_mydomain
   ap:
     password: !secret ap_password
 
