@@ -5,11 +5,12 @@ type: switch
 standard: global
 board: bk72xx
 ---
+[Amazon Link](https://amzn.to/3NhW7EX)
 
 ## Notes
 
 * Based on [Treatlife esp01_1m 2/3-Way Wall-Switch](../Treatlife-Wall-Switch)
-* Bought here: <https://amzn.to/3stsGDw>
+* Bought here: [Amazon](https://amzn.to/3NhW7EX)
 * Features the BK7231S board (`WB3S` label on the chip)
 * Requires disassembly and soldering to flash, see instructions here: <https://youtu.be/-a5hV1y5aIU?t=85>
 
