@@ -3,10 +3,12 @@ title: Wipro 20W LED RGB Batten Light (DS22000)
 date-published: 2023-12-07
 type: light
 standard: in
-board: tywe3l
+board: esp8266
 ---
 
 Wipro Next Smart Wi-Fi 20W CCT+RGB LED Batten | 16 Million Colours | White Tunable | Dimmable
+
+[Amazon Link](https://amzn.eu/d/aR7MunR)
 
 ## Preparing the device for flashing
 
