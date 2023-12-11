@@ -1,5 +1,5 @@
 ---
-title: Arlec Grid Connect Smart E27 LED 830lm RGB CCT Colour Mode 10W Globe
+title: Arlec Grid Connect Smart E27 LED 830lm RGB CCT Colour Mode 10W Globe (GLD322HA)
 date-published: 2032-12-11
 type: light
 standard: au
@@ -90,3 +90,4 @@ light:
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 3000 K
     color_interlock: true
+```
