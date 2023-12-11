@@ -3,7 +3,8 @@ title: Arlec Grid Connect Smart E27 LED 830lm RGB CCT Colour Mode 10W Globe (GLD
 date-published: 2032-12-11
 type: light
 standard: au
-board: 
+board: esp8266
+difficulty: 5
 ---
 
 
