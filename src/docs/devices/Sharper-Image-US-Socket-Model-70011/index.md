@@ -8,10 +8,9 @@ made-for-esphome: False
 difficulty: 3
 ---
 
-|     Front     |     Back      |
-| ------------- | ------------- |
-|
-![Plug front](plug-front.jpg "Plug front") | ![Plug front](plug-back.jpg "Plug back") |
+| Front                                      | Back                                     |
+| ------------------------------------------ | ---------------------------------------- |
+| ![Plug front](plug-front.jpg "Plug front") | ![Plug front](plug-back.jpg "Plug back") |
 
 The Sharper Image 70011 Smart Wall Plug was sold at various retailers such as Target and Amazon. It is a rebranded KMC 70011 smart plug without the HLW8012 energy monitoring chip.
 
