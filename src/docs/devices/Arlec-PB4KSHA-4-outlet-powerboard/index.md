@@ -1,11 +1,13 @@
 ---
 title: Arlec PB4KSHA 4 outlet powerboard
-date-published: 2023-12-8
+date-published: 2023-12-08
 type: plug
 standard: au
 board: bk72xx
 difficulty: 4
 ---
+
+![Product Image](arlec_PB4KSHA.jpg "Product Image")
 
 The Arlec PB4KSHA power board is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
 It has four sockets but all are controlled as a group via a single relay.
