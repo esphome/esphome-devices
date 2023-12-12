@@ -9,11 +9,15 @@ Tinxy 4 Node Retrofit Module with Fan Regulator
 [Amazon Link](https://amzn.eu/d/2V1PDRS)
 ![Tinxy](tinxy1.jpg "Device")
 ![Tinxy](tinxy2.jpg "Device without sleeve")
+
 ## Preparing the device for flashing
-Start by carefully removing the heat shrink sleeve. Next, desolder the W2 and W3 bridges located on the backside of the Tinxy board, as shown in the provided image. Connect wires from the Tinxy board's RXD, TXD, 3.3V, and GND pads to a USB TTL adapter, making sure to swap the connections for RXD and TXD. Press and hold the Tinxy reset button while connecting the TTL adapter to your computer. 
-Flash the firmware as soon as the esp8266 is detected, as the soldered on esp8266 tends to reboot if it didnt detect pwm signal from the MCU on GPIO14.
+Start by carefully removing the heat shrink sleeve. Next, desolder the W2 and W3 bridges located on the backside of the Tinxy board, as shown in the provided image. Connect wires from the Tinxy board's RXD, TXD, 3.3V, and GND pads to a USB TTL adapter, making sure to swap the connections for RXD and TXD.
+
+Press and hold the Tinxy reset button while connecting the TTL adapter to your computer. Flash the firmware as soon as the esp8266 is detected, as the soldered on esp8266 tends to reboot if it didnt detect pwm signal from the MCU on GPIO14.
+
 Once the flashing is complete, resolder the W2 and W3 bridges as before, remove the TTL wires, and reapply the heat shrink sleeve to complete the modification.
-Note: Unlike other devices, Tinxy Esp8266 communicates with the MCU using serial data to activate the relay. So its neccessry to disconnect the W2 and W3 serial bridge between Esp and MCU to ensure no intereference while flashing and reconnecting it is crucial to esnsure proper functioning.
+
+**Note**: Unlike other devices, Tinxy Esp8266 communicates with the MCU using serial data to activate the relay. So its neccessry to disconnect the W2 and W3 serial bridge between Esp and MCU to ensure no intereference while flashing and reconnecting it is crucial to esnsure proper functioning.
 ![Tinxy](tinxy3.jpg "W2 and W3 Bridge")
 Knowledge Credit: [Tinxy Forum](https://forum.tinxy.in/t/flashing-custom-firmware-like-tasmota-or-esphome-and-then-restoring-back-to-original/32)
 ## Esp Code
@@ -32,20 +36,20 @@ esphome:
     - uart_read_line_sensor.h
 output:
   - platform: esp8266_pwm
-    id: gen_pwm_test  
+    id: gen_pwm_test
     pin: GPIO14
-    frequency: 1000 Hz  
+    frequency: 1000 Hz
   - platform: template
     id: fanoutput
     type: float
     write_action:
-    - uart.write: ""    
+    - uart.write: ""
 esp8266:
-  board: esp01_1m  
+  board: esp01_1m
 # Enable logging
 logger:
   baud_rate: 0
-  level: verbose 
+  level: verbose
 # Enable Home Assistant API
 api:
   encryption:
@@ -78,7 +82,7 @@ text_sensor:
       on_value:
         then:
           - lambda: |-
-              ESP_LOGD("main", "The current value is %s", x.c_str());              
+              ESP_LOGD("main", "The current value is %s", x.c_str());             
               if (id(uart_readline).state == "41") {
                 id(relay4_wall_switch).publish_state(true);
                 id(relay4).publish_state(true);
@@ -114,42 +118,42 @@ binary_sensor:
     name: "Relay4 Wall Switch"
     id: relay4_wall_switch
   - platform: template
-    name: "Relay3 Wall Switch" 
-    id: relay3_wall_switch    
+    name: "Relay3 Wall Switch"
+    id: relay3_wall_switch
   - platform: template
-    name: "Relay2 Wall Switch" 
-    id: relay2_wall_switch    
+    name: "Relay2 Wall Switch"
+    id: relay2_wall_switch
   - platform: template
-    name: "Relay1 Wall Switch" 
+    name: "Relay1 Wall Switch"
     id: relay1_wall_switch
 switch:
   - platform: template
     name: "Relay2"
     id: relay2
-    optimistic: true 
+    optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - uart.write: '#2100#'
     turn_off_action:
-      - uart.write: '#2000#'         
+      - uart.write: '#2000#'
   - platform: template
     name: "Relay3"
     id: relay3
-    optimistic: true 
+    optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - uart.write: '#3100#'
     turn_off_action:
-      - uart.write: '#3000#'    
+      - uart.write: '#3000#'
   - platform: template
     name: "Relay4"
     id: relay4
-    optimistic: true 
+    optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - uart.write: '#4100#'
     turn_off_action:
-      - uart.write: '#4000#'   
+      - uart.write: '#4000#'
 fan:
   - platform: speed
     output: fanoutput
@@ -181,8 +185,8 @@ number:
     name: "Switch Delay"
     id: "switchdelay"
     optimistic: true
-    restore_value: true 
-    initial_value: "60" 
+    restore_value: true
+    initial_value: "60"
     min_value: 5
     max_value: 100
     step: 1
@@ -199,8 +203,9 @@ number:
             return uartBytes;
 ```
 ## Uart reading library
+
 Place the uart_read_line_sensor.h library under esphome directory
-```Uart Library
+```Library
 #include "esphome.h"
 class UartReadLineSensor : public Component, public UARTDevice, public TextSensor {
  public:
