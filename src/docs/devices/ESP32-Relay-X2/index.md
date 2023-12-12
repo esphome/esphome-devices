@@ -25,6 +25,7 @@ It can be found on eBay and Aliexpress from multiple sellers.
 The board has headers for every GPIO pin on the ESP32. They are labeled on the reverse side of the board.
 
 ### Pin Functions
+
 | Pin    | Comment              |
 | ------ | -------------------- |
 | GPIO0  | Onboard button       |
