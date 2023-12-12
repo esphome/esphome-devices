@@ -11,6 +11,7 @@ Tinxy 4 Node Retrofit Module with Fan Regulator
 ![Tinxy](tinxy2.jpg "Device without sleeve")
 
 ## Preparing the device for flashing
+
 Start by carefully removing the heat shrink sleeve. Next, desolder the W2 and W3 bridges located on the backside of the Tinxy board, as shown in the provided image. Connect wires from the Tinxy board's RXD, TXD, 3.3V, and GND pads to a USB TTL adapter, making sure to swap the connections for RXD and TXD.
 
 Press and hold the Tinxy reset button while connecting the TTL adapter to your computer. Flash the firmware as soon as the esp8266 is detected, as the soldered on esp8266 tends to reboot if it didnt detect pwm signal from the MCU on GPIO14.
@@ -20,7 +21,9 @@ Once the flashing is complete, resolder the W2 and W3 bridges as before, remove 
 **Note**: Unlike other devices, Tinxy Esp8266 communicates with the MCU using serial data to activate the relay. So its neccessry to disconnect the W2 and W3 serial bridge between Esp and MCU to ensure no intereference while flashing and reconnecting it is crucial to esnsure proper functioning.
 ![Tinxy](tinxy3.jpg "W2 and W3 Bridge")
 Knowledge Credit: [Tinxy Forum](https://forum.tinxy.in/t/flashing-custom-firmware-like-tasmota-or-esphome-and-then-restoring-back-to-original/32)
+
 ## Esp Code
+
 ```yaml
 esphome:
   name: tinxy-4node
@@ -82,7 +85,7 @@ text_sensor:
       on_value:
         then:
           - lambda: |-
-              ESP_LOGD("main", "The current value is %s", x.c_str());             
+              ESP_LOGD("main", "The current value is %s", x.c_str());
               if (id(uart_readline).state == "41") {
                 id(relay4_wall_switch).publish_state(true);
                 id(relay4).publish_state(true);
@@ -202,9 +205,11 @@ number:
             std::vector<unsigned char> uartBytes(uartValue.begin(), uartValue.end());  
             return uartBytes;
 ```
+
 ## Uart reading library
 
 Place the uart_read_line_sensor.h library under esphome directory
+
 ```Library
 #include "esphome.h"
 class UartReadLineSensor : public Component, public UARTDevice, public TextSensor {
