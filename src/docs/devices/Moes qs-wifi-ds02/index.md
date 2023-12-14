@@ -5,5 +5,4 @@ type: wifi module
 standard: eu
 board: esp8266
 ---
-
 2 gang wifi dimmer
