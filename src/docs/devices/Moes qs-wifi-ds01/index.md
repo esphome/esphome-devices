@@ -12,7 +12,7 @@ Single channel wifi dimmer
 substitutions:
   node_name: qs-wifi-ds01
   node_id: IP_name
-  friendly_node_name: "Dual Channel Dimmer"
+  friendly_node_name: "Single Channel Dimmer"
 
 esphome:
   name: ${node_name}
@@ -22,7 +22,7 @@ esphome:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_iotpw
+  password: !secret wifi_pw
   power_save_mode: none
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
@@ -57,12 +57,13 @@ web_server:
 time:
   - platform: homeassistant
     id: ${node_id}_homeassistant_time
+
 # Binary Sensors.
 binary_sensor:
   - platform: status
     name: ${friendly_node_name} Connection Status
     id: ${node_id}_connection_status
-#Binary sensor (on/off) which reads duty_cyle sensor readings. CH1
+    #Binary sensor (on/off) which reads duty_cyle sensor readings. CH1
   - platform: template
     id: switch1
     internal: true
@@ -147,7 +148,7 @@ sensor:
     name: ${friendly_node_name} WiFi Signal
     id: ${node_id}_wifi_signal
     update_interval: 60s
-# Primary template sensor to track Brightness of light object for "on_value" sending to MCU dimmer
+  # Primary template sensor to track Brightness of light object for "on_value" sending to MCU dimmer
   # CH1
   - platform: template
     name: "${node_id} Brightness Sensor CH1"
