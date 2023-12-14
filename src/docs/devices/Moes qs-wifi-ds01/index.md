@@ -6,6 +6,6 @@ standard: eu
 board: esp8266
 ---
 
-Single channel wifi dimmer
+Single gang wifi dimmer
 
 ![image](https://github.com/aceindy/esphome-devices/assets/94692/fdd1d8ad-9389-4eca-9402-8fe1f20ee851)
