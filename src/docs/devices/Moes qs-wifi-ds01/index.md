@@ -6,261 +6,390 @@ standard: eu
 board: esp8266
 ---
 
-Dual outlet, dual relay socket with single channel power monitoring. Flashable via tuya-convert.
-
-Multiple versions of this socket exist. The module the 'blue ESP' pinout came from was [purchased from this Amazon link](https://amzn.to/3lYqj9A), but no guarantees that one purchased from that link is the same. Even more versions of the NX-SP201 outlet also exist, based on pinouts listed on other sites.
-
-Flashing the wrong pinout can brick the device! Enabling GPIO9 bricked the 'blue ESP' version of the plug (though GPIO10 also gave a warning, but did not brick the device). Though it is recoverable with UART/GPIO0 flashing, desoldering the module to access the ESP module's pins can damage it. Only enable pins that give the 'pin might already be used by the flash interface' warning (GPIO6-11) once you're sure that's the correct pin.
-
-## GPIO Pinout
-
-| Pin (Blue ESP)    | Pin (Green ESP) | Function   |
-| ----------------- | --------------- | ---------- |
-| GPIO0             | GPIO9           | Blue LED   |
-| GPIO3             | GPIO2           | HLW Select |
-| GPIO4 (inverted)  | GPIO14          | Button 1   |
-| GPIO5             | GPIO4           | HLW CF     |
-| GPIO12            | GPIO10          | Relay 1    |
-| GPI013 (inverted) | GPIO12          | Button 2   |
-| GPI014            | GPIO5           | HLW CF1    |
-| GPI015            | GPIO13          | Relay 2    |
-
-## Pictures
-
-![alt text](/IMG_0642.jpg "Closed Front View")
-![alt text](/IMG_0643.jpg "Opened Full View")
-![alt text](/IMG_0644.jpg "Opened Top 8266 Chip")
-![alt text](/IMG_0645.jpg "Opened Bottom 8266 Chip")
-![alt text](/nx-sp201-blue.jpg "Opened, Blue ESP module")
-
-## Basic Configuration
+Single channel wifi dimmer
 
 ```yaml
 substitutions:
-  # Higher value gives lower watt readout
-  current_res: "0.002452"
-  # Lower value gives lower voltage readout
-  voltage_div: "814"
-  device_name: nx-sp201
-  friendly_name: Dilisens Outlet
-  relay1_name: Outlet 1
-  relay2_name: Outlet 2
+  node_name: qs-wifi-ds02-ip62
+  node_id: IP_62
+  friendly_node_name: "Dual Channel Dimmer"
 
-# Basic Config
 esphome:
-  name: ${device_name}
+  name: ${node_name}
+  comment: ${friendly_node_name}
   platform: ESP8266
   board: esp01_1m
 
-# Enter you WIFI credentials
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_password
+  password: !secret wifi_iotpw
+  power_save_mode: none
 
-# Enable Logging.
-logger:
-
-# Enable Home Assistant API.
-api:
-
-# Enable over-the-air updates.
-ota:
-
-# Enable WEB server for status and updates.
-web_server:
-  port: 80
+# Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: ${node_name} FB
+    password: "fallback"
 
 captive_portal:
 
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO14
-      inverted: False
-    internal: false # set to true to hide from hub
-    name: "${friendly_name} Button 1"
-    on_press:
-      - switch.toggle: relay1
-
-  - platform: gpio
-    pin:
-      number: GPIO12
-      inverted: False
-    internal: false # set to true to hide from hub
-    name: "${friendly_name} Button 2"
-    on_press:
-      - switch.toggle: relay2
-
-# Status LED for blue light
-# Enabling GPIO9 can brick certain versions of this plug!
-#status_led:
-#    pin:
-#      number: GPIO09
-#      inverted: true
-
-switch:
-  # Main relays
-  - platform: gpio
-    name: ${relay1_name}
-    id: relay1
-    pin: GPIO10
-
-  - platform: gpio
-    name: ${relay2_name}
-    id: relay2
-    pin: GPIO13
-
-sensor:
-  # Energy Monitoring
-  - platform: hlw8012
-    sel_pin:
-      number: GPIO02
-      inverted: True
-    cf_pin: GPIO04
-    cf1_pin: GPIO05
-    #current_resistor: ${current_res}
-    voltage_divider: ${voltage_div}
-    change_mode_every: 3
-    update_interval: 3s
-    current:
-      name: "${device_name}_amperage"
-      unit_of_measurement: A
-      accuracy_decimals: 3
-      filters:
-        - calibrate_linear:
-            - 0.000 -> 0.0
-            - 5.069 -> 6.69
-        # Make everything below 0.01A appear as just 0A.
-        # Furthermore it corrects 0.013A for the power usage of the plug.
-        - lambda: if (x < (0.01 - 0.013)) return 0; else return (x - 0.013);
-    voltage:
-      name: "${device_name}_voltage"
-      unit_of_measurement: V
-      accuracy_decimals: 1
-    power:
-      name: "${device_name}_wattage"
-      unit_of_measurement: W
-      id: "${device_name}_wattage"
-      accuracy_decimals: 0
-```
-
-## Split Configuration
-
-If you have multiple of these sockets (some come in packs), you may want to keep the shared code in one file and only put device specific information in files for each relay.
-
-nx-sp201-common.yaml:
-
-```yaml
-# Basic Config
-esphome:
-  name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
-
-# Enter you WIFI credentials
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Enable Logging.
-logger:
-
-# Enable Home Assistant API.
+# Enable Home Assistant API
 api:
+  encryption:
+    key: !secret api_encryption
 
-# Enable over-the-air updates.
+# Enable Over The Air updates
 ota:
 
-# Enable WEB server for status and updates.
+# Disable logging
+logger:
+  baud_rate: 0
+  logs:
+    sensor: ERROR
+    duty_cycle: ERROR
+    binary_sensor: ERROR
+    light: ERROR
+
+# Enable Web server.
 web_server:
   port: 80
 
-captive_portal:
-
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: ${node_id}_homeassistant_time
+# Binary Sensors.
 binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO14
-      inverted: False
-    internal: false # set to true to hide from hub
-    name: "${friendly_name} Button 1"
+  - platform: status
+    name: ${friendly_node_name} Connection Status
+    id: ${node_id}_connection_status
+#Binary sensor (on/off) which reads duty_cyle sensor readings. CH1
+  - platform: template
+    id: switch1
+    internal: true
+    name: "${node_id} Switch Binary Sensor 1"
+    # read duty_cycle, convert to on/off
+    lambda: |-
+      if (id(sensor_push_switch_1).state < 95.0) {
+        return true;
+      } else {
+        return false;
+      }
+    # Short Click - toggle light only
+    on_click:
+      max_length: 300ms
+      then:
+        light.toggle: light_main_1
+    # Generic On_Press - log press, toggle DIM Direction and reset press interval counter
     on_press:
-      - switch.toggle: relay1
-
-  - platform: gpio
-    pin:
-      number: GPIO12
-      inverted: False
-    internal: false # set to true to hide from hub
-    name: "${friendly_name} Button 2"
+      then:
+        - logger.log: "Switch 1 Press"
+        - lambda: |-
+            if (id(g_direction_1) == 0) {
+              id(g_direction_1) = 1;
+            } else {
+              id(g_direction_1) = 0;
+            }
+            id(g_counter_1) = 0;
+  #Binary sensor (on/off) which reads duty_cyle sensor readings. CH2
+  - platform: template
+    id: switch2
+    internal: true
+    name: "${node_id} Switch Binary Sensor 2"
+    # read duty_cycle, convert to on/off
+    lambda: |-
+      if (id(sensor_push_switch_2).state < 95.0) {
+        return true;
+      } else {
+        return false;
+      }
+    # Short Click - toggle light only
+    on_click:
+      max_length: 300ms
+      then:
+        light.toggle: light_main_2
+    # Generic On_Press - log press, toggle DIM Direction and reset press interval counter
     on_press:
-      - switch.toggle: relay2
+      then:
+        - logger.log: "Switch 2 Press"
+        - lambda: |-
+            if (id(g_direction_2) == 0) {
+              id(g_direction_2) = 1;
+            } else {
+              id(g_direction_2) = 0;
+            }
+            id(g_counter_2) = 0;
 
-# Status LED for blue light
-# Enabling GPIO9 can brick certain versions of this plug!
-#status_led:
-#    pin:
-#      number: GPIO09
-#      inverted: true
-
-switch:
-  # Main relays
-  - platform: gpio
-    name: ${relay1_name}
-    id: relay1
-    pin: GPIO10
-
-  - platform: gpio
-    name: ${relay2_name}
-    id: relay2
-    pin: GPIO13
-
+# Sensors.
 sensor:
-  # Energy Monitoring
-  - platform: hlw8012
-    sel_pin:
-      number: GPIO02
-      inverted: True
-    cf_pin: GPIO04
-    cf1_pin: GPIO05
-    #current_resistor: ${current_res}
-    voltage_divider: ${voltage_div}
-    change_mode_every: 3
-    update_interval: 3s
-    current:
-      name: "${device_name}_amperage"
-      unit_of_measurement: A
-      accuracy_decimals: 3
-      filters:
-        - calibrate_linear:
-            - 0.000 -> 0.0
-            - 5.069 -> 6.69
-        # Make everything below 0.01A appear as just 0A.
-        # Furthermore it corrects 0.013A for the power usage of the plug.
-        - lambda: if (x < (0.01 - 0.013)) return 0; else return (x - 0.013);
-    voltage:
-      name: "${device_name}_voltage"
-      unit_of_measurement: V
-      accuracy_decimals: 1
-    power:
-      name: "${device_name}_wattage"
-      unit_of_measurement: W
-      id: "${device_name}_wattage"
-      accuracy_decimals: 0
-```
+  - platform: uptime
+    name: Uptime Sensor
+    id: uptime_sensor
+    update_interval: 600s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + "d " : "") +
+                (hours ? to_string(hours) + "h " : "") +
+                (minutes ? to_string(minutes) + "m " : "") +
+                (to_string(seconds) + "s")
+              ).c_str();
+  - platform: wifi_signal
+    name: ${friendly_node_name} WiFi Signal
+    id: ${node_id}_wifi_signal
+    update_interval: 60s
+# Primary template sensor to track Brightness of light object for "on_value" sending to MCU dimmer
+  # CH1
+  - platform: template
+    name: "${node_id} Brightness Sensor CH1"
+    id: sensor_g_bright_1
+    internal: true
+    update_interval: 20ms
+    # Ensure on_value only triggered when brightness (0-255) changes
+    filters:
+      delta: 0.8
+    # Read brightness (0 - 1) from light , convert to (0-255) for MCU
+    lambda: |-
+      if (id(light_main_1).remote_values.is_on()) {
+        return (int(id(light_main_1).remote_values.get_brightness() * 255));
+      }
+      else {
+        return 0;
+      }
+    # On Change send to MCU via UART
+    on_value:
+      then:
+        - uart.write: !lambda |-
+            return {0xFF, 0x55, 0x01, (char) id(sensor_g_bright_1).state, 0x00, 0x00, 0x00, 0x0A};
+        - logger.log:
+            level: INFO
+            format: "CH1 Sensor Value Change sent to UART %3.1f"
+            args: ["id(sensor_g_bright_1).state"]
+  # Sensor to detect button push (via duty_cycle of 50hz mains signal)
+  - platform: template
+    name: "${node_id} Brightness Sensor CH2"
+    id: sensor_g_bright_2
+    internal: true
+    update_interval: 20ms
+    # Ensure on_value only triggered when brightness (0-255) changes
+    filters:
+      delta: 0.8
+    # Read brightness (0 - 1) from light , convert to (0-255) for MCU
+    lambda: |-
+      if (id(light_main_2).remote_values.is_on()) {
+        return (int(id(light_main_2).remote_values.get_brightness() * 255));
+      }
+      else {
+        return 0;
+      }
+    # On Change send to MCU via UART
+    on_value:
+      then:
+        - uart.write: !lambda |-
+            return {0xFF, 0x55, 0x02, 0x00, (char) id(sensor_g_bright_2).state, 0x00, 0x00, 0x0A};
+        - logger.log:
+            level: INFO
+            format: "CH2 Sensor Value Change sent to UART %3.1f"
+            args: ["id(sensor_g_bright_2).state"]
+  # Sensor to detect button push (via duty_cycle of 50hz mains signal)
+  - platform: duty_cycle
+    pin: GPIO13
+    internal: true
+    id: sensor_push_switch_1
+    name: "${node_id} Sensor Push Switch 1"
+    update_interval: 20ms
+  - platform: duty_cycle
+    pin: GPIO5
+    internal: true
+    id: sensor_push_switch_2
+    name: "${node_id} Sensor Push Switch 2"
+    update_interval: 20ms
 
-And for each device's yaml:
+# Text Sensors.
+text_sensor:
+  - platform: template
+    name: Uptime Human Readable
+    id: uptime_human
+    icon: mdi:clock-start
 
-```yaml
-substitutions:
-  # Higher value gives lower watt readout
-  current_res: "0.002452"
-  # Lower value gives lower voltage readout
-  voltage_div: "814"
-  device_name: nx-sp201
-  friendly_name: Dilisens Outlet
-  relay1_name: Outlet 1
-  relay2_name: Outlet 2
+  - platform: version
+    name: ${friendly_node_name} ESPHome Version
+    id: ${node_id}_esphome_version    
 
-<<: !include nx-sp201-common.yaml
-```
+  - platform: wifi_info
+    ip_address:
+      name: ${friendly_node_name} IP Address
+      id: ${node_id}_ip_address
+      icon: mdi:ip-network
+
+# Switches.
+switch:
+  - platform: restart
+    name: ${friendly_node_name} Restart
+    id: ${node_id}_restart
+    icon: "mdi:restart"
+  - platform: shutdown
+    name: ${friendly_node_name} Shutdown
+    id: ${node_id}_shutdown
+  - platform: safe_mode
+    name: ${friendly_node_name} Restart (Safe Mode)"
+    id: ${node_id}_safe_mode
+
+globals:
+  # Dim direction for Switch 1: 0=Up (brighten) 1=down (dim)
+  - id: g_direction_1
+    type: int
+    restore_value: no
+    initial_value: "1"
+  # Counter for time pressed for switch 1
+  - id: g_counter_1
+    type: int
+    restore_value: no
+    initial_value: "0"
+  # initial brightness
+  # Dim direction for Switch 2: 0=Up (brighten) 1=down (dim)
+  - id: g_direction_2
+    type: int
+    restore_value: no
+    initial_value: "1"
+  # Counter for time pressed for switch 2
+  - id: g_counter_2
+    type: int
+    restore_value: no
+    initial_value: "0"
+  # initial brightness
+  
+# Uart definition to talk to MCU dimmer
+uart:
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  stop_bits: 1
+  baud_rate: 9600
+
+# Dummy light output to allow creation of light object
+output:
+  - platform: esp8266_pwm
+    pin: GPIO14
+    frequency: 800 Hz
+    id: dummy_pwm1
+  - platform: esp8266_pwm
+    pin: GPIO16
+    frequency: 800 Hz
+    id: dummy_pwm2
+
+# Primary Light object exposed to HA
+light:
+  - platform: monochromatic
+    default_transition_length: 20ms
+    restore_mode: RESTORE_DEFAULT_OFF
+    name: "${node_id} Light 1"
+    output: dummy_pwm1
+    id: light_main_1
+  - platform: monochromatic
+    default_transition_length: 20ms
+    restore_mode: RESTORE_DEFAULT_OFF
+    name: "${node_id} Light 2"
+    output: dummy_pwm2
+    id: light_main_2
+
+# Polling object for long press handling of switch for dim/brighten cycle
+interval:
+  - interval: 20ms
+    then:
+      - if:
+          condition:
+            binary_sensor.is_on: switch1
+          then:
+            # Ramp rate for dim is product of interval (20ms) * number of intervals
+            # Every 20ms Dimmer is increased/decreased by 2/255
+            # Lower limit = 10%
+            # Upper limit = 100%
+            # 100% - 10% = 90% = 230/255. Therefore 230/2 * 20ms = 2.3 seconds for full range
+            # At full/min brightness - further 16x20ms = 0.32 Seconds "dwell" by resetting counter to 0
+            # Initial pause for 16x20ms = 0.32s to allow "on_click" to be discounted 1st
+            # g_direction_1 = 0 (Increasing brightness)
+            # g_direction_1 = 1 (decreasing brightness)
+            # g_counter_1 = Interval pulse counter
+
+            lambda: |-
+              float curr_bright = id(light_main_1).remote_values.get_brightness();
+              id(g_counter_1) += 1; 
+
+              // If max bright, change direction
+              if (curr_bright >= 0.999 && id(g_direction_1) == 0) {
+                id(g_direction_1) = 1;
+                id(g_counter_1) = 0;
+              }
+
+              // If below min_bright, change direction
+              if (curr_bright < 0.1 && id(g_direction_1) == 1) {
+                id(g_direction_1) = 0;
+                id(g_counter_1) = 0;
+              }
+
+              if (id(g_direction_1) == 0 && id(g_counter_1) > 15) {
+                // Increase Bright
+                auto call = id(light_main_1).turn_on();
+                call.set_brightness(curr_bright + (2.0/255.0));
+                call.perform();
+              }
+
+              else if(id(g_direction_1) == 1 && id(g_counter_1) > 15) {
+                // Decrease Bright
+                auto call = id(light_main_1).turn_on();
+                call.set_brightness(curr_bright - (2.0/255.0));
+                call.perform();
+              }
+      - if:
+          condition:
+            binary_sensor.is_on: switch2
+          then:
+            # Ramp rate for dim is product of interval (20ms) * number of intervals
+            # Every 20ms Dimmer is increased/decreased by 2/255
+            # Lower limit = 10%
+            # Upper limit = 100%
+            # 100% - 10% = 90% = 230/255. Therefore 230/2 * 20ms = 2.3 seconds for full range
+            # At full/min brightness - further 16x20ms = 0.32 Seconds "dwell" by resetting counter to 0
+            # Initial pause for 16x20ms = 0.32s to allow "on_click" to be discounted 1st
+            # g_direction_1 = 0 (Increasing brightness)
+            # g_direction_1 = 1 (decreasing brightness)
+            # g_counter_1 = Interval pulse counter
+
+            lambda: |-
+              float curr_bright = id(light_main_2).remote_values.get_brightness();
+              id(g_counter_2) += 1; 
+
+              // If max bright, change direction
+              if (curr_bright >= 0.999 && id(g_direction_2) == 0) {
+                id(g_direction_2) = 1;
+                id(g_counter_2) = 0;
+              }
+
+              // If below min_bright, change direction
+              if (curr_bright < 0.1 && id(g_direction_2) == 1) {
+                id(g_direction_2) = 0;
+                id(g_counter_2) = 0;
+              }
+
+              if (id(g_direction_2) == 0 && id(g_counter_2) > 15) {
+                // Increase Bright
+                auto call = id(light_main_2).turn_on();
+                call.set_brightness(curr_bright + (2.0/255.0));
+                call.perform();
+              }
+
+              else if(id(g_direction_2) == 1 && id(g_counter_2) > 15) {
+                // Decrease Bright
+                auto call = id(light_main_2).turn_on();
+                call.set_brightness(curr_bright - (2.0/255.0));
+                call.perform();
+              }        ```
