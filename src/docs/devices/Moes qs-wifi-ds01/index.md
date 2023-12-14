@@ -10,8 +10,8 @@ Single channel wifi dimmer
 
 ```yaml
 substitutions:
-  node_name: qs-wifi-ds02-ip62
-  node_id: IP_62
+  node_name: qs-wifi-ds01
+  node_id: IP_name
   friendly_node_name: "Dual Channel Dimmer"
 
 esphome:
