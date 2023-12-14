@@ -6,7 +6,7 @@ standard: eu
 board: esp8266
 ---
 
-Dual channel wifi dimmer
+2 gang wifi dimmer
 
 ![image](https://github.com/aceindy/esphome-devices/assets/94692/157ff8a6-43f6-44eb-8071-4d6d1d5bcf14)
 
