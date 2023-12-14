@@ -5,7 +5,9 @@ type: dimmer
 standard: eu
 board: esp8266
 ---
+
 Dual gang wifi dimmer
+
 ```yaml
 substitutions:
   node_name: qs-wifi-ds01
