@@ -162,7 +162,7 @@ text_sensor:
     icon: mdi:clock-start
   - platform: version
     name: ${friendly_node_name} ESPHome Version
-    id: ${node_id}_esphome_version    
+    id: ${node_id}_esphome_version
   - platform: wifi_info
     ip_address:
       name: ${friendly_node_name} IP Address
@@ -241,7 +241,7 @@ interval:
 
             lambda: |-
               float curr_bright = id(light_main).remote_values.get_brightness();
-              id(g_counter_1) += 1; 
+              id(g_counter_1) += 1;
 
               // If max bright, change direction
               if (curr_bright >= 0.999 && id(g_direction_1) == 0) {
