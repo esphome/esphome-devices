@@ -224,7 +224,7 @@ text_sensor:
 
   - platform: version
     name: ${friendly_node_name} ESPHome Version
-    id: ${node_id}_esphome_version    
+    id: ${node_id}_esphome_version
 
   - platform: wifi_info
     ip_address:
@@ -323,7 +323,7 @@ interval:
 
             lambda: |-
               float curr_bright = id(light_main_1).remote_values.get_brightness();
-              id(g_counter_1) += 1; 
+              id(g_counter_1) += 1;
 
               // If max bright, change direction
               if (curr_bright >= 0.999 && id(g_direction_1) == 0) {
@@ -367,7 +367,7 @@ interval:
 
             lambda: |-
               float curr_bright = id(light_main_2).remote_values.get_brightness();
-              id(g_counter_2) += 1; 
+              id(g_counter_2) += 1;
 
               // If max bright, change direction
               if (curr_bright >= 0.999 && id(g_direction_2) == 0) {
