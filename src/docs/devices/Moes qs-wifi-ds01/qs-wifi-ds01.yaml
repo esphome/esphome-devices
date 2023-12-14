@@ -52,7 +52,7 @@ binary_sensor:
   - platform: status
     name: 8 Connection Status
     id: ${node_id}_connection_status
-#Binary sensor (on/off) which reads duty_cyle sensor readings.
+   #Binary sensor (on/off) which reads duty_cyle sensor readings.
   - platform: template
     id: switch1
     internal: true
@@ -109,7 +109,7 @@ sensor:
     name: ${friendly_node_name} WiFi Signal
     id: ${node_id}_wifi_signal
     update_interval: 60s
-# Primary template sensor to track Brightness of light object for "on_value" sending to MCU dimmer
+    # Primary template sensor to track Brightness of light object for "on_value" sending to MCU dimmer
   - platform: template
     name: "${node_id} Brightness Sensor"
     id: sensor_g_bright
