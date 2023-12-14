@@ -12,28 +12,25 @@ board: esp32
 
 This is a 1-relay board with an ESP32-WROOM-32E.
 
-Each relay has COM+NO+NC exposed. Each relay supports 10Amp max load.
+The relay has COM+NO+NC exposed and Each relay supports 10Amp max load (250V AC, 30A DC)
 
-The board can be powered either via 7-30VDC or via 5VDC (separate connectors).
+The board can be powered either via 7-30VDC or via 5VDC via micro-USB (separate connectors).
 
-The onboard button is connected to GPI00
+The onboard button is connected to GPI00, Status LED to GPIO23 and Relay to GPIO16
 
-I bought it from aliexpress.
+They are available from aliexpress.
 
 ## GPIO Pinout
 
-This board has headers for every GPIO pin on its ESP32.
+This board has headers for every GPIO pin on its ESP32 via 2 sets of 2x10 headers, and an additional 6 pin header below the ESP32 for flashing. The micro USB is for power only, no serial connection.
 
 I was able to flash it using the ESPhome web tool and an FTDI connector. I was able to use the 5V pin with the FTDI set to 5V as well and connected to the GPIO pins, but 3.3V should be used if possible (it would not flash for me at 3.3V). I was unable to flash with a USB cable.
 
-| Pin   | Comment                           |
-| ----- | --------------------------------- |
-| 5V    |                                   |
-| TX    |                                   |
-| RX    |                                   |
-| GND   |                                   |
-| GND   |                                   |
-| GPIO0 | (Connected to GND for programing) |
+| GPIO  | Connected onboard to
+| ----- | --------------------- |
+| GPIO0  | Button               |
+| GPIO16 | Relay                |
+| GPIO23 | LED                  |
 
 ## Basic Config
 
