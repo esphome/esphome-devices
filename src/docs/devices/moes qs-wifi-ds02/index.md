@@ -10,9 +10,9 @@ Dual gang wifi dimmer
 
 ```yaml
 substitutions:
-  node_name: qs-wifi-ds01
+  node_name: qs-wifi-ds02
   node_id: IP_name
-  friendly_node_name: "Single Channel Dimmer"
+  friendly_node_name: "Dual Channel Dimmer"
 
 esphome:
   name: ${node_name}
