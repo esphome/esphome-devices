@@ -1,5 +1,5 @@
 ---
-title: moes qs-wifi-ds02
+title: Moes QS-WIFI-DS02
 date-published: 2023-12-13
 type: dimmer
 standard: eu
