@@ -14,7 +14,8 @@ Converted from [Tasmota](https://templates.blakadder.com/etekcity_ES015-TB.html)
 Remove the four phillips head screws and remove the plastic clamshell.
 Then, remove a few more screws to remove the circuitry from the plastic enclosure.
 The Rx, Tx, 3.3v, and Ground solder pads will then be visible to use.
-GPIO0 (Pin 8) must be grounded on boot to place the device into boot loader mode.
+GPIO0 (Pin 8) must be grounded on boot to place the device into boot loader mode.  
+GPIO0 also has a test pad which could be labeled "TI0" that is on the far right (looking at the board where test pads for power is on the left, GND near center, and TX/RX the right) side near the RX/TX test pads.
 
 ## GPIO Pinout
 
@@ -37,6 +38,8 @@ substitutions:
   device_name: eso15_tb
   device_description: ESO15 TB Outlet 1
   friendly_name: Outdoor Outlet 1
+  voltage_divider: "1980"
+  current_resistor: "0.001"
 
 esphome:
   name: ${device_name}
@@ -73,6 +76,8 @@ sensor:
     sel_pin: GPIO15
     cf_pin: GPIO13
     cf1_pin: GPIO12
+    current_resistor: ${current_resistor}
+    voltage_divider: ${voltage_divider}
     current:
       name: "${friendly_name} Current"
     voltage:
