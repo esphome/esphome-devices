@@ -330,4 +330,3 @@ interval:
           else:
             - script.execute: flash_wifi_error
 ```
-
