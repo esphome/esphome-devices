@@ -3,13 +3,14 @@ title: Arlec DCF4002WHA/DCF4002BHA Ceiling Fan+Light
 date-published: 2023-12-17
 type: fan
 standard: au
+board: bk72xx
 ---
 
 The Arlec DCF4002 ceiling Fan+Light combo, marketed as the "Smart Madrid" model by Arlec is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
 
 The device comes with a BK7231T chip in the same form factor as an ESP8266, and uses a Tuya MCU for device control.  The BK731T is mounted on a daughterboard on pin headers, which allows for easy removal and reflashing without needing a soldering iron.
 
-The LibreTiny Chip Tool (ltchiptoolhttps://github.com/libretiny-eu/ltchiptool) can be used to reflash the board via its UART pins which are exposed via the pin header. Reflashing via UART using ltchiptool is covered in this [guide on YouTube for installing ESPHome on a Tuya Beken BK7231 w/ltchiptool](https://www.youtube.com/watch?v=t0o8nMbqOSA), however we recommend peforming the following steps:
+The LibreTiny Chip Tool [ltchiptool](https://github.com/libretiny-eu/ltchiptool) can be used to reflash the board via its UART pins which are exposed via the pin header. Reflashing via UART using ltchiptool is covered in this [guide on YouTube for installing ESPHome on a Tuya Beken BK7231 w/ltchiptool](https://www.youtube.com/watch?v=t0o8nMbqOSA), however we recommend peforming the following steps:
 
 - Open the ESPHome Add-On Dashboard
 - Click "New Device" in the bottom-right corner
