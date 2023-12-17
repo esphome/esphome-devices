@@ -35,6 +35,13 @@ Shelly UNI is the smallest universal module with two available digital inputs an
 | 8 | GPIO13 | Input 2   | brown  |
 |   | GPIO15 | Output 1  |        |
 |   | GPIO04 | Output 2  |        |
+|   | GPIO14 | ADC Range |        |
+
+## Notes
+
+ADC Input (GPIO17) have two ranges (0 - 15 or 0 - 30V), selectable by GPIO14. 
+If you configure GPIO14 as switch and turn it on you get 30V input range.
+Tested by [Protoncek](https://community.home-assistant.io/u/Protoncek).
 
 ## Basic Configuration
 
