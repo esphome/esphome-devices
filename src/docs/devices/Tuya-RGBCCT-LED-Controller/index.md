@@ -8,11 +8,13 @@ board: BK72xx
 
 Available on AliExpress: [WIFI RGBCCT](https://aliexpress.com/item/1005005724297417.html)
 
-This controller is a RGB CCT PWM Controller baed on the WB3S chipset by TUYA.
+This controller is a RGB CCT PWM Controller based on the WB3S chipset by TUYA.
 Since LibreTiny is supported by ESPHome since 2023.09 it is possible to use this chipset.
 
 It is possible to convert this device with [Tuya-Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) with the following profile:
 [TY-02-1CH LED Strip](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/blob/master/devices/tuya-generic-ty-02-1ch-led-strip.json)
+
+There are many variants that look almost identical from the outside. Scroll down past the Sample configuration to see hints for other variants.
 
 ![Product Image](image.png "Product Image")
 
@@ -75,4 +77,64 @@ light:
     blue: output_blue
     cold_white: output_cold
     warm_white: output_warm
+```
+
+## Model with RF
+
+This section is based on a "TY02-1CH-RF-V1", a dimmable white-only variant of the device above, with an RF remote.
+Remotes from other variants (RGB, RGBCCT, etc.) emit the same commands; the difference is just the face plate.
+
+This config snippet handles off/on/dimmer/brighter.
+The `dump:` section allows you to figure out what other buttons send, so you can give them purpose too.
+
+```yaml
+remote_receiver:
+  dump:
+    - nec
+  pin:
+    number: P7
+    inverted: true
+    mode: INPUT_PULLUP
+
+binary_sensor:
+  - platform: remote_receiver
+    id: "off"
+    nec:
+      address: 0xFBE2
+      command: 0xDA25
+    on_press:
+      then:
+        - light.turn_off:
+            id: light_monochromatic
+  - platform: remote_receiver
+    id: "on"
+    nec:
+      address: 0xFBE2
+      command: 0xD926
+    on_press:
+      then:
+        - light.turn_on:
+            id: light_monochromatic
+  - platform: remote_receiver
+    id: "lower"
+    nec:
+      address: 0xFBE2
+      command: 0x916E
+    on_press:
+      then:
+        - light.dim_relative:
+            id: light_monochromatic
+            relative_brightness: -5%
+            transition_length: 0s
+  - platform: remote_receiver
+    id: "higher"
+    nec:
+      address: 0xFBE2
+      command: 0xF00F
+    on_press:
+      then:
+        - light.dim_relative:
+            id: light_monochromatic
+            relative_brightness: 5%
+            transition_length: 0s
 ```
