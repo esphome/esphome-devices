@@ -25,6 +25,7 @@ The LibreTiny Chip Tool (ltchiptoolhttps://github.com/libretiny-eu/ltchiptool) c
 - Download the UF2 version of the file and Flash using ltchiptool
 
 ## Basic Configuration
+
 It is critical that you disable serial logging as per the YAML provided here.  If you do not do this, the Tuya MCU spits out gibberish and is not recognised by ESPHome.
 
 ```yaml
