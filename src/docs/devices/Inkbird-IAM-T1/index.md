@@ -9,7 +9,9 @@ The [Inkbird IAM-T1](https://inkbird.com/pages/iam-t1) is an air quality
 sensor that measures CO₂ concentration, temperature, relative humidity
 and air pressure.
 
-An ESPHome running on an ESP32, which provides BLE can read the values
+![Picture of the Inkbird IAM-T1 sensor](iamt1_s2_img.png)
+
+An ESPHome running on an ESP32, which provides BLE, can read the values
 from the sensor.
 
 
