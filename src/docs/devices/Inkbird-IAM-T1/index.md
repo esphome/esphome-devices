@@ -14,7 +14,6 @@ and air pressure.
 An ESPHome running on an ESP32, which provides BLE, can read the values
 from the sensor.
 
-
 ## Quickstart
 
 Use the configuration below to pull data from the sensor over BLE. You
