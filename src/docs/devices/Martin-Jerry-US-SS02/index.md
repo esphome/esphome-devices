@@ -9,23 +9,30 @@ board: esp8266
 
 [Device on Martin Jerry](https://www.martinjerry.com/us-ss02)
 
+
+## Flashing
+
+These switches come preflashed with custom tasmota firmware, which leaves no space for an ESPHome binary OTA update.\
+If you would try to flash it with an ESPHome binary - update will fail.\
+This can be worked around by flashing the device with a [Tasmota minimal binary](	http://ota.tasmota.com/tasmota/tasmota-minimal.bin.gz	) first, then re-flashing with your ESPHome binary.
+
 ## GPIO Pinout
 
 | Pin   | Function |
 | ----- | -------- |
 | GPIO3 | button |
 | GPIO5 | relay  |
-| GPIO4 | I2C SCL  |
+| GPIO4 | i2c SCL  |
 | GPIO12 | red LED  |
-| GPIO13 | I2C SDA  |
+| GPIO13 | i2c SDA  |
 | GPIO14 | blue LED |
 
 ## Basic Configuration
 
 ```yaml
 substitutions:
-  name: martin-jerry-ss01
-  friendly_name: Martin Jerry SS01
+  name: martin-jerry-ss02
+  friendly_name: Martin Jerry SS02
 
 esphome:
   name: "${name}"
