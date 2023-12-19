@@ -99,7 +99,6 @@ light:
     warm_white_color_temperature: 4065 K
 ```
 
-
 ### If WR4 is replaced with ESP8266
 
 It is critical that you disable serial logging as per the YAML provided here.  If you do not do this, the Tuya MCU spits out gibberish and is not recognised by ESPHome.
