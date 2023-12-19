@@ -6,11 +6,11 @@ standard: au
 board: rtl87xx
 ---
 
-!(Arlec-Grid-Connect-Smart-Ceiling-Fan-DCF4002/DCF4002WHA.jpeg "DCF4002WHA")
+![DCF4002WHA](https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Arlec-Grid-Connect-Smart-Ceiling-Fan-DCF4002/DCF4002WHA.jpeg)
 
 The Arlec DCF4002 ceiling Fan+Light combo, marketed as the "Smart Madrid" model by Arlec is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
 
-[The device comes with a Tuya WR4 module which uses the Realtek RTL8710BN](Arlec-Grid-Connect-Smart-Ceiling-Fan-DCF4002/DCF4002%20controller.jpg), and uses a Tuya MCU for device control.  The RTL8710BN is [mounted on a daughterboard on pin headers](Arlec-Grid-Connect-Smart-Ceiling-Fan-DCF4002/DCF4002%20daughterboard.jpg), which allows for easy removal and reflashing without needing a soldering iron.  Alternatively, you can replace the WR4 with an ESP8266 module, soldered to the appropriate Power, GND, and UART pins of the daughterboard.
+[The device comes with a Tuya WR4 module which uses the Realtek RTL8710BN](https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Arlec-Grid-Connect-Smart-Ceiling-Fan-DCF4002/DCF4002%20controller.jpg), and uses a Tuya MCU for device control.  [The RTL8710BN is mounted on a daughterboard on pin headers](https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Arlec-Grid-Connect-Smart-Ceiling-Fan-DCF4002/DCF4002%20daughterboard.jpg), which allows for easy removal and reflashing without needing a soldering iron.  Alternatively, you can replace the WR4 with an ESP8266 module, soldered to the appropriate Power, GND, and UART pins of the daughterboard.
 
 For reflashing the RTL8710, the LibreTiny Chip Tool [ltchiptool](https://github.com/libretiny-eu/ltchiptool) can be used to reflash the board via its UART pins which are exposed via the pin header. Details on the reflashing procedure are available here: https://docs.libretiny.eu/docs/platform/realtek-ambz/#flashing
 
