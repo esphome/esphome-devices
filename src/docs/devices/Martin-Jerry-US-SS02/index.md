@@ -34,6 +34,8 @@ This can be worked around by flashing the device with a [Tasmota minimal binary]
 substitutions:
   name: martin-jerry-ss02
   friendly_name: Martin Jerry SS02
+  on_humidity_threshold: "85"
+  off_humidity_threshold: "75"
 
 esphome:
   name: "${name}"
