@@ -17,7 +17,7 @@ for about 5 USD.
 The case can be pried open without too much difficulty. Be careful to keep both
 halves as parallel as possible to not break the pins that hold them together.
 
-Flashing must be done by connecting an FTDI adapter to the 1mm pads close to the
+Flashing must be done by connecting an FTDI adapter to the 1.27 mm pads close to the
 USB female port. Here is the pinout:
 
 ![alt text](wfusb_pinout.jpg "Pinout")
