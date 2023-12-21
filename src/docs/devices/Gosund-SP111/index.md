@@ -50,29 +50,43 @@ substitutions:
   upper_devicename: "Gosund SP111"
   # Higher value gives lower watt readout
   current_res: "0.00280"
-  # Lower value gives lower voltage readout
-  voltage_div: "775"
+  # Lower value gives lower voltage readout. In my case of about 15 of those devices this value is closest to my voltage meter
+  voltage_div: "648"
 
 esphome:
   name: $devicename
   platform: ESP8266
   board: esp8285
+# This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
+  esp8266_restore_from_flash: true
 
+
+preferences:
+  flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
+  
 # Enable logging
 logger:
   baud_rate: 0
-
+  
 # Enable Home Assistant API
 api:
+  encryption:
+    key: "REDACTED"
 
-# Enable over the air updates
 ota:
+  password: "REDACTED"
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  fast_connect: on
 
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Gosund-Sp111 Fallback Hotspot"
+    password: "REDACTED"
+
+captive_portal:
+    
 # see: https://esphome.io/components/time.html
 time:
   - platform: homeassistant
@@ -173,6 +187,9 @@ switch:
     name: "${devicename} - Switch"
     icon: mdi:power
     optimistic: true
+# This is where the "restore_from_flash" comes in. I set it to try to restore from flash and, if that fails, set it to ON
+    restore_mode: RESTORE_DEFAULT_ON
+    lambda: 'return id(relay).state;'
     id: button_switch
     turn_on_action:
       - switch.turn_on: relay
