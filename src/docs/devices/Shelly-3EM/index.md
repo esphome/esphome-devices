@@ -88,15 +88,15 @@ instructions below.
 ```
 
 1. The `current_X` values from the `rms` section will go into the
-   `calibration -> current` entries in your configuration. Use the
+   `calibration -> current_gain` entries in your configuration. Use the
    `current_s` value for the `neutral` phase, if you are enabling that
    phase's current sensor.
 
 1. The `voltage_X` values from the `rms` section will go into the
-   `calibration -> voltage` entries in your configuration.
+   `calibration -> voltage_gain` entries in your configuration.
 
 1. The `totactive` values from the `powers` section will go into the
-   `calibration -> power` entries in your configuration.
+   `calibration -> power_gain` entries in your configuration.
 
 1. The `angleN` values from the `angles` section will go into the
    `calibration -> phase_angle` entries in your configuration.
@@ -187,9 +187,9 @@ sensor:
       forward_active_energy: Forward Active Energy
       reverse_active_energy: Reverse Active Energy
       calibration:
-        current: 3116628
-        voltage: -757178
-        power: -1344457
+        current_gain: 3116628
+        voltage_gain: -757178
+        power_gain: -1344457
         phase_angle: 188
     phase_b:
       name: Phase B
@@ -200,9 +200,9 @@ sensor:
       forward_active_energy: Forward Active Energy
       reverse_active_energy: Reverse Active Energy
       calibration:
-        current: 3133655
-        voltage: -755235
-        power: -1345638
+        current_gain: 3133655
+        voltage_gain: -755235
+        power_gain: -1345638
         phase_angle: 188
     phase_c:
       name: Phase C
@@ -213,13 +213,13 @@ sensor:
       forward_active_energy: Forward Active Energy
       reverse_active_energy: Reverse Active Energy
       calibration:
-        current: 3111158
-        voltage: -743813
-        power: -1351437
+        current_gain: 3111158
+        voltage_gain: -743813
+        power_gain: -1351437
         phase_angle: 180
     neutral:
       name: Neutral
       current: Current
       calibration:
-        current: 311123
+        current_gain: 311123
 ```
