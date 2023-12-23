@@ -86,7 +86,7 @@ wifi:
     password: "REDACTED"
 
 captive_portal:
-    
+
 # see: https://esphome.io/components/time.html
 time:
   - platform: homeassistant
