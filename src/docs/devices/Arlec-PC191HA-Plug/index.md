@@ -49,6 +49,12 @@ After that, you can use ESPHome's OTA functionality to make any further changes.
 Power measurement uses the BL0937 chip, which is similar to HLW8012 except CF and CF1 are inverted.  
 I found that setting current_resistor to give an accurate Amperage does NOT also give the correct Wattage, so instead I calculate current from power and voltage.  
 
+### After firmware update
+
+After a firmware update the device will reboot, but using the OLD firmware.  
+To activate the new firmware you will have to disconnect the device from power for a while.  
+When you reconnect the device it may activate the new firmware (which could take a couple of minutes) before connecting to Wi-fi.  If it does not, simply power it off for a longer time (I have waited >6 hours powered off for one of these pesky devices to activate firmware).  
+
 ## Basic Configuration
 
 ```yaml
