@@ -49,6 +49,10 @@ After that, you can use ESPHome's OTA functionality to make any further changes.
 Power measurement uses the BL0937 chip, which is similar to HLW8012 except CF and CF1 are inverted.  
 I found that setting current_resistor to give an accurate Amperage does NOT also give the correct Wattage, so instead I calculate current from power and voltage.  
 
+### After uploading
+After uploading firmware these devices reboot still using the old firmware !
+To activate the new firmware these devices need to be powered off (ins some cases for several hours). there will be a delay (could be several minutes) the new firmware is activated. If the new firmware doesn't activate, try powering off for a longer period.
+
 ## Basic Configuration
 
 ```yaml
