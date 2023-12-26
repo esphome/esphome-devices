@@ -26,8 +26,8 @@ The MCU communicates with the WB2S chip over UART1 which is also the UART used f
 
 The gas level tracking and alarm logic is built into the MCU which exchanges the data points with the WB2S module, some parameters can be changed by the Wi-Fi module, some are merely used for status updates. There are also hardware buttons for:
 
-1) Triggering a self-test which sets the alarm off as if the gas level is above a built-in threshold;
-2) Triggering a Wi-Fi module reset (the reset button is connected to the MCU which [can trigger the Wi-Fi module reset](https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb#title-10-Reset%20Wi-Fi%20connection)).
+1. Triggering a self-test which sets the alarm off as if the gas level is above a built-in threshold;
+2. Triggering a Wi-Fi module reset (the reset button is connected to the MCU which [can trigger the Wi-Fi module reset](https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb#title-10-Reset%20Wi-Fi%20connection)).
 
 There is no way to adjust the gas threshold which is documented in the printed manual to be at 7±3 LEL ([Lower Explosive Limit](https://en.wikipedia.org/wiki/Flammability_limit)). Upon reaching that limit the alarm will go off producing an audible sound (which can be altered to 5 different melodies).
 
