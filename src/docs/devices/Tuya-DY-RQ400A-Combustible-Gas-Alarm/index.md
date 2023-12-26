@@ -76,10 +76,10 @@ The meaning of the data points respective to their logged numbers based on some 
 
 The process is quite straightforward:
 
-1) Use the physical button to detach the country-specific adapter;
-2) Unscrew the screws on the bottom of the device;
-3) Remove the perforated cover on the top of the device (use a needle to grab it if needed);
-4) Unscrew the screws holding the board to the plastic part.
+1. Use the physical button to detach the country-specific adapter;
+2. Unscrew the screws on the bottom of the device;
+3. Remove the perforated cover on the top of the device (use a needle to grab it if needed);
+4. Unscrew the screws holding the board to the plastic part.
 
 ## Flashing
 
