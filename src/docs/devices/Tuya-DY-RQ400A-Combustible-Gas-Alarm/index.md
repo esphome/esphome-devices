@@ -211,7 +211,7 @@ number:
   - platform: "tuya"
     name: "Alarm Period"
     number_datapoint: 3
-    # How much time will the alarm will continue to be active
+    # How much time will the alarm continue to be active
     # after detecting a gas level above the threshold.
     min_value: 0
     max_value: 180
