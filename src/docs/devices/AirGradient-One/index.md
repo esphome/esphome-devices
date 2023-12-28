@@ -358,9 +358,9 @@ output:
     pin: GPIO2
 
 light:
-  color_correct : [50%,50%,50%]
-    # https://esphome.io/components/light/esp32_rmt_led_strip.html
+  # https://esphome.io/components/light/esp32_rmt_led_strip.html
   - platform: esp32_rmt_led_strip
+    color_correct: [50%,50%,50%]
     rgb_order: GRB
     pin: GPIO10  # Pin 16
     num_leds: 11
