@@ -5,7 +5,7 @@ type: plug
 standard: eu
 board: esp8266
 made-for-esphome: False
-difficulty: Plug-n-flash
+difficulty: 2
 ---
 
 The device comes with Tasmota installed, but can be reflashed to ESPHome.
