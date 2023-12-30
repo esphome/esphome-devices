@@ -4,7 +4,11 @@ date-published: 2022-12-19
 type: plug
 standard: eu
 board: esp8266
+made-for-esphome: False
+difficulty: 2
 ---
+
+The device comes with Tasmota installed, but can be reflashed to ESPHome.
 
 ## GPIO Pinout
 
@@ -49,6 +53,28 @@ logger:
 uart:
   rx_pin: GPIO3
   baud_rate: 4800
+
+api:
+  encryption:
+    key: !secret encryption
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${friendly_name} Fallback Hotspot"
+    password: !secret wifi_ap_password
+
+# see: https://esphome.io/components/time.html
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Enable Web server
+web_server:
+  port: 80
 
 text_sensor:
   - platform: version
