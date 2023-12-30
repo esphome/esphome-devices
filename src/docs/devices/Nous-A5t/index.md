@@ -8,6 +8,8 @@ made-for-esphome: False
 difficulty: Plug-n-flash
 ---
 
+The device comes with Tasmota installed, but can be reflashed to ESPHome.
+
 ## GPIO Pinout
 
 [see pinout](https://nous.technology/product/a5t.html?show=manual)
