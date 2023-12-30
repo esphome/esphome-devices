@@ -308,7 +308,7 @@ script:
 
   # if mode: restart, this causes motion to not be re-enabled
   - id: cooldown
-    mode: single 
+    mode: single
     then:
       - switch.turn_off: motion_enabled
       - delay: !lambda 'return id(motion_cooldown).state * 1000;'
