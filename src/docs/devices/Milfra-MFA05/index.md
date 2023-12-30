@@ -264,19 +264,21 @@ switch:
     name: ${friendly_name}
     pin: GPIO12
 
-  - platform: template # enable / disable motion
+  - platform: template # enable / disable motion - Default to ON
     id: motion_enabled
     name: ${friendly_name} Motion Enabled
     optimistic: true
     entity_category: config
     device_class: switch
+    restore_mode: RESTORE_DEFAULT_ON
 
-  - platform: template # enable / disable nightlight
+  - platform: template # enable / disable nightlight - Default to OFF
     id: nightlight_enabled
     name: ${friendly_name} Nightlight Enabled
     optimistic: true
     entity_category: config
     device_class: switch
+    restore_mode: RESTORE_DEFAULT_OFF
 
 
 script:
