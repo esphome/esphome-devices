@@ -44,8 +44,8 @@ api:
 ota:
 
 uart:
-    rx_pin: GPIO13
-    tx_pin: GPIO15
+    rx_pin: GPIO3
+    tx_pin: GPIO1
     baud_rate: 9600
 
 tuya:
