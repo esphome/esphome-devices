@@ -1,6 +1,6 @@
 ---
 title: Milfra MFA05
-date-published: 2019-10-11
+date-published: 2023-12-30
 type: switch
 standard: us
 board: esp8266
