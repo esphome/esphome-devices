@@ -15,8 +15,6 @@ board: bk72xx
 
 ![switch](https://qiachip.com/cdn/shop/products/1_2e22ca5a-07e5-4b06-82bf-afe87dc96dec_540x.jpg?v=1621674409)
 
-
-
 ## GPIO Pinout
 
 | Pin | Function      |
@@ -25,9 +23,7 @@ board: bk72xx
 | P10 | Green LED     |
 | P8  | Relay         |
 
-
 ## Configuration
-
 
 ```yml
 substitutions:
@@ -170,4 +166,3 @@ button:
     name: ${friendly_name} restart
     entity_category: diagnostic      
 ```
-
