@@ -45,7 +45,7 @@ api:
 
 # Enable over the air updates
 ota:
-  password: !secret ota_password 
+  password: !secret ota_password
 
 wifi:
   networks:
@@ -53,7 +53,7 @@ wifi:
      password: !secret wifi_password
   ap:
     ssid:     ${friendly_name} Hotspot
-    password: !secret ap_password 
+    password: !secret ap_password
 
 captive_portal:
 
@@ -76,7 +76,7 @@ sensor:
       name: ${friendly_name} Loop Time  
   - platform: wifi_signal
     name: ${friendly_name} WiFi Signal
-    update_interval: 30s   
+    update_interval: 30s
   - platform: uptime
     name: Uptime Sensor
     id: uptime_sensor
@@ -129,7 +129,7 @@ light:
     name: "led"
     internal: true
     id: led
-    pin: 
+    pin:
       number: P10
       inverted: true
 
@@ -164,5 +164,5 @@ button:
   - platform: restart
     id: restart_button
     name: ${friendly_name} restart
-    entity_category: diagnostic      
+    entity_category: diagnostic
 ```
