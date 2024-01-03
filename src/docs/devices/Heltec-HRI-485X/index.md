@@ -18,6 +18,8 @@ Manufacturer: [Heltec](https://vi.aliexpress.com/item/1005005792072535.html?spm=
 Configuration contains modbus sensors as example. First of leds on fron panel is always on (directly connected to power source), 
 second is configured as indication of HA client connected, third led is ESPhome Status led)
 
+GPIO16 is pin for powering MAX3485 chip. (Manufacturers magic ...)
+
 ```yaml
 esphome:
   name: heltec-modbus
