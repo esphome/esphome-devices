@@ -44,6 +44,7 @@ api:
     switch.turn_off: HAOnlineLed
 
 ota:
+  password: !secret ota
 
 status_led:
   pin: GPIO3
