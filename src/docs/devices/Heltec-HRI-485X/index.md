@@ -4,7 +4,6 @@ date-published: 2024-01-03
 type: Gate
 standard: Global
 board: ESP32-D0WDQ6
-made-for-esphome: no
 difficulty: 3
 ---
 
