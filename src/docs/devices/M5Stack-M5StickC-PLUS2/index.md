@@ -67,19 +67,52 @@ api:
 
 ota:
 
+# Battery voltage measured through ADC1_CH2. PLUS2 has a voltage divider,
+# so reading needs to be multiplied by 2
+sensor:
+  - platform: adc
+    pin: GPIO38
+    attenuation: 11db
+    update_interval: 60s
+    name: "Battery Voltage"
+    filters:
+      - multiply: 2.0
+
+# Built-in 6-axis intertial measurement unit (IMU) that also includes a temperature sensor
+  - platform: mpu6886
+    i2c_id: bus_a
+    address: 0x68
+    update_interval: 10s
+    accel_x:
+      name: "MPU6886 Accel X"
+    accel_y:
+      name: "MPU6886 Accel Y"
+    accel_z:
+      name: "MPU6886 Accel z"
+    gyro_x:
+      name: "MPU6886 Gyro X"
+    gyro_y:
+      name: "MPU6886 Gyro Y"
+    gyro_z:
+      name: "MPU6886 Gyro z"
+    temperature:
+      name: "MPU6886 Temperature"
+
 binary_sensor:
+  # Turn on display backlight while Button A is pressed
   - platform: gpio
     pin:
       number: GPIO37
-      inverted: true
+      inverted: false
     name: ${upper_devicename} Button A
     on_press:
       then:
-        - light.turn_on: led1
+        - light.turn_on: display_bl
     on_release:
       then:
-        - light.turn_off: led1
+        - light.turn_off: display_bl
 
+  # Play 1000Hz tone through buzzer while Button B is pressed
   - platform: gpio
     pin:
       number: GPIO39
@@ -87,10 +120,17 @@ binary_sensor:
     name: ${upper_devicename} Button B
     on_press:
       then:
-        - light.turn_on: led1
+        - output.turn_on: buzzer
+        - output.ledc.set_frequency:
+            id: buzzer
+            frequency: "1000Hz"
+        - output.set_level:
+            id: buzzer
+            level: "50%"     
+
     on_release:
       then:
-        - light.turn_off: led1
+        - output.turn_off: buzzer
 
 light:
   - platform: monochromatic
@@ -98,17 +138,26 @@ light:
     name: ${upper_devicename} Led
     id: led1
 
+  - platform: monochromatic
+    output:  backlight
+    name: ${upper_devicename} Backlight
+    id: display_bl 
+
 output:
   - platform: ledc
     pin: 10
     inverted: true
     id: builtin_led
 
-remote_transmitter:
-  - pin:
-      number: GPIO9
-    carrier_duty_percent: 50%
-    id: internal
+  - platform: ledc
+    pin: 2
+    inverted: true
+    id: buzzer
+
+  - platform: ledc
+    pin: 27
+    inverted: true
+    id: backlight 
 
 spi:
   clk_pin: GPIO13
@@ -123,19 +172,26 @@ i2c:
 font:
   - file: "gfonts://Roboto"
     id: roboto
-    size: 12
+    size: 18
+
+color:
+  - id: my_white
+    red: 100%
+    green: 100%
+    blue: 100%
 
 # 1.14 inch, 135*240 Colorful TFT LCD, ST7789v2
 display:
   - platform:  st7789v
     model: TTGO TDisplay 135x240
     cs_pin: GPIO5
-    dc_pin: GPIO23
-    reset_pin: GPIO18
+    dc_pin: GPIO14
+    reset_pin: GPIO12
     rotation: 270
     lambda: |-
-      it.print(80, 0, id(roboto), ST77XX_WHITE, TextAlign::TOP_CENTER, "M5Stick Test");
+     it.print(80, 0, id(roboto), id(my_white), TextAlign::TOP_CENTER, "M5Stick Test");
 
+# note: Audio hasn't been tested
 i2s_audio:
   id: bus_i2s
   i2s_lrclk_pin: G26
