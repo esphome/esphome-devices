@@ -199,9 +199,9 @@ sensor:
     internal_filter_mode: PULSE
     accuracy_decimals: 1
     filters:
+      - filter_out: nan
       - throttle: 1s
       - multiply: 0.0813287514318442  # Calibration may be needed
-      - filter_out: nan
 
 touchscreen:
   - platform: ft63x6
@@ -234,11 +234,11 @@ display:
     cs_pin: GPIO22
     dc_pin: GPIO21
     reset_pin: GPIO18
-    update_interval: never
-    auto_clear_enabled: false
+    update_interval: 60s
+    auto_clear_enabled: true
     invert_colors: false
     lambda: |-
-      it.print(80, 0, id(roboto), Color(255, 255, 255), TextAlign::TOP_CENTER, "Lanbon L8 Test");
+      it.print(0, 0, id(roboto), Color(128, 128, 128), "ESPHome on Lanbon L8");
 ```
 
-To calibrate the power values measured by the pulse_meter sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with 1, and flash the device. Turn on the load and observe the value reported by the sensor and the reading on your external power meter. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
+To calibrate the power values measured by the `pulse_meter` sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with 1, and flash the device. Turn on the load and observe the reading on your external power meter and the value reported by the sensor. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
