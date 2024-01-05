@@ -49,15 +49,15 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 
 | Pin    | Function                  |
 |--------|---------------------------|
-| GPIO5  | Backlight (PWM out)       |
 | GPIO22 | Display CS                |
 | GPIO21 | Display DC                |
 | GPIO18 | Display Reset             |
 | GPIO19 | Display CLS               |
 | GPIO23 | Display MOSI              |
 | GPIO25 | Display MISO              |
-| GPIO4  | Touchscreen SDA           |
 | GPIO0  | Touchscreen SCL           |
+| GPIO4  | Touchscreen SDA           |
+| GPIO5  | Backlight (PWM out)       |
 | GPIO26 | Moodlight Red (PWM out)   |
 | GPIO32 | Moodlight Green (PWM out) |
 | GPIO33 | Moodlight Blue (PWM out)  |
