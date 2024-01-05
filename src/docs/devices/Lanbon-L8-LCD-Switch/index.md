@@ -14,16 +14,16 @@ difficulty: 3
 
 ## Description
 
- - L8-HS: 3 Relays - load up to 200W/gang
- - L8-HD: 1 Dimmer - load up to 200W/gang
- - L8-HB: Boiler switch - load up to 16A
- - L8-HT: Thermostat switch - not tested!
+- L8-HS: 3 Relays - load up to 200W/gang
+- L8-HD: 1 Dimmer - load up to 200W/gang
+- L8-HB: Boiler switch - load up to 16A
+- L8-HT: Thermostat switch - not tested!
 
 Choose a model that works with Apple HomeKit (has this sticker on) because those are WiFi versions with the internal antenna connected to the ESP-WROOVER-B module. Do NOT buy a version that is powered by Tuya Smart Life because the internal antenna is connected to the Tuya chip. Those devices will have very bad WiFi reception of the ESP32!
 
 All models are rated at AC 100-250V ~50-60Hz, the form factor can be a design choice regardless of the continental area.
 
-### Features:
+### Features
 
 - Input voltage 110-250V ~ 50-60Hz AC
 - ESP32-WROVER-B
@@ -33,7 +33,7 @@ All models are rated at AC 100-250V ~50-60Hz, the form factor can be a design ch
 | Pros           | Cons
 |:-----          |:----
 | 8 MB flash     | Mood LEDS not uniform
-| 8 MB PSram     | 
+| 8 MB PSram     |
 | Capactitive touch |
 | Built-in PSU |
 | Energy monitor |
@@ -82,7 +82,6 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 |--------|----------------|
 | GPIO12 | Dimmer TX (K3) |
 
-
 ## Flashing
 
 Steps:
@@ -123,7 +122,7 @@ spi:
 
 i2c:
   sda: GPIO4
-  scl: 
+  scl:
     number: GPIO0
     ignore_strapping_warning: true
 
@@ -152,7 +151,7 @@ output:
 
   - id: relay_1
     platform: gpio
-    pin: 
+    pin:
       number: GPIO12
       ignore_strapping_warning: true
   - id: relay_2
@@ -223,5 +222,4 @@ display:
     invert_colors: false
     lambda: |-
       it.print(80, 0, id(roboto), Color(255, 255, 255), TextAlign::TOP_CENTER, "Lanbon L8 Test");
-      
 ```
