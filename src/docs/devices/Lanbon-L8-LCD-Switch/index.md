@@ -36,7 +36,7 @@ All models are rated at AC 100-250V ~50-60Hz, the form factor can be a design ch
 | 8 MB PSram     |
 | Capactitive touch |
 | Built-in PSU |
-| Energy monitor |
+| Power monitor |
 | Standard wallmount form factor both EU and US |
 
 ![Lanbon L8 dimensions](lanbon-l8-dimensions.png "Lanbon L8 dimensions")
@@ -49,18 +49,22 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 
 | Pin    | Function                  |
 |--------|---------------------------|
-| GPIO22 | Display CS                |
-| GPIO21 | Display DC                |
+| GPIO22 | SPI (Display) CS          |
+| GPIO21 | SPI (Display) DC          |
 | GPIO18 | Display Reset             |
-| GPIO19 | Display CLS               |
-| GPIO23 | Display MOSI              |
-| GPIO25 | Display MISO              |
-| GPIO0  | Touchscreen SCL           |
-| GPIO4  | Touchscreen SDA           |
+| GPIO19 | SPI (Display) CLK         |
+| GPIO23 | SPI (Display) MOSI        |
+| GPIO25 | SPI (Display) MISO        |
+| GPIO24 | Option A3                 |
+| GPIO0  | I2C (Touchscreen) SCL     |
+| GPIO4  | I2C (Touchscreen) SDA     |
 | GPIO5  | Backlight (PWM out)       |
 | GPIO26 | Moodlight Red (PWM out)   |
 | GPIO32 | Moodlight Green (PWM out) |
 | GPIO33 | Moodlight Blue (PWM out)  |
+| GPIO35 | HLW8012 CF                |
+
+HLW8012's `CF1` & `SEL` pins are not connected to the MCU, thus this meter only provides pulses depending of Power. Voltage and Current measurement is not possible.
 
 ### 3-gang version L8-HS
 
@@ -185,6 +189,19 @@ light:
   - platform: binary
     name: Relay 3
     output: relay_3
+
+sensor:
+  - platform: pulse_meter
+    name: Lanbon Power Consumption
+    id: sensor_pulse_meter # Optional ID, necessary if you want to calculate the total number of pulses.
+    pin: GPIO35
+    unit_of_measurement: 'W'
+    device_class: power
+    state_class: measurement
+    internal_filter: 20ms # Assuming maximum load of 16 kW and 10000 impulses per kWh, any pulses faster than 22.5 ms would exceed load. -10% ~= 20 ms.
+    accuracy_decimals: 0
+    filters:
+      - multiply: 1 # (60s / impulse constant) * (1000W / 1kW)
 
 touchscreen:
   - platform: ft63x6
