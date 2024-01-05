@@ -55,14 +55,13 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 | GPIO19 | SPI (Display) CLK         |
 | GPIO23 | SPI (Display) MOSI        |
 | GPIO25 | SPI (Display) MISO        |
-| GPIO24 | Option A3                 |
 | GPIO0  | I2C (Touchscreen) SCL     |
 | GPIO4  | I2C (Touchscreen) SDA     |
 | GPIO5  | Backlight (PWM out)       |
 | GPIO26 | Moodlight Red (PWM out)   |
 | GPIO32 | Moodlight Green (PWM out) |
 | GPIO33 | Moodlight Blue (PWM out)  |
-| GPIO35 | HLW8012 CF                |
+| GPIO35 | CF HLW8012                |
 
 HLW8012's `CF1` & `SEL` pins are not connected to the MCU, thus this meter only provides pulses depending of Power. Voltage and Current measurement is not possible.
 
