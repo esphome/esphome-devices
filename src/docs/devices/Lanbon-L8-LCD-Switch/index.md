@@ -36,7 +36,7 @@ All models are rated at AC 100-250V ~50-60Hz, the form factor can be a design ch
 | 8 MB PSram     |
 | Capactitive touch |
 | Built-in PSU |
-| Power monitor |
+| Power monitoring |
 | Standard wallmount form factor both EU and US |
 
 ![Lanbon L8 dimensions](lanbon-l8-dimensions.png "Lanbon L8 dimensions")
@@ -191,16 +191,17 @@ light:
 
 sensor:
   - platform: pulse_meter
-    name: Lanbon Power Consumption
-    id: sensor_pulse_meter # Optional ID, necessary if you want to calculate the total number of pulses.
+    name: Load power
     pin: GPIO35
-    unit_of_measurement: 'W'
     device_class: power
     state_class: measurement
-    internal_filter: 20ms # Assuming maximum load of 16 kW and 10000 impulses per kWh, any pulses faster than 22.5 ms would exceed load. -10% ~= 20 ms.
-    accuracy_decimals: 0
+    unit_of_measurement: 'W'
+    internal_filter_mode: PULSE
+    accuracy_decimals: 1
     filters:
-      - multiply: 1 # (60s / impulse constant) * (1000W / 1kW)
+      - throttle: 1s
+      - multiply: 0.0813287514318442  # Calibration may be needed
+      - filter_out: nan
 
 touchscreen:
   - platform: ft63x6
@@ -239,3 +240,5 @@ display:
     lambda: |-
       it.print(80, 0, id(roboto), Color(255, 255, 255), TextAlign::TOP_CENTER, "Lanbon L8 Test");
 ```
+
+To calibrate the power values measured by the pulse_meter sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with 1, and flash the device. Turn on the load and observe the value reported by the sensor and the reading on your external power meter. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
