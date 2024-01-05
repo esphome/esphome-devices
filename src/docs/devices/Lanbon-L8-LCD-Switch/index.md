@@ -1,10 +1,10 @@
 ---
-title: Lanbon L8
+title: Lanbon L8 LCD Switch
 date-published: 2023-01-05
-type: misc
+type: switch
 standard: global
 board: esp32
-project-url: 
+difficulty: 3
 ---
 
 ## Product Images
@@ -85,19 +85,19 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 
 ## Flashing
 
-You can follow this [flashing guide](https://blakadder.com/lanbon-L8-custom-firmware/) on [blakadder.com](https://blakadder.com) or [this discussion post](https://github.com/HASwitchPlate/openHASP/discussions/76) with instructions and photos to flash the firmware without having to open the device.
-
 Steps:
 
-1. Disengage the high-voltage power
-2. Detach the panel from the PSU power supply
-3. Connect `RX`, `TX`, `IO0`, `GND` and `5V` pins to the female pinheader
-4. Because there is no `RESET` pin, you need to powercycle the board while `IO0` is connected to `GND` to activate flash mode
+1. Disengage the high-voltage power.
+2. Detach the panel from the PSU power supply.
+3. Connect `RX`, `TX`, `IO0`, `GND` and `5V` pins to the female pinheader.
+4. Because there is no `RESET` pin, you need to powercycle the board while `IO0` is connected to `GND` to activate flash mode.
 
 ![Lanbon L8 pcb](lanbon-l8-pcb.png "Lanbon L8 PCB")
 
 Make sure you have a USB to TTL serial adapter than can provide sufficient power **on the 5V pin**.
-Once the serial connections are made, you can flash the ESPHome modern format binary (`*-factory.bin`) using esptool.
+Once the serial connections are made, you can erase flash, power-cycle the board and then flash the ESPHome modern format binary (`*-factory.bin`) using `esptool`.
+
+You can follow this [flashing guide](https://blakadder.com/lanbon-L8-custom-firmware/) on [blakadder.com](https://blakadder.com) or [this discussion post](https://github.com/HASwitchPlate/openHASP/discussions/76) with instructions and photos to flash the firmware without having to open the device.
 
 ## Example Configuration for 3-gang version L8-HS
 
