@@ -4,7 +4,7 @@ date-published: 2024-01-05
 type: misc
 standard: global
 board: esp32
-project-url: https://docs.m5stack.com/en/core/M5StickC PLUS2
+project-url: https://docs.m5stack.com/en/core/M5StickC%20PLUS2
 ---
 
 ## Product Images
