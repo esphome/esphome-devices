@@ -9,7 +9,7 @@ project-url: https://docs.m5stack.com/en/core/M5StickC PLUS2
 
 ## Product Images
 
-![M5Stick C Plus2](m5stickcplus.png "M5Stick C Plus2")
+![M5Stick C Plus2](m5stickcplus2.png "M5Stick C Plus2")
 
 ## GPIO Pinout
 
