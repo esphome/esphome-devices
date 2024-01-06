@@ -126,7 +126,7 @@ binary_sensor:
             frequency: "1000Hz"
         - output.set_level:
             id: buzzer
-            level: "50%"     
+            level: "50%"
 
     on_release:
       then:
@@ -141,7 +141,7 @@ light:
   - platform: monochromatic
     output:  backlight
     name: ${upper_devicename} Backlight
-    id: display_bl 
+    id: display_bl
 
 output:
   - platform: ledc
@@ -157,7 +157,7 @@ output:
   - platform: ledc
     pin: 27
     inverted: true
-    id: backlight 
+    id: backlight
 
 spi:
   clk_pin: GPIO13
@@ -205,4 +205,3 @@ microphone:
     pdm: true
     id: mic
 ```
-
