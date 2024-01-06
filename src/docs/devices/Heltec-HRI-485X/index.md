@@ -1,9 +1,9 @@
 ---
 title: Heltec HRI-485X
 date-published: 2024-01-03
-type: Gate
+type: misc
 standard: Global
-board: ESP32-D0WDQ6
+board: esp32
 difficulty: 3
 ---
 
