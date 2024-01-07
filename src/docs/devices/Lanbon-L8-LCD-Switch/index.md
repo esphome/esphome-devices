@@ -21,23 +21,18 @@ difficulty: 3
 
 Choose a model that works with Apple HomeKit (has this sticker on) because those are WiFi versions with the internal antenna connected to the ESP-WROOVER-B module. Do NOT buy a version that is powered by Tuya Smart Life because the internal antenna is connected to the Tuya chip. Those devices will have very bad WiFi reception of the ESP32!
 
-All models are rated at AC 100-250V ~50-60Hz, the form factor can be a design choice regardless of the continental area.
-
 ### Features
 
-- Input voltage 110-250V ~ 50-60Hz AC
 - ESP32-WROVER-B
-- Capacitive touch screen
-- Energy counter
-
-| Pros           | Cons
-|:-----          |:----
-| 8 MB flash     | Mood LEDS not uniform
-| 8 MB PSram     |
-| Capactitive touch |
-| Built-in PSU |
-| Power monitoring |
-| Standard wallmount form factor both EU and US |
+- FT6336U touch controller (capacitive)
+- ST7789V display controller, driving a 240x320 LCD screen
+- 8 MB flash
+- 8 MB PSram 
+- Dimmable backlight (PWM)
+- Mood LEDS (PWM, not uniform)
+- Built-in PSU, input voltage 110-250V ~ 50-60Hz AC
+- Energy monitoring
+- Standard wallmount form factor both EU and US
 
 ![Lanbon L8 dimensions](lanbon-l8-dimensions.png "Lanbon L8 dimensions")
 
@@ -86,6 +81,9 @@ HLW8012's `CF1` & `SEL` pins are not connected to the MCU, thus this meter only 
 | GPIO12 | Dimmer TX (K3) |
 
 ## Flashing
+
+No need to solder to flash this device. All the pins required for flashing are available on the header that connects the plate to the base. 
+Use thinner solid core wires (f.e. salvaged from Ethernet cables) and insert them in the pin header (Dupont or breadboard wires are too thick).
 
 Steps:
 
