@@ -203,6 +203,11 @@ sensor:
 
 touchscreen:
   - platform: ft63x6
+#    calibration:
+#      x_min: 0
+#      x_max: 240
+#      y_min: 0
+#      y_max: 320
     on_touch:
       - logger.log:
           format: Touch %d detected at (%d, %d)
