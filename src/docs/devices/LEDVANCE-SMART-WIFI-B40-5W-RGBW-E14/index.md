@@ -5,11 +5,9 @@ type: light
 standard: global
 board: bk72xx
 ---
-
-Can be flashed with esphome kickstart via tuya-cloudcutter!! 
-Profile name: 1.0.3 - BK7231T / oem_bk7231s_light_ty_oldDp
-
 LEDVANCE SMART WIFI B40 based on BK7231T chip (WB2L) and using BP1658CJ led driver.
+Can be flashed with esphome kickstart via tuya-cloudcutter.
+Profile name: 1.0.3 - BK7231T / oem_bk7231s_light_ty_oldDp.
 
 ## Product Image
 
@@ -23,6 +21,7 @@ LEDVANCE SMART WIFI B40 based on BK7231T chip (WB2L) and using BP1658CJ led driv
 | GPIO9  | BP1658CJ Clock Pin          |
 
 ## Basic Configuration
+
 ```yaml
 substitutions:
   devicename: ledvance-e14
