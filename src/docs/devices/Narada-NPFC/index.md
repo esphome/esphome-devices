@@ -5,7 +5,7 @@ type: misc
 standard: global
 ---
 
-This documents the Narada NPFC series of high capacity batteries, which 
+This documents the Narada NPFC series of high capacity batteries, which
 can be accessed over modbus. There are a number of variables which can
 be queried to determine the current state of the battery, such as overall
 voltage, current, temperature, etc, as well as per cell voltage and temp.
@@ -15,7 +15,8 @@ of any ESPHome device that has a RS485 transceiver, a UART and
 modbus_controller: configured.
 
 Example:
-```
+
+```yaml
 uart:
   - id: modbus_uart
     baud_rate: 9600
