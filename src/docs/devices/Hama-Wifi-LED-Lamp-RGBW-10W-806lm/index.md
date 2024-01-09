@@ -13,7 +13,6 @@ Profile name: 1.1.2 - BK7231T / oem_bk7231s_light_ty
 
 ![image](https://github.com/esphome/esphome-devices/assets/87735636/e9f8e0ba-5426-4ee5-8d1f-b219ee8b6b23)
 
-
 ## GPIO Pinout
 
 | Function   | GPIO-Pin |
