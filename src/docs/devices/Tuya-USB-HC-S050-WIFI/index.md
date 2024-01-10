@@ -28,7 +28,7 @@ Flash using ESP Web install and select any option. Lately we replace it with bk 
 
 | Pin  | Function      |
 | ---- | ------------- |
-| GRD  | - 3.3V        |
+| GND  | - 3.3V        |
 | 3.3V | + 3.3V        |
 | TP4  | TX            |
 | TP5  | RX            |
