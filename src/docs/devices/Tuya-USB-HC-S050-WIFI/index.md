@@ -10,9 +10,9 @@ board: bk72xx
 
 ![Tuya HC-S050-WIFI](tuya-hc-s050-wifi.jpg "Tuya HC-S050-WIFI")
 
-The Tuya HC-S050-WIFI is chip USB relay that can hold up to 12v (by specs).
+The Tuya HC-S050-WIFI is cheap USB "relay" that can hold up to 12v (by specs).
 
-# GPIO Pinout
+## GPIO Pinout
 
 | Pin | Function      |
 | --- | ------------- |
@@ -26,10 +26,13 @@ Flash using ESP Web install and select any option. Lately we replace it with bk 
 
 ![Tuya HC-S050-WIFI Flashing PCB pinout](tuya-hc-s050-wifi-pcb-flashing.jpg)
 
-GRD and 3.3V marked
-TP4 - TX
-TP5 - RX
-TP3 - possible EN
+| Pin  | Function      |
+| ---- | ------------- |
+| GRD  | - 3.3V        |
+| 3.3V | + 3.3V        |
+| TP4  | TX            |
+| TP5  | RX            |
+| TP3  | possible EN   |
 
 ## Configuration for ESP-IDF
 
