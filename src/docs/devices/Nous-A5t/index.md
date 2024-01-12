@@ -67,6 +67,8 @@ wifi:
     ssid: "${friendly_name} Fallback Hotspot"
     password: !secret wifi_ap_password
 
+ota:
+
 # see: https://esphome.io/components/time.html
 time:
   - platform: homeassistant
