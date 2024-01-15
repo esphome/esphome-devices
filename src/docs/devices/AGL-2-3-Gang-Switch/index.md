@@ -113,7 +113,8 @@ switch:
 
 light:
   - platform: status_led
-    name: "Switch state"
+    id: blue_led
+    restore_mode: ALWAYS_ON
     pin:
       number: GPIO2
       inverted: true
