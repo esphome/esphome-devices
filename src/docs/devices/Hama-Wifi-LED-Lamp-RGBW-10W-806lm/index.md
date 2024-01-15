@@ -3,7 +3,7 @@ title: Hama Wifi Led Lamp RGBW 10W 806lm
 date-published: 2024-01-09
 type: bulb
 standard: eu
-board: wb2l/bk27xx
+board: bk27xx
 ---
 
 Can be flashed with esphome kickstart via tuya-cloudcutter!!
@@ -11,7 +11,7 @@ Profile name: 1.1.2 - BK7231T / oem_bk7231s_light_ty
 
 ## Product Images
 
-![image](https://github.com/esphome/esphome-devices/assets/87735636/e9f8e0ba-5426-4ee5-8d1f-b219ee8b6b23)
+![image](image.png)
 
 ## GPIO Pinout
 
