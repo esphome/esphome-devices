@@ -11,7 +11,7 @@ Profile name: 1.0.3 - BK7231T / oem_bk7231s_light_ty_oldDp.
 
 ## Product Image
 
-![ledvance_e14](https://github.com/esphome/esphome-devices/assets/87735636/8e42a2ab-663e-4f89-952f-d989a8a5435f)
+![ledvance_e14](image.png)
 
 ## GPIO Pinout
 
