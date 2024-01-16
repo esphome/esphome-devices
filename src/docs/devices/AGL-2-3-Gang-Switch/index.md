@@ -22,8 +22,6 @@ Front of 2 gang switch
 Back of 2 gang switch
 ![alt text](/back.jpg "Back of 2 gang switch")
 
-
-
 ## GPIO Pinout
 
 ### 2-Gang Version
