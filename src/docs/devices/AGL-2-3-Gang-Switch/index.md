@@ -7,18 +7,29 @@ board: esp8266
 difficulty: 3
 ---
 
+The AGL Switch is available in Brazil.
+[AGL](https://www.aglbrasil.com/smarthome)
+
 ## General Notes
 
 This config was created based on the 2 gang switch that I had.
 
 ## Product Images
 
-Front of 2 pole switch
-![alt text](/agl_1106062.png "Front of 3 pole switch")
+Front of 2 gang switch
+![alt text](/agl_1106062.png "Front of 2 gang switch")
+
+Back of 2 gang switch
+![alt text](/back.jpg "Back of 2 gang switch")
+
+
 
 ## GPIO Pinout
 
 ### 2-Gang Version
+
+PCB
+![alt text](/open.jpg "PCB")
 
 | Pin    | Function                        |
 | ------ | ------------------------------- |
