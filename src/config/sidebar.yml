@@ -20,6 +20,8 @@
   items:
     - label: 'AU Devices'
       link: '/standards/au'
+    - label: 'BR Devices'
+      link: '/standards/br'
     - label: 'EU Devices'
       link: '/standards/eu'
     - label: 'Global Devices'
