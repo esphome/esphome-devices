@@ -280,7 +280,7 @@ packages:
 ```
 
 ```yaml title=.narada-npfc-cell.yaml
-sensor: 
+sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     address: ${volt_address}
