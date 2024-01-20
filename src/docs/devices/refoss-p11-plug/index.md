@@ -67,7 +67,7 @@ wifi:
     password: !secret p11smartplug1_ap_password
 
 captive_portal:
-    
+
 web_server:
   port: 80
 
@@ -98,7 +98,7 @@ binary_sensor:
 #        - switch.turn_on: reset
   - platform: status
     name: "${friendly_name} Status"
-    
+
 text_sensor:
 # Reports the ESPHome Version with compile date
   - platform: version
@@ -121,7 +121,7 @@ switch:
   # Register LED on GPIO
   - id: sw_led1
     platform: gpio
-    pin: 
+    pin:
       number: GPIO12
       inverted: yes
 #  - platform: restart
@@ -163,8 +163,8 @@ sensor:
 #      - calibrate_linear:
 #        - 0.0 -> 0.0
 #        - 127.0 -> 242.0
-    
-    
+
+
 
   - platform: total_daily_energy
     name: "${friendly_name} Total Daily Energy"
