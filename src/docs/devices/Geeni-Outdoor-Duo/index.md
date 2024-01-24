@@ -1,18 +1,17 @@
 ---
 title: Geeni Outdoor Duo
-date-published: 2024-1-24
+date-published: 2024-01-24
 type: plug
 standard: us
 board: esp8266
 ---
-
-## Product Image
-
-![Geeni Outdoor Duo](https://m.media-amazon.com/images/I/71CQCqYy7kL._SL1500_.jpg)
+[Amazon Link](https://amzn.to/3S3zypi)
 
 [Manufacturer Link](https://mygeeni.com/products/outdoor-duo-dual-outlet-smart-wi-fi-plug-grey)
 
-[Amazon Link](https://www.amazon.com/dp/B07SQB5PKQ/)
+## Product Image
+
+![Geeni Outdoor Duo](image.jpg)
 
 ## Description
 
