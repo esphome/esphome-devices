@@ -21,7 +21,9 @@ The factory WB3S can be converted using [tuya convert](https://devices.esphome.i
 
 The control board is completely seperate from the relay board and can be removed easily for soldering.
 
-If the module is replaced with an ESP12 it is much easier to program the module using a USB board burning fixture, however it is still fairly straightforward to program the board after the fact using [https://web.esphome.io/](https://web.esphome.io/) or similar and any 3.3v USB to Serial cable.
+If the module is going to be replaced with an ESP12 it is recommended to program the module using a USB board burning fixture, however it is still fairly straightforward to program the board using the using any 3.3v USB to Serial cable.
+
+There are no pin headers broken out onto the board. First time programming connections will have to be made by soldering or spring pins.
 
 
 ## GPIO Pinout
