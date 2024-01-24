@@ -22,12 +22,14 @@ board: esp8266
 # Basic Config
 esphome:
   name: geeni_outdoor
+  friendly_name: geeni
   platform: ESP8266
   board: esp01_1m
+    #change board to esp12e if the original Tuya WB3S has been desoldered and replaced with an ESP12
 
 wifi:
-  ssid: "ssid"
-  password: "wifi_password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 logger:
 
@@ -36,9 +38,10 @@ api:
     key: !secret encryption_key
 
 ota:
-  password: "OTA_password"
+  password: !secret ota_password
 
 web_server:
+  port: 80
 
 binary_sensor:
   - platform: gpio
@@ -47,6 +50,21 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     name: "Button"
+    on_multi_click:
+      # Support a single or double click to switch on each relay
+      - timing:
+          - ON for at most 1s
+          - OFF for at least 0.5s
+        then:
+          - switch.toggle: relay_left
+
+      - timing:
+          - ON for at most 1s
+          - OFF for at most 1s
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          - switch.toggle: relay_right
 
 switch:
   - platform: gpio
