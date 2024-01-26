@@ -14,7 +14,6 @@ This dehumidifier is very likely sold by lot of different brand names.
 
 This guide is based on dehumidifer without wifi module, but if you encounter one with tuya based module, you can replace it or do [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter/) .
 
-
 This writeup is mostly to help others see how the device looks inside and so they do not need to figure out datapoints from scratch.
 
 ## Hardware
@@ -27,7 +26,6 @@ In my opinion easiest way to add connectivity to this device is use wifi connect
 We can create cable using JST XH 2.54mm connector connected to the RX TX 5V GND on the connector to the basic 4 wire usb-C cable where we connect RX and TX pins to D+ and D- of the usb cable (green and white). GND will be black and 5V red of the usb cable.
 
 ![JSTXH](jstxh.jpg)
-
 
 ## Board Configuration
 
