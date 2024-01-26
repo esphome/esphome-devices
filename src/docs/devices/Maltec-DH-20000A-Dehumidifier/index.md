@@ -12,7 +12,7 @@ difficulty: 3
 This dehumidifier is very likely sold by lot of different brand names.
 "G21" brand ones looks 100% identical.
 
-This guide is based on dehumidifer without wifi module, but if you encounter one with tuya based module, you can replace it or do [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter/) .
+This guide is based on dehumidifer without wifi module, but if you encounter one with tuya based module, you can replace it or do [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter/).
 
 This writeup is mostly to help others see how the device looks inside and so they do not need to figure out datapoints from scratch.
 
@@ -45,14 +45,14 @@ esphome:
   comment: ${comment}
   platformio_options:
     board_build.flash_mode: dio
-    board_build.f_cpu: 80000000L 
-    build_flags: 
+    board_build.f_cpu: 80000000L
+    build_flags:
       -"-D CONFIG_FREERTOS_UNICORE"
   
 esp32:
   board: esp32-s3-devkitc-1
   variant: esp32s3
-  framework: 
+  framework:
     type: esp-idf
     sdkconfig_options:
       CONFIG_FREERTOS_UNICORE: y
@@ -100,7 +100,7 @@ wifi:
 
 ##################################################################
 
-uart: 
+uart:
   rx_pin: 20 # usb-c
   tx_pin: 19 # usb-c
   baud_rate: 9600
@@ -152,7 +152,6 @@ number:
     max_value: 20
     step: 5
     icon: "mdi:timer-cog"
-
 
 sensor:
   - platform: tuya
