@@ -7,9 +7,9 @@ board: ESP8266
 ---
 
 
-This controller is a RGB CCT PWM Controller based on the ESP8266, it´s the previus version of the AP-02-5CH-V2 which uses BK72xx tuya chip.
+This controller is a RGB CCT PWM Controller based on the ESP8266, it's the previous version of the AP-02-5CH-V2 which uses BK72xx Tuya chip.
 
-For flashing this device you have to flash it manualy, you can do it with a 3d printed Jig pogo pins. You can follow this tutorial in [YT. Tuya Convert Not Working? NO Solder Jig | Flash Tasmota & ESPHome](https://youtu.be/imKZbhJ8lvU?si=FfhMAgJAtsvwrhut) (you need a 3D printer), or you can solder the pins followind this [Tasmota pinout guide](https://tasmota.github.io/docs/devices/TYWE3S/)
+For flashing this device, you have to flash it manually. You can do it with a 3D printed Jig pogo pins. You can follow this tutorial on [YT. Tuya Convert Not Working? NO Solder Jig | Flash Tasmota & ESPHome](https://youtu.be/imKZbhJ8lvU?si=FfhMAgJAtsvwrhut) (you need a 3D printer), or you can solder the pins following this [Tasmota pinout guide](https://tasmota.github.io/docs/devices/TYWE3S/)
 
 ![Product Image](image.png "Product Image")
 
