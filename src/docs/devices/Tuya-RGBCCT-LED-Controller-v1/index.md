@@ -69,7 +69,7 @@ light:
     blue: ledc_b
     cold_white_color_temperature: 5000K
     warm_white_color_temperature: 3000K
-    
+
 captive_portal:
-    
+
 ```
