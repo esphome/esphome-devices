@@ -3,7 +3,6 @@ title: Maltec DH-20000A Dehumidifier
 date-published: 2024-01-26
 type: misc
 standard: global
-board: bring your own, I recommend esp32-c3 or esp32-s3 based
 difficulty: 3
 ---
 
