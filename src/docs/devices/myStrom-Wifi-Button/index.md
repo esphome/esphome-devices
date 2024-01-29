@@ -22,7 +22,6 @@ Use board `esp_wroom_02` even though this is not a wroom chip. It will allow ful
 It is designed to be in deep sleep most of the time. It has a very small battery. It won't last very long if it is always running. Pressing the button wakes it up from deep sleep. The best way to use this is with an on_boot trigger at priority 225 - that way wifi is up and you can do an http request or something similar, then go back to sleep.
 NOTE - If you are using deep sleep, with the button to wake, the first time you press the button it works, but the next sleep is immediately woken up. This is because this device has a few capacitors initially holding the reset high, and the button discharges them. GPIO4 needs to be set high to recharge them, otherwise it thinks the button is still pressed and immediately wakes.
 
-
 ## Initial Install
 
 To open the case and do the initial ESPHome flash:
@@ -60,7 +59,6 @@ This configuration is set up to call an http request on boot, then go to sleep.
 Before/during connection the led pulses white
 If successful request, it lights the green led. If unsuccessful, it flashes the red led.
 
-
 ```yaml
 esphome:
   name: button
@@ -74,7 +72,7 @@ esphome:
   - priority: 225.0
     then:
       - output.turn_on: cap_charge
-      - http_request.get: 
+      - http_request.get:
           url: http://url.to.my.http/api/
           on_response:
             then:
@@ -98,7 +96,7 @@ esphome:
                     - delay: 2s
                     - deep_sleep.enter:
                         id: deep_sleep_forever
-                        
+
 deep_sleep:
   id: deep_sleep_forever
   run_duration: 20s #This is ignored when the deep_sleep.enter is called above
