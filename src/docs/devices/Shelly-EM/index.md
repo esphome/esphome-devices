@@ -115,7 +115,7 @@ sensor:
           - delta: 10%
           - throttle_average: 15s
         # In case you don't want negative power values. I don't see why you wouldn't - this allows to measure returned power, for instance by PV panels.
-        # Regarding the energy calculation with both forward and return energy, this may need further consideration. 
+        # Regarding the energy calculation with both forward and return energy, this may need further consideration.
         #- lambda: if (x <= 0.0) return 0; else return x * $scale_a_power;
     active_power_b:
       name: Phase 2 Power
@@ -190,7 +190,7 @@ sensor:
       - multiply: 0.001
       - throttle: 60s
     unit_of_measurement: kWh
-    
+
     # NTC Temperature
     - platform: ntc
       sensor: temp_resistance_reading
