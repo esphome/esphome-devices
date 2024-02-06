@@ -1,6 +1,6 @@
 ---
 title: myStrom WiFi Button
-date-published: 2024-29-01
+date-published: 2024-01-29
 type: switch
 standard: global
 board: esp8266
