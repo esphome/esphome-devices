@@ -194,27 +194,27 @@ light:
 # - Exposes gestures via events:
 #   esphome.on_gesture { button: (A|B|C), gesture: (click|double_click|hold) }
 # - Off-state (Background Brightness) of the LEDs is configurable via the UI
-# 
+#
 # For the below example, you need to keep the following entries in your secrets.yaml file:
 #  - wifi_ssid: "<secret>"
 #  - wifi_password: "<secret>"
 #  - ota_password: "<secret>"
 #  - esp_key: "<32-byte-base-64-secret>"
-# 
+#
 # Example file (sonoff-m5-3g-office-01.yaml)
-# 
+#
 # substitutions:
 #   usemac: "false"
 #   friendly: "Sonoff M5 3G - Office Switch - 01"
 #   uniquename: "sonoff-m5-3g-office-01"
-# 
+#
 # packages:
 #   base_package:
 #     url: https://github.com/mariodivece/esphometemplates/
 #     ref: main
 #     files: [sonoff-m5-3g-us.yaml]
 #     refresh: 0d
-#   
+#
 # wifi:
 #   use_address: "10.16.40.49"
 
@@ -319,7 +319,7 @@ sensor:
     id: sensor_uptime
     update_interval: 300s
     entity_category: "diagnostic"
-    
+
 # Provide a pre-built button for restarting the device
 button:
   - platform: restart
@@ -412,7 +412,7 @@ binary_sensor:
 
     filters:
       - delayed_on: 10ms
-    
+
     on_press:
       - if:
           condition:
@@ -592,7 +592,7 @@ light:
       number: GPIO05
       inverted: true
     internal: true
-    restore_mode: RESTORE_DEFAULT_ON 
+    restore_mode: RESTORE_DEFAULT_ON
 
   # HA UI connection to the background brightness (PWM) pin
   - platform: monochromatic
