@@ -51,7 +51,7 @@ Install using my [web installer for GL-S10](https://blakadder.github.io/bluetoot
 
 Hold down the button next to the USB port while plugging the power in to put the device in flash mode.
 
-![Reset Button](image8.webp "Reset Button")
+![Reset Button](image8.jpg "Reset Button")
 
 Select the COM port to your USB to serial adapter and click “Connect”.
 
