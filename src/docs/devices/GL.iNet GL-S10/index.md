@@ -9,6 +9,7 @@ difficulty: 3
 ![Product Image](image1.jpg "Product Image")
 
 ## Product description
+
 GL-iNet, widely known for their amazing line of hackable routers (like the Mango travel router) also makes the GL-S10, a “Bluetooth IoT Gateway”.
 
 Its a perfect little device in a small sized case of 57x57x25mm (not counting the antenna). It runs on an ESP32 with 4MB flash and 8MB PSRAM and sports Ethernet with PoE and an external antenna for better range. Gl.iNet claims coverage of 80m in an open and non-interference environment which is a bit too much, but if it can cover a quarter of that it’ll be great.
@@ -16,6 +17,7 @@ Its a perfect little device in a small sized case of 57x57x25mm (not counting th
 The sugar on top is that it costs only ~$24 on their [website](https://store.gl-inet.com/products/gl-s10-bluetooth-iot-gateway) or [AliExpress](https://www.aliexpress.us/item/3256803802198078.html).
 
 ## Disassembly
+
 While you don’t need to have many tools to flash this device you will need an USB to serial adapter and I recommend the very cheap CH340G or FT232 that I’ve been using for years. You will also need some female-to-female Dupont wires and 2.54 pin headers.
 
 If you want to go the solderless route you will only need male-to-female Dupont wires.
@@ -37,6 +39,7 @@ WARNING There are a few hardware revisions of [GL-S10](https://github.com/esphom
 Newer revisions using the IP101PHY chip have [issues with severe packet loss](https://github.com/espressif/esp-idf/issues/10540) and will likely not be reliable enough for your use.
 
 ## Flashing
+
 There is a cluster of 9 pin holes which have the TX, RX and GND pins required for flashing. It is best to solder in some pin headers but you can do it solderless.
 
 If you are going solderless, make very sure to constantly apply some pressure to the pins during the flashing process to establish good contact between the pads and Dupont connectors. An extra pair of hands will be helpful.
@@ -76,6 +79,7 @@ Click “LOGS & CONSOLE” to check if the Bluetooth proxy starts properly. It s
 ![Logs](image15.jpg "Logs")
 
 ## ESPHome Configuration
+
 Configuration file was made to mimic the original functions as close as possible. That means the Power LED will always be on and Bluetooth LED turns on when connected to Home Assistant or other API endpoint. Network LED serves as a [status LED](https://esphome.io/components/status_led.html).
 
 I2C ports are preconfigured to the CLK and DAT pin holes on the PCB which makes the GL-S10 expandable. During my testing I connected a BH1750 illumination sensor and it just worked, zero problems. I would warn against putting any temperature sensors inside the case due the the heat generated from the ESP32 and power supply.
@@ -83,6 +87,7 @@ I2C ports are preconfigured to the CLK and DAT pin holes on the PCB which makes 
 I chose to make the Reset button not reset the device but just serve as a normal button sensor in HA.
 
 ### V1
+
 ```yaml
 substitutions:
   name: gl-s10-bt-proxy
@@ -126,7 +131,7 @@ esp32_ble_tracker:
 
 bluetooth_proxy:
     active: true
-    
+
 button:
 - platform: safe_mode
   name: Safe Mode Boot
@@ -154,7 +159,7 @@ binary_sensor:
       - output.turn_on: bluetooth_led
     on_release:
       - output.turn_off: bluetooth_led
-      
+
 # output settings for LED's marked Power and Bluetooth
 # power LED use: see code line 12
 # bluetooth LED use: see code line 63
@@ -176,6 +181,7 @@ i2c:
 ```
 
 ### V2.1
+
 ```yaml
 substitutions:
   name: gl-s10-bt-proxy
@@ -276,4 +282,5 @@ i2c:
 ```
 
 ## Credits
+
 Credits to [blakadder](https://blakadder.com/gl-s10/) who originally posted this and has the yaml in his [repo](https://github.com/blakadder/bluetooth-proxies/tree/main)
