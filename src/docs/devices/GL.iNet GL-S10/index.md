@@ -147,7 +147,7 @@ status_led:
 # button on the side labeled RESET
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO33
       inverted: true
     name: "Reset Button"
