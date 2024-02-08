@@ -1,5 +1,5 @@
 ---
-title: GL.iNet GL-S10
+title: GL iNet GL-S10
 date-published: 2024-08-02
 type: misc
 standard: global
