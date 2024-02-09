@@ -27,7 +27,7 @@ Choose a model that works with Apple HomeKit (has this sticker on) because those
 - FT6336U touch controller (capacitive)
 - ST7789V display controller, driving a 240x320 LCD screen
 - 8 MB flash
-- 8 MB PSram 
+- 8 MB PSram
 - Dimmable backlight (PWM)
 - Mood LEDS (PWM, not uniform)
 - Built-in PSU, input voltage 110-250V ~ 50-60Hz AC
@@ -82,8 +82,7 @@ HLW8012's `CF1` & `SEL` pins are not connected to the MCU, thus this meter only 
 
 ## Flashing
 
-No need to solder to flash this device. All the pins required for flashing are available on the header that connects the plate to the base. 
-Use thinner solid core wires (f.e. salvaged from Ethernet cables) and insert them in the pin header (Dupont or breadboard wires are too thick).
+No need to solder to flash this device. All the pins required for flashing are available on the header that connects the plate to the base. Use thinner solid core wires (eg. salvaged from Ethernet cables) and insert them in the pin header (Dupont or breadboard wires are too thick).
 
 Steps:
 
