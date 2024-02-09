@@ -106,6 +106,9 @@ esphome:
   ...
   platformio_options:
     build_unflags: -Werror=all
+  on_boot:
+    - lambda: |-
+        id(tft_touch).set_calibration(0, 239, 0, 319);
 
 esp32:
   board: esp-wrover-kit
