@@ -206,6 +206,7 @@ sensor:
 
 touchscreen:
   - platform: ft63x6
+    id: tft_touch
 #    calibration:
 #      x_min: 0
 #      x_max: 240
