@@ -221,7 +221,7 @@ display:
     dimensions:
       width: 240
       height: 320
-    transform: 
+    transform:
       swap_xy: false
       mirror_x: true
       mirror_y: true
