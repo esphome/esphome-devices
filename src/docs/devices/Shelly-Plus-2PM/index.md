@@ -133,7 +133,7 @@ binary_sensor:
 
 sensor:
   # Power Sensor
-  - platform: ade7953
+  - platform: ade7953_i2c
     irq_pin: GPIO27
     voltage:
       name: "${devicename} Voltage"
@@ -423,7 +423,7 @@ sensor:
     update_interval: 60s
 
   #power monitoring
-  - platform: ade7953
+  - platform: ade7953_i2c
     irq_pin: GPIO27 # Prevent overheating by setting this
     voltage:
       name: "${upper_devicename} Voltage"
