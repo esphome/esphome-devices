@@ -98,6 +98,8 @@ Once the serial connections are made, you can erase flash, power-cycle the board
 
 You can follow this [flashing guide](https://blakadder.com/lanbon-L8-custom-firmware/) on [blakadder.com](https://blakadder.com) or [this discussion post](https://github.com/HASwitchPlate/openHASP/discussions/76) with instructions and photos to flash the firmware without having to open the device.
 
+With this example configuration, after you connect the device to your network, the IP address will be shown on top of the screen. Long-pressing will draw red dots, this demonstrates the functionality of the touch screen.
+
 ## Example Configuration for 3-gang version L8-HS
 
 ```yml
@@ -105,9 +107,6 @@ esphome:
   ...
   platformio_options:
     build_unflags: -Werror=all
-  on_boot:
-    - lambda: |-
-        id(tft_touch).set_calibration(0, 239, 0, 319);
 
 esp32:
   board: esp-wrover-kit
@@ -203,36 +202,26 @@ sensor:
       - throttle: 1s
       - multiply: 0.0813287514318442  # Calibration may be needed
 
-touchscreen:
-  - platform: ft63x6
-    id: tft_touch
-#    calibration:
-#      x_min: 0
-#      x_max: 240
-#      y_min: 0
-#      y_max: 320
-    on_touch:
-      - logger.log:
-          format: Touch %d detected at (%d, %d)
-          args: [touch.id, touch.x, touch.y]
-    on_update:
-      - logger.log:
-          format: Touch updated
-    on_release:
-      - logger.log:
-          format: Touch released
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+      id: txt_ip
+
 font:
   - file: "gfonts://Roboto"
     id: roboto
-    size: 20
+    size: 22
+    bpp: 4
 
 display:
   - platform: ili9xxx
     model: st7789v
+    id: tft_display
     dimensions:
       width: 240
       height: 320
-    transform:
+    transform: 
       swap_xy: false
       mirror_x: true
       mirror_y: true
@@ -240,14 +229,23 @@ display:
     cs_pin: GPIO22
     dc_pin: GPIO21
     reset_pin: GPIO18
-    update_interval: 5s
-    auto_clear_enabled: true
+    auto_clear_enabled: false
     invert_colors: false
+    update_interval: 1s
     lambda: |-
-      it.print(0, 0, id(roboto), Color(128, 128, 128), "TOP_LEFT");
+      it.printf(0, 0, id(roboto), Color(128, 128, 128), "%s", id(txt_ip).state.c_str(), display::COLOR_OFF);
       auto touch = id(tft_touch)->get_touch();
       if (touch) // or touch.has_value()
-        it.filled_circle(touch.value().x, touch.value().y, 10, Color(255, 0, 0));
+        it.filled_circle(touch.value().x, touch.value().y, 7, Color(255, 0, 0));
+
+touchscreen:
+  - platform: ft63x6
+    id: tft_touch
+    display: tft_display
+    update_interval: 50ms
+    calibration:
+      x_max: 240
+      y_max: 320
 ```
 
 To calibrate the power values measured by the `pulse_meter` sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with `1`, and flash the device. Turn on the load and observe the reading on your external power meter and the value reported by the sensor. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
