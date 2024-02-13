@@ -9,7 +9,7 @@ difficulty: 4
 
 ![Strong Helo PLUSB 2x USB Power Monitoring Plug](strong_HELO-PLUSB-EU.webp "HELO-PLUSB-EU")
 
-This plug has a socket output switched by a relay and a separately switchable dual USB power output. Has a rubber edge around the front face, and a push button above the socket. A red LED under the button switches on with the relay, and a blue one can freely configured. It contains a TYWE3S module and a BL0937 power monitoring chip.
+This plug has a socket output switched by a relay and a separately switchable dual USB power output. Has a rubber edge around the front face, and a push button above the socket. A red LED under the button switches on with the relay, and a blue one can be freely configured. It contains a TYWE3S module and a BL0937 power monitoring chip.
 
 ## GPIO Pinout
 
@@ -47,7 +47,7 @@ esphome:
   comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
-  esp8266_restore_from_flash: True
+  esp8266_restore_from_flash: true
 
 sensor:
   - platform: hlw8012
@@ -84,7 +84,7 @@ binary_sensor:
         - ON for at most 1s
       then:
         - switch.toggle:
-            id: switch_out
+            id: switch_skt
     - timing: #long press to toggle USB power output
         - ON for at least 1s
       then:
@@ -105,7 +105,7 @@ switch:
     icon: mdi:power-socket-de
     restore_mode: RESTORE_DEFAULT_OFF
     output: relay1
-    id: switch_out
+    id: switch_skt
   - platform: output
     name: ${friendly_name} USB
     icon: mdi:usb-port
@@ -120,7 +120,7 @@ switch:
 light:
   - platform: status_led
     id: onboard_led
-    internal: True
+    internal: true
     pin:
       number: GPIO13
       inverted: true
