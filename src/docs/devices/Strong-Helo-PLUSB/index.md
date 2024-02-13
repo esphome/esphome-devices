@@ -7,9 +7,11 @@ board: esp8266
 difficulty: 4
 ---
 
-## GPIO Pinout
+![Strong Helo PLUSB 2x USB Power Monitoring Plug](strong_HELO-PLUSB-EU.webp "HELO-PLUSB-EU")
 
 This plug contains a TYWE3S module and a BL0937 power monitoring chip. It has a socket output switched by a relay and a separately switchable dual USB power output.
+
+## GPIO Pinout
 
 | Pin    | Function                           |
 | ------ | ---------------------------------- |
@@ -21,16 +23,12 @@ This plug contains a TYWE3S module and a BL0937 power monitoring chip. It has a 
 | GPIO14 | Relay 1 (socket)                   |
 | GPIO15 | Relay 2 (USB power)                |
 
-
 ## Initial Setup
 
 Remove the 4 screws at the back of the device. Requires triangular bit to unscrew case, but Torx 7 also works. Remove the daughterboard by unscrewing the interal screws. The daughter-board is held by 3 internal smaller screws, remove that too, but be careful as wires are short. No need to remove the main board, as the MCU is on the daughter-board. Disconnect the internal cable connecting the two.
 
 The TYWE3S module is ESPH8266-based, so it can be flashed directly with ESPHome. You need to solder your USB-TTL adapter to the RX, TX, GND and 3V3 pins, then just hold down the onboard button while powering on the adapter to put it into bootloader mode. When only the red LED lights up, the board is in bootloader mode.
 
-## Product Images
-
-![Strong Helo PLUSB 2x USB Power Monitoring Plug](strong_HELO-PLUSB-EU.webp "HELO-PLUSB-EU")
 ![HELO-PLUSB-EU MCU](mcu_pinout.jpg "HELO-PLUSB-EU MCU Pinout")
 
 ## Basic Configuration
