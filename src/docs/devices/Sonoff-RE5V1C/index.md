@@ -51,7 +51,6 @@ difficulty: 2
 | GPIO03 | ERX    | U0RXD   |
 | GPIO01 | ETX    | U0TXD   |
 
-
 ## Board Configuration
 
 ```yaml
