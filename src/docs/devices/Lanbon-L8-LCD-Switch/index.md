@@ -31,7 +31,7 @@ Choose a model that works with Apple HomeKit (has this sticker on) because those
 - Dimmable backlight (PWM)
 - Mood LEDS (PWM, not uniform)
 - Built-in PSU, input voltage 110-250V ~ 50-60Hz AC
-- Energy monitoring
+- Energy monitoring (not all revisions)
 - Standard wallmount form factor both EU and US
 
 ![Lanbon L8 dimensions](lanbon-l8-dimensions.png "Lanbon L8 dimensions")
@@ -46,7 +46,7 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 |--------|---------------------------|
 | GPIO22 | SPI (Display) CS          |
 | GPIO21 | SPI (Display) DC          |
-| GPIO18 | Display Reset             |
+| GPIO18 | Reset (Display)           |
 | GPIO19 | SPI (Display) CLK         |
 | GPIO23 | SPI (Display) MOSI        |
 | GPIO25 | SPI (Display) MISO        |
@@ -56,9 +56,9 @@ Although the moodlight goes nicely around the case, coloring is not uniform, and
 | GPIO26 | Moodlight Red (PWM out)   |
 | GPIO32 | Moodlight Green (PWM out) |
 | GPIO33 | Moodlight Blue (PWM out)  |
-| GPIO35 | CF HLW8012                |
+| GPIO35 | HLW8012 (CF)              |
 
-HLW8012's `CF1` & `SEL` pins are not connected to the MCU, thus this meter only provides pulses depending of Power. Voltage and Current measurement is not possible.
+Hardware revisions having energy monitoring are equipped with HLW8012 chip where `CF1` & `SEL` pins are not connected to the MCU, thus this meter only provides pulses depending of Power. Voltage and Current measurement is not possible.
 
 ### 3-gang version L8-HS
 
