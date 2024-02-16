@@ -18,11 +18,13 @@ I bought it from: https://www.aliexpress.com/item/1005001906928377.html (no affi
 
 Search for more: https://www.aliexpress.com/wholesale?SearchText=esp-12f+ac90-250v+relay+4+channel
 
+A more detailed manual: https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf
+
 ## GPIO Pinout
 
 This board has headers for every GPIO pin on its ESP-12F.
 
-| Pin   | Comment                                                 |
+| J8 Pin | Comment                                                 |
 | ----- | ------------------------------------------------------- |
 | 5V    | Do not use 5V for programming                           |
 | TX    | 3.3V level!                                             |
@@ -31,7 +33,7 @@ This board has headers for every GPIO pin on its ESP-12F.
 | GND   |                                                         |
 | GND   |                                                         |
 
-| Pin    | Comment                                 |
+| J7 Pin | Comment                                 |
 | ------ | --------------------------------------- |
 | 3V3    | For programming, inject 3.3V power here |
 | 3V3    | For programming, inject 3.3V power here |
@@ -47,14 +49,14 @@ This board has headers for every GPIO pin on its ESP-12F.
 | GPIO15 | 3.3V level                              |
 | GND    |                                         |
 
-| Pin    | Comment                               |
-| ------ | ------------------------------------- |
-| ADC    | 0V-1V only                            |
-| EN     | Pulled up                             |
-| GPIO16 | Use a jumper to RY1 to enable Relay 1 |
-| GPIO14 | Use a jumper to RY2 to enable Relay 2 |
-| GPIO12 | Use a jumper to RY3 to enable Relay 3 |
-| GPIO13 | Use a jumper to RY4 to enable Relay 4 |
+| J6 Pin | Comment                               | J5 Pin |
+| ------ | ------------------------------------- | ------ |
+| ADC    | 0V-1V only                            | |
+| EN     | Pulled up                             | |
+| GPIO16 | Use a jumper to RY1 to enable Relay 1 | RY1 |
+| GPIO14 | Use a jumper to RY2 to enable Relay 2 | RY2 |
+| GPIO12 | Use a jumper to RY3 to enable Relay 3 | RY3 |
+| GPIO13 | Use a jumper to RY4 to enable Relay 4 | RY4 |
 
 ## Basic Config
 
