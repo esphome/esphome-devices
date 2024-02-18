@@ -106,7 +106,7 @@ binary_sensor:    # the button
 switch:          # the relay
   - platform: gpio
     pin: P6
-    name: "${name}"
+    name: ${name}
     id: relay
     restore_mode: always off   # default when power is turned on
     icon: mdi:power-socket-au
@@ -122,7 +122,7 @@ output:        # the light in the button
   - platform: gpio
     id: button_led
     pin: P26
-    restore_mode: always off   # default when power is turned on
+#    restore_mode: always off   # default when power is turned on
 
 #
 # PC191HA sensors - power monitoring and wifi signal
@@ -189,7 +189,7 @@ sensor:
     accuracy_decimals: 2
     update_interval: "30s"
     lambda: |-
-      return (id(${devicename}_power).state / id(${devicename}_voltage).state);
+      return (id(${device_name}_power).state / id(${device_name}_voltage).state);
     filters:  
       - skip_initial: 2
 
