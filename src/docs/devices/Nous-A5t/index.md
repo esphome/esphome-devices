@@ -166,7 +166,7 @@ sensor:
       unit_of_measurement: kWh
       filters:
         # Multiplication factor from W to kW is 0.001
-	# and multiple by 2.4 because of the voltage factor
+        # and multiple by 2.4 because of the voltage factor
         - multiply: 0.0024
         - throttle: 1s
       on_value:
