@@ -44,7 +44,7 @@ If you configure GPIO14 as switch and turn it on you get 30V input range.
 Tested by [Protoncek](https://community.home-assistant.io/u/Protoncek).
 
 Device return pure ADC readings, so need to multiply to get actual voltage.
-Highly probably linear approximation is not most accurate, but looks more or less acceptable.
+Linear approximation looks more or less acceptable.
 Possible multiply factors: 14.64 on 15V range, 30.64 on 30V range.
 
 ## Basic Configuration
