@@ -156,7 +156,7 @@ binary_sensor:
 # Right button
   - platform: gpio
     device_class: power
-    pin: 
+    pin:
       number: P24
       mode: INPUT
       inverted: True
