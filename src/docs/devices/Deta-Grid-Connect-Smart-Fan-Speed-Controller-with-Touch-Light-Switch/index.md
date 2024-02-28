@@ -3,7 +3,7 @@ title: Deta Grid Connect Smart Fan Speed Controller with Touch Light Switch
 date-published: 2021-02-02
 type: switch
 standard: au
-board: esp8266, bk72xx
+board: bk72xx
 ---
 
 ## General Information
