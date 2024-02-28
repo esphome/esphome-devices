@@ -177,6 +177,7 @@ light:
     red: mood_red
     green: mood_green
     blue: mood_blue
+    restore_mode: RESTORE_AND_OFF
 
   - platform: binary
     name: Relay 1
@@ -199,7 +200,7 @@ sensor:
     accuracy_decimals: 1
     filters:
       - filter_out: nan
-      - throttle: 1s
+      - throttle_average: 60s
       - multiply: 0.0813287514318442  # Calibration may be needed
 
 text_sensor:
