@@ -243,6 +243,7 @@ touchscreen:
     id: tft_touch
     display: tft_display
     update_interval: 50ms
+    threshold: 10
     calibration:
       x_max: 240
       y_max: 320
