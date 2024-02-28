@@ -50,7 +50,7 @@ Newer revision uses BK7231T controller on the Tuya [WB3S module](https://develop
 |    P26 |   Light Relay |
 |     P6 |   Fan Relay 1 |
 |     P7 |   Fan Relay 2 |
-|     P9 |   Fan Relay 3 | 
+|     P9 |   Fan Relay 3 |
 
 ## Getting it up and running
 
