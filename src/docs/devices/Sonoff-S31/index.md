@@ -69,16 +69,24 @@ sensor:
     current:
       name: "Sonoff S31 Current"
       accuracy_decimals: 1
+      filters:
+        - throttle_average: 60s
     voltage:
       name: "Sonoff S31 Voltage"
       accuracy_decimals: 1
+      filters:
+        - throttle: 60s
     power:
       name: "Sonoff S31 Power"
       accuracy_decimals: 1
       id: my_power
+      filters:
+        - throttle: 60s
   - platform: total_daily_energy
     name: "Sonoff S31 Daily Energy"
     power_id: my_power
+      filters:
+        - throttle: 60s
 
 switch:
   - platform: gpio
