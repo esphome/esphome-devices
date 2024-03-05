@@ -170,7 +170,6 @@ light:
     name: LCD Backlight
     id: display_backlight
     restore_mode: ALWAYS_ON
-    default_transition_length: 1s
 
   - platform: rgb
     name: Moodlight
@@ -208,12 +207,26 @@ text_sensor:
     ip_address:
       name: IP Address
       id: txt_ip
+```
 
+## Example display configuration using the classic graphics renderer
+
+```yml
 font:
   - file: "gfonts://Roboto"
     id: roboto
     size: 22
     bpp: 4
+
+touchscreen:
+  - platform: ft63x6
+    id: tft_touch
+    display: tft_display
+    update_interval: 50ms
+    threshold: 1
+    calibration:
+      x_max: 240
+      y_max: 320
 
 display:
   - platform: ili9xxx
@@ -238,16 +251,6 @@ display:
       auto touch = id(tft_touch)->get_touch();
       if (touch) // or touch.has_value()
         it.filled_circle(touch.value().x, touch.value().y, 7, Color(255, 0, 0));
-
-touchscreen:
-  - platform: ft63x6
-    id: tft_touch
-    display: tft_display
-    update_interval: 50ms
-    threshold: 10
-    calibration:
-      x_max: 240
-      y_max: 320
 ```
 
 To calibrate the power values measured by the `pulse_meter` sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with `1`, and flash the device. Turn on the load and observe the reading on your external power meter and the value reported by the sensor. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
