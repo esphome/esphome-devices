@@ -98,7 +98,7 @@ Once the serial connections are made, you can erase flash, power-cycle the board
 
 You can follow this [flashing guide](https://blakadder.com/lanbon-L8-custom-firmware/) on [blakadder.com](https://blakadder.com) or [this discussion post](https://github.com/HASwitchPlate/openHASP/discussions/76) with instructions and photos to flash the firmware without having to open the device.
 
-## Example Configuration for 3-gang version L8-HS
+## Example main configuration for 3-gang version (L8-HS)
 
 ```yml
 esphome:
