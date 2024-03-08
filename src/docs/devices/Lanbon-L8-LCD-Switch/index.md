@@ -102,7 +102,7 @@ To calibrate the power values measured by the `pulse_meter` sensor, use an exter
 
 ## Example configuration for 3-gang version (L8-HS)
 
-### With the classic graphics renderer
+### With classic graphics renderer
 
 With this example configuration, after you connect the device to your network, the IP address will be shown on top of the screen. Long-pressing will draw red dots, this demonstrates the functionality of the touch screen.
 
