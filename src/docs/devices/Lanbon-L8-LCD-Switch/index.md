@@ -98,7 +98,11 @@ Once the serial connections are made, you can erase flash, power-cycle the board
 
 You can follow this [flashing guide](https://blakadder.com/lanbon-L8-custom-firmware/) on [blakadder.com](https://blakadder.com) or [this discussion post](https://github.com/HASwitchPlate/openHASP/discussions/76) with instructions and photos to flash the firmware without having to open the device.
 
-## Example main configuration for 3-gang version (L8-HS)
+To calibrate the power values measured by the `pulse_meter` sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with `1`, and flash the device. Turn on the load and observe the reading on your external power meter and the value reported by the sensor. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
+
+## Example configuration for 3-gang version (L8-HS) using the classic graphics renderer
+
+With this example configuration, after you connect the device to your network, the IP address will be shown on top of the screen. Long-pressing will draw red dots, this demonstrates the functionality of the touch screen.
 
 ```yml
 esphome:
@@ -205,13 +209,7 @@ text_sensor:
     ip_address:
       name: IP Address
       id: txt_ip
-```
 
-## Example display configuration using the classic graphics renderer
-
-With this example configuration, after you connect the device to your network, the IP address will be shown on top of the screen. Long-pressing will draw red dots, this demonstrates the functionality of the touch screen.
-
-```yml
 font:
   - file: "gfonts://Roboto"
     id: roboto
@@ -252,5 +250,340 @@ display:
       if (touch) // or touch.has_value()
         it.filled_circle(touch.value().x, touch.value().y, 7, Color(255, 0, 0));
 ```
+## Example configuration for 3-gang version (L8-HS) using LVGL graphics renderer
 
-To calibrate the power values measured by the `pulse_meter` sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with `1`, and flash the device. Turn on the load and observe the reading on your external power meter and the value reported by the sensor. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
+With this example configuration, you'll get three toggle buttons on the screen each controlling the corresponding relay, labels displaying the Wi-Fi signal and the power levels, and the IP address. You'll also get a number component to set the idle time of the backlight, crossfading with the moodlight.
+
+```yml
+esphome:
+  ...
+  platformio_options:
+    build_unflags: -Werror=all
+
+esp32:
+  board: esp-wrover-kit
+  flash_size: 8MB
+  framework:
+    type: esp-idf
+    version: 5.0.2
+    platform_version: 6.3.2
+    sdkconfig_options:
+      COMPILER_OPTIMIZATION_SIZE: y
+
+psram:
+  mode: octal
+  speed: 80MHz
+
+spi:
+  clk_pin: GPIO19
+  mosi_pin: GPIO23
+  interface: hardware
+
+i2c:
+  sda: GPIO4
+  scl: 
+    number: GPIO0
+    ignore_strapping_warning: true
+  
+
+output:
+  - platform: ledc
+    id: backlight_output
+    frequency: 1220Hz
+    pin:
+      number: GPIO5
+      ignore_strapping_warning: true
+  - platform: ledc
+    id: mood_red
+    frequency: 1220Hz
+    pin:
+      number: GPIO26
+  - platform: ledc
+    id: mood_green
+    frequency: 1220Hz
+    pin:
+      number: GPIO32
+  - platform: ledc
+    id: mood_blue
+    frequency: 1220Hz
+    pin:
+      number: GPIO33
+
+  - id: relay_1_out
+    platform: gpio
+    pin: 
+      number: GPIO12
+      ignore_strapping_warning: true
+  - id: relay_2_out
+    platform: gpio
+    pin: GPIO14
+  - id: relay_3_out
+    platform: gpio
+    pin: GPIO27
+
+
+light:
+  - platform: monochromatic
+    output: backlight_output
+    name: Backlight
+    id: display_backlight
+    restore_mode: ALWAYS_ON
+    default_transition_length: 1s
+    on_state:
+      - if: # to ensure that crossfade happens, triggers at start of the transition
+          condition:
+            lambda: return id(display_backlight).remote_values.is_on();  # remote_values = target state
+          then:
+            - light.turn_off: 
+                id: display_moodlight
+                transition_length: 2s
+          else:
+            - light.turn_on: 
+                id: display_moodlight
+                transition_length: 2s
+
+
+  - platform: rgb
+    name: Moodlight
+    id: display_moodlight
+    red: mood_red
+    green: mood_green
+    blue: mood_blue
+    restore_mode: RESTORE_AND_OFF
+    default_transition_length: 1s
+
+switch:
+  - platform: lvgl
+    name: 'Relay 1'
+    widget: btn_relay_1
+    output_id: relay_1_out
+  - platform: lvgl
+    name: 'Relay 2'
+    widget: btn_relay_2
+    output_id: relay_2_out
+  - platform: lvgl
+    name: 'Relay 3'
+    widget: btn_relay_3
+    output_id: relay_3_out
+
+display:
+  - platform: ili9xxx
+    model: st7789v
+    id: tft_display
+    dimensions:
+      width: 240
+      height: 320
+    transform: 
+      swap_xy: false
+      mirror_x: true
+      mirror_y: true
+    data_rate: 80MHz
+    cs_pin: GPIO22
+    dc_pin: GPIO21
+    reset_pin: GPIO18
+    auto_clear_enabled: false
+    invert_colors: false
+    update_interval: never
+
+touchscreen:
+  - platform: ft63x6
+    id: tft_touch
+    display: tft_display
+    update_interval: 50ms
+    threshold: 1
+    calibration:
+      x_max: 240
+      y_max: 320
+    on_release:
+      - if:
+          condition: lvgl.is_paused
+          then:
+            - lvgl.resume:
+            - lvgl.widget.redraw:
+            - light.turn_on:
+                id: display_backlight
+                transition_length: 150ms
+            - light.turn_off: 
+                id: display_moodlight
+                transition_length: 500ms
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+      id: txt_ip
+      on_value:
+        - lvgl.label.update:
+            id: lbl_ipa
+            text: !lambda return x.c_str();
+
+sensor:
+  - platform: pulse_meter
+    name: Lanbon Power Consumption
+    id: sensor_pulse_meter
+    pin: GPIO35
+    unit_of_measurement: 'W'
+    device_class: power
+    state_class: measurement
+    internal_filter_mode: PULSE
+    accuracy_decimals: 1
+    filters:
+      - filter_out: nan
+      - throttle_average: 60s
+      - multiply: 0.0813287514318442  # Calibration may be needed
+    on_value: 
+      then:
+        - lvgl.label.update:
+            id: lbl_powerv
+            text: !lambda |-
+              static char buf[10];
+              snprintf(buf, 10, "%7.1fW", id(sensor_pulse_meter).get_state());
+              return buf;
+
+  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
+    name: "WiFi Signal dB"
+    id: wifi_signal_db
+    entity_category: "diagnostic"
+    on_value: 
+      then:
+        - lvgl.label.update:
+            id: lbl_wifiv
+            text: !lambda |-
+              static char buf[10];
+              snprintf(buf, 10, "%7.0fdBm", id(wifi_signal_db).get_state());
+              return buf;
+        
+number:
+  - platform: template
+    name: Backlight timeout
+    optimistic: true
+    id: display_timeout
+    unit_of_measurement: "s"
+    initial_value: 45
+    restore_value: true
+    min_value: 10
+    max_value: 1800
+    step: 5
+    mode: box
+
+lvgl:
+  touchscreens:
+    - touchscreen_id: tft_touch
+  displays:
+    - display_id: tft_display
+  buffer_size: 100%
+  on_idle:
+    timeout: !lambda "return (id(display_timeout).state * 1000);"
+    then:
+      - logger.log: "LVGL is idle"
+      - light.turn_on: 
+          id: display_moodlight
+          transition_length: 500ms
+      - light.turn_off:
+          id: display_backlight
+          transition_length: 1s
+      - lvgl.pause:
+  log_level: WARN
+  color_depth: 16
+
+  pages:
+    - id: local_controls
+      skip: false
+      pad_all: 0
+      widgets:
+      - label:
+          y: 15
+          align: TOP_MID
+          text_align: center
+          text: "ESPHome LVGL on Lanbon L8"
+      - btn:
+          x: 10
+          y: 50
+          width: 105
+          height: 70
+          checkable: true
+          id: btn_relay_1
+          widgets:
+            - label:
+                align: center
+                text_color: 0xFFFFFF
+                text_font: montserrat_18
+                text: 'Relay 1'
+      - btn:
+          x: 125
+          y: 50
+          width: 105
+          height: 70
+          checkable: true
+          id: btn_relay_2
+          widgets:
+            - label:
+                align: center
+                text_color: 0xFFFFFF
+                text_font: montserrat_18
+                text: 'Relay 2'
+      - btn:
+          x: 10
+          y: 135
+          width: 220
+          height: 70
+          checkable: true
+          id: btn_relay_3
+          widgets:
+            - label:
+                align: center
+                text_color: 0xFFFFFF
+                text_font: montserrat_18
+                text: 'Relay 3'
+
+      - label:
+          id: lbl_wifis
+          x: 15
+          y: 225
+          width: 220
+          height: 20
+          text: 'Wi-Fi signal:'
+
+      - label:
+          id: lbl_wifiv
+          x: 105
+          y: 225
+          width: 120
+          height: 20
+          text: '...dB'
+          text_align: right
+
+      - label:
+          id: lbl_powerc
+          x: 15
+          y: 255
+          width: 220
+          height: 20
+          text: 'Power consumption:'
+
+      - label:
+          id: lbl_powerv
+          x: 120
+          y: 255
+          width: 105
+          height: 20
+          text: '...W'
+          text_align: right
+
+      - label:
+          id: lbl_ipn
+          x: 15
+          y: 285
+          width: 220
+          height: 20
+          text: 'IP Address:'
+
+      - label:
+          id: lbl_ipa
+          x: 120
+          y: 285
+          width: 105
+          height: 20
+          text: '0.0.0.0'
+          text_align: right
+```
