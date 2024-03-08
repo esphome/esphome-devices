@@ -252,6 +252,7 @@ display:
       if (touch) // or touch.has_value()
         it.filled_circle(touch.value().x, touch.value().y, 7, Color(255, 0, 0));
 ```
+
 ### With LVGL graphics renderer
 
 With this example configuration, you'll get three toggle buttons on the screen each controlling the corresponding relay, labels displaying the Wi-Fi signal and the power levels, and the IP address. You'll also get a number component to set the idle time of the backlight, crossfading with the moodlight.
@@ -283,7 +284,7 @@ spi:
 
 i2c:
   sda: GPIO4
-  scl: 
+  scl:
     number: GPIO0
     ignore_strapping_warning: true
   
