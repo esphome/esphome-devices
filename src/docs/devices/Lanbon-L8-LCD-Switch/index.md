@@ -100,7 +100,9 @@ You can follow this [flashing guide](https://blakadder.com/lanbon-L8-custom-firm
 
 To calibrate the power values measured by the `pulse_meter` sensor, use an external power meter which is known to make correct measurements, and attach an ohmic load of about 70-100W (an incandescent bulb, or a small heater). In the config, replace the `multiply` value with `1`, and flash the device. Turn on the load and observe the reading on your external power meter and the value reported by the sensor. Your calibrated new `multiply` value will be external power meter measurement / the value reported.
 
-## Example configuration for 3-gang version (L8-HS) using the classic graphics renderer
+## Example configuration for 3-gang version (L8-HS)
+
+### With the classic graphics renderer
 
 With this example configuration, after you connect the device to your network, the IP address will be shown on top of the screen. Long-pressing will draw red dots, this demonstrates the functionality of the touch screen.
 
@@ -250,7 +252,7 @@ display:
       if (touch) // or touch.has_value()
         it.filled_circle(touch.value().x, touch.value().y, 7, Color(255, 0, 0));
 ```
-## Example configuration for 3-gang version (L8-HS) using LVGL graphics renderer
+### With LVGL graphics renderer
 
 With this example configuration, you'll get three toggle buttons on the screen each controlling the corresponding relay, labels displaying the Wi-Fi signal and the power levels, and the IP address. You'll also get a number component to set the idle time of the backlight, crossfading with the moodlight.
 
@@ -311,7 +313,7 @@ output:
 
   - id: relay_1_out
     platform: gpio
-    pin: 
+    pin:
       number: GPIO12
       ignore_strapping_warning: true
   - id: relay_2_out
@@ -330,18 +332,17 @@ light:
     restore_mode: ALWAYS_ON
     default_transition_length: 1s
     on_state:
-      - if: # to ensure that crossfade happens, triggers at start of the transition
+      - if:
           condition:
-            lambda: return id(display_backlight).remote_values.is_on();  # remote_values = target state
+            lambda: return id(display_backlight).remote_values.is_on();
           then:
-            - light.turn_off: 
+            - light.turn_off:
                 id: display_moodlight
                 transition_length: 2s
           else:
-            - light.turn_on: 
+            - light.turn_on:
                 id: display_moodlight
                 transition_length: 2s
-
 
   - platform: rgb
     name: Moodlight
@@ -373,7 +374,7 @@ display:
     dimensions:
       width: 240
       height: 320
-    transform: 
+    transform:
       swap_xy: false
       mirror_x: true
       mirror_y: true
@@ -403,7 +404,7 @@ touchscreen:
             - light.turn_on:
                 id: display_backlight
                 transition_length: 150ms
-            - light.turn_off: 
+            - light.turn_off:
                 id: display_moodlight
                 transition_length: 500ms
 
@@ -431,7 +432,7 @@ sensor:
       - filter_out: nan
       - throttle_average: 60s
       - multiply: 0.0813287514318442  # Calibration may be needed
-    on_value: 
+    on_value:
       then:
         - lvgl.label.update:
             id: lbl_powerv
@@ -444,7 +445,7 @@ sensor:
     name: "WiFi Signal dB"
     id: wifi_signal_db
     entity_category: "diagnostic"
-    on_value: 
+    on_value:
       then:
         - lvgl.label.update:
             id: lbl_wifiv
@@ -452,7 +453,7 @@ sensor:
               static char buf[10];
               snprintf(buf, 10, "%7.0fdBm", id(wifi_signal_db).get_state());
               return buf;
-        
+
 number:
   - platform: template
     name: Backlight timeout
@@ -476,7 +477,7 @@ lvgl:
     timeout: !lambda "return (id(display_timeout).state * 1000);"
     then:
       - logger.log: "LVGL is idle"
-      - light.turn_on: 
+      - light.turn_on:
           id: display_moodlight
           transition_length: 500ms
       - light.turn_off:
