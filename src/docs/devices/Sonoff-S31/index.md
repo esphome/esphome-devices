@@ -85,8 +85,8 @@ sensor:
   - platform: total_daily_energy
     name: "Sonoff S31 Daily Energy"
     power_id: my_power
-      filters:
-        - throttle: 60s
+    filters:
+      - throttle: 60s
 
 switch:
   - platform: gpio
