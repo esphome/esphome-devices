@@ -166,6 +166,7 @@ lock:
           - remote_transmitter.transmit_abbwelcome:
               source_address: 0x1001 # your indoor station address
               destination_address: 0x4001 # door address
+              three_byte_address: false # address length of your system
               message_type: 0x0d # unlock door
               data: [0xab, 0xcd, 0xef]  # door opener secret code, see receiver dump
 
@@ -180,6 +181,7 @@ button:
       - remote_transmitter.transmit_abbwelcome:
           source_address: 0x1001 # your indoor station address
           destination_address: 0x2001 # outdoor station address
+          three_byte_address: false # address length of your system
           message_type: 0x02 # end call (stops your doorbell ringtone)
           data: [0x00]
 
