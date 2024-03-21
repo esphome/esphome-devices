@@ -75,18 +75,18 @@ wifi:
     ssid: ${friendly_name} Fallback Hotspot
     password: !secret wifi_ap_password
 captive_portal:
-    
+
 web_server:
   port: 80
   auth:
     username: !secret web_server_username
     password: !secret web_server_password
-    
+
 # Enable time component for use by daily power sensor
 time:
   - platform: homeassistant
     id: homeassistant_time
-    
+
 binary_sensor:
 # Button on the front is pressed and then toggle relay
   - platform: gpio
@@ -108,7 +108,6 @@ text_sensor:
     version:
       name: LibreTiny Version
 
-
 switch:
 # Relay itself
   - platform: gpio
@@ -122,7 +121,6 @@ switch:
     id: statusled
     restore_mode: RESTORE_DEFAULT_OFF 
     inverted: true
-
 
 #bootloop fix: https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433
 #https://esphome.io/components/sensor/hlw8012.html
@@ -145,8 +143,8 @@ sensor:
     initial_mode: CURRENT
     change_mode_every: 8
     current_resistor: ${current_res}
-    voltage_divider: ${voltage_div} 
-   # Reports the total Power so-far each day, resets at midnight, see https://esphome.io/components/sensor/total_daily_energy.html
+    voltage_divider: ${voltage_div}
+# Reports the total Power so-far each day, resets at midnight, see https://esphome.io/components/sensor/total_daily_energy.html
   - platform: total_daily_energy
     name: Total Daily Energy
     icon: mdi:circle-slice-3
