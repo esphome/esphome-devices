@@ -112,7 +112,7 @@ text_sensor:
 switch:
 # Relay itself
   - platform: gpio
-    name: ${friendly_name}
+    name: Relay
     pin: PA15
     id: relay
     restore_mode: RESTORE_DEFAULT_OFF
