@@ -55,7 +55,7 @@ substitutions:
   devicename: smartplug
   friendly_name: t102-v1.1-2
   device_description: Digitaling 20A Power Monitor RTL8710BX t102-v1.1
-  current_res: "0.002" # Power monitoring calibration https://esphome.io/components/sensor/hlw8012.html
+  current_res: "0.001" # Power monitoring calibration https://esphome.io/components/sensor/hlw8012.html
   voltage_div: "1600" # Power monitoring calibration
 
 
