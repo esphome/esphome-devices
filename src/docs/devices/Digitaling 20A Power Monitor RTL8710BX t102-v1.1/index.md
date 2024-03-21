@@ -25,6 +25,8 @@ Flash: GD25Q16ETIG  2 M x 8 NOR Flash
 
 Power Sensor: BL0937
 
+Relay: [JIEYING  JY3FF-S-DC5V-A(K)](https://www.lcsc.com/datasheet/lcsc_datasheet_2309121625_JIEYING-RELAY-JY3FF-S-DC5V-A-K_C17702442.pdf)
+
 ## Flashing
 
 Hook up 3v3 and GND
