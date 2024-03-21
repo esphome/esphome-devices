@@ -21,6 +21,8 @@ McuBoard: T102_V1.1
 
 MCU: RTL8710BX
 
+Flash: GD25Q16ETIG  2 M x 8 NOR Flash
+
 Power Sensor: BL0937
 
 ## Flashing
