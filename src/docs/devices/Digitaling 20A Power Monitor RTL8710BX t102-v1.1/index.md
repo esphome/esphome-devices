@@ -9,7 +9,7 @@ Bought from: https://de.aliexpress.com/item/1005005374840269.html
 
 Board/Pinout: https://docs.libretiny.eu/boards/t102-v1.1/#pinout
 
-Pictures: https://www.elektroda.com/rtvforum/topic4032920.html
+Pictures: https://www.elektroda.com/rtvforum/topic4032920.html (Pinout picture is off, uart2 is on the two unconnected pads labled 0/12.)
 
 Due to a bug the board w2 needs to be selected for the relay to work:
 Due to another bug you need to apply this fix to platforms\libretiny@1.4.1\cores\realtek-amb\arduino\src\wiring_irq.c https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433
