@@ -5,6 +5,7 @@ type: relay
 standard: EU
 board: t102-v1.1-2
 ---
+
 Bought from: https://de.aliexpress.com/item/1005005374840269.html
 
 Board/Pinout: https://docs.libretiny.eu/boards/t102-v1.1/#pinout
@@ -15,11 +16,14 @@ Due to a bug the board w2 needs to be selected for the relay to work:
 Due to another bug you need to apply this fix to platforms\libretiny@1.4.1\cores\realtek-amb\arduino\src\wiring_irq.c https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433
 
 ## Flashing
+
 Hook up 3v3 and GND
 
 Connect TX2 and RX2 to serial interface.
 
 Short TX2 to GND during power on, then flash via ltchiptool. https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/
+
+Can be flashed in-place without desoldering.
 
 ## GPIO Pinout
 
