@@ -95,7 +95,7 @@ binary_sensor:
       number: PA18
       mode: INPUT_PULLUP
       inverted: True
-    name: Button 
+    name: Button
     on_press:
       - switch.toggle: relay
       - switch.toggle: statusled
@@ -119,7 +119,7 @@ switch:
     name: statusled
     pin: PA05
     id: statusled
-    restore_mode: RESTORE_DEFAULT_OFF 
+    restore_mode: RESTORE_DEFAULT_OFF
     inverted: true
 
 #bootloop fix: https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433
@@ -151,7 +151,7 @@ sensor:
     power_id: power
     filters:
       - multiply: 0.001
-    unit_of_measurement: kWh   
+    unit_of_measurement: kWh
     state_class: total_increasing
     device_class: energy
 ```
