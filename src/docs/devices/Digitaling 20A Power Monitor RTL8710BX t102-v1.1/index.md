@@ -1,9 +1,9 @@
 ---
 title: Digitaling 20A Power Monitor RTL8710BX t102-v1.1
 date-published: 2024-03-21
-type: relay
+type: plug
 standard: EU
-board: t102-v1.1-2
+board: rtl87xx
 ---
 
 Bought from: [Aliexpress](https://de.aliexpress.com/item/1005005374840269.html)
@@ -14,6 +14,14 @@ Pictures: [elektroda.com](https://www.elektroda.com/rtvforum/topic4032920.html) 
 
 Due to a bug the board w2 needs to be selected for the relay to work:
 Due to another bug you need to apply this fix to platforms\libretiny@1.4.1\cores\realtek-amb\arduino\src\wiring_irq.c https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433
+
+## Chips used
+
+McuBoard: T102_V1.1
+
+MCU: RTL8710BX
+
+Power Sensor: BL0937
 
 ## Flashing
 
