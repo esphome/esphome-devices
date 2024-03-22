@@ -23,7 +23,7 @@ MCU: RTL8710BX
 
 Flash: GD25Q16ETIG  2 M x 8 NOR Flash
 
-Power Sensor: [BL0937](https://docs.libretiny.eu/boards/t102-v1.1/)
+Power Sensor: [BL0937](https://developer.tuya.com/en/docs/iot-device-dev/Electricity-statistics?id=Kaunfo4am6icc)
 
 Relay: [JIEYING  JY3FF-S-DC5V-A(K)](https://www.lcsc.com/datasheet/lcsc_datasheet_2309121625_JIEYING-RELAY-JY3FF-S-DC5V-A-K_C17702442.pdf)
 
