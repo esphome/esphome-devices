@@ -48,6 +48,15 @@ Can be flashed in-place without desoldering.
 | PA15   | Relay & LED2                |
 | PA18   | Button  (Inverted)          |
 
+## platformio.ini
+
+```ini
+[env:wr2]
+platform = libretiny
+board = wr2
+framework = arduino
+```
+
 ## Basic Configuration
 
 ```yaml
