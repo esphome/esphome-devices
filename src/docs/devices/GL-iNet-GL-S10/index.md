@@ -1,6 +1,6 @@
 ---
 title: GL-iNet GL-S10
-date-published: 2024-08-02
+date-published: 2024-02-08
 type: misc
 standard: global
 difficulty: 3
