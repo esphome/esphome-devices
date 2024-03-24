@@ -1,6 +1,6 @@
 ---
 title: Hegg Dongle / EARN-E energiemonitor
-date-published: 2024-01-28
+date-published: 2024-03-24
 type: misc
 standard: eu
 board: esp8266
