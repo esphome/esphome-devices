@@ -1,6 +1,6 @@
 ---
 title: Arlec 10m Smart Extension Lead Plug (AEL10HA)
-date-published: 2024-04-21
+date-published: 2024-03-21
 type: switch
 standard: au
 board: esp8266
