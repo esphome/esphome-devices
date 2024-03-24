@@ -20,7 +20,7 @@ Search for more: https://www.aliexpress.com/wholesale?SearchText=esp-12f+ac90-25
 
 A more detailed manual: https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf
 
-The board uses GPIO16 for RXD so it will always be briefly be powered on at boot, unforetunately this is also the pin the board is setup to use for relay1. If this brief power-on isn't an issue, you can continue to use GPIO16 or you can run a longer jumper over to a pin such as GPIO15. 
+The board uses GPIO16 for RXD so it will always be briefly be powered on at boot, unforetunately this is also the pin the board is setup to use for relay1. If this brief power-on isn't an issue, you can continue to use GPIO16 or you can run a longer jumper over to a pin such as GPIO15.
 
 ## GPIO Pinout
 
