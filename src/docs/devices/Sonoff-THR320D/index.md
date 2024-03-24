@@ -21,7 +21,7 @@ The main relay is bistable/latching, meaning a pulse on pin 1 switches the
 relay ON, and a pulse on pin 2 switches the relay OFF.
 These two pins should never be active at the same time, or the device will become dangerously hot in a few minutes.
 
-Note that until March 2024 there was an error in this page causing a safety issue: 
+Note that until March 2024 there was an error in this page causing a safety issue:
 The code was considering the relays GPIO as being active-low, when they are actually active-high. So the two main relay pins were stay simultaneously active most of the time, making the device dangerously hot.
 If you copied the old version of the code from here, please remove the ```inverted: True``` line for the relays and update your devices as soon as possible.
 
