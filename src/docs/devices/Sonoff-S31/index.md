@@ -121,6 +121,6 @@ status_led:
     inverted: True
 ```
 
-## Warning:
+## Warning
 
 `throttle_average` of cse7766 sensors is highly recommended with version 2024.2.0 or greater.
