@@ -18,9 +18,9 @@ The board can be powered either via 90-250VAC or via 7-12VDC, or via 5VDC from U
 
 All 5V inputs feed the same rail:
 
-  * the AC switchmode power supply
-  * the DC linear regulator
-  * the Micro-USB port
+* the AC switchmode power supply
+* the DC linear regulator
+* the Micro-USB port
 
 IMPORTANT: connect only one of the three power inputs at the same time!
 
