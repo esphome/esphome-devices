@@ -17,9 +17,10 @@ The relay has COM+NO+NC exposed. Print on relay says it can do 10A at 250VAC.
 The board can be powered either via 90-250VAC or via 7-12VDC, or via 5VDC from USB.
 
 All 5V inputs feed the same rail:
- * the AC switchmode power supply
- * the DC linear regulator
- * the Micro-USB port
+
+  * the AC switchmode power supply
+  * the DC linear regulator
+  * the Micro-USB port
 
 IMPORTANT: connect only one of the three power inputs at the same time!
 
