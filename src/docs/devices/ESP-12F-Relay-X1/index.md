@@ -25,6 +25,8 @@ IMPORTANT: connect only one of the three power inputs at the same time!
 
 The comon 5V rail feeds a 3.3V linear regulator.
 
+![picturte of LC-Relay-ESP12-1R-MV](LC-Relay-ESP12-1R-MV.jpg "LC-Relay-ESP12-1R-MV")
+
 ## GPIO Pinout
 
 This board has headers for every GPIO pin on its ESP-12F.
