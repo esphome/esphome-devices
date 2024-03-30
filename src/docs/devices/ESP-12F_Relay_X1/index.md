@@ -10,7 +10,7 @@ board: esp8266
 
 This is a 1-relay board based on ESP-12F, including AC and DC power supplies.
 
-The relay has COM+NO+NC exposed. Product descriptions don't seem to specify maximum load.
+The relay has COM+NO+NC exposed. Print on relay says it can do 10A at 250VAC.
 
 The board can be powered either via 90-250VAC or via 7-30VDC, or via 5VDC from USB (separate connectors).
 
