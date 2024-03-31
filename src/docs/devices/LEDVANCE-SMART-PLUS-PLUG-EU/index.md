@@ -144,7 +144,6 @@ sensor:
       inverted: true  # the logic of BL0937 is opposite from HLW8012
       number: P8
     update_interval: $update_interval_seconds # How often to measure and report values
-
     # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
     #     but it can change the value of sel_pin periodically 
     initial_mode: "VOLTAGE"             # reports VOLTAGE or CURRENT
