@@ -125,7 +125,7 @@ switch:
   # Switch to restart the plug
   - platform: restart
     name: ${friendly_name} Restart Switch
-      
+
 #
 # power monitoring
 #
@@ -145,7 +145,7 @@ sensor:
       number: P8
     update_interval: $update_interval_seconds # How often to measure and report values
 
-    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin, 
+    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
     #   but it can change the value of sel_pin periodically 
     initial_mode: "VOLTAGE"             # reports VOLTAGE or CURRENT
     change_mode_every: "4294967295"            # do NOT swap between reporting Volts or Amps (well, swap after 4000 years)
