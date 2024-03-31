@@ -146,7 +146,7 @@ sensor:
     update_interval: $update_interval_seconds # How often to measure and report values
 
     # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
-    #   but it can change the value of sel_pin periodically 
+    #     but it can change the value of sel_pin periodically 
     initial_mode: "VOLTAGE"             # reports VOLTAGE or CURRENT
     change_mode_every: "4294967295"            # do NOT swap between reporting Volts or Amps (well, swap after 4000 years)
         #   reporting Voltage or Current. Note that the first value reported should be ignored as inaccurate
