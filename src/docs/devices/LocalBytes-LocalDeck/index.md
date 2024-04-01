@@ -6,6 +6,7 @@ standard: uk,eu,us,global
 board: esp32
 project-url: https://github.com/LocalBytes/localdeck-config/blob/main/packages/localdeck-codegen/esphome-localdeck.yaml
 difficulty: 1
+made-for-esphome: False # Pending Approval  
 ---
 
 ![alt text](LocalBytes-LocalDeck.png "LocalBytes LocalDeck")
