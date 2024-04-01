@@ -14,7 +14,6 @@ Maker: https://mylocalbytes.com/
 
 Preflashed with ESPHome
 
-
 The LocalDeck keypad lets you control your smart home in one convenient place.  
 With 24 buttons – customisable and RGB backlit – this keypad makes controlling your home easy and instant for the whole family. (Yes, even your significant other).  
 And we’re just going to say it – it looks pretty cool.  
