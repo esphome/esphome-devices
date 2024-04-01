@@ -28,7 +28,7 @@ voltage_divider and current_resistor are estimated.
 ## Basic Configuration
 
 ```yaml
-# Globe Electric 50329 smart plug
+# LEDVANCE SMART+ PLUG EU
 substitutions:
   device_name: ledvance-smart-plug
   device_name_letters: ledvancesmartplug
