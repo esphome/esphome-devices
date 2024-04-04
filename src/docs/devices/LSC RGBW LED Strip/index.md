@@ -1,5 +1,5 @@
 ---
-title: LSC RGBW LED Strip
+title: LSC-RGBW-LED-Strip
 date-published: 2024-04-04
 type: light
 board: esp8266
