@@ -95,7 +95,6 @@ To gain individual control of button LEDs, remove specific diodes and solder a w
 
 ### 1 & 2 Gang Configuration for the BK72XX configurations
 
-
 ```yaml
 substitutions:
   devicename: "deta-double-gang"
