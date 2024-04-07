@@ -1,5 +1,5 @@
 ---
-title: King 3-Way Wall Switch
+title: King Smartlife 3-Way Wall Switch
 date-published: 2024-04-07
 type: switch
 standard: global
