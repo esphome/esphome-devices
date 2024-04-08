@@ -8,6 +8,9 @@ made-for-esphome: False
 difficulty: 4
 ---
 
+Copy
+![Inkbird ITC-306A](ITC306-A.png "Inkbird ITC-306A")
+
 The Inkbird ITC-306A is similar to ITC-308 (wireless temperature controller that comes in a variety of socket types) but designed for aquarium use and controls only the heater element.
 
 ## WiFi Modules
