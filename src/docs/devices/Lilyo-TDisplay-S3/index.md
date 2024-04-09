@@ -8,6 +8,7 @@ project-url: https://www.lilygo.cc/en-ca/products/t-display-s3
 ---
 
 ## Schematic
+
 ![TDisplay S3 Schematic](tdisplay-s3.webp "TDisplay S3 Schematic")
 
 ## Basic Configuration
@@ -44,12 +45,12 @@ wifi:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO0
       inverted: true
     name: "Button 1"
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO14
       inverted: true
     name: "Button 2"
