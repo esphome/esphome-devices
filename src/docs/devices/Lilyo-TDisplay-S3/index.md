@@ -7,6 +7,9 @@ board: esp32s3
 project-url: https://www.lilygo.cc/en-ca/products/t-display-s3
 ---
 
+## Schematic
+![TDisplay S3 Schematic](tdisplay-s3.webp "TDisplay S3 Schematic")
+
 ## Basic Configuration
 
 ```yaml
@@ -29,27 +32,15 @@ esp32:
     type: arduino
   flash_size: 16MB
 
-# Enable logging
 logger:
 
-# Enable Home Assistant API
 api:
 
 ota:
-  password: "6ada29f6f41ce1685d29d406efd25fa4"
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "S3 Fallback Hotspot"
-    password: "zQ9tuPKIfFMu"
-
-time:
-  - platform: homeassistant
-    id: ha_time
 
 binary_sensor:
   - platform: gpio
@@ -84,11 +75,6 @@ light:
 #     internal: true
 #     restore_mode: RESTORE_DEFAULT_ON
 
-font:
-  - file: "gfonts://Roboto"
-    id: roboto
-    size: 30
-
 display:
   - platform: tdisplays3
     id: disp
@@ -96,4 +82,15 @@ display:
     rotation: 270
     lambda: |-
       it.printf(20, 70, id(roboto), Color(255, 0, 0), id(ha_time).now().strftime("%Y-%m-%d %H:%M:%S").c_str());
+
+# Used for example above
+
+font:
+  - file: "gfonts://Roboto"
+    id: roboto
+    size: 30
+
+time:
+  - platform: homeassistant
+    id: ha_time
 ```
