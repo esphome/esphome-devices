@@ -13,6 +13,7 @@ Manufacturer: [tuya](https://expo.tuya.com/smart/lighting/ambient-lighting/star-
 - Original hardware mod: [3ATIVE VFX Studio](https://www.youtube.com/watch?v=YwHWbcuztuY&ab_channel=3ATIVEVFXStudio)
   - [Github](https://github.com/3ative/nebula-Light)
 - Modified YAML by [kireque](https://github.com/kireque/esphome_nebula_light)
+- [Custom firmware flash instructions and esphome config for Tuya SK20 nebula light (no disassembly / soldering required)](https://github.com/M4GNV5/esphome-SK20-Nebula-Light)
 
 ## Hardware
 
