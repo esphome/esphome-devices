@@ -83,7 +83,7 @@ output:
     pin: PWM2
     # min_power: 14%
     # zero_means_zero: True
-    
+
 sensor:
   - platform: internal_temperature
     name: "Internal Temperature"
