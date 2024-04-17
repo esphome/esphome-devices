@@ -14,7 +14,7 @@ Smart ceiling light with a CCT center light (2800K-6500K) and an addressable RGB
 
 This device contains an unmarked Tuya module based on the BK7231N. If you plan to replace this module please carefully check the pinout of the new module and the supported functions of each pin. The ESP8266 (ESP-12F) is not compatible with this lamp.
 
-The included Bluetooth remote control is currently not compatible with ESPHome but this might change in the future. 
+The included Bluetooth remote control is currently not compatible with ESPHome but this might change in the future.
 
 ## Flashing
 
