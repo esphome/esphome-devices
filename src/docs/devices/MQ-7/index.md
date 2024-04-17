@@ -37,7 +37,7 @@ This will remove the digital output of the sensor and replace it with a digital 
 - Optional: Add the D0-LED you removed earlier, but with reversed polarity. It will show the status of the heater
 - Check the resistance between VCC and GND. It should be ~100Ω
 
-![Heater Mod](mq-7-heater-mod.webp "Heater Mod")
+[![Heater Mod](mq-7-heater-mod.webp "Heater Mod")](https://raw.githubusercontent.com/esphome/esphome-devices/main/src/docs/devices/MQ-7/mq-7-heater-mod.webp)
 
 ## ESPHome Config
 
