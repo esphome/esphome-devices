@@ -131,7 +131,7 @@ sensor:
   - platform: wifi_signal         # report wi-fi signal strength from this end
     name: $name WiFi Signal
     id:   ${device_name}_wifi_signal
-    update_interval: 30    # how often to report wifi signal strength
+    update_interval: 30s    # how often to report wifi signal strength
 
     # PC191HA includes a BL0937 chip for measuring power consumption
     #     and BL0937 is a variation of hlw8012, but using inverted SEL pin functionality
@@ -147,7 +147,7 @@ sensor:
       inverted: true  # the logic of BL0937 is opposite from HLW8012
       number: P8
 
-    update_interval: 15      # How often to measure and report values
+    update_interval: 15s      # How often to measure and report values
 
     # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
     #   but it can change the value of sel_pin periodically  
