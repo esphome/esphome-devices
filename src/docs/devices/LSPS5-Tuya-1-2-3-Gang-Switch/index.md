@@ -97,7 +97,7 @@ switch:
   - platform: gpio
     name: $devicename Switch 1
     pin: GPIO8
-    id: relay_2
+    id: relay_1
 
 binary_sensor:
   - platform: status
