@@ -88,7 +88,7 @@ sensor:
       name: "Sonoff S31 Energy"
       accuracy_decimals: 2
       filters:
-        - throttle_average: 60s
+        - throttle: 60s
     apparent_power: #(only available with version 2024.3.0 or greater)
       name: "Sonoff S31 Apparent Power"
       filters:
