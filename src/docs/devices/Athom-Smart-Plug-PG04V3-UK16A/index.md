@@ -113,7 +113,7 @@ globals:
 binary_sensor:
   - platform: status
     name: "Status"
-    entity_category: diagnostic    
+    entity_category: diagnostic
 
   - platform: gpio
     pin:
@@ -154,7 +154,7 @@ sensor:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
     unit_of_measurement: "%"
     entity_category: diagnostic
-    
+
   - platform: cse7766
     current:
       name: "Current"
@@ -293,14 +293,14 @@ text_sensor:
         return { (String(seconds) +"s").c_str() };
       }
     icon: mdi:clock-start
-    
+
 time:
   - platform: sntp
     id: sntp_time
   # Define the timezone of the device
     timezone: "${timezone}"
   # Change sync interval from default 5min to 6 hours
-    update_interval: 360min    
+    update_interval: 360min
   # Publish the time the device was last restarted
     on_time_sync:
       then:
