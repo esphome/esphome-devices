@@ -30,12 +30,9 @@ GPIO 15     |            |RST       |
 GPIO 33     |            |          |SDA
 GPIO 34     |            |          |SCL
 
-
-
 ## Basic Configuration
 
 ```yaml
-
 substitutions:
   device_name: "smart-powermeter"
   friendly_name: "Smart Powermeter"
@@ -65,7 +62,6 @@ api:
 # Enable Over The Air updates
 ota:
 
-
 #Public location of this yaml file
 dashboard_import:
   package_import_url: github://JGAguado/Smart_Powermeter/docs/source/files/configuration.yaml@V2R1
@@ -73,7 +69,6 @@ dashboard_import:
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
 captive_portal:
-
 
 improv_serial:
 
@@ -84,38 +79,37 @@ wifi:
     ssid: "${ap_ssid}"
     password: "${ap_pwd}"
 
-
-sensor:    
+sensor:
   - platform: adc
     pin: GPIO1
     id: Input_1
     attenuation: 11db
     update_interval: 1s
-    
+
   - platform: adc
     pin: GPIO2
     id: Input_2
     attenuation: 11db
     update_interval: 1s
-    
+
   - platform: adc
     pin: GPIO3
     id: Input_3
     attenuation: 11db
     update_interval: 1s
-    
+
   - platform: adc
     pin: GPIO4
     id: Input_4
     attenuation: 11db
     update_interval: 1s
-    
+
   - platform: adc
     pin: GPIO5
     id: Input_5
     attenuation: 11db
     update_interval: 1s
-    
+
   - platform: adc
     pin: GPIO6
     id: Input_6
@@ -132,7 +126,7 @@ sensor:
       - calibrate_linear:
           - 0 -> 0
           - 0.022 -> 0.66
-    
+
   - platform: ct_clamp
     sensor: Input_2
     name: "Probe 2"
@@ -143,7 +137,7 @@ sensor:
       - calibrate_linear:
           - 0 -> 0
           - 0.022 -> 0.66
-    
+
   - platform: ct_clamp
     sensor: Input_3
     name: "Probe 3"
@@ -154,7 +148,7 @@ sensor:
       - calibrate_linear:
           - 0 -> 0
           - 0.022 -> 0.66
-    
+
   - platform: ct_clamp
     sensor: Input_4
     name: "Probe 4"
@@ -187,7 +181,7 @@ sensor:
       - calibrate_linear:
           - 0 -> 0
           - 0.022 -> 0.66
-          
+
   - platform: total_daily_energy
     name: "Total Daily Power"
     power_id: current_power
@@ -196,15 +190,13 @@ sensor:
   - platform: template
     id: current_power
     name: "Measured Power"
-    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Power = Current * Voltage 
+    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Power = Current * Voltage
     unit_of_measurement: 'kW'
     update_interval: 5s
-
 
 spi:
   clk_pin: GPIO12
   mosi_pin: GPIO11  # Works on the e-paper
-
 
 display:
   - platform: waveshare_epaper
@@ -212,7 +204,7 @@ display:
     dc_pin: GPIO13
     busy_pin: GPIO14
     reset_pin: GPIO15
-    model: 2.90inv2    
+    model: 2.90inv2
     rotation: 270
     update_interval: 1min
     full_update_every: 1
