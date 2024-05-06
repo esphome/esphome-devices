@@ -91,7 +91,6 @@ binary_sensor:
     on_press:
       then:
         - switch.turn_on: ESP32_relay
-
 ```
 
 ## Enclosure
