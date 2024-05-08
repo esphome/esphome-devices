@@ -6,7 +6,7 @@ standard: uk, us, eu, au
 board: esp32
 ---
 
-![Shelly Plus 0-10V](shelly_plus_0_10V.jpg "Shelly Plus 0-10V")
+![Shelly Plus 0-10V](shelly_plus_0-10v_dimmer.jpeg "Shelly Plus 0-10V")
 
 ## GPIO Pinout
 
