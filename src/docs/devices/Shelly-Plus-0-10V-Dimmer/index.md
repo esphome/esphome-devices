@@ -19,7 +19,8 @@ board: esp32
 | GPIO26 | PWM (Inverted)              |
 | GPIO32 | NTC                         |
 
-The Shelly Plus 0-10V is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash)
+The Shelly Plus 0-10V is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash).
+
 The board is similar to the Shelly Plus 1 in pinout, but with an extra switch input and the PWM output instead of the relay.
 
 **Please Note: this device is a 0-10V SINKING controller for lightning (to be attached to a transformer, for example): don't expect to read 0-10V on the PWM output.**
