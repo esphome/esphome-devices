@@ -1,5 +1,8 @@
 # Sidebar navigation
 
+- label: 'Made for ESPHome'
+  link: '/made-for-esphome'
+
 - label: 'Device Type'
   items:
     - label: 'Dimmers'
