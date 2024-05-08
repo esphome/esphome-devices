@@ -1,9 +1,10 @@
 ---
 title: Shelly Plus 0-10V
 date-published: 2024-05-08
-type: light
+type: dimmer
 standard: uk, us, eu, au
 board: esp32
+difficulty: 2
 ---
 
 ![Shelly Plus 0-10V](shelly_plus_0-10v_dimmer.jpeg "Shelly Plus 0-10V")
@@ -31,7 +32,7 @@ Credit and thanks to
 
 - https://templates.blakadder.com/shelly_plus_0-10v_dimmer.html
 
-## Configuration as relay with overtemperature protection
+## Complete configuration
 
 ```yaml
 substitutions:
