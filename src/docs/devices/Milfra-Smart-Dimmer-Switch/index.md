@@ -8,7 +8,7 @@ board: bk72xx
 difficulty: 4
 ---
 
-![Milfra smart dimmer switch](Milfra-Dimmer-Front.jpg "Milfra dimmer front")(Milfra-Dimmer-Back.jpg "Milfra dimmer back")
+![Milfra smart dimmer switch](Milfra-Dimmer-Front.jpg "Milfra dimmer front")![Milfra smart dimmer switch](Milfra-Dimmer-Back.jpg "Milfra dimmer back")
 
 ## Overall description
 
