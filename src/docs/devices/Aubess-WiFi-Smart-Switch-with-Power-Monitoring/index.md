@@ -1,5 +1,5 @@
 ---
-title: Aubess WiFi Smart swith with Power Monitoring
+title: Aubess WiFi Smart Switch with Power Monitoring
 date-published: 2024-05-06
 type: switch
 standard: global
