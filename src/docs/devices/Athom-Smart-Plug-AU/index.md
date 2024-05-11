@@ -9,7 +9,7 @@ board: esp8266
 ![alt text](Athom-Plug-AU.png "Athom Smart Plug AU")
 Maker: https://www.athom.tech/
 
-Also on Aliexpress, with preflashed Tashmota or Homekit.
+Also on Aliexpress, with preflashed Tasmota or Homekit.
 
 ## GPIO Pinout
 
