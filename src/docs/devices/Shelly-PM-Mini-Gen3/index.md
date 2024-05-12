@@ -151,3 +151,17 @@ binary_sensor:
         pullup: true
 
 ```
+
+## Total Daily Energy Seonsor
+```yaml
+  - platform: total_daily_energy
+    name: 'Total Daily Energy'
+    power_id: bpower
+    icon: mdi:meter-electric
+    unit_of_measurement: 'kWh'
+    state_class: total_increasing
+    device_class: energy
+    accuracy_decimals: 3
+    filters:
+      - multiply: 0.001
+```
