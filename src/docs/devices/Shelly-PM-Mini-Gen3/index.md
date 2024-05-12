@@ -6,7 +6,7 @@ standard: uk, us, eu
 board: esp32
 difficulty: 4
 ---
-Generation 3 of Shelly Mini. With Powermeter.
+Generation 3 of Shelly Mini. With Powermeter. Flashsize is 8MB.
 
 ## GPIO Pinout
 
@@ -22,5 +22,14 @@ Generation 3 of Shelly Mini. With Powermeter.
 ## Serial Pinout
 
 The UART Pinout is the same as other Shelly Plus Mini.
+
+| Pin      | Colour       |
+| -------- | ------------ |
+| Reset    | Brown        |
+| 3v3      | Red          |
+| RX       | Blue         |
+| TX       | Yellow       |
+| BootSEL  | Purple       |
+| GND      | Black        |
 
 ![Shelly PM Mini Gen3](../Shelly-PM-Mini-Gen3/shelly_pm_mini_gen3_pcb_a.png "Shelly PM Mini Gen3")
