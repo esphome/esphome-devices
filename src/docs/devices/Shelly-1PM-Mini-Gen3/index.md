@@ -6,8 +6,8 @@ standard: uk, us, eu
 board: esp32
 difficulty: 4
 ---
-Generation 3 of Shelly Mini. With Powermeter, and Relay
 
+Generation 3 of Shelly Mini. With Powermeter, and Relay
 
 ## Serial Pinout
 | Pin      | Colour       |
@@ -21,7 +21,6 @@ Generation 3 of Shelly Mini. With Powermeter, and Relay
 
 The UART Pinout is the same as other Shelly Plus Mini.
 
-
 ## GPIO Pinout
 
 | Pin    | Function     |
@@ -33,7 +32,6 @@ The UART Pinout is the same as other Shelly Plus Mini.
 | GPIO6  | BL0942 TX    |
 | GPIO7  | BL0942 RX    |
 | GPIO10 | Switch       |
-
 
 ## Basic Configuration
 
@@ -55,7 +53,7 @@ esp32:
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
     advanced:
-      ignore_efuse_mac_crc: false      
+      ignore_efuse_mac_crc: false
 
 wifi:
   ssid: !secret wifi_ssid
@@ -126,7 +124,7 @@ sensor:
       id: bfreq
       accuracy_decimals: 2
       icon: mdi:cosine-wave
-      device_class: frequency      
+      device_class: frequency
     update_interval: 5s
 
 uart:
