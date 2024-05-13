@@ -54,7 +54,7 @@ esp32:
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
     advanced:
-      ignore_efuse_mac_crc: false      
+      ignore_efuse_mac_crc: false
 
 wifi:
   ssid: !secret wifi_ssid
