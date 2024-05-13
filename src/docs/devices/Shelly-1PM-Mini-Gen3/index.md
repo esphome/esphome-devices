@@ -10,6 +10,7 @@ difficulty: 4
 Generation 3 of Shelly Mini. With Powermeter, and Relay
 
 ## Serial Pinout
+
 | Pin      | Colour       |
 | -------- | ------------ |
 | Reset    | Brown        |
@@ -115,7 +116,7 @@ sensor:
       icon: mdi:transmission-tower
       device_class: power
     energy:
-      name: 'Energy'       
+      name: 'Energy'
       id: benergy
       icon: mdi:lightning-bolt
       device_class: energy
