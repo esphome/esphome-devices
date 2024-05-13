@@ -23,7 +23,6 @@ Generation 3 of Shelly Mini. With Relay, but no Powermeter.
 
 The UART Pinout is the same as other Shelly Mini.
 
-
 | Pin      | Colour       |
 | -------- | ------------ |
 | Reset    | Brown        |
@@ -34,8 +33,6 @@ The UART Pinout is the same as other Shelly Mini.
 | GND      | Black        |
 
 ![Shelly 1 Mini Gen3](../Shelly-1-Mini-Gen3/shelly_1_mini_gen3_pcb_a.png "Shelly 1 Mini Gen3")
-
-
 
 ## Basic Configuration
 
