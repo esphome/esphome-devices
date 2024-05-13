@@ -33,7 +33,6 @@ The UART Pinout is the same as other Shelly Plus Mini.
 | GPIO0 | LED          |
 | GPIO1 | Button       |
 
-
 ## Basic Configuration
 
 ```yaml
@@ -54,7 +53,7 @@ esp32:
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
     advanced:
-      ignore_efuse_mac_crc: false      
+      ignore_efuse_mac_crc: false
 
 wifi:
   ssid: !secret wifi_ssid
@@ -116,7 +115,7 @@ sensor:
       icon: mdi:transmission-tower
       device_class: power
     energy:
-      name: 'Energy'       
+      name: 'Energy'
       id: benergy
       icon: mdi:lightning-bolt
       device_class: energy
@@ -125,7 +124,7 @@ sensor:
       id: bfreq
       accuracy_decimals: 2
       icon: mdi:cosine-wave
-      device_class: frequency      
+      device_class: frequency
     update_interval: 5s
 
 uart:
@@ -153,6 +152,7 @@ binary_sensor:
 ```
 
 ## Total Daily Energy Seonsor
+
 ```yaml
   - platform: total_daily_energy
     name: 'Total Daily Energy'
