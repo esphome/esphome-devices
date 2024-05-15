@@ -46,10 +46,6 @@ esphome:
         id: doorbell_outdoor
         state: OFF
 
-external_components:
-  - source: github://pr#4642
-    components: [remote_base, remote_receiver]
-
 wifi:
   networks:
   - ssid: !secret wifi_ssid
@@ -76,7 +72,7 @@ remote_receiver:
   dump: [abbwelcome]
   filter: 8us
   tolerance:
-    mode: time
+    type: time
     value: 26us
   idle: 1500us
   buffer_size: 15kB
