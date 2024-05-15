@@ -91,5 +91,8 @@ binary_sensor:
     on_press:
       then:
         - switch.turn_on: ESP32_relay
-
 ```
+
+## Enclosure
+
+A 3D-printable case design for this board is available [here](https://github.com/clydebarrow/3dmodels/tree/main/ESP32%20Relay%20x1).

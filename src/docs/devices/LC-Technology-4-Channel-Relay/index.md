@@ -6,6 +6,7 @@ standard: eu
 board: esp8266
 ---
 
+Printable enclosure: https://www.printables.com/model/836453-lc-tech-4-relay-esp-01-enclosure
 
 ## Basic Configuration with standard switches
 

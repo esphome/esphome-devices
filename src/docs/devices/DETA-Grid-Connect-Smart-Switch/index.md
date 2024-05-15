@@ -18,7 +18,7 @@ Series 1 models could be OTA flashed using using tuya-convert.
 
 Recently purchased devices are using the Beken BK7231T microcontroller and can be OTA flashed using using Cloudcutter.
 
-[Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang switches.
+[Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang switches. Some 4 gang switches are on random Tuya firmware 1.1.5 and may need to use the “Lonsonho” brand “X804A 4 Gang Smart Wifi Switch” option in Cloudcutter, otherwise use the Deta single gang switch.
 
 ## Getting it up and running
 
@@ -93,9 +93,7 @@ To gain individual control of button LEDs, remove specific diodes and solder a w
 
 ## Configuration Examples
 
-### 1 & 2 Gang Configuration
-
-### **Only 1 & 2 gang configs updated for the BK72XX configurations.**
+### 1 & 2 Gang Configuration for the BK72XX configurations
 
 ```yaml
 substitutions:
@@ -188,9 +186,155 @@ binary_sensor:
     internal: True
 ```
 
-### 3 Gang Configuration
+### 3 Gang Configuration for BK72XX (Series 2)
 
-> **Note**: Not updated for BK72XX.
+```yaml
+substitutions:
+  devicename: "deta-triple-gang-switch"
+  friendlyname: Deta Triple Gang Switch
+  friendlyname_1: Light 1
+  friendlyname_2: Light 2
+  friendlyname_3: Light 3
+  deviceid: deta_triple_gang
+  deviceicon: "mdi:light-recessed"
+  devicemodel: Deta Grid Connect Triple Gang 6903HA Series 2
+
+#################################
+esphome:
+  name: ${devicename}
+
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "ESPHOME"
+    password: "123456"
+
+#################################
+
+logger:
+
+web_server:
+
+captive_portal:
+
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: ${friendlyname} Wifi Signal Strength
+    update_interval: 60s
+  - platform: uptime
+    name: ${friendlyname} Uptime
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${friendlyname} IP
+    ssid:
+      name: ${friendlyname} SSID
+    bssid:
+      name: ${friendlyname} BSSID
+    mac_address:
+      name: ${friendlyname} Mac
+
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
+status_led:
+  pin:
+    number: P1
+    inverted: true
+
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
+output:
+  # Relay 1
+  - platform: gpio
+    id: relay_1
+    pin: P8
+  # Relay 2
+  - platform: gpio
+    id: relay_2
+    pin: P26  
+  # Relay 3
+  - platform: gpio
+    id: relay_3
+    pin: P24
+
+## ------------ ##
+##    Lights    ##
+## ------------ ##
+light:
+  # Light 1
+  - platform: binary
+    name: ${friendlyname_1}
+    icon: ${deviceicon}
+    output: relay_1
+    id: light_1
+
+  # Light 2
+  - platform: binary
+    name: ${friendlyname_2}
+    icon: ${deviceicon}
+    output: relay_2
+    id: light_2
+
+   # Light 3
+  - platform: binary
+    name: ${friendlyname_3}
+    icon: ${deviceicon}
+    output: relay_3
+    id: light_3
+
+## ----------------- ##
+##      Buttons      ##
+## ----------------- ##
+binary_sensor:
+  # Button 1
+  - platform: gpio
+    id: button_1
+    pin:
+      number: P14
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_1
+    internal: True
+
+  # Button 2
+  - platform: gpio
+    id: button_2
+    pin:
+      number: P9
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_2
+    internal: True
+
+    # Button 3
+  - platform: gpio
+    id: button_3
+    pin:
+      number: P10
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_3
+    internal: True
+```
+
+### 3 Gang Configuration for ESP
 
 ```yaml
 substitutions:
@@ -320,7 +464,179 @@ switch:
     name: "${friendly_name} REBOOT"
 ```
 
-### 4 Gang Configuration
+### 4 Gang Configuration for BK72XX (Series 2)
+
+```yaml
+substitutions:
+  devicename: "deta-quad-gang-switch"
+  friendlyname: Deta Quad Gang Switch
+  friendlyname_1: Light 1
+  friendlyname_2: Light 2
+  friendlyname_3: Light 3
+  friendlyname_4: Light 4
+  deviceid: deta_quad_gang
+  deviceicon: "mdi:light-recessed"
+  devicemodel: Deta Grid Connect Quad Gang 6904HA Series 2
+
+#################################
+esphome:
+  name: ${devicename}
+
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "ESPHOME"
+    password: "123456"
+
+#################################
+
+logger:
+
+web_server:
+
+captive_portal:
+
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: ${friendlyname} Wifi Signal Strength
+    update_interval: 60s
+  - platform: uptime
+    name: ${friendlyname} Uptime
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${friendlyname} IP
+    ssid:
+      name: ${friendlyname} SSID
+    bssid:
+      name: ${friendlyname} BSSID
+    mac_address:
+      name: ${friendlyname} Mac
+
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
+status_led:
+  pin:
+    number: P1
+    inverted: true
+
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
+output:
+  # Relay 1
+  - platform: gpio
+    id: relay_1
+    pin: P8
+  # Relay 2
+  - platform: gpio
+    id: relay_2
+    pin: P26  
+  # Relay 3
+  - platform: gpio
+    id: relay_3
+    pin: P7
+  # Relay 4
+  - platform: gpio
+    id: relay_4
+    pin: P24
+
+## ------------ ##
+##    Lights    ##
+## ------------ ##
+light:
+  # Light 1
+  - platform: binary
+    name: ${friendlyname_1}
+    icon: ${deviceicon}
+    output: relay_1
+    id: light_1
+
+  # Light 2
+  - platform: binary
+    name: ${friendlyname_2}
+    icon: ${deviceicon}
+    output: relay_2
+    id: light_2
+
+   # Light 3
+  - platform: binary
+    name: ${friendlyname_3}
+    icon: ${deviceicon}
+    output: relay_3
+    id: light_3
+
+   # Light 4
+  - platform: binary
+    name: ${friendlyname_4}
+    icon: ${deviceicon}
+    output: relay_4
+    id: light_4
+
+## ----------------- ##
+##      Buttons      ##
+## ----------------- ##
+binary_sensor:
+  # Button 1
+  - platform: gpio
+    id: button_1
+    pin:
+      number: P14
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_1
+    internal: True
+
+  # Button 2
+  - platform: gpio
+    id: button_2
+    pin:
+      number: P9
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_2
+    internal: True
+
+    # Button 3
+  - platform: gpio
+    id: button_3
+    pin:
+      number: P6
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_3
+    internal: True
+
+    # Button 4
+  - platform: gpio
+    id: button_4
+    pin:
+      number: P10
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_4
+    internal: True
+```
+
+### 4 Gang Configuration for ESP
 
 > **Note**: Not updated for BK72XX.
 

@@ -106,7 +106,7 @@ binary_sensor:    # the button
 switch:          # the relay
   - platform: gpio
     pin: P6
-    name: "${name}"
+    name: ${name}
     id: relay
     restore_mode: always off   # default when power is turned on
     icon: mdi:power-socket-au
@@ -122,7 +122,7 @@ output:        # the light in the button
   - platform: gpio
     id: button_led
     pin: P26
-    restore_mode: always off   # default when power is turned on
+#    restore_mode: always off   # default when power is turned on
 
 #
 # PC191HA sensors - power monitoring and wifi signal
@@ -131,7 +131,7 @@ sensor:
   - platform: wifi_signal         # report wi-fi signal strength from this end
     name: $name WiFi Signal
     id:   ${device_name}_wifi_signal
-    update_interval: 30    # how often to report wifi signal strength
+    update_interval: 30s    # how often to report wifi signal strength
 
     # PC191HA includes a BL0937 chip for measuring power consumption
     #     and BL0937 is a variation of hlw8012, but using inverted SEL pin functionality
@@ -147,7 +147,7 @@ sensor:
       inverted: true  # the logic of BL0937 is opposite from HLW8012
       number: P8
 
-    update_interval: 15      # How often to measure and report values
+    update_interval: 15s      # How often to measure and report values
 
     # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
     #   but it can change the value of sel_pin periodically  
@@ -189,7 +189,7 @@ sensor:
     accuracy_decimals: 2
     update_interval: "30s"
     lambda: |-
-      return (id(${devicename}_power).state / id(${devicename}_voltage).state);
+      return (id(${device_name}_power).state / id(${device_name}_voltage).state);
     filters:  
       - skip_initial: 2
 
