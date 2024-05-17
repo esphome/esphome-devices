@@ -1,5 +1,5 @@
 ---
-title: Minoston Outdoor Smart Plug MP22W Version 5.0 
+title: Minoston Outdoor Smart Plug MP22W Version 5.0
 date-published: 2024-05-17
 type: plug
 standard: us
@@ -42,7 +42,7 @@ api:
 
 web_server:
   port: 80
-    
+
 ota:
 
 logger:
@@ -99,3 +99,4 @@ sensor:
   - platform: wifi_signal
     name: Signal
     update_interval: 60s
+    
