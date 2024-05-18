@@ -1,4 +1,3 @@
-
 ---
 title: Milfra Smart Dimmer Switch
 date-published: 2024-05-10
@@ -28,7 +27,7 @@ The device is using Tuya-compatible application structure with two main componen
 ## Programming
 
 First programming was done over USB-serial. The module needs disassembled (pretty easy) and moderate soldering
-skills are required to attach USB-RS232 converter cables.  Did not test if CloudCutter or other methods would work.
+skills are required to attach USB-RS232 converter cables. Did not test if CloudCutter or other methods would work.
 
 Need to solder cables Rx, Tx, Gnd, Vcc (3V3) and CEN pin.
 Preferred flashing software is [ltchiptool](https://github.com/libretiny-eu/ltchiptool) from LibreTiny project. Start programming like:
@@ -41,10 +40,10 @@ then short CEN pin to ground for a moment to initiate progrmming mode on the mod
 
 ## GPIO Pinout
 
-| Pin    | Function                   |
-|--------|----------------------------|
-| GPIO10 | UART RX                    |
-| GPIO11 | UART TX                    |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO10 | UART RX  |
+| GPIO11 | UART TX  |
 
 ## Basic configuration
 
@@ -104,7 +103,6 @@ light:
     min_value: 200
     max_value: 1000
 
-
 select:
   - platform: tuya
     enum_datapoint: 13
@@ -126,25 +124,24 @@ text_sensor:
     ip_address:
       name: "IP"
       icon: "mdi:ip-outline"
-      update_interval:  ${update_interval_wifi}
+      update_interval: ${update_interval_wifi}
     ssid:
       name: "SSID"
       icon: "mdi:wifi-settings"
-      update_interval:  ${update_interval_wifi}
+      update_interval: ${update_interval_wifi}
     bssid:
       name: "BSSID"
       icon: "mdi:wifi-settings"
-      update_interval:  ${update_interval_wifi}
+      update_interval: ${update_interval_wifi}
     mac_address:
       name: "MAC"
       icon: "mdi:network-outline"
     scan_results:
       name: "Wifi Scan"
       icon: "mdi:wifi-refresh"
-      update_interval:  ${update_interval_wifi}
+      update_interval: ${update_interval_wifi}
       disabled_by_default: true
   - platform: libretiny
     version:
       name: LibreTiny Version
-    
 ```
