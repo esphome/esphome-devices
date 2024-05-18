@@ -5,6 +5,7 @@ type: switch
 standard: global
 board: bk72xx
 ---
+![Product Image](/Aubess-WiFi-Smart-Switch-with-Power-Monitoring.jpg "Product Image")
 
 Maker: <https://aubess.net/>
 
