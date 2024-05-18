@@ -1,7 +1,7 @@
 
 ---
-title: Milfra smart dimmer switch
-date-published: 2024-5-10
+title: Milfra Smart Dimmer Switch
+date-published: 2024-05-10
 type: dimmer
 standard: global
 board: bk72xx
