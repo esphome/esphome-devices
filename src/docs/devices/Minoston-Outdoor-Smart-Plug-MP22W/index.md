@@ -99,3 +99,4 @@ sensor:
   - platform: wifi_signal
     name: Signal
     update_interval: 60s
+```
