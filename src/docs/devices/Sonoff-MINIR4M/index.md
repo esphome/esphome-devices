@@ -24,7 +24,6 @@ RISC-V 32-bit 160Mhz Microprocessor
 
 Flash locked
 
-
 ## Programming
 
 Rx, Tx, Gnd and 3V3 pads are available, but due to Matter certification - ESP32-C3 flash is locked and no reflash is possible.
