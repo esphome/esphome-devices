@@ -45,7 +45,7 @@ After successfully flashing the new IC, simply replace the original IC with a cu
 | GPIO05 | S2 (external switch input) |
 | GPIO09 | BUTTON                     |
 | GPIO19 | Blue LED                   |
-| GPIO20 | RX      		      |
+| GPIO20 | RX                         |
 | GPIO21 | TX                         |
 
 ## Basic Config with external rocker switch
@@ -121,7 +121,7 @@ light:
       - output.turn_on: status_led_output
     on_turn_off:
       - output.turn_off: status_led_output
-    
+
 binary_sensor:
   - platform: gpio
     pin: GPIO09
