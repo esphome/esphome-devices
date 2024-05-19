@@ -17,9 +17,13 @@ Product page: [https://sonoff.tech/product/diy-smart-switches/minir4m/](https://
 ## Features
 
 Chip used: ESP32-C3
+
 RISC-V 32-bit 160Mhz Microprocessor
+
 4MB Flash
+
 Flash locked
+
 
 ## Programming
 
