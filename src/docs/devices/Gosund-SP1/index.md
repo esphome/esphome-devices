@@ -2,7 +2,7 @@
 title: Gosund SP1
 Model: SP1
 date-published: 2021-12-27
-type: relay
+type: plug
 standard: eu
 board: esp8266
 ---
