@@ -13,7 +13,7 @@ difficulty: 4
 The Etekcity Voltson ESW01-USA-R6P is a Wi-Fi connected 10-amp Smart Outlet with energy monitoring, controlled via the VeSync app when running OEM firmware.
 
 | Specification | Details
-| ------------- | -------------------
+| ------------- | -
 | Manufacturer  | Etekcity
 | Model         | Voltson ESW01-USA-R6P
 | Input         | AC 120V, 60Hz
@@ -33,7 +33,7 @@ The Etekcity Voltson ESW01-USA-R6P is a Wi-Fi connected 10-amp Smart Outlet with
 - [Ai-Thinker - ESP 01E Datasheet](https://docs.ai-thinker.com/_media/esp8266/docs/esp-01e_product_specification_en.pdf)
 
 | Specification   | Details
-| --------------- | -------------------
+| --------------- | -
 | Manufacturer    | Ai-Thinker
 | Module Model    | ESP-01E
 | SPI Flash       | 1MB built-in flash
@@ -63,7 +63,7 @@ Because this model does not seem to allow the removal of the PCB without desolde
 Using the table below as a guide, connect each pin of a USB serial converter to its corresponding test pad on the PCB.
 
 | USB serial converter | Smart Outlet Test Pad
-| -------------------- | -------------------
+| -------------------- | -
 | RX / RXD             | TX
 | TX / TXD             | RX
 | GND                  | T4/GND
@@ -129,15 +129,15 @@ If you do not already have an instance of [ESPHome Dashboard](https://esphome.io
 
 ### GPIO Pinout
 
-| Pin    | Function       |
-| ------ | -------------- |
-| GPIO4  | Outlet Relay   |
-| GPIO5  | LED blue       |
-| GPIO12 | HLWBL CF1 Pin  |
-| GPIO13 | HLW8012 CF Pin |
-| GPIO14 | Button         |
-| GPIO15 | HLWBL SEL Pin  |
-| GPIO16 | LED yellow     |
+| Pin    | Function
+| ------ | -
+| GPIO4  | Outlet Relay
+| GPIO5  | LED blue
+| GPIO12 | HLWBL CF1 Pin
+| GPIO13 | HLW8012 CF Pin
+| GPIO14 | Button
+| GPIO15 | HLWBL SEL Pin
+| GPIO16 | LED yellow
 
 ### Basic ESPHome Configuration
 
