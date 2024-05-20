@@ -1,11 +1,13 @@
 ---
 title: Etekcity Voltson ESW01-USA-R6P
-date-published: 2024-05-19
+date-published: 2024-05-20
 type: plug
 standard: us
 board: esp8266
 difficulty: 4
 ---
+
+## Product Images
 
 ![A front view of the Etekcity Voltson ESW01-USA-R6P Smart Outlet.](Etekcity-Voltson-ESW01-USA-R6P-Front-View.jpg "Etekcity Voltson ESW01-USA-R6P Front View")
 ![A back view of the Etekcity Voltson ESW01-USA-R6P Smart Outlet, displaying the sticker with all its product details.](Etekcity-Voltson-ESW01-USA-R6P-Back-View-Sticker.jpg "Etekcity Voltson ESW01-USA-R6P Back View")
@@ -21,14 +23,14 @@ The Etekcity Voltson ESW01-USA-R6P is a Wi-Fi connected 10-amp Smart Outlet with
 | Environment   | 14°-104°F / -10°-40°C
 | FCC ID        | [2AB22-ESWO1-USA2](https://fcc.report/FCC-ID/2AB22-ESWO1-USA2)
 
-## Product Documentation
+## Additional Resources
 
 ### Etekcity Smart Outlet
 
 - [Etekcity Product Page](https://etekcity.com/products/voltson-smart-wifi-outlet-1)
 - [Etekcity Product Manual](https://docs.ai-thinker.com/_media/esp8266/docs/esp-01e_product_specification_en.pdf)
 
-### ESP Chip Documentation
+### ESP 01E Module
 
 - [Ai-Thinker - ESP 01E Datasheet](https://docs.ai-thinker.com/_media/esp8266/docs/esp-01e_product_specification_en.pdf)
 
