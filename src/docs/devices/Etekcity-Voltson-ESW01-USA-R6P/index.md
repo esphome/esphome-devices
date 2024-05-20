@@ -7,8 +7,6 @@ board: esp8266
 difficulty: 4
 ---
 
-# Etekcity Voltson ESW01-USA-R6P Smart Outlet
-
 ![A front view of the Etekcity Voltson ESW01-USA-R6P Smart Outlet.](Etekcity-Voltson-ESW01-USA-R6P-Front-View.jpg "Etekcity Voltson ESW01-USA-R6P Front View")
 ![A back view of the Etekcity Voltson ESW01-USA-R6P Smart Outlet, displaying the sticker with all its product details.](Etekcity-Voltson-ESW01-USA-R6P-Back-View-Sticker.jpg "Etekcity Voltson ESW01-USA-R6P Back View")
 
@@ -126,7 +124,6 @@ If you do not already have an instance of [ESPHome Dashboard](https://esphome.io
 5. You should now see an access point with the name "esphome" in it. Connect to the access point and use the [captive portal](https://esphome.io/components/captive_portal) to configure the Wi-Fi settings on the device.
     - **_NOTE:_** If [Improv via Serial](https://esphome.io/components/improv_serial) was included in the configuration, you can also configure the Wi-Fi settings via serial.
 6. Once connected to Wi-Fi, you should be able to access the device's [web server](https://esphome.io/components/web_server) via its IP address. If you have not already, adopt the device with ESPHome Dashboard.
-
 
 ## ESP Home Configuration
 
@@ -310,7 +307,6 @@ This means we can switch between voltage and current monitoring. Some known good
 These values have been tuned with a FLUKE 87 and have been tested on a few of these plugs, yielding decent results.
 
 If you want to fine-tune the energy readings further, follow the instructions for the [HWL8012 Module](https://esphome.io/components/sensor/hlw8012)
-
 
 ### Total Daily Energy Sensor
 
