@@ -2,7 +2,7 @@
 title: Aoycocr EU6S
 Model: EU6S
 date-published: 2024-05-08
-type: relay
+type: plug
 standard: eu
 board: esp8266
 ---
