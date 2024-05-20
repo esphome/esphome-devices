@@ -47,14 +47,14 @@ The Etekcity Voltson ESW01-USA-R6P is a Wi-Fi connected 10-amp Smart Outlet with
 
 Unlike some other versions of this plug, there are no screws. The plastic shell is held together by plastic clips. You will need something thin to get between the seam of the plastic shell and disengage each of the six clips.
 
-The pictures below use black markings to show where the clips are located, depending on how you are holding the Smart Outlet when disassembling it.
+The pictures below use black markings to show where the clips are located, depending on how you are holding the smart outlet when disassembling it.
 
 ![A top-down front view of an Etekcity Voltson ESW01-USA-R6P Smart Outlet. The outlet, button, and LED indicator are facing the viewer. Black marks around the circumference of the plug indicate the locations of the six clips of the plastic shell. The markings are positioned clockwise at 40°, 120°, 155°, 205°, 270°, and 325°.](Etekcity-Voltson-ESW01-USA-R6P-Clips-Front.jpg "Etekcity Voltson ESW01-USA-R6P Shell Clips Front View")
 ![A top-down back view of the inside of the front shell of an Etekcity Voltson ESW01-USA-R6P Smart Outlet. There are black marks on each of the six clips of the plastic shell. The clips are positioned clockwise at 35°, 90°, 155°, 205°, 240°, and 320°.](Etekcity-Voltson-ESW01-USA-R6P-Clips-Back.jpg "Etekcity Voltson ESW01-USA-R6P Shell Clips Back View")
 
 ## Flashing New Firmware
 
-### 1. Connect The Device To A USB serial converter
+### 1. Connect The Device To A USB Serial Converter
 
 With the plastic shell separated, you will now have access to the top of the PCB.
 
@@ -117,7 +117,7 @@ Follow the steps below to back up the firmware currently installed on the ESP mo
 
 ### 4. Flashing ESPHome
 
-If you do not already have an instance of [ESPHome Dashboard](https://esphome.io/guides/getting_started_hassio.html) running, or your instance does not meet the requirements to flash devices, you can use this [official site](https://web.esphome.io) to flash a basic configuration or upload a custom configuration to flash.
+If you do not already have an instance of [ESPHome Dashboard](https://esphome.io/guides/getting_started_hassio.html) running, or your instance does not meet the requirements to flash devices, you can use this [official site](https://web.esphome.io) to flash a basic configuration or upload a custom configuration.
 
 1. With the ESP module booted into Flash Mode, connect to the device and flash the new firmware.
 2. Once the installation is successful, disconnect the VCC wire from the USB serial converter to power off the device.
@@ -125,7 +125,7 @@ If you do not already have an instance of [ESPHome Dashboard](https://esphome.io
 4. Plug the VCC wire back into the USB serial converter. The device should now boot normally.
 5. You should now see an access point with the name "esphome" in it. Connect to the access point and use the [captive portal](https://esphome.io/components/captive_portal) to configure the Wi-Fi settings on the device.
     - **_NOTE:_** If [Improv via Serial](https://esphome.io/components/improv_serial) was included in the configuration, you can also configure the Wi-Fi settings via serial.
-6. Once connected to Wi-Fi, you should be able to access the device's [web server](https://esphome.io/components/web_server) via its IP address. If you have not already, adopt the device with ESPHome Dashboard.
+6. Once connected to Wi-Fi, you should be able to access the device's [web server](https://esphome.io/components/web_server) via its IP address. If you have not already, you can now adopt the device with ESPHome Dashboard.
 
 ## ESP Home Configuration
 
@@ -308,7 +308,7 @@ This means we can switch between voltage and current monitoring. Some known good
 
 These values have been tuned with a FLUKE 87 and have been tested on a few of these plugs, yielding decent results.
 
-If you want to fine-tune the energy readings further, follow the instructions for the [HWL8012 Module](https://esphome.io/components/sensor/hlw8012)
+If you want to fine-tune the energy readings further, follow the instructions for the [HWL8012 module](https://esphome.io/components/sensor/hlw8012).
 
 ### Total Daily Energy Sensor
 
