@@ -41,9 +41,9 @@ Wire up a an RS485 transceiver to an ESP32 to interface with the device using ES
 Connection parameters:
 
 - Baud Rate: `4800` (default), supports `2400` and `9600`
-- Data bit length: `8` bits
+- Data bit length: `8`
 - Parity check: `None`
-- Stop bit: `1` bit
+- Stop bit: `1`
 - Device address: `1`
 - Register address for direction gear: `0` (values from `0` to `7`, representing cardinals)
 - Register address for direction value: `1` (valies from `0` to `360`, representing degrees)
@@ -119,7 +119,7 @@ text_sensor:
     icon: mdi:compass-rose
 ```
 
-Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a RS-FSJT-N01 wind speed sensor) to the same ESP.
+Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a RS-FSJT-N01 wind speed sensor) to the same ESP UART.
 
 The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. `2` (just type it in the *Addr* box and press *Setup* button).
 
