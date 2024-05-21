@@ -6,6 +6,8 @@ standard: global
 board: esp8266
 ---
 
+![Product](./image.jpg "Product Image")
+
 ## Product description
 
 This is a 2-relay board with an ESP-12F.

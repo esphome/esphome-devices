@@ -1,5 +1,8 @@
 # Sidebar navigation
 
+- label: 'Made for ESPHome'
+  link: '/made-for-esphome'
+
 - label: 'Device Type'
   items:
     - label: 'Dimmers'
@@ -20,6 +23,8 @@
   items:
     - label: 'AU Devices'
       link: '/standards/au'
+    - label: 'BR Devices'
+      link: '/standards/br'
     - label: 'EU Devices'
       link: '/standards/eu'
     - label: 'Global Devices'

@@ -78,7 +78,7 @@ export default function Sidebar({ isMenuOpen }) {
               );
             }
 
-            return <Item key={id}>{renderLink(link, label)}</Item>;
+            return <Heading key={id}>{renderLink(link, label)}</Heading>;
           })}
         </List>
       </nav>

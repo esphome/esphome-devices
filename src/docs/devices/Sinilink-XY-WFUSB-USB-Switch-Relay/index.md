@@ -51,32 +51,47 @@ I had to increase the `ap_timeout`, this board seems to take some time to connec
 
 ```yaml
 substitutions:
-  devicename: usb_relay
-  upper_devicename: "USB Relay"
+  name: usb-relay
+  friendly_name: "USB Relay"
+  default_state: "RESTORE_DEFAULT_OFF"
 
 esphome:
-  name: $devicename
-  platform: ESP8266
+  name: ${name}
+  friendly_name: "${friendly_name}"
+
+esp8266:
   board: esp01_1m
+  restore_from_flash: True
+
+logger:
 
 wifi:
-  ...
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: True
+  power_save_mode: HIGH
   ap:
-    ...
+    ssid: "${friendly_name}"
     ap_timeout: 3min
 
-...
+captive_portal:
 
+api:
+
+ota:
+
+time:
+  - platform: homeassistant
+
+# Blue LED
 status_led:
   pin:
-    number: GPIO16 # Blue LED
+    number: GPIO16
 
+# Relay
 switch:
-  # Relay
   - platform: gpio
-    id: relay
+    id: switch_relay
     pin: GPIO5
 
   # Green LED
@@ -88,10 +103,10 @@ switch:
   # Switch template to link relay and green LED states
   # LED is on when relay is off
   - platform: template
-    id: "${devicename}_relay"
-    name: $upper_devicename
+    id: relay
+    name: "${friendly_name}"
     lambda: |-
-      if (id(relay).state) {
+      if (id(switch_relay).state) {
         return true;
       } else {
         return false;
@@ -100,23 +115,34 @@ switch:
         - switch.turn_on:
             id: green_led
         - switch.turn_on:
-            id: relay
+            id: switch_relay
     turn_off_action:
         - switch.turn_off:
             id: green_led
         - switch.turn_off:
-            id: relay
+            id: switch_relay
 
 # Button
 binary_sensor:
   - platform: gpio
-    id: button
+    id: hardware_button
     pin:
       number: GPIO04
       mode: INPUT_PULLUP
       inverted: True
     on_press:
-      - switch.toggle: "${devicename}_relay"
+      - switch.toggle: relay
+
+# WiFi Signal Sensor
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Status"
+    update_interval: 60s
+
+# Restart button
+button:
+  - platform: restart
+    name: "Restart"
 ```
 
 If the USB Relay controls a light, it can also be implemented like this:
@@ -125,7 +151,7 @@ If the USB Relay controls a light, it can also be implemented like this:
 output:
   # Relay
   - platform: gpio
-    id: relay
+    id: switch_relay
     pin: GPIO5
 
   # Green LED
@@ -138,34 +164,34 @@ output:
   # LED is on when relay is off
   - platform: template
     type: binary
-    id: "${devicename}_relay"
+    id: relay
     write_action:
       if:
         condition:
           lambda: return state;
         then:
-          - output.turn_on: relay
+          - output.turn_on: switch_relay
           - output.turn_on: green_led
         else:
-          - output.turn_off: relay
+          - output.turn_off: switch_relay
           - output.turn_off: green_led
 
 # Button
 binary_sensor:
   - platform: gpio
-    id: button
+    id: hardware_button
     pin:
       number: GPIO04
       mode: INPUT_PULLUP
       inverted: True
     on_press:
-      light.toggle: $devicename
+      light.toggle: "${name}"
 
 light:
   - platform: binary
-    name: $upper_devicename
-    id: $devicename
-    output: "${devicename}_relay"
+    name: "${friendly_name}"
+    id: "${name}"
+    output: relay
 ```
 
 ## Useful links
