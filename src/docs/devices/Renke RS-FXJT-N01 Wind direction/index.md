@@ -81,23 +81,32 @@ sensor:
     accuracy_decimals: 0
     on_value:
       - lambda: |-
-          if (x == 0) {
+          switch (int(x)) {
+            case 0:
               id(wind_direction_cardinal).publish_state("N");  //North
-          } else if (x == 1) {
+              break;
+            case 1:
               id(wind_direction_cardinal).publish_state("NE"); //North-East
-          } else if (x == 2) {
+              break;
+            case 2:
               id(wind_direction_cardinal).publish_state("E");  //East
-          } else if (x == 3) {
+              break;
+            case 3:
               id(wind_direction_cardinal).publish_state("SE"); //South-East
-          } else if (x == 4) {
-              id(wind_direction_cardinal).publish_state("SE"); //South
-          } else if (x == 5) {
+              break;
+            case 4:
+              id(wind_direction_cardinal).publish_state("S");  //South
+              break;
+            case 5:
               id(wind_direction_cardinal).publish_state("SW"); //South-West
-          } else if (x == 6) {
+              break;
+            case 6:
               id(wind_direction_cardinal).publish_state("W");  //West
-          } else if (x == 7) {
+              break;
+            case 7:
               id(wind_direction_cardinal).publish_state("NW"); //North-West
-          } else {
+              break;
+            default:
               id(wind_direction_cardinal).publish_state("");   //invalid
           }
 
