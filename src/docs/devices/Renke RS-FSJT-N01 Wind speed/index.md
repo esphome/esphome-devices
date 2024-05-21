@@ -39,13 +39,13 @@ Wire up a an RS485 transceiver to an ESP32 to interface with the device using ES
 
 Connection parameters:
 
-- Baud Rate: 4800 (default), supports 2400 and 9600
-- Data bit length: 8 bits
-- Parity check: None
-- Stop bit: 1 bit
-- Device address: 0x01
-- Register address for speed value: 0 
-- Register data type for speed value: U_WORD, multiplied by 10
+- Baud Rate: `4800` (default), supports `2400` and `9600`
+- Data bit length: `8` bits
+- Parity check: `None`
+- Stop bit: `1` bit
+- Device address: `1`
+- Register address for speed value: `0`
+- Register data type: `U_WORD`, multiplied by `10`
 
 ## Basic Configuration
 
@@ -61,32 +61,32 @@ modbus:
   id: modbus1
 
 modbus_controller:
-- id: wind_speed_meter
-  address: 1
-  modbus_id: modbus1
-  setup_priority: -10
-  command_throttle: 200ms
-  update_interval: 1s
+  - id: wind_speed_meter
+    address: 1
+    modbus_id: modbus1
+    setup_priority: -10
+    command_throttle: 200ms
+    update_interval: 1s
 
 sensor:
-- platform: modbus_controller
-  modbus_controller_id: wind_speed_meter
-  name: "Wind speed"
-  device_class: wind_speed
-  register_type: read
-  address: 0
-  unit_of_measurement: "m/s"
-  value_type: U_WORD
-  accuracy_decimals: 1
-  filters:
-    - multiply: 0.1
-    - sliding_window_moving_average:
-        window_size: 60
-        send_every: 60
+  - platform: modbus_controller
+    modbus_controller_id: wind_speed_meter
+    name: "Wind speed"
+    device_class: wind_speed
+    register_type: read
+    address: 0
+    unit_of_measurement: "m/s"
+    value_type: U_WORD
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+      - sliding_window_moving_average:
+          window_size: 60
+          send_every: 60
 ```
 
-Note that the sensor is by default set to ModBUS address **1**, so out of the box it's not possible to connect it together with another one (like a RS-FXJT-N01 wind direction sensor) to the same ESP.
+Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a RS-FXJT-N01 wind direction sensor) to the same ESP.
 
-The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. **2** (just type it in the *Addr* box and press *Setup* button).
+The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. `2` (just type it in the *Addr* box and press *Setup* button).
 
-After that it becomes possible to simply connect the sensors in parrallel on the same cable, to a single RS485-TTL transceiver attached to a single UART on the ESP (you need to change the *address* value in the corresponding *modbus_controller* entry in the config).
+After that it becomes possible to simply connect the sensors in parrallel on the same cable, to a single RS485-TTL transceiver attached to a single UART on the ESP (you need to change the `address` value in the corresponding `modbus_controller` entry in the config).
