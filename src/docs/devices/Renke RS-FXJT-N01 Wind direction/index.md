@@ -78,23 +78,23 @@ sensor:
   on_value:
     - lambda: |-
         if (x == 0) {
-            id(wind_direction_text).publish_state("N"); //North
+            id(wind_direction_cardinal).publish_state("N"); //North
         } else if (x == 1) {
-            id(wind_direction_text).publish_state("NE"); //North-East
+            id(wind_direction_cardinal).publish_state("NE"); //North-East
         } else if (x == 2) {
-            id(wind_direction_text).publish_state("E"); //East
+            id(wind_direction_cardinal).publish_state("E"); //East
         } else if (x == 3) {
-            id(wind_direction_text).publish_state("SE"); //South-East
+            id(wind_direction_cardinal).publish_state("SE"); //South-East
         } else if (x == 4) {
-            id(wind_direction_text).publish_state("SE"); //South
+            id(wind_direction_cardinal).publish_state("SE"); //South
         } else if (x == 5) {
-            id(wind_direction_text).publish_state("SW"); //South-West
+            id(wind_direction_cardinal).publish_state("SW"); //South-West
         } else if (x == 6) {
-            id(wind_direction_text).publish_state("W"); //West
+            id(wind_direction_cardinal).publish_state("W"); //West
         } else if (x == 7) {
-            id(wind_direction_text).publish_state("NW"); //North-West
+            id(wind_direction_cardinal).publish_state("NW"); //North-West
         } else {
-            id(wind_direction_text).publish_state(""); //invalid
+            id(wind_direction_cardinal).publish_state(""); //invalid
         }
 
 - platform: modbus_controller
@@ -105,17 +105,18 @@ sensor:
   address: 1
   value_type: U_WORD
   accuracy_decimals: 0
+  state_class: measurement
   unit_of_measurement: "°"
 
 text_sensor:
   - platform: template
     name: "Wind direction cardinal"
-    id: wind_direction_text
+    id: wind_direction_cardinal
     icon: mdi:compass-rose
 ```
 
 Note that the sensor is by default set to ModBUS address **1**, so out of the box it's not possible to connect it together with another one (like a RS-FSJT-N01 wind speed sensor) to the same ESP.
 
-The manufacturer a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. **2** (just type it in the *Addr* box and press *Setup* button).
+The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. **2** (just type it in the *Addr* box and press *Setup* button).
 
 After that it becomes possible to simply connect the sensors in parrallel on the same cable, to a single RS485-TTL transceiver attached to a single UART on the ESP (you need to change the *address* value in the corresponding *modbus_controller* entry in the config).

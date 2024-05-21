@@ -45,7 +45,7 @@ Connection parameters:
 
 ## Basic Configuration
 
-Slow winds blows in bursts, so it's recommended to use a sliding window moving average to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, which publishes the value every minute, averaging the values over the last 60 reads:
+Slow winds blow in small bursts, so it's recommended to use a sliding window moving average to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, which publishes the value every minute, averaging the values over the last 60 reads:
 
 ```yaml
 uart:
@@ -83,6 +83,6 @@ sensor:
 
 Note that the sensor is by default set to ModBUS address **1**, so out of the box it's not possible to connect it together with another one (like a RS-FXJT-N01 wind direction sensor) to the same ESP.
 
-The manufacturer a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. **2** (just type it in the *Addr* box and press *Setup* button).
+The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. **2** (just type it in the *Addr* box and press *Setup* button).
 
 After that it becomes possible to simply connect the sensors in parrallel on the same cable, to a single RS485-TTL transceiver attached to a single UART on the ESP (you need to change the *address* value in the corresponding *modbus_controller* entry in the config).
