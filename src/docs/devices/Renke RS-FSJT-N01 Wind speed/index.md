@@ -85,7 +85,7 @@ sensor:
           send_every: 60
 ```
 
-Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a RS-FXJT-N01 wind direction sensor) to the same ESP UART.
+Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a **RS-FXJT-N01** wind direction sensor) to the same ESP UART.
 
 The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. `2` (just type it in the *Addr* box and press *Setup* button).
 

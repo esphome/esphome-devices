@@ -1,5 +1,5 @@
 ---
-title: Renke RS-FXJT-N01 Wind directtion meter
+title: Renke RS-FXJT-N01 Wind direction meter
 date-published: 2024-05-21
 type: sensor
 standard: global
@@ -7,14 +7,14 @@ standard: global
 
 ## General Notes
 
-The Renke RS-FXJT-N01 Wind directtion meter is sold in four versions:
+The Renke RS-FXJT-N01 Wind direction meter is sold in four versions:
 
 - RS485 digital ModBUS output
 - 0-5V analog voltage output
 - 0-10V analog voltage output
 - 4-20mA analog current output
 
-![RS-FXJT-N01 Wind directtion meter](/directionmeter.png "RS-FXJT-N01 Wind directtion")
+![RS-FXJT-N01 Wind direction meter](/directionmeter.png "RS-FXJT-N01 Wind direction")
 
 Parameters:
 
@@ -119,7 +119,7 @@ text_sensor:
     icon: mdi:compass-rose
 ```
 
-Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a RS-FSJT-N01 wind speed sensor) to the same ESP UART.
+Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a **RS-FSJT-N01** wind speed anemometer) to the same ESP UART.
 
 The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. `2` (just type it in the *Addr* box and press *Setup* button).
 
