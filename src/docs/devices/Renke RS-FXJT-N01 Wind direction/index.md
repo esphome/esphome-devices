@@ -8,14 +8,16 @@ standard: global
 ## General Notes
 
 The Renke RS-FXJT-N01 Wind directtion meter is sold in four versions:
+
 - RS485 digital ModBUS output
-- 0-5V analog voltage output 
-- 0-10V analog voltage output 
-- 4-20mA analog current output 
+- 0-5V analog voltage output
+- 0-10V analog voltage output
+- 4-20mA analog current output
 
 ![RS-FXJT-N01 Wind directtion meter](/directionmeter.png "RS-FXJT-N01 Wind directtion")
 
 Parameters:
+
 - Measurement range: 8 directions
 - DC power supply: 10~30V DC
 
@@ -26,6 +28,7 @@ Configuration presented here is for the RS485 digital ModBUS version.
 ### Wiring
 
 The cable coming out through the bottom of the unit has the folling pinout:
+
 - Brown: positive power supply
 - Black: negative power supply and GND
 - Green: RS485-A
@@ -33,9 +36,10 @@ The cable coming out through the bottom of the unit has the folling pinout:
 
 ### ModBUS Parameters
 
-Wire up a an RS485 transceiver to an ESP32 to interface with the device using ESPHome's [Modbus Component](https://esphome.io/components/modbus.html)
+Wire up a an RS485 transceiver to an ESP32 to interface with the device using ESPHome's [Modbus Component](https://esphome.io/components/modbus.html).
 
 Connection parameters:
+
 - Baud Rate: 4800 (default), supports 2400 and 9600
 - Data bit length: 8 bits
 - Parity check: None

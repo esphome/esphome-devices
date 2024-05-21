@@ -8,14 +8,16 @@ standard: global
 ## General Notes
 
 The Renke RS-FSJT-N01 Wind speed anemometer is sold in four versions:
+
 - RS485 digital ModBUS output
-- 0-5V analog voltage output 
-- 0-10V analog voltage output 
-- 4-20mA analog current output 
+- 0-5V analog voltage output
+- 0-10V analog voltage output
+- 4-20mA analog current output
 
 ![RS-FSJT-N01 Wind speed anemometer](/anemometer.png "RS-FSJT-N01 Wind speed")
 
 Parameters:
+
 - Measurement range: 0~30m/s, resolution 0.1m/s, accuracy ± 0.3m/s
 - Starting wind speed: 0.5m/s
 - DC power supply: 10~30V DC
@@ -25,6 +27,7 @@ Configuration presented here is for the RS485 digital ModBUS version.
 ### Wiring
 
 The cable coming out through the bottom of the unit has the folling pinout:
+
 - Brown: positive power supply
 - Black: negative power supply and GND
 - Green: RS485-A
@@ -32,9 +35,10 @@ The cable coming out through the bottom of the unit has the folling pinout:
 
 ### ModBUS Parameters
 
-Wire up a an RS485 transceiver to an ESP32 to interface with the device using ESPHome's [Modbus Component](https://esphome.io/components/modbus.html)
+Wire up a an RS485 transceiver to an ESP32 to interface with the device using ESPHome's [Modbus Component](https://esphome.io/components/modbus.html).
 
 Connection parameters:
+
 - Baud Rate: 4800 (default), supports 2400 and 9600
 - Data bit length: 8 bits
 - Parity check: None
