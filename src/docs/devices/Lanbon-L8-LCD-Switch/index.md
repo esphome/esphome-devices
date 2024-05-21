@@ -270,8 +270,6 @@ esp32:
   flash_size: 8MB
   framework:
     type: esp-idf
-    version: 5.0.2
-    platform_version: 6.3.2
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
 
@@ -289,7 +287,6 @@ i2c:
   scl:
     number: GPIO0
     ignore_strapping_warning: true
-  
 
 output:
   - platform: ledc
@@ -326,7 +323,6 @@ output:
     platform: gpio
     pin: GPIO27
 
-
 light:
   - platform: monochromatic
     output: backlight_output
@@ -356,19 +352,56 @@ light:
     restore_mode: RESTORE_AND_OFF
     default_transition_length: 1s
 
-switch:
-  - platform: lvgl
-    name: 'Relay 1'
-    widget: btn_relay_1
-    output_id: relay_1_out
-  - platform: lvgl
-    name: 'Relay 2'
-    widget: btn_relay_2
-    output_id: relay_2_out
-  - platform: lvgl
-    name: 'Relay 3'
-    widget: btn_relay_3
-    output_id: relay_3_out
+  - platform: binary
+    name: Relay 1
+    output: relay_1_out
+    id: relay_1
+    internal: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - lvgl.widget.update:
+          id: btn_relay_1
+          state:
+            checked: true
+    on_turn_off:
+      - lvgl.widget.update:
+          id: btn_relay_1
+          state:
+            checked: false
+
+  - platform: binary
+    name: Relay 2
+    output: relay_2_out
+    id: relay_2
+    internal: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - lvgl.widget.update:
+          id: btn_relay_2
+          state:
+            checked: true
+    on_turn_off:
+      - lvgl.widget.update:
+          id: btn_relay_2
+          state:
+            checked: false
+
+  - platform: binary
+    name: Relay 3
+    output: relay_3_out
+    id: relay_3
+    internal: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - lvgl.widget.update:
+          id: btn_relay_3
+          state:
+            checked: true
+    on_turn_off:
+      - lvgl.widget.update:
+          id: btn_relay_3
+          state:
+            checked: false
 
 display:
   - platform: ili9xxx
@@ -500,6 +533,7 @@ lvgl:
           align: TOP_MID
           text_align: center
           text: "ESPHome LVGL on Lanbon L8"
+
       - btn:
           x: 10
           y: 50
@@ -513,6 +547,9 @@ lvgl:
                 text_color: 0xFFFFFF
                 text_font: montserrat_18
                 text: 'Relay 1'
+          on_click:
+            light.toggle: relay_1
+
       - btn:
           x: 125
           y: 50
@@ -526,6 +563,9 @@ lvgl:
                 text_color: 0xFFFFFF
                 text_font: montserrat_18
                 text: 'Relay 2'
+          on_click:
+            light.toggle: relay_2
+
       - btn:
           x: 10
           y: 135
@@ -539,6 +579,8 @@ lvgl:
                 text_color: 0xFFFFFF
                 text_font: montserrat_18
                 text: 'Relay 3'
+          on_click:
+            light.toggle: relay_3
 
       - label:
           id: lbl_wifis
