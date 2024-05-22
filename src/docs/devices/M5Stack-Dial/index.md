@@ -9,7 +9,7 @@ project-url: https://docs.m5stack.com/en/core/M5Dial
 
 ## Product Images
 
-![M5Stack Dial](M5Stack_Dial.png "M5Stack Dial")
+![M5Stack Dial](M5Stack-Dial.png "M5Stack Dial")
 
 ## Description
 
