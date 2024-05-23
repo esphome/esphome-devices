@@ -18,7 +18,7 @@ Credit for all the work goes to [M4GNV5](https://www.elektroda.com/rtvforum/topi
 substitutions:
   name: galaxy
   friendly_name: "Star Projector"
-  
+
 esphome:
   name: ${name}
   name_add_mac_suffix: false
@@ -42,7 +42,7 @@ api:
 
 web_server:
   port: 80
-    
+
 ota:
 
 logger:
@@ -68,7 +68,7 @@ sensor:
   - platform: wifi_signal
     name: "Signal"
     update_interval: 60s
-    
+
 light:
   - platform: rgb
     name: "Light"
