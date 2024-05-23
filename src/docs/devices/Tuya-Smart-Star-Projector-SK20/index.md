@@ -33,7 +33,7 @@ wifi:
   domain: !secret domain
   power_save_mode: none
   ap:
-    ssid: "ESPHome ${name}"
+    ssid: "ESPHome SSP"
     password: !secret wifi_fallback_password
 
 api:
