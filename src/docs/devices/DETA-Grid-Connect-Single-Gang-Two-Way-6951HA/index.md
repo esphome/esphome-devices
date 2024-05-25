@@ -99,7 +99,7 @@ wifi:
   ap:
     ssid: ${devicename}
     password: !secret fallback_password
-    
+
 # Enable logging
 logger:
 
