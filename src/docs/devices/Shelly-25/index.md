@@ -59,7 +59,7 @@ i2c:
   scl: GPIO14
 
 sensor:
-  - platform: ade7953
+  - platform: ade7953_i2c
     irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} Voltage
@@ -211,7 +211,7 @@ i2c:
   scl: GPIO14
 
 sensor:
-  - platform: ade7953
+  - platform: ade7953_i2c
     irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} voltage
@@ -379,7 +379,7 @@ i2c:
   scl: GPIO14
 
 sensor:
-  - platform: ade7953
+  - platform: ade7953_i2c
     irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} Voltage
@@ -539,7 +539,7 @@ i2c:
   scl: GPIO14
 
 sensor:
-  - platform: ade7953
+  - platform: ade7953_i2c
     irq_pin: GPIO16 # Prevent overheating by setting this
     voltage:
       name: ${devicename} voltage
