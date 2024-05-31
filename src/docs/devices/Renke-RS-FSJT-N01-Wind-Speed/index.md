@@ -49,7 +49,7 @@ Connection parameters:
 
 ## Basic Configuration
 
-Slow winds blow in small bursts, so it's recommended to use a sliding window moving average to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, taking the maximum blow speed of 5 measurements, averaging them every minute:
+Slow winds blow in small bursts, so it's recommended to average measurements to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, taking the maximum blow speed of 5 measurements, averaging them every minute:
 
 ```yaml
 uart:
