@@ -49,7 +49,7 @@ Connection parameters:
 
 ## Basic Configuration
 
-Slow winds blow in small bursts, so it's recommended to use a sliding window moving average to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, which publishes the value every minute, averaging the values over the last 60 reads:
+Slow winds blow in small bursts, so it's recommended to use a sliding window moving average to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, taking the maximum blow speed of 5 measurements, averaging them every minute:
 
 ```yaml
 uart:
@@ -80,9 +80,12 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.1
-      - sliding_window_moving_average:
-          window_size: 60
-          send_every: 60
+      - max:
+          window_size: 5
+          send_every: 5
+      - exponential_moving_average:
+          alpha: 0.1
+          send_every: 12
 ```
 
 Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a **RS-FXJT-N01** wind direction sensor) to the same ESP UART.
