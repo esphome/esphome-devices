@@ -8,7 +8,7 @@ project-url: https://smart-plant.readthedocs.io
 difficulty: 2
 made-for-esphome: True
 ---
-![Smart Plant](Smart_Plant.png)
+![Smart Plant](Smart-Plant.png)
 
 ## Pinout
 
@@ -131,12 +131,11 @@ switch:
     id: exc
     name: "Excitation switch"
     icon: "mdi:power"
-    restore_mode: ALWAYS_ON  
-    
-    
-sensor:    
+    restore_mode: ALWAYS_ON
 
-  # Battery level sensor    
+
+sensor:
+  # Battery level sensor
   - platform: adc
     name: "Battery Voltage"
     id: batvolt
@@ -185,7 +184,7 @@ sensor:
 
   # Temperature and humidity sensor
   - platform: aht10
-    variant: AHT20 
+    variant: AHT20
     i2c_id: bus_a
     temperature:
       name: "Temperature"
@@ -201,13 +200,13 @@ sensor:
   - platform: veml7700
     address: 0x10
     update_interval: 1s
-    ambient_light: 
+    ambient_light:
       name: "Ambient light"
       id: light
       icon: "mdi:white-balance-sunny"
     actual_gain:
       name: "Actual gain"
-        
+
   # Capacitive soil moisture sensor
   - platform: adc
     pin: GPIO1
@@ -239,26 +238,26 @@ display:
     id: my_display
     update_interval: never
     full_update_every: 1
-    pages: 
+    pages:
       - id: page1
         lambda: |-
           #define H_LEFT_MARGIN 4
           #define H_RIGHT_MARGIN 280
-          #define H_CENTER 128 
+          #define H_CENTER 128
           #define V_WEATHER 0
           #define V_CLOCK 1
           #define V_WIFI 30
           #define V_VOLTAGE 60
           #define V_BATTERY  90
-          
+
           it.image(0, 0, id(page_1_background));
-          
+
           // // Battery
           float battery_perc = id(batpercent).state;
           int battery_range = battery_perc / 16 ;
           battery_range = (battery_range > 6) ? 6 : battery_range;
           battery_range = (battery_range < 0)  ?  0 : battery_range;
-          
+
           const char* battery_icon_map[] = {
             "\U0000ebdc", // battery empty
             "\U0000ebd9", // battery 1 bar
@@ -270,12 +269,12 @@ display:
           };
 
           it.printf(278, 1, id(font_icon), TextAlign::TOP_LEFT, battery_icon_map[battery_range]);
-          it.printf(278, 1, id(font_subtitle), TextAlign::TOP_RIGHT, 
+          it.printf(278, 1, id(font_subtitle), TextAlign::TOP_RIGHT,
           "%3.0f%%", battery_perc);
-          
+
           // Date
-          it.strftime(278, 18, id(font_subtitle), TextAlign::TOP_RIGHT, 
-          "%H:%M %d/%m", id(esptime).now());     
+          it.strftime(278, 18, id(font_subtitle), TextAlign::TOP_RIGHT,
+          "%H:%M %d/%m", id(esptime).now());
           it.printf(278, 18, id(font_icon), TextAlign::TOP_LEFT, "\U0000e627");  
 
 
@@ -285,25 +284,25 @@ display:
           float alpha = 4.71238898038469; // Defined as the gauge angle in radians (270deg)
           float beta = 2*pi - alpha;
           int radius = 22;              // Radius of the gauge in pixels
-          int thick = 7;                // Size of the marker 
-          
+          int thick = 7;                // Size of the marker
+
           // *** Moisture ***
-          int min_range = 0; 
+          int min_range = 0;
           int max_range = 100;
           int xc = 80;
           int yc = 50;
-          
+
           float measured = id(soil).state;
-          
+
           if (measured < min_range) {
             measured = min_range;
-          } 
+          }
           if (measured > max_range) {
             measured = max_range;
-          } 
-          
+          }
+
           float val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          
+
           int x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
           int y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
           int x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
@@ -313,26 +312,26 @@ display:
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
-          
-          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER, 
-          "%.0f%%", id(soil).state);  
-          
+
+          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER,
+          "%.0f%%", id(soil).state);
+
           // *** Light ***
-          min_range = 0; 
+          min_range = 0;
           max_range = 3775;
           xc = 134;
           yc = 70;
-          
+
           measured = id(light).state;
-          
+
           if (measured < min_range) {
             measured = min_range;
-          } 
+          }
           if (measured > max_range) {
             measured = max_range;
           } 
-          
-          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;
           x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
           y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
           x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
@@ -342,27 +341,27 @@ display:
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
-          
-          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER, 
+
+          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER,
           "%.0flx", id(light).state);  
-          
-          
+
+
           // *** Temperature ***
-          min_range = -10; 
+          min_range = -10;
           max_range = 50;
           xc = 188;
           yc = 50;
-          
+
           measured = id(temp).state;
-          
+
           if (measured < min_range) {
             measured = min_range;
-          } 
+          }
           if (measured > max_range) {
             measured = max_range;
-          } 
-          
-          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          }
+
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;
           x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
           y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
           x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
@@ -372,27 +371,27 @@ display:
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
-          
-          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER, 
-          "%.0f°C", id(temp).state);     
+
+          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER,
+          "%.0f°C", id(temp).state);
         
 
           // *** Humidity ***
-          min_range = 20; 
+          min_range = 20;
           max_range = 80;
           xc = 242;
           yc = 70;
-          
+
           measured = id(hum).state;
-          
+
           if (measured < min_range) {
             measured = min_range;
-          } 
+          }
           if (measured > max_range) {
             measured = max_range;
-          } 
-          
-          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          }
+
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;
           x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
           y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
           x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
@@ -402,9 +401,9 @@ display:
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
-          
-          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER, 
-          "%.0f%%", id(hum).state);      
+
+          it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER,
+          "%.0f%%", id(hum).state);
           
 deep_sleep:
   id: deep_sleep_control
@@ -416,15 +415,15 @@ script:
     mode: queued
     then:
       - delay: 5s
-      - component.update: my_display   
-      - delay: 5s           
+      - component.update: my_display
+      - delay: 5s
       - if:
           condition:
             sensor.in_range:
               id: batpercent
               above: 95
           then:
-            - deep_sleep.prevent: deep_sleep_control 
+            - deep_sleep.prevent: deep_sleep_control
           else:
             - deep_sleep.enter: deep_sleep_control 
 
