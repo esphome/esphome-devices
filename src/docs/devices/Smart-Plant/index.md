@@ -93,7 +93,7 @@ i2c:
 spi:
   clk_pin:  GPIO12
   mosi_pin: GPIO11
-    
+
 image:
   - file: "https://smart-plant.readthedocs.io/en/v2r1/_images/Lemon_tree_label_page_1.png"
     id: page_1_background
@@ -329,7 +329,7 @@ display:
           }
           if (measured > max_range) {
             measured = max_range;
-          } 
+          }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
           x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
@@ -374,7 +374,7 @@ display:
 
           it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER,
           "%.0f°C", id(temp).state);
-        
+
 
           // *** Humidity ***
           min_range = 20;
@@ -404,7 +404,7 @@ display:
 
           it.printf(xc + radius, yc + 1.7*radius, id(font_parameters), TextAlign::TOP_CENTER,
           "%.0f%%", id(hum).state);
-          
+
 deep_sleep:
   id: deep_sleep_control
   # run_duration: 5s
@@ -425,7 +425,7 @@ script:
           then:
             - deep_sleep.prevent: deep_sleep_control
           else:
-            - deep_sleep.enter: deep_sleep_control 
+            - deep_sleep.enter: deep_sleep_control
 
       - delay: 25s
       - script.execute: consider_deep_sleep
