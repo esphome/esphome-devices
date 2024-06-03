@@ -14,7 +14,6 @@ It uses the PCIe power rails to determine whether the host PC is turned on, but 
 
 ![Product Image](eWeLink-SANT-SUD01-PCIe-power-remote.jpg "Product Image")
 
-
 ## GPIO Pinout
 
 | Pin    | Function | Notes                                                                                       |
@@ -22,7 +21,6 @@ It uses the PCIe power rails to determine whether the host PC is turned on, but 
 | GPIO0  | INPUT    | Button on module PCB, used by OEM firmware for WiFi config (inverted); also receives a ~2.5Hz signal when the PC is turned on |
 | GPIO12 | OUTPUT   | Wired to the PC power button / motherboard, to simulate pressing the power button                                             |
 | GPIO13 | OUTPUT   | Status LED (inverted)                                                                                                         |
-
 
 ## Flashing
 
@@ -56,7 +54,6 @@ If you are an experienced ESPhome dev/user -- you know what to do from here.  Ju
 
 If you are looking for more of a step-by-step guide -- you can flash your new device using a Chromium-based browser (Chromium, Chrome, Edge) by going to https://web.esphome.io/ and clicking on 'Install for first-time' (or whatever wording they have). Once your device has been flashed, power cycle the device, and then use your phone or a WiFi capable device to search for the new ESPhome AP that will be broadcast by the card.  Once you have connected to the ESPhome AP, you can then tell the device what your home's WiFi network is and the password for getting it connected.
 
-
 ## Basic Configuration
 
 The configuration below covers just the basics for getting the core functionality (turning PC on/off and seeing its status) usable in ESPHome.
@@ -64,7 +61,6 @@ Depending on your specific needs, more configuration may be needed.
 E.G.: most motherboards will interpret the power button being pressed for 5+ seconds to mean "shutdown _now_". Exposing `GPIO12` to Home Assistant _directly_ as a gpio switch may result in the PC powering off a few seconds after it's powered on.
 
 As GPIO0 is shared by the "WiFi Configuration" button and the PC power status signal, the button isn't included in the config below; if you wish to use it in your configuration, you'll need to determine how to reliably discern a button press from the "PC is on" signal (which appears to be around 2.5Hz / 150 pulses per minute; a threshold of 60 pulses per minute is used here to ensure detection).
-
 
 ```yaml
 substitutions:
@@ -187,4 +183,3 @@ Now click on "Edit" underneath your newly adopted device.  You can now copy the 
 **Note:** If you flash the device using OTA while it is fully connected to your PC , it will boot-up and simulate a 'power-button-pressed' action on boot.  
 
 The initial boot-up should have the device immediately seek-out and connect-to your home network.  But, you might notice that it also has created its own AP so that you can connect directly to it and input your home network's parameters.  In either case, you should be able to get your new device connected to your home network.  If your computer powers-down after a few moments -- check the YAML code above for **BOTH** of the commented out sections for getting around this issue. 
-
