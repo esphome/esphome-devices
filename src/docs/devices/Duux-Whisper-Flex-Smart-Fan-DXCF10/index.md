@@ -8,6 +8,8 @@ made-for-esphome: False
 difficulty: 3
 ---
 
+![Duux Whisper Flex Smart Fan](duux_DXCF10.png  "Duux Whisper Flex Smart Fan")
+
 ## GPIO Pinout
 
 | Pin    | Function   |
