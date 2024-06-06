@@ -12,7 +12,7 @@ On publish date you need to use ESP-Home beta to build bk72xx targets.
 
 ## Product Image
 
-![ledvance_smart_plus_plug_ch](image.jpg)
+![ledvance_smart_plus_plug_ch](image.webp)
 
 ## GPIO Pinout
 
