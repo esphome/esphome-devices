@@ -29,13 +29,13 @@ Like the Treatlife DS03, the Tuya MCU UART runs at a baud rate of 115200. You ma
 
 ## GPIO Pinout
 
-#### ESP-Based Pinout
+### ESP-Based Pinout
 | Pin   | Function |
 | ----- | -------- |
 | GPIO1 | Tuya Tx  |
 | GPIO3 | Tuya Rx  |
 
-#### BK72XX-Based Pinout
+### BK72XX-Based Pinout
 | Pin   | Function |
 | ----- | -------- |
 | RX1   | Tuya Rx  |
