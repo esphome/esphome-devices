@@ -1,7 +1,7 @@
 ---
-title: Gosund SP1
-Model: SP1
-date-published: 2021-12-27
+title: Aoycocr EU6S
+Model: EU6S
+date-published: 2024-05-08
 type: plug
 standard: eu
 board: esp8266
@@ -12,9 +12,9 @@ board: esp8266
 
 ```yaml
 substitutions:
-  device_name: gosund-sp1
-  friendly_name: Gosund SP1
-  device_description: Gosund SP01 Smart Plug
+  devicename: "aoycocr-eu6s"
+  friendly_name: "Aoycocr EU6S"
+  device_description: Aoycocr EU6S Power Monitoring Plug
   sp1_current_resistor: "0.00221"
   sp1_voltage_divider: "871"
   #############
@@ -26,14 +26,17 @@ substitutions:
   # Gosund SP1 Current Resistor ALT: 0.00103
   # Gosund SP1 Voltage Devider ALT: 2160
   #############
-  red_led_pin: GPIO13
-  blue_led_pin: GPIO1
-
+  led_pin: GPIO02
 esphome:
-  name: ${device_name}
+  name: ${devicename}
   comment: ${device_description}
-  platform: ESP8266
+  friendly_name: ${friendly_name}
+
+esp8266:
   board: esp8285
+
+# Enable logging
+logger:
 
 # WiFi connection
 wifi:
@@ -62,11 +65,10 @@ api:
 ota:
   password: !secret ota_password
 
-# Enable Web server
 web_server:
   port: 80
 
-# Sync time with Home Assistant
+# Time used for daily KWh usage  
 time:
   - platform: homeassistant
     id: homeassistant_time
@@ -93,28 +95,34 @@ sensor:
     sel_pin:
       number: GPIO12
       inverted: true
-    cf_pin: GPIO04
-    cf1_pin: GPIO05
+    cf_pin: GPIO05
+    cf1_pin: GPIO14
     current_resistor: ${sp1_current_resistor}
     voltage_divider: ${sp1_voltage_divider}
     change_mode_every: 8
-    update_interval: 10s
+    update_interval: 60s
     # Current sensor
     current:
-      name: ${friendly_name} Energy Current
+      name: ${friendly_name} Current
       unit_of_measurement: A
       accuracy_decimals: 2
     # Voltage sensor
     voltage:
-      name: ${friendly_name} Energy Voltage
+      name: ${friendly_name} Voltage
       unit_of_measurement: V
       accuracy_decimals: 1
     # Power sensor
     power:
       id: power
-      name: ${friendly_name} Energy Power
+      name: ${friendly_name} Power
       unit_of_measurement: W
       accuracy_decimals: 0
+    # Energy sensor
+    energy:
+      id: energy
+      name: ${friendly_name} Energy
+      unit_of_measurement: Wh
+      accuracy_decimals: 0  
   # Total daily energy sensor
   - platform: total_daily_energy
     name: ${friendly_name} Daily Energy Usage
@@ -123,13 +131,14 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
+
 # Binary sensor for the power button
 binary_sensor:
   - platform: gpio
     name: ${friendly_name} Power Button
     id: button
     pin:
-      number: GPIO3
+      number: GPIO13
       inverted: true
     on_press:
       - switch.toggle: relay
@@ -142,30 +151,15 @@ switch:
   - platform: gpio
     id: relay
     name: ${friendly_name} Power Switch
-    pin: GPIO14
+    pin: GPIO15
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
-      - light.turn_on: led
+      - switch.turn_on: led
     on_turn_off:
-      - light.turn_off: led
+      - switch.turn_off: led
 
-output:
-  # esphome state led
-  - platform: esp8266_pwm
-    id: state_led
-    pin:
-      number: ${blue_led_pin}
-      inverted: true
-
-light:
-  # Power state light
-  - platform: monochromatic
-    output: state_led
+  - platform: gpio
+    pin: GPIO2
     id: led
-
-# Uses the red LED as a status indicator
-status_led:
-  pin:
-    number: ${red_led_pin}
-    inverted: true
+    inverted: True
 ```

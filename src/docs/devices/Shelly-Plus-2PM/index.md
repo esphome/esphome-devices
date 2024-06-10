@@ -14,8 +14,10 @@ There are currently 3 known hardware versions of the Shelly Plus 2PM. The pinout
 - PCB v0.1.9 with ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash) Sold first half of 2022
 - PCB v0.1.9 with ESP32-U4WDH (Dual core,   240MHz, 4MB embedded flash) Sold since 2022-09-20 (or earlier)
 
-4 units bought directly from Shelly 2022-09-20 where confirmed to be PCB v0.1.9 with 3 units being dual core ESP32-U4WDH, the last a single core.
+4 units bought directly from Shelly 2022-09-20 were confirmed to be PCB v0.1.9 with 3 units being dual core ESP32-U4WDH, the last a single core.
 The advantage of the dual core version is that it supports the arduino framework.
+
+3 units bought from a reseller in Austria in 2024 were (without opening and checking the PCB) assumed to be PCB v0.1.9 and dual core ESP32-U4WDH. No problems were faced with this assumption.
 
 The single core version of the ESP32-U4WDH will probably be discontinued according to [Espressif PCN](https://www.espressif.com/sites/default/files/pcn_downloads/PCN-2021-021%20ESP32-U4WDH%20%E5%8D%87%E7%BA%A7%E4%B8%BA%E5%8F%8C%E6%A0%B8%E5%A4%84%E7%90%86%E5%99%A8%E4%BA%A7%E5%93%81.pdf)
 
@@ -49,6 +51,8 @@ v0.1.5 pinout credit to: [blakadder](https://templates.blakadder.com/shelly_plus
 ## Minimal configuration for PCB v0.1.9 and Dual Core
 
 Minimal configuration with all inputs/outputs and sensors configured
+
+Note that in this example, the relay numbering is swapped compared to the above pinout and the inverter filter is only applied to one of the two power channels. This example would be wrong with the bought Shellys in Austria in 2024.
 
 ```yaml
 substitutions:
@@ -212,6 +216,8 @@ esp32:
 - Detached switch mode and toggle light switch
 - Includes overpower and overtemperature protection.
 - Will toggle a smart bulb in home assistant and has fallback to local power switching when connecion to home assitant is down.
+
+Note that in this example, the two power channels are swapped and the inverter filter is only applied to one of the two power channels. This example would be wrong with the bought Shellys in Austria in 2024.
 
 ```yaml
 substitutions:
@@ -480,4 +486,375 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+ ```
+
+## Current Based Cover Configuration Example for PCB v0.1.9 and Dual Core
+
+To use the Shelly Plus 2PM to control a window cover with an "opening" and a "closing" motor, the [Current Based Cover](https://esphome.io/components/cover/current_based) is used.
+
+This configuration was implemented and tested on three pieces bought in Austria in 2024. As opposed to the examples above, power channel A is for relay 1 (for the "opening" motor), power channel B is for relay 2 (for the "closing" motor), and both power channels need to be inverted in order for the measurement to represent the motors' power consumptions positively.
+
+- outputs are configured to be mutually exclusive (never put power on both the opening and the closing motor)
+- the input channels (one for "opening", one for "closing") are used for manual overriding. They always have precedence if used.
+- whether or not the manual override is active is exposed as a binary sensor.
+
+```yaml
+substitutions:
+  devicename: "shelly-plus-2pm"
+  # Relay trip limits
+  max_power: "3600.0"
+  max_temp: "80.0"
+  # current-based cover parameters
+  open_duration: 54s
+  close_duration: 53s
+  max_duration: 70s
+  start_sensing_delay: 1.5s
+  moving_current_threshold: "0.2"
+  obstacle_current_threshold: "0.8"
+
+# For PCB v0.1.9 with dual core ESP32
+esphome:
+  name: "${devicename}"
+  comment: "Shelly Plus 2PM configured for a current-based blind, with on-connection-loss-opening failsafe with durations open:${open_duration}, close:${close_duration}, max:${max_duration} and current thresholds moving:${moving_current_threshold}, obstacle:${obstacle_current_threshold}"
+
+esp32:
+  board: esp32doit-devkit-v1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_key
+  on_client_disconnected: # failsafe
+    then:
+      - script.execute: blinds_open_if_no_manual_override
+
+ota:
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: on
+  on_disconnect: # failsafe
+    then:
+      - script.execute: blinds_open_if_no_manual_override
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${devicename}-AP"
+    password: !secret ap_password
+
+captive_portal:
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Enable Web server
+web_server:
+  port: 80
+  auth:
+    username: !secret web_server_username
+    password: !secret web_server_password
+
+
+i2c:
+  sda: GPIO26
+  scl: GPIO25
+
+# scripts for controlling the blinds
+script:
+  - id: blinds_open
+    then:
+      - switch.turn_off: switch_close
+#        - delay: 0.1s
+      - switch.turn_on: switch_open
+  - id: blinds_close
+    then:
+      - switch.turn_off: switch_open
+#        - delay: 0.1s
+      - switch.turn_on: switch_close
+  - id: blinds_stop
+    then:
+      - switch.turn_off: switch_open
+      - switch.turn_off: switch_close
+  - id: blinds_open_if_no_manual_override
+    then:
+      - if:
+          condition:
+            binary_sensor.is_off: manual_override
+          then:
+            - script.execute: blinds_open
+
+#internal Shelly Switch Outputs
+switch:
+  - platform: gpio
+    id: "switch_open"
+    pin: GPIO13
+    internal: true
+    restore_mode: ALWAYS_OFF
+    interlock: [switch_close]
+    interlock_wait_time: 200ms
+  - platform: gpio
+    id: "switch_close"
+    pin: GPIO12
+    internal: true
+    restore_mode: ALWAYS_OFF
+    interlock: [switch_open]
+    interlock_wait_time: 200ms
+
+#Blind Output - current-based cover
+cover:
+  - platform: current_based
+    device_class: blind
+    name: "Blind Output"
+    # for all actions (open, close, stop), respect a possible manual override. On manual override, do nothing.
+    open_action:
+      - if:
+          condition:
+            binary_sensor.is_off: manual_override
+          then:
+            - script.execute: blinds_open
+          else:
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: "Message from ${devicename}"
+                data_template:
+                  message: "Cannot open blinds because manual override is active."
+    close_action:
+      - if:
+          condition:
+            binary_sensor.is_off: manual_override
+          then:
+            - script.execute: blinds_close
+          else:
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: "Message from ${devicename}"
+                data_template:
+                  message: "Cannot close blinds because manual override is active."
+    stop_action:
+      - if:
+          condition:
+            binary_sensor.is_off: manual_override
+          then:
+            - script.execute: blinds_stop
+          else:
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: "Message from ${devicename}"
+                data_template:
+                  message: "Cannot stop blinds because manual override is active."
+    open_sensor: current_open
+    open_moving_current_threshold: ${moving_current_threshold}
+    open_obstacle_current_threshold: ${obstacle_current_threshold}
+    open_duration: ${open_duration}
+    close_sensor: current_close
+    close_moving_current_threshold: ${moving_current_threshold}
+    close_obstacle_current_threshold: ${obstacle_current_threshold}
+    close_duration: ${close_duration}
+    max_duration: ${max_duration}
+    # obstacle_rollback: 10% # default
+    start_sensing_delay: ${start_sensing_delay}
+    malfunction_detection: true
+    malfunction_action:
+      then:
+        - homeassistant.service:
+            service: persistent_notification.create
+            data:
+              title: "Message from ${devicename}"
+            data_template:
+              message: "Malfunction detected. Relays welded."
+
+binary_sensor:
+  #Shelly Switch Input 1 - "open blind" input
+  - platform: gpio
+    id: "input_open"
+    name: "Open Input"
+    pin: GPIO5
+    #small delay for debouncing
+    filters:
+      - delayed_on_off: 50ms
+    # when pressed, open blinds:
+    on_press:
+      then:
+        - script.execute: blinds_open
+    # when released, stop blinds:
+    on_release:
+      then:
+        - script.execute: blinds_stop
+  #Shelly Switch Input 2 - "close blind" input
+  - platform: gpio
+    id: "input_close"
+    name: "Close Input"
+    pin: GPIO18
+    #small delay for debouncing
+    filters:
+      - delayed_on_off: 50ms
+    # when pressed, close blinds:
+    on_press:
+      then:
+        - script.execute: blinds_close
+    # when released, stop blinds:
+    on_release:
+      then:
+        - script.execute: blinds_stop
+  #Manual Override Sensor - exposes if any of the input switches are on and therefore manual blind control override is avtive
+  - platform: template
+    id: "manual_override"
+    name: "Manual Input Override"
+    lambda: |-
+      return ( id(input_open).state || id(input_close).state );
+  #button - exposed in casing.
+  - platform: gpio
+    name: "$devicename Button"
+    pin:
+      number: GPIO4
+      inverted: yes
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_on_off: 5ms
+
+sensor:
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: "${devicename} - Wifi Signal"
+    update_interval: 60s
+    icon: mdi:wifi
+
+  # Uptime sensor.
+  - platform: uptime
+    name: "${devicename} - Uptime"
+    update_interval: 60s
+    icon: mdi:clock-outline
+
+  #temperature sensor
+  - platform: ntc
+    sensor: temp_resistance_reading
+    name: "${devicename} Temperature"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    entity_category: 'diagnostic'
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      # ATTENTION in other template configurations for the Shelly Plus 2PM, the resistance is 4.7k
+      reference_temperature: 298.15K
+    on_value_range:
+      - above: ${max_temp}
+        then:
+          - script.execute: blinds_stop
+          - homeassistant.service:
+              service: persistent_notification.create
+              data:
+                title: "Message from ${devicename}"
+              data_template:
+                message: "Relays turned off because temperature exceeded ${max_temp}°C"
+
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 10kOhm
+    # ATTENTION in other template configurations for the Shelly Plus 2PM, the resistance is 5.6k
+
+  - platform: adc
+    id: temp_analog_reading
+    pin: GPIO35
+    attenuation: 11db
+    update_interval: 10s
+
+  #power monitoring
+  - platform: ade7953_i2c
+    irq_pin: GPIO27 # Prevent overheating by setting this
+    voltage:
+      name: "${devicename} - Voltage"
+      unit_of_measurement: V
+      accuracy_decimals: 1
+      icon: mdi:flash-outline
+    # On the Shelly Plus 2PM bought in Austria in 2024, the channels are in order: ch1=A ch2=B
+    current_a:
+      id: current_open
+      name: "${devicename} - Opening Relay Current"
+      unit_of_measurement: A
+      accuracy_decimals: 3
+      icon: mdi:current-ac
+    current_b:
+      id: current_close
+      name: "${devicename} - Closing Relay Current"
+      unit_of_measurement: A
+      accuracy_decimals: 3
+      icon: mdi:current-ac
+    active_power_a:
+      name: "${devicename} - Opening Relay Power"
+      id: power_relay_open
+      unit_of_measurement: W
+      icon: mdi:gauge
+      # active_power_a is inverted, so multiply by -1
+      filters:
+        - multiply: -1
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - switch.turn_off: switch_open
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: "Message from ${devicename}"
+                data_template:
+                  message: "Opening Relay turned off because power exceeded ${max_power}W"
+    active_power_b:
+      name: "${devicename} - Closing Relay Power"
+      id: power_relay_close
+      unit_of_measurement: W
+      icon: mdi:gauge
+      # active_power_b is inverted, so multiply by -1
+      filters:
+        - multiply: -1
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - switch.turn_off: switch_close
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: "Message from ${devicename}"
+                data_template:
+                  message: "Closing Relay turned off because power exceeded ${max_power}W"
+    update_interval: 0.5s
+
+  - platform: total_daily_energy
+    name: "${devicename} - Opening Relay Daily Electric Consumption"
+    power_id: power_relay_open
+  - platform: total_daily_energy
+    name: "${devicename} - Closing Relay Daily Electric Consumption"
+    power_id: power_relay_close
+
+status_led:
+  pin:
+    number: GPIO0
+    inverted: true
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "${devicename} - IP Address"
+    ssid:
+      name: "${devicename} - Wi-Fi SSID"
+    bssid:
+      name: "${devicename} - Wi-Fi BSSID"
+  - platform: version
+    name: "${devicename} - ESPHome Version"
+    hide_timestamp: true
  ```
