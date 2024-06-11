@@ -25,7 +25,6 @@ On publish date you need to use ESP-Home beta to build bk72xx targets.
 | GPIO24  | BL0937CF1                          |
 | GPIO26  | BL0937CF                           |
 
-
 ## Basic Configuration
 
 ```yaml
@@ -157,4 +156,3 @@ light:
     id: light_status
     pin: P10
 ```
-
