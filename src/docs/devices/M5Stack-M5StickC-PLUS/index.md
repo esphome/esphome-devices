@@ -167,20 +167,22 @@ microphone:
 
 The 5V power on the HY2.0-4P is fed by the axp192. Therfore these devices must be initialized some time after the axp192 has started.
 
-```
+```yml
 i2c:
    - id: bus_gove
      sda: GPIO32
      scl: GPIO33
      scan: True
      frequency: 100kHz
-     ## Start some time after the axp192 has powered up. To add additional delay start after wifi.
-     setup_priority: 200
+     ## Start after the axp192 has powered up
+     ## In case an additional delay is needed this component may be helpfull:
+     ## https://github.com/ssieb/esphome_components/tree/master/components/boot_delay
+     setup_priority: 500
 
 sensor:
  ## Example: anything connected to "i2c_id: bus_gove" should have a lower setup priority then bus_gove.
   - platform: scd30
-    setup_priority: 195
+    setup_priority: 490
     i2c_id: bus_gove
     address: 0x61
     co2:
@@ -190,4 +192,3 @@ sensor:
     humidity:
       name: "Humidity"
 ```
-
