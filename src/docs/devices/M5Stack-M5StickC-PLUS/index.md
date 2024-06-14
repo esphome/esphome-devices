@@ -162,6 +162,7 @@ microphone:
     pdm: true
     id: mic
 ```
+
 ## Workaround for using devices powered with 5V  on the HY2.0-4P port
 
 The 5V power on the HY2.0-4P is fed by the axp192. Therfore these devices must be initialized some time after the axp192 has started.
