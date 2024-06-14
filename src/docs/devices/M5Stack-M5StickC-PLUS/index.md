@@ -162,3 +162,31 @@ microphone:
     pdm: true
     id: mic
 ```
+## Workaround for using devices powered with 5V  on the HY2.0-4P port
+
+The 5V power on the HY2.0-4P is fed by the axp192. Therfore these devices must be initialized some time after the axp192 has started.
+
+```
+i2c:
+   - id: bus_gove
+     sda: GPIO32
+     scl: GPIO33
+     scan: True
+     frequency: 100kHz
+     ## Start some time after the axp192 has powered up. To add additional delay start after wifi.
+     setup_priority: 200
+
+sensor:
+ ## Example: anything connected to "i2c_id: bus_gove" should have a lower setup priority then bus_gove.
+  - platform: scd30
+    setup_priority: 195
+    i2c_id: bus_gove
+    address: 0x61
+    co2:
+      name: "CO2"
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+```
+
