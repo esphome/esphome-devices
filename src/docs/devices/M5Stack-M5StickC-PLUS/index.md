@@ -49,6 +49,11 @@ esphome:
   board: m5stick-c
   platformio_options:
     upload_speed: 115200
+  on_boot:
+    ## Wait for 0.8s after axp192 has powered up and then initialize the external i2c bus
+    priority: 500
+    then:
+      - delay: 0.8s
 
 wifi:
   ssid: !secret wifi_ssid
@@ -133,6 +138,14 @@ i2c:
      scl: GPIO22
      scan: True
 
+   - id: bus_gove
+     sda: GPIO32
+     scl: GPIO33
+     scan: True
+     frequency: 100kHz
+     ## Start me after axp192 and after delaying for 0.8 secs (see on_boot)
+     setup_priority: 495
+
 font:
   - file: "gfonts://Roboto"
     id: roboto
@@ -161,4 +174,22 @@ microphone:
     adc_type: external
     pdm: true
     id: mic
+
+sensor:
+ ## Example, any thing connected to i2c_id: bus_gove should have a lower setup priority then bus_gove!
+  - platform: scd30
+    setup_priority: 490
+    i2c_id: bus_gove
+    co2:
+      name: "Workshop CO2"
+      accuracy_decimals: 1
+    temperature:
+      name: "Workshop Temperature"
+      accuracy_decimals: 2
+    humidity:
+      name: "Workshop Humidity"
+      accuracy_decimals: 1
+    temperature_offset: 1.5 °C
+    address: 0x61
+    update_interval: 5s
 ```
