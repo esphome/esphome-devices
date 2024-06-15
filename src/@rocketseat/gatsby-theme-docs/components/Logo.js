@@ -1,5 +1,4 @@
 import React from "react";
-import logo from './esphome-logo.svg'
 
 export default function Logo(props) {
   return (
