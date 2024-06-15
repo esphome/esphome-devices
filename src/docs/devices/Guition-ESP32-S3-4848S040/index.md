@@ -11,11 +11,13 @@ difficulty: 2
 
 ## Product specs
 
-Screen: st7701s driver 480\*480
-Touch screen: gt911
-CPU: ESP32-S3
-Flash: 16MB
-PSRAM: 8MB
+| Feature      | Spec                    |
+| ------------ | ----------------------- |
+| Screen       | st7701s driver 480\*480 |
+| Touch screen | gt911                   |
+| CPU          | ESP32-S3                |
+| Flash        | 16MB                    |
+| PSRAM        | 8MB                     |
 
 ## Product description
 
