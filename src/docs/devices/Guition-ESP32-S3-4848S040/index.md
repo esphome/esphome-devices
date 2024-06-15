@@ -11,11 +11,11 @@ difficulty: 2
 
 ## Product specs
 
-Screen: st7701s driver 480*480
+Screen: st7701s driver 480\*480
 Touch screen: gt911
 CPU: ESP32-S3
 Flash: 16MB
-PSRAM: 8MB 
+PSRAM: 8MB
 
 ## Product description
 
@@ -32,11 +32,11 @@ substitutions:
   device_description: "Guition ESP32-S3-4848S040 480*480 Smart Screen"
   project_name: "Guition.ESP32_S3_4848S040"
   project_version: "1.0.0"
-  
-  lightbulb:     "\U000F0335"
+
+  lightbulb: "\U000F0335"
   ceiling_light: "\U000F0769"
-  lamp:          "\U000F06B5"
-  floor_lamp:    "\U000F08DD"
+  lamp: "\U000F06B5"
+  floor_lamp: "\U000F08DD"
   string_lights: "\U000F12BA"
 
 esphome:
@@ -45,7 +45,7 @@ esphome:
   #name_add_mac_suffix: true
   project:
     name: "${project_name}"
-    version: "${project_version}"    
+    version: "${project_version}"
   platformio_options:
     board_build.flash_mode: dio
 
@@ -71,7 +71,7 @@ logger:
 
 api:
   encryption:
-    key: !secret encryption_key 
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password
@@ -81,14 +81,14 @@ wifi:
   password: !secret wifi_password
 
 web_server:
-  port: 80  
-  
+  port: 80
+
 external_components:
   - source:
       type: git
       url: https://github.com/clydebarrow/esphome
       ref: 82264dc2440981873b8400d613e0cc32d229daa3 #previous commit - wont be needed in the future
-    components: [ lvgl ] 
+    components: [lvgl]
 
 sensor:
   - platform: wifi_signal
@@ -106,7 +106,7 @@ sensor:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
     unit_of_measurement: "%"
     entity_category: diagnostic
-    
+
 text_sensor:
   - platform: wifi_info
     ip_address:
@@ -118,10 +118,10 @@ text_sensor:
     mac_address:
       name: "Mac Address"
       entity_category: diagnostic
- 
+
 #-------------------------------------------
 # LVGL Buttons
-#-------------------------------------------    
+#-------------------------------------------
 lvgl:
   displays:
     - display_id: my_display
@@ -144,7 +144,7 @@ lvgl:
       #- lvgl.pause:
       #- light.turn_off:
       #    id: display_backlight
-      #    transition_length: 5s    
+      #    transition_length: 5s
 
   style_definitions:
     - id: style_line
@@ -182,7 +182,7 @@ lvgl:
   pages:
     - id: main_page
       skip: true
-      layout: 
+      layout:
         type: flex
         flex_flow: column_wrap
       width: 100%
@@ -205,19 +205,18 @@ lvgl:
                   text: "Center Light"
                   long_mode: dot
             on_click:
-                light.toggle: internal_light
-              
+              light.toggle: internal_light
 
 #-------------------------------------------
 # Internal outputs
 #-------------------------------------------
 output:
-    # Backlight LED
+  # Backlight LED
   - platform: ledc
     pin: GPIO38
     id: GPIO38
     frequency: 100Hz
-    
+
     # Built in 240v relay
   - id: internal_relay_1
     platform: gpio
@@ -245,7 +244,7 @@ light:
         - lvgl.widget.update:
             id: lv_button_1
             state:
-              checked: true            
+              checked: true
     on_turn_off:
       then:
         - lvgl.widget.update:
@@ -254,7 +253,7 @@ light:
         - lvgl.widget.update:
             id: lv_button_1
             state:
-              checked: false             
+              checked: false
 
 #-------------------------------------------
 # Graphics and Fonts
@@ -265,36 +264,36 @@ font:
     size: 24
     bpp: 4
     extras:
-      - file: 'fonts/materialdesignicons-webfont.ttf' # http://materialdesignicons.com/cdn/7.4.47/ 
-        glyphs: [
-          "\U000F004B",
-          "\U0000f0ed",
-          "\U000F006E",
-          "\U000F012C",
-          "\U000F179B",
-          "\U000F0748",
-          "\U000F1A1B",
-          "\U000F02DC",
-          "\U000F0A02",
-          "\U000F035F",
-          "\U000F0156",
-          "\U000F0C5F", 
-          "\U000f0084",
-          "\U000f0091",
+      - file: "fonts/materialdesignicons-webfont.ttf" # http://materialdesignicons.com/cdn/7.4.47/
+        glyphs:
+          [
+            "\U000F004B",
+            "\U0000f0ed",
+            "\U000F006E",
+            "\U000F012C",
+            "\U000F179B",
+            "\U000F0748",
+            "\U000F1A1B",
+            "\U000F02DC",
+            "\U000F0A02",
+            "\U000F035F",
+            "\U000F0156",
+            "\U000F0C5F",
+            "\U000f0084",
+            "\U000f0091",
           ]
 
-  - file: 'fonts/materialdesignicons-webfont.ttf' # http://materialdesignicons.com/cdn/7.4.47/ 
+  - file: "fonts/materialdesignicons-webfont.ttf" # http://materialdesignicons.com/cdn/7.4.47/
     id: light40
     size: 40
     bpp: 4
     glyphs: [
-      "\U000F0335", # mdi-lightbulb
-      "\U000F0769", # mdi-ceiling-light
-      "\U000F06B5", # mdi-lamp
-      "\U000F08DD", # mdi-floor-lamp
-      "\U000F12BA", # mdi-string-lights
-      ]          
-   
+        "\U000F0335", # mdi-lightbulb
+        "\U000F0769", # mdi-ceiling-light
+        "\U000F06B5", # mdi-lamp
+        "\U000F08DD", # mdi-floor-lamp
+        "\U000F12BA", # mdi-string-lights
+      ]
 
 #-------------------------------------------
 # Touchscreen gt911 i2c
@@ -304,7 +303,7 @@ i2c:
     sda: GPIO19
     scl: GPIO45
     #frequency: 100kHz
-    
+
 touchscreen:
   platform: gt911
   transform:
@@ -315,15 +314,15 @@ touchscreen:
 
   on_touch:
     - logger.log:
-          format: Touch at (%d, %d)
-          args: [touch.x, touch.y]
+        format: Touch at (%d, %d)
+        args: [touch.x, touch.y]
     - lambda: |-
-          ESP_LOGI("cal", "x=%d, y=%d, x_raw=%d, y_raw=%0d",
-              touch.x,
-              touch.y,
-              touch.x_raw,
-              touch.y_raw
-              );
+        ESP_LOGI("cal", "x=%d, y=%d, x_raw=%d, y_raw=%0d",
+            touch.x,
+            touch.y,
+            touch.x_raw,
+            touch.y_raw
+            );
 
 #-------------------------------------------
 # Display st7701s spi
@@ -332,7 +331,7 @@ spi:
   - id: lcd_spi
     clk_pin: GPIO48
     mosi_pin: GPIO47
-    
+
 display:
   - platform: st7701s
     id: my_display
@@ -361,26 +360,26 @@ display:
     init_sequence:
       - 1
       # Custom sequences are an array, first byte is command, the rest are data.
-      - [ 0xFF, 0x77, 0x01, 0x00, 0x00, 0x10 ] # CMD2_BKSEL_BK0
-      - [ 0xCD, 0x00 ] # disable MDT flag
+      - [0xFF, 0x77, 0x01, 0x00, 0x00, 0x10] # CMD2_BKSEL_BK0
+      - [0xCD, 0x00] # disable MDT flag
     data_pins:
       red:
-        - 11        #r1
-        - 12        #r2
-        - 13        #r3
-        - 14        #r4
-        - 0         #r5
+        - 11 #r1
+        - 12 #r2
+        - 13 #r3
+        - 14 #r4
+        - 0 #r5
       green:
-        - 8         #g0
-        - 20        #g1
-        - 3         #g2
-        - 46        #g3
-        - 9         #g4
-        - 10        #g5
+        - 8 #g0
+        - 20 #g1
+        - 3 #g2
+        - 46 #g3
+        - 9 #g4
+        - 10 #g5
       blue:
-        - 4         #b1
-        - 5         #b2
-        - 6         #b3
-        - 7         #b4
-        - 15        #b5        
+        - 4 #b1
+        - 5 #b2
+        - 6 #b3
+        - 7 #b4
+        - 15 #b5
 ```
