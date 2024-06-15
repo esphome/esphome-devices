@@ -47,7 +47,6 @@ esp32:
   board: esp32dev
   framework:
     type: esp-idf
-    
 
 # Enable logging
 logger:
@@ -77,12 +76,11 @@ globals:
   - id: total_energy
     type: float
     restore_value: true
-    initial_value: '0.0'
+    initial_value: "0.0"
 
 dashboard_import:
   package_import_url: github://esphome/example-configs/esphome-web/esp32.yaml@main
   import_full_config: true
-
 
 # To have a "next url" for improv serial
 web_server:
@@ -118,7 +116,7 @@ switch:
       - light.turn_on: led
     on_turn_off:
       - light.turn_off: led
-    
+
 sensor:
   - platform: wifi_signal
     name: "Wifi Signal"
@@ -130,7 +128,6 @@ sensor:
     update_interval: 60s
     icon: mdi:clock-outline
 
-  
   - platform: hlw8012
     model: BL0937
     sel_pin:
@@ -150,10 +147,10 @@ sensor:
       accuracy_decimals: 3
       icon: mdi:current-ac
       filters:
-       - lambda: |-
+        - lambda: |-
             if (x < 0.01) return 0;
             else return x;
-      
+
     voltage:
       id: voltage
       name: "voltage"
@@ -168,9 +165,9 @@ sensor:
       icon: mdi:flash-outline
       force_update: true
       filters:
-       - calibrate_linear:
-          - 0.0 -> 0.0
-          - 24.50 -> 28.40
+        - calibrate_linear:
+            - 0.0 -> 0.0
+            - 24.50 -> 28.40
       on_value_range:
         - above: ${max_power}
           then:
