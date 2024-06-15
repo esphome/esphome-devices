@@ -11,7 +11,7 @@ difficulty: 3
 ## General Notes
 
 Theis device contains an ESP32-C3 and ships with Tasmota firmware
-To flash it the device can easyli be dissasemblied by unscrewing the screw at the plug side.
+To flash it the device can easily be dissasemblied by unscrewing the screw at the plug side.
 
 ### Example Configuration
 
