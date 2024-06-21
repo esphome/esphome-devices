@@ -16,6 +16,7 @@ difficulty: 3
 - Working Temperature: -25℃-70℃
 - Red LED's wired to Relay and display it status
 - Energy measurement starts from 0 on every power-up
+- Not provide Power Apparent & Factor data
 
 ![Front View](/TOB9e-63M_front.jpg "TOB9e Front View")
 ![Opened View](/TOB9e-63M_opened.jpg "TOB9e Opened View")
@@ -28,11 +29,14 @@ difficulty: 3
 | GPIO12 | Relay               |          |
 | GPIO13 | Status LED - Blue   | inverted |
 | GPIO03 | CSE7759B meter      |          |
-| GPIO07 | TBD                 |          |
+| GPIO07 | soldered, unknown   |          |
 
 ## Required for CSE7759B meter
 
 ```yaml
+esp8266:
+  board: esp8285
+
 logger:
   baud_rate: 0
 
