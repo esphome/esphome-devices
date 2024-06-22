@@ -99,7 +99,7 @@ binary_sensor:
     pin: 10
     on_press:
       then:
-        - logger.log: "Seitch 1 pressed" 
+        - logger.log: "Seitch 1 pressed"
     on_release:
       then:
         - logger.log: "Seitch 1 released"
@@ -111,7 +111,7 @@ binary_sensor:
     pin: 7
     on_press:
       then:
-        - logger.log: "Seitch 2 pressed" 
+        - logger.log: "Seitch 2 pressed"
     on_release:
       then:
         - logger.log: "Seitch 2 released"
@@ -123,7 +123,7 @@ binary_sensor:
     pin: 6
     on_press:
       then:
-        - logger.log: "Seitch 3 pressed" 
+        - logger.log: "Seitch 3 pressed"
     on_release:
       then:
         - logger.log: "Seitch 3 released"
@@ -135,7 +135,7 @@ binary_sensor:
     pin: 5
     on_press:
       then:
-        - logger.log: "Seitch 4 pressed" 
+        - logger.log: "Seitch 4 pressed"
     on_release:
       then:
         - logger.log: "Seitch 4 released"
