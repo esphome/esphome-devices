@@ -16,7 +16,6 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 
 > Alternative for newer devices: [see below](#alternative)
 
-
 ## GPIO Pinout
 
 | Pin    | Function                       |
@@ -123,14 +122,16 @@ sensor:
       unit_of_measurement: W
       accuracy_decimals: 2
 ```
+
 (#alternative)
+
 ## Alternative for newer devices
 
-*WARNING: Soldering involved, warranty broken, electric hazard, make sure you know what you are doing at your own responsibility*
+WARNING: Soldering involved, warranty broken, electric hazard, make sure you know what you are doing at your own responsibility
 
 - Replace Cuco-chip with ESP-M2: https://github.com/c-klinger/Gosund-ESPMod/tree/main (courtesy: Chris Klinger)
 
-# Alternative Configuration
+- ESPHome basic configuration:
 
 ```yaml
 esphome:
