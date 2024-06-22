@@ -1,5 +1,5 @@
 ---
-title: Shelly I4 Gen3
+title: Shelly i4 Gen3
 date-published: 2024-06-22
 type: switch
 standard: uk, us, eu
