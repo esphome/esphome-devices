@@ -9,7 +9,7 @@ difficulty: 4
 
 Generation 3 of Shelly Plus i4.
 
-![Shelly i4 Gen3](./Shelly_Plusi4_x1_Gen3_PDP.webp "Shelly i4 Gen3")
+![Shelly i4 Gen3](./Shelly_i4_Gen3.png "Shelly i4 Gen3")
 
 ## GPIO Pinout
 
