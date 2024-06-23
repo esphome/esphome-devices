@@ -18,7 +18,7 @@ difficulty: 3
 - Energy measurement starts from 0 on every power-up
 - Not provide Power Apparent & Factor data
 
-![Front View](/TOB9e-63M_front.jpg "TOB9e Front View")
+![Front View](/TOB9e-63M_front.png "TOB9e Front View")
 ![Opened View](/TOB9e-63M_opened.jpg "TOB9e Opened View")
 
 ## GPIO Pinout
