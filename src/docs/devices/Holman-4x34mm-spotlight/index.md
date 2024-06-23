@@ -12,9 +12,6 @@ Sold by Bunnings Warehouse this is a AU/NZ standard wall Low voltage spotlight b
 
 The unit uses the Tuya CBU Wifi Module.
 
-Copy
-![alt text](HolmanLED.jpg "Holman LED Spothlight")
-
 ### Disassembly
 
 You can flash directly to the outlet with USB to serial adapter.
@@ -22,7 +19,7 @@ You can flash directly to the outlet with USB to serial adapter.
 ## GPIO pinout
 
 | PIN | GPIO # |   Component   |
-|:---:|:------:|--------------:|
+|-----|--------|---------------|
 |  2  | P16    | LED SPOTLIGHT |
 |  3  | P20    |      Button 1 |
 | 13  | GND    |        GND    |
