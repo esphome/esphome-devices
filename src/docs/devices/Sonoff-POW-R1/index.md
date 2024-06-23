@@ -4,6 +4,7 @@ date-published: 2019-11-11
 type: relay
 standard: global
 board: esp8266
+difficulty: 3
 ---
 
 ## Product Images
