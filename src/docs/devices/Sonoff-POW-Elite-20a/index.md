@@ -1,7 +1,7 @@
 ---
 title: Sonoff POW Elite 20a (POWR320D)
 date-published: 2022-11-13
-type: plug
+type: relay
 standard: global
 board: esp32
 ---
