@@ -14,7 +14,7 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 
 **Attention**: As it turns out Tuya no longer builds them with esp chips. This means as of late 2021 you cannot flash esphome on new units.
 
-> Alternative for newer devices: [see below](#alternative)
+**Alternative for newer devices:** [see below](#alternative-for-newer-devices)
 
 ## GPIO Pinout
 
@@ -122,8 +122,6 @@ sensor:
       unit_of_measurement: W
       accuracy_decimals: 2
 ```
-
-(#alternative)
 
 ## Alternative for newer devices
 
