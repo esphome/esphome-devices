@@ -1,7 +1,7 @@
 ---
 title: Sonoff POWR1
 date-published: 2019-11-11
-type: plug
+type: relay
 standard: global
 board: esp8266
 ---
