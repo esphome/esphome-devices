@@ -4,6 +4,7 @@ date-published: 2019-10-11
 type: misc
 standard: global
 board: esp8266
+difficulty: 3
 ---
 
 ## GPIO Pinout

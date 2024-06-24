@@ -1,9 +1,10 @@
 ---
 title: Sonoff THR320D
 date-published: 2023-01-07
-type: plug
-standard: us
+type: relay
+standard: global
 board: esp32
+difficulty: 3
 ---
 
 ## Bootloop Workaround
