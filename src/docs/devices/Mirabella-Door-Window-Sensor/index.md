@@ -9,37 +9,52 @@ board: esp8266
 
 ## General Notes
 
-This is for [Mirabella Genio Door & Window Sensor](https://mirabellagenio.net.au/door-%26-window-sensor).
+This is for [Mirabella Genio Door & Window Sensor](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-door-and-window-sensor/).
 
-The file [sb1_uart.h](https://github.com/brandond/esphome-tuya_pir/blob/master/sb1_uart.h) must be added to your Home Assistant /config/esphome directory for a succesful compile.
+The "updated for 2024" [sb1_uart.h](https://github.com/brandond/esphome-tuya_pir/blob/master/sb1_uart.h) must be added to your Home Assistant /config/esphome directory for a succesful compile.
 
-Credit to [Brandon D](https://github.com/brandond) for the file and esphome config
+Credit to [Brandon D](https://github.com/brandond) for the original (2020-version) [sb1_uart.h](https://github.com/brandond/esphome-tuya_pir/blob/master/sb1_uart.h) file and esphome config.
 
 ![Mirabella Genio Door & Window Sensor](/Mirabella-Door-Window-Sensor.jpg "Mirabella Genio Door & Window Sensor")
 
 ## Basic Configuration
 
 ```yaml
-# Basic Config
-# https://mirabellagenio.net.au/door-%26-window-sensor
+substitutions:
+  friendly_name: 'A Special Door'
+  name: 'a-special-sensor'
+
 esphome:
-  name: mirabella_genio_door_window_sensor
-  platform: ESP8266
-  board: esp01_1m
-  arduino_version: 2.5.1
-  board_flash_mode: dout
+  friendly_name: ${friendly_name}
+  name: ${name}
   includes:
     - sb1_uart.h
 
+esp8266:
+  board: esp01_1m
+  board_flash_mode: dout
+
+logger:
+  level: INFO
+  hardware_uart: UART1
+
+ota:
+  platform: esphome # Use the default esphome OTA
+
 wifi:
-  ssid: 'Wifi SSID'
-  password: !secret wifi_pw
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   fast_connect: true
 
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # PLACEHOLDER
+
 mqtt:
-  broker: 'x.x.x.x'
-  username: !secret mqtt_un
-  password: !secret mqtt_pw
+  broker: 'x.x.x.x' # PLACEHOLDER
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
   birth_message:
   shutdown_message:
   will_message:
@@ -48,22 +63,18 @@ uart:
   - tx_pin: 1
     rx_pin: 3
     baud_rate: 9600
-    id: uart0
-
-ota:
-
-logger:
-  level: INFO
-  hardware_uart: UART1
-
+    id: uart01 # This needed a unique name
+  
 sensor:
-#  - platform: wifi_signal
-#    name: "Door WiFi Signal"
-#    update_interval: never
-#    expire_after:
-#    filters: []
+  - platform: uptime
+    name: "${friendly_name} Uptime"
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: never
+    expire_after:
+    filters: []
   - platform: adc
-    name: "Doow Window Battery"
+    name: "${friendly_name} Battery"
     update_interval: 1s
     expire_after:
     pin: VCC
@@ -78,7 +89,7 @@ sensor:
 binary_sensor:
   - platform: template
     id: door
-    name: "Door Window Sensor"
+    name: "${friendly_name} Sensor"
     filters: []
     device_class: door
     lambda: "return {};"
@@ -86,6 +97,6 @@ binary_sensor:
 custom_component:
   - id: sb1_uart
     lambda: |-
-      auto component = new SB1UARTComponent(id(uart0), id(door));
+      auto component = new SB1UARTComponent(id(uart01), id(door));
       return {component};
 ```
