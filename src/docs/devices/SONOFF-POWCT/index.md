@@ -29,12 +29,9 @@ To get the correct current and power values, the measurement must be divided by 
 
 ```yaml
 # Basic Config
-substitutions:
-  friendly_name: Sonoff POW Ring
-  device_name: sonoff-powct
-
 esphome:
-  name: $device_name
+  name: sonoff-powct
+  friendly_name: Sonoff POW Ring
   on_boot: # Set the initial state of the template switch to the actual relay state. This will NOT change the state.
     priority: 250.0 # Wait until WiFi is connected to allow the sensor some time to settle
     then:
@@ -51,30 +48,18 @@ esp32:
 
 # Enable logging
 logger:
-  level: INFO
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_enc
 
 ota:
   - platform: esphome
-    password: !secret ota_pwd
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: $device_name
-    password: !secret wifi_failover
 
 captive_portal:
-
-web_server:
-  port: 80
 
 time:
   - platform: homeassistant
@@ -91,7 +76,7 @@ sensor:
   - platform: cse7761
     update_interval: 2s
     current_1:
-      name: $friendly_name Current
+      name: Current
       id: a_sensor
       unit_of_measurement: 'A'
       accuracy_decimals: 3
@@ -100,12 +85,12 @@ sensor:
         # Measurement divided by the PI number
         - lambda: return x / PI;
     voltage:
-      name: $friendly_name Voltage
+      name: Voltage
       id: v_sensor
       unit_of_measurement: 'V'
       icon: mdi:sine-wave
     active_power_1:
-      name: $friendly_name Power
+      name: Power
       id: w_sensor
       filters:
         # Measurement divided by the PI number
@@ -120,7 +105,7 @@ sensor:
             - light.turn_off: switch_led
 
   - platform: total_daily_energy
-    name: $friendly_name Total Daily Energy
+    name: Total Daily Energy
     power_id: w_sensor
     id: kw_sensor
     unit_of_measurement: 'kWh'
@@ -132,35 +117,8 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
 
-  - platform: wifi_signal
-    name: $friendly_name Wifi RSSI
-    update_interval: 60s
-    icon: mdi:signal
-
-  - platform: uptime
-    id: uptime_sensor
-    internal: True
-    on_raw_value:
-      then:
-        - text_sensor.template.publish:
-            id: uptime_human
-            state: !lambda |-
-              int seconds = round(id(uptime_sensor).raw_state);
-              int days = seconds / (24 * 3600);
-              seconds = seconds % (24 * 3600);
-              int hours = seconds / 3600;
-              seconds = seconds % 3600;
-              int minutes = seconds /  60;
-              seconds = seconds % 60;
-              return (
-                (days ? to_string(days) + "d " : "") +
-                (hours ? to_string(hours) + "h " : "") +
-                (minutes ? to_string(minutes) + "m " : "") +
-                (to_string(seconds) + "s")
-              ).c_str();
-
   - platform: template
-    name: $friendly_name ESP32 Internal Temp
+    name: ESP32 Internal Temp
     device_class: temperature
     unit_of_measurement: °C
     id: esp32_temp
@@ -168,7 +126,7 @@ sensor:
     lambda: return temperatureRead();
 
   - platform: template
-    name: $friendly_name Power Factor
+    name: Power Factor
     device_class: power_factor
     id: power_factor
     icon: mdi:angle-acute
@@ -205,7 +163,7 @@ binary_sensor:
     publish_initial_state: true
     internal: true
   - platform: template
-    name: $friendly_name Subordinate Device
+    name: Subordinate Device
     id: subordinate_device_on
     lambda: |-
       if (isnan(id(w_sensor).state)) {
@@ -247,7 +205,7 @@ output:
 
 switch:
   - platform: gpio
-    name: $friendly_name Relay
+    name: Relay
     pin: GPIO21
     id: relay_1
     restore_mode: RESTORE_DEFAULT_OFF
@@ -257,27 +215,6 @@ switch:
     on_turn_off:
       - delay: 500ms
       - light.turn_off: switch_led
-  - platform: restart
-    name: $friendly_name Restart
-    icon: mdi:restart
-
-text_sensor:
-  - platform: version
-    name: $friendly_name Version
-    icon: mdi:information
-  - platform: template
-    name: $friendly_name Uptime
-    id: uptime_human
-    icon: mdi:clock-start
-  - platform: wifi_info
-    ip_address:
-      name: $friendly_name IP
-      icon: mdi:ip-network
-    ssid:
-      name: $friendly_name SSID
-      icon: mdi:wifi
-    bssid:
-      name: $friendly_name BSSID
 
 light:
   - platform: monochromatic
@@ -290,15 +227,4 @@ light:
     pin:
       number: GPIO15
       inverted: True
-
-interval:
-  - interval: 30s
-    then:
-      if:
-        condition:
-          wifi.connected:
-        then:
-          - light.turn_on: wifi_status_led
-        else:
-          - light.turn_off: wifi_status_led
 ```
