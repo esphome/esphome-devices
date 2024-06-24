@@ -12,7 +12,7 @@ Sold by Bunnings Warehouse this is a AU/NZ standard wall Low voltage spotlight b
 
 The unit uses the Tuya CBU Wifi Module.
 
-![alt text](LED.jpg "LED Spotlight")
+![alt text](led.jpg "LED Spotlight")
 
 ### Disassembly
 
