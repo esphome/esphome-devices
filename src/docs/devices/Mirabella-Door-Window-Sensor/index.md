@@ -11,7 +11,7 @@ board: esp8266
 
 This is for [Mirabella Genio Door & Window Sensor](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-door-and-window-sensor/).
 
-The "updated for 2024" [sb1_uart.h](https://github.com/brandond/esphome-tuya_pir/blob/master/sb1_uart.h) must be added to your Home Assistant /config/esphome directory for a succesful compile.
+The "updated for 2024" [sb1_uart.h](/sb1_uart.h) must be added to your Home Assistant /config/esphome directory for a succesful compile.
 
 Credit to [Brandon D](https://github.com/brandond) for the original (2020-version) [sb1_uart.h](https://github.com/brandond/esphome-tuya_pir/blob/master/sb1_uart.h) file and esphome config.
 
