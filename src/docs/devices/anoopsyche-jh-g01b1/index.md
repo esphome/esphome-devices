@@ -27,11 +27,23 @@ substitutions:
 
 esphome:
   name: "${device_name}"
+  friendly_name: Example Device
   platform: ESP8266
-  board: esp01_1m
+  board: esp01_1m    
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
 web_server:

@@ -52,33 +52,28 @@ PCB
 ## Basic Configuration (2-Gang)
 
 ```yaml
+
 esphome:
-  name: agl-2-gang-switch
-  friendly_name: AGL 2 Gang Switch
+  name: example-device
+  friendly_name: Example Device
+  platform: ESP8266
+  board: esp01_1m    
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-esp8266:
-  board: esp01_1m
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "ESPHOME"
-    password: "12345678"
-
-
+# Enable Home Assistant API
 api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: !secret ota_password
 
 sensor:
   - platform: uptime

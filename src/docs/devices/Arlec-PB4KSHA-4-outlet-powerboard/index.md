@@ -49,20 +49,20 @@ esphome:
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
-web_server:
-
-captive_portal:
-
+# Enable Home Assistant API
 api:
-
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
 
 text_sensor:
   - platform: libretiny

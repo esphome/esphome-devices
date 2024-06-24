@@ -41,24 +41,20 @@ esphome:
   platform: ESP8266
   board: esp01_1m
 
-wifi:
-  ssid: "SSID"
-  password: "password"
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "fl052ha_flood_light"
-    password: "password"
 
-captive_portal:
-
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
-
-ota:
-  password: "password"
 
 output:
   - platform: esp8266_pwm

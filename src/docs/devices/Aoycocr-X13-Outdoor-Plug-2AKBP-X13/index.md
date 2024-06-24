@@ -72,22 +72,21 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   arduino_version: espressif8266@2.6.2
-
-wifi:
-  ssid: !secret ssid
-  password: !secret ssid_password
-  use_address: "$devicename.home"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "$proper_devicename Hotspot"
-    password: !secret ap_password
-
-
-captive_portal:
-logger:
-api:
+    
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
 
 # https://tasmota.github.io/docs/Components/
 # https://templates.blakadder.com/aoycocr_X13.html

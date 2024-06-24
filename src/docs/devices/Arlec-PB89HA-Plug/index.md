@@ -43,22 +43,21 @@ esphome:
   comment: ${name}
   platform: ESP8266
   board: esp01_1m
-
-wifi:
-  ssid: "ssid"
-  password: "password"
-
-logger:
-  # Important! The status LED and button are on the Pins used by UART0,
-  # so if you want to use the serial port, you can set it to UART1.
-  hardware_uart: UART1
-
-api:
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: "ota_password"
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
 
 status_led:
   pin:

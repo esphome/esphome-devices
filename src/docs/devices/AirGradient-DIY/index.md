@@ -17,22 +17,25 @@ If you have multiple sensor boards, you will likely need to make each sensor nam
 
 ```yaml
 esphome:
-  name: airgradient
+  name: example-device
+  friendly_name: Example Device
   platform: ESP8266
   board: d1_mini
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
-
-ota:
-  password: ""
-
-captive_portal:
 
 i2c:
   sda: D2

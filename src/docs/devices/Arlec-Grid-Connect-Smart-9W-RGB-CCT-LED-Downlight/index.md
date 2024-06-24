@@ -43,15 +43,20 @@ esphome:
   platform: ESP8266
   board: esp01_1m
 
-wifi:
-  ssid: "ssid"
-  password: "password"
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-
-ota:
 
 sensor:
   - platform: uptime

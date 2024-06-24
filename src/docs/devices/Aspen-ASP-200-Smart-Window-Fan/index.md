@@ -35,34 +35,29 @@ esphome:
 esp8266:
   board: esp12e
   restore_from_flash: TRUE
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  use_address: ${device_name}
-
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "${friendly_name}"
-    password: !secret esphome_ap_password
 
-captive_portal:
+# Enabling the logging component
+logger:
+  baud_rate: 0
 
 # Enable Home Assistant API
 api:
-  # https://esphome.io/components/api
-  encryption:
-    key: !secret api_encryption_key
-
-ota:
-  # https://esphome.io/components/ota
-  password: !secret ota_password
 
 # Enable Web server.
 web_server:
   port: 80
-
-logger:
-  baud_rate: 0
 
 uart:
   rx_pin: GPIO3

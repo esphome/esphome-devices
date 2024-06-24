@@ -50,27 +50,21 @@ esphome:
 esp8266:
   board: esp01_1m
 
-# Enable logging
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "api_password"
 
-ota:
-  password: "ota_password"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Powermeterd Fallback Hotspot"
-    password: "FallBackPassword"
-
-captive_portal:
 
 binary_sensor:
   - platform: gpio
