@@ -38,26 +38,24 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
-  fast_connect: on #we only have one WiFi AP so just use the first one that matches
-  ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
-  baud_rate: 0 #disable UART logging since we aren't connected to GPIO1 TX
 
 # Enable Home Assistant API
 api:
 
-# Enable OTA updates
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Enable web server
 web_server:

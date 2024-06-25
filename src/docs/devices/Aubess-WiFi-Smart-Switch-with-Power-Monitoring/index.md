@@ -32,19 +32,24 @@ esphome:
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
-
-logger:
-api:
-captive_portal:
+    
+# OTA flashing
 ota:
+  - platform: esphome
 
-wifi:
-  networks:
-  - ssid: !secret wifi_ssid
-    password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "AubessPM01"
-    password: !secret wifi_password
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 uart:
   id: uart_bus

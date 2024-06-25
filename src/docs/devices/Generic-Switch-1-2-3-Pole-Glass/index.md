@@ -60,26 +60,27 @@ esphome:
   board: ${board}
   name: ${device_name}
   esp8266_restore_from_flash: true
-
-wifi:
-  ssid: !secret wifi_iot_ssid
-  password: !secret wifi_iot_pwd
-  fast_connect: on
-  reboot_timeout: ${reboot_timeout_wifi}
-  output_power: ${output_power}
-  ap:
-    ssid: "AP_${friendly_name}"
-    password: !secret wifi_backup_pwd
-
-api:
-  reboot_timeout: ${reboot_timeout_api}
-
+  
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-
-logger:
 
 #################################
 
@@ -192,26 +193,27 @@ esphome:
   board: ${board}
   name: ${device_name}
   esp8266_restore_from_flash: true
-
-wifi:
-  ssid: !secret wifi_iot_ssid
-  password: !secret wifi_iot_pwd
-  fast_connect: on
-  reboot_timeout: ${reboot_timeout_wifi}
-  output_power: ${output_power}
-  ap:
-    ssid: "AP_${friendly_name}"
-    password: !secret wifi_backup_pwd
-
-api:
-  reboot_timeout: ${reboot_timeout_api}
-
+  
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-
-logger:
 
 #################################
 

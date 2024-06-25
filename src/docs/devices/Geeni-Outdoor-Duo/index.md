@@ -46,20 +46,24 @@ esphome:
   platform: ESP8266
   board: esp01_1m
     # Change board to 'esp12e' if the original Tuya WB3S has been desoldered and replaced with an ESP12
+   
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
-      # Or copy the encription key from the "Add Device" menu of ESPHome
 
-ota:
-  password: !secret ota_password
+# Enable the captive portal
+captive_portal:
 
 #web_server:
 #  port: 80

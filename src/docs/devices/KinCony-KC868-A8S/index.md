@@ -38,6 +38,24 @@ esphome:
   platform: ESP32
   board: esp32dev
 
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 remote_receiver:
   pin: 16
   dump:
@@ -342,9 +360,4 @@ script:
       - switch.turn_off: light3
       - switch.turn_off: light4
 
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
 ```

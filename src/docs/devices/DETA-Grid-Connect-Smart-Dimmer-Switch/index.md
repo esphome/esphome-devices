@@ -31,34 +31,27 @@ These switches are Tuya devices, however as the main W3BS chip needs to be repla
 substitutions:
   device_name: detadimmerwitch
   friendly_name: "Dimmer Switch"
-  device_ip: 192.168.0.x
-
-#################################
 
 esphome:
   platform: ESP8266
   board: esp01_1m
   name: ${device_name}
   esp8266_restore_from_flash: true
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: 192.168.0.1
-    subnet: 255.255.255.0
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "ESPHOME"
-    password: "12345678"
-
-api:
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ota_password
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # The web_server & sensor components can be removed without affecting core functionaility.
 web_server:

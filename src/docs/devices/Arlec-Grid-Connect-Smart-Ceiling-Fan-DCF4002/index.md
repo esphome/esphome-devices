@@ -50,21 +50,20 @@ rtl87xx
 # Disable Serial Logging so the Tuya MCU functions
 logger:
   baud_rate: 0
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  # This config assumes you have defined a shared password in the ESPHome secrets file.
-  ap:
-    ssid: "Arlec-Fanlight"
-    password: !secret wifi_ap_password
-
+# Enable the captive portal
 captive_portal:
 
 # UART pins for RTL8170BN might need to be changed to RX1/TX1 for Tuya MCU.  It depends on how ESPHome and LibreTiny map these pins, but note that the WR4 has pins PA22 and PA18, along with PA29 and PA30 (often referreed to as A_XX e.g. A_29).

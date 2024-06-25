@@ -53,18 +53,23 @@ esphome:
     name: "${project_name}"
     version: "${project_version}"
 
-api:
-
+    
+# OTA flashing
 ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
-web_server:
-  port: 80
+# Enable Home Assistant API
+api:
 
-wifi:
-  ap: {} # This spawns an AP with the device name and mac address with no password.
-
+# Enable the captive portal
 captive_portal:
 
 binary_sensor:

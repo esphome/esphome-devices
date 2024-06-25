@@ -43,30 +43,30 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-bk72xx:
-  board: wb2s
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "YOUR KEY HERE"
+
+# Enable the captive portal
+captive_portal:
+
+bk72xx:
+  board: wb2s
 
 web_server:
   port: 80
-  auth:
-    username: admin
-    password: !secret web_server_password
-
-ota:
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
 
 text_sensor:
   - platform: wifi_info

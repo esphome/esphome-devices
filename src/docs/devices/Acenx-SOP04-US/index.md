@@ -28,27 +28,29 @@ substitutions:
   friendly_name: Acenx SOP04-US
 
 esphome:
-  name: "${device_name}"
+  name: example-device
+  friendly_name: Example Device
   platform: ESP8266
-  board: esp01_1m
+  board: esp01_1m    
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+# OTA flashing
+ota:
+  - platform: esphome
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "${device_name} Fallback Hotspot"
-    password: !secret wifi_fallback_pw
 
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-  password: !secret ota
+# Enable the captive portal
+captive_portal:
+
 
 binary_sensor:
   - platform: gpio

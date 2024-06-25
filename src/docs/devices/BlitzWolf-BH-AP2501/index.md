@@ -44,14 +44,20 @@ esphome:
 
 esp8266:
   board: esp12e
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable status LED
-status_led:
-    pin:
-      number: GPIO2
-      inverted: true
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
   level: INFO
   # Disable logging via UART, we need it for the Tuya MCU
@@ -59,22 +65,15 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret home_assistant_key
 
-ota:
-  password: !secret ota_password
-
-# Configure WiFi
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: $device_friendly_name
-    password: !secret wifi_fallback_password
+# Enable the captive portal
 captive_portal:
+
+# Enable status LED
+status_led:
+    pin:
+      number: GPIO2
+      inverted: true
 
 # Initialize the UART that connects to the Tuya MCU
 uart:

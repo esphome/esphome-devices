@@ -32,16 +32,24 @@ esp32:
   framework:
     type: arduino
   flash_size: 16MB
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+# Enable the captive portal
+captive_portal:
 
 binary_sensor:
   - platform: gpio

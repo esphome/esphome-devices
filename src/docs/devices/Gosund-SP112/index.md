@@ -35,10 +35,20 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 esphome:
   platform: ESP8266
   board: esp01_1m
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # Reduce log level as otherwise logs would be flooded with analog sensor readings
 logger:

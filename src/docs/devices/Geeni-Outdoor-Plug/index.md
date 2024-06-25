@@ -22,22 +22,24 @@ esphome:
   name: geeni_outdoor_plug
   platform: ESP8266
   board: esp01_1m
+   
+# OTA flashing
+ota:
+  - platform: esphome
 
-  wifi:
-    ssid: "wifi"
-    password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-    ap:
-      ssid: "Fallback Hotspot"
-      password: !secret local_ap_password
+# Enabling the logging component
+logger:
 
-  captive_portal:
+# Enable Home Assistant API
+api:
 
-  logger:
-
-  api:
-
-  ota:
+# Enable the captive portal
+captive_portal:
 
   web_server:
 

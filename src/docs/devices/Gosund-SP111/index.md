@@ -63,28 +63,23 @@ esphome:
 
 preferences:
   flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
+
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
   
-# Enable logging
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 0
-  
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "REDACTED"
 
-ota:
-  password: "REDACTED"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Gosund-Sp111 Fallback Hotspot"
-    password: "REDACTED"
-
+# Enable the captive portal
 captive_portal:
 
 # see: https://esphome.io/components/time.html

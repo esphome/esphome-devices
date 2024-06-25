@@ -47,29 +47,24 @@ esphome:
   comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: True
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-      ssid: ${device_name} Fallback Hotspot
-      password: !secret ap_password
 
-captive_portal:
+# Enabling the logging component
+logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
-  
-ota:
-    password: !secret api_ota_password
 
-# Enable logging
-logger:
+# Enable the captive portal
+captive_portal:
 
 sensor:
   - platform: hlw8012

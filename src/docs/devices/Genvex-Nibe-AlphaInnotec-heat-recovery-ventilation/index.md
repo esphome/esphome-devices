@@ -25,7 +25,7 @@ to the network but any ESP32 module can be used (adjust GPIO pins accordingly).
 substitutions:
   device_name: ventilation-system
   friendly_name: "Ventitaltion"
-  device_ip: 192.168.1.10
+  device_ip:
   device_description: "Heat Recovery Ventilation System Control"
   modbus_ctrl_id: genvex_modbus
 
@@ -34,6 +34,24 @@ esphome:
   comment: "${device_description}"
   platform: ESP32
   board: esp32-evb
+  
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 ethernet:
   type: LAN8720
@@ -43,8 +61,8 @@ ethernet:
   phy_addr: 0
   manual_ip:
     static_ip: ${device_ip}
-    gateway: 192.168.1.1
-    subnet: 255.255.255.0
+    gateway:
+    subnet:
   use_address: ${device_ip}
 
 time:

@@ -34,28 +34,29 @@ substitutions:
 esphome:
   name: $devicename
   friendly_name: hama-bulb-10w
+  
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
-logger:
-
-web_server:
-
-captive_portal:
-
 mdns:
-
-api:
-  password: ""
-
-ota:
-  password: ""
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
 
 button:
   - platform: restart

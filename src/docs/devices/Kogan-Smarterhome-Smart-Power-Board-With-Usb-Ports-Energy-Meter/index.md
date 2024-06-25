@@ -48,28 +48,28 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp8285
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: 192.168.x.x
-    subnet: 255.255.255.0
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-  
-api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret encryption_key
-
-ota:
-  password: !secret ota_password
-
+ 
 binary_sensor:
   - platform: gpio
     pin:

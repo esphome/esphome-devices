@@ -73,6 +73,21 @@ esphome:
       - delay: 5s
       - switch.turn_off: wifi_blinkin_slow
 
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 esp8266:
   board: esp01_1m
 debug:
@@ -81,9 +96,6 @@ logger:
   baud_rate: 0
   level: debug
   esp8266_store_log_strings_in_flash: False
-
-ota:
-  password: "xxx"
 
 uart:
   id: uart_bus
@@ -100,15 +112,6 @@ uart:
 #    sequence:
 #      - lambda: UARTDebug::log_hex(direction, bytes, ':');
 
-wifi:
-  ssid: "xxx"
-  password: "xxx"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: "xxx"
-api:
 web_server:
   port: 80
 

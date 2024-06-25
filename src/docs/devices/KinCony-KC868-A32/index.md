@@ -38,12 +38,24 @@ esphome:
   name: KC868-A32
   platform: ESP32
   board: esp32dev
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
+
+# Enable the captive portal
+captive_portal:
 
  # Example configuration entry
 i2c:

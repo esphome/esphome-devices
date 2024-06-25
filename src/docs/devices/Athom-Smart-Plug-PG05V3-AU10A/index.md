@@ -71,31 +71,30 @@ esp32:
 preferences:
   flash_write_interval: 5min
 
-api:
+dashboard_import:
+  package_import_url: github://athom-tech/esp32-configs/athom-smart-plug.yaml
 
+# OTA flashing
 ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 0
 
-mdns:
-  disabled: false
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-
-wifi:
-  # This spawns an AP with the device name and mac address with no password.
-  ap: {}
-  # Allow rapid re-connection to previously connect WiFi SSID, skipping scan of all SSID
-  fast_connect: "${wifi_fast_connect}"
-  # Define dns domain / suffix to add to hostname
-  domain: "${dns_domain}"
-
-captive_portal:
-
-dashboard_import:
-  package_import_url: github://athom-tech/esp32-configs/athom-smart-plug.yaml
 
 uart:
   rx_pin: GPIO20

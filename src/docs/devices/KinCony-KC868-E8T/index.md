@@ -70,15 +70,24 @@ uart:
     baud_rate: 4800
     parity: NONE
     stop_bits: 2
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-  password: "d83d604e4f0ae287fb041dbaf31524d9"
+# Enable the captive portal
+captive_portal:
 
 # Example configuration entry
 ethernet:

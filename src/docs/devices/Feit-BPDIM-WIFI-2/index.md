@@ -37,27 +37,28 @@ esphome:
   platform: $platform
   board: $board
   comment: "${comment}"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pass
-  fast_connect: on
-
-  ap:
-    ssid: AP_${devicename}
-
-captive_portal:
-
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
 ota:
-  password: !secret ota_pass
+  - platform: esphome
 
-api:
-  encryption:
-    key: !secret encryption_key
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# disable serial logging by setting baud_rate to 0 because baud_rate/serial connection is used by tuyamcu
+# Enabling the logging component
 logger:
   baud_rate: 0
+  
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 uart:
   rx_pin: GPIO3

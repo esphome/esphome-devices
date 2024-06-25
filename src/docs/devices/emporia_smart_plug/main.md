@@ -31,17 +31,24 @@ esphome:
   name: emporia_smart_plug
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-logger:
+wifi: # Your Wifi network details
   
-# Remove this line if you're not using Home Assistsant or your switch will restart every now and again
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Device Specific Config
 binary_sensor:

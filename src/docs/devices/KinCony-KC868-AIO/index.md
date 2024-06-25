@@ -38,17 +38,24 @@ esp32:
   board: esp32dev
   framework:
     type: arduino
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "D69bY/GXlmjYkovak6WIhgmbOH8vwyqvMxIHBriYoaY="
 
-ota:
-  password: "9984b688b9646975bfd1b760a9c2df8b"
+# Enable the captive portal
+captive_portal:
 
 # Example configuration entry
 ethernet:

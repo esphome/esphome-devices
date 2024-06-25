@@ -46,25 +46,23 @@ esphome:
   name: kc868-a4
   platform: ESP32
   board: esp32dev
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-  password: "4d5a388de4f759bf88e71cde7a31af6f"
-
-wifi:
-  ssid: "KinCony"
-  password: "a12345678"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Kc868-A4 Fallback Hotspot"
-    password: "QOU4hbAjJ5Wb"
-
+# Enable the captive portal
 captive_portal:
 
 switch:
