@@ -80,22 +80,24 @@ esp32:
   framework:
     type: esp-idf
 
-wifi:
-  power_save_mode: none
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: "ESPHome ${friendly_name}"
-    password: !secret wifi_password_backup
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 115200
-
+  
 # Enable Home Assistant API
-ota: {"password": !secret ota_password }
 api:
-  encryption:
-    key: !secret encryption_key
+
+# Enable the captive portal
+captive_portal:
 
 # Enable NTP
 time:

@@ -12,25 +12,23 @@ esphome:
   platform: ESP8266
   board: esp8285
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  # domain: !secret domain
-  # use_address: 192.168.6.52
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "${plug_name} Fallback Hotspot"
-    password: !secret fallback_password
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 time:
   - platform: homeassistant

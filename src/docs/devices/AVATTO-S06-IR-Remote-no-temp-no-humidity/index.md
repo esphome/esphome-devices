@@ -60,29 +60,24 @@ esphome:
   name: ir_remote
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret ssid
-  password: !secret wlan_password
-  fast_connect: true
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: IR Remote Fallback Hotspot
-    password: !secret ap_password
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
-  level: DEBUG # Default
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: !secret ota_password
+# Enable the captive portal
+captive_portal:
 
 # https://esphome.io/components/status_led.html
 status_led:

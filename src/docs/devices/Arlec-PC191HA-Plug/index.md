@@ -87,6 +87,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 #
 # PC191HA basic switch operation - button, relay and LED
 #

@@ -84,9 +84,25 @@ esp8266:
   # Specifically a 'ESP8285N08' with 1MB built in flash
   # See: https://docs.platformio.org/en/stable/boards/espressif8266/esp8285.html
   board: esp8285
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   level: INFO
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 script:
   - id: regular_press
@@ -139,16 +155,7 @@ output:
     #inverted: True
     pin: GPIO12
 
-api:
-
-ota:
-
 improv_serial:
-
-wifi:
-  ap: {}
-
-captive_portal:
 
 dashboard_import:
   package_import_url: github://esphome/example-configs/esphome-web/esp8266.yaml@main
@@ -156,8 +163,6 @@ dashboard_import:
 
 # To have a "next url" for improv serial
 web_server:
-
-
 
 #be SURE to use the esp web flasher or a USB flasher. The built-in OTA service only worked for me when I had the device fully powered (not on the USB 3.3V).
 ```

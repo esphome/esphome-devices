@@ -46,6 +46,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 sm2135:
   clock_pin: P9
   data_pin: P7

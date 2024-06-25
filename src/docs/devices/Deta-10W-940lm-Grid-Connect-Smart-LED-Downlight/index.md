@@ -44,16 +44,24 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: "ssid"
-  password: "password"
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 sensor:
   - platform: uptime

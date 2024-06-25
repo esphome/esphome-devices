@@ -23,24 +23,27 @@ substitutions:
    platform: $platform
    board: $board
    comment: "${comment}"
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
- wifi:
-   ssid: !secret wifi_ssid
-   password: !secret wifi_pass
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-   # Define SSID for hotspot (captive portal) in case wifi connection fails
-   ap:
-     ssid: AP_${devicename}
+# Enabling the logging component
+logger:
 
- #enable captive portal for hotspot
- captive_portal:
+# Enable Home Assistant API
+api:
 
- ota:
-   password: !secret ota_pass
-
- api:
-   encryption:
-    key: !secret encryption_key
+# Enable the captive portal
+captive_portal:
 
 sm16716:
   data_pin: GPIO12

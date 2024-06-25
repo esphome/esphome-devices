@@ -27,28 +27,24 @@ esphome:
   board: esp01_1m
   platformio_options:
     upload_speed: 115200
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: "ssid"
-  password: "password"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "Fallback AP"
-    password: "fallback ap password"
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: "ota_password"
+# Enable the captive portal
+captive_portal:
 
 output:
   - platform: gpio

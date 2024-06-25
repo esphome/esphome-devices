@@ -51,11 +51,26 @@ esphome:
   name: bedford
   platform: ESP32
   board: esp32dev
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: 'home'
-  password: 'fileybay'
+wifi: # Your Wifi network details
   fast_connect: true
+
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+  level: INFO
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 globals:
   - id: ota_mode
@@ -89,12 +104,6 @@ mqtt:
               lambda: 'return !id(ota_mode);'
             then:
               - deep_sleep.enter: deep_sleep_1
-
-logger:
-  level: INFO
-
-ota:
-  password: *redacted*
 
 i2c:
   sda: 16

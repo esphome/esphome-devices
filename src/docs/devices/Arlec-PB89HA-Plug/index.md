@@ -59,6 +59,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 status_led:
   pin:
     number: GPIO1

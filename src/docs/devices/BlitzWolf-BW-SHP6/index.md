@@ -64,19 +64,28 @@ esphome:
     then:
       - switch.turn_on: relay
       - output.turn_on: led
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
-  baud_rate: 0
 
+# Enable Home Assistant API
 api:
 
-ota:
-  password: !secret otapw
+# Enable the captive portal
+captive_portal:
 
+web_server:
+  port: 80
+  
 # Button configuration
 binary_sensor:
   - platform: gpio
@@ -165,33 +174,6 @@ sensor:
       name: "${device_name} Energy"
       unit_of_measurement: "Wh"
       icon: mdi:flash-outline
-```
-
-Under wifi this can be added, this will set up static IP, allow the device to connect to a hidden SSID (fast_connect) and create a backup AP
-
-```yaml
-wifi:
-  reboot_timeout: 60min
-  manual_ip:
-    static_ip: 192.168.1.100
-    gateway: 192.168.1.1
-    subnet: 255.255.255.0
-  fast_connect: true
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${device_name} Hotspot"
-    password: !secret appw
-```
-
-This will activate the internal webserver with password protection
-
-```yaml
-web_server:
-  port: 80
-  auth:
-    username: !secret webuser
-    password: !secret webpw
 ```
 
 To set time locally to the same as on the HomeAssistant (better logging)

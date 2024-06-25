@@ -51,26 +51,27 @@ substitutions:
 
 esphome:
   name: ${devicename}
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
   
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: "ESPHOME"
-    password: "123456"
-
-logger:
-
-web_server:
-
-captive_portal:
-
-api:
-
-ota:
 
 sensor:
   - platform: wifi_signal

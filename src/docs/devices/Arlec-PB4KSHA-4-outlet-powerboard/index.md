@@ -64,6 +64,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 text_sensor:
   - platform: libretiny
     version:

@@ -22,17 +22,20 @@ esphome:
 
 substitutions:
   plug_name: p1_01
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: "ssid"
-  password: !secret wifi_key
-  domain: !secret domain
-  #use_address: 192.168.6.6
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "${plug_name} Fallback Hotspot"
-    password: !secret Fallback_Hotspot
 
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
 captive_portal:
 
 # Enable logging
@@ -43,11 +46,6 @@ logger:
   baud_rate: 0
   logs:
     adc: INFO
-
-# Enable Home Assistant API
-api:
-
-ota:
 
 time:
   - platform: homeassistant

@@ -56,6 +56,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 output:
   - platform: esp8266_pwm
     pin: GPIO14

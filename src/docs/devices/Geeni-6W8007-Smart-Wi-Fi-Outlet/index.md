@@ -61,34 +61,29 @@ substitutions:
 esphome:
   name: $device_name
   friendly_name: $device_friendly_name
+   
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
   
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:  
 bk72xx:
   board: cb2s
   
-logger:
-  baud_rate: 0
-  
-web_server:
-  port: 80
-  
-captive_portal:
-
 mdns:
-
-# Add your own api encryption key if you use it or use a secrets file one, your choice
-api:
-  encryption:
-    key: !secret api_key
-
-ota:
-  password: ""
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: $device_name
-    password: !secret wifi_ap_password
 
 text_sensor:
   - platform: libretiny

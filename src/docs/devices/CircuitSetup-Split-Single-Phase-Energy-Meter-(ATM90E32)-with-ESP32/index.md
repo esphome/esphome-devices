@@ -37,29 +37,24 @@ esphome:
   name: energy_meter
   platform: ESP32
   board: nodemcu-32s
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pass
-  manual_ip:
-    static_ip: !secret ip_eh_nrgnode_2chan32
-    gateway: !secret ip_gateway
-    subnet: !secret ip_subnet
-    dns1: !secret ip_dns1
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable if you want to send this data to an MQTT broker
-# mqtt:
-#  broker: !secret mqtt_broker
-#  username: !secret mqtt_user
-#  password: !secret mqtt_pass
-
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

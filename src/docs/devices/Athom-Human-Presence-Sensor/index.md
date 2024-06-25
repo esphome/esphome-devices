@@ -58,23 +58,30 @@ esp8266:
 preferences:
   flash_write_interval: 1min
 
-# Enable logging
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
-
-mdns:
-  disabled: false
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-
-wifi:
-  ap: {}
-
-captive_portal:
 
 dashboard_import:
   package_import_url: github://athom-tech/athom-configs/athom-presence-sensor.yaml

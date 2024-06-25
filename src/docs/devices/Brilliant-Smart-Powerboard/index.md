@@ -43,29 +43,24 @@ esphome:
   name: multibox
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: "**"
-  password: "**"
-  domain: ".**"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "Multibox Fallback Hotspot"
-    password: "**"
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: "**"
+# Enable the captive portal
+captive_portal:
 
 sensor:
   - platform: uptime

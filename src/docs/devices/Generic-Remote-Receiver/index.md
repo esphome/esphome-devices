@@ -23,14 +23,24 @@ esphome:
   name: irl00
   platform: ESP32
   board: esp32dev
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
-ota: !secret ota
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 mqtt: !secret mqtt
 
@@ -55,15 +65,24 @@ esphome:
   name: irl01
   platform: ESP8266
   board: d1_mini
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
 
-ota: !secret ota
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 mqtt: !secret mqtt
 

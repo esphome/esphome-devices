@@ -49,13 +49,23 @@ esp8266:
 preferences:
   flash_write_interval: 1min
 
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
 # Enable Home Assistant API
 api:
 
-ota:
-
-# Enable logging
-logger:
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

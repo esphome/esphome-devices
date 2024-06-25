@@ -35,10 +35,7 @@ esphome:
 esp8266:
   board: esp12e
   restore_from_flash: TRUE
-esphome:
-  name: example-device
-  friendly_name: Example Device
-    
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -54,6 +51,9 @@ logger:
 
 # Enable Home Assistant API
 api:
+
+# Enable the captive portal
+captive_portal:
 
 # Enable Web server.
 web_server:

@@ -90,36 +90,27 @@ esphome:
 
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${devicename}
-    password: !secret fallback_password
 
-# Enable logging
+# Enabling the logging component
 logger:
-
-captive_portal:
 
 # Enable Home Assistant API
 api:
-  encryption:
-     key: !secret esphome_api_encryption_key
 
-ota:
-  password: !secret esphome_ota_password
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-  auth:
-    username: !secret esphome_web_username
-    password: !secret esphome_web_password
-
-
 
 #################################
 

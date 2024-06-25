@@ -89,16 +89,23 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret iot_wifi_ssid
-  password: !secret iot_wifi_pwd
-  fast_connect: on
-
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${device_name} Fallback
-    password: ""
 
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
 captive_portal:
 
 sensor:
@@ -118,12 +125,6 @@ text_sensor:
       name: ${friendly_name} BSSID
     mac_address:
       name: ${friendly_name} Mac
-
-logger:
-
-api:
-
-ota:
 
 web_server:
   port: 80
@@ -321,26 +322,27 @@ substitutions:
 
 esphome:
   name: ${devicename}
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: "ESPHOME"
-    password: "123456"
-
-logger:
-
-web_server:
-
-captive_portal:
-
-api:
-
-ota:
 
 sensor:
   - platform: wifi_signal

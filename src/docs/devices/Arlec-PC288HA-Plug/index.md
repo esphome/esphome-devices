@@ -44,6 +44,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 sensor:
   - platform: uptime
     name: ${name} Uptime

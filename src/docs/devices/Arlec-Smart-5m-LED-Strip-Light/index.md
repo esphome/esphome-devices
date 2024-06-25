@@ -46,6 +46,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 light:
   - platform: rgbw
     name: "LED Strip"
