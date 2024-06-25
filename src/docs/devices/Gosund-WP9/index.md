@@ -39,8 +39,24 @@ esphome:
   name: $name
   platform: $platform
   board: $board
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-<<: !include ../secrets.yaml
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 binary_sensor:
   - platform: gpio

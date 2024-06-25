@@ -68,19 +68,24 @@ esp32:
 psram:
   mode: octal
   speed: 80MHz
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

@@ -32,6 +32,24 @@ esphome:
   platform: ESP32
   board: esp32dev
 
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 i2c:
   sda: 4
   scl: 5
@@ -203,9 +221,4 @@ sensor:
     address: 0x1c0000031edd2a28 #replace with your sensor's ID
     name: "ds18b20-1"
 
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
 ```

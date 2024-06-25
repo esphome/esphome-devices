@@ -41,23 +41,25 @@ esphome:
   name: esphome_node1 # Controller Unique Name
   platform: ESP8266 # Platform type you have to select when creating new yaml-config in ESP Home
   board: nodemcuv2 # Controller type you have to select when creating new yaml-config in ESP Home
-wifi:
-  ssid: "YourWiFiSSID"
-  password: "SSIDPassword"
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "Esphome Node1 Fallback Hotspot"
-    password: "Cpxg9hRIBU7M"
-captive_portal:
-# Enable logging
+
+# Enabling the logging component
 logger:
+
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: "OTApassword"
+# Enable the captive portal
+captive_portal:
+
 # Just embedded test D3 (GPIO0) button on every ESP8266 Devboard
 # You can press D3 button several times to simulate incoming GGreg pulses
 binary_sensor:

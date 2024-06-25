@@ -29,10 +29,22 @@ esp32:
   framework:
     type: arduino
   
-# Enable logging
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   level: DEBUG
   baud_rate: 0
+
+# Enable the captive portal
+captive_portal:
 
 # Enable Home Assistant API
 api:  
@@ -40,9 +52,6 @@ api:
     switch.turn_on: HAOnlineLed
   on_client_disconnected:
     switch.turn_off: HAOnlineLed
-
-ota:
-  password: !secret ota
 
 status_led:
   pin: GPIO3

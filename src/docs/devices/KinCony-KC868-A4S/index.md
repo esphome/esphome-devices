@@ -35,7 +35,25 @@ esphome:
   name: a4s
   platform: ESP32
   board: esp32dev
+
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
   
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 # Example configuration entry for ESP32
 i2c:
   sda: 4
@@ -333,11 +351,4 @@ light:
     blue: PWM3
     white: PWM4
 
-
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
 ```

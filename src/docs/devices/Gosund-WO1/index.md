@@ -40,18 +40,30 @@ esphome:
   # Allow saving the last state of each outlet in case of power failure
   esp8266_restore_from_flash: true
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-api:
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 web_server:
   port: 80
+  
 time:
   - platform: sntp
     id: the_time
-logger:
 
 # Device Specific Config
 

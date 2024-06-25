@@ -76,7 +76,7 @@ To flash:
 
 ## Basic configuration
 
-```yml
+```yaml
 esphome:
   name: "p1-reader"
   on_boot:
@@ -91,13 +91,26 @@ esphome:
 
 esp8266:
   board: esp12e
-
+  
+# OTA flashing
 ota:
-  password: !secret api_pass
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+  baud_rate: 0
+
+# Enable the captive portal
+captive_portal:
 
 api:
   encryption:
-    key: !secret api_key
+    key:
   on_client_connected:
       - light.turn_on:
          id: status_led
@@ -119,8 +132,8 @@ api:
               effect:  pulse
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+  ssid:
+  password:
   fast_connect: true
   power_save_mode: HIGH
   on_connect:
@@ -139,11 +152,6 @@ wifi:
          red: 100%
          green: 0
          effect: pulse
-
-logger:
-  baud_rate: 0
-
-captive_portal:
 
 web_server:
   port: 80
