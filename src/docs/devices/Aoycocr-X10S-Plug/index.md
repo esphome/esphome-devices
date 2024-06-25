@@ -57,6 +57,9 @@ api:
 logger:
   baud_rate: 0 #disable UART logging
 
+# Enable the captive portal
+captive_portal:
+
 # Enable web server
 web_server:
   port: 80

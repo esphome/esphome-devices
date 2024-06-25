@@ -37,6 +37,10 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
+
 i2c:
   sda: D2
   scl: D1

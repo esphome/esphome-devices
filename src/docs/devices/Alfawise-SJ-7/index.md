@@ -72,7 +72,7 @@ esphome:
       - switch.turn_on: wifi_blinkin_slow
       - delay: 5s
       - switch.turn_off: wifi_blinkin_slow
-      
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -84,6 +84,9 @@ wifi: # Your Wifi network details
 
 # Enable Home Assistant API
 api:
+
+# Enable the captive portal
+captive_portal:
 
 esp8266:
   board: esp01_1m

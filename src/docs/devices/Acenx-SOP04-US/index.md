@@ -32,7 +32,7 @@ esphome:
   friendly_name: Example Device
   platform: ESP8266
   board: esp01_1m    
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -47,6 +47,10 @@ logger:
 
 # Enable Home Assistant API
 api:
+
+# Enable the captive portal
+captive_portal:
+
 
 binary_sensor:
   - platform: gpio

@@ -51,6 +51,10 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
+
 text_sensor:
   - platform: wifi_info
     ip_address:

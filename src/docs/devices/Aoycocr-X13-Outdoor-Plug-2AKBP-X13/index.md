@@ -88,6 +88,9 @@ logger:
 # Enable Home Assistant API
 api:
 
+# Enable the captive portal
+captive_portal:
+
 # https://tasmota.github.io/docs/Components/
 # https://templates.blakadder.com/aoycocr_X13.html
 
