@@ -35,6 +35,24 @@ esphome:
   name: KC868-E16S
   platform: ESP32
   board: esp32dev
+  
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # Example configuration entry for ESP32
 i2c:
@@ -324,9 +342,4 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
 ```

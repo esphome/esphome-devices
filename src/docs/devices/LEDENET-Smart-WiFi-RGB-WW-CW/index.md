@@ -39,19 +39,24 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp8285
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret otapw
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
@@ -110,19 +115,24 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp8285
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret otapw
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
@@ -179,19 +189,24 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp8285
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret otapw
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

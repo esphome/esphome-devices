@@ -43,34 +43,28 @@ esphome:
 # LibreTiny Platform
 bk72xx:
   board: wb2s
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # Enable Web server
 web_server:
   port: 80
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: <set here>
-
-# Enable upload binaries over-the-air
-ota:
-  safe_mode: true
-  password: <set here>
-
-# Wifi Settings
-wifi:
-  ssid: <set here>
-  password: <set here>
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${device_name}_fallback
-    password: <set here>
-captive_portal:
 
 button:
   - platform: restart

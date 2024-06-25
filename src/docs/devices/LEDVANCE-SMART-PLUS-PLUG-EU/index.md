@@ -42,17 +42,24 @@ esphome:
 
 bk72xx:
   board: wb2s
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: ""
 
-ota:
-  password: ""
+# Enable the captive portal
+captive_portal:
 
 # Enable Web server
 web_server:
@@ -62,18 +69,6 @@ web_server:
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-# WiFi connection
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: ${device_name}_fallback
-    password: !secret ap_password
-    ap_timeout: 1min
-  use_address: ${device_name}.local
-
-captive_portal:
 
 text_sensor:
   - platform: wifi_info
@@ -85,8 +80,6 @@ text_sensor:
       name: ESP Connected BSSID
     mac_address:
       name: ESP Mac Wifi Address
-
-
 
 light:
   - platform: status_led
