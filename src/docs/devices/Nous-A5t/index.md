@@ -57,30 +57,29 @@ esp8266:
 
 preferences:
   flash_write_interval: 1min
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 uart:
   rx_pin: GPIO3
   baud_rate: 4800
-
-api:
-  encryption:
-    key: !secret encryption
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: !secret wifi_ap_password
-
-captive_portal:
-
-ota:
 
 # see: https://esphome.io/components/time.html
 time:

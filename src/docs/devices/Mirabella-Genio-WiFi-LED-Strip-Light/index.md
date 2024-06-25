@@ -36,24 +36,24 @@ Inside is a TYWE3S module based on the ESP8266 microcontroller. It is possible t
 esphome:
   platform: ESP8266
   board: esp01_1m
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "strip_light"
-    password: "ap_password"
 
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: "ota_password"
+# Enable the captive portal
+captive_portal:
 
 output:
   - platform: esp8266_pwm

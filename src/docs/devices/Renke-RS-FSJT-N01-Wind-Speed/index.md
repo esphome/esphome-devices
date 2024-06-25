@@ -52,6 +52,28 @@ Connection parameters:
 Slow winds blow in small bursts, so it's recommended to average measurements to have a better overview of the wind condition. That's why we're reading out the measurement every second, and apply a filter to the sensor, taking the maximum blow speed of 5 measurements, averaging them every minute:
 
 ```yaml
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 uart:
   rx_pin: GPIOXX
   tx_pin: GPIOXX

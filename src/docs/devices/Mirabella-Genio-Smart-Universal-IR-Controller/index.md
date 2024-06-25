@@ -40,24 +40,25 @@ esphome:
     priority: 100 # Highest priority, ensures light turns on without delay.
     then:
       - light.turn_on: light_red_led
-wifi:
-  ssid: "ssid"
-  password: "wifi_password"
-  ap:
-    ssid: "apssid"
-    password: "ap_password"
-  domain: ".mydomain.com"
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: "ota_password"
+# Enable the captive portal
+captive_portal:
+
 web_server:
 
 sensor:

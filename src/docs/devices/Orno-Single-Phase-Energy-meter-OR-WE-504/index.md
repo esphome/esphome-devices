@@ -28,20 +28,26 @@ esphome:
   name: energy_meter
   platform: ESP32
   board: esp32doit-devkit-v1
-
-api:
-
+    
+# OTA flashing
 ota:
-  password: "CHANGE_ME"
+  - platform: esphome
 
-wifi:
-  ssid: "your ssid"
-  password: "your password"
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Turn off logging because RX/TX pins used for modbus
+# Enabling the logging component
 logger:
   level: DEBUG
   baud_rate: 0 # off
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 uart:
   id: mod_bus

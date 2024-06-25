@@ -98,22 +98,24 @@ esphome:
   name: m5stackfire
   platform: ESP32
   board: m5stack-fire
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${friendly_name} Fallback Hotspot
-    password: !secret wifi_password
 
-captive_portal:
-
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Power Management
 external_components:

@@ -60,19 +60,24 @@ esphome:
 esp8266:
   board: d1_mini
   early_pin_init: false  # Prevent the physical relay flipping on reboot.
-
-api:
+    
+# OTA flashing
 ota:
-captive_portal:
-web_server:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-#  domain: !secret wifi_mydomain
-  ap:
-    password: !secret ap_password
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 binary_sensor:
   - platform: gpio

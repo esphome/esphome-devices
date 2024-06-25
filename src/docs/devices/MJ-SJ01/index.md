@@ -306,42 +306,24 @@ sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi Signal"
     update_interval: 600s
-
-wifi:
-  # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
-  manual_ip:
-    static_ip: ${ip_address}
-    gateway: !secret wifigateway
-    subnet: !secret wifisubnet
-    dns1: !secret wifidns
-  ap:
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
-    channel: 1
-    manual_ip:
-      static_ip: 192.168.1.1
-      gateway: 192.168.1.1
-      subnet: 255.255.255.0
-
-# web_server:
-  # port: 80
-  # https://esphome.io/components/web_server.html
-  # Can cause high memory usage on ESP8266, enable as needed
-
-logger:
-  # https://esphome.io/components/logger
-
-api:
-  encryption:
-    key: !secret encryption_key
-  # https://esphome.io/components/api
-
+  
+# OTA flashing
 ota:
-  password: !secret esphome_ota_password
-  # https://esphome.io/components/ota
-```
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 ## Timed Fan control
 
@@ -563,39 +545,23 @@ sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi Signal"
     update_interval: 600s
-
-wifi:
-  # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
-  manual_ip:
-    static_ip: ${ip_address}
-    gateway: !secret wifigateway
-    subnet: !secret wifisubnet
-    dns1: !secret wifidns
-  ap:
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
-    channel: 1
-    manual_ip:
-      static_ip: 192.168.1.1
-      gateway: 192.168.1.1
-      subnet: 255.255.255.0
-
-# web_server:
-  # port: 80
-  # https://esphome.io/components/web_server.html
-  # Can cause high memory usage on ESP8266, enable as needed
-
-logger:
-  # https://esphome.io/components/logger
-
-api:
-  encryption:
-    key: !secret encryption_key
-  # https://esphome.io/components/api
-
+  
+# OTA flashing
 ota:
-  password: !secret esphome_ota_password
-  # https://esphome.io/components/ota
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 ```

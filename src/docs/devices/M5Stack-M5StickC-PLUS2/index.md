@@ -50,22 +50,24 @@ esphome:
   board: m5stick-c
   platformio_options:
     upload_speed: 115200
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: $devicename Fallback Hotspot
-    password: !secret wifi_password
 
-captive_portal:
-
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Battery voltage measured through ADC1_CH2. PLUS2 has a voltage divider,
 # so reading needs to be multiplied by 2

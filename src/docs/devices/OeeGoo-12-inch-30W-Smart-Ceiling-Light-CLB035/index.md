@@ -35,29 +35,24 @@ esphome:
 
 esp32:
   board: esp32-c3-devkitm-1
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret ota_password
-
-wifi:
-  networks:
-  - ssid: !secret guest_ssid
-    password: !secret guest_password
-  - ssid: !secret wifi_ssid
-    password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "ESPHome ${device_name}"
-    password: !secret wifi_password_backup
+# Enable the captive portal
+captive_portal:
 
 # Enable NTP
 time:

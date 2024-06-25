@@ -27,15 +27,24 @@ esphome:
 
 esp32:
   board: nodemcu-32s
-
-wifi:
-  ssid: YOUR_SSID
-  password: YOUR_PW
-  power_save_mode: none
-
+    
+# OTA flashing
 ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
 api:
+
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

@@ -49,22 +49,24 @@ esphome:
   board: m5stick-c
   platformio_options:
     upload_speed: 115200
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: $devicename Fallback Hotspot
-    password: !secret wifi_password
 
-captive_portal:
-
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 external_components:
   - source: github://martydingo/esphome-axp192

@@ -19,28 +19,17 @@ esphome:
   comment: ${friendly_node_name}
   platform: ESP8266
   board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pw
-  power_save_mode: none
-
-# Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${node_name} FB
-    password: "fallback"
-
-captive_portal:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: !secret api_encryption
-
-# Enable Over The Air updates
+  
+# OTA flashing
 ota:
+  - platform: esphome
 
-# Disable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 0
   logs:
@@ -48,6 +37,12 @@ logger:
     duty_cycle: ERROR
     binary_sensor: ERROR
     light: ERROR
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # Enable Web server.
 web_server:

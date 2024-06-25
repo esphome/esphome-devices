@@ -25,26 +25,28 @@ esphome:
     priority: 100 # Highest priority, ensures light turns on without delay.
     then:
       - light.turn_on: genio22
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: "genio22 Fallback Hotspot"
-    password: !secret wifi_password
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret ha_encrypt_password
 
-ota:
-  password: !secret esp_ota_password
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
+  
 sensor:
   - platform: wifi_signal
     name: "genio22 WiFi Signal"

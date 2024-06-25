@@ -25,27 +25,28 @@ esphome:
     priority: 100 # Highest priority, ensures light turns on without delay.
     then:
       - light.turn_on: light
-wifi:
-  ssid: "sid"
-  password: "wifi_password"
-  ap:
-    ssid: "mirabella1"
-    password: "ap_password"
-  domain: ".mydomain.com"
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: "ota_password"
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
+  
 sensor:
   - platform: wifi_signal
     name: "Mirabella 1 WiFi Signal"

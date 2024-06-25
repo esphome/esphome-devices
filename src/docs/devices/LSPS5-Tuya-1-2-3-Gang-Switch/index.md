@@ -65,24 +65,23 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
   framework:
     version: latest
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "1G-Beken Fallback Hotspot"
-    password: !secret ap_password
-
+# Enable the captive portal
 captive_portal:
 
 web_server:
@@ -133,24 +132,23 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
   framework:
     version: latest
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "2G-Beken Fallback Hotspot"
-    password: !secret ap_password
-
+# Enable the captive portal
 captive_portal:
 
 web_server:
@@ -215,24 +213,23 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
   framework:
     version: latest
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "3G-Beken Fallback Hotspot"
-    password: !secret ap_password
-
+# Enable the captive portal
 captive_portal:
 
 web_server:
@@ -347,24 +344,23 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
   framework:
     version: latest
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "3G-Beken Fallback Hotspot"
-    password: !secret ap_password
-
+# Enable the captive portal
 captive_portal:
 
 web_server:

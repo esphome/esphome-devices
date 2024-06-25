@@ -16,24 +16,23 @@ esphome:
   comment: ${friendly_name}
   platform: ESP8266
   board: esp8285
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Mi-Desk-Lamp-1S Fallback Hotspot"
-    password: "4Kv4XJ2e9Bmt"
-
+# Enable the captive portal
 captive_portal:
 
 # Enable Web server

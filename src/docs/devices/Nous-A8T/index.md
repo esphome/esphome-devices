@@ -47,26 +47,27 @@ esp32:
   board: esp32dev
   framework:
     type: esp-idf
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-# Allow Over-The-Air updates
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Allow provisioning Wi-Fi via serial
 improv_serial:
-
-wifi:
-  # Set up a wifi access point
-  ap: {}
-
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device via WiFi AP.
-captive_portal:
 
 time:
   - platform: homeassistant

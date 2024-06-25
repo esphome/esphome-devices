@@ -31,11 +31,6 @@ esphome:
   includes:
     - sb1_uart.h
 
-wifi:
-  ssid: 'Wifi SSID'
-  password: !secret wifi_pw
-  fast_connect: true
-
 mqtt:
   broker: 'x.x.x.x'
   username: !secret mqtt_un
@@ -49,12 +44,26 @@ uart:
     rx_pin: 3
     baud_rate: 9600
     id: uart0
-
+  
+# OTA flashing
 ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   level: INFO
   hardware_uart: UART1
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 sensor:
 #  - platform: wifi_signal

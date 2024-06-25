@@ -24,25 +24,23 @@ esphome:
   name: energy_meter
   platform: ESP8266
   board: nodemcuv2
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-  password: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Fallback Hotspot"
-    password: "xxxxxxxxxxxx"
-
+# Enable the captive portal
 captive_portal:
 
 sensor:

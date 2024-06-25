@@ -42,33 +42,32 @@ esphome:
   comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
+esphome:
+  name: example-device
+  friendly_name: Example Device
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: on #we only have one WiFi AP so just use the first one that matches
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: $devicename
-    password: !secret esphome_backup_ap_password
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
   baud_rate: 0 #disable UART logging since we aren't connected to GPIO1 TX
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # Web server can be removed after enabling HA API
 web_server:
   port: 80
-
-ota:
-  password: !secret ota_password
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: !secret encryption_key
 
 # Enable time component for use by daily power sensor
 time:

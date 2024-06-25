@@ -41,25 +41,25 @@ esphome:
   comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-  ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
-
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
   baudrate: 0 #Disable UART logging
 
 # Enable Home Assistant API
 api:
 
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Enable web server
 web_server:
@@ -1189,5 +1189,5 @@ substitutions:
   device_name: led_strip
   device_description: RGBW LED Strip with IR remote behind television.
   friendly_name: LED strip behind television
-  ipaddress: 192.168.1.200
+
 ```

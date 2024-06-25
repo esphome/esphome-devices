@@ -37,25 +37,24 @@ esphome:
   name: ${name}
   platform: ESP8266
   board: nodemcuv2
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  #hostname: ${name}
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pwd
-  fast_connect: true
-  manual_ip:
-    static_ip: ${ip}
-    gateway: 192.168.1.1
-    subnet: 255.255.255.0
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  # encryption:
-  #  key: !secret encryption_key
 
-ota:
-  #password: !secret esphome_ota_pwd
+# Enable the captive portal
+captive_portal:
 
 switch:
   - platform: restart

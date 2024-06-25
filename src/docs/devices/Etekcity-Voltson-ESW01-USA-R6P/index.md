@@ -190,36 +190,21 @@ esp8266:
 # Enable Logging
 logger: # More information available athttps://esphome.io/components/logger
   level: INFO # By default, the log level is DEBUG. Increasing the log level severity (e.g., to INFO or WARN) can help improve the performance and memory usage of the application.
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi: # More information available at https://esphome.io/components/wifi
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  # Optional Manual IP.
-  # NOTE: This is also useful when ESPHome Dashboard has problems resolving the mDNS name of the device after flashing.
-#  manual_ip:
-#    static_ip: 192.168.0.100
-#    gateway: 192.168.0.1
-#    subnet: 255.255.255.0
-
-  # The AP option will make the device broadcast an access point (AP) when the specified Wi-Fi cannot be reached.
-  # ⚠ SECURITY WARNING: Not specifying a password here will allow anyone who can see this AP to reconfigure your device!
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-#    password: !secret wifi_password
 
-# This option along with the "ap" option allows a user to reconfigure the Wi-Fi connection.
-# NOTE: If the captive portal webpage is not loading, rebooting the plug may allow it to load.
-captive_portal: # More information available at https://esphome.io/components/captive_portal
+# Enable Home Assistant API
+api:
 
-# Enables Home Assistant API
-api: # More information available at https://esphome.io/components/api
-  # ⚠ SECURITY WARNING: Not specifying an encryption key here will allow anyone on your network with the IP of the device to interact with the API!
-#  encryption: # The key value for the "encryption" option is a 32-byte base64 encoded string. A random one can be copied from https://esphome.io/components/api
-#    key: O3FXh9ceOxMU8swMRjlhGvvef4YkiVU8jmGkL/RbcMg=
-
-# Allow Over-The-Air updates
-ota: # More information available at https://esphome.io/components/ota
-  # ⚠ SECURITY WARNING: Not specifying a password here will allow anyone on your network with the ip of the device to reflash a new binary!
-#  password: !secret ota_password
+# Enable the captive portal
+captive_portal:
 
 # You can enable a web server to interact with the plug directly via your web browser.
 # ⚠ WARNING: Enabling this component will take up a lot of memory and may decrease overall stability, especially on devices with ESP8266 modules, which this device uses.

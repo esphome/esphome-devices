@@ -34,27 +34,27 @@ esphome:
   name: ${full_name}
   platform: ESP8266
   board: esp01_1m
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-captive_portal:
+# Enabling the logging component
+logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret api_pass
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-
-# Enable logging
-logger:
-  #level: VERBOSE
 
 globals:
   - id: set_on

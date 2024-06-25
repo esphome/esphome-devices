@@ -24,30 +24,24 @@ esp32:
       CONFIG_FREERTOS_UNICORE: y
     advanced:
       ignore_efuse_mac_crc: true
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-# WiFi connection
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${device_name}
-    password: !secret ap_password
-    ap_timeout: 1min
 
-# Unavailable for esp-idf https://github.com/esphome/feature-requests/issues/1649
-# captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-# Enable over-the-air updates
-ota:
-  password: !secret ota_password
+# Enable the captive portal
+captive_portal:
 
 # Unavailable for esp-idf https://github.com/esphome/feature-requests/issues/1649
 # Enable Web server

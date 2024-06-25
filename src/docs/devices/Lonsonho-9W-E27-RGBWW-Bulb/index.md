@@ -59,47 +59,32 @@ esphome:
   name: ${device}
   platform: ESP8266
   board: esp01_1m
-
-# WiFi + network settings
-wifi:
-  ssid: 'Name of you homes WiFi'
-  password: 'your supersecret wifi password'
-  fast_connect: true
-  reboot_timeout: ${reboot_timeout}
-  manual_ip:
-    static_ip: ${static_ip}
-    gateway: 10.10.10.1
-    subnet: 255.255.255.0
-    dns1: 10.10.10.1
-    dns2: 1.1.1.1
-  ap:
-    ssid: '${name} AP (192.168.4.1)'
-    password: '1234abcd'         #  wifi password when in access point mode. Leave '' for no password.
-
-# captive portal for access point mode
-captive_portal:
-
-# enabling home assistant legacy api
-api:
-  # uncomment below if needed
-  # encryption:
-  #  key: !secret encryption_key
-
-# enabling over the air updates
+  
+# OTA flashing
 ota:
-  # uncomment below if needed
-  # password: 'your secret ota password'
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+  level: DEBUG
+  # Disable logging to serial
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # synchronizing time with home assistant
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-# Logging
-logger:
-  level: DEBUG
-  # Disable logging to serial
-  baud_rate: 0
 
 # Defining the output pins
 output:

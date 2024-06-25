@@ -51,7 +51,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-
 binary_sensor:
   - platform: gpio
     pin:

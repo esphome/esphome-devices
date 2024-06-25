@@ -39,40 +39,28 @@ esphome:
 esp8266:
   board: esp01_1m
   restore_from_flash: true
+  
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
-  manual_ip:
-    static_ip: ${ip_address}
-    gateway: !secret wifigateway
-    subnet: !secret wifisubnet
-    dns1: !secret wifidns
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
-    channel: 1
-    manual_ip:
-      static_ip: 192.168.1.1
-      gateway: 192.168.1.1
-      subnet: 255.255.255.0
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
   # https://esphome.io/components/web_server.html
-
-logger:
-  # https://esphome.io/components/logger
-
-api:
-  encryption:
-    key: !secret encryption_key
-  # https://esphome.io/components/api
-
-ota:
-  password: !secret esphome_ota_password
-  # https://esphome.io/components/ota
 
 switch:
   # relay output

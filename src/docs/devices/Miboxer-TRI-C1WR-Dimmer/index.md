@@ -81,28 +81,24 @@ esp32:
   board: esp32-c3-devkitm-1
   framework:
     type: esp-idf
+  
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
-  encryption:
-    key: !secret api_encryption_key
 
-# Enable logging
-logger:
-
-ota:
-  safe_mode: true
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  power_save_mode: none
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${device_ssid} Fallback Hotspot
-    password: !secret ap_password
+# Enable the captive portal
+captive_portal:
 
 uart:
   rx_pin: GPIO20
@@ -224,29 +220,23 @@ esp32:
     type: arduino
     version: 2.0.5
     platform_version: 5.2.0
+  
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
-  encryption:
-    key: !secret api_encryption_key
 
-# Enable logging
-logger:
-
-ota:
-  safe_mode: true
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  power_save_mode: none
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${device_ssid} Fallback Hotspot
-    password: !secret ap_password
-
+# Enable the captive portal
 captive_portal:
 
 web_server:

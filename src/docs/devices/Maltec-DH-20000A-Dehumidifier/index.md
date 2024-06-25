@@ -85,17 +85,21 @@ logger:
     number: DEBUG
     select: DEBUG
     main: DEBUG
-
-api:
+  
+# OTA flashing
 ota:
-web_server:
-debug:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "Maltec Dehumidifier FALLBACK"
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 ##################################################################
 
