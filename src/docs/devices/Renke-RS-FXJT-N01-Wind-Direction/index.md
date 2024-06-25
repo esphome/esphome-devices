@@ -130,6 +130,30 @@ text_sensor:
 
 Note that the sensor is by default set to ModBUS address `1`, so out of the box it's not possible to connect it together with another one (like a **RS-FSJT-N01** wind speed anemometer) to the same ESP UART.
 
-The manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the modbus address to something else, eg. `2` (just type it in the *Addr* box and press *Setup* button).
+The device modbus address is stored in register `2000` (`0x07D0`). To change it, you can use the following temporary ESPHome configuration:
 
-After that it becomes possible to simply connect the sensors in parrallel on the same cable, to a single RS485-TTL transceiver attached to a single UART on the ESP (you need to change the `address` value in the corresponding `modbus_controller` entry in the config).
+```yaml
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: wind_direction_meter
+    name: "Current device address"
+    register_type: read
+    address: 2000
+    value_type: U_WORD
+
+number:
+  - platform: modbus_controller
+    modbus_controller_id: wind_direction_meter
+    id: change_address
+    name: "New device address"
+    address: 2000
+    register_type: holding
+    value_type: U_WORD
+    mode: box
+```
+
+The new value will be sent to the device immediately, causing it to become offline. You need to change the `address` value in the corresponding `modbus_controller` entry to the value you just used. To avoid accidental address changes, it's recommended to comment out the above sections, then reflash node with the new settings.
+
+Alternatively, the manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the device address to something else (just type it in the *Addr* box and press *Setup* button).
+
+After that it becomes possible to simply connect the sensors in parrallel on the same cable, to a single RS485-TTL transceiver attached to a single UART on the ESP.
