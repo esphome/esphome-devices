@@ -89,18 +89,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
-
-wifi:
-  # This spawns an AP with the device name and mac address with no password.
-  ap: {}
-  # Allow rapid re-connection to previously connect WiFi SSID, skipping scan of all SSID
-  fast_connect: "${wifi_fast_connect}"
-  # Define dns domain / suffix to add to hostname
-  domain: "${dns_domain}"
-
-captive_portal:
+# Enable the Web Server component 
+webserver:
 
 dashboard_import:
   package_import_url: github://athom-tech/esp32-configs/athom-smart-plug.yaml
@@ -146,22 +136,6 @@ sensor:
     id: uptime_sensor
     entity_category: diagnostic
     internal: true
-
-  - platform: wifi_signal
-    name: "WiFi Signal"
-    id: wifi_signal_db
-    update_interval: 60s
-    entity_category: diagnostic
-    internal: true
-
-  # Reports the WiFi signal strength in %
-  - platform: copy
-    source_id: wifi_signal_db
-    name: "WiFi Strength"
-    filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "%"
-    entity_category: diagnostic
 
   - platform: cse7766
     current:
@@ -258,16 +232,6 @@ light:
       number: GPIO6
 
 text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-      entity_category: diagnostic
-    ssid:
-      name: "Connected SSID"
-      entity_category: diagnostic
-    mac_address:
-      name: "Mac Address"
-      entity_category: diagnostic
 
   #  Creates a sensor showing when the device was last restarted
   - platform: template

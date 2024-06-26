@@ -23,11 +23,12 @@ board: esp8266
 # Basic Config
 esphome:
   name: mini_tree
-  platform: ESP8266
-  board: esp01_1m
   platformio_options:
     upload_speed: 115200
   
+esp8266:
+  board: esp01_1m
+    
 # OTA flashing
 ota:
   - platform: esphome

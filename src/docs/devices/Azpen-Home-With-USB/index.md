@@ -35,7 +35,8 @@ GPIO Descriptions
 # Basic Config
 esphome:
   name: azpenhome
-  platform: ESP8266
+  
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -58,7 +59,6 @@ captive_portal:
 
 # Enable WEB server for status and updates.
 web_server:
-  port: 80
 
 # Button on top of plug.
 binary_sensor:

@@ -65,13 +65,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
-
-wifi:
-  ap: {} # This spawns an AP with the device name and mac address with no password.
-
-captive_portal:
+# Enable the Web Server component 
+webserver:
 
 dashboard_import:
   package_import_url: github://athom-tech/athom-configs/athom-smart-plug-v2.yaml
@@ -119,7 +114,6 @@ sensor:
       filters:
           - lambda: if (x < 0.060) return 0.0; else return x;   #For the chip will report less than 3w power when no load is connected
 
-
     voltage:
       name: "${friendly_name} Voltage"
     power:
@@ -127,7 +121,6 @@ sensor:
       id: power_sensor
       filters:
           - lambda: if (x < 3.0) return 0.0; else return x;    #For the chip will report less than 3w power when no load is connected
-
 
     energy:
       name: "${friendly_name} Energy"
@@ -188,15 +181,6 @@ light:
     pin:
       inverted: true
       number: GPIO13
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-    ssid:
-      name: "Connected SSID"
-    mac_address:
-      name: "Mac Address"
 
 time:
   - platform: sntp

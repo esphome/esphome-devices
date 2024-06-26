@@ -93,8 +93,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 uart:
   rx_pin: GPIO20
@@ -138,22 +138,6 @@ sensor:
     entity_category: diagnostic
     internal: true
 
-  - platform: wifi_signal
-    name: "WiFi Signal"
-    id: wifi_signal_db
-    update_interval: 60s
-    entity_category: diagnostic
-    internal: true
-
-  # Reports the WiFi signal strength in %
-  - platform: copy
-    source_id: wifi_signal_db
-    name: "WiFi Strength"
-    filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "%"
-    entity_category: diagnostic
-
   - platform: cse7766
     current:
       name: "Current"
@@ -176,7 +160,6 @@ sensor:
       filters:
           - throttle_average: ${sensor_update_interval}
           - lambda: if (x < 3.0) return 0.0; else return x;    #For the chip will report less than 3w power when no load is connected
-
 
     energy:
       name: "Energy"
@@ -247,18 +230,6 @@ light:
     pin:
       inverted: true
       number: GPIO6
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-      entity_category: diagnostic
-    ssid:
-      name: "Connected SSID"
-      entity_category: diagnostic
-    mac_address:
-      name: "Mac Address"
-      entity_category: diagnostic
 
   #  Creates a sensor showing when the device was last restarted
   - platform: template

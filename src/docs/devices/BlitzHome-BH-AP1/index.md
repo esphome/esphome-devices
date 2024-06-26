@@ -236,43 +236,36 @@ number:
 substitutions:
   name: air-purifier
   devicename: Air Purifier
-
 esphome:
   name: ${name}
   comment: ${devicename}
 
-wifi:
-  ssid: !secret esphome_wifi_ssid
-  password: !secret esphome_wifi_pass
-  fast_connect: true
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${devicename}
-    password: !secret esphome_ap_pass
-
-captive_portal:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: !secret esphome_encryption_key
-
-# Enable OTA updates
-ota:
-  safe_mode: true
-  password: !secret esphome_wifi_pass
-  
 esp8266:
   board: esp01_1m
-
-logger:
-  baud_rate: 0
 
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1
   baud_rate: 9600
+  
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 tuya:
   id: tuyadevice

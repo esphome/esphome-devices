@@ -44,9 +44,6 @@ esphome:
 
 esp8266:
   board: esp12e
-esphome:
-  name: example-device
-  friendly_name: Example Device
     
 # OTA flashing
 ota:
@@ -83,7 +80,6 @@ uart:
 
 # Register the Tuya MCU connection
 tuya:
-
 
 # Fan control
 output:
