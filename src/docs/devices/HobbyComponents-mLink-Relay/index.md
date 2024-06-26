@@ -1,5 +1,5 @@
 ---
-title: Hobby Coponents mLink 1/2/4 channel I2C relay 
+title: Hobby Components mLink 1/2/4 channel I2C relay 
 date-published: 2023-09-25
 type: relay
 standard: global
@@ -9,7 +9,7 @@ standard: global
 
 ## Description
 
-The mLink relay modules are serial I2C relays available in 1, 2, or 4 channel versions. Because they can be controlled via an I2C interface this makes them a convenient soltion for interfacting to ESP device. Especially with ESP8266 devlopments boards where IO pins can be limited.
+The mLink relay modules are serial I2C relays available in 1, 2, or 4 channel versions. Because they can be controlled via an I2C interface this makes them a convenient solution for interfacting to ESP device. Especially with ESP8266 development boards where IO pins can be limited.
 
 This guid builds on the custom switch example to allow control of these modules from your YAML file. The first step is to save the following c++ class to your configuration directory under the file name mLinkRelay.h
 
