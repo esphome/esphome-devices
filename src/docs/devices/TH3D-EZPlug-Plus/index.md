@@ -33,14 +33,24 @@ esphome:
   board: esp01_1m
   restore_from_flash: true
   early_pin_init: true
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-logger:
-api:
+    
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 time:
   - platform: homeassistant

@@ -30,9 +30,10 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
 
+esp8266:
+  board: esp01_1m
+    
 # OTA flashing
 ota:
   - platform: esphome
@@ -51,8 +52,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sm2135:
   data_pin: GPIO01

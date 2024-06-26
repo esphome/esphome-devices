@@ -32,10 +32,11 @@ substitutions:
 
 esphome:
   name: ${unique_id}
-  platform: ESP8266
+ 
+esp8266:
   board: esp01_1m
   esp8266_restore_from_flash: true
-    
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -54,14 +55,10 @@ api:
 # Enable the captive portal
 captive_portal:
 
-
 text_sensor:
   - platform: wifi_info
     ip_address:
       name: "${displayname} IP Address"
-
-ota:
-  password: !secret ota_password
 
 switch:
   - platform: gpio

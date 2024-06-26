@@ -26,26 +26,23 @@ esphome:
 
 rtl87xx:
   board: generic-rtl8710bn-2mb-788k
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
   
-# Enable logging
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: !secret esp_ota_pass
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pass
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "SP23 AP"
-    password: !secret ap_pass
-
+# Enable the captive portal
 captive_portal:
 
 switch:

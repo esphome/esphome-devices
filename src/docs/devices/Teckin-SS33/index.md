@@ -25,26 +25,24 @@ esphome:
   name: outdoor_ss33
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-  manual_ip:
-    static_ip: !secret outdoor_ss33_ip
-    gateway: !secret house_gateway
-    subnet: 255.255.255.0
-
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: !secret outdoor_ss33_ota
+# Enable the captive portal
+captive_portal:
 
 sensor:
   - platform: wifi_signal

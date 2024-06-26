@@ -38,10 +38,11 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  esp8266_restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
-# OTA flashing
+  esp8266_restore_from_flash: true
+    
 ota:
   - platform: esphome
 
@@ -62,7 +63,6 @@ captive_portal:
 
 # Enable web server
 web_server:
-  port: 80
 
 # Enable time component for use by daily power sensor
 time:
@@ -273,37 +273,30 @@ In aoycocr_x10s_common:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
-  use_address: ${ipaddress}
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${friendly_name}_AP
-    password: !secret fallbackpass
 
-captive_portal:
-
-# Enable logging
+# Enabling the logging component
 logger:
-  baud_rate: 0 #disable UART logging
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-# Enable OTA updates
-ota:
-  password: !secret esphomeotapwd
+# Enable the captive portal
+captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Enable time component for use by daily power sensor
 time:
@@ -326,10 +319,6 @@ binary_sensor:
     name: ${friendly_name} Status
 
 sensor:
-  # Reports the WiFi signal strength
-  - platform: wifi_signal
-    name: ${friendly_name} Signal
-    update_interval: 60s
 
   # Reports how long the device has been powered (in minutes)
   - platform: uptime
@@ -384,11 +373,6 @@ sensor:
     filters:
       - multiply: 0.001 ## convert Wh to kWh
     unit_of_measurement: kWh
-
-text_sensor:
-  # Reports the ESPHome Version with compile date
-  - platform: version
-    name: ${friendly_name} ESPHome Version
 
 switch:
   - platform: gpio
@@ -507,7 +491,6 @@ substitutions:
   device_name: test_plug
   device_description: Power Monitoring plug used for testing
   friendly_name: Lab Test Plug
-  ipaddress: 192.168.1.200
   wattage_calibration: 67.6 -> 11.0
   amperage_calibration: 0.12 -> 0.08
   voltage_calibration1: 0.0 -> 0.0

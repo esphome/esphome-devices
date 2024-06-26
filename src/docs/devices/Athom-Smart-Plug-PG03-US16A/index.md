@@ -67,19 +67,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
-
-wifi:
-  ssid: "ssid"
-  password: "password"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${friendly_name} Hotspot"
-    password: ""
-
-captive_portal:
+# Enable the Web Server component 
+webserver:
 
 # Time used for daily KWh usage
 time:
@@ -109,10 +98,6 @@ binary_sensor:
           - button.press: Reset
 
 sensor:
-  - platform: uptime
-    name: "${friendly_name} Uptime"
-    icon: mdi:clock-outline
-    disabled_by_default: true
 
   - platform: hlw8012
     sel_pin:
@@ -170,11 +155,6 @@ sensor:
     filters:
       - multiply: 0.001
 
-  - platform: wifi_signal
-    name: "${friendly_name} Wifi Signal"
-    update_interval: 60s
-
-
 button:
   - platform: factory_reset
     name: Restart with Factory Default Settings
@@ -203,9 +183,4 @@ light:
       inverted: true
       number: GPIO13
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-      disabled_by_default: true
 ```

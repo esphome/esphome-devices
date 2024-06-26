@@ -29,26 +29,24 @@ esphome:
   name: SZMDLX IR Hub
   platform: ESP8266
   board: esp8285
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "IR Fallback AP"
-    password: <password>
 
-captive_portal:
-
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: !secret ota_password
+# Enable the captive portal
+captive_portal:
 
 status_led:
   pin: GPIO4

@@ -19,9 +19,10 @@ If you have multiple sensor boards, you will likely need to make each sensor nam
 esphome:
   name: example-device
   friendly_name: Example Device
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
-    
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -39,7 +40,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
 
 i2c:
   sda: D2

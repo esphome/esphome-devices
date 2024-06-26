@@ -46,6 +46,7 @@ As Tuya has closed most vulnerabilities, Tuya-Convert cannot be used to flash ES
 ```yaml
 esphome:
   name: upk2esphome-bk7231t
+  
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
 

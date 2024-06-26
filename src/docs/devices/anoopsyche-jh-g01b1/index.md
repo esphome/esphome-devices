@@ -28,8 +28,9 @@ substitutions:
 esphome:
   name: "${device_name}"
   friendly_name: Example Device
-  platform: ESP8266
-  board: esp01_1m    
+
+esp8266:
+  board: esp01_1m
 
 # OTA flashing
 ota:
@@ -49,8 +50,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

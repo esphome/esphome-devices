@@ -47,11 +47,12 @@ substitutions:
 esphome:
   name: "${device_name}"
   name_add_mac_suffix: true
-  platform: ESP8266
-  board: esp8285
   project:
     name: "${project_name}"
     version: "${project_version}"
+
+esp8266:
+  board: esp8285
 
 # OTA flashing
 ota:
@@ -71,8 +72,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: status
@@ -117,9 +118,4 @@ light:
     warm_white_color_temperature: 3000 K
     color_interlock: true
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-      disabled_by_default: true
 ```

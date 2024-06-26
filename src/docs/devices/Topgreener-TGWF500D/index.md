@@ -34,25 +34,26 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   name_add_mac_suffix: true
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: true
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ${device_name}
-    password: !secret esphome_ap_password
 
+# Enabling the logging component
 logger:
   level: DEBUG
   baud_rate: 0
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: !secret esphome_ota_password
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

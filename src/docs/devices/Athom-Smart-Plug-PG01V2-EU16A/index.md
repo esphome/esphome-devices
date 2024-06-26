@@ -52,8 +52,8 @@ captive_portal:
 logger:
   baud_rate: 0
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Time used for daily KWh usage  
 time:
@@ -142,7 +142,4 @@ sensor:
   - platform: uptime
     name: "${upper_devicename} Uptime"
     icon: mdi:clock-outline
-  - platform: wifi_signal
-    name: "${upper_devicename} Wifi Signal"
-    update_interval: 60s
 ```

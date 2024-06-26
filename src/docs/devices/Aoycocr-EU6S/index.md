@@ -53,8 +53,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Time used for daily KWh usage  
 time:
@@ -70,13 +70,6 @@ text_sensor:
       name: ${friendly_name} IP Address
 
 sensor:
-  # Uptime sensor
-  - platform: uptime
-    name: ${friendly_name} Uptime
-  # WiFi Signal sensor
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal
-    update_interval: 60s
   # Gosund SP1 Config
   # Power sensor
   - platform: hlw8012

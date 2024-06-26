@@ -54,9 +54,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 9926
-  version: 1
+# Enable the Web Server component 
+webserver:
 
 # Create a switch for safe_mode in order to flash the device
 # Solution from this thread:
@@ -368,7 +367,6 @@ light:
     chipset: ws2812
     name: "LED Strip"
     id: led_strip
-
 
 interval:
   - interval: 30s

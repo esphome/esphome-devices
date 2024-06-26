@@ -73,6 +73,9 @@ esphome:
       - delay: 5s
       - switch.turn_off: wifi_blinkin_slow
 
+esp8266:
+  board: esp01_1m
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -88,9 +91,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-esp8266:
-  board: esp01_1m
 debug:
+
 # Enable logging
 logger:
   baud_rate: 0
@@ -112,8 +114,8 @@ uart:
 #    sequence:
 #      - lambda: UARTDebug::log_hex(direction, bytes, ':');
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
   # Sync time with Home Assistant.
 time:
@@ -186,31 +188,6 @@ text_sensor:
     text_sensors:
       id: "uart_readline"
       name: ${name} serial
-
-  - platform: wifi_info
-    ip_address:
-      name: ${name} ip
-    ssid:
-      name: ${name} ssid
-    bssid:
-      name: ${name} bssid
-  - platform: version
-    name: ${name} ESPHome Version
-
-sensor:
-  # Uptime sensor
-  - platform: uptime
-    name: ${name} uptime
-    unit_of_measurement: days
-    update_interval: 300s
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.000011574
-  # WiFi Signal sensor
-  - platform: wifi_signal
-    name: ${name} signal
-    update_interval: 60s
-    accuracy_decimals: 0
 
 switch:
   - platform: template
@@ -668,7 +645,7 @@ fan:
                     - delay: 500ms
                     - switch.turn_on: timer1h
 
-captive_portal:
+
 ```
 
 ## fake_fan_output.h

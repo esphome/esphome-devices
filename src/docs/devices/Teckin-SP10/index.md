@@ -25,23 +25,27 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
-
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: SP10_AP
-    password: !secret wifipass
-    channel: 1
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-ota:
+
+# Enable the captive portal
+captive_portal:
+
 web_server:
   port: 80
-  # https://esphomelib.com/esphomeyaml/components/web_server.html
 
 time:
   - platform: homeassistant

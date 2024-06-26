@@ -31,9 +31,10 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
+  
+esp8266:
   board: esp8285
-
+  
 # OTA flashing
 ota:
   - platform: esphome
@@ -51,16 +52,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
-wifi:
-  ssid: "ssid"
-  password: "password"
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${upper_devicename} Hotspot"
-    password: ""
-
-
 
 binary_sensor:
   - platform: gpio

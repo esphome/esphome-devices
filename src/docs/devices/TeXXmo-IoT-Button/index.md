@@ -52,30 +52,24 @@ esphome:
     priority: 700
     then:
       - output.turn_on: power_pin
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: true
-
-  manual_ip:
-    static_ip: ${static_ip}
-    gateway: ${gateway}
-    subnet: ${subnet}
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "ESPHome_Button_1"
-    password: !secret ap_fallback_password
-
-captive_portal:
-
-api:
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ha_api_password
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 script:
   - id: send_event
@@ -94,8 +88,6 @@ script:
           id: message_sent
           value: "true"
       - delay: 0.5s
-
-logger:
 
 sensor:
   - platform: adc
