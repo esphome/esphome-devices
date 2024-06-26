@@ -65,28 +65,27 @@ esp32:
   board: esp32-c3-devkitm-1
   framework:
     type: arduino
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-# Allow Over-The-Air updates
-ota:
+# Enable the captive portal
+captive_portal:
 
 # Allow provisioning Wi-Fi via serial
 improv_serial:
-
-wifi:
-  networks:
-    - ssid: !secret wifi_ssid
-      password: !secret wifi_password
-  ap: {}
-
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device via WiFi AP.
-captive_portal:
 
 dashboard_import:
   package_import_url: github://esphome/firmware/esphome-web/esp32c3.yaml@v2
@@ -111,7 +110,6 @@ output:
     pin: GPIO19
     id: status_led_output
     inverted: true
-
 
 light:
   - platform: binary

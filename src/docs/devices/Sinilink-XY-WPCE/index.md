@@ -81,9 +81,25 @@ esp8266:
   # Specifically a 'ESP8285H16' with 2MB built in flash
   # See: https://docs.platformio.org/en/stable/boards/espressif8266/esp8285.html
   board: esp8285
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   level: INFO
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 script:
   - id: regular_press

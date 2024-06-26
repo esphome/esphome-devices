@@ -40,11 +40,6 @@ Credit and thanks to
 substitutions:
   devicename: shelly-plug-us
   relay_name: Outlet
-  wifi_ssid: !secret wifi_ssid
-  wifi_pass: !secret wifi_pass
-  api_pass: !secret api_pass
-  ota_pass: !secret ota_pass
-
   # 110VAC * 15A , specs are from Shelly specs
   max_power: "1650"
   # Higher value gives lower watt readout
@@ -58,21 +53,24 @@ esphome:
   name: ${devicename}
   platform: ESP8266
   board: esp8285
+      
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_pass}
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_key
 
-ota:
-  password: ${ota_pass}
+# Enable the captive portal
+captive_portal:
 
 time:
   - platform: homeassistant

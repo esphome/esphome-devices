@@ -36,25 +36,25 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
-  fast_connect: on #we only have one WiFi AP so just use the first one that matches
-  ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
   baud_rate: 0 #disable UART logging since we aren't connected to GPIO1 TX
 
 # Enable Home Assistant API
 api:
 
-# Enable OTA updates
-ota:
-  safe_mode: True
+# Enable the captive portal
+captive_portal:
 
 # Enable web server
 web_server:
@@ -149,25 +149,25 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
-  fast_connect: on #we only have one WiFi AP so just use the first one that matches
-  ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
-    ssid: ${friendly_name}_AP
-    password: !secret wifipass
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
-# Enable logging
+# Enabling the logging component
 logger:
   baud_rate: 0 #disable UART logging since we aren't connected to GPIO1 TX
 
 # Enable Home Assistant API
 api:
 
-# Enable OTA updates
-ota:
-  safe_mode: True
+# Enable the captive portal
+captive_portal:
 
 # Enable web server
 web_server:

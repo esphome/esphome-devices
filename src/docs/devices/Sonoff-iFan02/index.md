@@ -35,25 +35,24 @@ esphome:
 esp8266:
   board: esp01_1m
   restore_from_flash: true
-
-logger:
-api:
+    
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
   
-wifi:
-  networks:
-  - ssid: !secret wifi_ssid
-    password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: "iFan02"
-    password: !secret wifi_password
 
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
 captive_portal:
-
-  - platform: status
-    name: "Sonoff iFan02 Status"
 
 output:
   - platform: gpio

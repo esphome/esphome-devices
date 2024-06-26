@@ -30,22 +30,28 @@ esphome:
   name: sonoff_s31
   platform: ESP8266
   board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Remove the following line if you're not using Home Assistsant or your switch will restart every now and again
-api:
-
+    
+# OTA flashing
 ota:
+  - platform: esphome
 
-# Device Specific Config
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
   baud_rate: 0 # (UART logging interferes with cse7766)
   logs:
     sensor: DEBUG # (Overide any global setting, to VERBOSE will spamming the cse7766 sensors)
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+# Device Specific Config
 
 uart:
   rx_pin: RX

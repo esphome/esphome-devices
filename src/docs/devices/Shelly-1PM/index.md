@@ -31,35 +31,31 @@ esphome:
   platform: ESP8266
   board: esp01_1m
   comment: "Shelly 1PM"
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
-ota:
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
-  ap:
-    ssid: "${devicename} Fallback"
-    password: !secret fallback_password
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80
-  auth:
-    username: admin
-    password: !secret web_server_password
 
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-captive_portal:
 
 switch:
   - platform: gpio

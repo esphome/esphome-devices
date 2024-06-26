@@ -53,22 +53,24 @@ esp32:
   board: esp32doit-devkit-v1
   framework:
     type: esp-idf
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot in case wifi connection fails
-  ap:
-    ssid: ${device_name}
+# Enable the captive portal
+captive_portal:
 
 time:
   - platform: homeassistant

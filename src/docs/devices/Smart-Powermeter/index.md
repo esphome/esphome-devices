@@ -52,32 +52,31 @@ esp32:
   board: esp32-s2-saola-1
   framework:
     type: arduino
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-# Enable Over The Air updates
-ota:
+# Enable the captive portal
+captive_portal:
 
 #Public location of this yaml file
 dashboard_import:
   package_import_url: github://JGAguado/Smart_Powermeter/docs/source/files/configuration.yaml@V2R1
   import_full_config: true
 
-# Enable fallback hotspot (captive portal) in case wifi connection fails
-captive_portal:
-
 improv_serial:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: "${ap_ssid}"
-    password: "${ap_pwd}"
 
 sensor:
   - platform: adc

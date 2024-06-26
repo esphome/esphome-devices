@@ -48,20 +48,24 @@ esphome:
 
 esp32:
   board: esp32dev
-
-logger:
-  level: INFO
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-api:
-  encryption:
-    key: !secret esp_api_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ota_secret
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 sensor:  
   - platform: wifi_signal

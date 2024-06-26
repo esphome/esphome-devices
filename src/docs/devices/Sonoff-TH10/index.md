@@ -27,24 +27,24 @@ esphome:
     priority: -10
     then:
       - light.turn_on: blue_led
-wifi:
-  ssid: "ssid"
-  password: "wifi_password"
-  ap:
-    ssid: "ap_ssid"
-    password: "ap_password"
-  domain: ".domain.com"
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
-ota:
-  password: "ota_password"
+# Enable the captive portal
+captive_portal:
 
 web_server:
 

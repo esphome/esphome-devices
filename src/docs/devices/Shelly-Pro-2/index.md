@@ -83,30 +83,30 @@ esp32:
   board: esp32dev
   framework:
     type: arduino
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
 
+# Enabling the logging component
 logger:
 
+# Enable Home Assistant API
 api:
 
-ota:
-
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: "Shelly-Pro-2"
-    password: "BzwFc7HsRihG"
+# Enable the captive portal
+captive_portal:
 
 # ethernet:
 #   type: LAN8720
 #   mdc_pin: GPIO23
 #   mdio_pin: GPIO18
 #   clk_mode: GPIO17_OUT
-
-
-captive_portal:
 
 button:
   - platform: restart

@@ -60,38 +60,29 @@ esphome:
   name: $devicename
   platform: ESP8266
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable Wi-Fi connection
-wifi:
-  ssid: My_Wireless
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
-    ssid: ESP-${devicename}
-    password: !secret fallback_password
 
-# Enable captive poral
+# Enabling the logging component
+logger:
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
 captive_portal:
 
 # Enable websever
 web_server:
   port: 80
-  auth:
-    username: !secret web_username
-    password: !secret web_password
-
-# Enable HomeAssistant API
-api:
-  encryption:
-    key: !secret api_encryption_key
-
-# Enable OTA updates
-ota:
-  password: !secret ota_password
-  safe_mode: True
-
-# Enable logging without UART support as there would be no way to read it
-logger:
-  baud_rate: 0
 
 # Enable external blue LED as a status indictator
 status_led:

@@ -39,26 +39,24 @@ esphome:
   name: $devicename
   platform: ESP8266
   board: esp01_1m
-captive_portal:
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
-# Enable Home Assistant API (if available i.e. reboot_timeout=0s)
+# Enable Home Assistant API
 api:
-  reboot_timeout: 0s
 
-ota:
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  #use_address: 10.0.0.230
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: !secret ap_ssid
-    password: !secret ap_password
-    ap_timeout: 3min
+# Enable the captive portal
+captive_portal:
 
 web_server:
   port: 80

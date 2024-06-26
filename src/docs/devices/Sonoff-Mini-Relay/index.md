@@ -29,34 +29,29 @@ board: esp8266
 ```yaml
 substitutions:
   device_name: sonoffmini_1
-  device_ip: 192.168.x.x
 
 esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp8285
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: 192.168.x.x
-    subnet: 255.255.255.0
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "ESPHOME"
-    password: "12345678"
-
-logger:
-  
-api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ota_password
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
@@ -142,28 +137,24 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: 192.168.0.1
-    subnet: 255.255.255.0
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "ESPHOME"
-    password: "12345678"
-
-logger:
-  
-api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ota_password
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 

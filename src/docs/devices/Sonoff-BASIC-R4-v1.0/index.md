@@ -47,24 +47,24 @@ esp32:
       CONFIG_BT_BLE_42_FEATURES_SUPPORTED: y
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"
 # Would not boot with the stock ESP32-C3 ESPHome 2023.9 default YAML config until I added/change the settings above for ESP32C3
-web_server:
-
-mdns:
-
-logger:
-  
-captive_portal:
-  
-api:
-  password: !secret api_password
-
+     
+# OTA flashing
 ota:
-  password: !secret ota_password
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
   ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 #magic switch mode
 external_components:

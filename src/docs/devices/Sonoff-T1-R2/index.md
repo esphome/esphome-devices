@@ -41,21 +41,25 @@ esphome:
   name: sonoff_t1_r2
   platform: ESP8266
   board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: true
-
-api:
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ota_secret
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   esp8266_store_log_strings_in_flash: false
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 text_sensor:
   - platform: version

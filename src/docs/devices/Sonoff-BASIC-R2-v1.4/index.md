@@ -39,14 +39,24 @@ esphome:
   name: sonoff_basic_r2
   platform: ESP8266
   board: esp8285
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-logger:
-api:
+     
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 # Device Specific Config
 binary_sensor:

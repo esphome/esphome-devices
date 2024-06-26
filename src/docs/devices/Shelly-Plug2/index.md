@@ -25,25 +25,32 @@ substitutions:
   channel_1: Relay
   max_power: "3500"
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-ota:
-
-time:
-  - platform: homeassistant
-    id: my_time
-
 esphome:
   name: ${devicename}
   platform: ESP8266
   board: esp8285
+      
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
+time:
+  - platform: homeassistant
+    id: my_time
 
 binary_sensor:
   - platform: gpio

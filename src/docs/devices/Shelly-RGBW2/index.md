@@ -29,15 +29,24 @@ esphome:
   name: shelly_rgbw2
   platform: ESP8266
   board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-captive_portal:
-logger:
-api:
+    
+# OTA flashing
 ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 light:
   - platform: rgbw
@@ -83,14 +92,24 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
-
-logger:
-api:
+    
+# OTA flashing
 ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 light:
   - platform: monochromatic
@@ -242,23 +261,23 @@ esphome:
           id: light2
           brightness: 60%
           color_temperature: 3500 K
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
+
+# Enable Home Assistant API
 api:
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_pass
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${device_name}"
-    password: !secret ap_pass
-
-ota:
-  safe_mode: True
-  password: !secret ota_pass
-
+# Enable the captive portal
 captive_portal:
 
 status_led:

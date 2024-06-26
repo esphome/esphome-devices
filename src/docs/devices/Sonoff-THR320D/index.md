@@ -67,26 +67,28 @@ esphome:
 
 esp32:
   board: nodemcu-32s
-
-api:
-  encryption:
-    key: !secret api_encryption_key
-
+    
+# OTA flashing
 ota:
-  password: "ota-password"
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 0
 
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 web_server:
   port: 80
-
-wifi:
-  ssid: "SSID"
-  password: "PASSWORD"
-  power_save_mode: none
-
-captive_portal:
 
 # This will take care of the display automatically.
 # You don't need to tell it to print something to the display manually.
@@ -117,8 +119,6 @@ binary_sensor:
         - switch.toggle: mainRelayVirt
   - platform: status
     name: "${friendly_name} Status"
-
-
 
 switch:
   # virtual switch to represent the main relay
@@ -185,7 +185,6 @@ switch:
     id: ${name}_sensor_power
     restore_mode: ALWAYS_ON
 
-
 light:
   # The middle (blue) LED is used as wifi status indicator.
   - platform: status_led
@@ -193,7 +192,6 @@ light:
     pin:
       number: GPIO15
       inverted: true
-
 
 sensor:
   # You need to specify here that it's an SI7021 sensor.
@@ -268,15 +266,25 @@ esphome:
 
 esp32:
   board: nodemcu-32s
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
-  # It's in the ceiling, nobody is listening to the UART
   baud_rate: 0
   level: DEBUG
 
-web_server:
-  port: 80
+# Enable Home Assistant API
+api:
 
+# Enable the captive portal
 captive_portal:
 
 binary_sensor:

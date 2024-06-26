@@ -14,8 +14,30 @@ using ESPHome.
 ## T1
 
 ``` yaml
+esphome:
+  name: example-device
+  friendly_name: Example Device
+   
 esp8266:
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 binary_sensor:
   - platform: gpio
@@ -53,8 +75,30 @@ status_led:
 ## T2
 
 ``` yaml
+esphome:
+  name: example-device
+  friendly_name: Example Device
+   
 esp8266:
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 binary_sensor:
   - platform: gpio
@@ -113,12 +157,30 @@ status_led:
 ## T3
 
 ``` yaml
+esphome:
+  name: example-device
+  friendly_name: Example Device
+   
 esp8266:
   board: esp01_1m
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 binary_sensor:
   - platform: gpio

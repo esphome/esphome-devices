@@ -70,29 +70,23 @@ esp32:
   board: esp32dev
   framework:
     type: arduino
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
-  password: ""
 
-ota:
-  password: ""
-
-wifi:
-  networks:
-    - ssid: !secret wifi_ssid_1
-      password: !secret wifi_password_1
-    - ssid: !secret wifi_ssid_2
-      password: !secret wifi_password_2
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${device_name} Fallback Hotspot
-    password: ""
-
+# Enable the captive portal
 captive_portal:
 
 web_server:

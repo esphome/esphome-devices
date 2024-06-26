@@ -66,20 +66,24 @@ esp32:
   board: esp32dev
   framework:
     type: arduino
-
-logger:
-  level: INFO
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-api:
-  encryption:
-    key: !secret esp_api_key
-
+    
+# OTA flashing
 ota:
-  password: !secret ota_secret
+  - platform: esphome
+
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
 
 sensor:  
   - platform: wifi_signal
@@ -254,34 +258,23 @@ esphome:
 dashboard_import:
   package_import_url: ${package_url}
   import_full_config: false
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
-  level: "${loglevel}"
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "${apikey}"
 
-# Enable OTA
-ota:
-  safe_mode: true
-  password: !secret ota_password
-
-# Enable WiFi and AP for captive portal
-wifi:
-  fast_connect: false
-  power_save_mode: none
-  ssid: "${wifi_ssid}"
-  password: "${wifi_password}"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  # password for hostspot is the same as password for net AP (needs captive_portal)
-  ap:
-    ssid: "${uniquename}-setup"
-    password: "${wifi_password}"
-
+# Enable the captive portal
 captive_portal:
 
 # Diagnostic output sensors
@@ -325,7 +318,6 @@ button:
   - platform: restart
     name: "Restart"
     id: button_restart
-
 
 switch:
   # Physical GPIO Relay
