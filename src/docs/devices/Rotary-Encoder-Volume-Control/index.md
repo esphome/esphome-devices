@@ -27,7 +27,8 @@ You can also use this to control, for example, smart bulbs.
 ```yaml
 esphome:
   name: wemos
-  platform: ESP8266
+
+ESP8266:
   board: d1_mini
     
 # OTA flashing

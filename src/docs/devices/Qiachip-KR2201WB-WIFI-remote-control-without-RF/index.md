@@ -61,18 +61,8 @@ time:
 # Enable the Web Server component 
 webserver:
 
-debug:
-  update_interval: 5s
-  
 sensor:
-  - platform: debug
-    free:
-      name: ${friendly_name} Heap Free
-    loop_time:
-      name: ${friendly_name} Loop Time  
-  - platform: wifi_signal
-    name: ${friendly_name} WiFi Signal
-    update_interval: 30s
+
   - platform: uptime
     name: Uptime Sensor
     id: uptime_sensor
@@ -95,30 +85,6 @@ sensor:
                 (minutes ? to_string(minutes) + "m " : "") +
                 (to_string(seconds) + "s")
               ).c_str();
-
-text_sensor:
-  - platform: libretiny
-    version:
-      name: ${friendly_name} LibreTiny Version
-      icon: mdi:cube-outline
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP address"
-    ssid:
-      name: "${friendly_name} connected SSID"
-    mac_address:
-      name: "${friendly_name} MAC WiFi address"
-
-  - platform: template
-    name: Uptime Human Readable
-    id: uptime_human
-    icon: mdi:clock-start
-
-  - platform: debug
-    device:
-      name: Device Info
-    reset_reason:
-      name: Reset Reason
 
 light:
   - platform: status_led

@@ -51,7 +51,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+ESP8266:
   board: esp8285
       
 # OTA flashing
@@ -125,9 +126,6 @@ switch:
     name: "${relay_name}"
 
 sensor:
-  - platform: wifi_signal
-    name: "${devicename} WiFi Signal"
-    update_interval: 5min
 
   - platform: hlw8012
     sel_pin:

@@ -65,8 +65,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Time used for daily KWh usage  
 time:
@@ -93,14 +93,6 @@ binary_sensor:
 #      max_length: 10000ms
 #      then:
 #        - switch.turn_on: reset
-  - platform: status
-    name: "${friendly_name} Status"
-
-text_sensor:
-# Reports the ESPHome Version with compile date
-  - platform: version
-    name: ${friendly_name} ESPHome Version
-
 
 switch:
   # Set relays as switches
@@ -160,8 +152,6 @@ sensor:
 #        - 0.0 -> 0.0
 #        - 127.0 -> 242.0
 
-
-
   - platform: total_daily_energy
     name: "${friendly_name} Total Daily Energy"
     power_id: "${devicename}Power"
@@ -170,18 +160,6 @@ sensor:
         - multiply: 0.001
     unit_of_measurement: kWh
     icon: mdi:clock-alert
-
-  - platform: uptime
-    name: "${friendly_name} Uptime"
-    icon: mdi:clock-outline
-    filters:
-      - lambda: return x / 60.0;
-    unit_of_measurement: minutes
-
-  - platform: wifi_signal
-    name: "${friendly_name} Wifi Signal"
-    update_interval: 60s
-
 
   - platform: adc
     name: ${friendly_name} Temperature

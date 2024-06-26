@@ -28,9 +28,10 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
-  board: esp01_1m
   comment: "Shelly 1PM"
+
+esp8266:
+  board: esp01_1m
     
 # OTA flashing
 ota:
@@ -50,8 +51,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: homeassistant
@@ -65,10 +66,7 @@ switch:
     restore_mode: RESTORE_DEFAULT_OFF
 
 sensor:
-  - platform: wifi_signal
-    name: "${devicename} WiFi Signal"
-    device_class: signal_strength
-    update_interval: 60s
+ 
   - platform: hlw8012
     cf_pin: GPIO05
     cf1_pin: GPIO13 # not used because it is not available on the 1PM but it is needed to compile

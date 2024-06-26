@@ -103,11 +103,6 @@ switch:
     on_turn_off:
       - output.turn_off: led
 
-sensor:
-  - platform: wifi_signal
-    name: "${devicename} WiFi Signal"
-    update_interval: 300s
-
   # NTC Temperature
   - platform: ntc
     sensor: temp_resistance_reading

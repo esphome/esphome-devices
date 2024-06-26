@@ -45,10 +45,6 @@ esphome:
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
-
-api:
-  encryption:
-    key: !secret api_encryption_key
     
 # OTA flashing
 ota:
@@ -105,7 +101,4 @@ output:
     # min_power: 14%
     # zero_means_zero: True
 
-sensor:
-  - platform: internal_temperature
-    name: "Internal Temperature"
 ```

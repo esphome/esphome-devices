@@ -60,15 +60,16 @@ dpID 108 is still unknown, it is always reporting 5 and doesn’t respond to any
 ```yaml
 esphome:
   name: smart_kettle
-  platform: ESP8266
-  board: esp8285
+
+esp8266:
+  board: esp01_1m
     
 # OTA flashing
 ota:
   - platform: esphome
 
 wifi: # Your Wifi network details
-  
+
 # Enable fallback hotspot in case wifi connection fails  
   ap:
 
@@ -82,7 +83,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Device Specific Config
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1

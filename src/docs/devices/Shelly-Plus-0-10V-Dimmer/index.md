@@ -38,6 +38,7 @@ Credit and thanks to
 substitutions:
     device_name: shelly-0-10
     room: myhome
+    
 esphome:
   name: $device_name
   platformio_options:

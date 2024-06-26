@@ -46,9 +46,6 @@ substitutions:
 esphome:
   name: $device_name
   comment: $device_description
-  platform: ESP8266
-  board: esp12e
-  restore_from_flash: true
   project:
     name: 'tuya.galaxy'
     version: 'RSH-WiFi-Sky01'
@@ -58,7 +55,11 @@ globals:
     type: bool
     restore_value: no
     initial_value: 'false'
-    
+
+ESP8266:
+  board: esp12e
+  restore_from_flash: true 
+
 # OTA flashing
 ota:
   - platform: esphome

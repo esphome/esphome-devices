@@ -36,7 +36,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -151,19 +152,15 @@ Thanks to [Datux](https://github.com/dtx3k) modified and tested by [gieljnssns](
 ```yaml
 substitutions:
   devicename: shelly_25
-  ip: 192.168.xx.xx
   channel_1: Relay 1
   channel_2: Relay 2
-
-  ssid: !secret ssid
-  password: !secret password
-
   max_power: "2000.0"
   max_temp: "70.0"
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -185,8 +182,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: sntp
@@ -342,7 +339,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -477,7 +475,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -499,8 +498,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: sntp

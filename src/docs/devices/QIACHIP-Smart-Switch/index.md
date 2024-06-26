@@ -44,8 +44,6 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   on_boot:
     then:
       - uart.write:
@@ -121,6 +119,9 @@ esphome:
           ]
   includes:
     - qiachip-uart.h
+
+esp8266:
+  board: esp01_1m
     
 # OTA flashing
 ota:
@@ -225,8 +226,6 @@ qiachip-common.yaml:
 ```yaml
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   on_boot:
     then:
       - uart.write:
@@ -302,6 +301,9 @@ esphome:
           ]
   includes:
     - qiachip-uart.h
+
+esp8266:
+  board: esp01_1m
    
 # OTA flashing
 ota:

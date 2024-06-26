@@ -21,7 +21,8 @@ board: esp8266
 # Basic Config
 esphome:
   name: orvibo_b25
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -69,15 +70,6 @@ switch:
 status_led:
   # Display red flashing LED when connecting to Wifi
   pin:
-    number: GPIO12
-
-sensor:
-  - platform: wifi_signal
-    name: "B25 WiFi signal"
-    update_interval: 60s
-
-  - platform: uptime
-    name: "B25 Uptime"
 
 output:
   # Blue LED, set for Off when switch = Off / On when switch = On
