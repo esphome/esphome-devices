@@ -52,9 +52,10 @@ substitutions:
 
 esphome:
   name: 6chan_energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
-    
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -73,8 +74,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+web:
 
 spi:
   clk_pin: 18
@@ -230,9 +231,10 @@ substitutions:
 
 esphome:
   name: 6chan_energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
-    
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -251,8 +253,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 spi:
   clk_pin: 18
@@ -509,7 +511,8 @@ substitutions:
 
 esphome:
   name: energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
     
 # OTA flashing
@@ -530,8 +533,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 spi:
   clk_pin: 18

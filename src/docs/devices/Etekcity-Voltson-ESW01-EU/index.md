@@ -31,10 +31,13 @@ The HLW8012 SEL pin is permanently pulled high, so you can only read power and v
 
 ```yaml
 esphome:
-  platform: ESP8266
+  name: example-device
+  friendly_name: Example Device
+
+esp8266:
+  board: esp01_1m    
   arduino_version: 2.5.1
-  board: esp01_1m
-    
+
 # OTA flashing
 ota:
   - platform: esphome

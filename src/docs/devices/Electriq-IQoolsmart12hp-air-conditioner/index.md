@@ -60,8 +60,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 uart:
   rx_pin: GPIO13

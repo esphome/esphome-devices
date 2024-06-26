@@ -24,9 +24,10 @@ board: esp8266
 ```yaml
 esphome:
   name: "Brilliant Smart RGBW"
-  platform: ESP8266
-  board: esp01_1m
-    
+
+esp8266:
+  board: esp01_1m    
+  
 # OTA flashing
 ota:
   - platform: esphome

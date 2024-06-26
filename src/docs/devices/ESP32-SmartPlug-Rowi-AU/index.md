@@ -63,7 +63,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
+# Enable the Web Server component 
+webserver:
 
 dashboard_import:
   package_import_url: github://vt-vaio/rowi/rowi-plug.yaml@main
@@ -126,15 +127,4 @@ sensor:
       name: "${friendly_name} Temperature"
     humidity:
       name: "${friendly_name} Humidity"
-
-  - platform: uptime
-    name: "${friendly_name} Uptime"
-    disabled_by_default: true
-    id: uptime_sensor
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-      disabled_by_default: true
 ```

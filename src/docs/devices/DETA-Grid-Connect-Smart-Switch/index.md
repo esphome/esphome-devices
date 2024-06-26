@@ -242,24 +242,6 @@ captive_portal:
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
-sensor:
-  - platform: wifi_signal
-    name: ${friendlyname} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${friendlyname} Uptime
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${friendlyname} IP
-    ssid:
-      name: ${friendlyname} SSID
-    bssid:
-      name: ${friendlyname} BSSID
-    mac_address:
-      name: ${friendlyname} Mac
-
 ## ---------------- ##
 ##    Status LED    ##
 ## ---------------- ##
@@ -357,14 +339,14 @@ binary_sensor:
 substitutions:
   device_name: deta3gangswitch
   friendly_name: "3 Gang Switch"
-  device_ip: 192.168.0.x
 
 #################################
 
 esphome:
-  platform: ESP8266
-  board: esp01_1m
   name: ${device_name}
+
+esp8266:
+  board: esp01_1m
   esp8266_restore_from_flash: true
     
 # OTA flashing
@@ -385,18 +367,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# The web_server & sensor components can be removed without affecting core functionaility.
-web_server:
-  port: 80
-
-sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${device_name} Uptime
-
-#################################
+# Enable the Web Server component 
+webserver:
 
 status_led:
   pin:
@@ -516,24 +488,6 @@ captive_portal:
 
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
-
-sensor:
-  - platform: wifi_signal
-    name: ${friendlyname} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${friendlyname} Uptime
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${friendlyname} IP
-    ssid:
-      name: ${friendlyname} SSID
-    bssid:
-      name: ${friendlyname} BSSID
-    mac_address:
-      name: ${friendlyname} Mac
 
 ## ---------------- ##
 ##    Status LED    ##
@@ -657,14 +611,15 @@ binary_sensor:
 substitutions:
   device_name: deta4gangswitch
   friendly_name: "4 Gang Switch"
-  device_ip: 192.168.0.x
 
 #################################
 
 esphome:
+  name: ${device_name}
+
+ esp8266: 
   platform: ESP8266
   board: esp01_1m
-  name: ${device_name}
   esp8266_restore_from_flash: true
     
 # OTA flashing
@@ -685,18 +640,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# The web_server & sensor components can be removed without affecting core functionaility.
-web_server:
-  port: 80
-
-sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${device_name} Uptime
-
-#################################
+# Enable the Web Server component 
+webserver:
 
 status_led:
   pin:

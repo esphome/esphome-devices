@@ -159,10 +159,6 @@ sensor:
     id: generated_charge_today
     unit_of_measurement: "Ah"
 
-  - platform: wifi_signal
-    name: "WiFi Signal"
-    update_interval: ${updates}
-
 binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: epever
@@ -272,8 +268,8 @@ text_sensor:
     raw_encode: HEXBYTES
     response_size: 6
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 ```
 
 The definitions for most sensors is included using Packages:

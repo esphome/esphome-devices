@@ -105,37 +105,4 @@ sensor:
       - multiply: 0.001
     unit_of_measurement: kWh
 
-  - platform: wifi_signal
-    name: WiFi Strength
-    update_interval: 60s
-    id: signal_strength
-    internal: True
-
-  - platform: copy # Reports the WiFi signal strength in %
-    source_id: signal_strength
-    name: "WiFi Strength"
-    filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "%"
-    entity_category: "diagnostic"
-
-  - platform: uptime
-    name: Uptime
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: IP Address
-      icon: mdi:ip-network
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "currysmarter16a-Hotspot"
-    password: ""
-
-captive_portal:
 ```

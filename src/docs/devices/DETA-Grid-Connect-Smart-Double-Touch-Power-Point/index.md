@@ -60,10 +60,12 @@ substitutions:
 
 esphome:
   platform: ESP8266
-  board: esp01_1m
   name: ${device_name}
+
+esp8266:
+  board: esp01_1m
   esp8266_restore_from_flash: true
-    
+      
 # OTA flashing
 ota:
   - platform: esphome
@@ -82,25 +84,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
-
-sensor:
-  - platform: uptime
-    name: ${device_name} Uptime
-
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal
-    update_interval: 60s
-
-text_sensor:  
-  - platform: version
-    name: ${device_name} ESPhome Version
-  - platform: wifi_info
-    ip_address:
-      name: ${device_name} IP
-
-#################################
+# Enable the Web Server component 
+webserver:
 
 status_led:
   pin:

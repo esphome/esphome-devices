@@ -69,9 +69,8 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 uart:
   tx_pin: GPIO15
@@ -97,7 +96,6 @@ select:
     options:
       0: "off"
       1: "on"
-
 
   - platform: "tuya"
     name: "Oscillate vertically"
@@ -137,26 +135,4 @@ select:
       11: "11h"
       12: "12h"
 
-sensor:
-  - platform: wifi_signal
-    name: "Wifi Signal"
-    update_interval: 60s
-    icon: mdi:wifi
-
-  - platform: uptime
-    name: "Uptime"
-    update_interval: 60s
-    icon: mdi:clock-outline
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-    ssid:
-      name: "Wi-Fi SSID"
-    bssid:
-      name: "Wi-Fi BSSID"
-  - platform: version
-    name: "ESPHome Version"
-    hide_timestamp: true
 ```

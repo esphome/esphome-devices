@@ -49,15 +49,15 @@ This sample only use ESPHome global variable and MQTT to trigger deep sleep, no 
 ```yaml
 esphome:
   name: bedford
-  platform: ESP32
-  board: esp32dev
-    
+
+esp32:
+  board: esp32dev   
+  
 # OTA flashing
 ota:
   - platform: esphome
 
 wifi: # Your Wifi network details
-  fast_connect: true
 
 # Enable fallback hotspot in case wifi connection fails  
   ap:

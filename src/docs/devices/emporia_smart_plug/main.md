@@ -29,7 +29,8 @@ You must dissasemble the case to access the VDD, GND, RX, and TX pins. They can 
 # Basic Config
 esphome:
   name: emporia_smart_plug
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -64,10 +65,8 @@ binary_sensor:
     name: "Emporia Smart Plug Status"
 
 sensor:
-  - platform: wifi_signal
-    name: "Emporia Smart Plug WiFi Signal"
-    update_interval: 60s
-  - platform: hlw8012
+ 
+ - platform: hlw8012
     model: BL0937  
     sel_pin:
       number: 12

@@ -42,7 +42,6 @@ substitutions:
   device_name: deta_double_powerpoint
   friendly_name: "Deta Double Powerpoint"
 
-
 esphome:
   name: ${devicename}
     

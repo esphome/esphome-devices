@@ -35,7 +35,8 @@ substitutions:
 
 esphome:
   name: ${plug_name}
-  platform: ESP8266
+  
+esp8266:
   board: esp8285
     
 # OTA flashing
@@ -56,9 +57,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Example configuration entry
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

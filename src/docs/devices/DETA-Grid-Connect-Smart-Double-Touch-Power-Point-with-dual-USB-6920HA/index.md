@@ -74,11 +74,7 @@ bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
 sensor:
-  - platform: wifi_signal
-    name: ${friendlyname} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${friendlyname} Uptime
+
   - platform: cse7766
     current:
       name: "${friendlyname} Current"
@@ -112,19 +108,6 @@ sensor:
       - throttle: 60s
     unit_of_measurement: kWh
     icon: mdi:chart-bar
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${friendlyname} IP
-    ssid:
-      name: ${friendlyname} SSID
-    bssid:
-      name: ${friendlyname} BSSID
-    mac_address:
-      name: ${friendlyname} Mac
-  - platform: version
-    name: ${friendlyname} ESPHome Version
 
 # Enable time component for use by daily power sensor
 time:

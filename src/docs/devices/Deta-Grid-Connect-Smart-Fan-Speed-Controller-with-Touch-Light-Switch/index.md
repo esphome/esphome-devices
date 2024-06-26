@@ -86,10 +86,11 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   esp8266_restore_from_flash: true
-    
+      
 # OTA flashing
 ota:
   - platform: esphome
@@ -108,26 +109,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-sensor:
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${friendly_name} Uptime
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
-    ssid:
-      name: ${friendly_name} SSID
-    bssid:
-      name: ${friendly_name} BSSID
-    mac_address:
-      name: ${friendly_name} Mac
-
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 light:
   - platform: binary
@@ -341,30 +324,12 @@ api:
 # Enable the captive portal
 captive_portal:
 
+# Enable the Web Server component 
+webserver:
+
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
-sensor:
-  - platform: wifi_signal
-    name: ${friendlyname} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${friendlyname} Uptime
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${friendlyname} IP
-    ssid:
-      name: ${friendlyname} SSID
-    bssid:
-      name: ${friendlyname} BSSID
-    mac_address:
-      name: ${friendlyname} Mac
-  - platform: version
-    name: ${friendlyname} ESPHome Version
-
-#################################
 status_led:
   pin:
     number: P10

@@ -109,8 +109,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 #################################
 
@@ -197,10 +197,3 @@ switch:
           - light.toggle: light
 ```
 
-### Add Reboot button to HA
-
-```yaml
-switch:
-  - platform: restart
-    name: ${friendlyname} REBOOT
-```

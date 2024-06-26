@@ -45,9 +45,10 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-    
+ 
 # OTA flashing
 ota:
   - platform: esphome
@@ -81,12 +82,6 @@ sensor:
       name: "${friendly_name} Power"
     energy:
       name: "${friendly_name} Energy"
-  - platform: wifi_signal
-    name: "${friendly_name} WiFi signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "${friendly_name} Uptime"
-    update_interval: 60s
 
 binary_sensor:
   - platform: gpio

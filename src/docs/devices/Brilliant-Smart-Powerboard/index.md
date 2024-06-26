@@ -41,9 +41,10 @@ The blue led is used as a status led and flashes as the wifi is connecting. The 
 ```yaml
 esphome:
   name: multibox
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-    
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -65,10 +66,6 @@ captive_portal:
 sensor:
   - platform: uptime
     name: Multibox Uptime
-
-  - platform: wifi_signal
-    name: Multibox Signal
-    update_interval: 300s
 
 switch:
   - platform: gpio

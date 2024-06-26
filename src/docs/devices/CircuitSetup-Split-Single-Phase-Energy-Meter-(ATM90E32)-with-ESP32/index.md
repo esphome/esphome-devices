@@ -35,7 +35,8 @@ substitutions:
 
 esphome:
   name: energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
     
 # OTA flashing
@@ -56,8 +57,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 spi:
   clk_pin: 18

@@ -138,10 +138,6 @@ binary_sensor:
     filters:
       - delayed_off: 1s
 
-sensor:
-  - platform: internal_temperature
-    name: "Internal Temperature"
-
 text_sensor:
   - platform: template
     name: "Doorbell Intercom" # Receive debug messages

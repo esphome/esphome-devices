@@ -34,8 +34,10 @@ substitutions:
 
 esphome:
   platform: ESP8266
-  board: esp01_1m
   name: ${device_name}
+
+esp8266:
+  board: esp01_1m
   esp8266_restore_from_flash: true
     
 # OTA flashing
@@ -53,9 +55,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# The web_server & sensor components can be removed without affecting core functionaility.
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
   - platform: wifi_signal

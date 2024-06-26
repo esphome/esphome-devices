@@ -70,36 +70,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-sensor:
-  - platform: wifi_signal
-    name: "${friendly_name} wifi signal"
-    update_interval: 600s
-  - platform: uptime
-    name: Uptime Sensor
-    id: uptime_sensor
-    update_interval: 60s
-    disabled_by_default: true
-    on_raw_value:
-      then:
-        - text_sensor.template.publish:
-            id: uptime_human
-            state: !lambda |-
-              int seconds = round(id(uptime_sensor).raw_state);
-              int days = seconds / (24 * 3600);
-              seconds = seconds % (24 * 3600);
-              int hours = seconds / 3600;
-              seconds = seconds % 3600;
-              int minutes = seconds /  60;
-              seconds = seconds % 60;
-              return (
-                (days ? to_string(days) + "d " : "") +
-                (hours ? to_string(hours) + "h " : "") +
-                (minutes ? to_string(minutes) + "m " : "") +
-                (to_string(seconds) + "s")
-              ).c_str();
-
-#################################
-
 output:
   # Button
   - platform: gpio
@@ -143,16 +113,4 @@ button:
     name: "${friendly_name} Restart"
     disabled_by_default: true
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-      disabled_by_default: true
-    bssid:
-      name: "${friendly_name} BSSID"
-      disabled_by_default: true
-  - platform: template
-    name: Uptime
-    id: uptime_human
-    icon: mdi:clock-start
 ```

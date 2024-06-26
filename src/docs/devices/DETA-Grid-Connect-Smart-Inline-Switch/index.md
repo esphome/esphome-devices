@@ -40,7 +40,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   board_flash_mode: dout
   esp8266_restore_from_flash: true
@@ -63,8 +64,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: homeassistant
@@ -83,21 +84,6 @@ light:
     output: blue_led_output
     id: blue_led
     internal: True
-
-sensor:
-  - platform: uptime
-    name: ${device_name} Uptime
-
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal
-    update_interval: 60s
-
-text_sensor:
-  - platform: version
-    name: ${device_name} ESPhome Version
-  - platform: wifi_info
-    ip_address:
-      name: ${device_name} IP
 
 binary_sensor:
   - platform: gpio

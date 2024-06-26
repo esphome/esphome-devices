@@ -42,7 +42,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -62,13 +63,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
-sensor:
-  - platform: uptime
-    name: ${friendly_name} Uptime
-
-  - platform: wifi_signal
-    name: ${friendly_name} Signal Strength
 
 output:
   - platform: esp8266_pwm

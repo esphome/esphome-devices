@@ -66,9 +66,10 @@ This board has headers for every GPIO pin on its ESP-12F.
 ```yaml
 esphome:
   name: relayboard
-  platform: ESP8266
+
+esp8266:
   board: esp12e
-    
+  
 # OTA flashing
 ota:
   - platform: esphome
