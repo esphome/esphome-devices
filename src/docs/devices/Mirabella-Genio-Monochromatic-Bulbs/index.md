@@ -17,6 +17,10 @@ The brightness of the bulb can be controlled using the `esp8266_pwm`
 output component.
 
 ``` yaml
+esphome:
+  name: example-device
+  friendly_name: Example Device
+
 esp8266:
   board: esp01_1m
   

@@ -34,9 +34,10 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-    
+   
 # OTA flashing
 ota:
   - platform: esphome
@@ -65,10 +66,6 @@ binary_sensor:
     name: ${friendly_name} Status
 
 sensor:
-  # Reports the WiFi signal strength
-  - platform: wifi_signal
-    name: ${friendly_name} Signal
-    update_interval: 60s
 
   # Reports how long the device has been powered (in minutes)
   - platform: uptime
@@ -76,11 +73,6 @@ sensor:
     filters:
       - lambda: return x / 60.0;
     unit_of_measurement: minutes
-
-text_sensor:
-  # Reports the ESPHome Version with compile date
-  - platform: version
-    name: ${friendly_name} ESPHome Version
 
 output:
   - platform: esp8266_pwm
@@ -176,7 +168,8 @@ In novoflood_common.yaml:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -205,24 +198,6 @@ binary_sensor:
   # Reports if this device is Connected or not
   - platform: status
     name: ${friendly_name} Status
-
-sensor:
-  # Reports the WiFi signal strength
-  - platform: wifi_signal
-    name: ${friendly_name} Signal
-    update_interval: 60s
-
-  # Reports how long the device has been powered (in minutes)
-  - platform: uptime
-    name: ${friendly_name} Uptime
-    filters:
-      - lambda: return x / 60.0;
-    unit_of_measurement: minutes
-
-text_sensor:
-  # Reports the ESPHome Version with compile date
-  - platform: version
-    name: ${friendly_name} ESPHome Version
 
 output:
   - platform: esp8266_pwm

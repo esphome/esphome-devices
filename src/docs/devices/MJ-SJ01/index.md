@@ -43,7 +43,6 @@ substitutions:
   #   # https://esphome.io/guides/configuration-types.html#substitutions
   device_name: martin_jerry_mj_sd01 # hostname & entity_id
   friendly_name: Martin Jerry MJ-SD01 # Displayed in HA frontend
-  ip_address: !secret martin_jerry_mj_sd01_ip # use /config/esphome/secrets.yaml
   pwm_min_power: 15% # keep dimming functional at lowest levels
   no_delay: 0s # transition when changing dimmer_lvl & relay delay
   transition_length: .5s # transition when turning on/off
@@ -297,16 +296,10 @@ power_supply:
 esphome:
   # https://esphome.io/components/esphome
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
-  # restore_from_flash: true
-  # Can cause reduced flash lifetime due to frequent writes, enable as needed
 
-sensor:
-  - platform: wifi_signal
-    name: "${friendly_name} WiFi Signal"
-    update_interval: 600s
-  
+esp8266:
+  board: esp01_1m
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -328,6 +321,7 @@ captive_portal:
 ## Timed Fan control
 
 The MJ-SD01 can control a low power (<400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds as feedback on how much time is left.
+```
 
 ```yaml
 # Timed fan control
@@ -534,17 +528,10 @@ power_supply:
 ## below is common between both light and fan
 
 esphome:
-  # https://esphome.io/components/esphome
   name: ${device_name}
-  platform: ESP8266
+ 
+esp8266:
   board: esp01_1m
-  # restore_from_flash: true
-  # Can cause reduced flash lifetime due to frequent writes, enable as needed
-  
-sensor:
-  - platform: wifi_signal
-    name: "${friendly_name} WiFi Signal"
-    update_interval: 600s
   
 # OTA flashing
 ota:

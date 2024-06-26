@@ -58,9 +58,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
-  # https://esphome.io/components/web_server.html
+# Enable the Web Server component 
+webserver:
 
 switch:
   # relay output
@@ -108,22 +107,4 @@ button:
     name: $friendly_name Restart
     entity_category: diagnostic
 
-text_sensor:
-  - platform: version
-    name: $friendly_name ESPHome Version
-    id: esphome_version
-    hide_timestamp: True
-  - platform: wifi_info
-    ip_address:
-      id: ip_address
-      name: $friendly_name IP Address
-    mac_address:
-      name: $friendly_name Mac
-      id: mac_address
-
-sensor:
-  - platform: uptime
-    name: $friendly_name Uptime Sensor
-  - platform: wifi_signal
-    name: $friendly_name wifi signal
 ```

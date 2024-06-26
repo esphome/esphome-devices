@@ -49,7 +49,8 @@ substitutions:
 # Basic Config
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -70,9 +71,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable WEB server for status and updates.
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio
@@ -156,7 +156,8 @@ nx-sp201-common.yaml:
 # Basic Config
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -177,9 +178,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable WEB server for status and updates.
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

@@ -50,7 +50,8 @@ As of May 2022 these switches use a WB3S chip (BK7231T) and are no longer compat
 ```yaml
 esphome:
   name: ds_102
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   
 # OTA flashing
@@ -72,19 +73,10 @@ api:
 # Enable the captive portal
 captive_portal:
 
-sensor:
-  - platform: uptime
-    name: DS 102 Uptime
-    update_interval: 60s
-
 status_led:
   pin:
     number: GPIO0
     inverted: True
-
-text_sensor:
-  - platform: version
-    name: DS 102 Version
 
 binary_sensor:
   - platform: status
@@ -154,7 +146,8 @@ light:
 ```yaml
 esphome:
   name: ds_102
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   
 # OTA flashing
@@ -176,19 +169,10 @@ api:
 # Enable the captive portal
 captive_portal:
 
-sensor:
-  - platform: uptime
-    name: ${upper_name} Uptime
-    update_interval: 60s
-
 status_led:
   pin:
     number: GPIO0
     inverted: True
-
-text_sensor:
-  - platform: version
-    name: ${upper_name} Version
 
 binary_sensor:
   - platform: status

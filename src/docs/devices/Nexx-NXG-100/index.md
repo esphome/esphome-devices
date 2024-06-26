@@ -37,7 +37,8 @@ On each transition of the door sensor, the green LED will blink.
 ```yaml
 esphome:
   name: nxg100
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -58,7 +59,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
+# Enable the Web Server component 
+webserver:
 
 status_led:
   pin:
@@ -162,7 +164,8 @@ Similarly if the door is open, the open button does nothing.
 ```yaml
 esphome:
   name: nxg100
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -183,7 +186,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
+# Enable the Web Server component 
+webserver:
 
 status_led:
   pin:
@@ -235,11 +239,6 @@ binary_sensor:
   - platform: status
     name: "Status"
     internal: true
-
-sensor:
-  - platform: wifi_signal
-    name: "WiFi Signal"
-    update_interval: 60s
 
 switch:
   - platform: gpio

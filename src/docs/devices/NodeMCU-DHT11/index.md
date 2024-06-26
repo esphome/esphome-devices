@@ -23,7 +23,6 @@ Then at compile time the two files are merged.
 ```yaml
 substitutions:
   name: nodemcu_lr
-  ip: 192.168.1.21
   friendly_name: Livingroom Sensor
   friendly_name_temp: Livingroom Temperature
   friendly_name_humidity: Livingroom Humidity
@@ -86,12 +85,4 @@ sensor:
       accuracy_decimals: 1 # humidity gets 0 decimals by default
     model: DHT11
     update_interval: 60s
-
-  - platform: wifi_signal
-    name: ${friendly_name} WiFi Signal Strength
-    update_interval: 60s
-
-text_sensor:
-  - platform: version
-    name: ${friendly_name} ESPHome Version
 ```

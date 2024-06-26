@@ -66,6 +66,9 @@ api:
 # Enable the captive portal
 captive_portal:
 
+# Enable the Web Server component 
+webserver:
+
 # Allow provisioning Wi-Fi via serial
 improv_serial:
 
@@ -82,9 +85,6 @@ globals:
 dashboard_import:
   package_import_url: github://esphome/example-configs/esphome-web/esp32.yaml@main
   import_full_config: true
-
-# To have a "next url" for improv serial
-web_server:
 
 light:
   - platform: status_led
@@ -119,12 +119,8 @@ switch:
       - light.turn_off: led
 
 sensor:
-  - platform: wifi_signal
-    name: "Wifi Signal"
-    update_interval: 60s
-    icon: mdi:wifi
 
-  - platform: uptime
+- platform: uptime
     name: "Uptime"
     update_interval: 60s
     icon: mdi:clock-outline

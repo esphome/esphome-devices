@@ -26,9 +26,10 @@ Available memory registries can be found [here](https://github.com/arendst/Tasmo
 ```yaml
 esphome:
   name: energy_meter
-  platform: ESP32
+
+esp32:
   board: esp32doit-devkit-v1
-    
+  
 # OTA flashing
 ota:
   - platform: esphome

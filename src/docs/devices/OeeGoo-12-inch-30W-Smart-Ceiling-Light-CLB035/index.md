@@ -54,35 +54,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable NTP
-time:
-  - platform: sntp
-    id: my_time
-
-# General Config
-text_sensor:
-  - platform: version
-    name: "${device_name} Version"
-  - platform: wifi_info
-    ip_address:
-      name: "${device_name} IP Address"
-    ssid:
-      name: "${device_name} SSID"
-    bssid:
-      name: "${device_name} BSSID"
-
-sensor:
-  - platform: wifi_signal
-    name: "${device_name} WiFi Signal"
-    update_interval: 60s
-    filters:
-      - delta: 0.01
-      - throttle: 300s
-  - platform: uptime
-    name: "${device_name} Uptime"
-    filters:
-      - throttle: 300s
-
 light:
   # RGB Mood Light
   - platform: rgb

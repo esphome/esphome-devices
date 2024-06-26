@@ -40,7 +40,6 @@ substitutions:
   # Lower value gives lower voltage readout
   voltage_div: "775"
 
-
 esphome:
   name: $devicename
   comment: "Nous Smart Wifi Socket A1T (Tasmota)"
@@ -122,10 +121,6 @@ switch:
     id: relay
 
 sensor:
-  - platform: wifi_signal
-    name: "${devicename} - Wifi Signal"
-    update_interval: 60s
-    icon: mdi:wifi
 
   - platform: uptime
     name: "${devicename} - Uptime"
@@ -174,17 +169,5 @@ sensor:
       id: "nous_a1t_watt"
       unit_of_measurement: W
       icon: mdi:gauge
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${devicename} - IP Address"
-    ssid:
-      name: "${devicename} - Wi-Fi SSID"
-    bssid:
-      name: "${devicename} - Wi-Fi BSSID"
-  - platform: version
-    name: "${devicename} - ESPHome Version"
-    hide_timestamp: true
 
 ```

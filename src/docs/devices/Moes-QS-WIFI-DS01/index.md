@@ -17,7 +17,8 @@ substitutions:
 esphome:
   name: ${node_name}
   comment: ${friendly_node_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   
 # OTA flashing
@@ -44,9 +45,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable Web server.
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Sync time with Home Assistant.
 time:
@@ -110,10 +110,6 @@ sensor:
                 (minutes ? to_string(minutes) + "m " : "") +
                 (to_string(seconds) + "s")
               ).c_str();
-  - platform: wifi_signal
-    name: ${friendly_node_name} WiFi Signal
-    id: ${node_id}_wifi_signal
-    update_interval: 60s
     # Primary template sensor to track Brightness of light object for "on_value" sending to MCU dimmer
   - platform: template
     name: "${node_id} Brightness Sensor"
@@ -148,21 +144,6 @@ sensor:
     name: "${node_id} Sensor Push Switch"
     update_interval: 20ms
 
-# Text Sensors.
-text_sensor:
-  - platform: template
-    name: Uptime Human Readable
-    id: uptime_human
-    icon: mdi:clock-start
-  - platform: version
-    name: ${friendly_node_name} ESPHome Version
-    id: ${node_id}_esphome_version
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_node_name} IP Address
-      id: ${node_id}_ip_address
-      icon: mdi:ip-network
-
 # Switches.
 switch:
   - platform: restart
@@ -175,7 +156,6 @@ switch:
   - platform: safe_mode
     name: ${friendly_node_name} Restart (Safe Mode)"
     id: ${node_id}_safe_mode
-
 
 # Dummy light brightness tracker Global
 globals:
