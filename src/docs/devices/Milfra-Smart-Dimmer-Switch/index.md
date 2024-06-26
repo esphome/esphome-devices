@@ -114,29 +114,4 @@ select:
       1: "On"
       2: Memory
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP"
-      icon: "mdi:ip-outline"
-      update_interval: ${update_interval_wifi}
-    ssid:
-      name: "SSID"
-      icon: "mdi:wifi-settings"
-      update_interval: ${update_interval_wifi}
-    bssid:
-      name: "BSSID"
-      icon: "mdi:wifi-settings"
-      update_interval: ${update_interval_wifi}
-    mac_address:
-      name: "MAC"
-      icon: "mdi:network-outline"
-    scan_results:
-      name: "Wifi Scan"
-      icon: "mdi:wifi-refresh"
-      update_interval: ${update_interval_wifi}
-      disabled_by_default: true
-  - platform: libretiny
-    version:
-      name: LibreTiny Version
 ```

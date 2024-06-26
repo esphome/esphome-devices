@@ -44,31 +44,18 @@ api:
 captive_portal:
 
 # Unavailable for esp-idf https://github.com/esphome/feature-requests/issues/1649
-# Enable Web server
-# web_server:
-#   port: 80
+# Enable the Web Server component 
+# webserver:
 
 # Sync time with Home Assistant
 time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Text sensors with general information
-text_sensor:
-  - platform: version
-    name: ${friendly_name} Version
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP Address
-
 sensor:
   # Uptime sensor
   - platform: uptime
     name: ${friendly_name} Uptime
-  # WiFi Signal sensor
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal
-    update_interval: 60s
 
   # Mi Desk Lamp 1S Config
   - platform: rotary_encoder

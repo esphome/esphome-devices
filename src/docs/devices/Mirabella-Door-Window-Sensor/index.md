@@ -31,14 +31,6 @@ esphome:
   includes:
     - sb1_uart.h
 
-mqtt:
-  broker: 'x.x.x.x'
-  username: !secret mqtt_un
-  password: !secret mqtt_pw
-  birth_message:
-  shutdown_message:
-  will_message:
-
 uart:
   - tx_pin: 1
     rx_pin: 3

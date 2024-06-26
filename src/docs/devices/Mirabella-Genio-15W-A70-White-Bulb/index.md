@@ -19,12 +19,13 @@ board: esp8266
 # https://mirabellagenio.net.au/wi-fi-led-a70-1400-lumen
 esphome:
   name: mirabella_1
-  platform: ESP8266
-  board: esp01_1m
   on_boot:
     priority: 100 # Highest priority, ensures light turns on without delay.
     then:
       - light.turn_on: light
+
+esp8266:
+  board: esp01_1m
   
 # OTA flashing
 ota:
@@ -44,13 +45,10 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
   
 sensor:
-  - platform: wifi_signal
-    name: "Mirabella 1 WiFi Signal"
-    update_interval: 60s
 
 switch:
   - platform: restart

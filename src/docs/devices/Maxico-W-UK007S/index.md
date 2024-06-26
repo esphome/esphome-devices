@@ -40,9 +40,10 @@ substitutions:
 # Basic Config
 esphome:
   name: "${device_name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -98,11 +99,7 @@ switch:
           transition_length: 0s
 
 sensor:
-  # WiFi Signal Sensor
-  - platform: wifi_signal
-    name: "${friendly_name} WiFi Status"
-    update_interval: 60s
-  # Power Monitoring
+
   - platform: hlw8012
     sel_pin:
       number: GPIO12

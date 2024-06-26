@@ -31,15 +31,15 @@ The configuration below will simply set up the device as a 2-gang switch for lig
 substitutions:
   device_name: SC500W
   friendly_name: "SC500W"
-  device_ip: 192.168.x.x
   device_description: "SC500W"
 
 esphome:
   name: ${device_name}
   comment: "${device_description}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+ 
 # OTA flashing
 ota:
   - platform: esphome
@@ -58,20 +58,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# the web_server & sensor components can be removed without affecting core functionaility.
-
-web_server:
-  port: 80
-
-sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${device_name} Uptime
-#######################################
-# Device specific Config Begins Below #
-#######################################
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

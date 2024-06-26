@@ -14,9 +14,10 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${friendly_name}
-  platform: ESP8266
-  board: esp8285
-  
+
+esp8266:
+  board: esp01_1m
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -43,22 +44,10 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Text sensors with general information
-text_sensor:
-  - platform: version
-    name: ${friendly_name} Version
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP Address
-
 sensor:
   # Uptime sensor
   - platform: uptime
     name: ${friendly_name} Uptime
-  # WiFi Signal sensor
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal
-    update_interval: 60s
   # Rotary
   - platform: rotary_encoder
     id: rotation

@@ -138,21 +138,6 @@ sensor:
                 (to_string(seconds) + "s")
               ).c_str();
 
-text_sensor:
-  # Expose WiFi information as sensors.
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
-    ssid:
-      name: ${friendly_name} SSID
-    bssid:
-      name: ${friendly_name} BSSID
-  # Expose Uptime
-  - platform: template
-    name: ${friendly_name} Uptime Human Readable
-    id: uptime_human
-    icon: mdi:clock-start
-
 # Restart Buttons
 button:
   - platform: restart
@@ -239,8 +224,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 uart:
   rx_pin: GPIO20
@@ -251,11 +236,7 @@ uart:
 tuya:
 
 sensor:
-  # WiFi Signal sensor.
-  - platform: wifi_signal
-    name: ${friendly_name} Signal strength
-    update_interval: 60s
-    internal: true
+
   # Uptime Sensor
   - platform: uptime
     name: "${friendly_name} Uptime"
@@ -286,21 +267,6 @@ sensor:
     lambda: return temperatureRead();
     unit_of_measurement: °C
     accuracy_decimals: 2
-
-text_sensor:
-  # Expose WiFi information as sensors.
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
-    ssid:
-      name: ${friendly_name} SSID
-    bssid:
-      name: ${friendly_name} BSSID
-  # Expose Uptime
-  - platform: template
-    name: ${friendly_name} Uptime Human Readable
-    id: uptime_human
-    icon: mdi:clock-start
 
 # Restart Buttons
 button:

@@ -45,10 +45,12 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP32
-  board: m5stick-c
   platformio_options:
     upload_speed: 115200
+
+esp32:
+  platform: ESP32
+  board: m5stick-c  
   
 # OTA flashing
 ota:

@@ -84,8 +84,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
   - platform: uptime
@@ -99,10 +99,8 @@ switch:
     id: relay_1
 
 binary_sensor:
-  - platform: status
-    name: $devicename Status
 
-  - platform: gpio
+- platform: gpio
     pin:
       number: GPIO26
       mode: INPUT_PULLUP
@@ -151,8 +149,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
   - platform: uptime
@@ -232,8 +230,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
   - platform: uptime
@@ -363,8 +361,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 globals:
   - id: counter

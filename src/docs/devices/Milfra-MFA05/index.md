@@ -86,18 +86,6 @@ button:
     id: restart_button_safe_mode
     name: "${friendly_name} Restart (Safe Mode)"
 
-
-text_sensor:
-  - platform: version
-    name: "${friendly_name} ESPHome Version"
-
-  - platform: wifi_info
-    ip_address:
-      name: "${friendly_name} IP Address"
-    mac_address:
-      name: "${friendly_name} MAC Address"
-
-
 number:
   - platform: template # time the relay is ON when triggered by motion
     id: motion_delay

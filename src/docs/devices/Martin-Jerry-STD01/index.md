@@ -44,7 +44,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   
 # OTA flashing
@@ -74,9 +75,6 @@ uart:
 tuya:
 
 sensor:
-  - platform: wifi_signal
-    name: ${friendly_name} WiFi Signal
-    update_interval: 60s
 
   - platform: uptime
     name: ${friendly_name} Uptime

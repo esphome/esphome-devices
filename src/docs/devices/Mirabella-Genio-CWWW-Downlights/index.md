@@ -14,6 +14,10 @@ Australia.
 ## Basic Configuration
 
 ``` yaml
+esphome:
+  name: example-device
+  friendly_name: Example Device
+
 esp8266:
   board: esp01_1m
   

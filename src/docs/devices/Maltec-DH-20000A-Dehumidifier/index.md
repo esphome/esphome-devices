@@ -101,8 +101,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-##################################################################
-
 uart:
   rx_pin: 20 # usb-c
   tx_pin: 19 # usb-c
@@ -170,11 +168,8 @@ sensor:
     device_class: "humidity"
     accuracy_decimals: 0
     icon: "mdi:water-percent"
-
   - platform: uptime
     name: Uptime
-  - platform: internal_temperature
-    name: CPU Temperature
 
 select:
   - platform: tuya
@@ -191,17 +186,7 @@ select:
     options:
       0: Low
       1: High
-
-##################################################################
-text_sensor:
-  - platform: debug
-    device:
-      name: "Device Info"
-      internal: False
-      disabled_by_default: True
-    reset_reason:
-      name: "Reset Reason"
-  
+ 
 button:
   - platform: restart
     name: "Restart"

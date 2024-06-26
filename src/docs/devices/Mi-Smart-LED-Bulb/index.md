@@ -56,22 +56,10 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Text sensors with general information
-text_sensor:
-  - platform: version
-    name: ${friendly_name} ESPHome Version
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP Address
-
 sensor:
   # Uptime sensor
   - platform: uptime
     name: ${friendly_name} Uptime
-  # WiFi Signal sensor
-  - platform: wifi_signal
-    name: ${friendly_name} WiFi Signal
-    update_interval: 60s
 
 output:
   - platform: esp8266_pwm

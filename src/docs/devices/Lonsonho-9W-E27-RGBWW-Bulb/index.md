@@ -50,16 +50,14 @@ Enjoy your hard work and impress some people with the magic 8-]
 substitutions:
   name: 'Fancy Device'
   device: 'fancy_device'
-  reboot_timeout: 1h
-  update_interval: 1min
-  static_ip: 10.10.10.88
 
 # core configuration
 esphome:
   name: ${device}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -80,11 +78,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
-# synchronizing time with home assistant
-time:
-  - platform: homeassistant
-    id: homeassistant_time
 
 # Defining the output pins
 output:

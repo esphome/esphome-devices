@@ -36,8 +36,9 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
+
+esp8266:
+  board: esp8285
   restore_from_flash: true
   
 # OTA flashing
@@ -73,9 +74,7 @@ uart:
   baud_rate: 9600
 
 sensor:
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal Strength
-    update_interval: 60s
+ 
   - platform: uptime
     name: ${friendly_name} Uptime
   - platform: tuya
@@ -103,17 +102,6 @@ sensor:
   - platform: total_daily_energy
     name: ${friendly_name} Total Daily Energy
     power_id: total_watts
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
-    ssid:
-      name: ${friendly_name} SSID
-    bssid:
-      name: ${friendly_name} BSSID
-    mac_address:
-      name: ${friendly_name} Mac
 
 switch:
   - platform: restart
