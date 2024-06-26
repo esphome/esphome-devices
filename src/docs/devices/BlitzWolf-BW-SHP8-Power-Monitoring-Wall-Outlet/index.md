@@ -38,11 +38,12 @@ substitutions:
   restore_mode: "ALWAYS_ON"
 
 esphome:
-  platform: ESP8266
-  board: esp8285
   name: example-device
   friendly_name: Example Device  
-   
+  
+esp8266:
+  board: esp8285
+
 # OTA flashing
 ota:
   - platform: esphome

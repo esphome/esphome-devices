@@ -58,12 +58,13 @@ substitutions:
 
 esphome:
   name: "${device_name}"
-  platform: ESP8266
-  board: esp8285
   on_boot:
     then:
       - switch.turn_on: relay
       - output.turn_on: led
+  
+esp8266:
+  board: esp8285    
     
 # OTA flashing
 ota:
@@ -83,8 +84,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
   
 # Button configuration
 binary_sensor:
@@ -176,15 +177,6 @@ sensor:
       icon: mdi:flash-outline
 ```
 
-To set time locally to the same as on the HomeAssistant (better logging)
-
-```yaml
-# Sets time from Homeassistant
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-```
-
 Send a notification to Home Assistant when max power is exceeded.
 
 ```yaml
@@ -209,33 +201,3 @@ power:
               message: Switch turned off because power exceeded ${max_power}W
 ```
 
-To have different data shown for the device (ESPHome version) and the wifi. Will appear as sensors in HA.
-
-```yaml
-# Sensors for ESP version and WIFI information
-text_sensor:
-  - platform: version
-    name: "${device_name} ESPHome Version"
-  - platform: wifi_info
-    ip_address:
-      name: "${device_name} ip"
-    ssid:
-      name: "${device_name} ssid"
-```
-
-This will create sensors so that you can track wifi coverage for the devices, and also note the uptime for the devices.
-
-```yaml
-sensors:
-  - platform: wifi_signal
-    name: "${device_name} WiFi Signal"
-    update_interval: 60s
-    accuracy_decimals: 0
-  - platform: uptime
-    name: "${device_name} Uptime"
-    unit_of_measurement: days
-    update_interval: 300s
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.000011574
-```

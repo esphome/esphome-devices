@@ -236,6 +236,7 @@ number:
 substitutions:
   name: air-purifier
   devicename: Air Purifier
+  
 esphome:
   name: ${name}
   comment: ${devicename}
