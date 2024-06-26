@@ -37,7 +37,8 @@ The red side of the LED cannot be individually controlled without modification t
 # Basic Config
 esphome:
   name: sonoff_basic_r2
-  platform: ESP8266
+
+ESP8266:
   board: esp8285
      
 # OTA flashing

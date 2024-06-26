@@ -34,7 +34,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -146,7 +147,8 @@ sinvitron-common.yaml:
 ```yaml
 esphome:
   name: ${device_name}
-  platform: ESP8266
+  
+ESP8266:
   board: esp01_1m
     
 # OTA flashing

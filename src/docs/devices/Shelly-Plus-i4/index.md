@@ -74,21 +74,6 @@ sensor:
   - platform: uptime
     name: "${friendly_name} Uptime"
     id: uptime_sensor
-  # WiFi Signal sensor.
-  - platform: wifi_signal
-    name: ${friendly_name} Signal strength
-    update_interval: 60s
-    internal: true
-
-text_sensor:
-  # Expose WiFi information as sensors.
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
-    ssid:
-      name: ${friendly_name} SSID
-    bssid:
-      name: ${friendly_name} BSSID
 
 switch:
   # this provides for a possibility to restart from the web console or Home automation should we ever need it
@@ -313,21 +298,6 @@ sensor:
   - platform: uptime
     name: "${friendly_name} Uptime"
     id: uptime_sensor
-  # WiFi Signal sensor.
-  - platform: wifi_signal
-    name: ${friendly_name} Signal strength
-    update_interval: 60s
-    internal: true
-
-text_sensor:
-  # Expose WiFi information as sensors.
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
-    ssid:
-      name: ${friendly_name} SSID
-    bssid:
-      name: ${friendly_name} BSSID
 
 switch:
   # this provides for a possibility to restart from the web console or Home automation should we ever need it

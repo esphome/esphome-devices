@@ -115,12 +115,6 @@ status_led:
     inverted: True
 
 binary_sensor:
-  - name: "${friendly_name_short} WiFi Config Button"
-    platform: gpio
-    pin:
-      number: GPIO04
-      mode: INPUT_PULLUP
-      inverted: True
 
   - name: "${friendly_name_short} Power Status"
     platform: gpio

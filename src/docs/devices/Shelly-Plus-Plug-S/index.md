@@ -86,8 +86,7 @@ globals:
     restore_value: true
     initial_value: '0.0'
 
-
-    #### only needed for RGB LED to set up a while after boot #####
+#### only needed for RGB LED to set up a while after boot #####
 
 script:
   - id: set_rgb

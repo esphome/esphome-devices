@@ -134,12 +134,6 @@ binary_sensor:
     on_press:
       - switch.toggle: relay
 
-# WiFi Signal Sensor
-sensor:
-  - platform: wifi_signal
-    name: "WiFi Status"
-    update_interval: 60s
-
 # Restart button
 button:
   - platform: restart

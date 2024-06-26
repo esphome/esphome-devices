@@ -58,7 +58,8 @@ substitutions:
 # Set device attributes
 esphome:
   name: $devicename
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -80,9 +81,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable websever
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Enable external blue LED as a status indictator
 status_led:

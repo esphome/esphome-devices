@@ -77,18 +77,14 @@ api:
 # Enable the captive portal
 captive_portal:
 
-#optional
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: homeassistant
     id: homeassistant_time
 
 sensor:
-  - platform: wifi_signal
-    name: $friendly_name Wifi RSSI
-    update_interval: 60s
 
   - platform: uptime
     id: uptime_sensor
@@ -111,13 +107,6 @@ sensor:
                 (minutes ? to_string(minutes) + "m " : "") +
                 (to_string(seconds) + "s")
               ).c_str();
-
-  - platform: template
-    name: $friendly_name ESP32 Internal Temp
-    device_class: temperature
-    unit_of_measurement: °C
-    id: esp32_temp
-    lambda: return temperatureRead();
 
   # External DS18B20 Digital Temperature Sensor
   - platform: dallas
@@ -183,19 +172,6 @@ switch:
     pin: GPIO27
     id: sensor_power
     restore_mode: ALWAYS_ON
-
-text_sensor:
-  - platform: template
-    name: $friendly_name Uptime
-    id: uptime_human
-    icon: mdi:clock-start
-  - platform: wifi_info
-    ip_address:
-      name: $friendly_name IP
-    ssid:
-      name: $friendly_name SSID
-    bssid:
-      name: $friendly_name BSSID
 
 light:
   - platform: status_led

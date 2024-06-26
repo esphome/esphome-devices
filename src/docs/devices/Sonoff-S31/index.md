@@ -28,7 +28,8 @@ You must [remove the cover and use the serial header](https://www.adventurousway
 # Basic Config
 esphome:
   name: sonoff_s31
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -70,9 +71,7 @@ binary_sensor:
     name: "Sonoff S31 Status"
 
 sensor:
-  - platform: wifi_signal
-    name: "Sonoff S31 WiFi Signal"
-    update_interval: 60s
+
   - platform: cse7766
     current:
       name: "Sonoff S31 Current"

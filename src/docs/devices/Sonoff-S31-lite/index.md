@@ -69,11 +69,6 @@ binary_sensor:
   - platform: status
     name: "Sonoff S31-lite Status"
 
-sensor:
-  - platform: wifi_signal
-    name: "Sonoff S31-lite WiFi Signal"
-    update_interval: 60s
-
 switch:
   - platform: gpio
     name: "Sonoff S31-lite Relay"

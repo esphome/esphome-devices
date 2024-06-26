@@ -44,7 +44,8 @@ substitutions:
 
 esphome:
   name: ${dev_name}
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -115,14 +116,9 @@ status_led:
     inverted: yes
 
 sensor:
-  - platform: wifi_signal
-    name: "${dev_name}_wifi_signal"
-    update_interval: 30s
+
   - platform: uptime
     name: "${dev_name}_uptime"
     update_interval: 120s
 
-text_sensor:
-  - platform: version
-    name: "${dev_name}_version"
 ```

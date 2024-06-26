@@ -61,8 +61,8 @@ captive_portal:
 mdns:
   disabled: false
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 text_sensor:
   - platform: wifi_info

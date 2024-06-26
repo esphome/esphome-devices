@@ -95,12 +95,6 @@ sensor:
     filters:
       - filter_out: 85.0
 
-  - platform: wifi_signal
-    name: "RSSI"
-    id: sensor_rssi
-    update_interval: 90s
-    entity_category: "diagnostic"
-
   - platform: uptime
     name: "Uptime"
     id: sensor_uptime

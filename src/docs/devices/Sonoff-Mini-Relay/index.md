@@ -32,7 +32,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+ESP8266:
   board: esp8285
     
 # OTA flashing
@@ -55,14 +56,12 @@ captive_portal:
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
+
+- platform: uptime
     name: ${device_name} Uptime
 
 #######################################
@@ -131,11 +130,12 @@ This config will cause the entities to appears as lights rather than switches in
 ```yaml
 substitutions:
   device_name: sonoffmini
-  device_ip: 192.168.x.x
+
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -158,18 +158,13 @@ captive_portal:
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 60s
+
   - platform: uptime
     name: ${device_name} Uptime
-#######################################
-# Device specific Config Begins Below #
-#######################################
 
 binary_sensor:
   # the 7 lines below define the reset button

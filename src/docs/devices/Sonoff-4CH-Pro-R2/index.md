@@ -26,7 +26,8 @@ board: esp8266
 # Basic Config
 esphome:
   name: sonoff_4chpror2
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing

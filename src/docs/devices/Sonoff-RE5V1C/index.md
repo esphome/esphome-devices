@@ -60,10 +60,7 @@ esphome:
 esp8266:
   board: esp8285
   restore_from_flash: true
-
-logger:
-  esp8266_store_log_strings_in_flash: False
-    
+  
 # OTA flashing
 ota:
   - platform: esphome
@@ -75,6 +72,7 @@ wifi: # Your Wifi network details
 
 # Enabling the logging component
 logger:
+  esp8266_store_log_strings_in_flash: False
 
 # Enable Home Assistant API
 api:

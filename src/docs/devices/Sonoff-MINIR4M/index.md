@@ -96,8 +96,8 @@ dashboard_import:
 esp32_improv:
   authorizer: none
 
-# To have a "next url" for improv serial
-web_server:
+# Enable the Web Server component 
+webserver:
 
 output:
   # Physical relay on GPIO

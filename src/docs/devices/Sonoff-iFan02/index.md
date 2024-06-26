@@ -144,10 +144,4 @@ fan:
     speed_count: 3
     id: ifan02_fan
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: IP Address
-    ssid:
-      name: Connected SSID
 ```

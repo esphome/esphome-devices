@@ -20,14 +20,15 @@ board: esp8266
 # Basic Config
 esphome:
   name: sonoffth10_1
-  platform: ESP8266
-  board: esp01_1m
   board_flash_mode: dout
   on_boot:
     priority: -10
     then:
       - light.turn_on: blue_led
-    
+
+ESP8266:
+  board: esp01_1m   
+ 
 # OTA flashing
 ota:
   - platform: esphome
@@ -46,7 +47,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

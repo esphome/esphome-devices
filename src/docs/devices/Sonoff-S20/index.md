@@ -22,7 +22,8 @@ board: esp8266
 # Basic Config
 esphome:
   name: sonoff_s20
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -57,9 +58,6 @@ binary_sensor:
     name: "Sonoff S20 Status"
 
 sensor:
-  - platform: wifi_signal
-    name: "Sonoff S20 WiFi Signal"
-    update_interval: 60s
 
 switch:
   - platform: gpio

@@ -68,13 +68,8 @@ api:
 captive_portal:
 
 sensor:  
-  - platform: wifi_signal
-    name: "RSSI"
-    id: sensor_rssi
-    update_interval: 90s
-    entity_category: "diagnostic"
 
-  - platform: uptime
+- platform: uptime
     name: "Uptime"
     id: sensor_uptime
     update_interval: 300s

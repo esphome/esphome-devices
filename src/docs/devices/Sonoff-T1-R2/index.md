@@ -39,7 +39,8 @@ board: esp8266
 ```yaml
 esphome:
   name: sonoff_t1_r2
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -60,10 +61,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
-text_sensor:
-  - platform: version
-    name: Sonoff T1 R2 Version
 
 sensor:
   - platform: uptime

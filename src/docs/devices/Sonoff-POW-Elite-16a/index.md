@@ -54,9 +54,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-#optional
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 #optional
 esp32_ble_tracker:
@@ -97,10 +96,6 @@ sensor:
     name: $friendly_name Total Daily Energy
     power_id: w_sensor
 
-  - platform: wifi_signal
-    name: $friendly_name Wifi RSSI
-    update_interval: 60s
-
   - platform: uptime
     id: uptime_sensor
     internal: True
@@ -122,13 +117,6 @@ sensor:
                 (minutes ? to_string(minutes) + "m " : "") +
                 (to_string(seconds) + "s")
               ).c_str();
-
-  - platform: template
-    name: $friendly_name ESP32 Internal Temp
-    device_class: temperature
-    unit_of_measurement: °C
-    id: esp32_temp
-    lambda: return temperatureRead();
 
   - platform: template
     name: $friendly_name Power Factor
@@ -225,19 +213,6 @@ switch:
       - light.turn_off: switch_led
   - platform: restart
     name: $friendly_name Restart
-
-text_sensor:
-  - platform: template
-    name: $friendly_name Uptime
-    id: uptime_human
-    icon: mdi:clock-start
-  - platform: wifi_info
-    ip_address:
-      name: $friendly_name IP
-    ssid:
-      name: $friendly_name SSID
-    bssid:
-      name: $friendly_name BSSID
 
 light:
   - platform: monochromatic

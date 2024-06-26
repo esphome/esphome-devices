@@ -89,32 +89,15 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 90s
-    entity_category: "diagnostic"
 
   - platform: uptime
     name: ${device_name} Uptime
     update_interval: 300s
     entity_category: "diagnostic"
-
-text_sensor:
-  - platform: wifi_info
-    ssid:
-      name: Connected SSID
-    ip_address:
-      name: IP Address
-    dns_address:
-      name: DNS Address
-
-#######################################
-# Device specific Config Begins Below #
-#######################################
 
 status_led:
   pin:

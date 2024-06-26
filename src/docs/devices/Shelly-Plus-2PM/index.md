@@ -248,25 +248,23 @@ esp32:
   board: esp32doit-devkit-v1
   framework:
     type: arduino
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
 
 # Enable Home Assistant API
 api:
 
-ota:
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: true
-
-  ap:
-    ssid: "${upper_devicename} fallback AP"
-    password: !secret fallback_password
-
+# Enable the captive portal
 captive_portal:
 
 time:
@@ -392,12 +390,6 @@ sensor:
     name: "${upper_devicename} Uptime"
     entity_category: 'diagnostic'
     update_interval: 300s
-
-  # WiFi Signal sensor.
-  - platform: wifi_signal
-    name: "${upper_devicename} WiFi Signal"
-    update_interval: 60s
-    entity_category: 'diagnostic'
 
   #temperature sensor
   - platform: ntc
@@ -529,9 +521,24 @@ esp32:
   board: esp32doit-devkit-v1
   framework:
     type: arduino
+    
+# OTA flashing
+ota:
+  - platform: esphome
 
-# Enable logging
+wifi: # Your Wifi network details
+  
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
+
+# Enable the captive portal
+captive_portal:
+
+# Enable the Web Server component 
+webserver:
 
 # Enable Home Assistant API
 api:
@@ -541,34 +548,9 @@ api:
     then:
       - script.execute: blinds_open_if_no_manual_override
 
-ota:
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: on
-  on_disconnect: # failsafe
-    then:
-      - script.execute: blinds_open_if_no_manual_override
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${devicename}-AP"
-    password: !secret ap_password
-
-captive_portal:
-
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-# Enable the Web Server component 
-webserver:
-  auth:
-    username: !secret web_server_username
-    password: !secret web_server_password
-
 
 i2c:
   sda: GPIO26
@@ -733,11 +715,6 @@ binary_sensor:
       - delayed_on_off: 5ms
 
 sensor:
-  # WiFi Signal sensor.
-  - platform: wifi_signal
-    name: "${devicename} - Wifi Signal"
-    update_interval: 60s
-    icon: mdi:wifi
 
   # Uptime sensor.
   - platform: uptime
@@ -853,15 +830,4 @@ status_led:
     number: GPIO0
     inverted: true
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "${devicename} - IP Address"
-    ssid:
-      name: "${devicename} - Wi-Fi SSID"
-    bssid:
-      name: "${devicename} - Wi-Fi BSSID"
-  - platform: version
-    name: "${devicename} - ESPHome Version"
-    hide_timestamp: true
  ```
