@@ -56,9 +56,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 output:
   - platform: esp8266_pwm
@@ -169,9 +168,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 output:
   - platform: esp8266_pwm

@@ -563,9 +563,8 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
   auth:
     username: !secret web_server_username
     password: !secret web_server_password

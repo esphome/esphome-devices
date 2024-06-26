@@ -62,9 +62,6 @@ binary_sensor:
     on_press:
       - switch.turn_on: relay
 
-  - platform: status
-    name: "Status"
-
 switch:
 # Switch to turn feeder on for 3 seconds/off and turn on/off LED
   - platform: gpio

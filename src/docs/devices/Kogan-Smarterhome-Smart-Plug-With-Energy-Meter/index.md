@@ -26,7 +26,8 @@ board: esp8266
 ```yaml
 esphome:
   name: kogan_plug_1
-  platform: ESP8266
+
+esp8266:
   board: esp8285
   
 # OTA flashing
@@ -47,9 +48,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable Web Server (optional)
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

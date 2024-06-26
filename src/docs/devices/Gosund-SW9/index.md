@@ -38,12 +38,13 @@ substitutions:
   
 esphome:
   name: $name
-  platform: ESP8266
-  board: esp01_1m
   on_boot:
     then:
       - light.turn_on: switch_1_led_state
       - light.turn_on: switch_2_led_state
+
+esp8266:
+  board: esp01_1m
       
 # OTA flashing
 ota:
@@ -145,11 +146,4 @@ output:
     id: relay2
     pin: GPIO12
 
-
-sensor:
-  - platform: wifi_signal
-    name: "$name WiFi signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "$name uptime"
 ```

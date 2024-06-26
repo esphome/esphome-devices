@@ -25,13 +25,13 @@ board: esp8266
 ```yaml
 substitutions:
   device_name: kogan_RGBWWSTRIP_1
-  device_ip: 192.168.x.x
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -93,7 +93,4 @@ light:
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
 
-time:
-  - platform: homeassistant
-    id: homeassistant_time
 ```

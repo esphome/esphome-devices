@@ -46,7 +46,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
   
 # OTA flashing
@@ -67,8 +68,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
  
 binary_sensor:
   - platform: gpio
@@ -151,41 +152,6 @@ sensor:
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
-
-  - platform: wifi_signal
-    name: "${device_name}_rssi"
-    update_interval: 5min
-
-  - platform: uptime
-    id: uptime_sec
-    name: "${device_name}_uptime"
-    update_interval: 5min
-
-text_sensor:
-  - platform: template
-    name: "${device_name}_upformat"
-    lambda: |-
-      uint32_t dur = id(uptime_sec).state;
-      int dys = 0;
-      int hrs = 0;
-      int mnts = 0;
-      if (dur > 86399) {
-        dys = trunc(dur / 86400);
-        dur = dur - (dys * 86400);
-      }
-      if (dur > 3599) {
-        hrs = trunc(dur / 3600);
-        dur = dur - (hrs * 3600);
-      }
-      if (dur > 59) {
-        mnts = trunc(dur / 60);
-        dur = dur - (mnts * 60);
-      }
-      char buffer[17];
-      sprintf(buffer, "%ud %02uh %02um %02us", dys, hrs, mnts, dur);
-      return {buffer};
-    icon: mdi:clock-start
-    update_interval: 5min
 
 time:
   - platform: homeassistant

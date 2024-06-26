@@ -25,9 +25,10 @@ Inspired by the Tasmota template: https://templates.blakadder.com/jeeo_TF-SH330.
 ```yaml
 esphome:
   name: jeeoa
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome

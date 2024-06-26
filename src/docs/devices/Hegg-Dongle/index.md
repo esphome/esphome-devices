@@ -96,8 +96,6 @@ esp8266:
 ota:
   - platform: esphome
 
-wifi: # Your Wifi network details
-  
 # Enable fallback hotspot in case wifi connection fails  
   ap:
 
@@ -107,6 +105,9 @@ logger:
 
 # Enable the captive portal
 captive_portal:
+
+# Enable the Web Server component 
+webserver:
 
 api:
   encryption:
@@ -152,9 +153,6 @@ wifi:
          red: 100%
          green: 0
          effect: pulse
-
-web_server:
-  port: 80
 
 uart:
   rx_pin: 3

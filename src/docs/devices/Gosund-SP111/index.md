@@ -55,11 +55,10 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
-  board: esp8285
-# This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
-  restore_from_flash: true
 
+esp8266:
+  board: esp8285
+  restore_from_flash: true
 
 preferences:
   flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
@@ -87,9 +86,8 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 text_sensor:
   - platform: version

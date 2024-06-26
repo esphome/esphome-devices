@@ -62,16 +62,12 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 button:
   - platform: restart
     name: Restart ${device_name}
-
-debug:
-  update_interval: ${update_interval_seconds}
 
 text_sensor:
   - platform: debug
@@ -91,15 +87,6 @@ text_sensor:
       name: ESP Mac Wifi Address
 
 sensor:
-  - platform: uptime
-    name: Uptime
-    unit_of_measurement: minutes
-    filters:
-      - lambda: return x / 60.0;
-
-  - platform: wifi_signal
-    name: Wifi Signal
-    update_interval: 60s
 
   - platform: hlw8012
     model: BL0937

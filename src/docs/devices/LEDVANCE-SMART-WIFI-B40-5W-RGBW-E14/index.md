@@ -55,18 +55,6 @@ button:
   - platform: restart
     name: Restart
 
-debug:
-  update_interval: 30s
-
-text_sensor:
-  - platform: debug
-    reset_reason:
-      name: Reset Reason
-
-sensor:
-  - platform: uptime
-    name: Uptime
-
 bp1658cj:
   clock_pin: P9
   data_pin: P8

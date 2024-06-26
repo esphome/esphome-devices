@@ -22,9 +22,11 @@ board: esp8266
 esphome:
   name: lightname
   platform: ESP8266
+  
+esp8266:
   board: esp01_1m
   restore_from_flash: true
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -43,7 +45,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
+# Enable the Web Server component 
+webserver:
 
 output:
   - platform: esp8266_pwm

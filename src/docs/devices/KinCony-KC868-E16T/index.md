@@ -31,9 +31,10 @@ board: esp32
 # Basic Config
 esphome:
   name: kc868-e16t
-  platform: ESP32
+
+esp32:
   board: esp32dev
-  
+
 # OTA flashing
 ota:
   - platform: esphome

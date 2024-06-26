@@ -36,7 +36,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
   
 # OTA flashing
@@ -66,9 +67,6 @@ binary_sensor:
     name: "${device_name}_button"
     on_press:
       - switch.toggle: relay
-
-  - platform: status
-    name: "${device_name}_status"
 
 switch:
   - platform: gpio
@@ -116,40 +114,6 @@ sensor:
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
-
-  - platform: wifi_signal
-    name: "${device_name}_rssi"
-    update_interval: 5min
-
-  - platform: uptime
-    id: uptime_sensor
-    name: "${device_name}_uptime"
-    update_interval: 5min
-    on_raw_value:
-      then:
-        - text_sensor.template.publish:
-            id: uptime_human
-            state: !lambda |-
-              int seconds = round(id(uptime_sensor).raw_state);
-              int days = seconds / (24 * 3600);
-              seconds = seconds % (24 * 3600);
-              int hours = seconds / 3600;
-              seconds = seconds % 3600;
-              int minutes = seconds /  60;
-              seconds = seconds % 60;
-              return (
-                (days ? to_string(days) + "d " : "") +
-                (hours ? to_string(hours) + "h " : "") +
-                (minutes ? to_string(minutes) + "m " : "") +
-                (to_string(seconds) + "s")
-              ).c_str();
-
-text_sensor:
-  - platform: template
-    name: "${device_name}_uptime_human"
-    id: uptime_human
-    entity_category: diagnostic
-    icon: mdi:clock-start
 
 time:
   - platform: homeassistant

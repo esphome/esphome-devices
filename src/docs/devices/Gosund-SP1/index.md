@@ -32,7 +32,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
   
 # OTA flashing
@@ -53,9 +54,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Sync time with Home Assistant
 time:
@@ -74,10 +74,6 @@ sensor:
   # Uptime sensor
   - platform: uptime
     name: ${friendly_name} Uptime
-  # WiFi Signal sensor
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal
-    update_interval: 60s
   # Gosund SP1 Config
   # Power sensor
   - platform: hlw8012

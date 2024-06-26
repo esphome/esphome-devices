@@ -69,17 +69,6 @@ sensor:
     power:
       name: "KMC01 Power"
 
-  - platform: wifi_signal
-    name: "KMC01 WiFi signal"
-    update_interval: 60s
-
-  - platform: uptime
-    name: "KMC01 Uptime"
-
-text_sensor:
-  - platform: version
-    name: "KMC01 ESPHome Version"
-
 button:
   - platform: restart
     name: "KMC01 Restart" # optional device restart switch

@@ -34,7 +34,8 @@ board: esp32
 # Basic Config
 esphome:
   name: relay1
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 # OTA flashing
@@ -69,12 +70,6 @@ ethernet:
   mdio_pin: GPIO18
   clk_mode: GPIO17_OUT
   phy_addr: 0
-
-  # Optional manual IP
-  manual_ip:
-    static_ip: 192.168.1.199
-    gateway: 192.168.1.1
-    subnet: 255.255.255.0  
 
 # Example configuration entry
 pcf8574:

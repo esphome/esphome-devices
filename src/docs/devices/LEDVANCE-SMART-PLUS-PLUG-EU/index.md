@@ -61,25 +61,13 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 # Sync time with Home Assistant
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ESP IP Address
-    ssid:
-      name: ESP Connected SSID
-    bssid:
-      name: ESP Connected BSSID
-    mac_address:
-      name: ESP Mac Wifi Address
 
 light:
   - platform: status_led
@@ -178,13 +166,4 @@ sensor:
     filters:  
       - skip_initial: 5     # give time for data to settle to avoid NaN
 
-  - platform: uptime
-    name: ${friendly_name} Uptime
-    unit_of_measurement: minutes
-    filters:
-      - lambda: return x / 60.0;
-
-  - platform: wifi_signal
-    name: ${friendly_name} Signal
-    update_interval: 60s
 ```

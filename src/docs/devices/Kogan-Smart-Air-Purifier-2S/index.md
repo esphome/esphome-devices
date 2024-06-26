@@ -30,7 +30,8 @@ substitutions:
 
 esphome:
   name: "${name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   
 # OTA flashing
@@ -45,6 +46,7 @@ wifi: # Your Wifi network details
 # Enabling the logging component
 logger:
   baud_rate: 0
+
 # Enable Home Assistant API
 api:
 

@@ -31,8 +31,12 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 
 ```yaml
 esphome:
-  platform: ESP8266
+  name: example-device
+  friendly_name: Example Device
+
+esp8266:
   board: esp01_1m
+
 # OTA flashing
 ota:
   - platform: esphome

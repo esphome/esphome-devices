@@ -28,8 +28,10 @@ For newer devices, use a USB to serial adapter, and solder wires onto the pads m
 ```yaml
 esphome:
   name: gosundsw5
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
+
 # OTA flashing
 ota:
   - platform: esphome

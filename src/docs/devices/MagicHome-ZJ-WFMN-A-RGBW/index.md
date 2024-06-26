@@ -61,9 +61,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 remote_receiver:
   pin: GPIO4
@@ -295,9 +294,8 @@ api:
 ota:
   password: !secret esphomeotapwd
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 remote_receiver:
   pin: GPIO4

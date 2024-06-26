@@ -36,14 +36,16 @@ This configuration is based directly on information from this post: https://www.
 ## Basic Configuration
 
 ```yaml
-esphome:
-  name: gosundsw5
-  platform: ESP8266
-  board: esp01_1m
-
 substitutions:
   esphome_name: gosundsw5
   friendly_name: Gosund SW6
+
+esphome:
+  name: gosundsw5
+
+esp8266:
+  board: esp01_1m
+ 
 # OTA flashing
 ota:
   - platform: esphome

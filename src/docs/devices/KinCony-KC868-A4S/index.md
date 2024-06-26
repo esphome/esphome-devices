@@ -33,7 +33,8 @@ board: esp32
 ```yaml
 esphome:
   name: a4s
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 # OTA flashing

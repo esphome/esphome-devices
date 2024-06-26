@@ -24,7 +24,8 @@ substitutions:
 
 esphome:
   name: "${device_name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   
 # OTA flashing
@@ -79,21 +80,5 @@ output:
     pin: GPIO13
     inverted: true
     id: led
-
-sensor:
-  - platform: wifi_signal
-    name: "${friendly_name} WiFi signal"
-    id: "${device_name}_wifi_signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "${friendly_name} Uptime"
-    id: "${device_name}_uptime"
-    update_interval: 60s
-
-text_sensor:
-  - platform: version
-    name: "${friendly_name} ESPHome Version"
-    id: "${device_name}_esphome_version"
-
 
 ```

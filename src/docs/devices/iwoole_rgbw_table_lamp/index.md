@@ -78,8 +78,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Insert wifi and api configuration here
-
 # Configuration for IWOOLE PWM light
 light:
   - platform: rgbw

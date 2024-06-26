@@ -76,9 +76,8 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-# Enable Web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 light:
   - platform: status_led

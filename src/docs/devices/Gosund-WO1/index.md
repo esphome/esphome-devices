@@ -35,9 +35,9 @@ These devices appear to be individually calibrated for voltage.  As a result, yo
 # Basic Config
 esphome:
   name: wall-outlet
-  platform: ESP8266
+
+esp8266:
   board: esp8285
-  # Allow saving the last state of each outlet in case of power failure
   restore_from_flash: true
 
 # OTA flashing
@@ -58,8 +58,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
   
 time:
   - platform: sntp
@@ -120,8 +120,7 @@ switch:
       - output.turn_off: bottom_outlet_led
 
 sensor:
-  - platform: wifi_signal
-    name: "wifi_signal"
+
   - platform: hlw8012
     model: BL0937
     sel_pin:

@@ -52,9 +52,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   # Reports if this device is Connected or not
@@ -193,9 +192,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   # Reports if this device is Connected or not

@@ -51,9 +51,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Webserver for IP address-based control - for when the internet or HA is down.
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio
@@ -152,10 +151,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Webserver for IP address-based control - for when the internet or HA is down.
-web_server:
-  port: 80
-
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio
@@ -230,7 +227,16 @@ esp8266:
   board: esp01_1m
   restore_from_flash: true
 
-# Enable logging
+# OTA flashing
+ota:
+  - platform: esphome
+
+wifi: # Your Wifi network details
+
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
 logger:
   baud_rate: 0 # disable logging over uart
   level: WARN
@@ -238,27 +244,8 @@ logger:
 # Enable Home Assistant API
 api:
 
-ota:
-  password: !secret ota_pwd
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${devicename}-ap"
-    password: !secret ap_pwd
+# Enable the captive portal
 captive_portal:
-
-# Webserver for IP address-based control - for when the internet or HA is down.
-web_server:
-  port: 80
-  auth:
-    username: !secret web_server_un
-    password: !secret web_server_pw
-  include_internal: true              # show state of hidden internal sensors, switches etc
-  local: true                         # no internet required
 
 binary_sensor:
   - platform: gpio

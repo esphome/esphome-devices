@@ -35,9 +35,10 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -56,9 +57,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 switch:
   - platform: gpio
@@ -199,9 +199,10 @@ ktnnkg-common.yaml:
 ```yaml
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -222,9 +223,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-# Enable web server
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 switch:
   - platform: gpio

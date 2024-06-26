@@ -21,9 +21,10 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -42,8 +43,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: homeassistant
@@ -76,9 +77,7 @@ output:
     pin: GPIO13
 
 binary_sensor:
-  - platform: status
-    name: "${upper_devicename} - Status"
-    device_class: connectivity
+
   - platform: gpio
     pin:
       number: GPIO4
@@ -90,14 +89,4 @@ binary_sensor:
       then:
         - light.toggle: led_strip
 
-sensor:
-  - platform: wifi_signal
-    name: "${upper_devicename} - Wifi Signal"
-    update_interval: 60s
-    icon: mdi:wifi
-
-  - platform: uptime
-    name: "${upper_devicename} - Uptime"
-    update_interval: 60s
-    icon: mdi:clock-outline
 ```

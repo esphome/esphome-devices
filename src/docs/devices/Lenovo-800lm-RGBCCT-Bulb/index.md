@@ -58,13 +58,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-sensor:
-  - platform: uptime
-    name: ${friendly_name} Uptime
-
-  - platform: wifi_signal
-    name: ${friendly_name} Signal Strength
-
 output:
   - platform: esp8266_pwm
     id: output_r
