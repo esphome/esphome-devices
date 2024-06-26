@@ -39,9 +39,6 @@ The nightlight feature cannot be controlled by the ESP IO, and cannot be disable
 # Basic Config
 esphome:
   name: double-outlet-plug
-  platform: esp8266
-  board: esp8285
-  restore_from_flash: true
   # Because the right button is analog, its value will change to unpredictable
   # values during the boot process.  We must wait until the boot process has
   # loaded all sensors.
@@ -69,7 +66,11 @@ substitutions:
   # place a known entity and set the calibration data here.
   calibration_pre_cal_power_value: '129.1'
   calibration_expected_correct_value: '60.0'
-    
+
+esp8266:
+  board: esp8285
+  restore_from_flash: true
+      
 # OTA flashing
 ota:
   - platform: esphome
@@ -88,7 +89,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: sntp
@@ -137,8 +139,7 @@ switch:
     restore_mode: RESTORE_DEFAULT_OFF
 
 sensor:
-  - platform: wifi_signal
-    name: "wifi_signal"
+
   - platform: hlw8012
     sel_pin:
       number: GPIO13

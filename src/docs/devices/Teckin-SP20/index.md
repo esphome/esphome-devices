@@ -50,7 +50,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
   restore_from_flash: true
     
@@ -107,17 +108,6 @@ sensor:
 
   - platform: uptime
     name: ${friendly_name} Uptime
-
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal
-    update_interval: 60s
-
-text_sensor:
-  - platform: version
-    name: ${friendly_name} ESPhome Version
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP
 
 status_led:
   pin:

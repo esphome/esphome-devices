@@ -46,7 +46,8 @@ substitutions:
 # Basic Config
 esphome:
   name: "${device_name}"
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -103,8 +104,6 @@ binary_sensor:
               id: led
               brightness: 100%
               transition_length: 0s
-  - platform: status
-    name: "${friendly_name} Server Status"
 
 switch:
   # Relay - Socket 1 (As Switch)
@@ -236,12 +235,6 @@ switch:
           - light.turn_off:
               id: led
               transition_length: 0s
-
-sensor:
-  # WiFi Signal Sensor
-  - platform: wifi_signal
-    name: "${friendly_name} WiFi Status"
-    update_interval: 60s
 
 # Relay State LED
 output:

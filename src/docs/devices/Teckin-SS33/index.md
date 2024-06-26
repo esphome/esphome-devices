@@ -23,7 +23,8 @@ board: esp8266
 ---
 esphome:
   name: outdoor_ss33
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -45,16 +46,9 @@ api:
 captive_portal:
 
 sensor:
-  - platform: wifi_signal
-    name: "Outdoor SS33 WiFi signal"
-    update_interval: 60s
 
   - platform: uptime
     name: "Outdoor SS33 uptime"
-
-text_sensor:
-  - platform: version
-    name: "Outdoor SS33 ESPHome version"
 
 switch:
   - platform: gpio
@@ -81,9 +75,6 @@ binary_sensor:
       - switch.turn_off: relay1
       - switch.turn_off: relay2
       - switch.turn_off: relay3
-
-  - platform: status
-    name: "Outdoor SS33 Status"
 
 status_led:
   pin:

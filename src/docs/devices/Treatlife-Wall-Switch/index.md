@@ -45,6 +45,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
+
+esp8266:
   board: esp01_1m
     
 # OTA flashing
@@ -115,25 +117,28 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: true
 
-  ap:
-    ssid: ${device_name}
-    password: !secret esphome_ap_password
-
-captive_portal:
-logger:
-api:
-  encryption:
-    key: !secret api_encryption_key
-
+# OTA flashing
 ota:
-  password: !secret esphome_ota_password
+  - platform: esphome
+
+wifi: # Your Wifi network details
+
+# Enable fallback hotspot in case wifi connection fails  
+  ap:
+
+# Enabling the logging component
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable the captive portal
+captive_portal:
+
 status_led:
   pin:
     number: GPIO5   # Red LED

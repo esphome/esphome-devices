@@ -24,7 +24,8 @@ The on/off switch is on datapoint 20 and the dimmer is on datapoint 22.
 ```yaml
 esphome:
   name: dimmable_light
-  platform: ESP8266
+
+ESP8266:
   board: esp8285
     
 # OTA flashing
@@ -45,11 +46,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
-mqtt:
-  broker: X.X.X.X
-  username: device_pub
-  password: "MQTT_PASSWORD"
 
 uart:
   tx_pin: GPIO1

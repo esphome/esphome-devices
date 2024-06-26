@@ -27,7 +27,8 @@ board: esp8266
 ---
 esphome:
   name: bedroom_ss30
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -49,16 +50,9 @@ api:
 captive_portal:
 
 sensor:
-  - platform: wifi_signal
-    name: "Bedroom SS30 WiFi signal"
-    update_interval: 60s
 
   - platform: uptime
     name: "Bedroom SS30 uptime"
-
-text_sensor:
-  - platform: version
-    name: "Bedroom SS30 ESPHome version"
 
 switch:
   - platform: gpio

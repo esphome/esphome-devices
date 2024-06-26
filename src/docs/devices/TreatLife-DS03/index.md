@@ -56,11 +56,8 @@ uart:
 tuya:
 
 sensor:
-  - platform: wifi_signal
-    name: $friendly_name Wifi Signal
-    update_interval: 60s
 
-  - platform: uptime
+- platform: uptime
     name: $friendly_name uptime
 
 light:

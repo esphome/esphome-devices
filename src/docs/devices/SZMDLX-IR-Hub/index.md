@@ -27,7 +27,8 @@ board: esp8266
 # Basic Config
 esphome:
   name: SZMDLX IR Hub
-  platform: ESP8266
+
+ESP8266:
   board: esp8285
     
 # OTA flashing
@@ -55,10 +56,6 @@ sensor:
   - platform: uptime
     name: "IR Uptime"
 
-  - platform: wifi_signal
-    name: "IR WiFi signal"
-    update_interval: 60s
-
 binary_sensor:
   - platform: status
     name: "IR Status"
@@ -66,10 +63,6 @@ binary_sensor:
   - platform: gpio
     pin: GPIO13
     id: physical_button
-
-text_sensor:
-  - platform: version
-    name: "IR ESPHome version"
 
 remote_transmitter:
   pin:

@@ -35,7 +35,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+ESP8266:
   board: esp01_1m
     
 # OTA flashing
@@ -57,8 +58,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 uart:
   rx_pin: GPIO3
@@ -68,9 +69,6 @@ uart:
 tuya:
 
 sensor:
-  - platform: wifi_signal
-    name: ${friendly_name} WiFi Signal
-    update_interval: 60s
 
   - platform: uptime
     name: ${friendly_name} Uptime

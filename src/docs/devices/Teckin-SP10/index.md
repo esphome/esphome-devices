@@ -44,8 +44,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 time:
   - platform: homeassistant
@@ -78,17 +78,6 @@ light:
 sensor:
   - platform: uptime
     name: SP10 Uptime
-
-  - platform: wifi_signal
-    name: SP10 Wifi Signal
-    update_interval: 60s
-
-text_sensor:
-  - platform: version
-    name: SP10 ESPhome Version
-  - platform: wifi_info
-    ip_address:
-      name: SP10 IP
 
 binary_sensor:
   - platform: gpio

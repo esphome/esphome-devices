@@ -47,6 +47,7 @@ output:
     type: float
     write_action:
     - uart.write: ""
+    
 esp8266:
   board: esp01_1m
     

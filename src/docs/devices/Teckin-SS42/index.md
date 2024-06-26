@@ -25,7 +25,8 @@ board: esp8286
 ---
 esphome:
   name: outdoor_ss42
-  platform: ESP8266
+
+ESP8266:
   board: esp8285
     
 # OTA flashing
@@ -47,16 +48,9 @@ api:
 captive_portal:
 
 sensor:
-  - platform: wifi_signal
-    name: "Outdoor SS42 WiFi signal"
-    update_interval: 60s
 
   - platform: uptime
     name: "Outdoor SS42 uptime"
-
-text_sensor:
-  - platform: version
-    name: "Outdoor SS42 ESPHome version"
 
 switch:
   - platform: gpio
