@@ -44,7 +44,7 @@ esphome:
 esp8266:
   board: esp01_1m
   board_flash_mode: dout
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
     
 # OTA flashing
 ota:

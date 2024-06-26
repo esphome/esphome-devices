@@ -36,7 +36,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
   
 # OTA flashing
@@ -57,23 +58,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
-
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-
-sensor:
-  - platform: uptime
-    name: ${friendly_name} Uptime
-    unit_of_measurement: minutes
-    filters:
-      - lambda: return x / 60.0;
-
-  - platform: wifi_signal
-    name: ${friendly_name} Signal
-    update_interval: 60s
+# Enable the Web Server component 
+webserver:
 
 light:
   - platform: monochromatic
@@ -151,9 +137,6 @@ binary_sensor:
         then:
           - logger.log: "Double Clicked"
           - switch.toggle: outlet_right
-
-  - platform: status
-    name: ${friendly_name} status
 
 switch:
   - platform: gpio

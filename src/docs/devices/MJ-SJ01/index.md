@@ -299,7 +299,7 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
-  # esp8266_restore_from_flash: true
+  # restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
 
 sensor:
@@ -538,7 +538,7 @@ esphome:
   name: ${device_name}
   platform: ESP8266
   board: esp01_1m
-  # esp8266_restore_from_flash: true
+  # restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
   
 sensor:

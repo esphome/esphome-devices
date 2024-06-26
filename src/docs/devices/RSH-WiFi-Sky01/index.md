@@ -48,7 +48,7 @@ esphome:
   comment: $device_description
   platform: ESP8266
   board: esp12e
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
   project:
     name: 'tuya.galaxy'
     version: 'RSH-WiFi-Sky01'

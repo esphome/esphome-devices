@@ -90,89 +90,87 @@ api:
 # Enable the captive portal
 captive_portal:
 
-  spi:
-    clk_pin: 14
-    miso_pin: 12
-    mosi_pin: 13
+spi:
+  clk_pin: 14
+  miso_pin: 12
+  mosi_pin: 13
 
-  substitutions:
-  # Change the disp_name to something you want
-    disp_name: PM1
-  # Interval of how often the power is updated
-    update_time: 15s
-  # Current transformer calibrations:
-  # 100A/50mA SCT-013 with 2x gain: 15270
-  # 200A/100mA SCT-023 with 2x gain: 15270
-  # Integrated Block AVB 2,0/2/6 Transformer: 4425
-    current_cal: '15270'
-    voltage_cal: '4425'
+substitutions:
+# Change the disp_name to something you want
+  disp_name: PM1
+# Interval of how often the power is updated
+  update_time: 15s
+# Current transformer calibrations:
+# 100A/50mA SCT-013 with 2x gain: 15270
+# 200A/100mA SCT-023 with 2x gain: 15270
+# Integrated Block AVB 2,0/2/6 Transformer: 4425
+  current_cal: '15270'
+  voltage_cal: '4425'
 
-  sensor:
-    - platform: wifi_signal
-      name: ${disp_name} WiFi Signal
-      update_interval: 15s
-    - platform: atm90e32
-      cs_pin: 5
-      phase_a:
-        voltage:
-          name: ${disp_name} Volts
-          accuracy_decimals: 1
-        current:
-          name: ${disp_name} CT1 Amps
-          id: "ct1Amps"
-        power:
-          name: ${disp_name} CT1 Watts
-          accuracy_decimals: 1
-          id: "ct1Watts"
-        gain_voltage: ${voltage_cal}
-        gain_ct: ${current_cal}
-      phase_c:
-        current:
-          name: ${disp_name} CT2 Amps
-          id: "ct2Amps"
-        power:
-          name: ${disp_name} CT2 Watts
-          accuracy_decimals: 1
-          id: "ct2Watts"
-        gain_voltage: ${voltage_cal}
-        gain_ct: ${current_cal}
-      frequency:
-        name: ${disp_name} Freq
-      line_frequency: 60Hz
-      gain_pga: 2x
-      chip_temperature:
-        name: ${disp_name} IC Temperature
-      update_interval: ${update_time}
-    - platform: template
-      name: ${disp_name} Total Amps
-      id: "totalAmps"
-      lambda: return id(ct1Amps).state + id(ct2Amps).state;
-      accuracy_decimals: 2
-      unit_of_measurement: A
-      update_interval: ${update_time}
-      device_class: current
-    - platform: template
-      name: ${disp_name} Total Watts
-      id: "totalWatts"
-      lambda: return id(ct1Watts).state + id(ct2Watts).state;
-      accuracy_decimals: 0
-      unit_of_measurement: W
-      device_class: power
-      update_interval: ${update_time}
-    - platform: total_daily_energy
-      name: ${disp_name} Total kWh
-      power_id: totalWatts
-      filters:
-        - multiply: 0.001
-      unit_of_measurement: kWh
-      device_class: energy
-      state_class: total_increasing
-  time:
-    - platform: sntp
-      id: sntp_time
-      servers: pool.ntp.org
+sensor:
 
-  switch:
-    - platform: restart
-      name: ${disp_name} Restart
+  - platform: atm90e32
+    cs_pin: 5
+    phase_a:
+      voltage:
+        name: ${disp_name} Volts
+        accuracy_decimals: 1
+      current:
+        name: ${disp_name} CT1 Amps
+        id: "ct1Amps"
+      power:
+        name: ${disp_name} CT1 Watts
+        accuracy_decimals: 1
+        id: "ct1Watts"
+      gain_voltage: ${voltage_cal}
+      gain_ct: ${current_cal}
+    phase_c:
+      current:
+        name: ${disp_name} CT2 Amps
+        id: "ct2Amps"
+      power:
+        name: ${disp_name} CT2 Watts
+        accuracy_decimals: 1
+        id: "ct2Watts"
+      gain_voltage: ${voltage_cal}
+      gain_ct: ${current_cal}
+    frequency:
+      name: ${disp_name} Freq
+    line_frequency: 60Hz
+    gain_pga: 2x
+    chip_temperature:
+      name: ${disp_name} IC Temperature
+    update_interval: ${update_time}
+  - platform: template
+    name: ${disp_name} Total Amps
+    id: "totalAmps"
+    lambda: return id(ct1Amps).state + id(ct2Amps).state;
+    accuracy_decimals: 2
+    unit_of_measurement: A
+    update_interval: ${update_time}
+    device_class: current
+  - platform: template
+    name: ${disp_name} Total Watts
+    id: "totalWatts"
+    lambda: return id(ct1Watts).state + id(ct2Watts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    device_class: power
+    update_interval: ${update_time}
+  - platform: total_daily_energy
+    name: ${disp_name} Total kWh
+    power_id: totalWatts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+time:
+  - platform: sntp
+    id: sntp_time
+    servers: pool.ntp.org
+
+switch:
+  - platform: restart
+    name: ${disp_name} Restart
 ```

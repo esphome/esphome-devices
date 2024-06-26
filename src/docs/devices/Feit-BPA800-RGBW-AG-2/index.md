@@ -15,18 +15,15 @@ Tuya changed their firmware such that tuya-convert no longer works as before.
 substitutions:
    comment: "...any comment, like the device hostname..."
    devicename: my_device
-   platform: ESP8266
-   board: esp01_1m
+
 
  esphome:
    name: $devicename
-   platform: $platform
-   board: $board
    comment: "${comment}"
-esphome:
-  name: example-device
-  friendly_name: Example Device
-    
+
+esp8266:
+  board: esp01_1m    
+
 # OTA flashing
 ota:
   - platform: esphome

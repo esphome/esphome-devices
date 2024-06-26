@@ -45,8 +45,6 @@ Wiring of switch
 
 ```yaml
 substitutions:
-  platform: ESP8266
-  board: esp01_1m
   device_name: esphome_dining_room_switch
   friendly_name: "Dining Room Switch"
   reboot_timeout_wifi: 900s
@@ -56,10 +54,11 @@ substitutions:
 #################################
 
 esphome:
-  platform: ${platform}
-  board: ${board}
   name: ${device_name}
-  esp8266_restore_from_flash: true
+
+esp8266:
+  board: esp01_1m
+  restore_from_flash: true
   
 # OTA flashing
 ota:
@@ -79,8 +78,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 #################################
 
@@ -178,8 +177,6 @@ light:
 
 ```yaml
 substitutions:
-  platform: ESP8266
-  board: esp01_1m
   device_name: esphome_dining_room_switch
   friendly_name: "Living Room Switch"
   reboot_timeout_wifi: 900s
@@ -189,10 +186,11 @@ substitutions:
 #################################
 
 esphome:
-  platform: ${platform}
-  board: ${board}
   name: ${device_name}
-  esp8266_restore_from_flash: true
+
+esp8266:
+  board: esp01_1m
+  restore_from_flash: true
   
 # OTA flashing
 ota:
@@ -212,8 +210,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-web_server:
-  port: 80
+# Enable the Web Server component 
+webserver:
 
 #################################
 

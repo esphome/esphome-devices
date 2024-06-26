@@ -80,10 +80,9 @@ api:
 
 # Enable the captive portal
 captive_portal:  
+
 bk72xx:
   board: cb2s
-  
-mdns:
 
 text_sensor:
   - platform: libretiny

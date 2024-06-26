@@ -21,7 +21,8 @@ the esp32dev board. You can get 5 receivers for $5 from [amazon.com](https://amz
 # https://www.espressif.com/en/products/hardware/esp32/overview
 esphome:
   name: irl00
-  platform: ESP32
+
+esp32:
   board: esp32dev
   
 # OTA flashing
@@ -42,8 +43,6 @@ api:
 # Enable the captive portal
 captive_portal:
 
-mqtt: !secret mqtt
-
 remote_receiver:
   pin:
     number: GPIO15
@@ -54,7 +53,6 @@ remote_receiver:
 
 binary_sensor: !include ircodes/carmp3.yaml
 ```
-
 ## ESP8266
 
 Although the ESP32 has built in hardware support for decoding the signals used by remote controls, the ESP8266
@@ -63,7 +61,8 @@ can handle it pretty well with generic GPIO.
 ```yaml
 esphome:
   name: irl01
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
   
 # OTA flashing
@@ -83,8 +82,6 @@ api:
 
 # Enable the captive portal
 captive_portal:
-
-mqtt: !secret mqtt
 
 remote_receiver:
   pin:

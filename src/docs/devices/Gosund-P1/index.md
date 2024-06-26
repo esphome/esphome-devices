@@ -16,9 +16,10 @@ board: esp8266
 ```yaml
 esphome:
   name: p1_01
-  platform: ESP8266
+
+esp8266:
   board: esp8285
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 substitutions:
   plug_name: p1_01
@@ -28,7 +29,7 @@ ota:
   - platform: esphome
 
 wifi: # Your Wifi network details
-  
+
 # Enable fallback hotspot in case wifi connection fails  
   ap:
 
@@ -62,9 +63,7 @@ uart:
   baud_rate: 4800
   
 sensor:
-  - platform: wifi_signal
-    name: "${plug_name} - WiFi Signal"
-    update_interval: 60s
+
   - platform: uptime
     name: "${plug_name} - Uptime"
     icon: mdi:clock-outline
@@ -151,10 +150,6 @@ binary_sensor:
       - switch.toggle: relay3
     filters:
       - delayed_off: 100ms
-
-text_sensor:
-  - platform: version
-    name: "${plug_name} - ESPHome Version"
 
 switch:
   - platform: gpio

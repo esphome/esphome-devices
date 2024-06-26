@@ -20,7 +20,8 @@ board: esp8266
 ```yaml
 esphome:
   name: geeni_outdoor_plug
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
    
 # OTA flashing
@@ -41,7 +42,8 @@ api:
 # Enable the captive portal
 captive_portal:
 
-  web_server:
+# Enable the Web Server component 
+webserver:
 
 binary_sensor:
   - platform: gpio

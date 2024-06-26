@@ -41,9 +41,10 @@ substitutions:
 
 esphome:
   name: "${device_name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  
+
 # OTA flashing
 ota:
   - platform: esphome
@@ -126,12 +127,6 @@ binary_sensor:
           - switch.turn_on: relay_socket_3
           - switch.turn_on: relay_socket_4
           - switch.turn_on: relay_usb
-
-sensor:
-  # WiFi Signal Sensor
-  - platform: wifi_signal
-    name: "${device_name} WiFi Signal Strength"
-    update_interval: 60s
 
 light:
   - platform: binary

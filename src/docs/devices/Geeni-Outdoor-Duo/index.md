@@ -43,9 +43,9 @@ There are no pin headers broken out onto the board. First time programming conne
 esphome:
   name: geeni_outdoor
   friendly_name: geeni
-  platform: ESP8266
-  board: esp01_1m
-    # Change board to 'esp12e' if the original Tuya WB3S has been desoldered and replaced with an ESP12
+
+esp8266:
+  board: esp01_1m # Change board to 'esp12e' if the original Tuya WB3S has been desoldered and replaced with an ESP12
    
 # OTA flashing
 ota:
@@ -65,9 +65,9 @@ api:
 # Enable the captive portal
 captive_portal:
 
-#web_server:
-#  port: 80
-  # Running the web server may cause issues on lower memory modules
+# Enable the Web Server component 
+webserver:
+# Running the web server may cause issues on lower memory modules
 
 binary_sensor:
   - platform: gpio

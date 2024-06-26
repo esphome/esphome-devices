@@ -25,14 +25,15 @@ to the network but any ESP32 module can be used (adjust GPIO pins accordingly).
 substitutions:
   device_name: ventilation-system
   friendly_name: "Ventitaltion"
-  device_ip:
+
   device_description: "Heat Recovery Ventilation System Control"
   modbus_ctrl_id: genvex_modbus
 
 esphome:
   name: ${device_name}
   comment: "${device_description}"
-  platform: ESP32
+ 
+ esp32:
   board: esp32-evb
   
 # OTA flashing

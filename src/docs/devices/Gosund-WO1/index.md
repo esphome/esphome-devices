@@ -38,7 +38,7 @@ esphome:
   platform: ESP8266
   board: esp8285
   # Allow saving the last state of each outlet in case of power failure
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 # OTA flashing
 ota:
