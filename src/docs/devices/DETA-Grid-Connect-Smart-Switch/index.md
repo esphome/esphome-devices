@@ -1,5 +1,5 @@
 ---
-title: DETA Grid Connect Smart Switch (Single / Double / Triple / Quad)
+title: DETA Grid Connect Smart Switch (Single 6911HA / Double 6912HA / Triple 6903HA / Quad 6904HA)
 date-published: 2023-10-23
 type: switch
 standard: au
