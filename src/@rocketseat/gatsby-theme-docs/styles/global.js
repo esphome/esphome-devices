@@ -30,11 +30,11 @@ export default function GlobalStyle() {
         }
 
         h1 {
-          font-size: 2.5rem;
+          font-size: 3rem;
           color: ${theme.colors.title};
           font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-          font-weight: 600;
+          font-weight: 800;
           margin-top: -4px;
           margin-bottom: 24px;
           line-height: 1.25;
