@@ -3,8 +3,8 @@ import React from "react";
 export default function Logo(props) {
   return (
     <>
-      <svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260">
-        <g id="c" data-name="Layer 1">
+      <svg id="b" data-name="Viewbox" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260">
+        <g id="c" data-name="ESPHome Devices logo">
           <g>
             <g>
               <path d="M213.38,84.7v11.25h-43.5V25.87h43.5v11.34h-31.59v18.14h28.22v10.55h-28.22v18.8h31.59Z" fill="#1d2126" stroke-width="0"/>
