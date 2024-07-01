@@ -11,6 +11,7 @@ difficulty: 1
 ![Apollo MSR-1 Size](Apollo-MSR-1-Size.jpg "Apollo MSR-1 Size")
 
 ## Description
+
 The Apollo Automation MSR-1 is a mmWave CO2 multisensor with the following features:
 
 - HLK-LD2410B+BLE 24Ghz Human Presence mmWave Radar Sensor Module
@@ -20,15 +21,16 @@ The Apollo Automation MSR-1 is a mmWave CO2 multisensor with the following featu
 - RGB Pixel
 - Piezo Buzzer
 - Bluetooth tracking and bluetooth proxy
-- Exposed GPIO
-    - I2C, power, and GPIO pins exposed
+- Exposed GPIO: I2C, power, and GPIO pins exposed
 
 ## Quickstart
+
 1. Plug in the MSR-1
 2. Connect To "MSR1 Hotspot"
 3. Input wifi credentials
 4. In Home Assistant look at discovered devices
-   
+
+## Links
 
 [Shop](https://apolloautomation.com/products/multisensor-mk1)
 
@@ -39,6 +41,8 @@ The Apollo Automation MSR-1 is a mmWave CO2 multisensor with the following featu
 [Discord](https://discord.gg/mMNgQPyF94)
 
 [YouTube](https://www.youtube.com/@ApolloAutomation)
+
+## Product Images
 
 ![Apollo MSR-1](Apollo-MSR-1.jpg "Apollo MSR-1")
 

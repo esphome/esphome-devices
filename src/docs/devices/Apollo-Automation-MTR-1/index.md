@@ -10,8 +10,8 @@ difficulty: 1
 
 ![Apollo MTR-1](Apollo-MTR-1.jpg "Apollo MTR-1")
 
-
 ## Description
+
 The Apollo Automation MTR-1 is a multi-target radar sensor with the following features:
 
 - ld2450 Multi target radar sensor
@@ -20,15 +20,14 @@ The Apollo Automation MTR-1 is a multi-target radar sensor with the following fe
 - SCD-40 CO2 Sensor
 - RGB Pixel
 - Piezo Buzzer
-- GPIO Expansion
-  - I2C, power, and GPIO pins exposed
+- GPIO Expansion: I2C, power, and GPIO pins exposed
 
 ## Quickstart
+
 1. Plug in the MTR-1
 2. Connect To "MTR1 Hotspot"
 3. Input wifi credentials
 4. In Home Assistant look at discovered devices
-
 
 ## Links
 

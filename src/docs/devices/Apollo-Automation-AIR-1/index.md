@@ -10,25 +10,23 @@ difficulty: 1
 
 ![Apollo AIR-1](Apollo-AIR-1.jpg "Apollo AIR-1")
 
-
 ## Description
+
 The Apollo Automation AIR-1 is an air quality sensor with the following features:
 
-- SEN55 PM1, PM2.5, PM4, PM10, VOC, NOx, Temperature and Humidity
-    - 10 year sensor life
+- SEN55 PM1, PM2.5, PM4, PM10, VOC, NOx, Temperature and Humidity. 10 year sensor life
 - SCD40 CO2 Sensor
 - MiCS-4514 From DFRobot CO (Carbon Monoxide), C2H5OH (Alcohol), H2, NO2, NH3 (Ammonia) and CH4 (Methane)
 - RGB Pixel x3
 - Bluetooth tracking and bluetooth proxy
-- GPIO Expansion
-    - I2C, power, and GPIO pins exposed
+- GPIO Expansion: I2C, power, and GPIO pins exposed
 
 ## Quickstart
+
 1. Plug in the AIR-1
 2. Connect To "AIR1 Hotspot"
 3. Input wifi credentials
 4. In Home Assistant look at discovered devices
-
 
 ## Links
 

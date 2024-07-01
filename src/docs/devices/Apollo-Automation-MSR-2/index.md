@@ -11,6 +11,7 @@ difficulty: 1
 ![Apollo MSR-2](Apollo-MSR-2.jpeg "Apollo MSR-2")
 
 ## Description
+
 The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-1 design and shrunk down the size by 30%. It has the following features:
 
 - HLK-LD2410B+BLE 24Ghz Human Presence mmWave Radar Sensor Module
@@ -20,15 +21,16 @@ The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-
 - RGB Pixel
 - Piezo Buzzer
 - Bluetooth tracking and bluetooth proxy
-- Exposed GPIO
-    - I2C, power, and GPIO pins exposed
+- Exposed GPIO: I2C, power, and GPIO pins exposed
 
 ## Quickstart
+
 1. Plug in the MSR-2
 2. Connect To "MSR2 Hotspot"
 3. Input wifi credentials
 4. In Home Assistant look at discovered devices
-   
+
+## Links
 
 [Shop](https://apolloautomation.com/products/msr-2)
 
@@ -39,6 +41,8 @@ The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-
 [Discord](https://discord.gg/mMNgQPyF94)
 
 [YouTube](https://www.youtube.com/@ApolloAutomation)
+
+## Product Images
 
 ![Apollo MSR-2](Apollo-MSR-2.jpeg "Apollo MSR-2")
 
