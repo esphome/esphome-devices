@@ -1,6 +1,6 @@
 ---
 title: Apollo mmWave CO2 Multisensor (MSR-1)
-date-published: 2023-09-12
+date-published: 2024-6-24
 type: sensor
 standard: global
 board: esp32

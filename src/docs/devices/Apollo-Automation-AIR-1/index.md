@@ -46,4 +46,4 @@ The Apollo Automation AIR-1 is an air quality sensor with the following features
 
 ![Apollo AIR-1](Apollo-AIR-1.jpg "Apollo AIR-1")
 
-![Apollo AIR-1 Size ](Apollo-AIR-1-Size.jpg "Apollo AIR-1 Size")
+![Apollo AIR-1 Size](Apollo-AIR-1-Size.jpg "Apollo AIR-1 Size")

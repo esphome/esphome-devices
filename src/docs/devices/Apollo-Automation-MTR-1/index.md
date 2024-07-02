@@ -1,5 +1,5 @@
 ---
-title: Apollo Multi-target Radar (MTR-1)
+title: Apollo Multi-Target Radar (MTR-1)
 date-published: 2024-6-24
 type: sensor
 standard: global
@@ -47,4 +47,4 @@ The Apollo Automation MTR-1 is a multi-target radar sensor with the following fe
 
 ![Apollo MTR-1](Apollo-MTR-1.jpg "Apollo MTR-1")
 
-![Apollo MTR-1 Size ](Apollo-MTR-1-Size.jpg "Apollo MTR-1 Size")
+![Apollo MTR-1 Size](Apollo-MTR-1-Size.jpg "Apollo MTR-1 Size")

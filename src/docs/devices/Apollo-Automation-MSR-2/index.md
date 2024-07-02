@@ -1,6 +1,6 @@
 ---
 title: Apollo mmWave CO2 Multisensor v2 (MSR-2)
-date-published: 2024-06-24
+date-published: 2024-6-24
 type: sensor
 standard: global
 board: esp32
@@ -44,6 +44,6 @@ The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-
 
 ## Product Images
 
-![Apollo MSR-2](Apollo-MSR-2.jpeg "Apollo MSR-2")
-
 ![Apollo MSR-2](Apollo-MSR-2-2.jpeg "Apollo MSR-2")
+
+![Apollo MSR-2 Size](Apollo-MSR-2.jpeg "Apollo MSR-2 Size")
