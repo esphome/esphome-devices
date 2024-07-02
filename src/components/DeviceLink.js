@@ -55,9 +55,9 @@ export function BoardTag({ board }) {
   );
 }
 
-export function MadeForESPHomeLogo() {
+export function MadeForESPHomeLogo({width}) {
   return (
-    <a href="https://esphome.io/guides/made_for_esphome.html" target="_blank" rel="noreferrer"><img src="/made-for-esphome-black-on-white.svg" width="120px" alt="Made for ESPHome Logo" /></a>
+    <a href="https://esphome.io/guides/made_for_esphome.html" target="_blank" rel="noreferrer"><img src="/made-for-esphome-black-on-white.svg" width={width ? width : "120px"} alt="Made for ESPHome Logo" /></a>
   );
 }
 
