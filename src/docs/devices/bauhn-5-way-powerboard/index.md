@@ -7,7 +7,7 @@ board: bk72xx
 difficulty: 4
 ---
 
-![Product front](./ "Product front image")
+![Picture to be added](./ "Product front image")
 
 
 ## Product description
@@ -16,7 +16,7 @@ This is a Bauhn (Aldi) 5-outlet powerboard with separate "always on" 2xUSB-A and
 
 The powerboard incorporates a Tuya CBU module incorporating the BK7231N processor.
 To realign for ESPHome use I went straight for the "solder and reprogram" method rather than eploring other software only repogramming options.
-The unit is easy to open with "Traingle" socket screws on the back. The CBU module is failry accessable to solder on the 5 required wires.
+The unit is easy to open with "Triangle" socket screws on the back. The CBU module is fairly accessable to solder on the 5 required wires.
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
