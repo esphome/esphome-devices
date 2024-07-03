@@ -1,1 +1,255 @@
+---
+title: Bauhn 5-way Powerboard
+date-published: 2024-07-03
+type: plug
+standard: au
+board: bk72xx
+difficulty: 4
+---
+
+![Product front](./ "Product front image")
+
+
+## Product description
+
+This is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets 
+
+The powerboard also incorporates power monitoring using the BL0942 chip.
+
+Other features of the board are:
+
+1) Separate relays for each power outlet
+2) Surge protection (indicated by an always on green LED)
+3) Single addressable blue LED
+4) Single momentary push button
+5) Resettable overload (10A)
+
+https://www.aldi.com.au/special-buys/special-buys-sat-29-june/saturday-detail-wk26/ps/p/5-way-surge-protector-powerboard-with-wi-fi-and-meter-reading/, 
+
+## Pinout
+
+This powerboard incorporates the CBU module 
+
+https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
+
+### Programming header pinout
+
+| Pin   | Comment                                                 |
+| ----- | ------------------------------------------------------- |
+| TX    |                                                         |
+
+
+### Internal pinout
+
+| Pin    | Function                      |
+| ------ | ----------------------------- |
+| P22    | Push Button                    |
+| P28    | Status LED                    |
+| P8     | Relay #1                      |
+| P7     | Relay #2                      |
+| P6     | Relay #3                      |
+| P24    | Relay #4                      |
+| P9     | Relay #5                      |
+
+## Basic Config
+
+```yaml
+# Bauhn 5 way powerboard with individual socket switchng and BL0942 power monitoring.
+# USB sockets are permanently on.
+# There is only one controllable LED
+
+substitutions:
+  name: bunk-bedroom-power
+  friendly_name: Bauhn Power Board
+  relay_restore_mode: RESTORE_DEFAULT_OFF 
+  
+esphome:
+  name: bauhn-5-way-power-board
+  comment: Bauhn 5 way powerboard with power monitoring
+
+bk72xx:
+  board: cbu
+
+globals:
+  - id: set_on
+    type: "bool"
+    restore_value: no
+    initial_value: "1"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "3qWCkG6lQehrOyOSKsS/ltQ6FlXFJN9uoTFU/mIdvM8="
+
+ota:
+  - platform: esphome
+    id: my_ota
+    password: !secret ota_password
+
+wifi:
+  ssid: SkylineIOT_2.4GHz
+  password: "#Skyline!"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bauhn-5-Way-Power-Board"
+    password: "G5cDVW32MOE1"
+    ap_timeout: 2min
+    # Not sure but this device did not attach to my SSID without the ap_timeout set to 2 min?
+
+captive_portal:
+
+text_sensor:
+  - platform: libretiny
+    version:
+      name: LibreTiny Version
+
+switch:
+  - platform: gpio
+    name: "${friendly_name} 1"
+    pin: P8
+    id: relay_1
+    icon: mdi:power-socket-au
+    restore_mode: ${relay_restore_mode}
+  - platform: gpio
+    name: "${friendly_name} 2"
+    pin: P7
+    id: relay_2
+    icon: mdi:power-socket-au
+    restore_mode: ${relay_restore_mode}
+  - platform: gpio
+    name: "${friendly_name} 3"
+    pin: P6
+    id: relay_3
+    icon: mdi:power-socket-au
+    restore_mode: ${relay_restore_mode}
+  - platform: gpio
+    name: "${friendly_name} 4"
+    pin: P24
+    id: relay_4
+    icon: mdi:power-socket-au
+    restore_mode: ${relay_restore_mode}
+  - platform: gpio
+    name: "${friendly_name} 5"
+    pin: P9
+    id: relay_5
+    icon: mdi:power-socket-au
+    restore_mode: ${relay_restore_mode}
+
+light:
+  - platform: status_led
+    name: "${friendly_name} Status LED"
+    id: blue_led
+#   disabled_by_default: true
+    pin:
+      inverted: true
+      number: P28
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: P22
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "${friendly_name} Button"
+    id: button1
+    on_multi_click:
+      - timing:
+          - ON for at most 0.5s
+          - OFF for at least 0.5s
+        then:
+          lambda: |-
+            if ( id(set_on) ) {
+              if (! id(relay_1).state  ) {
+                id(relay_1).turn_on();
+              } else if ( ! id(relay_2).state ) {
+                id(relay_2).turn_on();
+              } else if ( ! id(relay_3).state ) {
+                id(relay_3).turn_on();
+              } else if ( ! id(relay_4).state ) {
+                id(relay_4).turn_on();
+              } else if ( ! id(relay_5).state ) {
+                id(relay_5).turn_on();
+                id(set_on) = 0;
+              } else {
+                id(relay_1).turn_off();
+                id(relay_2).turn_off();
+                id(relay_3).turn_off();
+                id(relay_4).turn_off();
+                id(relay_5).turn_off();
+              }
+            } else {
+              if ( id(relay_1).state  ) {
+                id(relay_1).turn_off();
+              } else if (  id(relay_2).state ) {
+                id(relay_2).turn_off();
+              } else if (  id(relay_3).state ) {
+                id(relay_3).turn_off();
+              } else if (  id(relay_4).state ) {
+                id(relay_4).turn_off();
+              } else if (  id(relay_5).state ) {
+                id(relay_5).turn_off();
+                id(set_on) = 1;
+              } else {
+                id(relay_1).turn_on();
+                id(relay_2).turn_on();
+                id(relay_3).turn_on();
+                id(relay_4).turn_on();
+                id(relay_5).turn_off();
+
+              }
+            }
+      - timing:
+          - ON for at least 0.5s
+          - OFF for at least 0.2s
+        then:
+          lambda: |-
+            if (id(relay_1).state ||
+            id(relay_2).state ||
+            id(relay_3).state ||
+            id(relay_4).state ) {
+              id(relay_1).turn_off();
+              id(relay_2).turn_off();
+              id(relay_3).turn_off();
+              id(relay_4).turn_off();
+              id(relay_5).turn_off();
+            } else {
+              id(relay_1).turn_on();
+              id(relay_2).turn_on();
+              id(relay_3).turn_on();
+              id(relay_4).turn_on();
+              id(relay_5).turn_off();
+            }
+
+uart:
+  id: uart_bus
+  tx_pin: TX1
+  rx_pin: RX1
+  baud_rate: 4800
+  stop_bits: 1
+
+sensor:
+  - platform: bl0942
+    uart_id: uart_bus
+    voltage:
+      name: '${friendly_name} Voltage'
+    current:
+      name: '${friendly_name} Current'
+    power:
+      name: '${friendly_name} Power'
+      filters:
+        multiply: -1
+    energy:
+      name: '${friendly_name} Energy'
+    frequency:
+      name: "${friendly_name} Frequency"
+      accuracy_decimals: 2
+
+    update_interval: 10s
+```
 
