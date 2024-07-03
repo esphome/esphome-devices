@@ -12,7 +12,7 @@ difficulty: 4
 
 ## Product description
 
-This is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets
+This is a Bauhn (Aldi) 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets.  Purchased in July 2024.
 
 The powerboard incorporates a Espressif CBU module which is for the Tuya platform, which is the firmware that the product is shiped with.
 To realign for ESPHome use I went straight for the "solder and reprogram" method rather than eploring other software only repogramming options.
@@ -72,7 +72,7 @@ A long press will toggle all plugs on or off.
 ## Basic Configuration
 
 ```yaml
-# Bauhn 5 way powerboard with individual socket switchng and BL0942 power monitoring.
+# Bauhn (Aldi) 5 way powerboard with individual socket switchng and BL0942 power monitoring.
 # USB sockets are permanently on.
 # There is only one controllable LED
 
