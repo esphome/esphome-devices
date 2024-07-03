@@ -42,10 +42,10 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
 | Pin   | Comment                                                 |
 | ----- | ------------------------------------------------------- |
-| TX    |                                                         |
-| RX    |                                                         |
-| 3.3v  |                                                         |
-| Gnd   |                                                         |
+| TX    |   Transmit                                              |
+| RX    |   Receive                                               |
+| 3.3v  |   3.3V                                                  |
+| Gnd   |   Ground                                                |
 | CEN   |                                                         |
 
 
