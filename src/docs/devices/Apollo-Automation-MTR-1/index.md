@@ -8,7 +8,7 @@ project-url: https://github.com/ApolloAutomation/MTR-1/
 difficulty: 1
 ---
 
-![Apollo MTR-1](Apollo-MTR-1.jpg "Apollo MTR-1")
+![Apollo MTR-1](Apollo-MTR-1.JPG "Apollo MTR-1")
 
 ## Description
 
@@ -40,6 +40,6 @@ The Apollo Automation MTR-1 is a multi-target radar sensor with the following fe
 
 ## Product Images
 
-![Apollo MTR-1](Apollo-MTR-1.jpg "Apollo MTR-1")
+![Apollo MTR-1](Apollo-MTR-1.JPG "Apollo MTR-1")
 
 ![Apollo MTR-1 Targets](Apollo-MTR-1-Targets.png "Apollo MTR-1 Targets")
