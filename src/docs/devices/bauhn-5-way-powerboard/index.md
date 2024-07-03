@@ -12,9 +12,11 @@ difficulty: 4
 
 ## Product description
 
-This is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets 
+This is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets
 
-The powerboard incorporates a Espressif CBU module which is for the Tuya platform
+The powerboard incorporates a Espressif CBU module which is for the Tuya platform, which is the firmware that the product is shiped with.
+To realign for ESPHome use I went straight for the "solder and reprogram" method rather than eploring other software only repogramming options.
+The unit is easy to open with "Traingle" socket screws on the back. The CBU module is failry accessable to solder on the 5 required wires.
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
