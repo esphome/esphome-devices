@@ -42,4 +42,4 @@ The Apollo Automation MTR-1 is a multi-target radar sensor with the following fe
 
 ![Apollo MTR-1](Apollo-MTR-1.jpg "Apollo MTR-1")
 
-![Apollo MTR-1 Size](Apollo-MTR-1-Size.jpg "Apollo MTR-1 Size")
+![Apollo MTR-1 Targets](Apollo-MTR-1-Targets.png "Apollo MTR-1 Targets")
