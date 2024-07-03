@@ -1,5 +1,5 @@
 ---
-title: Bauhn 5-way Powerboard
+title: Bauhn (Aldi) 5-way Powerboard
 date-published: 2024-07-03
 type: plug
 standard: au
@@ -43,6 +43,10 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 | Pin   | Comment                                                 |
 | ----- | ------------------------------------------------------- |
 | TX    |                                                         |
+| RX    |                                                         |
+| 3.3v  |                                                         |
+| Gnd   |                                                         |
+| CEN   |                                                         |
 
 
 ### Internal pinout
@@ -59,7 +63,13 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 | TX1    | Comms to BL0942               |
 | RX1    | Comms to BL0942               |
 
-## Basic Config
+## Button
+
+The setup will turn on plugs 1 to 4 with each short press, then once all plugs are on, turn off plugs 1 to 4 with each short press.
+
+A long press will toggle all plugs on or off.
+
+## Basic Configuration
 
 ```yaml
 # Bauhn 5 way powerboard with individual socket switchng and BL0942 power monitoring.
@@ -90,7 +100,7 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "3qWCkG6lQehrOyOSKsS/ltQ6FlXFJN9uoTFU/mIdvM8="
+    key: "encryption_key"
 
 ota:
   - platform: esphome
@@ -98,8 +108,8 @@ ota:
     password: !secret ota_password
 
 wifi:
-  ssid: SkylineIOT_2.4GHz
-  password: "#Skyline!"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
