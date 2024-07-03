@@ -14,6 +14,10 @@ difficulty: 4
 
 This is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets 
 
+The powerboard incorporates a Espressif CBU module which is for the Tuya platform
+
+https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
+
 The powerboard also incorporates power monitoring using the BL0942 chip.
 
 Other features of the board are:
@@ -50,6 +54,8 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 | P6     | Relay #3                      |
 | P24    | Relay #4                      |
 | P9     | Relay #5                      |
+| TX1    | Comms to BL0942               |
+| RX1    | Comms to BL0942               |
 
 ## Basic Config
 
