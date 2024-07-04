@@ -12,6 +12,7 @@ project-url: https://github.com/PricelessToolkit/ESPBell-LITE/tree/main
 
 ## Product description
 ESPBell-LITE Intercom and Doorbell module allow you to stay informed when someone rings your doorbell or presses the intercom button. Upon receiving an interactive notification, you have the convenience to either promptly open the door or choose to dismiss the alert by simply tapping the button within the notification.
+
 ![HA Notification](./notification.jpg "Notification on mobile phone")
 
 You can buy an assembled device from the official store https://www.pricelesstoolkit.com
