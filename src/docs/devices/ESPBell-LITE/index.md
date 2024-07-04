@@ -1,5 +1,5 @@
 ---
-title: ESPBell-LITE Intercom and Doorbell module
+title: ESPBell-LITE
 date-published: 2024-07-04
 type: misc
 standard: global
@@ -11,13 +11,10 @@ project-url: https://github.com/PricelessToolkit/ESPBell-LITE/tree/main
 ![Product image](./espbell.jpg "Product image")
 
 ## Product description
-
-ESPBell-LITE IoT module allows you to stay informed when someone rings your doorbell or presses the intercom button. Upon receiving an interactive notification, you have the convenience to either promptly open the door or choose to dismiss the alert by simply tapping the button within the notification.
+ESPBell-LITE Intercom and Doorbell module allow you to stay informed when someone rings your doorbell or presses the intercom button. Upon receiving an interactive notification, you have the convenience to either promptly open the door or choose to dismiss the alert by simply tapping the button within the notification.
 ![HA Notification](./notification.jpg "Notification on mobile phone")
 
-You can buy assembled device from the official store https://www.pricelesstoolkit.com
-Project page on GitHub https://github.com/PricelessToolkit/ESPBell-LITE/tree/main
-
+You can buy an assembled device from the official store https://www.pricelesstoolkit.com
 
 ## Specifications
 - Based on ESP12F "Programmable via pads on the PCB"
@@ -32,14 +29,11 @@ Project page on GitHub https://github.com/PricelessToolkit/ESPBell-LITE/tree/mai
   - 1 x DoorBell
   - 1 x On ESP module "Not used"
 - Button for flashing Firmware
-
-> [!NOTE]
-> Requires 5V 0.3A+ DC power supply.
+- Requires 5V 0.3A+ DC power supply.
 
 ## Basic Config
 
 ```yaml
-
 # Door Lock Opener "Momentary Switch" Keeps SSR ON for 1.5s.
   - platform: gpio
     pin: 5
@@ -50,7 +44,5 @@ Project page on GitHub https://github.com/PricelessToolkit/ESPBell-LITE/tree/mai
     on_turn_on:
     - delay: 1500ms 
     - switch.turn_off: Lock
-
 ```
-
 ![home assistant entities](./ha.jpg "Ha entities")
