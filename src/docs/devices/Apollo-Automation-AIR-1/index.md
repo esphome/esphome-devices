@@ -1,6 +1,6 @@
 ---
 title: Apollo Air Quality Sensor (AIR-1)
-date-published: 2024-06-24
+date-published: 2024-07-03
 type: sensor
 standard: global
 board: esp32
