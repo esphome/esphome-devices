@@ -401,7 +401,7 @@ sensor:
   # because these only apply when the temperature ENTERS these ranges
   # If it REMAINS in the range, and climate is turned on manually, these
   # failsafes will not apply!
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x1e11223344550028
     id: temp
     name: "Temperature"
@@ -472,7 +472,7 @@ climate:
           - logger.log: "Climate control ON"
           - light.turn_on: auto_led
 
-dallas:
+one_wire:
   pin: GPIO25
   update_interval: 10s
 

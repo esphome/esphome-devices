@@ -51,12 +51,12 @@ ota:
   password: "password"
 
 #optional onewire
-#dallas:
+#one_wire:
 #  - pin: GPIO21
 
 sensor:
  #optional onewire
- # - platform: dallas
+ # - platform: dallas_temp
  #   address: 0xcb021564bbacffff
  #   name: "Ds18B20 Temperature"
 

@@ -19,6 +19,8 @@ The board can be powered either via 120-220VAC, 7-30VDC or 5VDC (separate connec
 
 I bought it from: [eBay](https://www.ebay.com/itm/295164946172), but very similar boards are being sold everywhere.
 
+Note: v1.1 of this board is nearly identical except the chip is an ESP32-WROOOM-32E
+
 ## Pinout
 
 This board has two double-row headers 10x2 for every GPIO pin on its ESP32 and a single row header for flashing.
