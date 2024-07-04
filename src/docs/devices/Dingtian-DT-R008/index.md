@@ -17,15 +17,6 @@ When ordering this board ask for relay board with test firmware, otherwise the E
 
 ```yaml
 
-substitutions:
-  devicename: dt-r008
-  upper_devicename: DT-R008
-  friendly_name: DT-R008
-  key: !secret key_dt-r008
-  ota: !secret ota_dt-r008
-  IP: !secret IP_dt-r008
-  fallback_pass: !secret fallback_pass_dt-r008 
-
 esphome:
   name: dt-r008
   friendly_name: DT-R008
