@@ -1,5 +1,5 @@
 ---
-title: ESPBell-LITE
+title: ESPBell-LITE Intercom/Doorbell module
 date-published: 2024-07-04
 type: misc
 standard: global
