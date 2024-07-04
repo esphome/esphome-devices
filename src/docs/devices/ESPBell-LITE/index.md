@@ -112,7 +112,7 @@ switch:
     icon: "mdi:lock"
     restore_mode: ALWAYS_OFF
     on_turn_on:
-    - delay: 1500ms 
+    - delay: 1500ms
     - switch.turn_off: Lock
 
   - platform: restart
