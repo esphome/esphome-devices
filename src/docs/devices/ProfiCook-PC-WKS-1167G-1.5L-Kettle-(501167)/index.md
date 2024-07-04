@@ -112,19 +112,19 @@ select:
     set_action:
       - lambda: |-
           if (strcmp(x.c_str(), "45°") == 0) {
-            tuya_tuya->set_enum_datapoint_value(101, 0);
+            tuya_tuya_id->set_enum_datapoint_value(101, 0);
           } else if (strcmp(x.c_str(), "60°") == 0) {
-            tuya_tuya->set_enum_datapoint_value(101, 1);
+            tuya_tuya_id->set_enum_datapoint_value(101, 1);
           } else if (strcmp(x.c_str(), "85°") == 0) {
-            tuya_tuya->set_enum_datapoint_value(101, 2);
+            tuya_tuya_id->set_enum_datapoint_value(101, 2);
           } else if (strcmp(x.c_str(), "100°") == 0) {
-            tuya_tuya->set_enum_datapoint_value(101, 3);
+            tuya_tuya_id->set_enum_datapoint_value(101, 3);
           } else if (strcmp(x.c_str(), "100° and off") == 0) {
-            tuya_tuya->set_enum_datapoint_value(101, 4);
+            tuya_tuya_id->set_enum_datapoint_value(101, 4);
           } else if (strcmp(x.c_str(), "Custom") == 0) {
-            tuya_tuya->set_enum_datapoint_value(101, 5);
+            tuya_tuya_id->set_enum_datapoint_value(101, 5);
           } else {
-            tuya_tuya->set_enum_datapoint_value(101, 6);
+            tuya_tuya_id->set_enum_datapoint_value(101, 6);
           }
 number:
   - platform: "tuya"
