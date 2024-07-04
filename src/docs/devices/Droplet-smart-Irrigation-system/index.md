@@ -1,5 +1,5 @@
 ---
-title: Droplet smart Irrigation system
+title: Droplet Smart Irrigation System
 date-published: 2024-07-04
 type: misc
 standard: global
