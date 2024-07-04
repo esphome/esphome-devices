@@ -17,7 +17,7 @@ The Droplet Smart Irrigation System is a practical solution for efficient water 
 
 You can buy an assembled PCB from the official store https://www.pricelesstoolkit.com
 
-# Main Board
+## Main Board
 
 | Feature                           | Description                                                       | Notes                                                                                 |
 |-----------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ You can buy an assembled PCB from the official store https://www.pricelesstoolki
 | UART                              | 1x UART                                                           | -                                                                                     |
 | External Port for DS18B20         | GPIO 25                                                           | -                                                                                     |
 
-# Expansion Board v3
+## Expansion Board v3
 
 | Feature                           | Description                                                       | Notes                                                                                 |
 |-----------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------|
