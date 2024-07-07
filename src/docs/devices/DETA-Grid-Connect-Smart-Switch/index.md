@@ -75,7 +75,7 @@ If you prefer to flash manually, you'll need a USB to serial adapter. Follow the
 | GPIO14 | Relay, Bottom _(includes LED)_ |
 | GPIO16 | Button, Top                    |
 
-Triple 6903HA 
+Triple 6903HA
 
 | Pin    | Function                       |
 | ------ | ------------------------------ |
