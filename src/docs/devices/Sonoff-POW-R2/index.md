@@ -49,6 +49,10 @@ wifi:
     - ssid: !secret wifi_ssid
       password: !secret wifi_password
 
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
 binary_sensor:
   - platform: gpio
     pin:
