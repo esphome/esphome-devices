@@ -95,14 +95,14 @@ switch:
   - platform: template
     name: "Oscillate horizontally"
     icon: mdi:arrow-left-right
-    turn_on_action: 
+    turn_on_action:
       then:
-        - select.set: 
+        - select.set:
             id: "horizontally"
             option: "on"
-    turn_off_action: 
+    turn_off_action:
       then:
-        - select.set: 
+        - select.set:
             id: "horizontally"
             option: "off"
     lambda: |-
@@ -115,14 +115,14 @@ switch:
   - platform: template
     name: "Oscillate vertically"
     icon: mdi:arrow-up-down
-    turn_on_action: 
+    turn_on_action:
       then:
-        - select.set: 
+        - select.set:
             id: "vertically"
             option: "on"
-    turn_off_action: 
+    turn_off_action:
       then:
-        - select.set: 
+        - select.set:
             id: "vertically"
             option: "off"
     lambda: |-
