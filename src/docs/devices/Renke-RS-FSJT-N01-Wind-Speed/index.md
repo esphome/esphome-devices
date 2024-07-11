@@ -98,7 +98,7 @@ The device modbus address is stored in register `2000`. To change it, you can us
 sensor:
   - platform: modbus_controller
     modbus_controller_id: wind_speed_meter
-    name: "Current device address"
+    name: "Device current address"
     register_type: read
     address: 2000
     value_type: U_WORD
@@ -107,7 +107,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: wind_speed_meter
     id: change_address
-    name: "New device address"
+    name: "Device new address"
     address: 2000
     register_type: holding
     value_type: U_WORD
@@ -138,7 +138,7 @@ To change it, you can use the following temporary ESPHome configuration:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: wind_speed_meter
-    name: "Current device baudrate ID"
+    name: "Device current baud ID"
     register_type: read
     address: 2001
     value_type: U_WORD
@@ -147,7 +147,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: wind_speed_meter
     id: change_address
-    name: "New device baudrate ID"
+    name: "Device new baud ID"
     address: 2001
     register_type: holding
     value_type: U_WORD
