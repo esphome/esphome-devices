@@ -106,7 +106,6 @@ sensor:
 number:
   - platform: modbus_controller
     modbus_controller_id: wind_speed_meter
-    id: change_address
     name: "Device new address"
     address: 2000
     register_type: holding
@@ -146,7 +145,6 @@ sensor:
 number:
   - platform: modbus_controller
     modbus_controller_id: wind_speed_meter
-    id: change_address
     name: "Device new baud ID"
     address: 2001
     register_type: holding
