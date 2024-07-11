@@ -52,7 +52,7 @@ bk72xx:
 ##  Binary Sensors  ##
 ## ---------------- ##
 binary_sensor:
-# Top Button 
+# Top Button
   - platform: gpio
     id: button_1
     pin:
@@ -64,7 +64,7 @@ binary_sensor:
         - light.toggle: light1
     internal: True
   
-# Bottom Button 
+# Bottom Button
   - platform: gpio
     id: button_2
     pin:
@@ -83,7 +83,6 @@ binary_sensor:
       number: P11
       inverted: true
       mode: INPUT_PULLUP
-   
 ## ---------------- ##
 ##      Switch      ##
 ## ---------------- ##
