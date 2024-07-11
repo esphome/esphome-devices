@@ -114,7 +114,7 @@ number:
     mode: box
 ```
 
-The new entered value will be sent to the device immediately, causing it to become offline. You need to change the `address` value in the corresponding `modbus_controller` entry to the value you just used. 
+The new entered value will be sent to the device immediately, causing it to become offline. You need to change the `address` value in the corresponding `modbus_controller` entry to the value you just used.
 
 Alternatively, the manufacturer offers a helper application for Windows, called *485 Parameter Configuration Tool*. The sensor can be connected to the PC with a USB-to-RS485 adapter, and the configuration tool makes it easily possible to change the device address to something else (just type it in the *Addr* box and press *Setup* button).
 
