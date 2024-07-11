@@ -12,7 +12,7 @@ A smart WIFI relay to convert a normal swicht into a smart switch and retain the
 
 Some modules have RF433 fuction but not included below.
 
-These devices are sold under many brands on Aliexpress. 
+These devices are sold under many brands on Aliexpress.
 
 ## GPIO Pinout
 
@@ -59,7 +59,7 @@ binary_sensor:
     pin:
       number: P23
       inverted: true
-      mode: INPUT_PULLUP 
+      mode: INPUT_PULLUP
 # Rocker switch
   - platform: gpio
     name: "${device_friendly_name} Switch"
@@ -70,7 +70,7 @@ binary_sensor:
     on_release:
         - switch.turn_off: relay
     filters:
-      - delayed_on_off: 50ms   
+      - delayed_on_off: 50ms
 ## ---------------- ##
 ##      Switch      ##
 ## ---------------- ##
@@ -80,7 +80,7 @@ switch:
     name: "${device_friendly_name} Relay"
     icon: ${device_icon}
     output: relayoutput
-    id: relay   
+    id: relay
 ## ---------------- ##
 ##      Relays      ##
 ## ---------------- ##
@@ -90,5 +90,5 @@ output:
   # Relay
   - platform: gpio
     id: relayoutput
-    pin: P7   
+    pin: P7
 ```
