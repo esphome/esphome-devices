@@ -10,7 +10,7 @@ board: bk72xx
 
 A smart GPO the contains 2 light switches. All three outputs are controllable.
 
-These devices are sold under many brands on Aliexpress. 
+These devices are sold under many brands on Aliexpress.
 
 ## GPIO Pinout
 
@@ -82,7 +82,7 @@ binary_sensor:
     pin:
       number: P11
       inverted: true
-      mode: INPUT_PULLUP 
+      mode: INPUT_PULLUP
    
 ## ---------------- ##
 ##      Switch      ##
@@ -100,13 +100,13 @@ switch:
   - platform: gpio
     id: Top_buttonLED
     pin:
-      number: P7  
+      number: P7
 
   - platform: gpio
-    id: Bottom_buttonLED 
+    id: Bottom_buttonLED
     pin:
       number: P0
-       
+
 ## ---------------- ##
 ##      Relays      ##
 ## ---------------- ##
@@ -118,8 +118,7 @@ output:
 # Relay L2
   - platform: gpio
     id: relay2
-    pin: P24 
-
+    pin: P24
 ## ------------ ##
 ##    Lights    ##
 ## ------------ ##
@@ -136,5 +135,4 @@ light:
     icon: ${device_icon}
     output: relay2
     id: light2
-    
 ```
