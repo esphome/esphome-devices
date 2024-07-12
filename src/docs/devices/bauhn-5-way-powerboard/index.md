@@ -6,8 +6,9 @@ standard: au
 board: bk72xx
 difficulty: 4
 ---
-
-![Picture to be added](20240712_102703.jpg "Product front image")
+![Product picture 1](20240712_102440.jpg "Product internal image 2")
+![Product picture 2](20240712_102657.jpg "Product internal image 2")
+![Product picture 3](20240712_102703.jpg "Product internal image 2")
 
 
 ## Product description
