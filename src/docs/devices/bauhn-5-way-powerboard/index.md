@@ -42,11 +42,11 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
 | Pin   | Comment                                                 |
 | ----- | ------------------------------------------------------- |
-| TX    |   Transmit                                              |
-| RX    |   Receive                                               |
+| TX1   |   Transmit (connect to Rx on programmer)                |
+| RX1   |   Receive  (connect to Tx on programmer)                |
 | 3.3v  |   3.3V                                                  |
 | Gnd   |   Ground                                                |
-| CEN   |                                                         |
+| CEN   |  Ground to access programming mode                      |
 
 
 ### Internal pinout
@@ -55,11 +55,11 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 | ------ | ----------------------------- |
 | P22    | Push Button                    |
 | P28    | Status LED                    |
-| P8     | Relay #1                      |
+| P6     | Relay #1                      |
 | P7     | Relay #2                      |
-| P6     | Relay #3                      |
-| P24    | Relay #4                      |
-| P9     | Relay #5                      |
+| P8     | Relay #3                      |
+| P9     | Relay #4                      |
+| P24    | Relay #5                      |
 | TX1    | Comms to BL0942               |
 | RX1    | Comms to BL0942               |
 
@@ -72,7 +72,7 @@ A long press will toggle all plugs on or off.
 ## Basic Configuration
 
 ```yaml
-# Bauhn (Aldi) 5 way powerboard with individual socket switchng and BL0942 power monitoring.
+# Bauhn 5 way powerboard with individual socket switchng and BL0942 power monitoring.
 # USB sockets are permanently on.
 # There is only one controllable LED
 
@@ -100,7 +100,7 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "encryption_key"
+    key: "3qWCkG6lQehrOyOSKsS/ltQ6FlXFJN9uoTFU/mIdvM8="
 
 ota:
   - platform: esphome
@@ -116,7 +116,7 @@ wifi:
     ssid: "Bauhn-5-Way-Power-Board"
     password: "G5cDVW32MOE1"
     ap_timeout: 2min
-    # Not sure but this device did not attach to my SSID without the ap_timeout set to 2 min?
+    # Not sure but this device did not attach to my SSID without the ap_timeout set to 2 min WiFi a bit weak?
 
 captive_portal:
 
@@ -128,7 +128,7 @@ text_sensor:
 switch:
   - platform: gpio
     name: "${friendly_name} 1"
-    pin: P8
+    pin: P6
     id: relay_1
     icon: mdi:power-socket-au
     restore_mode: ${relay_restore_mode}
@@ -140,19 +140,19 @@ switch:
     restore_mode: ${relay_restore_mode}
   - platform: gpio
     name: "${friendly_name} 3"
-    pin: P6
+    pin: P8
     id: relay_3
     icon: mdi:power-socket-au
     restore_mode: ${relay_restore_mode}
   - platform: gpio
     name: "${friendly_name} 4"
-    pin: P24
+    pin: P9
     id: relay_4
     icon: mdi:power-socket-au
     restore_mode: ${relay_restore_mode}
   - platform: gpio
     name: "${friendly_name} 5"
-    pin: P9
+    pin: P24
     id: relay_5
     icon: mdi:power-socket-au
     restore_mode: ${relay_restore_mode}
@@ -163,7 +163,7 @@ light:
     id: blue_led
 #   disabled_by_default: true
     pin:
-      inverted: true
+      inverted: false
       number: P28
 
 binary_sensor:
@@ -241,7 +241,7 @@ binary_sensor:
               id(relay_2).turn_on();
               id(relay_3).turn_on();
               id(relay_4).turn_on();
-              id(relay_5).turn_off();
+              id(relay_5).turn_on();
             }
 
 uart:
