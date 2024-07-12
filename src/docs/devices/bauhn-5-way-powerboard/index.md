@@ -38,6 +38,8 @@ This powerboard incorporates the CBU module
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
+![alt text](cbu module pinsout.png "CBU module showing pins to connect for programming")
+
 ### Programming header pinout
 
 | Pin   | Comment                                                 |
