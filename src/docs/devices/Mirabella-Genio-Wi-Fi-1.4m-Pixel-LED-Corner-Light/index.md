@@ -36,4 +36,3 @@ Inside is a [T103_V1.0](https://docs.libretiny.eu/boards/t103-v1.0/) module base
 rtl87xx:
   board: t103-v1.0
 ```
-
