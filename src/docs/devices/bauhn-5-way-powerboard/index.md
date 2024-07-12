@@ -35,7 +35,7 @@ https://www.aldi.com.au/special-buys/special-buys-sat-29-june/saturday-detail-wk
 
 ## Pinout
 
-This powerboard incorporates the CBU module 
+This powerboard incorporates the CBU module
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
@@ -50,7 +50,6 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 | 3.3v  |   3.3V                                                  |
 | Gnd   |   Ground                                                |
 | CEN   |  Ground to access programming mode                      |
-
 
 ### Internal pinout
 
@@ -82,8 +81,8 @@ A long press will toggle all plugs on or off.
 substitutions:
   name: bunk-bedroom-power
   friendly_name: Bauhn Power Board
-  relay_restore_mode: RESTORE_DEFAULT_OFF 
-  
+  relay_restore_mode: RESTORE_DEFAULT_OFF
+
 esphome:
   name: bauhn-5-way-power-board
   comment: Bauhn 5 way powerboard with power monitoring
@@ -273,4 +272,3 @@ sensor:
 
     update_interval: 10s
 ```
-
