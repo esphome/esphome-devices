@@ -6,10 +6,7 @@ standard: au
 board: bk72xx
 difficulty: 4
 ---
-![Product picture 1](20240712_102440.jpg "Product internal image 2")
-![Product picture 2](20240712_102657.jpg "Product internal image 2")
-![Product picture 3](20240712_102703.jpg "Product internal image 2")
-
+![Product picture 1](20240712_102440.jpg "Product image")
 
 ## Product description
 
@@ -20,6 +17,9 @@ To realign for ESPHome use I went straight for the "solder and reprogram" method
 The unit is easy to open with "Triangle" socket screws on the back. The CBU module is fairly accessable to solder on the 5 required wires.
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
+
+![Product picture 2](20240712_102657.jpg "Product internal image 1")
+![Product picture 3](20240712_102703.jpg "Product internal image 2")
 
 The powerboard also incorporates power monitoring using the BL0942 chip.
 
