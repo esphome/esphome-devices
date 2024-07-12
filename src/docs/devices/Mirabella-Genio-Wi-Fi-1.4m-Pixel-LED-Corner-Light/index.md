@@ -9,7 +9,7 @@ made-for-esphome: False
 
 ## General Notes
 
-The [Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-1-4m-pixel-led-corner-light/) features a strip of individually addresasble leds with a corner stand frame.
+The [Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-1-4m-pixel-led-corner-light/) features a strip of individually addressable leds with a corner stand frame.
 
 ![Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](/Mirabella-Genio-Wi-Fi-1.4m-Pixel-LED-Corner-Light-Packaging.png "Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light")
 
@@ -17,7 +17,7 @@ They are sold at [Kmart NZ](https://www.kmart.co.nz/product/mirabella-genio-wi-f
 
 Inside is a [T103_V1.0](https://docs.libretiny.eu/boards/t103-v1.0/) module based on the RTL8710BX MCU. I believe this is prossible to reflash using [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) but I have not done so myself so do at your own risk. Please update this page if you are successful.
 
-![Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light Teardown](/Mirabella-Genio-Wi-Fi-1.4m-Pixel-LED-Corner-Light-Teardown.png "Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light Teardown")
+![Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light Teardown](/Mirabella-Genio-Wi-Fi-1.4m-Pixel-LED-Corner-Light-Teardown.jpg "Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light Teardown")
 
 ## GPIO Pinout
 
