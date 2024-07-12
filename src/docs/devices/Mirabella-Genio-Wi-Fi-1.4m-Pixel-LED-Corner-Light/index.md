@@ -15,7 +15,7 @@ The [Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](https://www.mirabellagen
 
 They are sold at [Kmart NZ](https://www.kmart.co.nz/product/mirabella-genio-wi-fi-1.4m-pixel-led-corner-light-43205363/) and [Kmart AU](https://www.kmart.com.au/product/mirabella-genio-wi-fi-14m-pixel-led-corner-light-43205363/).
 
-Inside is a [T103_V1.0](https://docs.libretiny.eu/boards/t103-v1.0/) module based on the RTL8710BX MCU. I believe this is prossible to reflash using [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) but I have not done so myself so do at your own risk. Please update this page if you are successful.
+Inside is a [T103_V1.0](https://docs.libretiny.eu/boards/t103-v1.0/) module based on the RTL8710BX MCU. I believe this is prossible to reflash using [LibreTiny](https://docs.libretiny.eu/docs/platform/realtek-ambz/) but I have not done so myself so do at your own risk. Please update this page if you are successful.
 
 ![Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light Teardown](/Mirabella-Genio-Wi-Fi-1.4m-Pixel-LED-Corner-Light-Teardown.jpg "Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light Teardown")
 
