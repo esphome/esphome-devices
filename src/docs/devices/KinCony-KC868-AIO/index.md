@@ -393,14 +393,14 @@ cd74hc4067:
       mode: OUTPUT
       inverted: true
 
-dallas:
+one_wire:
   - pin: 5
     update_interval: 60s
 
 # Example configuration entry
 sensor:
 
-  - platform: dallas
+  - platform: dallas_temp
     address: 0xec0921405caae128
     name: "aio--ds18b20"
 
