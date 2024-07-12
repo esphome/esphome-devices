@@ -7,7 +7,7 @@ board: bk72xx
 difficulty: 4
 ---
 
-![Picture to be added](./ "Product front image")
+![Picture to be added](20240712_102703.jpg "Product front image")
 
 
 ## Product description
