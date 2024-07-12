@@ -4,7 +4,7 @@ date-published: 2024-07-13
 type: light
 standard: au
 board: rtl87xx
-made-for-esphome: no
+made-for-esphome: False
 ---
 
 ## General Notes
