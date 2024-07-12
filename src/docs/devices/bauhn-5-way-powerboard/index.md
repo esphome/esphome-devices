@@ -10,7 +10,7 @@ difficulty: 4
 
 ## Product description
 
-This is a Bauhn (Aldi) 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets.  Purchased in July 2024.
+This is a Bauhn (Aldi) AP5W-0624 It is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets.  Purchased in July 2024.
 
 The powerboard incorporates a Tuya CBU module incorporating the BK7231N processor.
 To realign for ESPHome use I went straight for the "solder and reprogram" method rather than eploring other software only repogramming options.
