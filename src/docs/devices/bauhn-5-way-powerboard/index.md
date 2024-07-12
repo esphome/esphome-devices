@@ -1,12 +1,12 @@
 ---
-title: Bauhn (Aldi) 5-way Powerboard
+title: Bauhn (Aldi) 5-way Powerboard AP5W-0624
 date-published: 2024-07-03
 type: plug
 standard: au
 board: bk72xx
 difficulty: 4
 ---
-![Product picture 1](20240712_102440.jpg "Product image")
+![Product picture 1](20240712_102440.jpg "Bauhn AP5W-0624")
 
 ## Product description
 
@@ -18,8 +18,8 @@ The unit is easy to open with "Triangle" socket screws on the back. The CBU modu
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
-![Product picture 2](20240712_102657.jpg "Product internal image 1")
-![Product picture 3](20240712_102703.jpg "Product internal image 2")
+![Product picture 2](20240712_102657.jpg "Product with back removed")
+![Product picture 3](20240712_102703.jpg "Close up of control board")
 
 The powerboard also incorporates power monitoring using the BL0942 chip.
 
