@@ -31,7 +31,7 @@ Other features of the board are:
 4) Single momentary push button
 5) Resettable overload (10A)
 
-https://www.aldi.com.au/special-buys/special-buys-sat-29-june/saturday-detail-wk26/ps/p/5-way-surge-protector-powerboard-with-wi-fi-and-meter-reading/, 
+https://www.aldi.com.au/special-buys/special-buys-sat-29-june/saturday-detail-wk26/ps/p/5-way-surge-protector-powerboard-with-wi-fi-and-meter-reading/
 
 ## Pinout
 
