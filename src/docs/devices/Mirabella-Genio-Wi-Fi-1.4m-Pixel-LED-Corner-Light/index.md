@@ -9,7 +9,7 @@ made-for-esphome: False
 
 ## General Notes
 
-The [Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-1-4m-pixel-led-corner-light/) features a strip of individually addressable leds with a corner stand frame.
+The [Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-1-4m-pixel-led-corner-light/) is a Tuya-based smart home lamp, featuring a strip of individually addressable leds with a corner stand frame.
 
 ![Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light](/Mirabella-Genio-Wi-Fi-1.4m-Pixel-LED-Corner-Light-Packaging.png "Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light")
 
