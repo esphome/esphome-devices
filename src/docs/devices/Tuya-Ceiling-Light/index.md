@@ -1,5 +1,5 @@
 ---
-title: Tuya Ceiling Light
+title: Tuya Ceiling Light RCBCW
 date-published: 2024-07-16
 type: light
 standard: global
@@ -8,7 +8,9 @@ difficulty: Soldering required (4/5) or use dupont cable with bluetacs
 ---
 
 ![alt text](box.jpg "Box")
-![alt text](led_plate.jpg "PCB")
+![alt text](ceiling.jpg "Ceiling Light")
+![alt text](LED_plate.jpg "PCB")
+![alt text](PCB_2.jpg "PCB")
 
 - Has CB3L (BK7231N) chip.
 
@@ -16,16 +18,17 @@ difficulty: Soldering required (4/5) or use dupont cable with bluetacs
 
 | Pin    | Function           |
 | ------ | ------------------ |
-| GPIO26 | Button 1           |
-| GPIO7  | Relay 1            |
-| GPIO8  | Relay 1            |
-| GPIO6  | Wifi LED indicator |
+| GPIO7 | PWM 1         |
+| GPIO8  | PWM 2            |
+| GPIO9  | PWM 3            |
+| GPIO6  | PWM 4  |
+| GPIO24  | PWM 5 |
 
 ## PCB
 
-![alt text](pcb.jpg "PCB")
+![alt text](PCB.jpg "PCB")
 
-## Basic Configuration (1 gang)
+## Basic Configuration
 
 ```yaml
 esphome:
