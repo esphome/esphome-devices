@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/ApolloAutomation/MSR-2
 difficulty: 1
+made-for-esphome: true
 ---
 
 ![Apollo MSR-2](Apollo-MSR-2.jpeg "Apollo MSR-2")
