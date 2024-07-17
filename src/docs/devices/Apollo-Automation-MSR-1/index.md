@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/ApolloAutomation/MSR-1
 difficulty: 1
+made-for-esphome: true
 ---
 
 ![Apollo MSR-1 Size](Apollo-MSR-1-Size.jpg "Apollo MSR-1 Size")

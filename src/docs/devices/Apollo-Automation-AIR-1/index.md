@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/ApolloAutomation/AIR-1/
 difficulty: 1
+made-for-esphome: true
 ---
 
 ![Apollo AIR-1](Apollo-AIR-1.jpg "Apollo AIR-1")
