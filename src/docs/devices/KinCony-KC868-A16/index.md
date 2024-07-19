@@ -73,15 +73,11 @@ uart:
 remote_receiver:
   pin:
     number: GPIO2
-    inverted: true
     ignore_strapping_warning: true
-  dump:
-    - raw
 
 remote_transmitter:
   pin:
     number: GPIO15
-    inverted: true
     ignore_strapping_warning: true
   carrier_duty_percent: 100%
 
