@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/ApolloAutomation/MTR-1/
 difficulty: 1
+made-for-esphome: true
 ---
 
 ![Apollo MTR-1](Apollo-MTR-1.JPG "Apollo MTR-1")
