@@ -75,7 +75,7 @@ remote_receiver:
     number: GPIO2
     inverted: true
     ignore_strapping_warning: true
-  dump: 
+  dump:
     - raw
 
 remote_transmitter:
@@ -87,7 +87,7 @@ remote_transmitter:
 
 i2c:
   sda: GPIO4
-  scl: 
+  scl:
     number: GPIO5
     ignore_strapping_warning: true
 
@@ -104,19 +104,19 @@ pcf8574:
 binary_sensor:
   - platform: gpio
     name: "KC868-A16-HT1"
-    pin: 
+    pin:
       number: GPIO32
       inverted: true
 
   - platform: gpio
     name: "KC868-A16-HT2"
-    pin: 
+    pin:
       number: GPIO33
       inverted: true
 
   - platform: gpio
     name: "KC868-A16-HT3"
-    pin: 
+    pin:
       number: GPIO14
       inverted: true
 
@@ -166,7 +166,7 @@ binary_sensor:
       pcf8574: inputs_1_8
       number: 5
       mode: INPUT
-      inverted: true 
+      inverted: true
 
   - platform: gpio
     name: "KC868-A16-X07"
@@ -174,7 +174,7 @@ binary_sensor:
       pcf8574: inputs_1_8
       number: 6
       mode: INPUT
-      inverted: true 
+      inverted: true
 
   - platform: gpio
     name: "KC868-A16-X08"
@@ -182,7 +182,7 @@ binary_sensor:
       pcf8574: inputs_1_8
       number: 7
       mode: INPUT
-      inverted: true 
+      inverted: true
 
   - platform: gpio
     name: "KC868-A16-X09"
@@ -230,7 +230,7 @@ binary_sensor:
       pcf8574: inputs_9_16
       number: 5
       mode: INPUT
-      inverted: true 
+      inverted: true
 
   - platform: gpio
     name: "KC868-A16-X15"
@@ -238,7 +238,7 @@ binary_sensor:
       pcf8574: inputs_9_16
       number: 6
       mode: INPUT
-      inverted: true 
+      inverted: true
 
   - platform: gpio
     name: "KC868-A16-X16"
@@ -246,7 +246,7 @@ binary_sensor:
       pcf8574: inputs_9_16
       number: 7
       mode: INPUT
-      inverted: true 
+      inverted: true
 
 switch:
   - platform: gpio
