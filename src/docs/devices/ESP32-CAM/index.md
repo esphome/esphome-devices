@@ -3,7 +3,7 @@ title: Generic ESP32-CAM
 date-published: 2019-10-11
 type: misc
 standard: global
-board: esp32
+board: esp32cam #Changed as per available compatible boards in esphome current (2024.7.0) to have proper capability mapping.
 ---
 
 ## GPIO Pinout
