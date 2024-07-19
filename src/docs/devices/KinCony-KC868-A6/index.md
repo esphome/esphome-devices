@@ -83,7 +83,7 @@ spi:
 
 i2c:
   sda: GPIO4
-  scl: 
+  scl:
     number: GPIO15
     ignore_strapping_warning: true
 
@@ -105,7 +105,6 @@ binary_sensor:
       number: 0
       mode: INPUT
       inverted: true
-
   - platform: gpio
     name: "KC868-A6-IN-2"
     pin:
@@ -113,7 +112,6 @@ binary_sensor:
       number: 1
       mode: INPUT
       inverted: true
-
   - platform: gpio
     name: "KC868-A6-IN-3"
     pin:
@@ -121,7 +119,6 @@ binary_sensor:
       number: 2
       mode: INPUT
       inverted: true
-
   - platform: gpio
     name: "KC868-A6-IN-4"
     pin:
@@ -129,7 +126,6 @@ binary_sensor:
       number: 3
       mode: INPUT
       inverted: true
-
   - platform: gpio
     name: "KC868-A6-IN-5"
     pin:
@@ -137,14 +133,13 @@ binary_sensor:
       number: 4
       mode: INPUT
       inverted: true
-
   - platform: gpio
     name: "KC868-A6-IN-6"
     pin:
       pcf8574: inputs
       number: 5
       mode: INPUT
-      inverted: true 
+      inverted: true
 
 switch:
   - platform: gpio
@@ -155,7 +150,6 @@ switch:
       number: 0
       mode: OUTPUT
       inverted: true
-
   - platform: gpio
     name: "KC868-A6-RELAY-2"
     id: relay_2
@@ -164,7 +158,6 @@ switch:
       number: 1
       mode: OUTPUT
       inverted: true
-     
   - platform: gpio
     name: "KC868-A6-RELAY-3"
     id: relay_3
@@ -173,7 +166,6 @@ switch:
       number: 2
       mode: OUTPUT
       inverted: true
-     
   - platform: gpio
     name: "KC868-A6-RELAY-4"
     id: relay_4
@@ -182,7 +174,6 @@ switch:
       number: 3
       mode: OUTPUT
       inverted: true
-     
   - platform: gpio
     name: "KC868-A6-RELAY-5"
     id: relay_5
@@ -191,7 +182,6 @@ switch:
       number: 4
       mode: OUTPUT
       inverted: true
-     
   - platform: gpio
     name: "KC868-A6-RELAY-6"
     id: relay_6
