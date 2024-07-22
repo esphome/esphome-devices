@@ -101,8 +101,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "3qWCkG6lQehrOyOSKsS/ltQ6FlXFJN9uoTFU/mIdvM8="
 
 ota:
   - platform: esphome
