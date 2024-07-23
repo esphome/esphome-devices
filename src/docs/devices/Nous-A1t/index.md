@@ -52,6 +52,7 @@ esphome:
 esp8266:
   board: esp8285
   restore_from_flash: true
+  early_pin_init: False
 
 # Enable logging
 logger:
@@ -84,6 +85,7 @@ web_server:
 light:
   - platform: status_led
     id: led
+    restore_mode: RESTORE_DEFAULT_ON
     pin:
       number: GPIO13
       inverted: true
@@ -106,6 +108,7 @@ switch:
     name: "${devicename} - Switch"
     icon: mdi:power
     optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
     id: "button_switch"
     lambda: |-
       if (id(relay).state) {
@@ -120,6 +123,7 @@ switch:
       - switch.turn_off: relay
       - light.turn_off: led
   - platform: gpio
+    restore_mode: RESTORE_DEFAULT_ON
     pin: GPIO14
     id: relay
 

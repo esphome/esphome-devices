@@ -64,13 +64,13 @@ i2c:
   id: bus_a
 
 # Example configuration entry
-dallas:
+one_wire:
   - pin: GPIO27
     update_interval: 15s
 
 # Individual sensors
 sensor:
-  - platform: dallas
+  - platform: dallas_temp
     address: 0xC000000004D81528
     name: "internal Temperature"
 

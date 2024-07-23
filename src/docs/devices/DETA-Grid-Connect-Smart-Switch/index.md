@@ -75,6 +75,18 @@ If you prefer to flash manually, you'll need a USB to serial adapter. Follow the
 | GPIO14 | Relay, Bottom _(includes LED)_ |
 | GPIO16 | Button, Top                    |
 
+Triple 6903HA
+
+| Pin    | Function                       |
+| ------ | ------------------------------ |
+| GPIO16 | Button, Top                    |
+| GPIO04 | Button, Middle                 |
+| GPIO03 | Button, Bottom                 |
+| GPIO05 | Relay, Top _(includes LED)_    |
+| GPIO14 | Relay, Middle _(includes LED)_ |
+| GPIO12 | Relay, Bottom _(includes LED)_ |
+| GPIO0  | Status LED _(inverted)_        |
+
 ### BK72XX-Based Models
 
 | Pin    | Function                       |

@@ -15,33 +15,44 @@ export default function GlobalStyle() {
           box-sizing: border-box;
         }
 
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Sans:ital,wdth@75..100,wght@0,400..700;1,400..700&display=swap');
+
         body {
           font-size: 16px;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
           background-color: ${theme.colors.background};
           text-rendering: optimizelegibility;
           -webkit-font-smoothing: antialiased;
           overflow-y: scroll;
+          line-height: 1.6;
+          letter-spacing: 0.0075em;
         }
 
         h1 {
-          font-size: 32px;
+          font-size: 3rem;
           color: ${theme.colors.title};
-          font-weight: bold;
+          font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          font-weight: 800;
+          margin-top: -4px;
           margin-bottom: 24px;
+          line-height: 1.25;
         }
 
         h2 {
           font-size: 24px;
+          font-weight: 700;
         }
 
         h3 {
           font-size: 18px;
+          font-weight: 700;
         }
 
         h4 {
           font-size: 16px;
+          font-weight: 700;
         }
 
         h2,
@@ -52,7 +63,9 @@ export default function GlobalStyle() {
           color: ${theme.colors.title};
 
           margin: 24px 0 16px 0;
-          font-weight: bold;
+          font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          font-weight: 600;
         }
 
         p {
@@ -61,6 +74,10 @@ export default function GlobalStyle() {
           line-height: 28px;
           margin-bottom: 16px;
           font-weight: 400;
+        }
+
+        strong {
+          font-weight: 600;
         }
 
         code.inline-code {
@@ -85,7 +102,7 @@ export default function GlobalStyle() {
 
         a {
           color: ${theme.colors.text};
-          font-weight: bold;
+          font-weight: 600;
           text-decoration: none;
 
           &:hover {

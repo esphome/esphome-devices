@@ -94,12 +94,12 @@ binary_sensor:
       inverted: true
     name: "asr-button"
 
-dallas:
+one_wire:
   - pin: 32
     update_interval: 5s
 
 sensor:
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x7b062162cfe98128
     name: "asr-t2"
 ```

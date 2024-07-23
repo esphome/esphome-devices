@@ -1,9 +1,10 @@
 ---
 title: Sonoff THR320D
 date-published: 2023-01-07
-type: plug
-standard: us
+type: relay
+standard: global
 board: esp32
+difficulty: 3
 ---
 
 ## Bootloop Workaround
@@ -400,7 +401,7 @@ sensor:
   # because these only apply when the temperature ENTERS these ranges
   # If it REMAINS in the range, and climate is turned on manually, these
   # failsafes will not apply!
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x1e11223344550028
     id: temp
     name: "Temperature"
@@ -471,7 +472,7 @@ climate:
           - logger.log: "Climate control ON"
           - light.turn_on: auto_led
 
-dallas:
+one_wire:
   pin: GPIO25
   update_interval: 10s
 
