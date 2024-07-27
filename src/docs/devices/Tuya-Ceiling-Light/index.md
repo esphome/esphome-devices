@@ -4,7 +4,7 @@ date-published: 2024-07-16
 type: light
 standard: global
 board: bk72xx
-difficulty: Soldering required (4/5) or use dupont cable with bluetacs
+difficulty: 4
 ---
 
 ![alt text](box.jpg "Box")
@@ -69,7 +69,7 @@ output:
   inverted: False
 - platform: libretiny_pwm
   id: green_color
-  pin: P8 
+  pin: P8
   inverted: False
 - platform: libretiny_pwm
   id: blue_color
