@@ -1,5 +1,5 @@
 ---
-title: DIY Smart Switch
+title: Tyna Smart Socket USB
 date-published: 2024-07-11
 type: relay, plug
 standard: global
