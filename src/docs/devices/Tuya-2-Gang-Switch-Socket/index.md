@@ -12,6 +12,9 @@ A smart GPO the contains 2 light switches. All three outputs are controllable.
 
 These devices are sold under many brands on Aliexpress.
 
+Copy
+![alt text](tyna-gpo-switch.png "Tuya 2 Gang Switch Socket")
+
 ## GPIO Pinout
 
 | Pin    | Function                   |
