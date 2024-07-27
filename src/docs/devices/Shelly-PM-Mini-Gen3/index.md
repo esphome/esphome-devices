@@ -39,13 +39,12 @@ The UART Pinout is the same as other Shelly Plus Mini.
 substitutions:
   device_name: "pm-mini-gen3"
   friendly_name : "Shelly PM Mini Gen3"
-  platformio_options:
-    board_build.flash_mode: dio
-
 
 esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
+  platformio_options:
+    board_build.flash_mode: dio
 
 esp32:
   board: esp32-c3-devkitm-1
