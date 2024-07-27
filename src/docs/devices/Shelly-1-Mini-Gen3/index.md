@@ -38,7 +38,7 @@ The UART Pinout is the same as other Shelly Mini.
 
 ```yaml
 substitutions:
-  device_name: "sehlly-1-mini-gen3"
+  device_name: "shelly-1-mini-gen3"
   friendly_name : "Shelly 1 Mini Gen3"
 
 esphome:
