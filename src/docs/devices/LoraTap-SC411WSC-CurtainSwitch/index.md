@@ -25,6 +25,8 @@ difficulty: 4
 
 The LoraTap Sc411WSC curtain switch has 3 buttons, 2 yellow LED, 2 relay output (blue LED tied to buttons).
 
+![image](https://github.com/user-attachments/assets/c3536c72-6843-4859-b5fd-213d1e06783f)
+
 ```yaml
 substitutions:
   device_friendly_name: Blind Switch
