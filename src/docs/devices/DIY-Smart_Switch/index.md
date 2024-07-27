@@ -14,6 +14,10 @@ Some modules have RF433 fuction but not included below.
 
 These devices are sold under many brands on Aliexpress.
 
+Copy
+![alt text](Wifi-Switch.jpg "smart WIFI relay")
+
+
 ## GPIO Pinout
 
 | Pin    | Function                   |
