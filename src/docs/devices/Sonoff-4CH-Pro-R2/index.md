@@ -20,9 +20,9 @@ board: esp8266
 | GPIO15 | Relay 4 and its status LED           |
 | GPIO13 | Blue LED (HIGH = off, LOW = on)      |
 | GPIO3  | RX pin (for external sensors)        |
-| GPIO2  | TX pin (for external sensors)        |
+| GPIO1  | TX pin (for external sensors)        |
 
-There is a separate SDA pin on the board, but it is actually connected to GPIO2 (TX pin)
+There is a separate SDA pin on the board, but it is actually connected to GPIO2
 
 This is described in the esp8285 datasheet (see <https://www.espressif.com/sites/default/files/documentation/0a-esp8285_datasheet_en.pdf>)
 
