@@ -19,6 +19,18 @@ board: esp8266
 | GPIO4  | Relay 3 and its status LED           |
 | GPIO15 | Relay 4 and its status LED           |
 | GPIO13 | Blue LED (HIGH = off, LOW = on)      |
+| GPIO3  | RX pin (for external sensors)        |
+| GPIO2  | TX pin (for external sensors)        |
+
+There is a separate SDA pin on the board, but it is actually connected to GPIO2 (TX pin)
+
+This is described in the esp8285 datasheet (see <https://www.espressif.com/sites/default/files/documentation/0a-esp8285_datasheet_en.pdf>)
+
+## PCB
+
+![alt text](/sonoff-4chpro.JPG "Sonoff 4CH Pro R3 V1.1 PCB")
+
+![alt text](/sonoff-4chpro-rear.JPG "Sonoff 4CH Pro R3 V1.1 PCB rear")
 
 ## Basic Configuration
 
