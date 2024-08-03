@@ -1,5 +1,5 @@
 ---
-title: ESP-01S-1-channel-relay
+title: ESP-01S 1 Channel Relay
 date-published: 2022-01-13
 type: relay
 standard: global
