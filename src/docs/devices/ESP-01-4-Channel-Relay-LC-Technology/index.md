@@ -1,10 +1,11 @@
 ---
-title: LC-Technology-4-Channel-Relay
+title: ESP-01 4 Channel Relay LC Technology
 date-published: 2022-02-12
-type: Relays
-standard: eu
+type: relay
+standard: global
 board: esp8266
 ---
+![Product Image](/ESP-01-4-Channel-Relay-LC-Technology.jpg "Product Image")
 
 Printable enclosure: https://www.printables.com/model/836453-lc-tech-4-relay-esp-01-enclosure
 
@@ -22,7 +23,8 @@ esp8266:
 api:
 
 ota:
-  password: ""
+  - platform: esphome
+    password: ""
 
 wifi:
   ssid: ""
@@ -48,31 +50,34 @@ uart:
   
 switch:
   - platform: template
-    name: 'relay1'
+    name: "relay1"
     id: relay1
     turn_on_action:
       - uart.write: [0xA0, 0x01, 0x01, 0xA2]
     turn_off_action:
       - uart.write: [0xA0, 0x01, 0x00, 0xA1]
     optimistic: true
+
   - platform: template
-    name: 'relay2'
+    name: "relay2"
     id: relay2
     turn_on_action:
       - uart.write: [0xA0, 0x02, 0x01, 0xA3]
     turn_off_action:
       - uart.write: [0xA0, 0x02, 0x00, 0xA2]
     optimistic: true
+
   - platform: template
-    name: 'relay3'
+    name: "relay3"
     id: relay3
     turn_on_action:
       - uart.write: [0xA0, 0x03, 0x01, 0xA4]
     turn_off_action:
       - uart.write: [0xA0, 0x03, 0x00, 0xA3]
     optimistic: true
+
   - platform: template
-    name: 'relay4'
+    name: "relay4"
     id: relay4
     turn_on_action:
       - uart.write: [0xA0, 0x04, 0x01, 0xA5]
@@ -95,7 +100,8 @@ esp8266:
 api:
 
 ota:
-  password: ""
+  - platform: esphome
+    password: ""
 
 wifi:
   ssid: ""
@@ -121,7 +127,7 @@ uart:
   
 switch:
   - platform: template
-    name: 'relay1'
+    name: "relay1"
     id: relay1
     turn_on_action:
       - uart.write: [0xA0, 0x01, 0x01, 0xA2]
@@ -131,8 +137,9 @@ switch:
     on_turn_on:
     - delay: 1000ms
     - switch.turn_off: relay1
+
   - platform: template
-    name: 'relay2'
+    name: "relay2"
     id: relay2
     turn_on_action:
       - uart.write: [0xA0, 0x02, 0x01, 0xA3]
@@ -142,8 +149,9 @@ switch:
     on_turn_on:
     - delay: 1000ms
     - switch.turn_off: relay2
+
   - platform: template
-    name: 'relay3'
+    name: "relay3"
     id: relay3
     turn_on_action:
       - uart.write: [0xA0, 0x03, 0x01, 0xA4]
@@ -153,8 +161,9 @@ switch:
     on_turn_on:
     - delay: 1000ms
     - switch.turn_off: relay3
+
   - platform: template
-    name: 'relay4'
+    name: "relay4"
     id: relay4
     turn_on_action:
       - uart.write: [0xA0, 0x04, 0x01, 0xA5]
