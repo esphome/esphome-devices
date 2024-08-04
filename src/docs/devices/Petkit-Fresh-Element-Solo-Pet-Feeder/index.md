@@ -37,7 +37,7 @@ See the [wiring diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing.png) fo
 | GPIO18 | Feed forward control*         |
 | GPIO17 | Reverse feed control*         |
 
-_\* purpose of some of these pins is unclear_
+\* *purpose of some of these pins is unclear*
 
 ## Config
 
