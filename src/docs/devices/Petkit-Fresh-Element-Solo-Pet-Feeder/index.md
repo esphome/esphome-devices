@@ -6,11 +6,7 @@ standard: global
 board: esp32
 ---
 
-<center>
- <a href="./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg" target=”_blank”>
-  <img src="./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg" width="400">
- </a>
-</center>
+![Product Image](./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg)
 
 ## Product description
 
