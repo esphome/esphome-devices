@@ -37,8 +37,8 @@ See the [wiring diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing.png) fo
 | GPIO18 | Feed forward control*         |
 | GPIO17 | Reverse feed control*         |
 
-*\* purpose of some of these pins is unclear*
- 
+_\* purpose of some of these pins is unclear_
+
 ## Config
 
 The config below is intended to make the feeder tolerant to the Home Assistant failures, by supporting HA-offline schduling capabaility (but it still requires WiFi and Internet connection to synchronize time with SNTP servers, or the schdule won't work).
@@ -113,7 +113,7 @@ script:
             - rtttl.play:
                 rtttl: !lambda 'return song_str;'
   - id: actuate_feeder
-    parameters: 
+    parameters:
       scoops: int
     then:
       - if:
@@ -131,7 +131,7 @@ script:
                 id(max_scoops) = scoops;
             - switch.turn_on: feed_forward
   - id: dispatch_feeder_food_dispensed_event
-    parameters: 
+    parameters:
       event_message: string
     then:
       - homeassistant.event:
@@ -139,7 +139,7 @@ script:
           data:
             message: !lambda return event_message;
   - id: dispatch_feeder_food_low_event
-    parameters: 
+    parameters:
       event_message: string
     then:
       - homeassistant.event:
@@ -605,7 +605,7 @@ binary_sensor:
   - id: manual_feed_button
     internal: true
     platform: gpio
-    pin: 
+    pin:
       number: GPIO34
       inverted: true
     on_press:
@@ -614,7 +614,7 @@ binary_sensor:
   - id: motor_sensor
     internal: true
     platform: gpio
-    pin: 
+    pin:
       number: GPIO27
       inverted: true
     on_press:
@@ -635,7 +635,7 @@ binary_sensor:
   - id: feed_sensor
     internal: true
     platform: gpio
-    pin: 
+    pin:
       number: GPIO14
     on_press:
       then:
@@ -652,7 +652,7 @@ switch:
   - id: enable_sensors
     internal: true
     platform: gpio
-    pin: 
+    pin:
       number: GPIO33
     restore_mode: ALWAYS_ON
     disabled_by_default: true
@@ -660,7 +660,7 @@ switch:
   - id: enable_feeder_motor
     internal: true
     platform: gpio
-    pin: 
+    pin:
       number: GPIO19
     restore_mode: ALWAYS_OFF
     disabled_by_default: true
@@ -669,7 +669,7 @@ switch:
     internal: true
     interlock: &interlock_group [feed_forward, feed_reverse]
     platform: gpio
-    pin: 
+    pin:
       number: GPIO18
     restore_mode: ALWAYS_OFF
     on_turn_on:
@@ -683,7 +683,7 @@ switch:
     internal: true
     interlock: *interlock_group
     platform: gpio
-    pin: 
+    pin:
       number: GPIO17
     restore_mode: ALWAYS_OFF
 
