@@ -4,6 +4,8 @@ date-published: 2024-08-04
 type: misc
 standard: global
 board: esp32
+difficulty: 4
+project-url: https://github.com/n6ham/esphome-configs/blob/master/petkit-fresh-element-solo.yaml
 ---
 
 ![Product Image](./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg)
@@ -53,8 +55,8 @@ An automation can be configured to listen to the event and notify users about lo
 
 ```yaml
 substitutions:
-  name: "cat-feeder"
-  friendly_name: Cat Feeder
+  name: fresh-element-solo
+  friendly_name: Petkit Fresh Element Solo
   device_description: "Petkit Fresh Element Solo Pet Feeder"
   default_scoops: "1"
   min_scoops: "0"
