@@ -6,11 +6,15 @@ standard: global
 board: esp32
 ---
 
-![Product front](./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg "Product image")
+<center>
+ <a href="./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg" target=”_blank”>
+  <img src="./Petkit-Fresh-Element-Solo-Pet-Feeder-Product.jpg" width="400">
+ </a>
+</center>
 
 ## Product description
 
-This is an automatic pet feeder for cat/dog sized pets with a proprietary cloud based app. The mainboard has an ESP32-WROOM-32D and thus can be flashed with an ESPHome firmware to be controlled locally.
+This is an automatic pet feeder for cat/dog sized pets with a proprietary cloud based app. The mainboard has an ESP32-WROOM-32D chip on it and thus can be flashed with an ESPHome firmware to be controlled locally.
 
 The feeder comes with a US power adapter and a barrel connector if ordered from [Amazon US](https://www.amazon.com/dp/B0CFV4B369), but can be powered by any 5V power adapter with a barrel connector.
 
@@ -728,7 +732,7 @@ button:
 
 ## Automation example
 
-```
+```yaml
 alias: Pet feeder notifications
 description: ""
 trigger:
