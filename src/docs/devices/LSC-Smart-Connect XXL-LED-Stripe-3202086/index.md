@@ -99,7 +99,7 @@ light:
             light.is_off: color_light
           then:
             - switch.turn_off: LED_Power
-      
+
   - platform: beken_spi_led_strip
     id: color_light
     name: "Color Light"
@@ -128,6 +128,7 @@ light:
             light.is_off: white_light
           then:
             - switch.turn_off: LED_Power
+
 output:
   - platform: libretiny_pwm
     id: output_cw
@@ -135,7 +136,7 @@ output:
   - platform: libretiny_pwm
     id: output_ww
     pin: P24
-      
+
 switch:
   # Switch to toggle the relay (Power output)
   - platform: gpio
