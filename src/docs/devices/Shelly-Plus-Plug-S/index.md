@@ -303,7 +303,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO33
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 10s
 
   - platform: hlw8012
