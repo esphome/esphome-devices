@@ -175,6 +175,6 @@ binary_sensor:
         input: True
         pullup: True
     name: "Button"
-    on_press: 
+    on_press:
       - light.toggle: white_light
 ```
