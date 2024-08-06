@@ -13,6 +13,9 @@ difficulty: 2
 This is a very capable little automation/relay/io board from aliexpress[aliexpress](https://www.aliexpress.us/item/3256805999936525.html)
 It runs on 12V or 24V depending on your configuration and is perfect for industrial and home automation 
 
+![Product](./ES32A08.jpg "Product Image")
+[Schematic](./Schematic_ES32A08.pdf)
+
 ## Basic Configuration
 ### exposes:
 - 8 Relay Outputs (Labeled O1-O8)
