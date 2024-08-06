@@ -7,17 +7,20 @@ board: esp32
 made-for-esphome: False
 difficulty: 2
 ---
-# Board comes without esp32 (use wroom 32 devkit)
+## Board comes without esp32 (use wroom 32 devkit)
 
 ## Description
-This is a very capable little automation/relay/io board from aliexpress[aliexpress](https://www.aliexpress.us/item/3256805999936525.html)
-It runs on 12V or 24V depending on your configuration and is perfect for industrial and home automation 
+
+This is a very capable little automation/relay/io board from aliexpress [aliexpress](https://www.aliexpress.us/item/3256805999936525.html)
+It runs on 12V or 24V depending on your configuration and is perfect for industrial and home automation
 
 ![Product](./ES32A08.jpg "Product Image")
 [Schematic](./Schematic_ES32A08.pdf)
 
 ## Basic Configuration
-### exposes:
+
+### exposes
+
 - 8 Relay Outputs (Labeled O1-O8)
 - 8 24V Inputs (Labeled I1-I8)
 - 4 Analag inputs (0-20ma) (Labeled ADC1-ADC4)
@@ -26,8 +29,9 @@ It runs on 12V or 24V depending on your configuration and is perfect for industr
 - 1 status LED (Labeled "status LED")
 - 1 4 Digit 7 Segment display (listens on configurable homeassistant text sensor) (still a little buggy)
 
-### known limitations:
-- 4 Digit display has problems with trailing dots 
+### known limitations
+
+- 4 Digit display has problems with trailing dots
 - RS485 is not enabled but would work using GPIO1 -> TXD and GPIO3 -> RXD
 - my C++ is the most limiting factor here :D
 - io has not been tested yet !
@@ -408,14 +412,13 @@ output:
       sn74hc595: sn74hc595_hub
       number: 10
       inverted: True
-  
+
   - platform: gpio
     id: "G4"
     pin:
       sn74hc595: sn74hc595_hub
       number: 11
       inverted: True
-  
 
 sn74hc165:
   - id: sn74hc165_hub
@@ -432,7 +435,7 @@ binary_sensor:
       # Use pin number 0
       number: 0
       inverted: true
-      
+
   - platform: gpio
     name: "I2"
     pin:
@@ -440,7 +443,7 @@ binary_sensor:
       # Use pin number 0
       number: 1
       inverted: true
-      
+
   - platform: gpio
     name: "I3"
     pin:
@@ -448,7 +451,7 @@ binary_sensor:
       # Use pin number 0
       number: 2
       inverted: true
-      
+
   - platform: gpio
     name: "I4"
     pin:
@@ -456,7 +459,7 @@ binary_sensor:
       # Use pin number 0
       number: 3
       inverted: true
-      
+
   - platform: gpio
     name: "I5"
     pin:
@@ -464,7 +467,7 @@ binary_sensor:
       # Use pin number 0
       number: 4
       inverted: true
-      
+
   - platform: gpio
     name: "I6"
     pin:
@@ -472,7 +475,7 @@ binary_sensor:
       # Use pin number 0
       number: 5
       inverted: true
-      
+
   - platform: gpio
     name: "I7"
     pin:
@@ -480,7 +483,7 @@ binary_sensor:
       # Use pin number 0
       number: 6
       inverted: true
-      
+
   - platform: gpio
     name: "I8"
     pin:
@@ -491,7 +494,7 @@ binary_sensor:
 
   - platform: gpio
     name: "KEY1"
-    pin: 
+    pin:
       number: GPIO18
       inverted: True
       mode:
@@ -502,7 +505,7 @@ binary_sensor:
 
   - platform: gpio
     name: "KEY2"
-    pin: 
+    pin:
       number: GPIO19
       inverted: True
       mode:
@@ -513,7 +516,7 @@ binary_sensor:
 
   - platform: gpio
     name: "KEY3"
-    pin: 
+    pin:
       number: GPIO21
       inverted: True
       mode:
@@ -524,7 +527,7 @@ binary_sensor:
 
   - platform: gpio
     name: "KEY4"
-    pin: 
+    pin:
       number: GPIO23
       inverted: True
       mode:
