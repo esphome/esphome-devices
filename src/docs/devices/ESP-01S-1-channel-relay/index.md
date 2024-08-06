@@ -5,7 +5,7 @@ type: relay
 standard: global
 board: esp8266
 ---
-![Product Image](/ESP-01S-1-Channel-Relay.jpg "Product Image")
+![Product Image](./ESP-01S-1-Channel-Relay.jpg "Product Image")
 
 ## Product description
 
