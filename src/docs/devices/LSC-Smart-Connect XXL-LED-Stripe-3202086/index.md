@@ -1,8 +1,9 @@
 ---
-title: LSC Smart Connect XXL-LED-Stripe 3202086
-date-published: 2024-08-05
+title: LSC Smart Connect 10 meter XXL-LED-Stripe 3202086
+date-published: 2024-08-07
 type: light
 board: bk72xx
+standard: eu
 ---
 
 ## General Notes
@@ -10,7 +11,8 @@ board: bk72xx
 This configuration is for the [LSC Smart Connect XXL-LED-Stripe 3202086](https://www.action.com/de-at/p/3202086/lsc-smart-connect-xxl-led-streifen/)
 which comes as a colour changing LED strip with controller and transformer.
 
-![LSC Smart Connect XXL-LED-Stripe 3202086](/LSC-Smart-Connect XXL-LED-Stripe-3202086.png "LSC Smart Connect XXL-LED-Stripe 3202086")
+![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](/LSC-Smart-Connect XXL-LED-Stripe-3202086.png "LSC Smart Connect 10 meter XXL-LED-Stripe 3202086")
+Copy
 
 ## GPIO Pinout
 
