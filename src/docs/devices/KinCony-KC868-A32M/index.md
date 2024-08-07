@@ -337,23 +337,23 @@ sensor:
     pin: 34
     name: "a32m-analog-1"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 35
     name: "a32m-analog-2"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 39
     name: "a32m-analog-3"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 36
     name: "a32m-analog-4"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 ```

@@ -96,7 +96,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: bl0942
     uart_id: uart_0
