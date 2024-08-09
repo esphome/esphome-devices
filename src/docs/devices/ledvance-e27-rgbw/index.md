@@ -6,6 +6,8 @@ standard: eu
 board: bk27xx
 ---
 
+Product ID: AC33911
+
 Can be flashed with esphome kickstart via tuya-cloudcutter!!
 
 ## Product Images
@@ -54,7 +56,7 @@ api:
 
 ota:
   - platform: esphome
-      
+
 # WiFi connection
 wifi:
   ssid: !secret wifi_ssid
@@ -133,8 +135,8 @@ light:
     blue: output_blue
     white: output_white
     effects:
-      - random: 
+      - random:
           name: "Random"
-      - flicker: 
+      - flicker:
           name: "Flicker"
 ```
