@@ -11,7 +11,7 @@ standard: eu
 This configuration is for the [LSC Smart Connect XXL-LED-Stripe 3202086](https://www.action.com/de-at/p/3202086/lsc-smart-connect-xxl-led-streifen/)
 which comes as a colour changing LED strip with controller and transformer.
 
-![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](/LSC-Smart-Connect-XXL-LED-Stripe-3202086.png "LSC Smart Connect 10 meter XXL-LED-Stripe 3202086")
+![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](LSC-Smart-Connect-XXL-LED-Stripe-3202086.png "LSC Smart Connect 10 meter XXL-LED-Stripe 3202086")
 
 ## GPIO Pinout
 
