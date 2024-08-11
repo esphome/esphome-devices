@@ -15,7 +15,9 @@ It is compact, easily fitting side-by-side in double wall sockets.
 The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) and is supplied with Tuya firmware.  
 As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).  
 
-NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  These are clearly labelled as series 2 in bottom right corner of the box, and on the unit.  
+NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  These are clearly labelled as series 2 in bottom right corner of the box, and on the unit.
+
+**Update 11 August 2024:** Bunnings are now selling "Series 3" units with the same part number (PC191HA, or PC191BKHA for the black units). These continue to use the CB2S module but are loaded with Tuya firmware version 1.1.17 which isn't vulnerable to the Cloudcutter exploit. Additionally, the PCB design has been changed, and the GPIO configuration has subsequently changed - see the GPIO pinout table for the Series 3 unit below.
 
 Bunnings also have similar-looking Arlec Grid Connect variations:
      - PC192HA with USB,
@@ -36,6 +38,17 @@ I have NOT looked at any of these variations to find out if they are similar to 
 | P10 | (RXD1) Wifi LED (hidden inside unit) |
 | P11 | (TXD1) Button                        |
 
+## GPIO Pinout - Series 3
+| Pin | Function                             |
+| --- | ------------------------------------ |
+| P6  | (PWM0) BL0937 CF1 pin                |
+| P7  | (PWM1) BL0937 CF pin                 |
+| P8  | (PWM2) Relay                         |
+| P10 | (RXD1) Wifi LED (hidden inside unit) |
+| P11 | (TXD1) Button                        |
+| P24 | (PWM4) BL0937 SEL pin                |
+| P26 | (PWM5) LED                           |
+
 ## Getting it up and running
 
 ### Using Cloudcutter
@@ -43,6 +56,10 @@ I have NOT looked at any of these variations to find out if they are similar to 
 Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware over Wi-fi, eliminating the need to physically open the device.  
 Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.  
 After that, you can use ESPHome's OTA functionality to make any further changes.  
+
+### Series 3 - flashing the CB2S module manually
+
+The case is ultrasonic-welded shut. With a spudger, blade, or other thin-edged tool you can pry it open (there will be some cosmetic damage). There will also be some silicone holding everything together which can be overcome with some effort. The CB2S module is soldered in a thru-hole configuration on the top edge of the main board. Refer to the [CB2S datasheet](https://developer.tuya.com/en/docs/Document/cb2s-module-datasheet) for its pinout, you'll need a USB to TTL serial adapter and a soldering iron. It's best to remove the module from the main board, as the serial adapater's 3.3V power supply probably isn't enough for the module to boot with peripherals attached. Flash with [ltchiptool](https://github.com/libretiny-eu/ltchiptool) or similar.
 
 ### Note on Power Monitoring
 
