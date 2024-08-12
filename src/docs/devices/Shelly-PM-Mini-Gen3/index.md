@@ -43,6 +43,8 @@ substitutions:
 esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
+  platformio_options:
+    board_build.flash_mode: dio
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -95,7 +97,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: bl0942
     uart_id: uart_0

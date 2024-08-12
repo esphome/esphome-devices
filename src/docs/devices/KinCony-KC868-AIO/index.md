@@ -408,28 +408,28 @@ sensor:
     pin: 36
     id: adc36
     update_interval: never
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     name: "aio--AI-17"
     pin: 39
     id: adc39
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 34
     name: "aio--AI-18"
     id: adc34
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 35
     name: "aio--AI-19"
     id: adc35
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: cd74hc4067
     name: "aio--AI-16"

@@ -72,7 +72,7 @@ ota:
 sensor:
   - platform: adc
     pin: GPIO38
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 60s
     name: "Battery Voltage"
     filters:
