@@ -39,6 +39,7 @@ I have NOT looked at any of these variations to find out if they are similar to 
 | P11 | (TXD1) Button                        |
 
 ## GPIO Pinout - Series 3
+
 | Pin | Function                             |
 | --- | ------------------------------------ |
 | P6  | (PWM0) BL0937 CF1 pin                |
