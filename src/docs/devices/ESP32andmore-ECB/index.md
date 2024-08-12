@@ -5,7 +5,6 @@ standard: global
 board: esp32
 project-url: https://github.com/fpovoski/ESP32-Temperature-Monitoring-PWM-Control-Board
 difficulty: 1
-made-for-esphome: true
 ---
 
 ![ESP32 Control Board](UT_ECB1.JPG "ECB")
@@ -20,7 +19,6 @@ The ESP32andmore ECB is a multi-sensor fans control board:
 - Four PWM outputs for controlling PWM fans up to 10amps.
 - ESP32 base.
 - Wemos expansion header.
-
 
 ## Quickstart
 
