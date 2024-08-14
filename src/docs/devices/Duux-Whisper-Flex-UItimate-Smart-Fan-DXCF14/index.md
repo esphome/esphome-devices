@@ -8,7 +8,7 @@ made-for-esphome: False
 difficulty: 3
 ---
 
-![Duux Whisper Flex Smart Fan](duux_DXCF14.png  "Duux Whisper Flex Smart Fan")
+![Duux Whisper Flex Ultimater Smart Fan](duux_DXCF14.png  "Duux Whisper Flex Ultimate Smart Fan")
 
 ## GPIO Pinout
 
@@ -37,10 +37,10 @@ substitutions:
 
 esphome:
   name: $devicename
-  comment: "Duux Whisper Flex Smart Fan (DXCF10)"
-  friendly_name: "Duux Whisper Flex Smart Fan"
+  comment: "Duux Whisper Flex Ultimate Smart Fan (DXCF14)"
+  friendly_name: "Duux Whisper Flex Ultimate Smart Fan"
   project:
-    name: "Duux.Whisper-Flex-Smart-Fan"
+    name: "Duux.Whisper-Flex-Ultimate-Smart-Fan"
     version: "1.0.0"
 
 esp8266:
