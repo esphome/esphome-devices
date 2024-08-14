@@ -9,8 +9,8 @@ Difficulty: Soldering required
 
 ## General Notes
 
-This is a generic dual channel curtain module using a BK7231N chip. To flash it you need to solder 3.3V, GND these are easily accessible at the front of the module. 
-Also RX, TX which are at the inner side of the module next to one of the relays. 
+This is a generic dual channel curtain module using a BK7231N chip. To flash it you need to solder 3.3V, GND these are easily accessible at the front of the module.
+Also RX, TX which are at the inner side of the module next to one of the relays.
 The whole wifi module is suspended on pins because there is a relay under it. So I just bent the wifi bord a bit just to make enough space for soldering the two wires.
 It uses a wifi board called CBU.
 
@@ -32,7 +32,6 @@ It uses a wifi board called CBU.
 | GPIO20 | L3, to Curtain2 Open motor     |
 | GPIO2  | L4, to Curtain2 Close motor    |
 | GPIO19 | LED                            |
-
 
 ## Basic Configuration
 
@@ -83,7 +82,7 @@ web_server:
 switch:
 
   - platform: gpio
-    pin: 
+    pin:
       number: P20
       inverted: False
     id: L1_open
@@ -92,7 +91,7 @@ switch:
     internal: True
 
   - platform: gpio
-    pin: 
+    pin:
       number: P28
       inverted: False
     id: L2_close
@@ -101,7 +100,7 @@ switch:
     internal: True
 
   - platform: gpio
-    pin: 
+    pin:
       number: P17
       inverted: False
     id: L3_open
@@ -110,7 +109,7 @@ switch:
     internal: True
 
   - platform: gpio
-    pin: 
+    pin:
       number: P16
       inverted: False
     id: L4_close
@@ -120,7 +119,7 @@ switch:
 
 # LED
 #  - platform: gpio
-#    pin: 
+#    pin:
 #      number: P9
 #      inverted: False
 #    id: P9_id
@@ -129,7 +128,7 @@ switch:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: P26
       inverted: True
     id: "S1_open"
@@ -139,11 +138,11 @@ binary_sensor:
       - cover.stop: "left_cover"
       - delay: 300ms
       - cover.open: "left_cover"
-    on_release: 
+    on_release:
       - cover.stop: "left_cover"
 
   - platform: gpio
-    pin: 
+    pin:
       number: P6
       inverted: True
     id: "S2_close"
@@ -153,11 +152,11 @@ binary_sensor:
       - cover.stop: "left_cover"
       - delay: 300ms
       - cover.close: "left_cover"
-    on_release: 
+    on_release:
       - cover.stop: "left_cover"
 
   - platform: gpio
-    pin: 
+    pin:
       number: P7
       inverted: True
     id: "S3_open"
@@ -167,11 +166,11 @@ binary_sensor:
       - cover.stop: "right_cover"
       - delay: 300ms
       - cover.open: "right_cover"
-    on_release: 
+    on_release:
       - cover.stop: "right_cover"
 
   - platform: gpio
-    pin: 
+    pin:
       number: P8
       inverted: True
     id: "S4_close"
@@ -181,7 +180,7 @@ binary_sensor:
       - cover.stop: "right_cover"
       - delay: 300ms
       - cover.close: "right_cover"
-    on_release: 
+    on_release:
       - cover.stop: "right_cover"
 
 cover:
