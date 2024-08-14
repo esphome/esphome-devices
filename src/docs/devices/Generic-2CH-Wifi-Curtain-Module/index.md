@@ -16,11 +16,8 @@ It uses a wifi board called CBU.
 
 ## Product Images
 
-The device itself:
-![alt text](/device.jpg "Front of 3 pole switch")
-
-Inside of the device
-![alt text](/inside.jpg "Rear of 3 pole switch")
+![Product front](./device.jpg "Product front image")
+![Product inside](./inside.jpg "Product inside image")
 
 ## GPIO Pinout (Per top to bottom when installed)
 
