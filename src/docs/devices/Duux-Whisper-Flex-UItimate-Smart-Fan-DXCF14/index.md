@@ -159,7 +159,7 @@ select:
     name: "Oscillate horizontally"
     enum_datapoint: 4
     optimistic: true
-    options:d
+    options:
       0: "off"
       1: "30"
       2: "60"
