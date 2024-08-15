@@ -218,6 +218,97 @@ sensor:
 
 ```
 
+## ESP8266 configuration
+The BK7231 module is not suitable for devices which must remain powered after OTA or any reboot cycle, as these modules have no capability to keep power applied during a reboot.  Replacing the WB2S or CB2S modules with an ESP8285 based module resolves this issue, and any ESP-02S form factor module will suffice, with the most commonly available modules being the Tuya TYWE2S.  The ESP8285 also uses a more standardised configuration for power monitoring, without needing any of the complexity applied in the BK7231 configuration related to the BL0937 chip.
+
+The BL0937 calibration values were validated using a CCI Power-Mate monitoring a heat gun pulling 1800 watts.
+
+```yaml
+esphome:
+  name: device-name
+  friendly_name: Friendly Device Name
+
+esp8266:
+  board: esp8285
+  early_pin_init: False # Required to ensure the power does not trip out after OTA or reboot
+
+wifi:
+  ssid: "wifi_ssid"
+  password: "wifi_password"
+  
+  ap:
+    ssid: "Device Name Fallback Hotspot"
+    password: "wifi_ap_password"
+
+captive_portal:
+
+logger:
+  baud_rate: 0
+
+api:
+  encryption:
+    key: "api_key"
+
+ota:
+  platform: esphome
+  password: !secret ota_password
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO1
+    name: button
+    id: button
+    device_class: window
+    # when button is pressed, toggle the switch on/off
+    on_press:
+      then:
+        - switch.toggle: relay
+
+switch: 
+  - platform: gpio
+    pin: GPIO13
+    name: "Power Switch"
+    id: relay
+    restore_mode: ALWAYS_ON   # Change as per your needs
+    icon: mdi:power-socket-au
+    # synchronise the LED with the relay
+    on_turn_on:
+      then:
+        - output.turn_on: button_led
+    on_turn_off:
+      then:
+        - output.turn_off: button_led
+  - platform: restart
+    name: "Restart"
+
+output:
+  - platform: gpio
+    id: button_led
+    pin: GPIO14
+
+sensor:
+  - platform: hlw8012
+    voltage_divider: 1540 # Verified using CCI Power-Mate
+    current_resistor: 0.00102 # Verified using CCI Power-Mate
+    model: BL0937
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO4
+    cf1_pin: GPIO5
+    current:
+      name: "Current"
+      filters: 
+        - multiply: 0.902 # Verified using CCI Power-Mate
+    voltage:
+      name: "Voltage"
+    power:
+      name: "Power"
+    energy:
+      name: "Energy"
+    update_interval: 5s
+```
+
 ## References
 
 https://www.elektroda.com/rtvforum/topic3944452.html - breakdown of PC191HA and discussion, including about series 2
