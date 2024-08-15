@@ -219,6 +219,7 @@ sensor:
 ```
 
 ## ESP8266 configuration
+
 The BK7231 module is not suitable for devices which must remain powered after OTA or any reboot cycle, as these modules have no capability to keep power applied during a reboot.  Replacing the WB2S or CB2S modules with an ESP8285 based module resolves this issue, and any ESP-02S form factor module will suffice, with the most commonly available modules being the Tuya TYWE2S.  The ESP8285 also uses a more standardised configuration for power monitoring, without needing any of the complexity applied in the BK7231 configuration related to the BL0937 chip.
 
 The BL0937 calibration values were validated using a CCI Power-Mate monitoring a heat gun pulling 1800 watts.
@@ -251,7 +252,7 @@ api:
 
 ota:
   platform: esphome
-  password: !secret ota_password
+  password: "ota_password"
 
 binary_sensor:
   - platform: gpio
@@ -259,19 +260,17 @@ binary_sensor:
     name: button
     id: button
     device_class: window
-    # when button is pressed, toggle the switch on/off
     on_press:
       then:
         - switch.toggle: relay
 
-switch: 
+switch:
   - platform: gpio
     pin: GPIO13
     name: "Power Switch"
     id: relay
     restore_mode: ALWAYS_ON   # Change as per your needs
     icon: mdi:power-socket-au
-    # synchronise the LED with the relay
     on_turn_on:
       then:
         - output.turn_on: button_led
@@ -298,7 +297,7 @@ sensor:
     cf1_pin: GPIO5
     current:
       name: "Current"
-      filters: 
+      filters:
         - multiply: 0.902 # Verified using CCI Power-Mate
     voltage:
       name: "Voltage"
