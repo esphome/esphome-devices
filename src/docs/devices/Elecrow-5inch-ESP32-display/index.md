@@ -22,13 +22,11 @@ Display: ILI6122 & ILI5960 (using `rpi_dpi_rgb` plaform)
 | GPIO19 | i2c SDA     |
 | GPIO20 | i2c SCL     |
 
-
 ### backlight
 
 | Pin    | Function      |
 | ------ | ------------- |
 | GPIO2  | backlight   |
-
 
 ### display
 
@@ -164,7 +162,7 @@ sensor:
             id(main_display).filled_circle(40, 32, 15, red);
             id(main_display).filled_circle(60, 32, 15, green);
             id(main_display).filled_circle(80, 32, 15, blue);
-            id(main_display).filled_circle(100, 32, 15, white); 
+            id(main_display).filled_circle(100, 32, 15, white);
 
 # example button
 binary_sensor:
@@ -216,14 +214,14 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-    
+
 external_components:
   - source:
       type: git
       url: https://github.com/clydebarrow/esphome
       ref: fd15094c0860df23d532881df36cfd16c7da1091
     components: [ lvgl ]
-    
+
 # Define a PWM output on the ESP32
 output:
   - platform: ledc
@@ -252,7 +250,7 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       id: ip_address
-    
+
 display:
   - platform: rpi_dpi_rgb
     id: main_display
@@ -361,7 +359,7 @@ sensor:
   - platform: homeassistant
     name: "Processor Use"
     entity_id: sensor.processor_use
-    id: ha_processor_use    
+    id: ha_processor_use
 
 script:
   - id: update_display
@@ -423,7 +421,7 @@ script:
       - lvgl.img.update:
           id: img_solar_power2
           src: solar_power_icon
-          img_recolor: 0xFFF000 
+          img_recolor: 0xFFF000
 
 image:
   - file: mdi:sun-wireless-outline
@@ -453,7 +451,7 @@ lvgl:
       bg_opa: TRANSP
       bg_color: 0
       radius: 4
-      pad_all: 2 
+      pad_all: 2
     - id: details_style
       text_font: MONTSERRAT_18
       align: center
@@ -461,7 +459,7 @@ lvgl:
       bg_opa: TRANSP
       bg_color: 0
       radius: 4
-      pad_all: 2 
+      pad_all: 2
   widgets:
     - obj: # Meter
         height: 240
