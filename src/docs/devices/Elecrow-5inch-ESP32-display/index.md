@@ -99,7 +99,15 @@ light:
     name: ${devicename} Display Backlight
     id: back_light
     restore_mode: ALWAYS_ON
-    
+
+i2c:
+  sda: GPIO19
+  scl: GPIO20
+  scan: true
+
+touchscreen:
+  platform: gt911
+
 display:
   - platform: rpi_dpi_rgb
     id: main_display
@@ -135,6 +143,40 @@ display:
         - 46        #b3
         - 9         #b4
         - 1         #b5
+
+## Example drawing on the screen
+sensor:
+  - platform: uptime
+    id: uptime_counter
+    update_interval: 1s
+    on_raw_value:
+      then:
+        - light.turn_on:
+            id: back_light
+            brightness: 90%
+        - lambda: |-
+            auto black = Color(0, 0, 0);
+            auto red = Color(255, 0, 0);
+            auto green = Color(0, 255, 0);
+            auto blue = Color(0, 0, 255);
+            auto white = Color(255, 255, 255);
+            id(main_display).filled_circle(20, 32, 15, black);
+            id(main_display).filled_circle(40, 32, 15, red);
+            id(main_display).filled_circle(60, 32, 15, green);
+            id(main_display).filled_circle(80, 32, 15, blue);
+            id(main_display).filled_circle(100, 32, 15, white); 
+
+# example button
+binary_sensor:
+  - platform: touchscreen
+    name: Top Left Touch Button
+    x_min: 0
+    x_max: 239
+    y_min: 0
+    y_max: 239
+    on_press:
+      - lambda: |-
+            ESP_LOGI("btn", "Top left button pressed");
 ```
 
 ## Example (using LGVL graphics library)
