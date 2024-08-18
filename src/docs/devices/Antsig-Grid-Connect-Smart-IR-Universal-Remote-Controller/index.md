@@ -6,7 +6,7 @@ standard: au
 board: cb3s
 difficulty: 2
 ---
-# Antsig Grid Connect Smart IR Universal Remote Controller
+
 ## Overview
 
 ![HUBIR01HA](HUBIR01HA.jpg)
