@@ -151,7 +151,7 @@ display:
       id(main_display).filled_circle(40, 32, 15, red);
       id(main_display).filled_circle(60, 32, 15, green);
       id(main_display).filled_circle(80, 32, 15, blue);
-      id(main_display).filled_circle(100, 32, 15, white);        
+      id(main_display).filled_circle(100, 32, 15, white);
 
 # example button
 binary_sensor:
