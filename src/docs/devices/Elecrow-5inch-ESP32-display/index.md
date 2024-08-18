@@ -111,7 +111,7 @@ display:
     id: main_display
     color_order: RGB
     invert_colors: True
-    update_interval: never
+    update_interval: 5s
     auto_clear_enabled: false
     dimensions:
       width: 800
@@ -141,28 +141,17 @@ display:
         - 46        #b3
         - 9         #b4
         - 1         #b5
-
-## Example drawing on the screen
-sensor:
-  - platform: uptime
-    id: uptime_counter
-    update_interval: 1s
-    on_raw_value:
-      then:
-        - light.turn_on:
-            id: back_light
-            brightness: 90%
-        - lambda: |-
-            auto black = Color(0, 0, 0);
-            auto red = Color(255, 0, 0);
-            auto green = Color(0, 255, 0);
-            auto blue = Color(0, 0, 255);
-            auto white = Color(255, 255, 255);
-            id(main_display).filled_circle(20, 32, 15, black);
-            id(main_display).filled_circle(40, 32, 15, red);
-            id(main_display).filled_circle(60, 32, 15, green);
-            id(main_display).filled_circle(80, 32, 15, blue);
-            id(main_display).filled_circle(100, 32, 15, white);
+    lambda: |-
+      auto black = Color(0, 0, 0);
+      auto red = Color(255, 0, 0);
+      auto green = Color(0, 255, 0);
+      auto blue = Color(0, 0, 255);
+      auto white = Color(255, 255, 255);
+      id(main_display).filled_circle(20, 32, 15, black);
+      id(main_display).filled_circle(40, 32, 15, red);
+      id(main_display).filled_circle(60, 32, 15, green);
+      id(main_display).filled_circle(80, 32, 15, blue);
+      id(main_display).filled_circle(100, 32, 15, white);        
 
 # example button
 binary_sensor:
@@ -174,7 +163,7 @@ binary_sensor:
     y_max: 239
     on_press:
       - lambda: |-
-            ESP_LOGI("btn", "Top left button pressed");
+            ESP_LOGI("btn", "Button pressed");
 ```
 
 ## Example (using LGVL graphics library)
@@ -215,12 +204,11 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
+# This won't be necessary agter LGVL becomes integrated to ESPHome
 external_components:
-  - source:
-      type: git
-      url: https://github.com/clydebarrow/esphome
-      ref: fd15094c0860df23d532881df36cfd16c7da1091
-    components: [ lvgl ]
+  - source: github://pr#7184
+    refresh: 10min
+    components: [lvgl]
 
 # Define a PWM output on the ESP32
 output:
@@ -286,7 +274,6 @@ display:
         - 46        #b3
         - 9         #b4
         - 1         #b5
-
 
 time:
   - platform: sntp
@@ -364,7 +351,7 @@ sensor:
 script:
   - id: update_display
     then:
-      - lvgl.indicator.line.update:
+      - lvgl.indicator.update:
           id: power_meter_input
           value: !lambda return id(counting_number).state;
       - lvgl.label.update:
@@ -389,11 +376,11 @@ script:
             static char buf[8];
             snprintf(buf, sizeof(buf), "%.1fkW", id(counting_number).state);
             return buf;
-      - lvgl.img.update:
+      - lvgl.image.update:
           id: img_solar_power
           src: solar_power_icon
-          img_recolor: 0xFFF000
-      - lvgl.indicator.line.update:
+          image_recolor: 0xFFF000
+      - lvgl.indicator.update:
           id: power_meter_input2
           value: !lambda return id(counting_number).state;
       - lvgl.label.update:
@@ -418,10 +405,10 @@ script:
             static char buf[8];
             snprintf(buf, sizeof(buf), "%.1fkW", id(counting_number).state);
             return buf;
-      - lvgl.img.update:
+      - lvgl.image.update:
           id: img_solar_power2
           src: solar_power_icon
-          img_recolor: 0xFFF000
+          image_recolor: 0xFFF000
 
 image:
   - file: mdi:sun-wireless-outline
@@ -492,7 +479,7 @@ lvgl:
                       color: 0xFFFFFF
                       r_mod: 12
                       value: 50
-                  - img:
+                  - image:
                       id: power_meter_input_img
                   - arc:
                       color: 0xFF3000
@@ -548,12 +535,12 @@ lvgl:
               id: solar_kw
               text_color: 0xFFFF00
               y: 90
-          - img:
+          - image:
               src: solar_power_icon
               id: img_solar_power
               align: center
-              img_recolor: 0xFFFF00
-              img_recolor_opa: 100%
+              image_recolor: 0xFFFF00
+              image_recolor_opa: 100%
               y: 50
     - obj: # Meter
         height: 240
@@ -586,7 +573,7 @@ lvgl:
                       color: 0xFFFFFF
                       r_mod: 12
                       value: 50
-                  - img:
+                  - image:
                       id: power_meter_input_img2
                   - arc:
                       color: 0xFF3000
@@ -642,12 +629,12 @@ lvgl:
               id: solar_kw2
               text_color: 0xFFFF00
               y: 90
-          - img:
+          - image:
               src: solar_power_icon
               id: img_solar_power2
               align: center
-              img_recolor: 0xFFFF00
-              img_recolor_opa: 100%
+              image_recolor: 0xFFFF00
+              image_recolor_opa: 100%
               y: 50
     - obj: # Meter
         height: 240
@@ -680,7 +667,7 @@ lvgl:
                       color: 0xFFFFFF
                       r_mod: 12
                       value: 50
-                  - img:
+                  - image:
                       id: power_meter_input_img3
                   - arc:
                       color: 0xFF3000
@@ -736,11 +723,11 @@ lvgl:
               id: solar_kw3
               text_color: 0xFFFF00
               y: 90
-          - img:
+          - image:
               src: solar_power_icon
               id: img_solar_power3
               align: center
-              img_recolor: 0xFFFF00
-              img_recolor_opa: 100%
+              image_recolor: 0xFFFF00
+              image_recolor_opa: 100%
               y: 50
 ```
