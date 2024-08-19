@@ -1,5 +1,5 @@
 ---
-title: CrowPanel 5.0"-HMI ESP32 Display
+title: CrowPanel 5.0" HMI ESP32 display (by Elecrow)
 date-published: 2024-08-17
 type: misc
 standard: global
