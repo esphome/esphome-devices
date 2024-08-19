@@ -9,11 +9,9 @@ board: esp32
 
 ## Drivers
 
-Processor: ESP32-S3-WROOM-1-N4R8 (using `esp32s3box` board)
-
-Touchscreen: `gt911`
-
-Display: ILI6122 & ILI5960 (using `rpi_dpi_rgb` plaform)
+* Processor: ESP32-S3-WROOM-1-N4R8 (using `esp32s3box` board)
+* Touchscreen: `gt911`
+* Display: ILI6122 & ILI5960 (using `rpi_dpi_rgb` plaform)
 
 ## GPIO Pinout
 
