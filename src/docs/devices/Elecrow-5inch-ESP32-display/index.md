@@ -7,7 +7,7 @@ project-url: https://www.elecrow.com/wiki/esp32-display-502727-intelligent-touch
 board: esp32
 ---
 
-![Product Image](elecrow-5-inch-esp32-display.png "Product Image")
+![Product Image](elecrow-5-inch-esp32-display.jpg "Product Image")
 
 ## Drivers
 
