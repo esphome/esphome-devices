@@ -7,6 +7,8 @@ project-url: https://www.elecrow.com/wiki/esp32-display-502727-intelligent-touch
 board: esp32
 ---
 
+![Product Image](elecrow-5-inch-esp32-display.png "Product Image")
+
 ## Drivers
 
 * Processor: ESP32-S3-WROOM-1-N4R8 (using `esp32s3box` board)
