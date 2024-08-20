@@ -22,6 +22,9 @@ M5Stack Dial features an M5StampS3, 8M Flash, 1.28 inch Touchscreen, NFC Reader,
 esphome:
   name: m5stack-dial
   friendly_name: M5Stack Dial
+  on_boot:
+    then:
+      - pcf8563.read_time:
   platformio_options:
     board_build.flash_mode: dio
 
@@ -67,6 +70,18 @@ sensor:
     id: encoder
     pin_a: GPIO40
     pin_b: GPIO41
+
+time:
+  # RTC
+  - platform: pcf8563
+    id: rtctime
+    address: 0x51
+    update_interval: never
+  - platform: homeassistant
+    id: esptime
+    on_time_sync:
+      then:      
+        - pcf8563.write_time:
 
 binary_sensor:
   - platform: gpio
