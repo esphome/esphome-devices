@@ -206,12 +206,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-# This won't be necessary agter LGVL becomes integrated to ESPHome
-external_components:
-  - source: github://pr#7184
-    refresh: 10min
-    components: [lvgl]
-
 # Define a PWM output on the ESP32
 output:
   - platform: ledc
