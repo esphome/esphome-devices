@@ -74,7 +74,7 @@ esphome:
     board_build.flash_mode: dio
   
 esp32:
-  board: esp32s3box
+  board: esp32-s3-devkitc-1
   framework:
     type: esp-idf
     sdkconfig_options:
