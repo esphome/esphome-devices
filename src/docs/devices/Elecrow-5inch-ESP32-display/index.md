@@ -179,7 +179,7 @@ esphome:
     board_build.flash_mode: dio
   
 esp32:
-  board: esp32s3box
+  board: esp32-s3-devkitc-1
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -475,8 +475,6 @@ lvgl:
                       color: 0xFFFFFF
                       r_mod: 12
                       value: 50
-                  - image:
-                      id: power_meter_input_img
                   - arc:
                       color: 0xFF3000
                       r_mod: 10
@@ -569,8 +567,6 @@ lvgl:
                       color: 0xFFFFFF
                       r_mod: 12
                       value: 50
-                  - image:
-                      id: power_meter_input_img2
                   - arc:
                       color: 0xFF3000
                       r_mod: 10
@@ -663,8 +659,6 @@ lvgl:
                       color: 0xFFFFFF
                       r_mod: 12
                       value: 50
-                  - image:
-                      id: power_meter_input_img3
                   - arc:
                       color: 0xFF3000
                       r_mod: 10
