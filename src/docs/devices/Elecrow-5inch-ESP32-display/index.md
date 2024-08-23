@@ -96,7 +96,7 @@ output:
 light:
   - platform: monochromatic
     output: gpio_backlight_pwm
-    name: ${devicename} Display Backlight
+    name: Display Backlight
     id: back_light
     restore_mode: ALWAYS_ON
 
@@ -144,25 +144,23 @@ display:
         - 9         #b4
         - 1         #b5
     lambda: |-
-      auto black = Color(0, 0, 0);
       auto red = Color(255, 0, 0);
       auto green = Color(0, 255, 0);
       auto blue = Color(0, 0, 255);
       auto white = Color(255, 255, 255);
-      id(main_display).filled_circle(20, 32, 15, black);
-      id(main_display).filled_circle(40, 32, 15, red);
-      id(main_display).filled_circle(60, 32, 15, green);
-      id(main_display).filled_circle(80, 32, 15, blue);
-      id(main_display).filled_circle(100, 32, 15, white);
+      id(main_display).filled_circle(50, 50, 40, red);
+      id(main_display).filled_circle(100, 50, 40, green);
+      id(main_display).filled_circle(150, 50, 40, blue);
+      id(main_display).filled_circle(200, 50, 40, white);
 
 # example button
 binary_sensor:
   - platform: touchscreen
     name: Top Left Touch Button
-    x_min: 0
-    x_max: 239
-    y_min: 0
-    y_max: 239
+    x_min: 10
+    x_max: 240
+    y_min: 10
+    y_max: 90
     on_press:
       - lambda: |-
             ESP_LOGI("btn", "Button pressed");
@@ -171,6 +169,9 @@ binary_sensor:
 ## Example (using LGVL graphics library)
 
 ```yaml
+substitutions:
+  device_name: display
+
 esphome:
   name: ${device_name}
   platformio_options:
@@ -194,18 +195,6 @@ psram:
 
 logger:
 
-api:
-  encryption:
-    key: !secret api_key
-
-ota:
-  - platform: esphome
-    password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
 # Define a PWM output on the ESP32
 output:
   - platform: ledc
@@ -219,21 +208,6 @@ light:
     name: ${device_name} Display Backlight
     id: back_light
     restore_mode: ALWAYS_ON
-
-binary_sensor:
-  - platform: status
-    name: "Node Status"
-    id: system_status
-
-text_sensor:
-  - platform: template
-    id: uptime_human
-    icon: mdi:clock-start
-    internal: True
-
-  - platform: wifi_info
-    ip_address:
-      id: ip_address
 
 display:
   - platform: rpi_dpi_rgb
@@ -271,152 +245,42 @@ display:
         - 9         #b4
         - 1         #b5
 
-time:
-  - platform: sntp
-    id: time_comp
+i2c:
+  sda: GPIO19
+  scl: GPIO20
+  scan: true
 
-number:
-  - platform: template
-    initial_value: 0
-    id: counting_number
-    internal: True
-    min_value: -10
-    max_value: 10
-    step: 1
-    optimistic: True
+touchscreen:
+  platform: gt911
 
-debug:
-  update_interval: 5s
+globals:
+  - id: random_int_var
+    type: int
+    restore_value: no
+    initial_value: '0'
 
-sensor:
-  - platform: wifi_signal
-    internal: True
-    id: wifi_signal_sensor
-    update_interval: 1s
-  - platform: uptime
-    id: uptime_counter
-    update_interval: 1s
-    accuracy_decimals: 0
-    on_raw_value:
+binary_sensor:
+  - platform: lvgl
+    widget: button
+    name: Button
+    on_press: # genrate a random number between -10 and +10 and update meter
       then:
-        - light.turn_on:
-            id: back_light
-            brightness: 90%
-        - number.increment:
-            id: counting_number
-            cycle: True
-        - script.execute: update_display
-  - platform: debug
-    free:
-      name: "Heap Free"
-    block:
-      name: "Heap Max Block"
-    loop_time:
-      name: "Loop Time"
-    psram:
-      name: "Free PSRAM"
-  - platform: uptime
-    internal: True
-    id: uptime_sensor
-    update_interval: 1s
-    on_raw_value:
-      then:
-        - text_sensor.template.publish:
-            id: uptime_human
-            state: !lambda |-
-              int seconds = round(id(uptime_sensor).raw_state);
-              int days = seconds / (24 * 3600);
-              seconds = seconds % (24 * 3600);
-              int hours = seconds / 3600;
-              seconds = seconds % 3600;
-              int minutes = seconds /  60;
-              seconds = seconds % 60;
-              return (
-                ("Uptime ") +
-                (days ? to_string(days) + "d " : "") +
-                (hours ? to_string(hours) + "h " : "") +
-                (minutes ? to_string(minutes) + "m " : "") +
-                (to_string(seconds) + "s")
-              ).c_str();
-
-  - platform: homeassistant
-    name: "Processor Use"
-    entity_id: sensor.processor_use
-    id: ha_processor_use
-
-script:
-  - id: update_display
-    then:
-      - lvgl.indicator.update:
-          id: power_meter_input
-          value: !lambda return id(counting_number).state;
-      - lvgl.label.update:
-          id: battery_kw
-          text: !lambda |-
-            static char buf[8];
-            snprintf(buf, sizeof(buf), "%.1fkW", id(counting_number).state);
-            return buf;
-      - lvgl.label.update:
-          id: battery_status
-          text_color: 0xFF0000
-          text: "discharging"
-      - lvgl.label.update:
-          id: battery_soc
-          text: !lambda |-
-            static char buf[8];
-            snprintf(buf, sizeof(buf), "%.1f%%", id(counting_number).state);
-            return buf;
-      - lvgl.label.update:
-          id: solar_kw
-          text: !lambda |-
-            static char buf[8];
-            snprintf(buf, sizeof(buf), "%.1fkW", id(counting_number).state);
-            return buf;
-      - lvgl.image.update:
-          id: img_solar_power
-          src: solar_power_icon
-          image_recolor: 0xFFF000
-      - lvgl.indicator.update:
-          id: power_meter_input2
-          value: !lambda return id(counting_number).state;
-      - lvgl.label.update:
-          id: battery_kw2
-          text: !lambda |-
-            static char buf[8];
-            snprintf(buf, sizeof(buf), "%.1fkW", id(counting_number).state);
-            return buf;
-      - lvgl.label.update:
-          id: battery_status2
-          text_color: 0xFF0000
-          text: "discharging"
-      - lvgl.label.update:
-          id: battery_soc2
-          text: !lambda |-
-            static char buf[8];
-            snprintf(buf, sizeof(buf), "%.1f%%", id(counting_number).state);
-            return buf;
-      - lvgl.label.update:
-          id: solar_kw2
-          text: !lambda |-
-            static char buf[8];
-            snprintf(buf, sizeof(buf), "%.1fkW", id(counting_number).state);
-            return buf;
-      - lvgl.image.update:
-          id: img_solar_power2
-          src: solar_power_icon
-          image_recolor: 0xFFF000
-
+        - lambda: |-
+            id(random_int_var) = (rand() % 20) - 10;
+        - lvgl.indicator.update:
+            id: power_meter_input
+            value: !lambda return id(random_int_var);
+        - lvgl.label.update:
+            id: power_kw
+            text:
+              format: "%dkW"
+              args: [ 'id(random_int_var)' ]
 image:
   - file: mdi:sun-wireless-outline
     id: solar_power_icon
     resize: 50x50
 
-  - file: mdi:battery-arrow-down-outline
-    id: home_battery_icon
-    resize: 30x30
-
 lvgl:
-  log_level: INFO
   color_depth: 16
   bg_color: 0
   border_width: 0
@@ -426,16 +290,19 @@ lvgl:
   align: center
   style_definitions:
     - id: meter_style
-      text_font: unscii_8
-    - id: font_style
-      text_font: MONTSERRAT_24
+      border_width: 0
+      outline_width: 0
+      align: center
+      bg_color: 0
+    - id: title_style
+      text_font: MONTSERRAT_40
       align: center
       text_color: 0xFFFFFF
       bg_opa: TRANSP
       bg_color: 0
       radius: 4
       pad_all: 2
-    - id: details_style
+    - id: detail_style
       text_font: MONTSERRAT_18
       align: center
       text_color: 0xFFFFFF
@@ -444,6 +311,20 @@ lvgl:
       radius: 4
       pad_all: 2
   widgets:
+    - button: # Button
+        id: button
+        height: 100
+        width: 200
+        x: 20
+        y: 20
+        border_width: 0
+        outline_width: 0
+        align: TOP_LEFT
+        checkable: false
+        widgets:
+        - label:
+            align: center
+            text: "Button"
     - obj: # Meter
         height: 240
         width: 240
@@ -452,7 +333,7 @@ lvgl:
         outline_width: 0
         shadow_width: 0
         pad_all: 4
-        align: TOP_LEFT
+        align: TOP_MID
         widgets:
           - meter: # Gradient color  arc
               height: 100%
@@ -461,7 +342,6 @@ lvgl:
               outline_width: 0
               align: center
               bg_color: 0
-              styles: meter_style
               scales:
                 angle_range: 180
                 range_to: 10
@@ -487,7 +367,6 @@ lvgl:
                       width: 20
                       start_value: 0
                       end_value: 10
-          #- canvas:
           - arc: # black arc to erase middle part of meter indicator line
               height: 160
               width: 160
@@ -500,222 +379,22 @@ lvgl:
                 arc_width: 150
                 arc_color: 0x000000
           - label: # gauge lower and higher range indicators
-              styles: font_style
-              text_font: MONTSERRAT_18
+              styles: detail_style
               y: 8
               x: -99
               text: "-10"
           - label:
-              styles: font_style
-              text_font: MONTSERRAT_18
+              styles: detail_style
               y: 8
               x: 99
               text: "+10"
-          - label:
-              styles: font_style
-              id: battery_status
-              y: -35
-          - label:
-              styles: font_style
-              id: battery_kw
-              y: -60
-          - label:
-              styles: font_style
-              text_font: MONTSERRAT_40
-              id: battery_soc
-              y: 0
-          - label:
-              styles: font_style
-              id: solar_kw
-              text_color: 0xFFFF00
-              y: 90
+          - label:  # value label
+              styles: title_style
+              id: power_kw
+              y: -10
           - image:
               src: solar_power_icon
               id: img_solar_power
-              align: center
-              image_recolor: 0xFFFF00
-              image_recolor_opa: 100%
-              y: 50
-    - obj: # Meter
-        height: 240
-        width: 240
-        bg_color: 0
-        border_width: 0
-        outline_width: 0
-        shadow_width: 0
-        pad_all: 4
-        align: TOP_MID
-        widgets:
-          - meter: # Gradient color  arc
-              height: 100%
-              width: 100%
-              border_width: 0
-              outline_width: 0
-              align: center
-              bg_color: 0
-              styles: meter_style
-              scales:
-                angle_range: 180
-                range_to: 10
-                range_from: -10
-                ticks:
-                  count: 0
-                indicators:
-                  - line:
-                      id: power_meter_input2
-                      width: 8
-                      color: 0xFFFFFF
-                      r_mod: 12
-                      value: 50
-                  - arc:
-                      color: 0xFF3000
-                      r_mod: 10
-                      width: 20
-                      start_value: -10
-                      end_value: 0
-                  - arc:
-                      color: 0x00FF00
-                      r_mod: 10
-                      width: 20
-                      start_value: 0
-                      end_value: 10
-          #- canvas:
-          - arc: # black arc to erase middle part of meter indicator line
-              height: 160
-              width: 160
-              align: center
-              arc_color: 0x000000
-              arc_width: 150
-              start_angle: 0
-              end_angle: 360
-              indicator:
-                arc_width: 150
-                arc_color: 0x000000
-          - label: # gauge lower and higher range indicators
-              styles: font_style
-              text_font: MONTSERRAT_18
-              y: 8
-              x: -99
-              text: "-10"
-          - label:
-              styles: font_style
-              text_font: MONTSERRAT_18
-              y: 8
-              x: 99
-              text: "+10"
-          - label:
-              styles: font_style
-              id: battery_status2
-              y: -35
-          - label:
-              styles: font_style
-              id: battery_kw2
-              y: -60
-          - label:
-              styles: font_style
-              text_font: MONTSERRAT_40
-              id: battery_soc2
-              y: 0
-          - label:
-              styles: font_style
-              id: solar_kw2
-              text_color: 0xFFFF00
-              y: 90
-          - image:
-              src: solar_power_icon
-              id: img_solar_power2
-              align: center
-              image_recolor: 0xFFFF00
-              image_recolor_opa: 100%
-              y: 50
-    - obj: # Meter
-        height: 240
-        width: 240
-        bg_color: 0
-        border_width: 0
-        outline_width: 0
-        shadow_width: 0
-        pad_all: 4
-        align: BOTTOM_LEFT
-        widgets:
-          - meter: # Gradient color  arc
-              height: 100%
-              width: 100%
-              border_width: 0
-              outline_width: 0
-              align: center
-              bg_color: 0
-              styles: meter_style
-              scales:
-                angle_range: 180
-                range_to: 10
-                range_from: -10
-                ticks:
-                  count: 0
-                indicators:
-                  - line:
-                      id: power_meter_input3
-                      width: 8
-                      color: 0xFFFFFF
-                      r_mod: 12
-                      value: 50
-                  - arc:
-                      color: 0xFF3000
-                      r_mod: 10
-                      width: 20
-                      start_value: -10
-                      end_value: 0
-                  - arc:
-                      color: 0x00FF00
-                      r_mod: 10
-                      width: 20
-                      start_value: 0
-                      end_value: 10
-          #- canvas:
-          - arc: # black arc to erase middle part of meter indicator line
-              height: 160
-              width: 160
-              align: center
-              arc_color: 0x000000
-              arc_width: 150
-              start_angle: 0
-              end_angle: 360
-              indicator:
-                arc_width: 150
-                arc_color: 0x000000
-          - label: # gauge lower and higher range indicators
-              styles: font_style
-              text_font: MONTSERRAT_18
-              y: 8
-              x: -99
-              text: "-10"
-          - label:
-              styles: font_style
-              text_font: MONTSERRAT_18
-              y: 8
-              x: 99
-              text: "+10"
-          - label:
-              styles: font_style
-              id: battery_status3
-              y: -35
-          - label:
-              styles: font_style
-              id: battery_kw3
-              y: -60
-          - label:
-              styles: font_style
-              text_font: MONTSERRAT_40
-              id: battery_soc3
-              y: 0
-          - label:
-              styles: font_style
-              id: solar_kw3
-              text_color: 0xFFFF00
-              y: 90
-          - image:
-              src: solar_power_icon
-              id: img_solar_power3
               align: center
               image_recolor: 0xFFFF00
               image_recolor_opa: 100%
