@@ -121,7 +121,7 @@ status_led:
     inverted: True
 ```
 
-## Warning
+## Warnings
 
-`board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version 2024.4.0
-`throttle_average: 60s` on cse7766 sensors is highly recommended with version 2024.2.0 or greater.
+- `board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version 2024.4.0
+- `throttle_average: 60s` on cse7766 sensors is highly recommended with version 2024.2.0 or greater.
