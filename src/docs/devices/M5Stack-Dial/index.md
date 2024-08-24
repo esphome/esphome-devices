@@ -80,7 +80,7 @@ time:
   - platform: homeassistant
     id: esptime
     on_time_sync:
-      then:      
+      then:
         - pcf8563.write_time:
 
 binary_sensor:
