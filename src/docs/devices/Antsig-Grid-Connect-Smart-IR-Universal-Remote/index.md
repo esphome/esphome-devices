@@ -6,7 +6,7 @@ standard: global
 board: bk72xx
 ---
 
-![Product Image](/Antsig-Grid-Connect-Smart-IR-Universal-Remote.jpg "Product Image")
+![Product Image](Antsig-Grid-Connect-Smart-IR-Universal-Remote.jpg "Product Image")
 
 Sold at Bunnings in Australia. Model number HUBIR01HA. Based on the CB3S module, natively runs Tuya.
 
