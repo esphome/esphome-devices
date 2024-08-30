@@ -12,7 +12,7 @@ Sold at Bunnings in Australia. Model number HUBIR01HA. Based on the CB3S module,
 
 This configuration provides climate control but the device is a generic IR blaster that can control a wide range of IR devices.
 
-Flashing is achieved by popping off the top cover and soldering to easily accessible pads for UART. 
+Flashing is achieved by popping off the top cover and soldering to easily accessible pads for UART.
 tuya-cloudcutter is untested - it may work but it's quite an easy device to flash by serial.
 
 ## GPIO Pinout
