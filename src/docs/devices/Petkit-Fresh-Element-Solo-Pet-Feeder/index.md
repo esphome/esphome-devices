@@ -21,7 +21,9 @@ Official product [page](https://petkit.com/products/fresh-element-solo).
 ## Flasing
 
 The feeder base has to be taken apart to access the mainboard. This requires removal of 4 screws at the bottom side, hidden under the rubber feet. The rubber feet has to be partially peeled off to access the screws.
-See the [wiring diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing.png) for flashing (borrowed from the Reddit [comment](https://www.reddit.com/r/Esphome/comments/v19c7p/comment/jvl91mi/)).
+See the the wiring diagram for flashing below (borrowed from the Reddit [comment](https://www.reddit.com/r/Esphome/comments/v19c7p/comment/jvl91mi/)).
+
+![Wiring Diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing.png)
 
 ### Internal pinout
 
