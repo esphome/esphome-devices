@@ -1,6 +1,6 @@
 ---
 title: CrowPanel 5.0" HMI ESP32 display (by Elecrow)
-date-published: 2024-08-17
+date-published: 2024-09-03
 type: misc
 standard: global
 project-url: https://www.elecrow.com/wiki/esp32-display-502727-intelligent-touch-screen-wi-fi26ble-800480-hmi-display.html
