@@ -174,7 +174,6 @@ substitutions:
 esphome:
   name: ${device_name}
   platformio_options:
-    build_flags: "-DBOARD_HAS_PSRAM"
     board_build.esp-idf.memory_type: qio_opi
     board_build.flash_mode: dio
   
