@@ -17,20 +17,20 @@ board: esp32
 
 ## GPIO Pinout
 
-### i2c (used for touchscreen)
+### I²C (used for touchscreen)
 
 | Pin    | Function      |
 | ------ | ------------- |
 | GPIO19 | i2c SDA     |
 | GPIO20 | i2c SCL     |
 
-### backlight
+### Backlight
 
 | Pin    | Function      |
 | ------ | ------------- |
 | GPIO2  | backlight   |
 
-### display
+### Display
 
 | Pin    | Function      |
 | ------ | ------------- |
@@ -39,7 +39,7 @@ board: esp32
 | GPIO41 | vsync_pin   |
 | GPIO0  | pclk_pin    |
 
-### data pins
+### Display Data pins
 
 ```yaml
 red:
@@ -63,7 +63,7 @@ blue:
   - 1         #b5
 ```
 
-## Simle configuration
+## Simple Configuration
 
 ```yaml
 esphome:
@@ -165,7 +165,7 @@ binary_sensor:
             ESP_LOGI("btn", "Button pressed");
 ```
 
-## Example (using LGVL graphics library)
+## Advanced Configuration (using LGVL graphics library)
 
 ```yaml
 substitutions:
