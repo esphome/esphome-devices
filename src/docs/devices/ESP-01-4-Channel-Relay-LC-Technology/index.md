@@ -5,7 +5,7 @@ type: relay
 standard: global
 board: esp8266
 ---
-![Product Image](/ESP-01-4-Channel-Relay-LC-Technology.jpg "Product Image")
+![Product Image](./ESP-01-4-Channel-Relay-LC-Technology.jpg "Product Image")
 
 Printable enclosure: https://www.printables.com/model/836453-lc-tech-4-relay-esp-01-enclosure
 

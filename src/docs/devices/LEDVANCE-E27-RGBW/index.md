@@ -1,6 +1,6 @@
 ---
 title: Ledvance E27 RGBW Light 806lm
-date-published: 2024-09-03
+date-published: 2024-08-07
 type: light
 standard: eu
 board: bk27xx

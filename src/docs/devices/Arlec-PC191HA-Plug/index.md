@@ -15,7 +15,9 @@ It is compact, easily fitting side-by-side in double wall sockets.
 The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) and is supplied with Tuya firmware.  
 As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).  
 
-NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  These are clearly labelled as series 2 in bottom right corner of the box, and on the unit.  
+NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  These are clearly labelled as series 2 in bottom right corner of the box, and on the unit.
+
+**Update 11 August 2024:** Bunnings are now selling "Series 3" units with the same part number (PC191HA, or PC191BKHA for the black units). These continue to use the CB2S module but are loaded with Tuya firmware version 1.1.17 which isn't vulnerable to the Cloudcutter exploit. Additionally, the PCB design has been changed, and the GPIO configuration has subsequently changed - see the GPIO pinout table for the Series 3 unit below.
 
 Bunnings also have similar-looking Arlec Grid Connect variations:
      - PC192HA with USB,
@@ -36,6 +38,18 @@ I have NOT looked at any of these variations to find out if they are similar to 
 | P10 | (RXD1) Wifi LED (hidden inside unit) |
 | P11 | (TXD1) Button                        |
 
+## GPIO Pinout - Series 3
+
+| Pin | Function                             |
+| --- | ------------------------------------ |
+| P6  | (PWM0) BL0937 CF1 pin                |
+| P7  | (PWM1) BL0937 CF pin                 |
+| P8  | (PWM2) Relay                         |
+| P10 | (RXD1) Wifi LED (hidden inside unit) |
+| P11 | (TXD1) Button                        |
+| P24 | (PWM4) BL0937 SEL pin                |
+| P26 | (PWM5) LED                           |
+
 ## Getting it up and running
 
 ### Using Cloudcutter
@@ -43,6 +57,10 @@ I have NOT looked at any of these variations to find out if they are similar to 
 Cloudcutter is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware over Wi-fi, eliminating the need to physically open the device.  
 Follow [these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Arlec PC1914HA device using Cloudcutter.  
 After that, you can use ESPHome's OTA functionality to make any further changes.  
+
+### Series 3 - flashing the CB2S module manually
+
+The case is ultrasonic-welded shut. With a spudger, blade, or other thin-edged tool you can pry it open (there will be some cosmetic damage). There will also be some silicone holding everything together which can be overcome with some effort. The CB2S module is soldered in a thru-hole configuration on the top edge of the main board. Refer to the [CB2S datasheet](https://developer.tuya.com/en/docs/Document/cb2s-module-datasheet) for its pinout, you'll need a USB to TTL serial adapter and a soldering iron. It's best to remove the module from the main board, as the serial adapater's 3.3V power supply probably isn't enough for the module to boot with peripherals attached. Flash with [ltchiptool](https://github.com/libretiny-eu/ltchiptool) or similar.
 
 ### Note on Power Monitoring
 
@@ -198,6 +216,96 @@ sensor:
     id:   ${device_name}_uptime
     update_interval: "30s"
 
+```
+
+## ESP8266 configuration
+
+The BK7231 module is not suitable for devices which must remain powered after OTA or any reboot cycle, as these modules have no capability to keep power applied during a reboot.  Replacing the WB2S or CB2S modules with an ESP8285 based module resolves this issue, and any ESP-02S form factor module will suffice, with the most commonly available modules being the Tuya TYWE2S.  The ESP8285 also uses a more standardised configuration for power monitoring, without needing any of the complexity applied in the BK7231 configuration related to the BL0937 chip.
+
+The BL0937 calibration values were validated using a CCI Power-Mate monitoring a heat gun pulling 1800 watts.
+
+```yaml
+esphome:
+  name: device-name
+  friendly_name: Friendly Device Name
+
+esp8266:
+  board: esp8285
+  early_pin_init: False # Required to ensure the power does not trip out after OTA or reboot
+
+wifi:
+  ssid: "wifi_ssid"
+  password: "wifi_password"
+  
+  ap:
+    ssid: "Device Name Fallback Hotspot"
+    password: "wifi_ap_password"
+
+captive_portal:
+
+logger:
+  baud_rate: 0
+
+api:
+  encryption:
+    key: "api_key"
+
+ota:
+  platform: esphome
+  password: "ota_password"
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO1
+    name: button
+    id: button
+    device_class: window
+    on_press:
+      then:
+        - switch.toggle: relay
+
+switch:
+  - platform: gpio
+    pin: GPIO13
+    name: "Power Switch"
+    id: relay
+    restore_mode: ALWAYS_ON   # Change as per your needs
+    icon: mdi:power-socket-au
+    on_turn_on:
+      then:
+        - output.turn_on: button_led
+    on_turn_off:
+      then:
+        - output.turn_off: button_led
+  - platform: restart
+    name: "Restart"
+
+output:
+  - platform: gpio
+    id: button_led
+    pin: GPIO14
+
+sensor:
+  - platform: hlw8012
+    voltage_divider: 1540 # Verified using CCI Power-Mate
+    current_resistor: 0.00102 # Verified using CCI Power-Mate
+    model: BL0937
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO4
+    cf1_pin: GPIO5
+    current:
+      name: "Current"
+      filters:
+        - multiply: 0.902 # Verified using CCI Power-Mate
+    voltage:
+      name: "Voltage"
+    power:
+      name: "Power"
+    energy:
+      name: "Energy"
+    update_interval: 5s
 ```
 
 ## References
