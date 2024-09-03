@@ -26,17 +26,10 @@ which comes as a colour changing LED strip with controller and transformer.
 
 ```yaml
 # LSC Smart Connect XXL-LED-Stripe 3202086
-
-substitutions:
-  device_name: terasse-led-stripe
-  device_name_letters: terasseLedStripe
-  device_description: LSC Smart Connect XXL-LED-Stripe 3202086
-  friendly_name: LSC Smart Connect XXL-LED-Stripe 3202086
-
 esphome:
-  name: ${device_name}
-  comment: ${device_description}
-  friendly_name: ${friendly_name}
+  name: terasse-led-stripe
+  comment: LSC Smart Connect XXL-LED-Stripe 3202086
+  friendly_name: LSC Smart Connect XXL-LED-Stripe
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -53,35 +46,12 @@ ota:
 
 # Enable Web server
 web_server:
-  port: 80
-
-# Sync time with Home Assistant
-time:
-  - platform: homeassistant
-    id: homeassistant_time
 
 # WiFi connection
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
-    ssid: ${device_name}_fallback
-    password: !secret ap_password
-    ap_timeout: 1min
-  use_address: ${device_name}.lan
 
 captive_portal:
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ESP IP Address
-    ssid:
-      name: ESP Connected SSID
-    bssid:
-      name: ESP Connected BSSID
-    mac_address:
-      name: ESP Mac Wifi Address
 
 light:
   - platform: cwww
@@ -92,14 +62,7 @@ light:
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
     on_turn_on:
-      - switch.turn_on: LED_Power
       - light.turn_off: color_light
-    on_turn_off:
-      - if:
-          condition:
-            light.is_off: color_light
-          then:
-            - switch.turn_off: LED_Power
 
   - platform: beken_spi_led_strip
     id: color_light
@@ -108,6 +71,7 @@ light:
     chipset: WS2812
     num_leds: 40
     rgb_order: RBG
+    power_supply: led_power
     effects:
      - random:
      - pulse:
@@ -121,43 +85,21 @@ light:
      - addressable_fireworks:
      - addressable_flicker:
     on_turn_on:
-      - switch.turn_on: LED_Power
       - light.turn_off: white_light
-    on_turn_off:
-      - if:
-          condition:
-            light.is_off: white_light
-          then:
-            - switch.turn_off: LED_Power
 
 output:
   - platform: libretiny_pwm
     id: output_cw
     pin: P9
+    power_supply: led_power
   - platform: libretiny_pwm
     id: output_ww
     pin: P24
+    power_supply: led_power
 
-switch:
-  # Switch to toggle the relay (Power output)
-  - platform: gpio
-    name: "LED Power 24V"
-    id: LED_Power
+power_supply:
+    id: led_power
     pin: P6
-    internal: True
-
-sensor:
-    # Uptime sensor
-  - platform: uptime
-    name: ${friendly_name} Uptime
-    unit_of_measurement: minutes
-    filters:
-      - lambda: return x / 60.0;
-  - platform: wifi_signal
-    name: ${friendly_name} Signal
-    update_interval: 60s
-  - platform: internal_temperature
-    name: "Internal Temperature"
 
 remote_receiver:
   pin:
