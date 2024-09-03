@@ -42,25 +42,25 @@ board: esp32
 ### data pins
 
 ```yaml
-      red:
-        - 45        #r1
-        - 48        #r2
-        - 47        #r3
-        - 21        #r4
-        - 14        #r5
-      green:
-        - 5         #g0
-        - 6         #g1
-        - 7         #g2
-        - 15        #g3
-        - 16        #g4
-        - 4         #g5
-      blue:
-        - 8         #b1
-        - 3         #b2
-        - 46        #b3
-        - 9         #b4
-        - 1         #b5
+red:
+  - 45        #r1
+  - 48        #r2
+  - 47        #r3
+  - 21        #r4
+  - 14        #r5
+green:
+  - 5         #g0
+  - 6         #g1
+  - 7         #g2
+  - 15        #g3
+  - 16        #g4
+  - 4         #g5
+blue:
+  - 8         #b1
+  - 3         #b2
+  - 46        #b3
+  - 9         #b4
+  - 1         #b5
 ```
 
 ## Simle configuration
