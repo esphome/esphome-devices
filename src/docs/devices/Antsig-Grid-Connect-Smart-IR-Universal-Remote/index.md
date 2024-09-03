@@ -35,16 +35,13 @@ tuya-cloudcutter is untested - it may work but it's quite an easy device to flas
 - Once flashed, disconnect the wires and power from USB - any further updates you need to make can be done OTA (which is usually much faster)
 - Take care when replacing the top - the clips aren't evenly spaced so you'll need to line them up right for it to go back together
 
-## Example Configuration for Climate Control
+## Example Configuration
 
 ```yaml
-substitutions:
-  device_name: "bedroom-aircon"
-  friendly_name: "Bedroom Aircon"
-
 esphome:
-  name:  ${device_name}
-  friendly_name:  ${friendly_name}
+  name: antsig-ir-hub
+  friendly_name:  Antsig IR Hub
+  
 bk72xx:
   board: cb3s
 
@@ -53,15 +50,11 @@ logger:
 api:
 
 ota:
+  - platform: esphome
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ${device_name}
-    password: "password"
 
 captive_portal:
 
@@ -85,17 +78,4 @@ remote_receiver:
       pullup: true
   tolerance: 55%
 
-# If you have a temperature sensor in the room, reference it here for the current temperature to be shown in the blaster's climate entity
-#sensor:
-#  - platform: homeassistant
-#    id: current_temperature
-#    name: "Temperature from HA Sensor"
-#    entity_id: sensor.bedroom_climate_temperature
-
-# See https://esphome.io/components/climate/climate_ir for list of manufacturers
-climate:
-  - platform: fujitsu_general
-    name: ${friendly_name}
-    receiver_id: rcvr
-    #sensor: current_temperature
 ```
