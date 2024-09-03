@@ -1,6 +1,6 @@
 ---
 title: LSC Smart Connect 10 meter XXL-LED-Stripe 3202086
-date-published: 2024-08-07
+date-published: 2024-09-03
 type: light
 board: bk72xx
 standard: eu
