@@ -1,6 +1,6 @@
 ---
 title: Antsig Smart Wi-Fi IR Universal Remote (HUBIR01HA)
-date-published: 2024-08-28
+date-published: 2024-09-03
 type: misc
 standard: global
 board: bk72xx
