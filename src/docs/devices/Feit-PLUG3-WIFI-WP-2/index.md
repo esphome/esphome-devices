@@ -125,5 +125,5 @@ captive_portal:
 
 ## References
 
-https://docs.libretiny.eu/boards/cb2s/ - CB2S pinout
-https://www.youtube.com/watch?v=t0o8nMbqOSA   - Video of LTCHIPTOOL process on different device
+<https://docs.libretiny.eu/boards/cb2s/>       - CB2S pinout
+<https://www.youtube.com/watch?v=t0o8nMbqOSA>  - Video of LTCHIPTOOL process on different device
