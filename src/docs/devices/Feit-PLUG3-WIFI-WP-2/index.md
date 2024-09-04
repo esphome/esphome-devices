@@ -46,7 +46,6 @@ If you'd like to dump the original firmware, obviously you need to do this befor
 
 On the 'Flashing' tab within LTCHIPTOOL, choose 'Write flash / identify file' option and then browse to the uF2 file you compiled earlier and then press 'Start'. You will again need to tickle the CEN pin on the CB2S module with your ground wire to get it to start flashing. Once it completes, it should reboot and join your WiFi network. You can now disconnect your temporary wire connections to the PCB, carefully reseat the PCB on to the pegs and return the two screws to secure it. Place the top cover back onto the base ensuring that the cord and outlet seals are all seated properly. Secure it all shut with the remaining 6 screws and you're done!!
 
-
 ## Basic Configuration
 
 ```yaml
@@ -61,6 +60,7 @@ esphome:
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
+# Note: UART config is optional
 uart:
   rx_pin: P10 #RX1
   tx_pin: P11 #TX1
@@ -79,6 +79,7 @@ binary_sensor:
       number: P6
       inverted: true
       mode: INPUT_PULLUP
+
 light:
   - platform: status_led
     id: led_status
@@ -107,7 +108,6 @@ switch:
       - light.turn_on: led_status
     on_turn_off:
       - light.turn_off: led_status
-
 
 logger:
 api:
