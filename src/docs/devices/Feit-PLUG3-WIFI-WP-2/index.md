@@ -9,9 +9,9 @@ difficulty: 4
 
 ![Product Image](box.jpg "Product Image")
 
-The Feit Electric Triple Outlet Outdoor SmartPlug is sold on [Amazon](https://www.amazon.com/Feit-Electric-Controls-Schedules-Compatible/dp/B0DB4BTCV3/) and at [Costco](https://www.costco.com/feit-electric-triple-outlet-outdoor-smart-plugs-2-pack.product.4000263691.html) in the US. I picked up a 2-pack at Costco on sale in September 2024 for around $15. They are plastic but weatherized with a UL rating for wet locations.  
+The Feit Electric Triple Outlet Outdoor SmartPlug is sold on [Amazon](https://www.amazon.com/Feit-Electric-Controls-Schedules-Compatible/dp/B0DB4BTCV3/) and at [Costco](https://www.costco.com/feit-electric-triple-outlet-outdoor-smart-plugs-2-pack.product.4000263691.html) in the US. I picked up a 2-pack at Costco on sale in September 2024 for around $15. They are plastic but weatherized with a UL rating for wet locations.
 
-The SmartPlug leverages a CB2S module based on the BK7231N chip (a variant of bk72xx) which controls a single relay (powering all three receptacles), a status LED, and a physical pushbutton switch. I did not check to see what firmware was on it out of the box as I just assumed all of the newer devices are not vulnerable to the CloudCutter method and that disassembly would be required. I did dump the firmware and ROM though and will update if I get around to digging in to it. 
+The SmartPlug leverages a CB2S module based on the BK7231N chip (a variant of bk72xx) which controls a single relay (powering all three receptacles), a status LED, and a physical pushbutton switch. I did not check to see what firmware was on it out of the box as I just assumed all of the newer devices are not vulnerable to the CloudCutter method and that disassembly would be required. I did dump the firmware and ROM though and will update if I get around to digging in to it.
 
 ## GPIO Pinout
 
@@ -40,7 +40,7 @@ Using a Windows computer, [download](https://github.com/libretiny-eu/ltchiptool/
 
 ## Dumping original firmware
 
-If you'd like to dump the original firmware, obviously you need to do this before flashing. If you have no interest in ever returning to the stock firmware skip to the next section. In the 'Output file' box, select the location you would like to save the file to. Select "Read flash" and then click 'Start'. Now is when you need that jumper wire you attached to ground earlier. Use it to tap the CEN pin briefly while LTCHIPTOOL is trying to read the device. This will reboot the CB2S where it very briefly goes into program mode before continuing to its regular routine. You should see the progress of the read begin. You may have to try this a couple times to get it right. It will take a minute or two to dowload the flash. If you'd like to download the ROM for whatever reason (contains the bootloader/download mode), you can also do that now using the same method but selecting 'Read ROM' before hitting 'Start' again. 
+If you'd like to dump the original firmware, obviously you need to do this before flashing. If you have no interest in ever returning to the stock firmware skip to the next section. In the 'Output file' box, select the location you would like to save the file to. Select "Read flash" and then click 'Start'. Now is when you need that jumper wire you attached to ground earlier. Use it to tap the CEN pin briefly while LTCHIPTOOL is trying to read the device. This will reboot the CB2S where it very briefly goes into program mode before continuing to its regular routine. You should see the progress of the read begin. You may have to try this a couple times to get it right. It will take a minute or two to dowload the flash. If you'd like to download the ROM for whatever reason (contains the bootloader/download mode), you can also do that now using the same method but selecting 'Read ROM' before hitting 'Start' again.
 
 ## Installing ESPhome
 
@@ -126,4 +126,3 @@ captive_portal:
 ## References
 https://docs.libretiny.eu/boards/cb2s/ - CB2S pinout
 https://www.youtube.com/watch?v=t0o8nMbqOSA   - Video of LTCHIPTOOL process on different device
-
