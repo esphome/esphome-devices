@@ -3,7 +3,7 @@ title: Antsig Grid Connect Smart IR Universal Remote Controller
 date-published: 2024-09-07
 type: misc
 standard: au
-board: cb3s
+board: bk72xx
 difficulty: 2
 ---
 
