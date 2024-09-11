@@ -50,7 +50,7 @@ i2c:
   id: bus_a
 
 cd74hc4067:
-  
+
 - id: cd74hc4067_1
   pin_s0: 32
   pin_s1: 33
@@ -61,13 +61,13 @@ web_server:
   port: 80
 
 font:
-  
+
 - file: "gfonts://Roboto"
   id: roboto
   size: 20
 
 display:
-  
+
 - platform: ssd1306_i2c
   model: "SSD1306 128x64"
   address: 0x3C
@@ -76,7 +76,7 @@ display:
     it.printf(0, 20, id(roboto), "H: %.1f%%", id(humidity).state);
     it.printf(0, 40, id(roboto), "AC:%.1fV", id(voltage_1).state);
 
-## Example sensor configuration
+## Sensor configuration
 
 sensor:
 
@@ -307,9 +307,4 @@ sensor:
   filters:
     - calibrate_linear:
         - 0 -> 0
-        - 0.31749 -> 8.95608
-
-time:
-  
-- platform: sntp
-  id: my_time
+        - 0.31749
