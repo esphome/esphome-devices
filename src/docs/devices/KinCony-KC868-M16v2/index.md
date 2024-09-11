@@ -127,3 +127,12 @@ sensor:
     sensor: adc35
     update_interval: 60s
   # ... up to ai16
+  - platform: ct_clamp
+    sensor: ai1
+    id: Measured_Current_1
+    name: "Measured Current-1"
+    update_interval: 5s
+    filters:
+      - calibrate_linear:
+          - 0.0034 -> 0
+          - 0.31749 -> 8.95608
