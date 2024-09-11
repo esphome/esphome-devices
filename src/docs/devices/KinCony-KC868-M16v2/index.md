@@ -225,7 +225,10 @@ sensor:
   update_interval: 5s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0.0034 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: template
@@ -252,7 +255,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -261,7 +267,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -270,7 +279,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -279,7 +291,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -288,7 +303,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -297,7 +315,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -306,7 +327,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -315,7 +339,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -324,7 +351,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -333,7 +363,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -342,7 +375,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -351,7 +387,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -360,7 +399,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -369,7 +411,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 - platform: ct_clamp
@@ -378,7 +423,10 @@ sensor:
   update_interval: 60s
   filters:
     - calibrate_linear:
+        # Measured value of 0 maps to 0A
         - 0 -> 0
+        # Known load: 4.0A
+        # Value shown in logs: 0.1333A
         - 0.31749 -> 8.95608
 
 time:
