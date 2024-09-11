@@ -116,3 +116,14 @@ sensor:
     id: adc35
     update_interval: never
     attenuation: 11db
+  - platform: cd74hc4067
+    id: ai1
+    number: 0
+    sensor: adc35
+    update_interval: 60s
+  - platform: cd74hc4067
+    id: ai2
+    number: 1
+    sensor: adc35
+    update_interval: 60s
+  # ... up to ai16
