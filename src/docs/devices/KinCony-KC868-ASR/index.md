@@ -3,6 +3,7 @@ title: KinCony KC868-ASR
 date-published: 2023-04-19
 type: relay
 standard: global
+board: esp32
 ---
 
 
@@ -93,12 +94,12 @@ binary_sensor:
       inverted: true
     name: "asr-button"
 
-dallas:
+one_wire:
   - pin: 32
     update_interval: 5s
 
 sensor:
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x7b062162cfe98128
     name: "asr-t2"
 ```

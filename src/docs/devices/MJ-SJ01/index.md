@@ -3,6 +3,7 @@ title: Martin Jerry Dimmer MJ-SD01
 date-published: 2019-10-11
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -333,7 +334,8 @@ logger:
   # https://esphome.io/components/logger
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret encryption_key
   # https://esphome.io/components/api
 
 ota:
@@ -589,7 +591,8 @@ logger:
   # https://esphome.io/components/logger
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret encryption_key
   # https://esphome.io/components/api
 
 ota:

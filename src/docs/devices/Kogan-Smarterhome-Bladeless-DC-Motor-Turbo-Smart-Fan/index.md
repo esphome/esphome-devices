@@ -4,6 +4,7 @@ Model: KASBLSTFANSA
 date-published: 2022-08-02
 type: misc
 standard: au
+board: esp8266
 ---
 
 ![Product Image](Kogan-Smarterhome-Bladeless-DC-Motor-Turbo-Smart-Fan.jpg "Kogan SmarterHome Bladeless DC Motor Turbo Smart Fan")
@@ -43,8 +44,8 @@ api:
 ota:
 
 uart:
-    rx_pin: GPIO13
-    tx_pin: GPIO15
+    rx_pin: GPIO3
+    tx_pin: GPIO1
     baud_rate: 9600
 
 tuya:

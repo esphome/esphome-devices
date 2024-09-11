@@ -3,6 +3,7 @@ title: C168 IP64 Outdoor Plug
 date-published: 2021-03-07
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -55,7 +56,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret apipass
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret otapass

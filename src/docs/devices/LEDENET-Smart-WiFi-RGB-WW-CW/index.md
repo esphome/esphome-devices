@@ -3,6 +3,7 @@ title: LEDENET Smart WiFi Led Controller (RGB/WW/CW)
 date-published: 2020-12-17
 type: light
 standard: global
+board: esp8266
 ---
 
 ## General Notes
@@ -46,7 +47,8 @@ wifi:
 logger:
 
 api:
-  password: !secret otapw
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret otapw
@@ -116,7 +118,8 @@ wifi:
 logger:
 
 api:
-  password: !secret otapw
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret otapw
@@ -184,7 +187,8 @@ wifi:
 logger:
 
 api:
-  password: !secret otapw
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret otapw

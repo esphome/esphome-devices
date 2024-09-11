@@ -3,6 +3,7 @@ title: Arlec 6000HA inline switch
 date-published: 2023-01-04
 type: switch
 standard: au
+board: esp8266
 ---
 
 
@@ -48,7 +49,8 @@ wifi:
 logger:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

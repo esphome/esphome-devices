@@ -3,6 +3,7 @@ title: Tuya AP Future CCT LED Controller
 date-published: 2021-11-02
 type: light
 standard: global
+board: esp8266
 ---
 
 ## General Notes

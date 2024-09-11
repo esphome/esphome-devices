@@ -3,6 +3,7 @@ title: Lenovo 800lm RGBCCT Bulb
 date-published: 2022-11-19
 type: light
 standard: global
+board: esp8266
 ---
 
 ![Lenovo bulb packaging view](lenovo_ZG38C02978.webp "Lenovo 800 lumens RGB + CCT bulb")

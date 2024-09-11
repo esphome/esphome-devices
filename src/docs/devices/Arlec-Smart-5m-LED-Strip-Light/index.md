@@ -3,6 +3,7 @@ title: Arlec Smart 2m/5m LED Strip Light
 date-published: 2020-01-21
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -39,7 +40,8 @@ logger:
 web_server:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

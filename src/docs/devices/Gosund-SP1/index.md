@@ -2,8 +2,9 @@
 title: Gosund SP1
 Model: SP1
 date-published: 2021-12-27
-type: relay
+type: plug
 standard: eu
+board: esp8266
 ---
 
 - Can be flashed with Tuya-Convert
@@ -54,7 +55,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 # Enable over-the-air updates
 ota:

@@ -3,6 +3,7 @@ title: Rowi ESP32 Smart Plug AU and NZ
 date-published: 2022-01-20
 type: plug
 standard: au
+board: esp32
 ---
 
 ESP32-based Smart Plug (Rowi), delivered with the pre-flashed ESPHome firmware - no need to open the device!

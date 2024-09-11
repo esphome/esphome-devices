@@ -3,6 +3,7 @@ title: CloudFree EU Plug (P1EU)
 date-published: 2022-06-22
 type: plug
 standard: eu
+board: esp8266
 ---
   ![alt text](/cloudfree_P1EU.jpg "Product Image")
   ![alt text](/cloudfree_P1EU_Reference.jpg "Product Reference Image")
@@ -69,7 +70,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret OTA_Password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret OTA_Password

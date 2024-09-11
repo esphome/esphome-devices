@@ -3,6 +3,7 @@ title: Gosund WO1 Wall Outlet
 date-published: 2022-03-25
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![Product Image](Gosund-WO1.jpg "Product Image")

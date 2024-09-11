@@ -3,6 +3,7 @@ title: Brilliant Smart RGB and White Globe
 date-published: 2020-05-25
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes

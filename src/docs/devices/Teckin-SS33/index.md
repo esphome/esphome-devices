@@ -3,6 +3,7 @@ title: Teckin SS33
 date-published: 2020-07-17
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -39,7 +40,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret ha_esp_api_pw
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret outdoor_ss33_ota

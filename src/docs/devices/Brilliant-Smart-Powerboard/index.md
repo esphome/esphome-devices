@@ -3,6 +3,7 @@ title: Brilliant Smart WiFi Powerboard 20691/05
 date-published: 2020-03-18
 type: plug
 standard: au
+board: esp8266
 ---
 
 The Brilliant Smart Smart WiFi Powerboard 20691 is available in Australia and New Zealand. It has four individually switched AC outlets (each has a status LED that do not seem to be individually controllable. There are also four USB power/charge ports, all switchable but not individually. There is a button and blue and red controllable leds.
@@ -60,7 +61,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "**"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "**"

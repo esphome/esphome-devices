@@ -3,6 +3,7 @@ title: Yeron US101 Plug
 date-published: 2020-01-27
 type: plug
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3nAvoWf)

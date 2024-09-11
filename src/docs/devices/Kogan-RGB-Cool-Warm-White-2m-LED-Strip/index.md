@@ -4,6 +4,7 @@ Model: KSH2MLEDSPA
 date-published: 2020-07-09
 type: light
 standard: au
+board: esp8266
 ---
   ![alt text](/Kogan-RGB-Cool-Warm-White-2m-LED-Strip.jpg "Product Image")
 
@@ -43,7 +44,8 @@ logger:
 
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

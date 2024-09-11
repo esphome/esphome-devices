@@ -3,6 +3,7 @@ title: Aoycocr-X10S Power Monitoring Plug
 date-published: 2020-05-09
 type: plug
 standard: us
+board: esp8266
 ---
 
 This device did not have a serial number. FCC-ID is [2AKBP](https://fccid.io/2AKBP-X10S).
@@ -295,7 +296,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphomeapipwd
+  encryption:
+    key: !secret api_encryption_key
 
 # Enable OTA updates
 ota:

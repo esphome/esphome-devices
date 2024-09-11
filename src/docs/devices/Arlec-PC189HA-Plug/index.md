@@ -3,6 +3,7 @@ title: Arlec PC189HA Plug
 date-published: 2021-01-04
 type: plug
 standard: au
+board: esp8266
 ---
 
 ![Product Image](/Arlec-PC189HA-Plug.jpg "Product Image")
@@ -49,7 +50,8 @@ wifi:
 logger:
 
 api:
-  password: "api_password"
+  pencryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

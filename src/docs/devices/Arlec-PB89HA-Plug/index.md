@@ -3,6 +3,7 @@ title: Arlec PB89HA Power Board
 date-published: 2020-01-04
 type: plug
 standard: au
+board: esp8266
 ---
 
 The Arlec PB89HA power board is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
@@ -53,7 +54,8 @@ logger:
   hardware_uart: UART1
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

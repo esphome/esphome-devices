@@ -3,6 +3,7 @@ title: Shelly 1PM
 date-published: 2021-09-11
 type: switch
 standard: uk, us, eu
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -34,7 +35,8 @@ esphome:
 logger:
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

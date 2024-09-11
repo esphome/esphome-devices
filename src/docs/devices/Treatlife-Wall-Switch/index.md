@@ -3,6 +3,7 @@ title: Treatlife esp01_1m 2/3-Way Wall-Switch
 date-published: 2020-11-29
 type: switch
 standard: global
+board: esp8266
 ---
 
 ## Notes
@@ -58,7 +59,8 @@ wifi:
 logger:
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret esphome_ota_password
@@ -127,7 +129,8 @@ wifi:
 captive_portal:
 logger:
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret esphome_ota_password

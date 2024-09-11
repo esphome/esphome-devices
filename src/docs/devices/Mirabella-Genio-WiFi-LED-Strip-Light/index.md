@@ -3,6 +3,7 @@ title: Mirabella Genio Wi-Fi Strip Light
 date-published: 2020-01-24
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -48,7 +49,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "ota_password"

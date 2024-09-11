@@ -3,6 +3,7 @@ title: Arlec Grid Connect Smart Plug In Socket With 2.1A USB Charger
 date-published: 2023-04-12
 type: plug
 standard: au
+board: esp8266
 ---
 
 Arlec Grid Connect products are a Tuya-based smart devices

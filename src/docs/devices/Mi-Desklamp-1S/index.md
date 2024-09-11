@@ -3,6 +3,7 @@ title: Xiaomi Mi Desklamp 1S
 date-published: 2021-12-27
 type: light
 standard: eu
+board: esp32
 ---
 
 ```yaml
@@ -41,7 +42,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 # Enable over-the-air updates
 ota:

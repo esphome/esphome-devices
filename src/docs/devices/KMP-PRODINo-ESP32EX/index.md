@@ -3,6 +3,7 @@ title: KMP PRODINo ESP32EX
 date-published: 2023-01-06
 type: misc
 standard: global
+board: esp32
 ---
 ![alt text](ProDinoESP32Ex_2.jpg "ProDinoESP32Ex")
 
@@ -43,18 +44,19 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "password"
 
 #optional onewire
-#dallas:
+#one_wire:
 #  - pin: GPIO21
 
 sensor:
  #optional onewire
- # - platform: dallas
+ # - platform: dallas_temp
  #   address: 0xcb021564bbacffff
  #   name: "Ds18B20 Temperature"
 

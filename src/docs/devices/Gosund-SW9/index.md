@@ -4,6 +4,7 @@ Model: SW9
 date-published: 2021-11-30
 type: switch
 standard: EU
+board: esp8266
 ---
 
 ![Product Image](gosund_sw9.jpg "Product Image")
@@ -45,7 +46,8 @@ esphome:
       - light.turn_on: switch_2_led_state
 
 api:
-  password: "PASSWORD"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "PASSWORD"

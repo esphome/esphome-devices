@@ -3,6 +3,7 @@ title: Connect SmartHome 10W CCT Smart White LED Bulb B22 (CSH-B22WW10W)
 date-published: 2021-11-01
 type: light
 standard: au
+board: esp8266
 ---
 
 ![Connect SmartHome 10W CCT Smart White LED Bulb](connect_smarthome_CSH-B22WW10W.jpg "Connect SmartHome 10W CCT Smart White LED Bulb")
@@ -56,7 +57,8 @@ captive_portal:
 logger:
 
 api:
-  password: "password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "password"

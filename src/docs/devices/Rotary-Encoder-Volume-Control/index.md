@@ -3,6 +3,7 @@ title: Rotary Encoder Volume Control
 date-published: 2019-10-14
 type: misc
 standard: global
+board: esp8266
 ---
 
 ## General Notes
@@ -38,7 +39,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "ota_password"

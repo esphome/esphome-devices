@@ -3,6 +3,7 @@ title: MQ-7 Carbon Monoxide Sensor
 date-published: 2023-04-11
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![MQ-7 Carbon Monoxide Sensor](mq-7.png "MQ-7 Carbon Monoxide Sensor")
@@ -36,7 +37,7 @@ This will remove the digital output of the sensor and replace it with a digital 
 - Optional: Add the D0-LED you removed earlier, but with reversed polarity. It will show the status of the heater
 - Check the resistance between VCC and GND. It should be ~100Ω
 
-![Heater Mod](mq-7-heater-mod.png "Heater Mod")
+![Heater Mod](mq-7-heater-mod.webp "Heater Mod")
 
 ## ESPHome Config
 

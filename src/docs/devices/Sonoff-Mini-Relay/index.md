@@ -4,6 +4,7 @@ Model: IM190416001
 date-published: 2020-11-19
 type: relay
 standard: global
+board: esp8266
 ---
   ![alt text](Sonoff-Mini-Relay.png "Product Image")
 
@@ -51,7 +52,8 @@ logger:
   
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password
@@ -100,7 +102,7 @@ binary_sensor:
 switch:
   - platform: gpio
     name: ${device_name}_switch
-    icon: "mdi: lightbulb_outline"
+    icon: "mdi:lightbulb_outline"
     pin: GPIO12
     id: relay_1
     restore_mode: restore_default_off
@@ -108,12 +110,15 @@ switch:
 status_led:
   pin:
     number: GPIO13
+    allow_other_uses: true
     inverted: true
 
 output:
   - platform: esp8266_pwm
     id: blue_led
-    pin: GPIO13
+    pin:
+      number: GPIO13
+      allow_other_uses: true
     inverted: True
 
 light:
@@ -154,7 +159,8 @@ logger:
   
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password
@@ -210,6 +216,7 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO13
+    allow_other_uses: true
     inverted: true
 
 output:
@@ -220,7 +227,9 @@ output:
   # the 3 lines below control the Blue LED
   - platform: esp8266_pwm
     id: blue_led
-    pin: GPIO13
+    pin:
+      number: GPIO13
+      allow_other_uses: true
     inverted: True
 
 light:

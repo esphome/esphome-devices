@@ -3,6 +3,7 @@ title: Acenx SOP04-US
 date-published: 2022-03-08
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![alt text](sop04-us.jpg "Acenx SOP04-US")

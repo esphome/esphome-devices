@@ -3,6 +3,7 @@ title: TreatLife DS02S Single Pole Dimmer
 date-published: 2021-05-08
 type: dimmer
 standard: us
+board: esp8266
 ---
 
 Treatlife DS02S Switch![image](Treatlife-DS02S.png)
@@ -49,7 +50,8 @@ logger:
   baud_rate: 0
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret esphome_ota_password
@@ -79,4 +81,34 @@ light:
     switch_datapoint: 1
     min_value: 100
     max_value: 1000
+```
+
+## Advanced Configuration
+
+Below are some advanced configuration options that may be required if your dimmer is not behaving as expected.
+
+This will add a select component to allow changing the dimming mode on the MCU, giving you a drop-down of dimming mode options. Recommended to try out all and see which works best, then set it statically.
+
+```yaml
+select:
+  - platform: "tuya"
+    id: "dimmer_mode"
+    name: "Dimming Mode"
+    enum_datapoint: 4
+    options:
+      0: Mode 1 # Index 0
+      1: Mode 2 # Index 1
+      2: Mode 3 # Index 2
+```
+
+Here is a script that will set the dimming mode in a more static fashion when ESPHome Reboots. This will select based on the index of the select component instead of by name of the mode. This can still be set via drop down if this script is included, it will just set it to this value every boot.
+
+```yaml
+esphome:
+  on_boot:
+    then:
+      - delay: 30s # Wait 30 seconds because even with a priority of -200.0, it will not update the datapoint.
+      - select.set_index:
+          id: "dimmer_mode"
+          index: 2
 ```

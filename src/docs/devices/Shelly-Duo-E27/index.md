@@ -3,6 +3,7 @@ title: Shelly DUO E27
 date-published: 2023-04-23
 type: light
 standard: us
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -24,6 +25,9 @@ esp8266:
 
 # Enable logging
 logger:
+# Enable Web Server to allow for direct access via IP Address
+web_server:
+  port: 80
 
 # Enable Home Assistant API
 api:

@@ -3,6 +3,7 @@ title: Tuya Galaxy / Laser Star Projector (RSH-WiFi-Sky01)
 date-published: 2023-01-23
 type: light
 standard: global
+board: esp8266
 ---
 
 Manufacturer: [tuya](https://expo.tuya.com/smart/lighting/ambient-lighting/star-projector/CT9cn91vklm6mj-CT9cn98zo9cbv5-CTatr28ahrby2u)
@@ -12,6 +13,7 @@ Manufacturer: [tuya](https://expo.tuya.com/smart/lighting/ambient-lighting/star-
 - Original hardware mod: [3ATIVE VFX Studio](https://www.youtube.com/watch?v=YwHWbcuztuY&ab_channel=3ATIVEVFXStudio)
   - [Github](https://github.com/3ative/nebula-Light)
 - Modified YAML by [kireque](https://github.com/kireque/esphome_nebula_light)
+- [Custom firmware flash instructions and esphome config for Tuya SK20 nebula light (no disassembly / soldering required)](https://github.com/M4GNV5/esphome-SK20-Nebula-Light)
 
 ## Hardware
 

@@ -3,6 +3,7 @@ title: MagicHome RGBW ZJ-WFMN-A V1.1 LED Controller
 date-published: 2020-10-28
 type: light
 standard: global
+board: esp8266
 ---
 
 ## General Notes
@@ -95,7 +96,7 @@ binary_sensor:
             id: ${device_name}
             relative_brightness: 5%
 
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "Remote BRIGHTDOWN"
     raw:
       code: [ -9000, 4476, -589, 537, -593, 533, -593, 536, -590, 536, -593, 536, -592, 535, -592, 535, -592, 535, -593, 1638, -593, 1638, -592, 1637, -591, 1640, -591, 1638, -592, 1639, -592, 1638, -592, 1639, -592, 1637, -591, 538, -592, 1637, -592, 1639, -592, 1637, -593, 536, -591, 536, -591, 536, -593, 534, -592, 1639, -591, 537, -592, 536, -590, 535, -593, 1637, -593, 1638, -594, 1636, -593 ]
@@ -287,7 +288,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphomeapipwd
+  encryption:
+    key: !secret encryption_key
 
 # Enable OTA updates
 ota:

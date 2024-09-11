@@ -3,6 +3,7 @@ title: Brilliant Smart Wi-Fi RGB Garden Light
 date-published: 2019-11-10
 type: light
 standard: au
+board: esp8266
 ---
 
 ## General Notes
@@ -37,7 +38,8 @@ logger:
 web_server:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota_password"

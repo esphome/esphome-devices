@@ -1,22 +1,71 @@
 ---
-title: DETA Grid Connect Smart Switch (Single / Double / Triple / Quad)
-date-published: 2020-11-23
+title: DETA Grid Connect Smart Switch (Single 6911HA / Double 6912HA / Triple 6903HA / Quad 6904HA)
+date-published: 2023-10-23
 type: switch
 standard: au
+board: bk72xx
 ---
 
 ## General Notes
 
-The DETA [Smart Single Switch (6911HA)](https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811) and [Smart Double Switch (6912HA)](https://www.bunnings.com.au/deta-smart-double-gang-light-switch-touch-activated-with-grid-connect_p0098812) are made by Arlec as part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and are sold at Bunnings in Australia and New Zealand. Older models can be flashed without disassembly or soldering [using tuya-convert](#tuya-convert) however recently purchased evices may require serial flashing.
+The DETA [Smart Single Switch (6911HA)](https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811) and [Smart Double Switch (6912HA)](https://www.bunnings.com.au/deta-smart-double-gang-light-switch-touch-activated-with-grid-connect_p0098812) are made by Arlec as part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and are sold at Bunnings in Australia and New Zealand.
 
-[Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang switches.
+### Series 1
 
-### Incompatible Wifi Modules
+Series 1 models could be OTA flashed using using tuya-convert.
 
-Deta/Bunnings now ship the Single, Double and Triple (tbc on Quad) with WB3S chips, which are _not_ compatible with ESPHome/Tuya/Tasmota/etc. Packaging states a "Series 2" model number, eg "6911HA - Series 2".
-It is still possible to convert these switches to ESPHome by replacing the WB3S chip with a ESP-12E or ESP-12F chip and adding a 10k pull-down resister on GPIO15, as WB3S does not require it, and it is omitted from the board in some cases.
+### Series 2
 
-## GPIO Pinout
+Recently purchased devices are using the Beken BK7231T microcontroller and can be OTA flashed using using Cloudcutter.
+
+[Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang switches. Some 4 gang switches are on random Tuya firmware 1.1.5 and may need to use the “Lonsonho” brand “X804A 4 Gang Smart Wifi Switch” option in Cloudcutter, otherwise use the Deta single gang switch.
+
+## Getting it up and running
+
+### Cloudcutter
+
+[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the process of flashing Tuya-based devices. It allows you to bypass the need for physically opening the device and swapping out chips. By leveraging the cloud APIs, Cloudcutter enables you to flash the firmware remotely, making it a convenient and less intrusive option. Follow the instructions on the [Cloudcutter GitHub repository](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to use this method for flashing your device.
+
+### Disassembly
+
+If you can't or don't wish to use Cloudcutter, you can flash directly to the outlet with USB to serial adapter.
+
+## Overview
+
+This guide covers the DETA Smart Switches, including the [Single (6911HA)](https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811) and [Double (6912HA)](https://www.bunnings.com.au/deta-smart-double-gang-light-switch-touch-activated-with-grid-connect_p0098812), which are part of the [Grid Connect ecosystem](https://grid-connect.com.au/). These switches are available at Bunnings stores in Australia and New Zealand.
+
+## Series Information
+
+### Series 1 - Flashing
+
+- **Flashing Method**: OTA via tuya-convert
+
+### Series 2 - Flashing
+
+- **Microcontroller**: Beken BK7231T
+- **Flashing Method**: OTA via Cloudcutter
+
+> **Note**: The [Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) models have different pinouts compared to the 1 and 2 gang switches.
+
+## Setup Guide
+
+### Using Cloudcutter
+
+[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the flashing process. Follow the [official guide](https://github.com/tuya-cloudcutter/tuya-cloudcutter) for instructions.
+
+### Manual Flashing
+
+If you prefer to flash manually, you'll need a USB to serial adapter. Follow the disassembly steps below:
+
+1. Remove the front plastic face.
+2. Unscrew the two exposed screws.
+3. Remove the clear panel and the small PCB underneath.
+
+> **Tip**: You can convert these switches to ESPHome by replacing the WB3S chip with an ESP-12E or ESP-12F chip and adding a 10k pull-down resistor on GPIO15.
+
+## GPIO Pinouts
+
+### Tuya-Based Models
 
 | Pin    | Function                       |
 | ------ | ------------------------------ |
@@ -26,122 +75,278 @@ It is still possible to convert these switches to ESPHome by replacing the WB3S 
 | GPIO14 | Relay, Bottom _(includes LED)_ |
 | GPIO16 | Button, Top                    |
 
-Note that each relay shares a pin with its associated LED; it's not possible to turn either relay on/off independently of its button LED.
-The top/bottom designation here assumes that it is installed vertically, with the status LED (group of 6 dots) on the right-hand side.
+Triple 6903HA
 
-### Suggested modification
+| Pin    | Function                       |
+| ------ | ------------------------------ |
+| GPIO16 | Button, Top                    |
+| GPIO04 | Button, Middle                 |
+| GPIO03 | Button, Bottom                 |
+| GPIO05 | Relay, Top _(includes LED)_    |
+| GPIO14 | Relay, Middle _(includes LED)_ |
+| GPIO12 | Relay, Bottom _(includes LED)_ |
+| GPIO0  | Status LED _(inverted)_        |
 
-Is is possible to gain control of button LEDs by removing diode(s) D7 / D5 / D9 (3 gang, pcb7395B Rev0.1) which decouples the LED(s) from the relay output(s). You would then solder a small wire from the cathode (-) side of the diode pad to a spare GPIO pin to gain control of the button LED individually. See [this image for an example](https://community-assets.home-assistant.io/optimized/4X/f/9/b/f9b1f8ea23ccc1049ea4eda1765e3f19fb173925_2_666x500.jpeg) (blue wires) [from this forum post](https://community.home-assistant.io/t/australian-light-switch-with-motion-sensor-local-control-show-and-tell/444612)
+### BK72XX-Based Models
 
-## Getting it up and running
+| Pin    | Function                       |
+| ------ | ------------------------------ |
+| P6     | Relay, Left  _(includes LED)_  |
+| P9     | Status LED _(inverted)_        |
+| P14    | Button, Left                   |
+| P24    | Button, Right                  |
+| P26    | Relay, Right _(includes LED)_  |
 
-### Tuya Convert
+> **Note**: Each relay shares a pin with its associated LED.
 
-These switches are Tuya devices, so if you don't want to open them up to flash directly, you can attempt to [use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/) however recently purchased devices are no longer Tuya-Convert compatible. There's useful guide to disassemble and serial flash these switches [here.](https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/) After that, you can use ESPHome's OTA functionality to make any further changes.
+## Advanced Modifications
 
-- Put the switch into "smartconfig" / "autoconfig" / pairing mode by holding any button for about 5 seconds.
-- The status LED (to the side of the button(s)) blinks rapidly to confirm that it has entered pairing mode.
+To gain individual control of button LEDs, remove specific diodes and solder a wire from the cathode side of the diode pad to a spare GPIO pin. [See this example](https://community-assets.home-assistant.io/optimized/4X/f/9/b/f9b1f8ea23ccc1049ea4eda1765e3f19fb173925_2_666x500.jpeg).
 
-## 1 & 2 Gang Basic Configuration
+## Configuration Examples
+
+### 1 & 2 Gang Configuration for the BK72XX configurations
 
 ```yaml
 substitutions:
-  device_name: deta1-2gangswitch
-  friendly_name: "1-2 Gang Switch"
+  devicename: "deta-double-gang"
+  friendlyname: Deta Double Gang Switch
+  friendlyname_left: Deta Double Gang - Left
+  friendlyname_right: Deta Double Gang - Right
+  deviceid: deta_double_gang
+  deviceicon: "mdi:light-recessed"
+  devicemodel: Deta Grid Connect Double Gang 6912HAMBK (Matte Black)
+
+#################################
+esphome:
+  name: ${devicename}
+
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
+
+packages:
+  device_base: !include { file: common/device_base.yaml, vars: { friendlyname : 'Deta Double Gang Switch'} }
 
 #################################
 
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
+status_led:
+  pin:
+    number: P9
+    inverted: true
+
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
+output:
+  # Left Relay
+  - platform: gpio
+    id: relay_left
+    pin: P6
+  # Right Relay
+  - platform: gpio
+    id: relay_right
+    pin: P26
+
+## ------------ ##
+##    Lights    ##
+## ------------ ##
+light:
+  # Left Light
+  - platform: binary
+    name: ${friendlyname_left}
+    icon: ${deviceicon}
+    output: relay_left
+    id: light_left
+
+  # Right Light
+  - platform: binary
+    name: ${friendlyname_right}
+    icon: ${deviceicon}
+    output: relay_right
+    id: light_right
+    internal: True
+
+## ----------------- ##
+##      Buttons      ##
+## ----------------- ##
+binary_sensor:
+  # Left Button
+  - platform: gpio
+    id: button_left
+    pin:
+      number: P14
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_left
+    internal: True
+
+  # Right Button
+  - platform: gpio
+    id: button_right
+    pin:
+      number: P24
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_right
+    internal: True
+```
+
+### 3 Gang Configuration for BK72XX (Series 2)
+
+```yaml
+substitutions:
+  devicename: "deta-triple-gang-switch"
+  friendlyname: Deta Triple Gang Switch
+  friendlyname_1: Light 1
+  friendlyname_2: Light 2
+  friendlyname_3: Light 3
+  deviceid: deta_triple_gang
+  deviceicon: "mdi:light-recessed"
+  devicemodel: Deta Grid Connect Triple Gang 6903HA Series 2
+
+#################################
 esphome:
-  platform: ESP8266
-  board: esp01_1m
-  name: ${device_name}
-  esp8266_restore_from_flash: true
+  name: ${devicename}
+
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pwd
-  fast_connect: on
-
-api:
-  password: !secret api_password
-
-ota:
-  password: !secret ota_password
-
-logger:
-
-# The web_server & sensor components can be removed without affecting core functionaility.
-web_server:
-  port: 80
-
-sensor:
-  - platform: wifi_signal
-    name: ${device_name} Wifi Signal Strength
-    update_interval: 60s
-  - platform: uptime
-    name: ${device_name} Uptime
+  password: !secret wifi_password
+  ap:
+    ssid: "ESPHOME"
+    password: "123456"
 
 #################################
 
+logger:
+
+web_server:
+
+captive_portal:
+
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: ${friendlyname} Wifi Signal Strength
+    update_interval: 60s
+  - platform: uptime
+    name: ${friendlyname} Uptime
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${friendlyname} IP
+    ssid:
+      name: ${friendlyname} SSID
+    bssid:
+      name: ${friendlyname} BSSID
+    mac_address:
+      name: ${friendlyname} Mac
+
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
 status_led:
   pin:
-    number: GPIO4
-    inverted: True
+    number: P1
+    inverted: true
 
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
 output:
-  # Top (or only) button
+  # Relay 1
   - platform: gpio
-    pin: GPIO13
-    id: relay1
-
-  # Bottom button (for Smart Double Switch - delete for single switch)
+    id: relay_1
+    pin: P8
+  # Relay 2
   - platform: gpio
-    pin: GPIO14
-    id: relay2
+    id: relay_2
+    pin: P26  
+  # Relay 3
+  - platform: gpio
+    id: relay_3
+    pin: P24
 
+## ------------ ##
+##    Lights    ##
+## ------------ ##
 light:
-  # Top (or only) button
+  # Light 1
   - platform: binary
-    name: "${friendly_name} Top"
-    output: relay1
-    id: light1
+    name: ${friendlyname_1}
+    icon: ${deviceicon}
+    output: relay_1
+    id: light_1
 
-  # Bottom button (for Smart Double Switch - delete for single switch)
+  # Light 2
   - platform: binary
-    name: "${friendly_name} Bottom"
-    output: relay2
-    id: light2
+    name: ${friendlyname_2}
+    icon: ${deviceicon}
+    output: relay_2
+    id: light_2
 
-# Buttons
+   # Light 3
+  - platform: binary
+    name: ${friendlyname_3}
+    icon: ${deviceicon}
+    output: relay_3
+    id: light_3
+
+## ----------------- ##
+##      Buttons      ##
+## ----------------- ##
 binary_sensor:
-  # Top (or only) button
+  # Button 1
   - platform: gpio
+    id: button_1
     pin:
-      number: GPIO16
-      mode: INPUT
-      inverted: True
-    name: "${friendly_name} Top Button"
-    #toggle relay on push
-    on_press:
-      - light.toggle: light1
-
-  # Bottom button (for Smart Double Switch - delete for single switch)
-  - platform: gpio
-    pin:
-      number: GPIO12
+      number: P14
+      inverted: true
       mode: INPUT_PULLUP
-      inverted: True
-    name: "${friendly_name} Bottom Button"
-    #toggle relay on push
     on_press:
-      - light.toggle: light2
+      then:
+        - light.toggle: light_1
+    internal: True
 
-switch:
-  - platform: restart
-    name: "${friendly_name} REBOOT"
+  # Button 2
+  - platform: gpio
+    id: button_2
+    pin:
+      number: P9
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_2
+    internal: True
+
+    # Button 3
+  - platform: gpio
+    id: button_3
+    pin:
+      number: P10
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_3
+    internal: True
 ```
 
-## 3 Gang Configuration
+### 3 Gang Configuration for ESP
 
 ```yaml
 substitutions:
@@ -170,7 +375,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password
@@ -270,7 +476,181 @@ switch:
     name: "${friendly_name} REBOOT"
 ```
 
-## 4 Gang Configuration
+### 4 Gang Configuration for BK72XX (Series 2)
+
+```yaml
+substitutions:
+  devicename: "deta-quad-gang-switch"
+  friendlyname: Deta Quad Gang Switch
+  friendlyname_1: Light 1
+  friendlyname_2: Light 2
+  friendlyname_3: Light 3
+  friendlyname_4: Light 4
+  deviceid: deta_quad_gang
+  deviceicon: "mdi:light-recessed"
+  devicemodel: Deta Grid Connect Quad Gang 6904HA Series 2
+
+#################################
+esphome:
+  name: ${devicename}
+
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "ESPHOME"
+    password: "123456"
+
+#################################
+
+logger:
+
+web_server:
+
+captive_portal:
+
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: ${friendlyname} Wifi Signal Strength
+    update_interval: 60s
+  - platform: uptime
+    name: ${friendlyname} Uptime
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${friendlyname} IP
+    ssid:
+      name: ${friendlyname} SSID
+    bssid:
+      name: ${friendlyname} BSSID
+    mac_address:
+      name: ${friendlyname} Mac
+
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
+status_led:
+  pin:
+    number: P1
+    inverted: true
+
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
+output:
+  # Relay 1
+  - platform: gpio
+    id: relay_1
+    pin: P8
+  # Relay 2
+  - platform: gpio
+    id: relay_2
+    pin: P26  
+  # Relay 3
+  - platform: gpio
+    id: relay_3
+    pin: P7
+  # Relay 4
+  - platform: gpio
+    id: relay_4
+    pin: P24
+
+## ------------ ##
+##    Lights    ##
+## ------------ ##
+light:
+  # Light 1
+  - platform: binary
+    name: ${friendlyname_1}
+    icon: ${deviceicon}
+    output: relay_1
+    id: light_1
+
+  # Light 2
+  - platform: binary
+    name: ${friendlyname_2}
+    icon: ${deviceicon}
+    output: relay_2
+    id: light_2
+
+   # Light 3
+  - platform: binary
+    name: ${friendlyname_3}
+    icon: ${deviceicon}
+    output: relay_3
+    id: light_3
+
+   # Light 4
+  - platform: binary
+    name: ${friendlyname_4}
+    icon: ${deviceicon}
+    output: relay_4
+    id: light_4
+
+## ----------------- ##
+##      Buttons      ##
+## ----------------- ##
+binary_sensor:
+  # Button 1
+  - platform: gpio
+    id: button_1
+    pin:
+      number: P14
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_1
+    internal: True
+
+  # Button 2
+  - platform: gpio
+    id: button_2
+    pin:
+      number: P9
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_2
+    internal: True
+
+    # Button 3
+  - platform: gpio
+    id: button_3
+    pin:
+      number: P6
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_3
+    internal: True
+
+    # Button 4
+  - platform: gpio
+    id: button_4
+    pin:
+      number: P10
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - light.toggle: light_4
+    internal: True
+```
+
+### 4 Gang Configuration for ESP
+
+> **Note**: Not updated for BK72XX.
 
 ```yaml
 substitutions:
@@ -299,7 +679,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

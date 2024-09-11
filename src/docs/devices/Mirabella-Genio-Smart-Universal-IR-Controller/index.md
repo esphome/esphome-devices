@@ -3,6 +3,7 @@ title: Mirabella Genio Smart Universal IR Controller
 date-published: 2019-10-11
 type: misc
 standard: au
+board: esp8266
 ---
 
 ## Programming
@@ -52,7 +53,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "api_password"
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: "ota_password"

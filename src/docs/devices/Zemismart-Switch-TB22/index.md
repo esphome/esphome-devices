@@ -3,6 +3,7 @@ title: Zemismart Switch TB21 TB22 TB23
 date-published: 2022-01-29
 type: switch
 standard: global
+board: esp8266
 ---
 
 ![Product image](zemismart-tb23.jpg "Product Image")

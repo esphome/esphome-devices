@@ -3,6 +3,7 @@ title:  BRUH Multisensor
 date-published: 2023-04-11
 type: sensor
 standard: global
+board: esp8266
 ---
 
 The BRUH Multisensor is a great introductory project into Home

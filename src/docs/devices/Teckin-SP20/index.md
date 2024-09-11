@@ -3,6 +3,7 @@ title: Teckin SP20
 date-published: 2019-10-11
 type: plug
 standard: us
+board: esp8266
 ---
 
 [Amazon Link](https://amzn.to/3dYflOQ)
@@ -71,7 +72,8 @@ web_server:
 logger:
 
 api:
-  password: !secret espapipass
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret espotapass

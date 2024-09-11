@@ -3,6 +3,7 @@ title: Shelly Plus 1
 date-published: 2021-11-01
 type: relay
 standard: uk, us, eu, au
+board: esp32
 ---
 
 ![Shelly Plus 1](shelly_plus_1_pinout.jpg "Shelly Plus 1")
@@ -58,7 +59,6 @@ wifi:
 logger:
 
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 
@@ -122,12 +122,12 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO32
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     name: "${device_name} Relay Supply Voltage"
     pin: GPIO33
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 8
 

@@ -3,6 +3,7 @@ title: Teckin SB50 (rgbww version)
 date-published: 2023-04-11
 type: light
 standard: global
+board: esp8266
 ---
 
 ![image](/teckin_sb50.jpg)

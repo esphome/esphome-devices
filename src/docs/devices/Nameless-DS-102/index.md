@@ -3,6 +3,7 @@ title: Nameless DS-102 2/3-Gang Wall-Switch
 date-published: 2020-04-06
 type: switch
 standard: eu
+board: esp8266
 ---
 
 ## Warning
@@ -58,7 +59,8 @@ wifi:
   fast_connect: true
 
 api:
-  password: !secret api_secret
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_secret
@@ -157,7 +159,8 @@ wifi:
   fast_connect: true
 
 api:
-  password: !secret api_secret
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_secret

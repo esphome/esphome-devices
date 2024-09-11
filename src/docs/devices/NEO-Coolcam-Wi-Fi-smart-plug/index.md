@@ -3,6 +3,7 @@ title: NEO Coolcam Wi-Fi smart plug
 date-published: 2023-04-12
 type: plug
 standard: au
+board: esp8266
 ---
 
 NEO Coolcam Smart Plugs are a Tuya-based smart plugs

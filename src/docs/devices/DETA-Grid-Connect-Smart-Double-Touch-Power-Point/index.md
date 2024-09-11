@@ -3,6 +3,7 @@ title: Deta Grid Connect Smart Double Touch Power Point
 date-published: 2020-11-19
 type: plug
 standard: au
+board: esp8266
 ---
 
 ## Deta Grid Connect Smart Double Touch Power Point
@@ -72,7 +73,8 @@ wifi:
     password: "12345678"
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password

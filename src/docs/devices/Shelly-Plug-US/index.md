@@ -3,6 +3,7 @@ title: Shelly Plug US
 date-published: 2021-10-16
 type: plug
 standard: us
+board: esp8266
 ---
 
 ![picture of Shelly Plug US](shelly_plug_us.jpg "Shelly Plug US")
@@ -67,7 +68,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: ${api_pass}
+  encryption:
+    key: !secret api_key
 
 ota:
   password: ${ota_pass}

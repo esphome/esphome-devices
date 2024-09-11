@@ -4,6 +4,7 @@ Model: KASPS10A3P3UA
 date-published: 2020-05-25
 type: plug
 standard: au
+board: esp8266
 ---
   ![alt text](kogan-smarterhome-smart-power-board-with-usb-ports-energy-meter.jpg "Product Image")
 
@@ -63,7 +64,8 @@ web_server:
   
 api:
   reboot_timeout: 15min
-  password: !secret api_password
+  encryption:
+    key: !secret encryption_key
 
 ota:
   password: !secret ota_password

@@ -3,6 +3,7 @@ title: Shelly Plus i4
 date-published: 2022-08-22
 type: sensor
 standard: global
+board: esp32
 ---
 
 ![Shelly Plus i4](shelly_plus_i4.jpg "Shelly Plus i4")
@@ -55,7 +56,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 
@@ -298,7 +298,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
   encryption:
     key: !secret api_encryption_key
 
@@ -382,25 +381,26 @@ binary_sensor:
       - delayed_on_off: 50ms
 ```
 
-If you want to use the Arduino framework you can use the Tasmota platfomio
-(https://github.com/tasmota/platform-espressif32/) port as follows:
+If you want to use the Arduino framework you can use the Tasmota Arduino Core 2.0.5 for ESP32 Solo
+(https://github.com/tasmota/arduino-esp32/releases) port as follows:
 
 ``` yaml
 esphome:
   name: ${device_name}
-  friendly_name: ${friendly_name}
+  comment: ${device_description}
   platformio_options:
-      board_build.f_cpu: 160000000L
-      platform: https://github.com/tasmota/platform-espressif32/releases/download/2023.02.00/platform-espressif32.zip
-      framework: arduino
-      platform_packages:
-        - framework-arduinoespressif32 @ https://github.com/espressif/arduino-esp32#master
-      build_flags:
-        - "-DCONFIG_FREERTOS_UNICORE=1"
-        - "-DFRAMEWORK_ARDUINO_SOLO1"
-      board: esp32-solo1
+    platform_packages:
+    - framework-arduinoespressif32 @ https://github.com/tasmota/arduino-esp32/releases/download/2.0.5/framework-arduinoespressif32-solo1.zip
+    board_build.f_cpu: 160000000L
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
 
 esp32:
   board: esp32doit-devkit-v1
+  variant: esp32
+  framework:
+    type: arduino
+    platform_version: 5.2.0
 ### the rest of your config
 ```

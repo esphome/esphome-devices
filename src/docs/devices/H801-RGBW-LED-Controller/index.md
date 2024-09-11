@@ -1,9 +1,12 @@
 ---
-title: H801 RGBW LED controller
+title: H801/H802 RGBW LED controller
 date-published: 2023-04-11
 type: light
 standard: global
+board: esp8266
 ---
+
+If you have an H802, read this page, then scroll down to the [H802 section](#h802).
 
 The H801 is pretty affordable and easy to hack and adapt to your needs.
 It can be found on [AliExpress](https://s.click.aliexpress.com/e/bbnUDBZW) and other sites.
@@ -89,7 +92,7 @@ light:
 
 Make your node in the ESPHome dashboard and compile/upload it. (if it
 fails OTA it must be uploaded manually with your favorite ESP flasher,
-e.g. `esphome-flasher <esphome-flasher>`{.interpreted-text role="ref"})
+e.g. `esphome-flasher <esphome-flasher>`
 
 You will need to solder pins to the board inside the H801 (fortunately
 it\'s pretty roomy and not a lot of components or stuff in the way apart
@@ -143,3 +146,75 @@ binary_sensor:
 | TX             | GPIO3   |
 | LED D1 (red)   | GPIO5   |
 | LED D2 (green) | GPIO1   |
+
+## H802
+
+The H802 is a very similar device, with four channels (RGBW) instead of five.
+
+It looks like this:
+
+![H802 case photo](/H802WiFi-1.jpg "H802 case photo")
+
+![H802 board photo with annotations](/h802-board-photo-annotated.jpg "H802 board photo with annotations")
+
+Pinout:
+
+| Function       | ESP Pin |
+| -------------- | ------- |
+| R (PWM1)       | GPIO14  |
+| G (PWM2)       | GPIO12  |
+| B (PWM3)       | GPIO13  |
+| W (PWM4)       | GPIO15  |
+| Jumper J3      | GPIO0   |
+| RX             | GPIO3   |
+| TX             | GPIO2   |
+
+Unlike the H801, the H802 has no LEDs of its own.
+Note that the RGBW pinout is reversed compared to the H801.
+
+When flashing, instead of connecting 3V3, you can power the device from its usual power supply.
+Connect RX to TX and TX to RX.
+
+Sample configuration:
+
+```yaml
+esphome:
+  name: h802light
+
+esp8266:
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+logger:
+  hardware_uart: UART1
+api:
+ota:
+
+output:
+  - platform: esp8266_pwm
+    pin: 13
+    frequency: 1000 Hz
+    id: pwm_b
+  - platform: esp8266_pwm
+    pin: 12
+    frequency: 1000 Hz
+    id: pwm_g
+  - platform: esp8266_pwm
+    pin: 14
+    frequency: 1000 Hz
+    id: pwm_r
+  - platform: esp8266_pwm
+    pin: 15
+    frequency: 1000 Hz
+    id: pwm_w1
+light:
+  - platform: rgbw
+    name: "H802 Light"
+    red: pwm_r
+    green: pwm_g
+    blue: pwm_b
+    white: pwm_w1
+```

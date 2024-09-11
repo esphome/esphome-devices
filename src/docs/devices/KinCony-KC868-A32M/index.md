@@ -3,6 +3,7 @@ title: KinCony KC868-A32M
 date-published: 2023-04-30
 type: relay
 standard: global
+board: esp32
 ---
 
 ![Product](kc868-a32m.jpg "Product Image")
@@ -336,23 +337,23 @@ sensor:
     pin: 34
     name: "a32m-analog-1"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 35
     name: "a32m-analog-2"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 39
     name: "a32m-analog-3"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 36
     name: "a32m-analog-4"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
 ```

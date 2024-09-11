@@ -3,6 +3,7 @@ title: QIACHIP Smart Switch
 date-published: 2020-07-05
 type: relay
 standard: global
+board: esp8266
 ---
 
 Single channel relay with 433Mhz RF module. On this device, the relay is controlled directly by the RF module, and the ESP module talks to the RF module over UART. For example, when a command to turn on the relay comes in over wifi, this is sent over the UART to the RF module, which then switches the relay. When a 433Mhz control button paired to the module is pressed, the RF module switches the relay and tells the ESP over UART.

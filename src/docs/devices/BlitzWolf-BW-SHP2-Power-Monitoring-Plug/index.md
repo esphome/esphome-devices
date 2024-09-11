@@ -3,6 +3,7 @@ title: BlitzWolf BW-SHP2 Power Monitoring Plug
 date-published: 2020-07-14
 type: plug
 standard: eu
+board: esp8266
 ---
   ![alt text](/BlitzWolf-BW-SHP2-Power-Monitoring-Plug.jpg "Product Image")
   ![alt text](/BlitzWolf-BW-SHP2-Power-Monitoring-Plug-Back.jpg "Product Back Image")
@@ -82,7 +83,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret OTA_Password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret OTA_Password
@@ -273,7 +275,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret OTA_Password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret OTA_Password

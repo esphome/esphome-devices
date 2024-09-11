@@ -1,8 +1,10 @@
 ---
 title: Sonoff THR320D
 date-published: 2023-01-07
-type: plug
-standard: us
+type: relay
+standard: global
+board: esp32
+difficulty: 3
 ---
 
 ## Bootloop Workaround
@@ -13,18 +15,23 @@ Here's a workaround: <https://community.home-assistant.io/t/bootloop-workaround-
 ## GPIO Pinout
 
 (Source: <https://templates.blakadder.com/sonoff_THR320D.html>)
-Most GPIO are active-low, meaning they're "on" when they're pulled low.
-In ESPHome that's often called "inverted".
+Some GPIO are active-low, meaning they're "on" when they're pulled low. In ESPHome that's often called "inverted".
+The relays GPIO are active-high.
 
 The main relay is bistable/latching, meaning a pulse on pin 1 switches the
 relay ON, and a pulse on pin 2 switches the relay OFF.
+These two pins should never be active at the same time, or the device will become dangerously hot in a few minutes.
+
+Note that until March 2024 there was an error in this page causing a safety issue:
+The code was considering the relays GPIO as being active-low, when they are actually active-high. So the two main relay pins were stay simultaneously active most of the time, making the device dangerously hot.
+If you copied the old version of the code from here, please remove the ```inverted: True``` line for the relays and update your devices as soon as possible.
 
 | Pin    | Function                                                                  |
 | ------ | ----------------------------------                                        |
 | GPIO0  | Push Button (HIGH = off, LOW = on)                                        |
 | GPIO4  | Small Relay (Dry Contact)                                                 |
-| GPIO19 | Large/Main Relay pin 1, pull low for relay ON                             |
-| GPIO22 | Large/Main Relay pin 2, pull low for relay OFF                            |
+| GPIO19 | Large/Main Relay pin 1, pull high for relay ON                            |
+| GPIO22 | Large/Main Relay pin 2, pull high for relay OFF                           |
 | GPIO5  | Display (TM1621) Data                                                     |
 | GPIO17 | Display (TM1621) CS                                                       |
 | GPIO18 | Display (TM1621) Write                                                    |
@@ -63,7 +70,8 @@ esp32:
   board: nodemcu-32s
 
 api:
-  password: "api-password-for-ha"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "ota-password"
@@ -134,7 +142,6 @@ switch:
     internal: True
     pin:
       number: GPIO19
-      inverted: true
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: mainRelayOn
@@ -145,7 +152,6 @@ switch:
     internal: True
     pin:
       number: GPIO22
-      inverted: true
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: mainRelayOff
@@ -156,7 +162,6 @@ switch:
     name: "Dry Contact Relay"
     pin:
       number: GPIO4
-      inverted: true
     on_turn_on:
       - switch.turn_on: ${name}_idk_led
     on_turn_off:
@@ -330,13 +335,11 @@ output:
     id: main_relay_on_output
     pin:
       number: GPIO19
-      inverted: true
 
   - platform: gpio
     id: main_relay_off_output
     pin:
       number: GPIO22
-      inverted: true
 
   - platform: ledc
     id: red_led_output
@@ -398,7 +401,7 @@ sensor:
   # because these only apply when the temperature ENTERS these ranges
   # If it REMAINS in the range, and climate is turned on manually, these
   # failsafes will not apply!
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x1e11223344550028
     id: temp
     name: "Temperature"
@@ -469,7 +472,7 @@ climate:
           - logger.log: "Climate control ON"
           - light.turn_on: auto_led
 
-dallas:
+one_wire:
   pin: GPIO25
   update_interval: 10s
 

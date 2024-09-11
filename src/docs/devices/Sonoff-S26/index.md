@@ -3,6 +3,7 @@ title: Sonoff S26
 date-published: 2019-10-11
 type: plug
 standard: uk, us, eu, au
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -19,7 +20,6 @@ standard: uk, us, eu, au
 # Basic Config
 esphome:
   name: sonoffs26_1
-  platform: ESP8266
   
 esp8266:
   board: esp01_1m
@@ -40,7 +40,8 @@ status_led:
 logger:
 
 api:
-  password: "api_password"
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: "OTA_password"

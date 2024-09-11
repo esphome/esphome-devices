@@ -3,6 +3,7 @@ title: Jeeo TF-SH330
 date-published: 2021-12-10
 type: plug
 standard: us
+board: esp8266
 ---
 
 ## Product Images

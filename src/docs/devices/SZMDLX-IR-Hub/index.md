@@ -3,6 +3,7 @@ title: SZMDLX IR Hub
 date-published: 2020-04-07
 type: misc
 standard: global
+board: esp8266
 ---
 
 ## GPIO Pinout
@@ -43,7 +44,8 @@ captive_portal:
 logger:
 
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   password: !secret ota_password
