@@ -307,4 +307,9 @@ sensor:
   filters:
     - calibrate_linear:
         - 0 -> 0
-        - 0.31749
+        - 0.31749 -> 8.95608
+
+time:
+
+- platform: sntp
+  id: my_time
