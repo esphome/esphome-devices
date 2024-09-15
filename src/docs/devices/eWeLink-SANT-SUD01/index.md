@@ -64,26 +64,25 @@ As GPIO0 is shared by the "WiFi Configuration" button and the PC power status si
 
 ```yaml
 substitutions:
-  friendly_name: "PC Power Control"
+  name: pc-power-sw
+  friendly_name: PC Power Switch
   friendly_name_short: "PC Power"
-
-  hostname: "pc-power"
+  devicename: pc_power_switch
 
 esphome:
-  name: ${hostname}
+  name: ${name}
   friendly_name: ${friendly_name}
   name_add_mac_suffix: false
   project:
     name: esphome.web
     version: '1.0'
 
-  # Shows up in UI
-  comment: "Remote power button for ${friendly_name_short}."
-
 esp8266:
-  # Specifically a 'ESP8285N08' with 1MB built in flash
-  # See: https://docs.platformio.org/en/stable/boards/espressif8266/esp8285.html
   board: esp8285
+  early_pin_init: False
+
+mdns:
+  disabled: False
 
 logger:
   level: INFO
@@ -107,47 +106,120 @@ sensor:
     pin: GPIO0
     timeout: 5s
 
+  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
+    name: "WiFi Signal dB"
+    id: wifi_signal_db
+    update_interval: 600s
+    entity_category: "diagnostic"
+
+  - platform: copy # Reports the WiFi signal strength in %
+    source_id: wifi_signal_db
+    name: "WiFi Signal Percent"
+    filters:
+      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
+    unit_of_measurement: "Signal %"
+    entity_category: "diagnostic"
+    device_class: ""
+
+
+  - platform: uptime
+    name: ${devicename} Uptime in Days
+    id: uptime_sensor_days
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor_days).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? String(days) + "d " : "") +
+                (hours ? String(hours) + "h " : "") +
+                (minutes ? String(minutes) + "m " : "") +
+                (String(seconds) + "s")
+              ).c_str();
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: $devicename Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ssid:
+      name: Network
+    ip_address:
+      name: $devicename IP
+    bssid:
+      name: $devicename BSSID
+
+  # human readable update text sensor from sensor:uptime
+  - platform: template
+    name: Uptime Human Readable
+    id: uptime_human
+    icon: mdi:clock-start
+
 switch:
   - name: "${friendly_name_short} Power"
     id: sw_pc_power
+    on_turn_on:
+    - logger.log: "Switch Turned On!"
+    on_turn_off:
+    - logger.log: "Switch Turned Off!"
+    restore_mode: ALWAYS_OFF
     platform: template
+    #lambda: |-
+    #  if (id(power_status_pulses).state > 60.0f) {
+    #    return true;
+    #  } else {
+    #    return false;
+    #  }
+    #Replace the lambda function above with the one below if you have inverted the relay output
     lambda: |-
       if (id(power_status_pulses).state > 60.0f) {
-        return true;
-      } else {
         return false;
+      } else {
+        return true;
       }
-
-#Replace the lambda function above with the one below if you have inverted the relay output
-#    lambda: |-
-#      if (id(power_status_pulses).state > 60.0f) {
-#        return false;
-#      } else {
-#        return true;
-#      }
-
-    # Mimic the user pressing the button
-    turn_on_action:
-      - script.execute: regular_press
-    turn_off_action:
-      - script.execute: regular_press
 
 output:
   - platform: gpio
     id: out_relay
     #Inverts relay operation, this avoids force shutdown behavior on some motherboards. Uncomment here and replace the above lambda if you are having this problem.
-    #inverted: True
+    inverted: True
     pin: GPIO12
 
+# Enable Home Assistant API
 api:
+  reboot_timeout: 0s
+    
 
+# Allow Over-The-Air updates
 ota:
-
+  - platform: esphome
+# Allow provisioning Wi-Fi via serial
 improv_serial:
 
 wifi:
+  # Set up a wifi access point
   ap: {}
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+  reboot_timeout: 0s
 
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP.
 captive_portal:
 
 dashboard_import:
@@ -156,6 +228,7 @@ dashboard_import:
 
 # To have a "next url" for improv serial
 web_server:
+
 
 
 
