@@ -202,7 +202,6 @@ output:
 # Enable Home Assistant API
 api:
   reboot_timeout: 0s
-    
 
 # Allow Over-The-Air updates
 ota:
