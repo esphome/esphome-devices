@@ -116,7 +116,7 @@ light:
     pin: GPIO14
     num_leds: 64
     color_correct: [40%, 40%, 40%]
-    effects: 
+    effects:
       - addressable_scan:
       - addressable_twinkle:
 
