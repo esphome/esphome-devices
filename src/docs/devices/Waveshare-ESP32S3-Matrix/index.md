@@ -41,15 +41,15 @@ Vendor documentation:
 
 ## Device Specific Config
 
+> **NOTE**: While enabeling debug-logging works it recommended to disable it once everyhing works a expected if using interrupt updates. This because every update renders a lot of logging and have caused the online logging and even entire Home Assistant to become unresponsive until timeout and refresh.
+
 ```yaml
 esphome:
   name: "led8x8-qmi8658"
   friendly_name: "8x8 pixel matrix"
   comment: "ESP32-S3 with 8x8 LED Pixel matrix and QMI8658 accelerometer"
-
   platformio_options:
     board_build.flash_mode: dio
-
   libraries:
     - "Wire"
     - "SPI"
@@ -62,25 +62,6 @@ esp32:
 
 external_components:
 - source: https://github.com/dala318/esphome-qmi8658
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-captive_portal:
-
-logger:
-  level: DEBUG
-  baud_rate: 0 # disable logging over uart
-
-api:
-  encryption:
-    key: !secret api_key
-
-ota:
-  platform: esphome
-
-web_server:
 
 i2c:
   sda: GPIO11
