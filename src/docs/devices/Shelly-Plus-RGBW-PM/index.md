@@ -26,7 +26,6 @@ board: esp32
 | GPIO34 | Voltage Monitor       |
 | GPIO35 | OpAmp Current Monitor |
 
-
 ## Configuration for RGBW
 
 ```yaml
@@ -83,7 +82,7 @@ output:
     pin: GPIO4
     id: pwm_w
     frequency: 19531
-    
+
 binary_sensor:
   - platform: gpio
     pin:
@@ -149,7 +148,7 @@ sensor:
     attenuation: 12db
     name: ${device_name} Voltage
     accuracy_decimals: 1
-    filters: 
+    filters:
       - multiply: 10.85
 
   - platform: adc
@@ -157,7 +156,7 @@ sensor:
     attenuation: 12db
     name: ${device_name} Current
     accuracy_decimals: 2
-    filters: 
+    filters:
       - offset: -0.794
       - multiply: 16.13
     unit_of_measurement: A
