@@ -12,8 +12,8 @@ board: esp32
 
 | Pin    | Function              |
 | ------ | --------------------- |
-| GPIO14 | Led Link              |
-| GPIO22 | Switch input          |
+| GPIO14 | Onboard LED           |
+| GPIO22 | Onboard Button        |
 | GPIO25 | PWM 1 (R)             |
 | GPIO26 | PWM 3 (B)             |
 | GPIO27 | PWM 2 (G)             |
@@ -31,7 +31,7 @@ board: esp32
 
 ```yaml
 esphome:
-  name: shelly_plus_rgbw_pm
+  name: shelly-plus-rgbw-pm
 
 esp32:
   board: esp32dev
@@ -46,6 +46,7 @@ captive_portal:
 logger:
 api:
 ota:
+  platform: esphome
 
 light:
   - platform: rgbw
