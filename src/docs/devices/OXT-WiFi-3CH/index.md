@@ -60,7 +60,7 @@ status_led:
 switch:
   - platform: gpio
     pin: P7
-    id: 
+    id: relay1
   - platform: gpio
     pin: P8
     id: relay2
