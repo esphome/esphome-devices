@@ -126,6 +126,7 @@ api:
 
 ota:
   password: ""
+  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
