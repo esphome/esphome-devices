@@ -36,7 +36,7 @@ The Apollo Automation MSR-1 is a mmWave CO2 multisensor with the following featu
 - [Shop](https://apolloautomation.com/products/multisensor-mk1)
 - [GitHub](https://github.com/ApolloAutomation/MSR-1)
 - [Wiki](https://wiki.apolloautomation.com/)
-- [Discord](https://discord.gg/mMNgQPyF94)
+- [Discord](http://dsc.gg/ApolloAutomation)
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images
