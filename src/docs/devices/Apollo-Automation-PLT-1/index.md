@@ -39,6 +39,7 @@ The Apollo Automation PLT-1 is a plant quality sensor with the following feature
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images
+
 ![Apollo PLT-1](Apollo-PLT-1_2.jpg "Apollo PLT-1")
 
 ![Apollo PLT-1](Apollo-PLT-1_3.jpg "Apollo PLT-1")
