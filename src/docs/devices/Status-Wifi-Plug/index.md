@@ -21,7 +21,7 @@ I've collected three different model numbers: **21D ST3** / **21G ST3** / **23A 
 
 ![alt text](23A.jpg "Model 21D/G with BK7231T")
 
-Model 21G was sacraficed to reverse engineer, and contains a Tuya WB2S module, which uses the BK7231T microcontroller. 21D also uses this controller, however 23A uses a BK7231T controller.
+Model 21G was sacraficed to reverse engineer, and contains a Tuya WB2S module, which uses the BK7231T microcontroller. 21D also uses this controller, however 23A uses a BK7231N controller.
 
 Despite using plenty of heat I was unable to open the case without considerable damage. Fortunately, these models can be flashed wirelessly using [Tuya Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter).
 
