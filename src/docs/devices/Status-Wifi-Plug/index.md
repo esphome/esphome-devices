@@ -39,7 +39,6 @@ At time of writing, models 21D/G use 1.0.7 and 23A uses 1.1.8. If newer firmware
 * Put the plug into AP mode, by holding the button down for 5 seconds to enter EZ mode (fast flashing LED), then hold again to enter AP mode (slow flashing LED).
 * Run: `sudo ./tuya-cloudcutter.sh -f FIRMWARE` where FIRMWARE is either the ESPhome Kickstart file or your pre-compiled ESPHome device firmware. I prefer to use the Kickstart firmware first.
 
-
 Models 21D/G use the `ESPHome-Kickstart-v23.08.29_bk7231t_app.ota.ug.bin` file, while 23A uses `ESPHome-Kickstart-v23.08.29_bk7231n_app.ota.ug.bin`, both located in located in `custom-firmware`. Your version number may differ in the future.
 
 * When prompted, select `By firmware version and name`. For the BK7231T versions with 1.0.7 I selected `1.0.7 - BK7231T / oem_bk7231s_rnd_switch` and for the BK7231N 1.1.8 model I used `1.1.8 - BK7231N / oem_bk7231n_plug`. I suspect all that matters is matching up the version with the correct MCU.
