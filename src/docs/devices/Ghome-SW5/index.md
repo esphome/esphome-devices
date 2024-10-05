@@ -1,6 +1,6 @@
 ---
 title: GHome SW5
-date-published: 2024-10-02
+date-published: 2024-09-02
 type: switch
 standard: US
 board: BK7231N
