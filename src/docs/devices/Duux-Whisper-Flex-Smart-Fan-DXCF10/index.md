@@ -91,20 +91,62 @@ fan:
     speed_datapoint: 3
     speed_count: 26
 
-select:
-  - platform: "tuya"
+switch:
+  - platform: template
     name: "Oscillate horizontally"
     icon: mdi:arrow-left-right
+    turn_on_action:
+      then:
+        - select.set:
+            id: "horizontally"
+            option: "on"
+    turn_off_action:
+      then:
+        - select.set:
+            id: "horizontally"
+            option: "off"
+    lambda: |-
+      if (id(horizontally).state == "on") {
+        return true;
+      } else {
+        return false;
+      }
+
+  - platform: template
+    name: "Oscillate vertically"
+    icon: mdi:arrow-up-down
+    turn_on_action:
+      then:
+        - select.set:
+            id: "vertically"
+            option: "on"
+    turn_off_action:
+      then:
+        - select.set:
+            id: "vertically"
+            option: "off"
+    lambda: |-
+      if (id(vertically).state == "on") {
+        return true;
+      } else {
+        return false;
+      }
+
+select:
+  - platform: "tuya"
+    id: "horizontally"
+    internal: true
+    name: "Oscillate horizontally"
     enum_datapoint: 4
     optimistic: true
     options:
       0: "off"
       1: "on"
 
-
   - platform: "tuya"
+    id: "vertically"
+    internal: true
     name: "Oscillate vertically"
-    icon: mdi:arrow-up-down
     enum_datapoint: 5
     optimistic: true
     options:

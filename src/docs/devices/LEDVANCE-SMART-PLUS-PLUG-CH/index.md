@@ -1,6 +1,6 @@
 ---
-title: LEDVANCE SMART PLUS PLUG EU
-date-published: 2024-06-06
+title: LEDVANCE SMART PLUS PLUG CH
+date-published: 2024-07-23
 type: plug
 standard: ch
 board: bk72xx
@@ -58,8 +58,8 @@ api:
 
 # Enable upload binaries over-the-air
 ota:
-  safe_mode: true
-  password: <set here>
+  - platform: esphome
+    password: <set here>
 
 # Wifi Settings
 wifi:

@@ -35,7 +35,7 @@
       link: '/standards/uk'
     - label: 'US Devices'
       link: '/standards/us'
-- label: Boards
+- label: Microcontroller
   items: 
     - label: 'BK72xx'
       link: '/board/bk72xx'

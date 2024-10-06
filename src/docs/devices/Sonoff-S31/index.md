@@ -29,7 +29,7 @@ You must [remove the cover and use the serial header](https://www.adventurousway
 esphome:
   name: sonoff_s31
   platform: ESP8266
-  board: esp01_1m
+  board: esp12e
 
 wifi:
   ssid: !secret wifi_ssid
@@ -121,6 +121,7 @@ status_led:
     inverted: True
 ```
 
-## Warning
+## Warnings
 
-`throttle_average` of cse7766 sensors is highly recommended with version 2024.2.0 or greater.
+- `board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version 2024.4.0
+- `throttle_average: 60s` on cse7766 sensors is highly recommended with version 2024.2.0 or greater.
