@@ -275,7 +275,7 @@ light:
           name: "Random Fade"
           update_interval: 3s
           lambda: |-
-            auto call = id(this_light).turn_on();    
+            auto call = id(this_light).turn_on();
             call.set_red_if_supported(random_float());
             call.set_green_if_supported(random_float());
             call.set_blue_if_supported(random_float());
@@ -285,5 +285,5 @@ light:
             call.set_save(false);
             call.perform();
     # Attempt to restore state and default to OFF if not possible to restore.
-    restore_mode: RESTORE_DEFAULT_OFF 
+    restore_mode: RESTORE_DEFAULT_OFF
 ```
