@@ -9,7 +9,7 @@ difficulty: 2
 
 ## General Notes
 
-The Cocoon DY180363 was a RGB Smart Bulb sold at Aldi in Australia & the UK between 2020 and 2023. 
+The Cocoon DY180363 was a RGB Smart Bulb sold at Aldi in Australia & the UK between 2020 and 2023.
 
 The bulb had a few variants (`-E` for AU/Taiwan, and `-B` for the rest of the world), but this configuration should work for both.
 
@@ -88,7 +88,7 @@ light:
     white: output_white
     color_interlock: True
     # Attempt to restore state and default to OFF if not possible to restore.
-    restore_mode: RESTORE_DEFAULT_OFF 
+    restore_mode: RESTORE_DEFAULT_OFF
 ```
 
 ### Full configuration
@@ -156,7 +156,7 @@ sensor:
     icon: mdi:wifi
     update_interval: 60s
   # Reports the WiFi signal strength in % instead
-  - platform: copy 
+  - platform: copy
     source_id: wifi_signal_db
     name: "${friendly_name} WiFi Signal Percent"
     icon: mdi:wifi
@@ -236,20 +236,20 @@ light:
           update_interval: 4s
           lambda: |-
             static int state = 0;
-            auto call = id(this_light).turn_on();                                                                           
-            call.set_transition_length(3000);                                                                      
-            if (state == 0) {                                                                             
+            auto call = id(this_light).turn_on();
+            call.set_transition_length(3000);
+            if (state == 0) {
               call.set_rgb(1.0, 0.0, 0.0);
-            } else if (state == 1) {                                                                          
+            } else if (state == 1) {
               call.set_rgb(0.0, 1.0, 0.0);
-            } else if (state == 2) {                               
+            } else if (state == 2) {
               call.set_rgb(0.0, 0.0, 1.0);
-            } else {                                                       
+            } else {
               call.set_rgb(1.0, 0.0, 0.0);
-            }                             
+            }
             call.set_white(0.0);
-            call.perform();                                                                        
-            state += 1;                                                                                           
+            call.perform();
+            state += 1;
             if (state == 3)
               state = 0;
       - lambda:
@@ -257,18 +257,18 @@ light:
           update_interval: 2s
           lambda: |-
             static int state = 0;
-            auto call = id(this_light).turn_on();                                                                           
-            call.set_transition_length(1500);                                                                      
-            if (state == 0) {                                                                             
+            auto call = id(this_light).turn_on();
+            call.set_transition_length(1500);
+            if (state == 0) {
               call.set_rgb(1.0, 0.0, 0.0);
               call.set_brightness(1.0);
-            } else if (state == 1) {                                                                          
+            } else if (state == 1) {
               call.set_rgb(1.0, 0.0, 0.0);
               call.set_brightness(0.0);
             }
             call.set_white(0.0);
-            call.perform();                                                                        
-            state += 1;                                                                                           
+            call.perform();
+            state += 1;
             if (state == 1)
               state = 0;
       - lambda:
