@@ -1,5 +1,5 @@
 ---
-title: KinCony-KC868-M30
+title: KinCony-M30
 date-published: 2024-10-7
 type: sensor
 standard: global
@@ -116,7 +116,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range1};
               float green = (${max_current_range1} - current) / ${max_current_range1};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED1).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -141,7 +141,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range2};
               float green = (${max_current_range2} - current) / ${max_current_range2};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED2).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -245,12 +245,12 @@ uart:
   stop_bits: 1
   data_bits: 8
   parity: NONE
-  
+
 
 modbus:
   id: modbus_hub
   uart_id: modbus_uart
-  
+
 
 modbus_controller:
   - id: modbus_hub_m30
@@ -277,7 +277,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range1};
               float green = (${max_current_range1} - current) / ${max_current_range1};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED1).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -301,12 +301,12 @@ sensor:
               float red = (current - 0.0) / ${max_current_range2};
               float green = (${max_current_range2} - current) / ${max_current_range2};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED2).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
               call.set_color_mode(ColorMode::RGB);
-              call.perform();    
+              call.perform();
   - platform: modbus_controller
     modbus_controller_id: modbus_hub_m30
     address: 102
@@ -325,7 +325,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range3};
               float green = (${max_current_range3} - current) / ${max_current_range3};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED3).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -349,7 +349,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range4};
               float green = (${max_current_range4} - current) / ${max_current_range4};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED4).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -373,7 +373,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range5};
               float green = (${max_current_range5} - current) / ${max_current_range5};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED5).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -397,7 +397,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range6};
               float green = (${max_current_range6} - current) / ${max_current_range6};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED6).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -421,7 +421,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range7};
               float green = (${max_current_range7} - current) / ${max_current_range7};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED7).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -445,7 +445,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range8};
               float green = (${max_current_range8} - current) / ${max_current_range8};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED8).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -469,7 +469,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range9};
               float green = (${max_current_range9} - current) / ${max_current_range9};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED9).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -493,7 +493,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range10};
               float green = (${max_current_range10} - current) / ${max_current_range10};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED10).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -788,7 +788,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range11};
               float green = (${max_current_range11} - current) / ${max_current_range11};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED11).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -812,7 +812,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range12};
               float green = (${max_current_range12} - current) / ${max_current_range12};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED12).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -836,7 +836,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range13};
               float green = (${max_current_range13} - current) / ${max_current_range13};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED13).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -860,7 +860,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range14};
               float green = (${max_current_range14} - current) / ${max_current_range14};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED14).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -884,7 +884,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range15};
               float green = (${max_current_range15} - current) / ${max_current_range15};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED15).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -908,7 +908,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range16};
               float green = (${max_current_range16} - current) / ${max_current_range16};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED16).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -932,7 +932,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range17};
               float green = (${max_current_range17} - current) / ${max_current_range17};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED17).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -956,7 +956,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range18};
               float green = (${max_current_range18} - current) / ${max_current_range18};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED18).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -980,7 +980,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range19};
               float green = (${max_current_range19} - current) / ${max_current_range19};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED19).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1004,7 +1004,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range20};
               float green = (${max_current_range20} - current) / ${max_current_range20};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED20).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1299,7 +1299,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range21};
               float green = (${max_current_range21} - current) / ${max_current_range21};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED21).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1323,7 +1323,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range22};
               float green = (${max_current_range22} - current) / ${max_current_range22};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED22).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1347,7 +1347,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range23};
               float green = (${max_current_range23} - current) / ${max_current_range23};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED23).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1371,7 +1371,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range24};
               float green = (${max_current_range24} - current) / ${max_current_range24};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED24).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1395,7 +1395,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range25};
               float green = (${max_current_range25} - current) / ${max_current_range25};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED25).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1419,7 +1419,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range26};
               float green = (${max_current_range26} - current) / ${max_current_range26};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED26).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1443,7 +1443,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range27};
               float green = (${max_current_range27} - current) / ${max_current_range27};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED27).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1467,7 +1467,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range28};
               float green = (${max_current_range28} - current) / ${max_current_range28};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED28).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1491,7 +1491,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range29};
               float green = (${max_current_range29} - current) / ${max_current_range29};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED29).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -1515,7 +1515,7 @@ sensor:
               float red = (current - 0.0) / ${max_current_range30};
               float green = (${max_current_range30} - current) / ${max_current_range30};
               float blue = 0.0;
-              
+
               auto call = id(M30_LED30).turn_on();
               call.set_brightness(0.6);
               call.set_rgb(red, green, blue);
@@ -2035,7 +2035,7 @@ light:
       - id: light1
         from: 29
         to: 29
-        
+
   # Example for light segment source
   - platform: esp32_rmt_led_strip
     id: light1
