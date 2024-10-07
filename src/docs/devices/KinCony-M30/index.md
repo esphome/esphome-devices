@@ -1,3 +1,23 @@
+---
+title: KinCony-KC868-M30
+date-published: 2024-10-7
+type: sensor
+standard: global
+board: esp32
+---
+
+![Product](M30.jpg "Product Image")
+
+## Resources
+
+- [ESP32 pin define details](https://www.kincony.com/forum/showthread.php?tid=4087)
+- [YouTube video tour](https://youtu.be/rVrclJCS3Cg)
+
+## ESPHome Configuration
+
+Here is an example YAML configuration for the KinCony-KC868-M16v2 board with custom sensor integration.
+
+```yaml
 substitutions:
   max_current_range1: "10"
   max_current_range2: "10"
@@ -2024,4 +2044,3 @@ light:
     num_leds: 30
     rmt_channel: 0
     chipset: ws2812
-    
