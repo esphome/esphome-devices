@@ -1,23 +1,26 @@
 ---
-title: Gosund SP211
-date-published: 2021-06-18
+title: Gosund SP211 BK72xx
+date-published: 2024-09-28
 type: plug
 standard: eu
-board: esp8266
+board: bk72xx
 ---
 
 ## General Notes
 
 This device have two versions, with ESP or Bekken microcontroller.
-You are now looking at ESP configuration, Bekken version can be found [here](./Gosund-SP211-BK72XX).
+You are now looking at Bekken configuration, ESP version can be found [here](./Gosund-SP211).
 
 ## Configuration
 
 ```yaml
 esphome:
   name: sp211
-  platform: ESP8266
-  board: esp8285
+
+bk72xx:
+  board: generic-bk7231n-qfn32-tuya
+  framework:
+    version: latest
 
 wifi:
   ssid: !secret wifi_ssid
@@ -68,10 +71,14 @@ sensor:
 
   - platform: hlw8012
     sel_pin:
-      number: GPIO03
+      number: P11
       inverted: true
-    cf_pin: GPIO04
-    cf1_pin: GPIO05
+    cf_pin:
+      number: P8
+      inverted: true
+    cf1_pin:
+      number: P9
+      inverted: true
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
 
@@ -111,7 +118,7 @@ text_sensor:
 
 status_led:
   pin:
-    number: GPIO01
+    number: P10
     inverted: true
 
 binary_sensor:
@@ -119,7 +126,7 @@ binary_sensor:
     id: button1
     internal: true
     pin:
-      number: GPIO12
+      number: P7
       mode: INPUT_PULLUP
       inverted: true
     #on_state:
@@ -130,36 +137,30 @@ binary_sensor:
     id: button2
     internal: true
     pin:
-      number: GPIO00
+      number: P26
       mode: INPUT_PULLUP
       inverted: true
     #on_state:
     on_press:
       - switch.toggle: relay2
 
-    # Fix for overload bug in certain SP211 devices
-  - platform: gpio
-    id: gpio15_irq
-    pin: GPIO15
-    internal: true
-
 output:
   - platform: gpio
-    pin: GPIO02
+    pin: P24
     inverted: true
     id: led1
 
   - platform: gpio
-    pin: GPIO13
+    pin: P6
     inverted: true
     id: led2
 
 switch:
   - platform: gpio
-    pin: GPIO14
+    pin: P22
     id: relay1
     restore_mode: RESTORE_DEFAULT_OFF
-    name: '${plug_name} - Switch 1'
+    name: '${plug_name} - Switch 2'
     icon: mdi:power-socket-eu
     on_turn_on:
       - output.turn_on: led1
@@ -167,13 +168,12 @@ switch:
       - output.turn_off: led1
 
   - platform: gpio
-    pin: GPIO16
+    pin: P14
     id: relay2
     restore_mode: RESTORE_DEFAULT_OFF
-    name: '${plug_name} - Switch 2'
+    name: '${plug_name} - Switch 1'
     icon: mdi:power-socket-eu
     on_turn_on:
       - output.turn_on: led2
     on_turn_off:
       - output.turn_off: led2
-```
