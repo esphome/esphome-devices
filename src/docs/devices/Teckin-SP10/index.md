@@ -27,12 +27,12 @@ esphome:
   esp8266_restore_from_flash: true
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   ap:
     ssid: SP10_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
 
 logger:

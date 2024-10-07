@@ -65,7 +65,7 @@ esphome:
   board: esp8285
 
 wifi:
-  ssid: !secret wifissid
+  ssid: !secret wifi_ssid
   password: !secret wifipw
 
 logger:

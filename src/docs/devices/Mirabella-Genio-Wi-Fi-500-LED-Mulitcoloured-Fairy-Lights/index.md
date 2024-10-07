@@ -30,8 +30,8 @@ esphome:
   board: esp8285
 
 wifi:
-  ssid: "ssid"
-  password: "wifi_password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
