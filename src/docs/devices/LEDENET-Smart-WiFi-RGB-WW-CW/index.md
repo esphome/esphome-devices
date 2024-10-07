@@ -42,8 +42,7 @@ esphome:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifipw
-
+  password: !secret wifi_password
 logger:
 
 api:
@@ -113,8 +112,7 @@ esphome:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifipw
-
+  password: !secret wifi_password
 logger:
 
 api:
@@ -182,8 +180,7 @@ esphome:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifipw
-
+  password: !secret wifi_password
 logger:
 
 api:
