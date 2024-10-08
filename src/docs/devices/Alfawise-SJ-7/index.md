@@ -101,13 +101,10 @@ uart:
 #      - lambda: UARTDebug::log_hex(direction, bytes, ':');
 
 wifi:
-  ssid: "xxx"
-  password: "xxx"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: "xxx"
+
 api:
 web_server:
   port: 80

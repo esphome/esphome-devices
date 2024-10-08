@@ -91,13 +91,9 @@ esphome:
   esp8266_restore_from_flash: true
 
 wifi:
-  ssid: !secret iot_wifi_ssid
-  password: !secret iot_wifi_pwd
-  fast_connect: on
-
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: ${device_name} Fallback
-    password: ""
 
 captive_portal:
 
@@ -329,8 +325,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: "ESPHOME"
-    password: "123456"
 
 logger:
 

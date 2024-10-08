@@ -31,11 +31,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Fallback AP"
-    password: "fallback ap password"
 
 captive_portal:
 

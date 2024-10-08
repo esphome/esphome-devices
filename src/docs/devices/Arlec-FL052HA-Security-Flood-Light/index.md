@@ -44,10 +44,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
   ap:
-    ssid: "fl052ha_flood_light"
-    password: "password"
 
 captive_portal:
 

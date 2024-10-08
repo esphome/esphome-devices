@@ -45,8 +45,9 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: "ssid"
-  password: "password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 logger:
   # Important! The status LED and button are on the Pins used by UART0,

@@ -79,11 +79,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Gosund-Sp111 Fallback Hotspot"
-    password: "REDACTED"
 
 captive_portal:
 
