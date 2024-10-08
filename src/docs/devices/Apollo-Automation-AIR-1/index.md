@@ -35,7 +35,7 @@ The Apollo Automation AIR-1 is an air quality sensor with the following features
 - [EU Distributor](https://opencircuit.shop/brand/apollo-automation)
 - [GitHub](https://github.com/ApolloAutomation/AIR-1)
 - [Wiki](https://wiki.apolloautomation.com/)
-- [Discord](https://discord.gg/mMNgQPyF94)
+- [Discord](https://dsc.gg/ApolloAutomation)
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images
