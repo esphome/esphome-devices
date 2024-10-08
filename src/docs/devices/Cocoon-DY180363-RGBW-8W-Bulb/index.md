@@ -1,6 +1,6 @@
 ---
 title: Cocoon DY180363 RGBW 8W Bulb
-date-published: 2024-10-06
+date-published: 2024-10-09
 type: light
 standard: global
 board: esp8266
@@ -52,11 +52,11 @@ logger:
 # Connectivity configuration
 ota:
   - platform: esphome
-    password: !secret ota_pass
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  fast_connect: True
+  ap:
+
 web_server:
   include_internal: True
   version: 3
@@ -127,12 +127,11 @@ network:
   # enable_ipv6: True # Uncomment if you're using IPv6
 ota:
   - platform: esphome
-    password: !secret ota_pass
 update:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  fast_connect: True
+  ap:
   ###################################
   # Uncomment & update the below to move an existing bulb to a new OTA config:
   # Once the config is updated, you should be able to remove this and use mDNS again
