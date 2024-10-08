@@ -36,8 +36,8 @@ api:
     key: !secret api_encryption_key
 
 wifi:
-  ssid: WIFI_SSID
-  password: "WIFI_PASSWORD"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 #  use_address: X.X.X.X
 
 mqtt:

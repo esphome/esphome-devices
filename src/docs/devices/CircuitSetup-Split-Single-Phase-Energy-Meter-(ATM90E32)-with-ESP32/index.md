@@ -40,7 +40,7 @@ esphome:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+  password: !secret wifi_password
   manual_ip:
     static_ip: !secret ip_eh_nrgnode_2chan32
     gateway: !secret ip_gateway
