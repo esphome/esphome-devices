@@ -1,6 +1,6 @@
 ---
 title: Apollo Plant Quality Sensor (PLT-1)
-date-published: 2024-09-27
+date-published: 2024-10-08
 type: sensor
 standard: global
 board: esp32
