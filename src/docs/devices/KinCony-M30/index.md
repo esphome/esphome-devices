@@ -2044,3 +2044,5 @@ light:
     num_leds: 30
     rmt_channel: 0
     chipset: ws2812
+```
+
