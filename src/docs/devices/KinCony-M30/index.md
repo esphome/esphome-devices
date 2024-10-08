@@ -174,9 +174,10 @@ light:
     num_leds: 30
     rmt_channel: 0
     chipset: ws2812
-``` 
-   
-```yaml 
+```
+
+```yaml
+
 substitutions:
 
   max_current_range1: "10"
@@ -2045,4 +2046,3 @@ light:
     rmt_channel: 0
     chipset: ws2812
 ```
-
