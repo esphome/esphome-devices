@@ -2,7 +2,7 @@
 title: Cocoon DY180363 RGBW 8W Bulb
 date-published: 2024-10-06
 type: light
-standard: au, uk, global
+standard: global
 board: esp8266
 difficulty: 2
 ---
