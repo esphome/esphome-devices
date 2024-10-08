@@ -46,6 +46,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
 
 web_server:
   port: 80

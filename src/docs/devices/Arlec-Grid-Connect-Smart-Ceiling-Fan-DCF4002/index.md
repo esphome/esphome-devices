@@ -58,12 +58,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  # This config assumes you have defined a shared password in the ESPHome secrets file.
   ap:
-    ssid: "Arlec-Fanlight"
-    password: !secret wifi_ap_password
 
 captive_portal:
 
@@ -128,12 +123,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  # This config assumes you have defined a shared password in the ESPHome secrets file.
   ap:
-    ssid: "Arlec-Fanlight"
-    password: !secret wifi_ap_password
 
 captive_portal:
 

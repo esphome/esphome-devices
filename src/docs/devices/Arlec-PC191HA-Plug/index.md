@@ -91,8 +91,9 @@ bk72xx:
     version: dev
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+   ssid: !secret wifi_ssid
+   password: !secret wifi_password
+   ap:
 
 logger:
 
@@ -234,12 +235,9 @@ esp8266:
   early_pin_init: False # Required to ensure the power does not trip out after OTA or reboot
 
 wifi:
-  ssid: "wifi_ssid"
-  password: "wifi_password"
-  
-  ap:
-    ssid: "Device Name Fallback Hotspot"
-    password: "wifi_ap_password"
+   ssid: !secret wifi_ssid
+   password: !secret wifi_password
+   ap:
 
 captive_portal:
 
