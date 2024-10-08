@@ -65,11 +65,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "8G0kVEA0/DqgAavgKNyy9EYUrWo6pEZM38JVMAryJv8="
 
 ota:
-  password: "2a26484203d80a83798414c879541760"
+  - platform: esphome
 
 ethernet:
   type: LAN8720
@@ -176,7 +174,11 @@ light:
     num_leds: 30
     rmt_channel: 0
     chipset: ws2812
+``` 
+   
+```yaml 
 substitutions:
+
   max_current_range1: "10"
   max_current_range2: "10"
   max_current_range3: "10"
@@ -224,11 +226,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "8G0kVEA0/DqgAavgKNyy9EYUrWo6pEZM38JVMAryJv8="
 
 ota:
-  password: "2a26484203d80a83798414c879541760"
+  - platform: esphome
 
 ethernet:
   type: LAN8720
