@@ -55,8 +55,8 @@ esphome:
   board: esp01-1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   reboot_timeout: 60min
   manual_ip:
     static_ip: 1.2.3.4

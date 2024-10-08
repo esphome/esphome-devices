@@ -91,8 +91,8 @@ bk72xx:
     version: dev
 
 wifi:
-  ssid: "ssid"
-  password: "password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 logger:
 

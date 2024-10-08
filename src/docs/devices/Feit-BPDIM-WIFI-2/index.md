@@ -40,7 +40,7 @@ esphome:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+  password: !secret wifi_password
   fast_connect: on
 
   ap:
