@@ -177,3 +177,4 @@ switch:
       - output.turn_on: led2
     on_turn_off:
       - output.turn_off: led2
+```
