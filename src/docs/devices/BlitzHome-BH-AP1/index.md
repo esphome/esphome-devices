@@ -46,14 +46,9 @@ esphome:
   comment: ${devicename}
 
 wifi:
-  ssid: !secret esphome_wifi_ssid
-  password: !secret esphome_wifi_pass
-  fast_connect: true
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: ${devicename}
-    password: !secret esphome_ap_pass
 
 captive_portal:
 
@@ -248,15 +243,9 @@ esphome:
   comment: ${devicename}
 
 wifi:
-  ssid: !secret esphome_wifi_ssid
-  password: !secret esphome_wifi_pass
-  fast_connect: true
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: ${devicename}
-    password: !secret esphome_ap_pass
-
 captive_portal:
 
 # Enable Home Assistant API

@@ -31,11 +31,9 @@ esphome:
   board_flash_mode: dout
 
 wifi:
-  ssid: !secret my_wifi_ssid
-  password: !secret my_wifi_pwd
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: $devicename
-    password: !secret ap_password
 
 api:
   encryption:
