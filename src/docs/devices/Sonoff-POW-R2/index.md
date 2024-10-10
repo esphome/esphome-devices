@@ -23,6 +23,10 @@ difficulty: 3
 
 ## Basic Configuration
 
+As the only controllable LED is the Blue LED, it is configured here to use the
+[`status_led`](/components/light/status_led) light component, which will take over the LED in
+the event of a error/warning state, such as when WiFi is disrupted.
+
 ```yaml
 # Basic Config
 substitutions:
@@ -104,16 +108,11 @@ switch:
     id: relay
     pin: GPIO12
 
-output:
-  - platform: esp8266_pwm
+light:
+  - platform: status_led
+    name: Sonoff POW Blue LED
     id: pow_blue_led
     pin:
-      number: GPIO13
-      inverted: True
-
-light:
-  - platform: monochromatic
-    name: Sonoff POW Blue LED
-    output: pow_blue_led
-    id: led
+        number: GPIO13
+        inverted: True
 ```
