@@ -9,6 +9,7 @@ board: esp32
 ![Product](M30.jpg "Product Image")
 
 ## Resources
+
 todo
 
 ## ESPHome Configuration
