@@ -53,7 +53,8 @@ ota:
   - platform: esphome
 
 wifi:
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
 
 captive_portal:

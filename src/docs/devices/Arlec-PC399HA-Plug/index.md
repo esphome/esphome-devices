@@ -64,11 +64,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Powermeterd Fallback Hotspot"
-    password: "FallBackPassword"
 
 captive_portal:
 
