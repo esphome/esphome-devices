@@ -13,7 +13,12 @@ This configuration is setup so that when the relay is manually activated via the
 both the blue and red LED are lit (making the LED colour output purple). If the relay
 is activated via other means (such as Home Assistant) then it will simply be lit red.
 
-The red side of the LED cannot be individually controlled without modification to the hardware
+The red side of the LED cannot be individually controlled without modification to the hardware,
+and serves as the indicator of when the relay is physically enabled.
+
+As the only controllable LED is the Blue LED, it is configured here to use the
+[`status_led`](/components/light/status_led) light component, which will take over the LED in
+the event of a error/warning state, such as when WiFi is disrupted.
 
 ## GPIO Pinout
 
@@ -75,6 +80,14 @@ binary_sensor:
         else:
           - switch.turn_off: relay
 
+light:
+  - platform: status_led
+    id: blue_led
+    internal: True
+    pin:
+      number: GPIO13
+      inverted: True
+
 switch:
   # The relay switches on the red side of the LED when active.
   - platform: gpio
@@ -87,10 +100,4 @@ switch:
           - switch.is_on: blue_led
         then:
           - switch.turn_off: blue_led
-  # With this we can control the blue side of the LED.
-  - platform: gpio
-    id: blue_led
-    pin:
-      number: GPIO13
-      inverted: True
 ```
