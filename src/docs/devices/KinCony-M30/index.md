@@ -6,8 +6,6 @@ standard: global
 board: esp32
 ---
 
-![Product](M30.jpg "Product Image")
-
 ## Resources
 
 - [ESP32 pin define details](https://www.kincony.com/forum/showthread.php?tid=4087)
