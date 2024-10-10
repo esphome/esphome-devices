@@ -30,11 +30,12 @@ substitutions:
 
 esphome:
   name: "Sonoff POW R2"
-  platform: ESP8266
-  board: esp01_1m
   project:
     name: Sonoff.relay
     version: 'POWR2'
+
+esp8266:
+  board: esp01_1m
 
 logger:
   baud_rate: 0
