@@ -31,6 +31,12 @@ The red side of the LED cannot be individually controlled without modification t
 
 ![alt text](/Sonoff-BASIC-R2-v1.4_pcb_rear.jpg "Sonoff BASIC R2 v1.4 PCB rear")
 
+### 2023 Model
+
+![alt text](/SonoffBasicR2-2023-Top.jpg "Sonoff BASIC R2 v1.4 PCB 2023 Model")
+
+![alt text](/SonoffBasicR2-2023-Bottom.jpg "Sonoff BASIC R2 v1.4 PCB Rear 2023 Model")
+
 ## Basic Configuration
 
 ```yaml
