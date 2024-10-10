@@ -7,9 +7,7 @@ board: esp32
 ---
 
 ## Resources
-
-- [ESP32 pin define details](https://www.kincony.com/forum/showthread.php?tid=4087)
-- [YouTube video tour](https://youtu.be/rVrclJCS3Cg)
+todo
 
 ## ESPHome Configuration
 
