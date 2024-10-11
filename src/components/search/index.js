@@ -31,13 +31,14 @@ export default function SearchButton({ indices }) {
   );
 }
 
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH
+);
+
 function Search({ indices }) {
   const rootRef = createRef();
   const [hasFocus, setFocus] = useState(true);
-  const searchClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH
-  );
 
   useClickOutside(rootRef, () => setFocus(false));
 
