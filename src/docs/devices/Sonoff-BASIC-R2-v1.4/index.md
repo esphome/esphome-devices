@@ -4,6 +4,7 @@ date-published: 2020-11-22
 type: relay
 standard: global
 board: esp8266
+difficulty: 3
 ---
 
 v1.4 differs from the previous iterations of the Sonoff BASIC in that the two colour LED

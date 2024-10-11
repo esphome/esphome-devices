@@ -4,6 +4,7 @@ date-published: 2024-06-24
 type: relay
 standard: global
 board: esp32
+difficulty: 3
 ---
 
 ## GPIO Pinout
