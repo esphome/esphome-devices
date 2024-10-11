@@ -33,7 +33,6 @@ export default function SearchButton({ indices }) {
 
 function Search({ indices }) {
   const rootRef = createRef();
-  const [query, setQuery] = useState("");
   const [hasFocus, setFocus] = useState(true);
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
@@ -47,9 +46,6 @@ function Search({ indices }) {
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
-        onSearchStateChange={({ query }) => {
-          setQuery(query);
-        }}
       >
         <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
         <SearchResult show={hasFocus} indices={indices} />
