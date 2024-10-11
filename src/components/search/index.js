@@ -5,12 +5,6 @@ import SearchBox from "./search-box";
 import SearchResult from "./search-result";
 import useClickOutside from "./use-click-outside";
 
-const theme = {
-  foreground: "#050505",
-  background: "white",
-  faded: "#888",
-};
-
 export default function SearchButton({ indices }) {
   const [showSearch, setShowSearch] = useState(false);
 
@@ -37,14 +31,14 @@ export default function SearchButton({ indices }) {
   );
 }
 
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH
+);
+
 function Search({ indices }) {
   const rootRef = createRef();
-  const [query, setQuery] = useState("");
   const [hasFocus, setFocus] = useState(true);
-  const searchClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH
-  );
 
   useClickOutside(rootRef, () => setFocus(false));
 
@@ -53,9 +47,6 @@ function Search({ indices }) {
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
-        onSearchStateChange={({ query }) => {
-          setQuery(query);
-        }}
       >
         <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
         <SearchResult show={hasFocus} indices={indices} />

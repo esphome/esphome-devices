@@ -5,7 +5,6 @@ import {
   Highlight,
   Hits,
   Index,
-  Snippet,
   PoweredBy,
 } from "react-instantsearch-dom";
 
