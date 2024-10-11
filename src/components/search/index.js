@@ -5,12 +5,6 @@ import SearchBox from "./search-box";
 import SearchResult from "./search-result";
 import useClickOutside from "./use-click-outside";
 
-const theme = {
-  foreground: "#050505",
-  background: "white",
-  faded: "#888",
-};
-
 export default function SearchButton({ indices }) {
   const [showSearch, setShowSearch] = useState(false);
 
