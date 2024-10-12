@@ -341,43 +341,43 @@ binary_sensor:
 ##pull-up resistance on PCB
   - platform: gpio
     name: "b16m-W1-io40"
-    pin: 
+    pin:
       number: 40
       inverted: true
 
   - platform: gpio
     name: "b16m-W1-io15"
-    pin: 
+    pin:
       number: 15
       inverted: true
 
   - platform: gpio
     name: "b16m-W1-io48"
-    pin: 
+    pin:
       number: 48
       inverted: true
 
   - platform: gpio
     name: "b16m-W1-io47"
-    pin: 
+    pin:
       number: 47
       inverted: true
 ## without resistance on PCB
   - platform: gpio
     name: "b16m-W1-io13"
-    pin: 
+    pin:
       number: 13
       inverted: false
 
   - platform: gpio
     name: "b16m-W1-io14"
-    pin: 
+    pin:
       number: 14
       inverted:  false
 
   - platform: gpio
     name: "b16m-W1-io21"
-    pin: 
+    pin:
       number: 21
       inverted: false
 
