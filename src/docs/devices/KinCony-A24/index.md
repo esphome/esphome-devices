@@ -267,7 +267,7 @@ switch:
       pcf8574: pcf8574_hub_out_2
       number: 11
       mode: OUTPUT
-      inverted: true      
+      inverted: true 
 
 # Individual inputs
 binary_sensor:
