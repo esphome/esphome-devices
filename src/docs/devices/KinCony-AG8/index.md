@@ -33,7 +33,7 @@ esp32:
     sdkconfig_options:
       SOC_RMT_SUPPORT_RX_PINGPONG: "n"
 # Enable logging
-logger: 
+logger:
   hardware_uart: USB_SERIAL_JTAG
 # Enable Home Assistant API
 api:
@@ -181,7 +181,7 @@ uart:
 binary_sensor:
   - platform: gpio
     name: "IO15"
-    pin: 
+    pin:
       number: 15
       inverted: true
       mode:
@@ -189,7 +189,7 @@ binary_sensor:
         pullup: true
   - platform: gpio
     name: "IO38"
-    pin: 
+    pin:
       number: 38
       inverted: true
       mode:
@@ -197,7 +197,7 @@ binary_sensor:
         pullup: true
   - platform: gpio
     name: "IO39"
-    pin: 
+    pin:
       number: 39
       inverted: true
       mode:
@@ -205,7 +205,7 @@ binary_sensor:
         pullup: true
   - platform: gpio
     name: "IO40"
-    pin: 
+    pin:
       number: 40
       inverted: true
       mode:
