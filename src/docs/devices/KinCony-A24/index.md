@@ -40,7 +40,6 @@ i2c:
      scl: 5
      scan: true
      frequency: 400kHz
-     
 
 # Example configuration entry
 ethernet:
@@ -72,7 +71,7 @@ pcf8574:
     i2c_id: bus_a
     address: 0x25
     pcf8575: true
-    
+
 # Individual outputs
 switch:
   - platform: gpio
@@ -106,7 +105,7 @@ switch:
       number: 3
       mode: OUTPUT
       inverted: true
-      
+
   - platform: gpio
     name: "a24--light5"
     pin:
@@ -205,8 +204,7 @@ switch:
       number: 3
       mode: OUTPUT
       inverted: true
-      
-      
+
   - platform: gpio
     name: "a24--light17"
     pin:
@@ -238,7 +236,7 @@ switch:
       number: 7
       mode: OUTPUT
       inverted: true
-      
+
   - platform: gpio
     name: "a24--light21"
     pin:
@@ -270,8 +268,6 @@ switch:
       number: 11
       mode: OUTPUT
       inverted: true      
-
-
 
 # Individual inputs
 binary_sensor:
@@ -306,7 +302,7 @@ binary_sensor:
       number: 3
       mode: INPUT
       inverted: true
-      
+
   - platform: gpio
     name: "a24--input5"
     pin:
@@ -339,7 +335,6 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
-
   - platform: gpio
     name: "a24--input9"
     pin:
@@ -371,7 +366,7 @@ binary_sensor:
       number: 11
       mode: INPUT
       inverted: true
-      
+
   - platform: gpio
     name: "a24--input13"
     pin:
@@ -403,8 +398,7 @@ binary_sensor:
       number: 15
       mode: INPUT
       inverted: true
-      
-      
+
   - platform: gpio
     name: "a24--input17"
     pin:
@@ -436,7 +430,7 @@ binary_sensor:
       number: 3
       mode: INPUT
       inverted: true
-      
+
   - platform: gpio
     name: "a24--input21"
     pin:
@@ -518,7 +512,7 @@ sensor:
 
   - platform: max31855
     name: "K-Type Thermocouple-1"
-    cs_pin: 
+    cs_pin:
       pcf8574: pcf8574_hub_out_1
       number: 13
       mode: OUTPUT
@@ -527,7 +521,7 @@ sensor:
 
   - platform: max31855
     name: "K-Type Thermocouple-2"
-    cs_pin: 
+    cs_pin:
       pcf8574: pcf8574_hub_out_1
       number: 14
       mode: OUTPUT
@@ -536,7 +530,7 @@ sensor:
 
   - platform: max31855
     name: "K-Type Thermocouple-3"
-    cs_pin: 
+    cs_pin:
       pcf8574: pcf8574_hub_out_1
       number: 15
       mode: OUTPUT
