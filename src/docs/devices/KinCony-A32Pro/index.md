@@ -65,7 +65,7 @@ uart:
 
 tuya_wifi_mcu:
   # tuya mcu product id
-  product_id: fwy7fk4mzay3kern 
+  product_id: fwy7fk4mzay3kern
   uart_id: tuya_mcu_uart
   wifi_reset_pin: 21
   wifi_led_pin: 45
@@ -759,26 +759,26 @@ binary_sensor:
 
   - platform: gpio
     name: "A32 Pro TMP1"
-    pin: 
+    pin:
       number: 1
       inverted: true
 
 
   - platform: gpio
     name: "A32 Pro TMP2"
-    pin: 
+    pin:
       number: 2
       inverted: true
 
   - platform: gpio
     name: "A32 Pro DL"
-    pin: 
+    pin:
       number: 0
       inverted: true
 
   - platform: gpio
     name: "A32 Pro DTUYA"
-    pin: 
+    pin:
       number: 21
       inverted: true
 
