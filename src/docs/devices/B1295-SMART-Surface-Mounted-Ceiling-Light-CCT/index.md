@@ -14,7 +14,7 @@ board: esp8266
 Sold by Barcelona LED in Spain. Model number B1295-SMART.
 
 Flashing requires opening the inline driver (hence, exposure to line voltage), and soldering wires to the TYWE2L board inside.
-Flashing via tuya-convert is NOT tested.
+*Flashing via tuya-convert is NOT tested.*
 
 Colour temperature range advertised on the box as 3000K to 6000K.
 
