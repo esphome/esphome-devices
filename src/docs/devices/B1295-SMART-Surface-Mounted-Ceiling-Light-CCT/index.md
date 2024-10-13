@@ -1,8 +1,8 @@
 ---
 title: Surface-Mounted Smart LED Ceiling Light 24W 2040lm with CCT (B1295-SMART)
-date-published: 2024-10-12
+date-published: 2024-10-13
 type: light
-standard: es
+standard: eu
 board: esp8266
 ---
 
