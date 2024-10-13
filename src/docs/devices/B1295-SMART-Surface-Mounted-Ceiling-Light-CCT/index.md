@@ -8,6 +8,7 @@ board: esp8266
 
 ## Surface-Mounted Smart LED Ceiling Light 24W 2040lm with CCT (`B1295-SMART`)
 ![Product Image](smart-cct-wifi-surface-mounted-led-ceiling-light-24w-ip20.jpg)
+
 *Product Image*
 
 Sold by Barcelona LED in Spain. Model number B1295-SMART.
