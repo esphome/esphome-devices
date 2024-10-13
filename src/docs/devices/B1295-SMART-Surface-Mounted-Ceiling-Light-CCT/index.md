@@ -9,7 +9,7 @@ board: esp8266
 ## Surface-Mounted Smart LED Ceiling Light 24W 2040lm with CCT (`B1295-SMART`)
 
 ![Product Image](smart-cct-wifi-surface-mounted-led-ceiling-light-24w-ip20.jpg)
-<br />
+
 *Product Image*
 
 Sold by Barcelona LED in Spain. Model number B1295-SMART.
@@ -28,8 +28,8 @@ Colour temperature range advertised on the box as 3000K to 6000K.
 
 ## Flashing
 
-<img src="TYWE2L-backside-flash.jpg" alt="TYWE2L with soldered wires" width="300"/>
-<br />
+![TYWE2L with soldered wires](TYWE2L-backside-flash.jpg)
+
 *TYWE2L with soldered wires*
 
 - Open the driver by removing the four screws on the terminal covers, and then unclipping the back plate
