@@ -20,10 +20,10 @@ Colour temperature range advertised on the box as 3000K to 6000K.
 
 ## GPIO Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| GPIO12 | White temperature setting |
-| GPIO14 | Brightness setting        |
+| Pin    | Function                        |
+| ------ | ------------------------------- |
+| GPIO12 | White temperature setting (PWM) |
+| GPIO14 | Brightness setting (PWM)        |
 
 ## Flashing
 <img src="TYWE2L-backside-flash.jpg" alt="TYWE2L with soldered wires" width="300"/>
