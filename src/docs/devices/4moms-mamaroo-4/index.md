@@ -49,8 +49,6 @@ logger:
   level: WARN
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 esp32_ble_tracker:
   on_ble_advertise:
