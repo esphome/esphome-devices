@@ -13,6 +13,8 @@ Hiking TOMZN (Tuya)
 
 ## Product Info
 
+|                   |             |
+| ----------------- | ----------- |
 | Rate Frequency    | 50 or 60 Hz |
 | Rated Current     | 63A         |
 | Rate Voltage      | 85~300V AC  |
@@ -56,7 +58,7 @@ Then opened - PCB can be easily detached from.
 
 ## Tuya Component Output
 
-```
+```txt
 Tuya:
   Datapoint 16: switch (value: OFF)
   Datapoint 6: raw (value: 00.00.00.00.00.00.00.00.03.E8.00.00.00.09.47 (15))
