@@ -13,6 +13,7 @@ board: esp8266
 | GPIO0  | Push Button (HIGH = off, LOW = on) |
 | GPIO12 | Relay and Red LED                  |
 | GPIO13 | Blue Status LED                    |
+| GPIO14 | Sensor                             |
 
 ## Basic Configuration
 
