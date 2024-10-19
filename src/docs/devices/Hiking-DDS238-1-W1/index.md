@@ -54,7 +54,7 @@ Then opened - PCB can be easily detached from.
 | GPIO03 | Tuya MCU Tx          |          |
 | GPIO02 | Blue LED on ESP-12F  | inverted |
 | GPIO14 | Blue LED on device   | inverted |
-| GPIO16 | ON when KEY pressed >3 sec. | inverted, pulled up on PCB |
+| GPIO16 | KEY long press (>3 sec.) | inverted |
 
 ## Tuya Component Output
 
