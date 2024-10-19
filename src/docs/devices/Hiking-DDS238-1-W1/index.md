@@ -4,7 +4,7 @@ date-published: 2024-10-18
 type: misc
 standard: global
 board: bk72xx
-difficulty: 4
+difficulty: 5
 ---
 
 ## Manufacturer
