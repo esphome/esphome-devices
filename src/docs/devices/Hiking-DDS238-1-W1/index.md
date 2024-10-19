@@ -183,10 +183,10 @@ switch:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO16
       inverted: True
-    name: "SET long press" 
+    name: "SET long press"
 
 sensor:
   - platform: template
