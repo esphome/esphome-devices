@@ -54,7 +54,7 @@ Then opened - PCB can be easily detached from.
 | GPIO03 | Tuya MCU Tx          |          |
 | GPIO02 | Blue LED on ESP-12F  | inverted |
 | GPIO14 | Blue LED on device   | inverted |
-| GPIO16 | KEY long press (>3 sec.) | inverted |
+| GPIO16 | SET long press (>3 sec.) | inverted |
 
 ## Tuya Component Output
 
@@ -186,7 +186,7 @@ binary_sensor:
     pin: 
       number: GPIO16
       inverted: True
-    name: "KEY long press" 
+    name: "SET long press" 
 
 sensor:
   - platform: template
