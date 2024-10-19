@@ -104,7 +104,7 @@ Relay is driven by Tuya MCU. ESP restart will not affect state of Relay !
 
 Report negative "Power Active" when power flow is to Grid.
 
-## Tuya DataPoint 6
+## Tuya DataPoint 6 (raw, 15 bytes)
 
 | Bytes | Sensor         | Multiply | Unit | Decimals | Parsed by MCU |
 | ----- | -------------- | -------- | ---- | -------- | ------------- |
