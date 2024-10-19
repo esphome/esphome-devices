@@ -90,13 +90,17 @@ Tuya:
 
 | DP  | Sensor           | Multiply | Unit | Decimals |
 | --- | ---------------- | -------- | ---- | -------- |
-|   1 | Energy Total     | 0.001    | kWh  | 3        |
-| 101 | Energy Positive  | 0.001    | kWh  | 3        |
-| 102 | Energy Negative  | 0.001    | kWh  | 3        |
+| 101 | Energy Total     | 0.001    | kWh  | 3        |
+|   1 | Energy from Grid | 0.001    | kWh  | 3        |
+| 102 | Energy to Grid   | 0.001    | kWh  | 3        |
 | 103 | Power Active     | 0.001    | kW   | 3        |
 | 110 | Power Reactive   | 0.001    | kVAr | 3        |
 | 111 | Power Factor     | 0.001    |      | 3        |
 | 105 | Frequency        | 0.01     | Hz   | 2        |
+| 108 | So far always reported 0                      |
+| 109 | Power Flow ? Reported 4 when flow is to Grid  |
+
+Report negative "Power Active" when power flow is to Grid.
 
 ## Tuya DataPoint 6
 
@@ -106,6 +110,7 @@ Tuya:
 | 11,12 | Current        | 0.001    | A    | 3        |               |
 | 06,07 | Power Reactive | 0.001    | kVAr | 3        | as DP110      |
 | 02,03 | Power Active   | 0.001    | kW   | 3        | as DP103      |
+|    00 | Power Flow Direction: 00 - from Grid, 01 - to Grid          |
 
 ## Basic Configuration
 
@@ -178,6 +183,7 @@ sensor:
     name: "Voltage"
     device_class: voltage
     unit_of_measurement: V
+    state_class: measurement
     accuracy_decimals: 1
 
   - platform: template
@@ -185,6 +191,7 @@ sensor:
     name: "Current"
     device_class: current
     unit_of_measurement: A
+    state_class: measurement
     accuracy_decimals: 3
 
   - platform: "tuya"
@@ -192,24 +199,29 @@ sensor:
     sensor_datapoint: 105
     device_class: frequency
     unit_of_measurement: Hz
+    state_class: measurement
     accuracy_decimals: 2
     filters:
       - multiply: 0.01
 
   - platform: "tuya"
+    id: power_active
     name: "Power Active"
     sensor_datapoint: 103
     device_class: power
     unit_of_measurement: kW
+    state_class: measurement
     accuracy_decimals: 3
     filters:
       - multiply: 0.001
 
   - platform: "tuya"
+    id: power_reactive
     name: "Power Reactive"
     sensor_datapoint: 110
     device_class: power
     unit_of_measurement: kVAr
+    state_class: measurement
     accuracy_decimals: 3
     filters:
       - multiply: 0.001
@@ -218,33 +230,37 @@ sensor:
     name: "Power Factor"
     sensor_datapoint: 111
     device_class: power_factor
+    state_class: measurement
     accuracy_decimals: 3
     filters:
       - multiply: 0.001
 
   - platform: "tuya"
     name: "Energy"
-    sensor_datapoint: 1
-    device_class: energy
-    unit_of_measurement: kWh
-    accuracy_decimals: 3
-    filters:
-      - multiply: 0.001
-
-  - platform: "tuya"
-    name: "Energy Positive" # Consumed from network - TBC
     sensor_datapoint: 101
     device_class: energy
     unit_of_measurement: kWh
+    state_class: total_increasing
     accuracy_decimals: 3
     filters:
       - multiply: 0.001
 
   - platform: "tuya"
-    name: "Energy Negative" # To network - To Be Confirmed
+    name: "Energy from Grid"
+    sensor_datapoint: 1
+    device_class: energy
+    unit_of_measurement: kWh
+    state_class: total_increasing
+    accuracy_decimals: 3
+    filters:
+      - multiply: 0.001
+
+  - platform: "tuya"
+    name: "Energy to Grid"
     sensor_datapoint: 102
     device_class: energy
     unit_of_measurement: kWh
+    state_class: total_increasing
     accuracy_decimals: 3
     filters:
       - multiply: 0.001
