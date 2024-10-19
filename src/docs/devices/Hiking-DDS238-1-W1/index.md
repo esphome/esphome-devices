@@ -54,7 +54,7 @@ Then opened - PCB can be easily detached from.
 | GPIO03 | Tuya MCU Tx          |          |
 | GPIO02 | Blue LED on ESP-12F  | inverted |
 | GPIO14 | Blue LED on device   | inverted |
-| GPIO16 | Unconfirmed          |          |
+| GPIO16 | ON when KEY pressed >3 sec. | inverted, pulled up on PCB |
 
 ## Tuya Component Output
 
@@ -83,10 +83,12 @@ Tuya:
 
 ## Tuya DataPoints
 
-| DP  | Switch            |
-| --- | ----------------- |
-|  16 | To operate Relay  |
-|  11 | Unconfirmed       |
+| DP  | Switch            | Notes |
+| --- | ----------------- | ----- |
+|  16 | To operate Relay  |       |
+|  11 | Relay on startup  | OFF - Restore, ON - Relay OFF |
+
+Relay is driven by Tuya MCU. ESP restart will not affect state of Relay !
 
 | DP  | Sensor           | Multiply | Unit | Decimals |
 | --- | ---------------- | -------- | ---- | -------- |
@@ -125,7 +127,7 @@ esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
   platform: ESP8266
-  board: esp01_1m
+  board: esp12e
 
 wifi:
   ssid: !secret wifi_ssid
@@ -142,6 +144,7 @@ logger:
 api:
 
 ota:
+  - platform: esphome
 
 uart:
   rx_pin: GPIO03
@@ -174,8 +177,16 @@ switch:
     switch_datapoint: 16
 
   - platform: "tuya"
-    name: Unknown # Unconfirmed
+    name: "Restore on startup"
     switch_datapoint: 11
+    inverted: True
+
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: GPIO16
+      inverted: True
+    name: "KEY long press" 
 
 sensor:
   - platform: template
