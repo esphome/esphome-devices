@@ -13,7 +13,7 @@ Hiking TOMZN (Tuya)
 
 ## Product Info
 
-|                   |             |
+| Spec              | Value       |
 | ----------------- | ----------- |
 | Rate Frequency    | 50 or 60 Hz |
 | Rated Current     | 63A         |
