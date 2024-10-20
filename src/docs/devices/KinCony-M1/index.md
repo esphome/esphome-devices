@@ -1,7 +1,6 @@
 ---
 title: KinCony-M1 AC energy meter
 date-published: 2024-10-11
-
 type: sensor
 standard: global
 board: esp32
