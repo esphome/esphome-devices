@@ -1,7 +1,6 @@
 ---
 title: KinCony-B16M (ESP32-S3 16CH MOSFET)
 date-published: 2024-10-12
-
 type: relay
 standard: global
 board: esp32
@@ -35,8 +34,6 @@ logger:
   hardware_uart: USB_SERIAL_JTAG
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "WeVOuL5oNhjXcfzXtTirlOwvtWvCD5yqIxd3oV4es1k="
 
 ethernet:
   type: W5500
