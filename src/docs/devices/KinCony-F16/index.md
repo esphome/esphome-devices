@@ -1,7 +1,6 @@
 ---
 title: KinCony-F16 (ESP32-S3 16A Removable Relay)
 date-published: 2024-10-12
-
 type: relay
 standard: global
 board: esp32
@@ -44,8 +43,6 @@ external_components:
   # hardware_uart: USB_SERIAL_JTAG
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "WeVOuL5oNhjXcfzXtTirlOwvtWvCD5yqIxd3oV4es1k="
 
 ethernet:
   type: W5500
