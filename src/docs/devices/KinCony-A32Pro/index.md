@@ -1,7 +1,6 @@
 ---
 title: KinCony-A32 Pro (ESP32-S3 32CH Relay Controller)
 date-published: 2024-10-12
-
 type: relay
 standard: global
 board: esp32
@@ -45,8 +44,6 @@ esp32:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "fBpihEYPVlfKaE4ZIcY0uRcJ134u7DBKzzskk994+Lw="
 
 ethernet:
   type: W5500
