@@ -1,7 +1,6 @@
 ---
 title: KinCony-A24 (with K-Type thermocouple Relay Controller)
 date-published: 2024-10-12
-
 type: relay
 standard: global
 board: esp32
