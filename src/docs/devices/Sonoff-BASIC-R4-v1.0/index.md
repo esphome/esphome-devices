@@ -4,6 +4,7 @@ date-published: 2023-11-28
 type: relay
 standard: global
 board: esp32
+difficulty: 3
 ---
 
 Sonoff BASIC R4 is upgraded with esp32c3 and a new 'magic mode switch' feature that can be enabled with custom component by @ssieb.
