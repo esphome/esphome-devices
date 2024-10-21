@@ -1,7 +1,6 @@
 ---
 title: KinCony-ADR (AC Dimmer)
 date-published: 2024-10-12
-
 type: dimmer
 standard: global
 board: esp32
@@ -35,20 +34,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "ZWeLIQ6pHBi8F7iz8oU50b5e4pOntKh7crgfrRpT0NQ="
-
-ota:
-  password: "0d1fac93b813af333e08eee312020918"
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Adr Fallback Hotspot"
-    password: "GOSjJDSsz6Z5"
 
 captive_portal:
 
