@@ -1,7 +1,6 @@
 ---
 title: KinCony-ATF (ESP32-S3 SD Card Module)
 date-published: 2024-10-12
-
 type: misc
 standard: global
 board: esp32
@@ -33,20 +32,13 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "w7SHSfiO/jo57FMsWHzLoexB93cf1YmRH7YUVvJuVQ4="
 
 ota:
   password: "122b54ecaa3db2cc9455e008d112a4b6"
 
 wifi:
-  ssid: "KinCony"
-  password: "a12345678"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Atf Fallback Hotspot"
-    password: "dPQX1XykXHPe"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 captive_portal:
 
