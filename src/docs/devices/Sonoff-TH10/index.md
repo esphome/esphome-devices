@@ -33,9 +33,8 @@ substitutions:
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
-  platform: ESP8266
-  board: esp01_1m
-  board_flash_mode: dout
+  esp8266:
+    board: esp01_1m
 
 # Enable logging
 logger:
@@ -62,7 +61,7 @@ wifi:
 
 sensor:
   - platform: wifi_signal
-    name: "${friendly_name} WiFi Signal"
+    name: "WiFi Signal"
     update_interval: 60s
 # Example setup for a DS18B20
 # - platform: dallas_temp
@@ -75,19 +74,19 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "${friendly_name} Button"
+    name: "Button"
     on_press:
-      - light.toggle: th1x_1_relay
+      - light.toggle: th1x_relay
   - platform: status
-    name: "${friendly_name} Status"
+    name: "$Status"
 
 switch:
   - platform: restart
-    name: "${friendly_name} Restart"
+    name: "$Restart"
 
 output:
   - platform: esp8266_pwm
-    id: TH1x_1_blue_led
+    id: blue_led
     pin:
       number: GPIO13
       inverted: True
@@ -98,12 +97,12 @@ output:
 
 light:
   - platform: monochromatic
-    name: "${friendly_name} blue LED"
+    name: "$Blue LED"
     id: blue_led
     restore_mode: RESTORE_DEFAULT_OFF
-    output: TH1x_1_blue_led
+    output: blue_led
   - platform: binary
-    name: "${friendly_name} Relay"
-    id: th1x_1_relay
+    name: "Relay"
+    id: th1x_relay
     output: relay
 ```
