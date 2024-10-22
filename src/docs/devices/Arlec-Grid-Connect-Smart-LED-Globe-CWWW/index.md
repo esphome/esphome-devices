@@ -44,12 +44,9 @@ esphome:
   esp8266_restore_from_flash: true
 
 wifi:
-  ssid: "SSID"
-  password: "password"
-
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "arlec_GLD112HA"
-    password: "password"
 
 captive_portal:
 

@@ -62,13 +62,9 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: !secret ssid
-  password: !secret wlan_password
-  fast_connect: true
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: IR Remote Fallback Hotspot
-    password: !secret ap_password
 
 captive_portal:
 

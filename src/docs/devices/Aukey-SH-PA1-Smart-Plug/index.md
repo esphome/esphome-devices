@@ -29,13 +29,9 @@ esphome:
     upload_speed: 115200
 
 wifi:
-  ssid: "ssid"
-  password: "password"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "Fallback AP"
-    password: "fallback ap password"
 
 captive_portal:
 

@@ -61,13 +61,9 @@ web_server:
   port: 80
 
 wifi:
-  ssid: "ssid"
-  password: "password"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "${friendly_name} Hotspot"
-    password: ""
 
 captive_portal:
 

@@ -39,6 +39,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
 
 # Reduce log level as otherwise logs would be flooded with analog sensor readings
 logger:
@@ -147,6 +148,7 @@ logger:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
 
 status_led:
   pin:

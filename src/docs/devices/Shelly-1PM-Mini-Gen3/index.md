@@ -143,7 +143,7 @@ status_led:
 output:
   - platform: gpio
     id: "relay_output"
-    pin: 7
+    pin: 5
 
 switch:
   - platform: output

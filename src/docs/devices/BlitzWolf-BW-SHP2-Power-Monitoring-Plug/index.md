@@ -61,16 +61,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ${friendly_name}
-    password: !secret AP_Password
-
-  manual_ip:
-      static_ip: 192.168.x.xx
-      gateway: 192.168.x.x
-      subnet: 255.255.255.0
 
 captive_portal:
 
@@ -253,16 +244,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ${friendly_name}
-    password: !secret AP_Password
-
-  manual_ip:
-      static_ip: 192.168.x.xx
-      gateway: 192.168.x.x
-      subnet: 255.255.255.0
 
 captive_portal:
 

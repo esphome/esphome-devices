@@ -38,8 +38,9 @@ esphome:
   board: esp32dev
 
 wifi:
-  ssid: "ssid"
-  password: "ssid_password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 logger:
   #level: INFO

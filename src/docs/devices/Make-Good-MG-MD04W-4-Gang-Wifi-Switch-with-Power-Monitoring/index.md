@@ -41,8 +41,8 @@ esphome:
   esp8266_restore_from_flash: true
 
 wifi:
-  ssid: !secret iot_wifi_ssid
-  password: !secret iot_wifi_pwd
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   fast_connect: on
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
