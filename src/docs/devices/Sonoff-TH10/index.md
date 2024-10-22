@@ -17,7 +17,7 @@ The Sonoff TH10 and TH16 are 10A/16A smart WiFi switches with optional temperatu
 | GPIO0  | Push Button (HIGH = off, LOW = on) |
 | GPIO12 | Relay and Red LED                  |
 | GPIO13 | Blue Status LED                    |
-| GPIO14 | 1-Wire Bus for 2.5 mm jack         |
+| GPIO14 | Sensor                             |
 
 ## Basic Configuration
 
