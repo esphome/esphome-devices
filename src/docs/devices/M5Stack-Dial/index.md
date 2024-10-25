@@ -48,6 +48,9 @@ i2c:
   - id: internal_i2c
     sda: GPIO11
     scl: GPIO12
+  - id: port_a_i2c
+    sda: GPIO13
+    scl: GPIO15
 
 rc522_i2c:
   - id: nfc_reader
