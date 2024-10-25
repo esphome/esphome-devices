@@ -78,6 +78,7 @@ time:
   # RTC
   - platform: pcf8563
     id: rtctime
+    i2c_id: internal_i2c
     address: 0x51
     update_interval: never
   - platform: homeassistant
