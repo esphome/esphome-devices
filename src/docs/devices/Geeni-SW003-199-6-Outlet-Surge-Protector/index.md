@@ -1,6 +1,6 @@
 ---
 title: Geeni SW003-199 6-Outlet Surge Protector
-date-published: 2024-10-27
+date-published: 2024-10-29
 type: plug
 standard: us
 board: bk72xx
@@ -79,15 +79,13 @@ bk72xx:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
 
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret ota_password
 
 switch:
   - platform: gpio
