@@ -15,6 +15,17 @@ project-url: https://docs.m5stack.com/en/core/M5Dial
 
 M5Stack Dial features an M5StampS3, 8M Flash, 1.28 inch Touchscreen, NFC Reader, Rotary Encoder and a Buzzer.
 
+## Pin Mapping
+
+When a pin can be used for multiple purposes (e.g. Port A or Port B), they are documented in the table below instead of the example configuration.
+
+| Pin           | Usage         |
+| ------------- | ------------- |
+| GPIO1         | Port B Input  |
+| GPIO2         | Port B Output |
+| GPIO13        | Port A SDA    |
+| GPIO15        | Port A SCL    |
+
 ## Example Configuration
 
 ```yaml
@@ -48,9 +59,6 @@ i2c:
   - id: internal_i2c
     sda: GPIO11
     scl: GPIO12
-  - id: port_a_i2c
-    sda: GPIO13
-    scl: GPIO15
 
 rc522_i2c:
   - id: nfc_reader
