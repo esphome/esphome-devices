@@ -28,7 +28,7 @@ As of 10/2024, Tinxy 4N with fan regulator devices failed flashing with the esph
 
 ```bash
 python3 -m esptool --port /dev/ttyUSB0 --baud 460800 --before no_reset --after hard_reset write_flash -fm dio 0x00000 firmware.bin
-```bash
+```
 
 ## Esp Code
 
