@@ -21,6 +21,7 @@ Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 Mini relay switch with built-in power monitoring
 
 Maximum support current 10A
+
 ## GPIO Pinout
 
 | Pin    | Function   |
