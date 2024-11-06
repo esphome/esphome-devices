@@ -219,8 +219,6 @@ sensor:
 
 ```
 
-
-
 ## Series 3 Configuration
 
 ```yaml
@@ -366,8 +364,6 @@ sensor:
     update_interval: "30s"
 
 ```
-
-
 
 ## ESP8266 configuration
 
