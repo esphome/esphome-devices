@@ -1,5 +1,5 @@
 ---
-title: Athom 2CH Relay Board (R8-ESP)
+title: Athom 2CH Relay Board (R2-ESP)
 date-published: 2024-11-01
 type: relay
 standard: global
