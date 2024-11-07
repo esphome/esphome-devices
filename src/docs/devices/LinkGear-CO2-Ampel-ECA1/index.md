@@ -16,6 +16,7 @@ You can either use our pre-configured ESPHome configuration to output the CO2 st
 If you want to learn more, please check [our manual and instructions page](https://docs.linkgear.net/books/co2-ampel-for-esphome/)
 
 ## Sensors
+
 The device is equipped with the following sensors:
 
 - SDC41 for accurate CO2 measurements
@@ -23,6 +24,7 @@ The device is equipped with the following sensors:
 - BH1750 for illuminance measurements (e.g. to control LED brightness)
 
 ## Pinout 
+
 | uC Pin | PCB Header        |
 |--------|-------------------|
 | IO18   | RGB LEDs (SK6812) |
