@@ -219,6 +219,152 @@ sensor:
 
 ```
 
+## Series 3 Configuration
+
+```yaml
+# Basic Config
+substitutions:
+  device_name: "arlec_PC191HA_1"
+  name: "ARLEC PC191HA 1"
+
+esphome:
+  name: ${device_name}
+  comment: ${name}
+
+bk72xx:
+  board: cb2s
+  framework:
+    version: dev
+
+wifi:
+   ssid: !secret wifi_ssid
+   password: !secret wifi_password
+   ap:
+
+logger:
+
+api:
+  encryption:
+    key: "api_encryption_key"
+
+ota:
+  password: "ota_password"
+
+#
+# PC191HA basic switch operation - button, relay and LED
+#
+    # button is momentary on - shows "on" in HA except for the moment the button is being pressed
+    # LED should have same on/off state as the relay.  
+    # there is also a wifi_LED, but it is not seen from outside the case
+
+binary_sensor:    # the button
+  - platform: gpio
+    pin: P11
+    name: ${device_name} button
+    id: button
+    device_class: window
+    # when button is pressed, toggle the switch on/off
+    on_press:
+      then:
+        - switch.toggle: relay
+
+switch:          # the relay
+  - platform: gpio
+    pin: P8
+    name: ${name}
+    id: relay
+    restore_mode: always off   # default when power is turned on
+    icon: mdi:power-socket-au
+    # synchronise the LED with the relay
+    on_turn_on:
+      then:
+        - output.turn_on: button_led
+    on_turn_off:
+      then:
+        - output.turn_off: button_led
+
+output:        # the light in the button
+  - platform: gpio
+    id: button_led
+    pin: P26
+#    restore_mode: always off   # default when power is turned on
+
+#
+# PC191HA sensors - power monitoring and wifi signal
+#
+sensor:
+  - platform: wifi_signal         # report wi-fi signal strength from this end
+    name: $name WiFi Signal
+    id:   ${device_name}_wifi_signal
+    update_interval: 30s    # how often to report wifi signal strength
+
+    # PC191HA includes a BL0937 chip for measuring power consumption
+    #     and BL0937 is a variation of hlw8012, but using inverted SEL pin functionality
+  - platform: hlw8012
+    model: BL0937     # note that the model must be specified to use special calculation parameters
+    sel_pin:          # I believe that cf_pin reports either Voltage or Current depending on this select pin
+      inverted: true  # determine whether true reports Voltage
+      number: P24
+    cf_pin:           # current or voltage (ele_pin: 7)
+      inverted: true  # the logic of BL0937 is opposite from HLW8012
+      number: P7
+    cf1_pin:          #  Power (vi_pin: 8)
+      inverted: true  # the logic of BL0937 is opposite from HLW8012
+      number: P6
+
+    update_interval: 15s      # How often to measure and report values
+
+    # PC191HA measures and returns Voltage OR Current according to the value of sel_pin,
+    #   but it can change the value of sel_pin periodically  
+    initial_mode: "VOLTAGE"       # reports VOLTAGE or CURRENT
+    change_mode_every: 4          # how many times to report before swapping between
+        #   reporting Voltage or Current. Note that the first value reported should be ignored as inaccurate
+
+    # Adjust according to the actual resistor values on board to calibrate the specific unit
+    voltage_divider:  775     # LOWER VALUE GIVES LOWER VOLTAGE
+    current_resistor: 0.0009  # HIGHER VALUE GIVES LOWER WATTAGE
+
+    #
+    # how the power monitoring values are returned to ESPHome
+    #
+
+    voltage:
+      name: $name Voltage
+      id:   ${device_name}_voltage
+      unit_of_measurement: V
+      accuracy_decimals: 1
+      filters:
+        - skip_initial: 2
+    power:
+      name: $name Power
+      id:   ${device_name}_power
+      unit_of_measurement: W
+      accuracy_decimals: 2
+      filters:
+        - skip_initial: 2
+
+    # power should simply be current x voltage -- except that the pc191ha doesn't follow that formula.  
+    # Setting current_resistor to give an accurate Amperage does NOT also give the correct Wattage
+    # so here I calculate current from power and voltage
+
+  - platform: template  
+    name: $name Current
+    id:   ${device_name}_current
+    unit_of_measurement: A
+    accuracy_decimals: 2
+    update_interval: "30s"
+    lambda: |-
+      return (id(${device_name}_power).state / id(${device_name}_voltage).state);
+    filters:  
+      - skip_initial: 2
+
+  - platform: uptime
+    name: $name Uptime
+    id:   ${device_name}_uptime
+    update_interval: "30s"
+
+```
+
 ## ESP8266 configuration
 
 The BK7231 module is not suitable for devices which must remain powered after OTA or any reboot cycle, as these modules have no capability to keep power applied during a reboot.  Replacing the WB2S or CB2S modules with an ESP8285 based module resolves this issue, and any ESP-02S form factor module will suffice, with the most commonly available modules being the Tuya TYWE2S.  The ESP8285 also uses a more standardised configuration for power monitoring, without needing any of the complexity applied in the BK7231 configuration related to the BL0937 chip.
