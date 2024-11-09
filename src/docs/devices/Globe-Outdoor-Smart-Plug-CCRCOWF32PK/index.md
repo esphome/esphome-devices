@@ -53,18 +53,11 @@ api:
 ota:
   - platform: esphome
 
-wifi:
-  networks:
-  ap:
-    password: !secret captive_portal_ap_password
 captive_portal:
 
-
-
-text_sensor:
-  - platform: libretiny
-    version:
-      name: LibreTiny Version
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 binary_sensor:
   - platform: gpio
@@ -93,6 +86,13 @@ light:
     pin:
       number: P7
       inverted: true
+
+text_sensor:
+  - platform: libretiny
+    version:
+      name: LibreTiny Version
+
+
 ```
 
 ## References
