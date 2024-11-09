@@ -113,10 +113,10 @@ switch:
 
 logger:
 api:
-  encryption:
-    key: ""
+
 ota:
-  password: ""
+  - platform: esphome
+
 wifi:
   networks:
   ap:
