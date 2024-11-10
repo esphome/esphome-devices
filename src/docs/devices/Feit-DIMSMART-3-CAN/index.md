@@ -19,11 +19,14 @@ You also need to solder a wire to the NRST pad on the bottom of the board.
 Connect NRST to gnd, then provide power to the board.
 
 First, I copied the firmware off of the board.
-`ltchiptool flash read beken-72xx ./dimmer1`
-
+```
+ltchiptool flash read beken-72xx ./dimmer1
+```
 Then I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put 
 that config into a .yml file and compile the firmware:
-`esphome conpile dimmer.yml`
+```
+esphome conpile dimmer.yml
+```
 
 Next, write that firmware:
 
