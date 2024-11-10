@@ -25,8 +25,7 @@ First, I copied the firmware off of the board.
 ltchiptool flash read beken-72xx ./dimmer1
 ```
 
-Then I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put 
-that config into a .yml file and compile the firmware:
+Then I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put that config into a .yml file and compile the firmware:
 
 ```bash
 esphome compile dimmer.yml
@@ -144,4 +143,3 @@ select:
       1: Instant
       2: Switch
 ```
-

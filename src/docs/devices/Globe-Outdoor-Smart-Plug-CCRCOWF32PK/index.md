@@ -97,4 +97,3 @@ text_sensor:
 
 ## References
 <https://docs.libretiny.eu/boards/cb2s/>       - CB2S pinout
-
