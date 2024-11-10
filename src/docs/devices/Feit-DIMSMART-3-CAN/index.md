@@ -17,15 +17,17 @@ First, I took the unit apart. Then I soldered pin headers onto the board. I took
 
 You also need to solder a wire to the NRST pad on the back side of the board. This is the trickiest part as the pad is small. It is possible to remove the pad entirely from the board rendering it unusable so be a bit careful and if you've been working with the board for a bit and it won't take the solder or won't enter programming mode it's possible that you removed the pad.
 
-Connect NRST to gnd, then provide power to the board.
+## Dumping original firmware
 
-First, I copied the firmware off of the board.
+Connect NRST to gnd, provide power to the board, then:
 
 ```bash
 ltchiptool flash read beken-72xx ./dimmer1
 ```
 
-Then I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put that config into a .yml file and compile the firmware:
+## Installing ESPhome
+
+I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put that config into a .yml file and compile the firmware:
 
 ```bash
 esphome compile dimmer.yml
