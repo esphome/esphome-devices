@@ -7,11 +7,15 @@ board: bk72xx
 difficulty: 4
 ---
 
+This variant is marked `FCC ID: SYW-PLUG3WIFI` and `IC: 20416-PLUG3WIFI` on the bottom.
+
 [Amazon Link](https://amzn.to/3TlrpOr)
 
 ![Product Image](box.jpg "Product Image")
 
 The Feit Electric Triple Outlet Outdoor SmartPlug is sold on [Amazon](https://amzn.to/3TlrpOr) and at [Costco](https://www.costco.com/feit-electric-triple-outlet-outdoor-smart-plugs-2-pack.product.4000263691.html) in the US. I picked up a 2-pack at Costco on sale in September 2024 for around $15. They are plastic but weatherized with a UL rating for wet locations.
+
+Note that there is a variant (labled IC: [2046-PLUG3WIFIN](/devices/Feit-PLUG3-WIFI-WP-2-N/)) with a different board and pinout.
 
 The SmartPlug leverages a CB2S module based on the BK7231N chip (a variant of bk72xx) which controls a single relay (powering all three receptacles), a status LED, and a physical pushbutton switch. I did not check to see what firmware was on it out of the box as I just assumed all of the newer devices are not vulnerable to the CloudCutter method and that disassembly would be required. I did dump the firmware and ROM though and will update if I get around to digging in to it.
 
