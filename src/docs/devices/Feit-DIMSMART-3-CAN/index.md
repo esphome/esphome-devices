@@ -11,7 +11,7 @@ I purchased this at Costco in Canada in November of 2022 and then again in Novem
 
 It is hold together with screws, making it very easy to open and flash.
 
-![Board](board.jpg "Board)
+![Board](board.jpg "Board")
 
 First, I took the unit apart. Then I soldered pin headers onto the board. I took 3v3 and gnd from a 
 nearby ESP32 devkit and connected it to my computer.
