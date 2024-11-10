@@ -31,6 +31,7 @@ Next, write that firmware:
 ltchiptool flash write .esphome/build/dimmer/.pioenvs/dimmer/esphome_2024.10.0_generic-bk7231n-qfn32-tuya_bk7231n_lt1.7.0.uf2
 ```
 
+## Basic Configuration
 
 ```
 esphome:
