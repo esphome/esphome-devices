@@ -128,6 +128,7 @@ wifi:
 captive_portal:
 
 ```
+
 ## References
 
 <https://docs.libretiny.eu/boards/cb2s/>       - CB2S pinout
