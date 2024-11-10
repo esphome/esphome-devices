@@ -22,6 +22,16 @@ Once the flashing is complete, resolder the W2 and W3 bridges as before, remove 
 ![Tinxy](tinxy3.jpg "W2 and W3 Bridge")
 Knowledge Credit: [Tinxy Forum](https://forum.tinxy.in/t/flashing-custom-firmware-like-tasmota-or-esphome-and-then-restoring-back-to-original/32)
 
+As of 10/2024, Tinxy 4N with fan regulator devices failed flashing with the esphome web flasher because it uses a baud rate of 115200.
+If flashing doesn't work, try flashing via [esptool.py](https://github.com/espressif/esptool) where the baud rate can be set.
+The baud rate was identified to be 460800.  If this fails in the future try other baud rates.
+
+## esptool.py Code
+
+```bash
+python3 -m esptool --port /dev/ttyUSB0 --baud 460800 --before no_reset --after hard_reset write_flash -fm dio 0x00000 firmware.bin
+```
+
 ## Esp Code
 
 ```yaml

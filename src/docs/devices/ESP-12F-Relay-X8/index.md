@@ -31,21 +31,21 @@ This board has headers for every GPIO pin on its ESP-12F.
 | GND   |                                                         |
 | GND   |                                                         |
 
-| Pin    | Comment                                 |
-| ------ | --------------------------------------- |
-| 3V3    | For programming, inject 3.3V power here |
-| 3V3    | For programming, inject 3.3V power here |
-| 5V     |                                         |
-| 5V     |                                         |
-| GND    |                                         |
-| GND    |                                         |
-|        |                                         |
-| GPIO5  | Relay 8                                 |
-| GPIO4  | Relay 7                                 |
-| GPIO0  | Relay 6                                 |
-| GPIO2  | Exposed on board                        |
-| GPIO15 | Relay 5                                 |
-| GND    |                                         |
+| Pin    | Comment                                       |
+| ------ | --------------------------------------------- |
+| 3V3    | For programming, inject 3.3V power here       |
+| 3V3    | For programming, inject 3.3V power here       |
+| 5V     |                                               |
+| 5V     |                                               |
+| GND    |                                               |
+| GND    |                                               |
+|        |                                               |
+| GPIO5  | Relay 8                                       |
+| GPIO4  | Relay 7                                       |
+| GPIO0  | Relay 6                                       |
+| GPIO2  | Exposed on board | (blue) LED on the ESP-12F  |
+| GPIO15 | Relay 5                                       |
+| GND    |                                               |
 
 | Pin    | Comment                                 |
 | ------ | --------------------------------------- |
@@ -66,7 +66,16 @@ esphome:
 
 
 
-# Four relay outputs, exposed as switches in Home Assistant
+# Status LED
+light:
+  - platform: status_led
+    name: "RelayBoard LED"
+    restore_mode: ALWAYS_ON
+    pin:
+      number: GPIO02
+      inverted: True
+
+# 8 relay outputs, exposed as switches in Home Assistant
 switch:
   - platform: gpio
     pin: GPIO16
