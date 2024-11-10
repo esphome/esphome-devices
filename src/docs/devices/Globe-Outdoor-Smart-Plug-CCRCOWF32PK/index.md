@@ -12,7 +12,7 @@ I purchased this at Costco in Canada in November of 2024. The Costco item number
 It is hold together with screws, making it very easy to open and flash.
 
 Inside I found a CB2S module and a board that looks exactly like the one here.
-https://devices.esphome.io/devices/Feit-PLUG3-WIFI-WP-2
+[Feit Electric PLUG3/WIFI/WP/2](/devices/Feit-PLUG3-WIFI-WP-2).
 
 ## GPIO Pinout
 
@@ -26,7 +26,7 @@ https://devices.esphome.io/devices/Feit-PLUG3-WIFI-WP-2
 
 Disassembly is straightforward but DO NOT open the device while it is plugged into mains power as that presents a safety hazard. There are six phillips head screws on the bottom; they are all the same size. Remove those screws and set aside.
 
-I refer you to Feit-PLUG3-WIFI-WP-2/index.md for further instructions on flashing.
+I refer you to [Feit Electric PLUG3/WIFI/WP/2](/Feit-PLUG3-WIFI-WP-2) for further instructions on flashing.
 
 ## Basic Configuration
 
