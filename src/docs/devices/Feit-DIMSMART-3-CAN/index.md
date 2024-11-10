@@ -11,10 +11,16 @@ I purchased this at Costco in Canada in November of 2022 and then again in Novem
 
 It is hold together with screws, making it very easy to open and flash.
 
+![Board] (board.jpg "Board)
+
 First, I took the unit apart. Then I soldered pin headers onto the board. I took 3v3 and gnd from a 
 nearby ESP32 devkit and connected it to my computer.
 
-You also need to solder a wire to the NRST pad on the bottom of the board.
+You also need to solder a wire to the NRST pad on the back side of the board.
+This is the trickiest part as the pad is small. It is possible to remove the
+pad entirely from the board rendering it unusable so be a bit careful and if
+you've been working with the board for a bit and it won't take the solder or
+won't enter programming mode it's possible that you removed the pad.
 
 Connect NRST to gnd, then provide power to the board.
 
@@ -25,7 +31,7 @@ ltchiptool flash read beken-72xx ./dimmer1
 Then I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put 
 that config into a .yml file and compile the firmware:
 ```
-esphome conpile dimmer.yml
+esphome compile dimmer.yml
 ```
 
 Next, write that firmware:
