@@ -1,7 +1,6 @@
 ---
 title: KinCony-AG8 (ESP32-S3 Smart IR Controller)
 date-published: 2024-10-12
-
 type: misc
 standard: global
 board: esp32
@@ -37,8 +36,6 @@ logger:
   hardware_uart: USB_SERIAL_JTAG
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "dolIFOGZiGF8GT9wSJVBuoNzVQSHanaieBBbRcj1t48="
 
 ethernet:
   type: W5500
