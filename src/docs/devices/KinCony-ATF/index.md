@@ -34,7 +34,6 @@ logger:
 api:
 
 ota:
-  password: "122b54ecaa3db2cc9455e008d112a4b6"
 
 wifi:
   ssid: !secret wifi_ssid
