@@ -13,6 +13,7 @@ difficulty: 1
 The **Hornet Nest Alarm Panel** is an advanced, PoE-enabled security and automation panel, designed for seamless integration with Home Assistant and ESPHome. With 42 zones, relay outputs, and comprehensive input options, this panel offers an adaptable solution for connecting traditional alarm systems and custom automation needs to a modern smart home setup.
 
 ## Key Features
+
 - **42 Optoisolated Zones/Inputs** for enhanced protection
 - **3 Relay Outputs** for 12V devices
 - **Wiegand Keypad Support** for access control integration
@@ -31,8 +32,8 @@ Get started quickly by adopting and flashing your Hornet Nest Alarm Panel with t
 4. The **Adopt Device** dialog will open.  You can rename your device if desired and then click the **Adopt** option again.
 5. The **Configuration Created** dialog will open and indicate that a new configuration needs to be installed on the device, click the **Install** button.
 6. ESPHome will begin to compile the new firmware. When the line **"INFO Sucessfully uploaded program."** is diplayed, click **STOP** to close the window.
-4. Discover the Hornet Nest Alarm Panel in **Home Assistant** > **Settings** > **Devices & Services**.
-5. Click **Configure** on the new device to add it into Home Assistant.
+7. Discover the Hornet Nest Alarm Panel in **Home Assistant** > **Settings** > **Devices & Services**.
+8. Click **Configure** on the new device to add it into Home Assistant.
 
 ## Links
 
