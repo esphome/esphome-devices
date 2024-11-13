@@ -8,11 +8,6 @@ made-for-esphome: True
 difficulty: 1
 ---
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="3D_AlarmPanel_2024-10-06.png" alt="3D Model" width="400"/>
-  <img src="hornet-nest-operational.jpg" alt="Installed" width="400"/>
-</div>
-
 ## Description
 
 The **Hornet Nest Alarm Panel** is an advanced, PoE-enabled security and automation panel, designed for seamless integration with Home Assistant and ESPHome. With 42 zones, relay outputs, and comprehensive input options, this panel offers an adaptable solution for connecting traditional alarm systems and custom automation needs to a modern smart home setup.
@@ -44,3 +39,7 @@ Get started quickly by adopting and flashing your Hornet Nest Alarm Panel with t
 - [Crowd Supply](https://www.crowdsupply.com/technology-automation-consulting/hornet-nest-alarm-panel)
 - [GitHub](https://github.com/taconsultingllc/hornet-nest-alarm-panel/tree/main)
 
+## Pictures
+
+![3D Model](3D_AlarmPanel_2024-10-06.png "3D Model")
+![Installed](hornet-nest-operational.jpg "Installed")
