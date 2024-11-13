@@ -9,8 +9,8 @@ difficulty: 1
 ---
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="https://github.com/taconsultingllc/hornet-nest-alarm-panel/tree/main/images/3D_AlarmPanel_2024-10-06.png" alt="3D Model" width="400"/>
-  <img src="https://github.com/taconsultingllc/hornet-nest-alarm-panel/tree/main/images/hornet-nest-operational.jpg" alt="Installed" width="400"/>
+  <img src="3D_AlarmPanel_2024-10-06.png" alt="3D Model" width="400"/>
+  <img src="hornet-nest-operational.jpg" alt="Installed" width="400"/>
 </div>
 
 ## Description
