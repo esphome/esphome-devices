@@ -11,7 +11,7 @@ substitutions:
   devicename: airq
   friendlyname: AirQ
   location: Office
-  sensor_interval: 10s
+  sensor_interval: 60s
 
 esphome:
   name: ${devicename}
@@ -87,8 +87,8 @@ time:
   - platform: sntp
     id: sntp_time
     timezone: CST6CDT,M3.2.0,M11.1.0
-    servers:
-      - 192.168.68.1
+#    servers:
+#      - 192.168.68.1
     on_time_sync:
       then:
         pcf8563.write_time:
@@ -101,7 +101,7 @@ light:
     rmt_channel: 0
     chipset: SK6812
     name: "LED"
-    restore_mode: ALWAYS_OFF
+    restore_mode: RESTORE_AND_ON
     id: id_led
 
 text_sensor:
@@ -194,7 +194,7 @@ sensor:
             float MAX_VALUE = 100.0;
             if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
             else return {};      
-    altitude_compensation: 0m
+    altitude_compensation: 207m
     address: 0x62
     update_interval: $sensor_interval
 
@@ -392,24 +392,37 @@ display:
     reset_duration: 2ms
     update_interval: 10s
     lambda: |-
-      auto now = id(sntp_time).now().strftime("%H:%M %d/%m/%y").c_str();
-      it.printf(it.get_width()/2, 0, id(f12), TextAlign::TOP_CENTER, "${location} @ %s", now);
+      auto now = id(sntp_time).now().strftime("%I:%M%p %m/%d/%y").c_str();
+      it.printf(it.get_width()/2, 0, id(f16), TextAlign::TOP_CENTER, "${location} @ %s", now);
 
       it.print(0, 23, id(f24), TextAlign::TOP_LEFT, "PM 1: "); 
       it.print(0, 48, id(f24), TextAlign::TOP_LEFT, "PM 2.5: "); 
       it.print(0, 73, id(f24), TextAlign::TOP_LEFT, "PM 4: "); 
-      it.print(0, 98, id(f24), TextAlign::TOP_LEFT, "PM₁₀: "); 
-      it.print(0, 123, id(f24), TextAlign::TOP_LEFT, "CO₂: "); 
+      it.print(0, 98, id(f24), TextAlign::TOP_LEFT, "PM 10: "); 
+      it.print(0, 123, id(f24), TextAlign::TOP_LEFT, "CO2: "); 
       it.print(0, 148, id(f24), TextAlign::TOP_LEFT, "VOC: ");
-      it.print(0, 173, id(f24), TextAlign::TOP_LEFT, "NOₓ: ");
+      it.print(0, 173, id(f24), TextAlign::TOP_LEFT, "NOx: ");
 
-      it.printf(it.get_width(), 23, id(f24), TextAlign::TOP_RIGHT, "%.0f µg/m³", id(PM1_0).state);
-      it.printf(it.get_width(), 48, id(f24), TextAlign::TOP_RIGHT, "%.0f µg/m³", id(PM2_5).state);
-      it.printf(it.get_width(), 73, id(f24), TextAlign::TOP_RIGHT, "%.0f µg/m³", id(PM4_0).state); 
-      it.printf(it.get_width(), 98, id(f24), TextAlign::TOP_RIGHT, "%.0f µg/m³", id(PM10_0).state);
-      it.printf(it.get_width(), 123, id(f24), TextAlign::TOP_RIGHT, "%.0f ppm", id(CO2).state);
-      it.printf(it.get_width(), 148, id(f24), TextAlign::TOP_RIGHT, "%.0f ppb", id(voc).state);
-      it.printf(it.get_width(), 173, id(f24), TextAlign::TOP_RIGHT, "%.0f ppb", id(nox).state);
+      it.printf(it.get_width() - 50, 23, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM1_0).state);
+      it.print(it.get_width(), 23, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+
+      it.printf(it.get_width() - 50, 48, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM2_5).state);
+      it.print(it.get_width(), 48, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+
+      it.printf(it.get_width() - 50, 73, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM4_0).state);
+      it.print(it.get_width(), 73, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+
+      it.printf(it.get_width() - 50, 98, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM10_0).state);
+      it.print(it.get_width(), 98, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+
+      it.printf(it.get_width() - 50, 123, id(f24), TextAlign::TOP_RIGHT, "%.0f", id(CO2).state);
+      it.print(it.get_width(), 123, id(f18), TextAlign::TOP_RIGHT, "ppm");
+
+      it.printf(it.get_width() - 50, 148, id(f24), TextAlign::TOP_RIGHT, "%.0f", id(voc).state);
+      it.print(it.get_width(), 148, id(f18), TextAlign::TOP_RIGHT, "ppb");
+
+      it.printf(it.get_width() - 50, 173, id(f24), TextAlign::TOP_RIGHT, "%.0f", id(nox).state);
+      it.print(it.get_width(), 173, id(f18), TextAlign::TOP_RIGHT, "ppb");
 
 font:
   - file:
