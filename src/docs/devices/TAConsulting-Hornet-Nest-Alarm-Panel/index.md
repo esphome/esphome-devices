@@ -26,12 +26,18 @@ The **Hornet Nest Alarm Panel** is an advanced, PoE-enabled security and automat
 - **Fuse-protected 3.3V & 12V Rails** for board safety
 - **3-12V Trigger Input** for expanded device support
 
-## Quickstart
+## Quick Start
 
-1. Plug in the AIR-1.
-2. Connect to "AIR1 Hotspot".
-3. Input WiFi credentials.
-4. In Home Assistant, look at discovered devices.
+Get started quickly by adopting and flashing your Hornet Nest Alarm Panel with the latest ESPHome firmware:
+
+1. Plug a PoE powered ethernet cable into the Hornet Nest Alarm Panel.
+2. Open the **ESPHome Dashboard** and locate the device "hornet-nest-XXXXXX" (where XXXXXX is a unique hexadecimal identifier).
+3. Click on the **Adopt** option on the device.
+4. The **Adopt Device** dialog will open.  You can rename your device if desired and then click the **Adopt** option again.
+5. The **Configuration Created** dialog will open and indicate that a new configuration needs to be installed on the device, click the **Install** button.
+6. ESPHome will begin to compile the new firmware. When the line **"INFO Sucessfully uploaded program."** is diplayed, click **STOP** to close the window.
+4. Discover the Hornet Nest Alarm Panel in **Home Assistant** > **Settings** > **Devices & Services**.
+5. Click **Configure** on the new device to add it into Home Assistant.
 
 ## Links
 
