@@ -4,6 +4,36 @@ date-published: 2024-11-14
 type: sensor
 standard: global
 ---
+
+## Product Images
+
+![M5Stack AirQ](M5stack-AirQ.webp "M5Stack AirQ")
+
+## Description
+
+M5Stack AirQ is an integrated, low-power air quality monitoring device designed to provide comprehensive air quality monitoring solutions. It features multiple components, including the SEN55 air quality sensor and the SCD40 CO2 sensor, enabling the monitoring of PM1.0, PM2.5, PM4, PM10 particles, temperature, humidity, VOC, and CO2 concentrations. Powered by the M5stack StampS3 main controller utilizing ESP32-S3FN8 and equipped with 8M Flash memory, AirQ ensures efficient data processing and storage capabilities.
+
+The device comes with a 1.54-inch e-ink display with a resolution of 200x200, providing a clear visual representation of the data.
+
+## GPIO Pinout
+
+|  Pin   | Function       |
+| ------ | -------------- |
+| GPIO1 | Ink Screen Busy |
+| GPIO2 | Ink Screen RST  |
+| GPIO3 | Ink Screen D/C  |
+| GPIO4 | Ink Screen CS   |
+| GPIO5 | Ink Screen SCK  |
+| GPIO6 | Ink Screen MOSI |
+| GPIO8 | Button B        |
+| GPIO9 | beep            |
+| GPIO10 | SEN55 Power Switch |
+| GPIO11 | SEN55 SDA      |
+| GPIO12 | SEN55 SCL      |
+| GPIO26 | Speaker Pin 2  |
+| GPIO15 | GROVE A SCL    |
+| GPIO13 | GROVE A SDA    |
+
 ## Example Configuration
 
 ```yml
