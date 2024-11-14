@@ -15,6 +15,8 @@ M5Stack AirQ is an integrated, low-power air quality monitoring device designed 
 
 The device comes with a 1.54-inch e-ink display with a resolution of 200x200, providing a clear visual representation of the data.
 
+This YAML was adapted from a sample provided by joshblake87 at https://www.reddit.com/r/Esphome/comments/1e2q8jj/m5_stack_airq_air_quality_sensor/ 
+
 ## GPIO Pinout
 
 |  Pin   | Function       |
