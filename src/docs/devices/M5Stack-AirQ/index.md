@@ -17,6 +17,10 @@ The device comes with a 1.54-inch e-ink display with a resolution of 200x200, pr
 
 This YAML was adapted from a sample provided by joshblake87 at https://www.reddit.com/r/Esphome/comments/1e2q8jj/m5_stack_airq_air_quality_sensor/ 
 
+## Known Issues
+
+It doesn't utilize the onboard 450mAh battery.
+
 ## GPIO Pinout
 
 |  Pin   | Function       |
