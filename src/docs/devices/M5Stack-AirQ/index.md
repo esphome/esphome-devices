@@ -128,8 +128,9 @@ time:
   - platform: sntp
     id: sntp_time
     timezone: CST6CDT,M3.2.0,M11.1.0
+#   US Central Time zone, update with your own
 #    servers:
-#      - 192.168.68.1
+#      - YOUR HOME ASSISTANT IP HERE
     on_time_sync:
       then:
         pcf8563.write_time:
