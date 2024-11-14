@@ -96,5 +96,6 @@ text_sensor:
 ```
 
 ## References
+
 [Feit Electric PLUG3/WIFI/WP/2](/devices/Feit-PLUG3-WIFI-WP-2)
 <https://docs.libretiny.eu/boards/cb2s/> - CB2S pinout
