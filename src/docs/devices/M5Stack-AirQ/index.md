@@ -6,8 +6,10 @@ standard: global
 ---
 
 ## Product Images
-
-![M5Stack AirQ](M5stack-AirQ.webp "M5Stack AirQ")
+<p float="left">
+  <img src="M5stack-AirQ.webp" width="45%" />
+  <img src="M5stack-AirQsensorDisplay1.jpg" alt="Actual AirQ display with ESPhome" width="45%" />
+</p>
 
 ## Description
 
@@ -19,7 +21,7 @@ This YAML was adapted from a sample provided by joshblake87 at https://www.reddi
 
 ## Known Issues
 
-It doesn't utilize the onboard 450mAh battery.
+- It doesn't utilize the onboard 450mAh battery.
 
 ## GPIO Pinout
 
