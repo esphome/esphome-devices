@@ -8,7 +8,7 @@ difficulty: 2
 
 ## Product Images
 
-![M5Stack AirQ](M5stack-AirQsensorDisplay1.jpg "M5Stack AirQ ESPhome Screen")
+![M5Stack AirQ](M5stack-AirQsensorDisplay2.jpg "M5Stack AirQ ESPhome Screen")
 ![M5Stack AirQ](M5stack-AirQ.webp "M5Stack AirQ Product Details")
 
 ## Description
