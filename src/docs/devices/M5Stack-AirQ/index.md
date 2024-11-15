@@ -8,10 +8,8 @@ difficulty: 2
 
 ## Product Images
 
-<p float="left">
-  <img src="M5stack-AirQ.webp" width="45%" />
-  <img src="M5stack-AirQsensorDisplay1.jpg" alt="Actual AirQ display with ESPhome" width="45%" />
-</p>
+![M5Stack AirQ](M5stack-AirQsensorDisplay1.jpg "M5Stack AirQ ESPhome Screen")
+![M5Stack AirQ](M5stack-AirQ.webp "M5Stack AirQ Product Details")
 
 ## Description
 
