@@ -7,6 +7,7 @@ difficulty: 2
 ---
 
 ## Product Images
+
 <p float="left">
   <img src="M5stack-AirQ.webp" width="45%" />
   <img src="M5stack-AirQsensorDisplay1.jpg" alt="Actual AirQ display with ESPhome" width="45%" />
@@ -20,7 +21,7 @@ This ESPhome YAML will enable the ability to display some of the sensor data on 
 
 The device comes with a 1.54-inch e-ink display with a resolution of 200x200, providing a clear visual representation of the data.
 
-This YAML was adapted from a sample provided by **joshblake87** at https://www.reddit.com/r/Esphome/comments/1e2q8jj/m5_stack_airq_air_quality_sensor/ 
+This YAML was adapted from a sample provided by **joshblake87** at https://www.reddit.com/r/Esphome/comments/1e2q8jj/m5_stack_airq_air_quality_sensor/
 
 ## Known Issues
 
@@ -217,7 +218,7 @@ sensor:
             float MIN_VALUE = 300.0;
             float MAX_VALUE = 2500.0;
             if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
-            else return {};         
+            else return {};
     temperature:
       name: CO2 Temperature
       id: CO2_temperature
@@ -226,7 +227,7 @@ sensor:
             float MIN_VALUE = -40.0;
             float MAX_VALUE = 100.0;
             if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
-            else return {};      
+            else return {};
     humidity:
       name: CO2 Humidity
       id: CO2_humidity
@@ -235,7 +236,7 @@ sensor:
             float MIN_VALUE = 0.0;
             float MAX_VALUE = 100.0;
             if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
-            else return {};      
+            else return {};
     altitude_compensation: 207m
     address: 0x62
     update_interval: $sensor_interval
@@ -286,7 +287,7 @@ sensor:
     nox:
       name: NOX
       id: nox
-      accuracy_decimals: 2      
+      accuracy_decimals: 2
       algorithm_tuning:
         index_offset: 100
         learning_time_offset_hours: 12
@@ -323,7 +324,7 @@ sensor:
     unit_of_measurement: "%"
     icon: "mdi:water-percent"
     device_class: "humidity"
-    state_class: "measurement"    
+    state_class: "measurement"
     update_interval: $sensor_interval
     accuracy_decimals: 2
 
@@ -339,7 +340,7 @@ binary_sensor:
     on_press:
       then:
         - component.update: disp
-      
+
   - platform: gpio
     pin:
       number: GPIO08
@@ -349,7 +350,7 @@ binary_sensor:
         pullup: true
       inverted: true
     name: Button B
-    
+
   - platform: gpio
     pin:
       number: GPIO46
@@ -357,7 +358,7 @@ binary_sensor:
     name: Button Hold
 
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO42
 #      ignore_strapping_warning: true
     name: Button Power
@@ -365,7 +366,7 @@ binary_sensor:
 button:
   - platform: restart
     name: Restart
-    
+
   - platform: template
     name: "CO2 Force Manual Calibration"
     entity_category: "config"
@@ -437,11 +438,11 @@ display:
       auto now = id(sntp_time).now().strftime("%I:%M%p %m/%d/%y").c_str();
       it.printf(it.get_width()/2, 0, id(f16), TextAlign::TOP_CENTER, "${location} @ %s", now);
 
-      it.print(0, 23, id(f24), TextAlign::TOP_LEFT, "PM 1: "); 
-      it.print(0, 48, id(f24), TextAlign::TOP_LEFT, "PM 2.5: "); 
-      it.print(0, 73, id(f24), TextAlign::TOP_LEFT, "PM 4: "); 
-      it.print(0, 98, id(f24), TextAlign::TOP_LEFT, "PM 10: "); 
-      it.print(0, 123, id(f24), TextAlign::TOP_LEFT, "CO2: "); 
+      it.print(0, 23, id(f24), TextAlign::TOP_LEFT, "PM 1: ");
+      it.print(0, 48, id(f24), TextAlign::TOP_LEFT, "PM 2.5: ");
+      it.print(0, 73, id(f24), TextAlign::TOP_LEFT, "PM 4: ");
+      it.print(0, 98, id(f24), TextAlign::TOP_LEFT, "PM 10: ");
+      it.print(0, 123, id(f24), TextAlign::TOP_LEFT, "CO2: ");
       it.print(0, 148, id(f24), TextAlign::TOP_LEFT, "VOC: ");
       it.print(0, 173, id(f24), TextAlign::TOP_LEFT, "NOx: ");
 
@@ -591,7 +592,7 @@ font:
         'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
         'u', 'v', 'w', 'x', 'y', 'z','å', 'ä', 'ö', '/', 'µ', '³', '’']
 
-  - file: 
+  - file:
       type: gfonts
       family: Material Symbols Sharp
       weight: 400
@@ -601,7 +602,7 @@ font:
       - "\U0000F159" # clear-night
       - "\U0000F15B" # cloudy
       - "\U0000F172" # partlycloudy
-      - "\U0000E818" # fog      
+      - "\U0000E818" # fog
       - "\U0000F67F" # hail
       - "\U0000EBDB" # lightning, lightning-rainy
       - "\U0000F61F" # pouring
@@ -611,7 +612,7 @@ font:
       - "\U0000E81A" # sunny
       - "\U0000EFD8" # windy, windy-variant
       - "\U0000F7F3" # exceptional
-  - file: 
+  - file:
       type: gfonts
       family: Material Symbols Sharp
       weight: 400
@@ -621,7 +622,7 @@ font:
       - "\U0000F159" # clear-night
       - "\U0000F15B" # cloudy
       - "\U0000F172" # partlycloudy
-      - "\U0000E818" # fog      
+      - "\U0000E818" # fog
       - "\U0000F67F" # hail
       - "\U0000EBDB" # lightning, lightning-rainy
       - "\U0000F61F" # pouring
@@ -635,14 +636,14 @@ font:
   - file:
       type: gfonts
       family: Open Sans
-      weight: 700    
+      weight: 700
     id: font_clock
     glyphs: "0123456789:"
     size: 70
   - file:
       type: gfonts
       family: Open Sans
-      weight: 700    
+      weight: 700
     id: font_clock_big
     glyphs: "0123456789:"
     size: 100
@@ -652,21 +653,21 @@ font:
   - file:
       type: gfonts
       family: Open Sans
-      weight: 500    
+      weight: 500
     id: font_small
     size: 30
     glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz→»"
   - file:
       type: gfonts
       family: Open Sans
-      weight: 500    
+      weight: 500
     id: font_medium
     size: 45
     glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz→»"
   - file:
       type: gfonts
       family: Open Sans
-      weight: 300    
+      weight: 300
     id: font_xsmall
     size: 16  
     glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz→»"
