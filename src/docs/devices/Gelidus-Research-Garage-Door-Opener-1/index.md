@@ -1,5 +1,5 @@
 ---
-title: Gelidus Research Garage Door Opener 1
+title: Gelidus Research Garage Door Opener 1 (GRGDO1)
 date-published: 2024-11-16
 type: misc
 standard: us, au
@@ -12,9 +12,7 @@ Availble from [https://www.gelidus.ca/](https://www.gelidus.ca/)
 
 Inside the enclosure.
 
-<img src="grgdo1.top.bare.jpg" alt="GRGDO1" style="width: 600px;" />
-
-<br></br>
+![GRGDO1 PDC View](grgdo1.top.bare.jpg)
 
 - 60 x 60 mm PCB
 - 4 Pin ESP programming header (3.3v)
@@ -29,15 +27,9 @@ Inside the enclosure.
 - 1 Meter of 3 conductor 22 AWG bell wire
 - 3D printed protective safety enclosure.
 
-<br></br>
+![GRGDO1 Front View](grgdo1.black.jpg)
 
-<img src="grgdo1.black.jpg" alt="GRGDO1 Front view" style="width: 600px;" />
-
-<br></br>
-
-<img src="grgdo1.black.dht22.jpg" alt="GRGDO1 Side" style="width: 600px;" />
-
-<br></br>
+![GRGDO1 With DHT22](grgdo1.black.dht22.jpg)
 
 ## Firmware Options
 
@@ -602,4 +594,4 @@ status_led:
 
 ## Secplus GDO Feature Set Example
 
-<img src="features.secplus.jpg" alt="GRGDO1 Front" style="width: 600px; " />
+![Secplus GDO Feature](features.secplus.jpg)
