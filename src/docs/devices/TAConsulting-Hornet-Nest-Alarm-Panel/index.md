@@ -1,7 +1,7 @@
 ---
 title: Hornet Nest Alarm Panel
 date-published: 2024-11-13
-type: relay, sensor, misc
+type: misc
 standard: global
 board: esp32
 made-for-esphome: True
