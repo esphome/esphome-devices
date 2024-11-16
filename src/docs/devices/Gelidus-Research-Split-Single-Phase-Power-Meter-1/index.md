@@ -6,8 +6,9 @@ standard: us
 board: esp8266
 ---
 
+## GRPM1 Device Info
 
-  <img src="atm90e32-pm1.jpg" alt="Product Image" style="width: 600px;" />
+![GRPM1 PCB](atm90e32-pm1.jpg)
 
 The PM1 board runs on an ESP12F WIFI module and is powered with 115-240V AC using an integrated isolation transformer.
 
@@ -231,4 +232,4 @@ switch:
 
 ## PM1 Features Example
 
-<img src="grpm1.features.jpg" alt="GRPM1" style="width: 400px;" />
+![GRPM1 Features Example](grpm1.features.jpg)

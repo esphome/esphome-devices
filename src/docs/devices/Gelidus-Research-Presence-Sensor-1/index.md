@@ -1,16 +1,14 @@
 ---
-title: Gelidus Research Presence Sensor 1
+title: Gelidus Research Presence Sensor 1 (GRPS1)
 date-published: 2024-11-16
 type: sensor
 standard: us
 board: esp32
 ---
 
-## GRPS1 Presence Sensor 1
+## GRPS1 Device Info
 
-<img src="grps1.radome.jpg" alt="GRPS1 with case" style="width: 600px" />
-
-<br></br>
+![GRPS1 With Radome](grps1.radome.jpg)
 
 The Gelidus Research PS1 supports either the LD2420 or LD2410C HLK 24Mhz Radar Module.
 
@@ -467,4 +465,4 @@ status_led:
 
 ## GRPS1 Features Example
 
-<img src="grps1.features.example.jpg" alt="GRPS1 HA features" style="width: 600px" />
+![GRPS1 Features](grps1.features.example.jpg)
