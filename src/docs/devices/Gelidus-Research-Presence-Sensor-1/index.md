@@ -249,8 +249,6 @@ status_led:
   pin: GPIO23
 ```
 
-<p></p>
-
 ## Example LD2410C YAML Configuration
 
 ```yaml

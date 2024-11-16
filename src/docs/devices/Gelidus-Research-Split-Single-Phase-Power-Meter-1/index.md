@@ -1,5 +1,5 @@
 ---
-title: Gelidus Research Split Single Phase Power Meter 1
+title: Gelidus Research Split Single Phase Power Meter 1 (GRPM1)
 date-published: 2023-05-16
 type: sensor
 standard: us
@@ -14,8 +14,7 @@ The PM1 board runs on an ESP12F WIFI module and is powered with 115-240V AC usin
 
 ESPhome Component Docs: https://esphome.io/components/sensor/atm90e32
 
-Voltage
--------
+## Voltage
 
 The PM1 integrates an ATM90E32 IC and is configured to measure single split phase AC lines and up to 2 AC voltages. The default configuration isolates one AC phase voltage to the ATM90E32 chip. An optional 6V AC isolation transfomer can be used to monitor both Split AC line voltages. https://www.gelidus.ca/product/pm1-reference-voltage-transformer-120vac-to-6vac-kit/
 
@@ -27,9 +26,7 @@ Note: The PM1 and two 100A/50ma SCT013's supports any 200A service, the SCT023 s
 
 Full Setup Guide: https://github.com/GelidusResearch/device.docs/blob/main/pm1.guides/PM1-Setup-Basic-120V.md
 
-
-Current
--------
+## Current
 
 Calibrations for the **Split Single Phase Energy Meter** require **gain_pga** at ``2X``
 
@@ -44,8 +41,7 @@ and adjusted and the use of an option AC line transfomer is nessesary.
 Formula: Amps Measured / Amps Reported * current_cal value in the running yaml file = adjusted value to use.
 This also applies to AC voltages, however it should not normally be required.
 
-Active Energy
--------------
+## Active Energy
 
 The ATM90E32 chip has a high-precision built-in ability to count the amount of consumed energy on a per-current transformer basis.
 For each current transformer both the Forward and Reverse active energy is counted in watt-hours.
@@ -53,8 +49,7 @@ Forward Active Energy is used to count consumed energy, whereas Reverse Active E
 (e.g. with solar pv installations).
 The counters are reset every time a given active energy value is read from the ATM90E32 chip.
 
-Example
--------
+## Example
 
 ```yaml
   sensor:
@@ -71,8 +66,7 @@ Example
           state_topic: ${disp_name}/ct1/reverse_active_energy
 ```
 
-Default config
---------------
+## Default config
 
 ```yaml
 esphome:
