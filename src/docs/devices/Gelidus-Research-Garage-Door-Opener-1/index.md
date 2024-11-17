@@ -12,7 +12,7 @@ Availble from [https://www.gelidus.ca/](https://www.gelidus.ca/)
 
 Inside the enclosure.
 
-![GRGDO1 PDC View](grgdo1.top.bare.jpg)
+![GRGDO1 PCB View](grgdo1.top.bare.jpg)
 
 - 60 x 60 mm PCB
 - 4 Pin ESP programming header (3.3v)
@@ -27,9 +27,9 @@ Inside the enclosure.
 - 1 Meter of 3 conductor 22 AWG bell wire
 - 3D printed protective safety enclosure.
 
-![GRGDO1 Front View](grgdo1.black.jpg)
+![GRGDO1 Front View](grgdo1.jpg)
 
-![GRGDO1 With DHT22](grgdo1.black.dht22.jpg)
+![GRGDO1 With DHT22](grgdo1.dht22.jpg)
 
 ## Firmware Options
 
