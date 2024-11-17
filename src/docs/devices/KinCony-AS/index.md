@@ -1,5 +1,5 @@
 ---
-title: KinCony-AS (esp32 voice assistant)
+title: KinCony-AS (ESP32 Voice Assistant)
 date-published: 2024-11-17
 type: misc
 standard: global
