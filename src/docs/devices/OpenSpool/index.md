@@ -9,7 +9,18 @@ made-for-esphome: false #pending approval
 difficulty: 4
 ---
 
+# OpenSpool
+
 OpenSpool is an open source RFID reader tags on 3d printer filament spools and syncronize type/color with 3d printers. It provides a similar expierence as bambu fillament with an AMS.
+
+## Hardware
+
+- Esp32-s2
+- PN532 RFID Reader
+- Led Strip
+- NTAG 215 - NFC tags
+
+### Images
 
 ![OpenSpool Mini](./OpenSpoolMini.jpg "OpenSpool Mini")
 ![NFC](./NFC3.png "NFC Tag Placement")
