@@ -9,7 +9,8 @@ made-for-esphome: true
 difficulty: 4
 ---
 
-OpenSpool is an open source RFID reader tags on 3d printer filament spools and syncronize type/color with 3d printers. It provides a similar expierence as bambu fillament with an AMS.
+OpenSpool is an open source RFID reader for 3d printer filament spools.
+It synchronizes the type/color with bambu 3d printers.
 
 ## Hardware
 
