@@ -28,5 +28,6 @@ OpenSpool is an open source RFID reader tags on 3d printer filament spools and s
 
 ![PCB](./PCB.png "PCB")
 
-Documentation/Firmware: [https://openspool.io](https://openspool.io)
-Code: [github.com/spuder/OpenSpool](https://github.com/spuder/OpenSpool)
+## Resources
+- Documentation/Firmware: [https://openspool.io](https://openspool.io)
+- Code: [github.com/spuder/OpenSpool](https://github.com/spuder/OpenSpool)
