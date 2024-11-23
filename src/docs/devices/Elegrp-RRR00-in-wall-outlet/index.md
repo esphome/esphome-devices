@@ -11,6 +11,7 @@ difficulty: 4
 [Amazon Link](https://www.amazon.com/dp/B0CBBMVV5F)
 
 ## Elegrp RRR00 Smart In-Wall Outlet with Energy Monitoring
+
 The front has a button for each individually-switched outlet.
 <!-- ![Product Front](RRR00-front-amazon.jpg "Product Front" =600x) -->
 <img src="RRR00-front-amazon.jpg" alt="Outlet front" width="400"/>
@@ -23,7 +24,9 @@ The relays are individual, 16A relays. Nice!
 
 Inside is a CBU module, which has a Beken BK7231N:
 https://fccid.io/2ANDL-CBU/User-Manual/CBU-User-Manual-updated-5064101.pdf
+
 ## Pinout
+
 The PCB on my outlet had some wrong labels for pins. This confused me until I ohmed straight from the base PCB to the CBU module.
 Below are the correct labels, in case it helps you.
 
@@ -45,6 +48,7 @@ See this pinout for more detail on the CBU side: https://docs.libretiny.eu/board
 <img src="https://docs.libretiny.eu/boards/cbu/cbu.svg" alt="CBU SVG from LibreTiny" width="900"/>
 
 ## Disassembly and Initial Flash Procedure
+
 Run the Line and WHITE scresws all the way in. Remove the 4 T7 Torx screws on the back, and remove cover.
 Cover comes out with module. Remove module from cover. 
 Solder a Sparkfun FTDI Basic's wires to 3.3V, GND, TX, and RX pins.
@@ -58,6 +62,7 @@ Watch ESPHome for some sign of a flash starting, then release CEN. (as of Nov 20
 Once flashed and on your network, remove soldered wires and re-assemble!
 
 ## YAML Configuration
+
 Here is my config, with the correct pins and a fallback WiFi for OTA in case I change the name of my wifi.
 To use, you must create a secrets.yaml file next to this file when compiling, and put your secrets in there.
 See this link: https://esphome.io/guides/faq.html#how-do-i-use-my-home-assistant-secrets-yaml
