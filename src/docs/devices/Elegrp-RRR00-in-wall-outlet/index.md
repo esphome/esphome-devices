@@ -13,14 +13,13 @@ difficulty: 4
 ## Elegrp RRR00 Smart In-Wall Outlet with Energy Monitoring
 The front has a button for each individually-switched outlet.
 <!-- ![Product Front](RRR00-front-amazon.jpg "Product Front" =600x) -->
-<img src="RRR00-front-amazon.jpg" alt="Outlet front" width="600"/>
-
+<img src="RRR00-front-amazon.jpg" alt="Outlet front" width="400"/>
 <!-- ![Product Rear](backDetail.jpg "Product Rear") -->
-<img src="backDetail.jpg" alt="Outlet Rear" width="600"/>
+<img src="backDetail.jpg" alt="Outlet Rear" width="400"/>
 
 <!-- ![Relays detail](relays.jpg "Relays Detail") -->
 The relays are individual, 16A relays. Nice!
-<img src="relays.jpg" alt="Relays Detail" witdh="300"/>
+<img src="relays.jpg" alt="Relays Detail" width="600"/>
 
 Inside is a CBU module, which has a Beken BK7231N:
 https://fccid.io/2ANDL-CBU/User-Manual/CBU-User-Manual-updated-5064101.pdf
@@ -43,6 +42,7 @@ Below are the correct labels, in case it helps you.
 | 14            |3V3           | 3.3V supply to CBU module. Power when programming       | 3.3V
 
 See this pinout for more detail on the CBU side: https://docs.libretiny.eu/boards/cbu/cbu.svg
+<img src="https://docs.libretiny.eu/boards/cbu/cbu.svg" alt="CBU SVG from LibreTiny" width="900"/>
 
 ## Disassembly and Initial Flash Procedure
 Run the Line and WHITE scresws all the way in. Remove the 4 T7 Torx screws on the back, and remove cover.
@@ -52,7 +52,7 @@ Run esphome with the yaml below, select the COM port.
 When ESPHome prompts to reset by driving CEN low, use a male-male dupont wire or similar to connect CEN to GND.
 CEN is the fourth down on the right of the module, GND is second from right on bottom row:
 <!-- ![CBU module detail](wifiModuleFront.jpg "CBU module detail") -->
-<img src="wifiModuleFront.jpg" alt="CBU Module detail" width="600"/>
+<img src="wifiModuleFront.jpg" alt="CBU Module detail" width="900"/>
 
 Watch ESPHome for some sign of a flash starting, then release CEN. (as of Nov 2024)
 Once flashed and on your network, remove soldered wires and re-assemble!
