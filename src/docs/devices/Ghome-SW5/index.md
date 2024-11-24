@@ -16,7 +16,7 @@ As of November 2024, there are two methods of flashing this device, using a seri
 
 CAUTION: either install the device properly in the wall before attempting, or have another way of safely powering the device. OTA flashing when the device is powered with mains current can be dangerous
 
-Newer versions of this switch use the BK7231N chip, running 1.0.1 firmware. These devices are able to be flashed using tuya-cloudcutter. 
+Newer versions of this switch use the BK7231N chip, running 1.0.1 firmware. These devices are able to be flashed using tuya-cloudcutter.
 
 Install Tuya-cloudcutter, following instructions [here](https://github.com/tuya-cloudcutter/tuya-cloudcutter/tree/main/custom-firmware)
 
@@ -25,8 +25,6 @@ Once the tool is installed, run it with this command:
 ```sudo ./tuya-cloudcutter.sh -p gosund-sw5-a-v2.1-smart-switch-bk7231n-v1.0.1 -f ESPHome-Kickstart-v23.08.29_bk7231n_app.ota.ug.bin```
 
 FOllow the onscreen instructions to put the device into "slow blink" mode, and then power off/back on when prompted. This will install the ESPHome Kickstart firmware. From there is is possible to OTA install full ESPHome.
-
-
 
 ### Serial
 
