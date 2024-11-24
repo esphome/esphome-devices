@@ -32,14 +32,19 @@ If that doesn't work out for you, disassembly and wired flashing is explained [i
 ## Basic Configuration
 
 ```yaml
+substitutions:
+  devicename: "gosund_sp112"
+  upper_devicename: "Gosund SP112"
+
 esphome:
+  name: $devicename
   platform: ESP8266
   board: esp01_1m
+# This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
+  esp8266_restore_from_flash: true
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
+preferences:
+  flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
 
 # Reduce log level as otherwise logs would be flooded with analog sensor readings
 logger:
@@ -47,33 +52,33 @@ logger:
     sensor: INFO
     adc: INFO
 
-status_led:
-  pin:
-    number: GPIO02
-    inverted: true
+# Enable Home Assistant API
+api:
 
-output:
-  - platform: gpio
-    id: led1
-    pin:
-      number: GPIO00
-      inverted: true
+ota:
+  platform: esphome
+  password: "REDACTED"
 
-switch:
-  - platform: gpio
-    name: "Relay Mains"
-    id: switch1
-    pin: GPIO14
-    on_turn_on:
-      - output.turn_on: led1
-    on_turn_off:
-      - output.turn_off: led1
-  - platform: gpio
-    name: "Replay USB"
-    id: switchusb
-    pin:
-      number: GPIO13
-      inverted: true
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+
+captive_portal:
+
+# see: https://esphome.io/components/time.html, required for total_daily_energy
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Enable Web server
+web_server:
+  port: 80
+
+text_sensor:
+  - platform: version
+    name: "${devicename} - Version"
+    icon: mdi:cube-outline
 
 binary_sensor:
   - platform: template
@@ -93,6 +98,25 @@ binary_sensor:
           - switch.toggle: switchusb
 
 sensor:
+  - platform: wifi_signal
+    name: "${devicename} - Wifi Signal"
+    update_interval: 60s
+    icon: mdi:wifi
+
+  - platform: uptime
+    name: "${devicename} - Uptime"
+    update_interval: 60s
+    icon: mdi:clock-outline
+
+  - platform: total_daily_energy
+    name: "${devicename} - Todays Usage"
+    power_id: "wattage"
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    icon: mdi:calendar-clock
+
   - platform: adc
     id: button_adc
     pin: A0
@@ -122,6 +146,39 @@ sensor:
       name: Wattage
       unit_of_measurement: W
       accuracy_decimals: 2
+
+status_led:
+  pin:
+    number: GPIO02
+    inverted: true
+
+output:
+  - platform: gpio
+    id: led1
+    pin:
+      number: GPIO00
+      inverted: true
+
+switch:
+  - platform: gpio
+    name: "${devicename} - Main"
+    icon: mdi:power
+    restore_mode: RESTORE_DEFAULT_ON
+    id: switch1
+    pin: GPIO14
+    on_turn_on:
+      - output.turn_on: led1
+    on_turn_off:
+      - output.turn_off: led1
+  - platform: gpio
+    name: "${devicename} - USB"
+    icon: mdi:power
+    restore_mode: RESTORE_DEFAULT_ON
+    id: switchusb
+    pin:
+      number: GPIO13
+      inverted: true
+
 ```
 
 ## Alternative for newer devices
