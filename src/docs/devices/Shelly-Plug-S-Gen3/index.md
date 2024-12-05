@@ -62,7 +62,7 @@ esp32:
     type: esp-idf
     version: recommended
     sdkconfig_options:
-      COMPILER_OPTIMIZATION_SIZE: y    
+      COMPILER_OPTIMIZATION_SIZE: y
 
 
 
@@ -152,10 +152,6 @@ sensor:
   - platform: bl0942
     uart_id: uart_0
     address: 0
-    #current_reference:
-    #voltage_reference:
-    #power_reference:
-    #energy_reference:    
     voltage:
       name: 'Voltage'
       id: bvoltage
