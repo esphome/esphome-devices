@@ -1,5 +1,5 @@
 ---
-title: ESP32 Realy Board x8
+title: ESP32 Relay Board x8
 date-published: 2022-10-17
 type: relay
 standard: global

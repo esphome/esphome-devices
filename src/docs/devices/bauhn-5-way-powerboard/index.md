@@ -110,13 +110,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Bauhn-5-Way-Power-Board"
-    password: "G5cDVW32MOE1"
-    ap_timeout: 2min
-    # Not sure but this device did not attach to my SSID without the ap_timeout set to 2 min WiFi a bit weak?
 
 captive_portal:
 

@@ -38,11 +38,10 @@ esphome:
   platform: ESP8266
   board: esp01_1m
 
-# Enter you WIFI credentials
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
+  ap:
 # Enable Logging.
 logger:
 

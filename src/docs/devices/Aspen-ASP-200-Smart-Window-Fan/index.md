@@ -39,11 +39,7 @@ esp8266:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  use_address: ${device_name}
-
   ap:
-    ssid: "${friendly_name}"
-    password: !secret esphome_ap_password
 
 captive_portal:
 

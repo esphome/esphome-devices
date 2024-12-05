@@ -48,8 +48,8 @@ ota:
   password: !secret esp_ota_pass
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   ap:
     ssid: SP22_AP

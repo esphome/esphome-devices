@@ -43,8 +43,9 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: "ssid"
-  password: "password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 logger:
 

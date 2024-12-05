@@ -1139,23 +1139,23 @@ sensor:
     pin: 39
     name: "a64--analog--1"
     update_interval: 20s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 34
     name: "a64--analog--2"
     update_interval: 20s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 36
     name: "a64--analog--3"
     update_interval: 20s
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     pin: 35
     name: "a64--analog--4"
     update_interval: 20s
-    attenuation: 11db
+    attenuation: 12db
 ```

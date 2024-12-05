@@ -309,8 +309,8 @@ sensor:
 
 wifi:
   # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -318,7 +318,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
     manual_ip:
       static_ip: 192.168.1.1
@@ -566,8 +566,8 @@ sensor:
 
 wifi:
   # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -575,7 +575,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
     manual_ip:
       static_ip: 192.168.1.1

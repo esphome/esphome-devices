@@ -8,6 +8,9 @@ board: esp8266
 
 ![Shelly 3EM](shelly-3em.webp "Shelly 3EM")
 
+NOTE: In order to power up device it's enough to connect `VA` and `N` terminal.
+NOTE: In order to retrieve proper data all live (`VA`/`VB`/`VC`) terminals needs to be connected to live wire, in other case this integration will report invalid voltage (like `0.12130 V`). Check single phase connection diagram in the official device manual for more details.
+
 ## GPIO Pinout
 
 | Pin    | Function           |

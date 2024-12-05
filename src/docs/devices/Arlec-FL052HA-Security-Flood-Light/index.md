@@ -42,12 +42,9 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: "SSID"
-  password: "password"
-
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "fl052ha_flood_light"
-    password: "password"
 
 captive_portal:
 

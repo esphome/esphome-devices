@@ -15,6 +15,17 @@ project-url: https://docs.m5stack.com/en/core/M5Dial
 
 M5Stack Dial features an M5StampS3, 8M Flash, 1.28 inch Touchscreen, NFC Reader, Rotary Encoder and a Buzzer.
 
+## Pin Mapping
+
+When a pin can be used for multiple purposes (e.g. Port A or Port B), they are documented in the table below instead of the example configuration.
+
+| Pin           | Usage         |
+| ------------- | ------------- |
+| GPIO1         | Port B Input  |
+| GPIO2         | Port B Output |
+| GPIO13        | Port A SDA    |
+| GPIO15        | Port A SCL    |
+
 ## Example Configuration
 
 ```yaml
@@ -22,6 +33,9 @@ M5Stack Dial features an M5StampS3, 8M Flash, 1.28 inch Touchscreen, NFC Reader,
 esphome:
   name: m5stack-dial
   friendly_name: M5Stack Dial
+  on_boot:
+    then:
+      - pcf8563.read_time:
   platformio_options:
     board_build.flash_mode: dio
 
@@ -67,6 +81,19 @@ sensor:
     id: encoder
     pin_a: GPIO40
     pin_b: GPIO41
+
+time:
+  # RTC
+  - platform: pcf8563
+    id: rtctime
+    i2c_id: internal_i2c
+    address: 0x51
+    update_interval: never
+  - platform: homeassistant
+    id: esptime
+    on_time_sync:
+      then:
+        - pcf8563.write_time:
 
 binary_sensor:
   - platform: gpio

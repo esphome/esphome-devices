@@ -40,13 +40,9 @@ api:
 ota:
 
 wifi:
-  ssid: "ssid"
-  password: "PASSWORD"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "Gosund Fallback Hotspot"
-    password: "ul57sDUAqbcl"
 
 captive_portal:
 

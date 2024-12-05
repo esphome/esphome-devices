@@ -107,7 +107,7 @@ sensor:
     id: lux_sensor
     device_class: illuminance
     unit_of_measurement: lx
-    attenuation: 11db
+    attenuation: 12db
   - platform: hlw8012
     sel_pin:
       number: GPIO25
