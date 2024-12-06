@@ -45,10 +45,7 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
   ap:
-    ssid: "${device_name} Fallback Hotspot"
-    password: !secret wifi_fallback_pw
 
 # Enable logging
 logger:

@@ -139,7 +139,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO32
-    attenuation: 11db
+    attenuation: 12db
 
 
 status_led:

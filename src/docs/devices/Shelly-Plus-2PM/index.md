@@ -184,7 +184,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO35
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 10s
 ```
 
@@ -425,7 +425,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO35
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 60s
 
   #power monitoring
@@ -772,7 +772,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO35
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 10s
 
   #power monitoring

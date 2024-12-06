@@ -399,6 +399,7 @@ sensor:
     register_type: read
     value_type: U_DWORD_R
     accuracy_decimals: 1
+    device_class: "power"
     filters:
       - multiply: 0.01
 
@@ -435,6 +436,7 @@ sensor:
     register_type: read
     value_type: U_DWORD_R
     accuracy_decimals: 1
+    device_class: "power"
     filters:
       - multiply: 0.01
 
@@ -471,6 +473,7 @@ sensor:
     register_type: read
     value_type: U_DWORD_R
     accuracy_decimals: 1
+    device_class: "power"
     filters:
       - multiply: 0.01
 
@@ -635,6 +638,7 @@ sensor:
     value_type: U_DWORD_R
     accuracy_decimals: 0
     unit_of_measurement: "Wh"
+    device_class: "energy"
     filters:
       - multiply: 10.0
 
@@ -647,6 +651,7 @@ sensor:
     value_type: U_DWORD_R
     accuracy_decimals: 0
     unit_of_measurement: "Wh"
+    device_class: "energy"
     filters:
       - multiply: 10.0
 
@@ -659,6 +664,7 @@ sensor:
     value_type: U_DWORD_R
     accuracy_decimals: 1
     unit_of_measurement: "kWh"
+    device_class: "energy"
     filters:
       - multiply: 0.01
 
@@ -671,6 +677,7 @@ sensor:
     value_type: U_DWORD_R
     accuracy_decimals: 1
     unit_of_measurement: "kWh"
+    device_class: "energy"
     filters:
       - multiply: 0.01
 
@@ -688,6 +695,7 @@ sensor:
         - sensor.template.publish:
             id: generated_charge_today
             state: !lambda "return x/12.0;"
+    device_class: "energy"
     filters:
       - multiply: 10.0
 
@@ -700,6 +708,7 @@ sensor:
     value_type: U_DWORD_R
     accuracy_decimals: 0
     unit_of_measurement: "Wh"
+    device_class: "energy"
     filters:
       - multiply: 10.0
 
@@ -712,6 +721,7 @@ sensor:
     value_type: U_DWORD_R
     accuracy_decimals: 1
     unit_of_measurement: "kWh"
+    device_class: "energy"
     filters:
       - multiply: 0.01
 
@@ -723,6 +733,8 @@ sensor:
     register_type: read
     value_type: U_DWORD_R
     accuracy_decimals: 1
+    unit_of_measurement: "kWh"
+    device_class: "energy"
     filters:
       - multiply: 0.01
 

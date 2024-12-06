@@ -39,12 +39,9 @@ captive_portal:
 ota:
 
 wifi:
-  networks:
-  - ssid: !secret wifi_ssid
-    password: !secret wifi_password
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "AubessPM01"
-    password: !secret wifi_password
 
 uart:
   id: uart_bus

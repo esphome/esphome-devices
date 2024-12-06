@@ -66,8 +66,9 @@ esphome:
       - output.turn_on: led
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 logger:
   baud_rate: 0

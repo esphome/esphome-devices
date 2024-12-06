@@ -38,14 +38,9 @@ esphome:
 
 # WiFi connection
 wifi:
-  ssid: !secret iot_wifi_ssid
-  password: !secret iot_wifi_password
-  power_save_mode: none
-  fast_connect: true
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "${displayname}"
-    password: !secret ap_mode_password
 
 captive_portal:
 

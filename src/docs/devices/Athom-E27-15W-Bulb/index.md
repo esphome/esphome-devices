@@ -63,7 +63,9 @@ web_server:
   port: 80
 
 wifi:
-  ap: {} # This spawns an AP with the device name and mac address with no password.
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 captive_portal:
 
