@@ -9,7 +9,7 @@ difficulty: 5
 
 Generation 3 of Shelly Plug-S
 
-At this moment there is NO to Flash it OTA. You need to open the Plug and use UART! 
+At this moment there is NO to Flash it OTA. You need to open the Plug and use UART!
 
 
 ## UART Pinout
@@ -62,7 +62,7 @@ esp32:
     type: esp-idf
     version: recommended
     sdkconfig_options:
-      COMPILER_OPTIMIZATION_SIZE: y    
+      COMPILER_OPTIMIZATION_SIZE: y
 
 
 
@@ -79,11 +79,12 @@ api:
   encryption:
     key: !secret api_encryption_key
 
+
 ota:
-  password: !secret ota_password
-
+  - platform: esphome
+    password: !secret ota_password
+ 
 captive_portal:
-
 
 
 binary_sensor:
@@ -103,7 +104,7 @@ binary_sensor:
 switch:         
   - platform: gpio
     pin: GPIO4
-    name: "Relay"          
+    name: "Relay"
 
 
 light:
@@ -152,10 +153,6 @@ sensor:
   - platform: bl0942
     uart_id: uart_0
     address: 0
-    #current_reference:
-    #voltage_reference:
-    #power_reference:
-    #energy_reference:    
     voltage:
       name: 'Voltage'
       id: bvoltage
