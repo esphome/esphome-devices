@@ -138,19 +138,16 @@ sensor:
       filters:
         # The chip reports some current even when there is no load
         - lambda: if (x < 0.02) return 0.0; else return x;
-
     voltage:
       name: Voltage
-
     power:
       name: Power
+      filters:
         # The chip reports some power even when there is no load
         - lambda: if (x < 0.5) return 0.0; else return x;
-
     energy:
       name: Energy
       unit_of_measurement: kWh
-
     frequency:
       name: Frequency
       accuracy_decimals: 2
