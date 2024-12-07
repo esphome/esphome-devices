@@ -51,7 +51,7 @@ esp32:
     type: arduino
 
 external_components:
-  - source: github://kecajtop/dtr0xx_io@master
+  - source: github://AlessandroTischer/dtr0xx_io@master
     refresh: 60s
     components:
       - dtr0xx_io
