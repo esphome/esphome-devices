@@ -21,7 +21,7 @@ difficulty: 2
 
 ## Product description
 
-Nice little integrated screen, touch screen, power supply and case with built in relay and 120v/220v power supply.
+Nice little integrated screen, touch screen, power supply and case with built in relay (or three) and 120v/220v power supply.
 
 Avalible on [AliExpress](https://www.aliexpress.com/item/3256806115962222.html) for ~$24.
 
@@ -223,6 +223,14 @@ output:
   - id: internal_relay_1
     platform: gpio
     pin: 40
+
+    # Additional relays (3 relay model)
+  - id: internal_relay_2
+    platform: gpio
+    pin: 2
+  - id: internal_relay_3
+    platform: gpio
+    pin: 1
 
 #-------------------------------------------
 # Internal lights
