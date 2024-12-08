@@ -9,8 +9,7 @@ difficulty: 5
 
 Generation 3 of Shelly Plug-S
 
-At this moment there is NO to Flash it OTA. You need to open the Plug and use UART!
-
+At this moment there is NO way to Flash it OTA. You need to open the Plug and use UART!
 
 ## UART Pinout
 
@@ -22,7 +21,6 @@ At this moment there is NO to Flash it OTA. You need to open the Plug and use UA
 | TX       | Yellow       |
 | BootSEL  | Purple       |
 | GND      | Black        |
-
 
 ![Shelly Plug S Gen3](../Shelly-Plug-S-Gen3/pinout_small.png "Shelly Plug S Gen3")
 
@@ -37,7 +35,6 @@ At this moment there is NO to Flash it OTA. You need to open the Plug and use UA
 | GPIO7  | BL0942 RX                   |
 | GPIO18 | Button                      |
 
-
 ```yaml
 substitutions:
   device_name: shelly-plug-s-gen3
@@ -50,7 +47,7 @@ esphome:
   friendly_name: ${friendly_name}
   comment: "Free Shelly!"
   platformio_options:
-    board_build.flash_mode: dio 
+    board_build.flash_mode: dio
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -60,7 +57,6 @@ esp32:
     version: recommended
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
-
 
 
 wifi:
@@ -76,13 +72,11 @@ api:
   encryption:
     key: !secret api_encryption_key
 
-
 ota:
   - platform: esphome
     password: !secret ota_password
  
 captive_portal:
-
 
 binary_sensor:
   - platform: gpio
@@ -103,7 +97,6 @@ switch:
     pin: GPIO4
     name: "Relay"
 
-
 light:
   - platform: esp32_rmt_led_strip
     rgb_order: GRB
@@ -115,7 +108,6 @@ light:
     internal: false
     default_transition_length: 700ms
     restore_mode: ALWAYS_OFF
-
 
 uart:
   id: uart_0
@@ -178,4 +170,3 @@ sensor:
       device_class: frequency
     update_interval: ${update_bl0942}
 ```
-
