@@ -50,10 +50,7 @@ esphome:
   friendly_name: ${friendly_name}
   comment: "Free Shelly!"
   platformio_options:
-    board_build.flash_mode: dio
-  project:
-    name: "ioxy.shelly-plug-s-gen3"
-    version: "0.0.2"    
+    board_build.flash_mode: dio 
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -70,7 +67,7 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: "$(device_name) Fallback Hotspot"
+    ssid: "FreeShelly Hotspot"
     password: !secret wifi_password
 
 logger:
