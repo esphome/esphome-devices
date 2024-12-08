@@ -4,7 +4,7 @@ date-published: 2024-12-05
 type: plug
 standard: eu
 board: esp32c3
-difficulty: 5
+difficulty: 4
 ---
 
 Generation 3 of Shelly Plug-S
@@ -58,7 +58,6 @@ esp32:
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
 
-
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -75,7 +74,7 @@ api:
 ota:
   - platform: esphome
     password: !secret ota_password
- 
+
 captive_portal:
 
 binary_sensor:
@@ -92,7 +91,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 5ms
 
-switch:         
+switch:
   - platform: gpio
     pin: GPIO4
     name: "Relay"
