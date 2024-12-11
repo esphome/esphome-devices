@@ -51,7 +51,7 @@ See this pinout for more detail on the CBU side: https://docs.libretiny.eu/board
 ## Disassembly and Initial Flash Procedure
 
 Run the Line and WHITE scresws all the way in. Remove the 4 T7 Torx screws on the back, and remove cover.
-Cover comes out with module. Remove module from cover. 
+Cover comes out with module. Remove module from cover.
 Solder a Sparkfun FTDI Basic's wires to 3.3V, GND, TX, and RX pins.
 Run esphome with the yaml below, select the COM port.
 When ESPHome prompts to reset by driving CEN low, use a male-male dupont wire or similar to connect CEN to GND.
@@ -188,7 +188,7 @@ switch:
     pin: P9 # Incorrectly labeled P6 on PCB
     id: upperRelay
     # restore_mode: ALWAYS_ON
-    on_turn_on: 
+    on_turn_on:
       - switch.turn_on: upperLED
     on_turn_off:
       - switch.turn_off: upperLED
