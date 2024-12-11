@@ -18,7 +18,6 @@ The front has a button for each individually-switched outlet.
 
 ![Outlet Rear](backDetail.jpg "Outlet Rear")
 
-
 The relays are individual, 16A relays. Nice!
 
 ![Relays detail](relays.jpg "Relays Detail")
@@ -67,6 +66,7 @@ Once flashed and on your network, remove soldered wires and re-assemble!
 Here is my config, with the correct pins and a fallback WiFi for OTA in case I change the name of my wifi.
 To use, you must create a secrets.yaml file next to this file when compiling, and put your secrets in there.
 See this link: https://esphome.io/guides/faq.html#how-do-i-use-my-home-assistant-secrets-yaml
+
 ```yaml
 # YAML config start
 substitutions:
