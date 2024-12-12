@@ -90,7 +90,7 @@ switch:
     id: red_led
 
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO13
       inverted: true
     id: blue_led
