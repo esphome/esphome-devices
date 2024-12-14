@@ -11,39 +11,35 @@ Generation 3 of Shelly Mini. With Powermeter, and Relay
 
 ## Serial Pinout
 
-| Pin      | Colour       |
-| -------- | ------------ |
-| Reset    | Brown        |
-| 3v3      | Red          |
-| RX       | Blue         |
-| TX       | Yellow       |
-| BootSEL  | Purple       |
-| GND      | Black        |
+| Pin     | Colour |
+| ------- | ------ |
+| Reset   | Brown  |
+| 3v3     | Red    |
+| RX      | Blue   |
+| TX      | Yellow |
+| BootSEL | Purple |
+| GND     | Black  |
 
 The UART Pinout is the same as other Shelly Plus Mini.
 
 ## GPIO Pinout
 
-| Pin    | Function     |
-| ------ | ------------ |
-| GPIO0  | LED          |
-| GPIO1  | Button       |
-| GPIO3  | NTC          |
-| GPIO5  | Relay        |
-| GPIO6  | BL0942 TX    |
-| GPIO7  | BL0942 RX    |
-| GPIO10 | Switch       |
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO0  | LED       |
+| GPIO1  | Button    |
+| GPIO3  | NTC       |
+| GPIO5  | Relay     |
+| GPIO6  | BL0942 TX |
+| GPIO7  | BL0942 RX |
+| GPIO10 | Switch    |
 
 ## Basic Configuration
 
 ```yaml
-substitutions:
-  device_name: "sehlly-1pm-mini-gen3"
-  friendly_name : "Shelly 1PM Mini Gen3"
-
 esphome:
-  name: ${device_name}
-  friendly_name: ${friendly_name}
+  name: "sehlly-1pm-mini-gen3"
+  friendly_name: "Shelly 1PM Mini Gen3"
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -53,24 +49,15 @@ esp32:
     version: recommended
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
-    advanced:
-      ignore_efuse_mac_crc: false
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
-    ssid: "$(device_name) Fallback Hotspot"
-    password: !secret wifi_password
 
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
 
 time:
   - platform: homeassistant
@@ -101,22 +88,22 @@ sensor:
   - platform: bl0942
     uart_id: uart_0
     voltage:
-      name: 'Voltage'
+      name: "Voltage"
       id: bvoltage
       icon: mdi:alpha-v-circle-outline
       device_class: voltage
     current:
-      name: 'Current'
+      name: "Current"
       id: bcurrent
       icon: mdi:alpha-a-circle-outline
       device_class: current
     power:
-      name: 'Power'
+      name: "Power"
       id: bpower
       icon: mdi:transmission-tower
       device_class: power
     energy:
-      name: 'Energy'
+      name: "Energy"
       id: benergy
       icon: mdi:lightning-bolt
       device_class: energy
