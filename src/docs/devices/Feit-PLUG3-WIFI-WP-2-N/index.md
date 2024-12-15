@@ -110,7 +110,6 @@ switch:
     pin: P15
     id: relay
     name: ${friendly_name}
-    output: relay
     on_turn_on:
       - light.turn_on: led_status
     on_turn_off:
