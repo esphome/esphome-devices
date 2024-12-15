@@ -10,9 +10,9 @@ difficulty: 4
 Generation 3 of Shelly Plug-S
 
 At this moment there is NO way to Flash it OTA. You need to open the Plug and use UART!
-As always, first take a dump! 
-```esptool -b 115200 --port COM11 read_flash 0x00000 0x800000 shelly_plug_s_gen3.bin```
 
+As always, first take a dump!
+```esptool -b 115200 --port COM11 read_flash 0x00000 0x800000 shelly_plug_s_gen3.bin```
 
 ## UART Pinout
 
