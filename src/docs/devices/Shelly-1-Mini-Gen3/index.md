@@ -11,39 +11,35 @@ Generation 3 of Shelly Mini. With Relay, but no Powermeter.
 
 ## GPIO Pinout
 
-| Pin   | Function     |
-| ----- | ------------ |
-| GPI00 | LED          |
-| GPI01 | Button       |
-| GPI03 | NTC          |
-| GPI07 | Relay        |
-| GPI10 | Switch       |
+| Pin   | Function |
+| ----- | -------- |
+| GPI00 | LED      |
+| GPI01 | Button   |
+| GPI03 | NTC      |
+| GPI07 | Relay    |
+| GPI10 | Switch   |
 
 ## Serial Pinout
 
 The UART Pinout is the same as other Shelly Mini.
 
-| Pin      | Colour       |
-| -------- | ------------ |
-| Reset    | Brown        |
-| 3v3      | Red          |
-| RX       | Blue         |
-| TX       | Yellow       |
-| BootSEL  | Purple       |
-| GND      | Black        |
+| Pin     | Colour |
+| ------- | ------ |
+| Reset   | Brown  |
+| 3v3     | Red    |
+| RX      | Blue   |
+| TX      | Yellow |
+| BootSEL | Purple |
+| GND     | Black  |
 
 ![Shelly 1 Mini Gen3](../Shelly-1-Mini-Gen3/shelly_1_mini_gen3_pcb_a.png "Shelly 1 Mini Gen3")
 
 ## Basic Configuration
 
 ```yaml
-substitutions:
-  device_name: "shelly-1-mini-gen3"
-  friendly_name : "Shelly 1 Mini Gen3"
-
 esphome:
-  name: ${device_name}
-  friendly_name: ${friendly_name}
+  name: "shelly-1-mini-gen3"
+  friendly_name: "Shelly 1 Mini Gen3"
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -53,24 +49,15 @@ esp32:
     version: recommended
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
-    advanced:
-      ignore_efuse_mac_crc: false
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
-    ssid: "$(device_name) Fallback Hotspot"
-    password: !secret wifi_password
 
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
 
 time:
   - platform: homeassistant
