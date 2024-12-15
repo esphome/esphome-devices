@@ -7,15 +7,19 @@ board: esp32c3
 difficulty: 4
 ---
 
-![Seal](../Shelly-Plug-S-Gen3/seal(plombe).jpeg "Seal")
+![Seal](../Shelly-Plug-S-Gen3/seal(plombe).jpeg "Seal [thx to bkbartk]")
 This little seal need to drill open, best you use a prick punch with an M3.5-M4 Drill.
-When the seal is cracked open, you need a M2 drill, and drill in center, just a little.
-Now take a tapered punch and press the seal out. The whole grounding receptacle will come out.
+![Drill](../Shelly-Plug-S-Gen3/drill_1.png "Drill")
 
-Now we need some hot-air (~300°C) and 5 of the iFixit triangle-plastic, there are 3 spots with glue.
+When the seal is cracked open, you need a M2 drill, and drill in center, just a little.
+![Drill](../Shelly-Plug-S-Gen3/drill_2.png "Drill")
+Now take a tapered punch and press the seal out. The whole grounding receptacle will come out.
+We need some hot-air (~300°C) and 5 of the iFixit triangle-plastic, there are 3 spots with glue.
+
 Heat them up, and try placeing the plastic around.
+![Open it up](../Shelly-Plug-S-Gen3/open_1.png "create a gap")
+
 You will get a little gap, take anohter plastic and g et betweet the withe and transparent plastic, and make a circle.
+![Open it up](../Shelly-Plug-S-Gen3/open_2.png "open it up")
 
 After 2 rounds you can easly take it out.
-
-thx to bkbartk for the picutre <3
