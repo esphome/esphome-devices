@@ -172,3 +172,23 @@ sensor:
       device_class: frequency
     update_interval: ${update_bl0942}
 ```
+
+## Open the device
+
+![Seal](../Shelly-Plug-S-Gen3/seal(plombe).jpeg "Seal [thx to bkbartk]")
+This little seal need to drill open, best you use a prick punch with an M3.5-M4 Drill.
+![Drill](../Shelly-Plug-S-Gen3/drill_1.png "Drill M3.5 or M4")
+
+When the seal is cracked open, you need a M2 drill, and drill in center, just a little.
+![Drill](../Shelly-Plug-S-Gen3/drill_2.png "Drill M2")
+
+Now take a tapered punch and press the seal out. The whole grounding receptacle will come out.
+
+We need some hot-air (~300°C) and 5 of the iFixit triangle-plastic, there are 3 spots with glue.
+Heat them up, and try placeing the plastic around.
+![Open it up](../Shelly-Plug-S-Gen3/open_1.png "create a gap")
+
+You will get a little gap, take anohter plastic and g et betweet the withe and transparent plastic, and make a circle.
+![Open it up](../Shelly-Plug-S-Gen3/open_2.png "open it up")
+
+After 2 rounds you can easly take it out.
