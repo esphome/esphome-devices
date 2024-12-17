@@ -17,6 +17,8 @@ The 1.0.1 version supports the TuyaSend0 command to query the MCU for the latest
 
 In an order on 2021-01-31 for three devices, one of each hardware versions was received. In an order from 2020-12, the 1.0.1 version was received, which is rock solid.
 
+![alt text](neo_coolcam_NAS-AB02W.webp "Neo Coolcam Temperature and Humidity 3 in 1 Alarm Siren")
+
 ## Basic Configuration
 
 ``` yaml
