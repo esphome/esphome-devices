@@ -44,7 +44,7 @@ ota:
   - platform: esphome
 
 web_server:
-  
+
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -65,7 +65,7 @@ time:
      - 0.pool.ntp.org
      - 1.pool.ntp.org
      - 2.pool.ntp.org
-        
+
 uart:
   rx_pin: RX
   tx_pin: TX
@@ -100,17 +100,17 @@ sensor:
     icon: "mdi:thermometer"
     device_class: "temperature"
     state_class: "measurement"
-    accuracy_decimals: 1    
+    accuracy_decimals: 1
     filters:
       - multiply: 0.1
   - platform: "tuya"
     name: "Humidity"
-    sensor_datapoint: 106      
+    sensor_datapoint: 106
     unit_of_measurement: "%"
     icon: "mdi:water-percent"
     device_class: "humidity"
     state_class: "measurement"
-    accuracy_decimals: 0              
+    accuracy_decimals: 0
 
 text_sensor:
   - platform: tuya
@@ -118,7 +118,7 @@ text_sensor:
     sensor_datapoint: 101
     icon: "mdi:power-plug-battery"
     filters:
-      - substitute: 
+      - substitute:
         - "1 -> Battery High"
         - "2 -> Battery Medium"
         - "3 -> Battery Low"
@@ -154,7 +154,7 @@ select:
     enum_datapoint: 116  
     icon: "mdi:volume-high"
     optimistic: true
-    options:    
+    options:
       0: High
       1: Medium
       2: Low
@@ -169,31 +169,31 @@ number:
     step: 5
   - platform: tuya
     name: "Min. Temp. Alarm"
-    number_datapoint: 107     
+    number_datapoint: 107
     icon: "mdi:thermometer-chevron-down"
-    min_value: 0  
-    max_value: 100     
+    min_value: 0
+    max_value: 100
     step: 1
   - platform: tuya
     name: "Max. Temp. Alarm"
-    number_datapoint: 108    
+    number_datapoint: 108
     icon: "mdi:thermometer-chevron-up"
     min_value: 0
-    max_value: 100     
+    max_value: 100
     step: 1
   - platform: tuya
     name: "Min. Hum. Alarm"
-    number_datapoint: 109  
+    number_datapoint: 109 
     icon: "mdi:water-minus"
     min_value: 0
-    max_value: 100     
-    step: 1  
+    max_value: 100
+    step: 1
   - platform: tuya
     name: "Max. Hum. Alarm"
-    number_datapoint: 110     
+    number_datapoint: 110
     icon: "mdi:water-plus"
     min_value: 0
-    max_value: 100  
-    step: 1            
+    max_value: 100
+    step: 1
 
 ```
