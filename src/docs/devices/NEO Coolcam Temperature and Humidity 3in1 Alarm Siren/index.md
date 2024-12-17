@@ -183,7 +183,7 @@ number:
     step: 1
   - platform: tuya
     name: "Min. Hum. Alarm"
-    number_datapoint: 109 
+    number_datapoint: 109
     icon: "mdi:water-minus"
     min_value: 0
     max_value: 100
