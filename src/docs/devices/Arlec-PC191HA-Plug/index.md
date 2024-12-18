@@ -15,7 +15,12 @@ It is compact, easily fitting side-by-side in double wall sockets.
 The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) and is supplied with Tuya firmware.  
 As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).  
 
-NOTE: apparently from approx. May 2023 Bunning is now selling "series 2" units, which use a CB2S module.  These are clearly labelled as series 2 in bottom right corner of the box, and on the unit.
+### Series 2 Info
+
+From approx. May 2023 Bunnings is now selling "series 2" units, which *may* use a CB2S module. These are clearly labelled as series 2 in bottom right corner of the box, and on the unit, however these is no external indication of what module is inside. It appears the only way to tell is based on the Tuya firmware version. Best to match the firmware versions with the cloudcutter profiles:
+
+- v1.1.8: CB2S
+- v1.3.5: WB2S
 
 **Update 11 August 2024:** Bunnings are now selling "Series 3" units with the same part number (PC191HA, or PC191BKHA for the black units). These continue to use the CB2S module but are loaded with Tuya firmware version 1.1.17 which isn't vulnerable to the Cloudcutter exploit. Additionally, the PCB design has been changed, and the GPIO configuration has subsequently changed - see the GPIO pinout table for the Series 3 unit below.
 
@@ -454,6 +459,7 @@ sensor:
 
 ## References
 
-https://www.elektroda.com/rtvforum/topic3944452.html - breakdown of PC191HA and discussion, including about series 2
-https://templates.blakadder.com/arlec_PC191HA.html   - TASMOTA definition, which advises to replace the WB2S module
-https://community.home-assistant.io/t/energy-consumption-and-arlec-grid-connect-tuya-smart-plug/335508/55
+- https://www.elektroda.com/rtvforum/topic3944452.html - breakdown of PC191HA and discussion, including about series 2
+- https://templates.blakadder.com/arlec_PC191HA.html   - TASMOTA definition, which advises to replace the WB2S module
+- https://community.home-assistant.io/t/energy-consumption-and-arlec-grid-connect-tuya-smart-plug/335508/55
+- https://community.home-assistant.io/t/kickstart-bk7231t-to-esphome-add-on/701658 - Discussion about series 2 containing different modules
