@@ -26,6 +26,12 @@ board: esp32
 | GPIO34 | Voltage Monitor       |
 | GPIO35 | OpAmp Current Monitor |
 
+## Plus addon interface
+
+Use it for flashing. Connect EN pin to the RESET pin of your USB-UART converter.
+
+![Addon interface pinout](Plus-addon-interface.png "Shelly Plus addon interface")
+
 ## Configuration for RGBW
 
 ```yaml
