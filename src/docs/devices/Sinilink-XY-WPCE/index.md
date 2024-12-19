@@ -73,6 +73,10 @@ substitutions:
 
 esphome:
   name: ${hostname}
+  # Necessary to prevent relay trigger on ESP restart / wifi loss
+  on_boot:
+    then:
+      - output.turn_off: out_relay
 
   # Shows up in UI
   comment: "Remote power button for ${friendly_name_short}."
