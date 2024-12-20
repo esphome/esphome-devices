@@ -153,10 +153,10 @@ switch:
     name: "${friendly_name} - Relay Switch"
     pin: GPIO13
     id: relay
-    on_turn_on: 
+    on_turn_on:
       then:
         - light.turn_on: switch_led
-    on_turn_off: 
+    on_turn_off:
       then:
         - light.turn_off: switch_led
 ```
