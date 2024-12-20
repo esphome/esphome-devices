@@ -179,7 +179,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xB847
-   on_press:
+    on_press:
       then:
         - light.turn_off: color_light
 
@@ -188,7 +188,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xBB44
-   on_press:
+    on_press:
       then:
         - light.turn_on:
             id: color_light
@@ -236,7 +236,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xF807
-   on_press:
+    on_press:
       then:
         - light.turn_on:
             id: color_light
@@ -252,7 +252,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xEA15
-   on_press:
+    on_press:
       then:
         - light.turn_on:
             id: color_light
@@ -268,7 +268,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xF609
-   on_press:
+    on_press:
       then:
         - light.turn_on:
             id: color_light
@@ -284,7 +284,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xE916
-   on_press:
+    on_press:
       then:
         - light.turn_on:
             id: color_light
@@ -300,7 +300,7 @@ binary_sensor:
     nec:
       address: 0xFF00
       command: 0xE619
-   on_press:
+    on_press:
       then:
         - light.turn_on:
             id: color_light
