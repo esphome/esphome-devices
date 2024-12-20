@@ -118,6 +118,9 @@ web_server:
 
 improv_serial:
 
+time:
+  - platform: homeassistant
+
 text_sensor:
   - platform: version
     name: "ESPHome Version"
