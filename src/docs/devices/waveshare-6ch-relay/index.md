@@ -10,7 +10,7 @@ board: esp32-s3
 
 ## Product description
 
-This is a 6-relay board with an ESP32-S3 (N8). 
+This is a 6-relay board with an ESP32-S3 (N8).
 It also has:-
 Onboard isolated RS485,
 Onboard 40PIN header compatible with some Raspberry Pi Pico HATs,
@@ -18,14 +18,12 @@ Built in buzzer,
 RGB colorful LED,
 Rail-mounted ABS case, easy to install, safe to use
 
-
 Each relay has COM+NO+NC exposed. Rating ≤10A 250VAC/30VDC.
-
 The board can be powered either via 7-36DC or via 5VDC (USB-C).
-
 It can bought from: https://www.waveshare.com/esp32-s3-relay-6ch.htm
 
 ## GPIO Pinout
+
 ![GPIO](./image2.jpg "GPIO Image")
 
 ## Basic Config
@@ -35,13 +33,12 @@ It can bought from: https://www.waveshare.com/esp32-s3-relay-6ch.htm
 
 esphome:
   name: waveshare-6ch-relay
- 
+
 esp32:
   board: esp32-s3-devkitc-1
   flash_size: 8MB
   framework:
     type: arduino
-    
 
 # Enable logging
 logger:
@@ -121,7 +118,7 @@ uart:
   rx_pin: GPIO18
   baud_rate: 9600
   id: modbus_uart
- 
+
 # buzzer
 output:
   - platform: ledc
