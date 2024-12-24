@@ -106,13 +106,14 @@ light:
 
 binary_sensor:
   - platform: gpio
+    id: strip_light_pushbutton
     pin:
       number: PA04
       mode: INPUT_PULLUP
-      inverted: true
     name: "strip_light_pushbutton"
     internal: true
-    on_press:
+    on_click:
+      max_length: 400ms  # Single click
       then:
         - light.toggle: strip_light
 ```
