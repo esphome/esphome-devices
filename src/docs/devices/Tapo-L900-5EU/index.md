@@ -36,7 +36,7 @@ Here the [stock firmware](https://github.com/CladZo91/esphome-devices/blob/main/
 | PA19   | Red Channel   |
 | PA18   | Green Channel |
 | PA17   | Blue Channel  |
-| PAxx   | Button        |
+| PA04   | Button        |
 
 ## Basic Configuration
 
@@ -107,7 +107,7 @@ light:
 binary_sensor:
   - platform: gpio
     pin:
-      number: PAxx
+      number: PA04
       mode: INPUT_PULLUP
       inverted: true
     name: "strip_light_pushbutton"
