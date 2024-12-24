@@ -2,7 +2,7 @@
 title: Tapo L900 RGB 5M Light Strip
 date-published: 2024-12-14
 type: light
-standard: au, eu
+standard: global
 board: rtl87xx
 difficulty: 4
 ---
@@ -10,6 +10,8 @@ difficulty: 4
 ## General Notes
 
 This configuration is for the [TP-Link Tapo L900](https://www.tp-link.com/au/home-networking/smart-bulb/tapo-l900-5/) which comes as a colour changing LED strip with controller and power supply.
+
+![TP-Link Tapo L900 Strip Lights](/Tapo-L900-Box.jpg "TP-Link Tapo L900 Strip Lights")
 
 ## Flashing Instuctions
 This device uses a [Realtek Ameba Z2 RTL8720CF](https://www.e-paper-display.com/products_detail/productId%3D529.html) that is supported by [LibreTiny](https://docs.libretiny.eu/boards/generic-rtl8720cf-2mb-992k/).
@@ -24,7 +26,10 @@ Keeping the wires as short as possible ~50mm and soldering them directly beween 
 Using terminal from Linux Debian/KDE and rebooting the system after the first attempt.
 Soldering GPIO0 to the 3v3 line of the serial converter.
 First plugging in the USB to the laptop and then powering on the lab supply.
+Here the [stock firmware](https://github.com/CladZo91/esphome-devices/blob/main/src/docs/devices/Tapo-L900-5EU/L900_StockFW.bin) dumped from this device.
 
+
+## GPIO Pinout
 
 | Pin    | Function      |
 | ------ | ------------- |
@@ -110,3 +115,7 @@ binary_sensor:
     on_press:
       then:
         - light.toggle: strip_light
+
+## Internal Pictures
+![PCB Front](/Tapo-L900-PCB-Front.jpg "PCB Front")
+![PCB Back](/Tapo-L900-PCB-Back.jpg "PCB Back")
