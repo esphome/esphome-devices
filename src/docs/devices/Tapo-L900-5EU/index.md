@@ -115,7 +115,7 @@ binary_sensor:
     on_press:
       then:
         - light.toggle: strip_light
-
+```
 ## Internal Pictures
 ![PCB Front](/Tapo-L900-PCB-Front.jpg "PCB Front")
 ![PCB Back](/Tapo-L900-PCB-Back.jpg "PCB Back")
