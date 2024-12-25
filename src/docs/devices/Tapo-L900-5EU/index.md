@@ -15,7 +15,7 @@ This configuration is for the [TP-Link Tapo L900](https://www.tp-link.com/au/hom
 
 ## Flashing Instuctions
 This device uses a [Realtek Ameba Z2 RTL8720CF](https://www.e-paper-display.com/products_detail/productId%3D529.html) that is supported by [LibreTiny](https://docs.libretiny.eu/boards/generic-rtl8720cf-2mb-992k/).  
-ltchiptool works to flash a ESPHome generated .UF2 firmware via a USB to serial converter soldered to the test points on the board.  
+ltchiptool works to flash an ESPHome generated .UF2 firmware via a USB to serial converter soldered to the test points on the board.  
 As per now, [prokoma's](https://github.com/libretiny-eu/libretiny/issues/44#issuecomment-2514974466) fork of ltchiptool needs to be used due to a bug.
 
 ## Possible Flashing Issues
@@ -58,17 +58,17 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: !secret api_encryption_key
+    key: "api_encryption_key"
 
 ota:
   - platform: esphome
-    password: !secret ota_password
+    password: "ota_password"
 
 web_server:
   port: 80
   auth:
-    username: !secret web_server_username
-    password: !secret web_server_password
+    username: "web_server_username"
+    password: "web_server_password"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -77,7 +77,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Lightstripa Fallback Hotspot"
-    password: !secret hotspot_password
+    password: "hotspot_password"
 
 captive_portal:
 
