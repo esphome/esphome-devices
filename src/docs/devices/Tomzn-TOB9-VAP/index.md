@@ -79,21 +79,21 @@ binary_sensor:
           button.press: reset
 
 output:
-  - platform: gpio
+  - platform: libretiny_pwm
     id: red_led_output
-    pin: GPIO9
-    inverted: true
+    pin:
+      number: P9
+      inverted: true
 
 light:
   - platform: status_led
     id: blue_led
     pin:
+      number: P15
       inverted: true
-      number: GPIO15
-  - platform: binary
+  - platform: monochromatic
     id: red_led
     output: red_led_output
-    restore_mode: ALWAYS_OFF
 
 switch:
   - platform: hbridge
