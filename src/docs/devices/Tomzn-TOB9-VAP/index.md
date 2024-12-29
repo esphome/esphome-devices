@@ -10,7 +10,7 @@ difficulty: 3
 ## Notes
 
 - Uses [BL0942](https://esphome.io/components/sensor/bl0942.html) for energy monitoring, which requires [calibration](https://esphome.io/components/sensor/bl0942.html#calibration)
-- Does not use a relay for controlling the output, it uses a bridge whose position can be toggled by pulsing GPIO24 and GPIO26
+- Uses an [H-Bridge](https://esphome.io/components/switch/hbridge.html) for controlling the output instead of a standard relay. One key difference is that the H-Bridge retains the last position upon power off without the need of `restore_mode`
 
 ## Product images
 
@@ -45,6 +45,7 @@ Disassembling this device is simple, provided you find a way to remove the golde
 ```yaml
 esphome:
   name: TomZN.TOB9-VAP
+  min_version: 2024.12.0
 
 bk72xx:
   board: cbu
@@ -78,56 +79,34 @@ binary_sensor:
           button.press: reset
 
 output:
-  - platform: gpio
+  - platform: libretiny_pwm
     id: red_led_output
-    pin: GPIO9
-    inverted: true
+    pin:
+      number: P9
+      inverted: true
 
 light:
   - platform: status_led
     id: blue_led
     pin:
+      number: P15
       inverted: true
-      number: GPIO15
-  - platform: binary
+  - platform: monochromatic
     id: red_led
     output: red_led_output
-    restore_mode: ALWAYS_OFF
 
 switch:
-  - platform: gpio
-    id: bridge_forward
-    pin: GPIO24
-    restore_mode: ALWAYS_OFF
-    on_turn_on:
-      - switch.template.publish:
-          id: main_switch
-          state: ON
-      - light.turn_on: red_led
-      - delay: 200ms
-      - switch.turn_off: bridge_forward
-
-  - platform: gpio
-    id: bridge_reverse
-    pin: GPIO26
-    restore_mode: ALWAYS_OFF
-    on_turn_on:
-      - switch.template.publish:
-          id: main_switch
-          state: OFF
-      - light.turn_off: red_led
-      - delay: 200ms
-      - switch.turn_off: bridge_reverse
-
-  - platform: template
+  - platform: hbridge
     name: Switch
     id: main_switch
-    device_class: outlet
-    restore_mode: ALWAYS_OFF
-    turn_on_action:
-      switch.turn_on: bridge_forward
-    turn_off_action:
-      switch.turn_on: bridge_reverse
+    on_pin: GPIO24
+    off_pin: GPIO26
+    pulse_length: 60ms
+    wait_time: 30ms
+    on_turn_on:
+      light.turn_on: red_led
+    on_turn_off:
+      light.turn_off: red_led
 
 sensor:
   - platform: bl0942
