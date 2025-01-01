@@ -52,7 +52,7 @@ v0.1.5 pinout credit to: [blakadder](https://templates.blakadder.com/shelly_plus
 
 Minimal configuration with all inputs/outputs and sensors configured
 
-Note that in this example, the relay numbering is swapped compared to the above pinout and the inverter filter is only applied to one of the two power channels. This example would be wrong with the bought Shellys in Austria in 2024.
+Note that in this example, the relay numbering is swapped compared to the above pinout and the inverter filter is only applied to one of the two power channels. This example would be wrong with the Shellys bought from Austria in 2024.
 
 ```yaml
 substitutions:
@@ -192,7 +192,7 @@ sensor:
 
 Shows which settings under esphome and esp32 need to be changed to support the single core 160MHz version of the chip
 
-Note that single core chips are only supported by the esp-idf framework, not arduino. This means that for instance captive portal (required for fallback AP to work) cannot be used.
+Note that single core chips are only supported by the esp-idf framework, not arduino. This means that, for instance, captive portal (required for fallback AP to work) cannot be used.
 
 ```yaml
 # For Single Core ESP32
@@ -215,9 +215,9 @@ esp32:
 
 - Detached switch mode and toggle light switch
 - Includes overpower and overtemperature protection.
-- Will toggle a smart bulb in home assistant and has fallback to local power switching when connecion to home assitant is down.
+- Will toggle a smart bulb in home assistant and has fallback to local power switching when connection to home assitant is down.
 
-Note that in this example, the two power channels are swapped and the inverter filter is only applied to one of the two power channels. This example would be wrong with the bought Shellys in Austria in 2024.
+Note that in this example, the two power channels are swapped and the inverter filter is only applied to one of the two power channels. This example would be wrong with the Shellys bought from Austria in 2024.
 
 ```yaml
 substitutions:
@@ -495,7 +495,7 @@ To use the Shelly Plus 2PM to control a window cover with an "opening" and a "cl
 This configuration was implemented and tested on three pieces bought in Austria in 2024. As opposed to the examples above, power channel A is for relay 1 (for the "opening" motor), power channel B is for relay 2 (for the "closing" motor), and both power channels need to be inverted in order for the measurement to represent the motors' power consumptions positively.
 
 - outputs are configured to be mutually exclusive (never put power on both the opening and the closing motor)
-- the input channels (one for "opening", one for "closing") are used for manual overriding. They always have precedence if used.
+- the input channels (one for "opening", one for "closing") are used for manual overriding. They always have presidence if used.
 - whether or not the manual override is active is exposed as a binary sensor.
 
 ```yaml
