@@ -9,6 +9,7 @@ difficulty: 2
 ---
 
 ## Device
+
 - Sold in Germany, e.g., by [Kaufland](https://www.kaufland.de/product/407823330/).
 - Board inside is WB3S (BK7231T) and ESPHome can be flashed with [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter).
 - ESPHome support for the IR remote control currently unknown (as no access to a remote).
@@ -28,13 +29,13 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
-  on_boot: 
+  on_boot:
     priority: 600
     then:
       - light.turn_on:
           id: light_rgbww
           brightness: 100%
-          color_temperature: 4000K 
+          color_temperature: 4000K
 
 bk72xx:
   board: wb3s
