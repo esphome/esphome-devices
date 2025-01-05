@@ -14,6 +14,8 @@ difficulty: 2
 - Board inside is WB3S (BK7231T) and ESPHome can be flashed with [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter).
 - ESPHome support for the IR remote control currently unknown (as no access to a remote).
 
+![JDONG X6060 board](./jdong_x6060.jpeg "JDONG X6060-450 board")
+
 ## Basic Configuration
 
 ```yaml
