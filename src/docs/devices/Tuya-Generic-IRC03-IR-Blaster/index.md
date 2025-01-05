@@ -10,6 +10,8 @@ board: bk72xx
 
 There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum/topic4012905.html).
 
+![IRC03](IRC03.jpg)
+
 ## GPIO Pinout
 
 | Pin | Function      |
