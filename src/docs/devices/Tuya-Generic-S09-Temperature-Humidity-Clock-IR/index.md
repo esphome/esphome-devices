@@ -9,7 +9,10 @@ board: bk72xx
 ## General Notes
 
 There are a few similar models of this device, some without the IR function, such as the TH06.
+Some have different date formats and 24 hour time.
 There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum/topic4035679.html).
+
+![S09](S09.jpg)
 
 ## GPIO Pinout
 
