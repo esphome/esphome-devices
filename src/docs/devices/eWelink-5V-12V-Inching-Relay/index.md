@@ -7,6 +7,11 @@ board: esp8266
 difficulty: 4
 ---
 
+## Notes
+
+- Board name is `PSF-B01`
+- This device is advertised in eWelink as _Coolkit 0185_, which is a generic name used for more devices.
+
 ## Product Images
 
 TODO.
