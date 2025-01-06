@@ -3,8 +3,8 @@ title: Lanbon L8 Smart Switch Panel
 date-published: 2025-01-06
 type: misc
 standard: global
-project-url: https://lanbon.en.alibaba.com/productgrouplist-818311335/L8_Dimmer_switch.html
 board: esp32
+difficulty: 2
 ---
 
 ![Product Image US](lanbon-l8-us-white.png "US Version") ![Product Image EU](lanbon-l8-eu-black.png "EU Version")
