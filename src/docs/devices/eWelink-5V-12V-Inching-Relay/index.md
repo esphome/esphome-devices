@@ -9,12 +9,23 @@ difficulty: 4
 
 ## Notes
 
-- Board name is `PSF-B01`
-- This device is advertised in eWelink as _Coolkit 0185_, which is a generic name used for more devices.
+- This device is advertised in eWelink as _Coolkit 0185_, which is a generic name used for more devices
+- Has a red LED attached to the relay output that cannot be controlled independently
+- Has a button for RF pairing, but the unit tested had no RF radio meaning it's a useless button
 
 ## Product Images
 
-TODO.
+![device](/device.png "Device")
+
+## Programming
+
+This device is powered by a [PSF-B01](https://templates.blakadder.com/PSF-B.html) board (ESP8285). You can flash it through the programming pins:
+
+![/programming-pins.png](/programming-pins.png "Programming pins")
+
+The button which is aligned with the micro-USB port is connected to GPIO0. You can use it to boot the board into flashing mode.
+
+You can also use the micro-USB to power the board with 5V during the flash, just make sure to still bridge GND with your programmer.
 
 ## GPIO Pinout
 
