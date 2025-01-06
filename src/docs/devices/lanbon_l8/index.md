@@ -7,7 +7,7 @@ project-url: https://lanbon.en.alibaba.com/productgrouplist-818311335/L8_Dimmer_
 board: esp32
 ---
 
-![Product Image US](lanbon-l8-us-white.jpg "US Version") ![Product Image EU](lanbon-l8-eu-black.jpg "EU Version")
+![Product Image US](lanbon-l8-us-white.png "US Version") ![Product Image EU](lanbon-l8-eu-black.png "EU Version")
 
 ## Drivers
 
