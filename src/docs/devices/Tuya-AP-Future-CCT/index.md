@@ -42,12 +42,12 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
 
 captive_portal:
 

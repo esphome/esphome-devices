@@ -69,11 +69,8 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: $device_friendly_name
-    password: !secret wifi_fallback_password
+
 captive_portal:
 
 # Initialize the UART that connects to the Tuya MCU

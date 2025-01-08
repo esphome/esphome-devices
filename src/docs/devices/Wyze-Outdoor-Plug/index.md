@@ -107,7 +107,7 @@ sensor:
     id: lux_sensor
     device_class: illuminance
     unit_of_measurement: lx
-    attenuation: 11db
+    attenuation: 12db
   - platform: hlw8012
     sel_pin:
       number: GPIO25
@@ -126,6 +126,8 @@ sensor:
       name: "${display_name} Volts"
       unit_of_measurement: V
       accuracy_decimals: 1
+    energy:
+      name: "${display_name} Energy"
     power:
       name: "${display_name} Watts"
       unit_of_measurement: W

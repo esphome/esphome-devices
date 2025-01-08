@@ -1,5 +1,5 @@
 ---
-title: ESP32 Realy Board x8
+title: ESP32 Relay Board x8
 date-published: 2022-10-17
 type: relay
 standard: global
@@ -14,7 +14,7 @@ This is a 8-relay board with an ESP32-WROOM-E.
 
 Each relay has COM+NO+NC exposed. Product descriptions don't seem to specify maximum load. Each relay supports 10Amp max load, acconding to the label.
 
-The board can be powered either via 7-30VDC or via 5VDC (separate connectors).
+The board can be powered either via 7-30VDC or via 5VDC (separate connectors). It draws about 100mA with the relays off, and just over 500mA with all the relays on.
 
 I bought it from: https://www.aliexpress.us/item/3256802045374301.html
 
@@ -46,7 +46,6 @@ light:
     restore_mode: ALWAYS_ON
     pin:
       number: GPIO23
-      inverted: true
 
 # 8 relay outputs, exposed as switches in Home Assistant
 switch:

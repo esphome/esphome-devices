@@ -43,10 +43,6 @@ esphome:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: 192.168.x.x
-    subnet: 255.255.255.0
 
 logger:
   

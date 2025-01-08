@@ -55,6 +55,7 @@ api:
     key: !secret
 
 ota:
+  platform: esphome
   password: !secret
 
 wifi:
@@ -65,6 +66,11 @@ wifi:
   ap:
     ssid: "$proper_devicename Hotspot"
     password: !secret ap_password
+sensor:
+  - platform: wifi_signal
+    name: "Wifi Signal"
+    update_interval: 120s
+    entity_category: "Diagnostic"
 
 binary_sensor:
   - platform: gpio
@@ -76,6 +82,12 @@ binary_sensor:
 
   - platform: status
     name: Eco Plug
+    entity_category: "Diagnostic"
+
+text_sensor:
+  - platform: version
+    name: "Firmware Version"
+    entity_category: "Diagnostic"
 
 switch:
   - platform: gpio
@@ -104,4 +116,8 @@ interval:
          - output.turn_off: blue_led
 
 captive_portal:
+# Example configuration entry
+web_server:
+  port: 80
+  version: 1
 ```

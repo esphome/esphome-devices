@@ -42,7 +42,8 @@ substitutions:
 esphome:
   name: ${devicename}
   comment: ${device_description}
-  platform: esp8266
+
+esp8266:
   board: esp01_1m
 
 # Enable logging
@@ -113,7 +114,7 @@ switch:
     icon: mdi:power-socket-fr
     name: "${friendly_name} Switch"
   # Edit below line based on what default behaviour you want after power outage
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
       - switch.turn_on: sw_led1
     on_turn_off:
@@ -135,7 +136,6 @@ uart:
 
 sensor:
   - platform: cse7766 # https://esphome.io/components/sensor/cse7766.html
-    update_interval: 1s
     uart_id: cse7766_uart_bus
     current:
       name: "${friendly_name} Current"
