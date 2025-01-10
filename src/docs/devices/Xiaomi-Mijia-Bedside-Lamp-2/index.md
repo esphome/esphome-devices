@@ -50,12 +50,12 @@ An [external component](https://github.com/mmakaay/esphome-xiaomi_bslamp2) was c
 All information on how to build, flash and configure the ESPHome firmware can be found in the component repository. Here are some useful links:
 
 * [The GitHub repo](https://github.com/mmakaay/esphome-xiaomi_bslamp2)
-* [Documentation index](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/README.md)
-* [Quick start guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/README.md#quick-start-guide)
-* [Flashing guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/doc/flashing.md)
-* [Configuration guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/doc/configuration.md)
-  and an [example.yaml](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/example.yaml)
-* [Technical details](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/main/doc/technical_details.md)
+* [Documentation index](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/dev/README.md)
+* [Quick start guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/dev/README.md#quick-start-guide)
+* [Flashing guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/dev/doc/flashing.md)
+* [Configuration guide](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/dev/doc/configuration.md)
+  and an [example.yaml](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/dev/example.yaml)
+* [Technical details](https://github.com/mmakaay/esphome-xiaomi_bslamp2/blob/dev/doc/technical_details.md)
 
 ## Contacting the author
 
