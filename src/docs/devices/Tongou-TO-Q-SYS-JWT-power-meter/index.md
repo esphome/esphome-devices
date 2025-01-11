@@ -1,6 +1,6 @@
 ---
 title: Tongou TO-Q-SYS-JWT DIN Rail Switch and Meter
-date-published: 2024-01-05
+date-published: 2025-01-05
 type: switch
 standard: global
 board: bk72xx
