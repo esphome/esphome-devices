@@ -1,6 +1,6 @@
 ---
 title: M5Stack AirQ
-date-published: 2024-11-14
+date-published: 2025-01-08
 type: sensor
 standard: global
 difficulty: 2
@@ -47,11 +47,30 @@ This YAML was adapted from a sample provided by **joshblake87** at https://www.r
 ## Example Configuration
 
 ```yml
+# M5Stack AirQ ESPHome Configuration
+# ------------------------------------------
+# Before using this configuration:
+# 1. Update the substitutions section with your values from Home Assistant:
+#    - encryption_key: 32-character key for API encryption
+#    - ota_password: Password for OTA updates
+#    - ap_password: Password for fallback AP mode (optional)
+# 2. Ensure your secrets.yaml contains:
+#    wifi_ssid: "YOUR_WIFI_SSID"
+#    wifi_password: "YOUR_WIFI_PASSWORD"
+# 3. Adjust other substitutions as needed (devicename, location, etc)
+
 substitutions:
   devicename: airq
   friendlyname: AirQ
   location: Office
   sensor_interval: 60s
+
+# Security related substitutions - CHANGE THESE VALUES!
+  encryption_key: "YOUR_32_CHARACTER_ENCRYPTION_KEY_HERE"
+  ota_password: "YOUR_OTA_PASSWORD_HERE"
+  ap_password: "airq-device"  # Fallback AP password
+# Sensor calibration
+  altitude_compensation: "207m"  # Local altitude for CO2 sensor
 
 esphome:
   name: ${devicename}
@@ -83,11 +102,11 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "YOUR_KEY_HERE"
+    key: "${encryption_key}"
 
 ota:
   - platform: esphome
-    password: "YOUR_PW_HERE"
+    password: "${ota_password}"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -95,8 +114,8 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Airq Fallback Hotspot"
-    password: "YOUR_HOTSPOT_PW_HERE"
+    ssid: "${devicename} Fallback Hotspot"
+    password: "${ap_password}"
 
 captive_portal:
 
@@ -113,7 +132,7 @@ i2c:
   sda: GPIO11
   scl: GPIO12
   scan: true
-  frequency: 100kHz
+  frequency: 50kHz
   id: bus_a
 
 spi:
@@ -654,19 +673,19 @@ font:
       weight: 500
     id: font_small
     size: 30
-    glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz→»"
+    glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz»"
   - file:
       type: gfonts
       family: Open Sans
       weight: 500
     id: font_medium
     size: 45
-    glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz→»"
+    glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz»"
   - file:
       type: gfonts
       family: Open Sans
       weight: 300
     id: font_xsmall
     size: 16  
-    glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz→»"
+    glyphs: "!\"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz»"
 ```
