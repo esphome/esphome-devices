@@ -54,9 +54,13 @@ The main board with the CBU chip is easily detachable from the main board but pi
 
 ## Disassembly and Reassembly
 
-The rivets holding the device together seem to be DIN 7340 type B (d1 = 2mm, L ~= 16mm) hollow rivets. As the rivets are small in diameter it is not possible to remove them without drilling.
+The rivets holding the device together seem to be DIN 7340 type B (d1 = 2mm, L ~= 16mm) hollow rivets. As the rivets are small in diameter it is not possible to remove them without drilling. Drill a `2mm` hole to remove the rivets.
 
-A 2mm hole can be drilled but there is enough plastic to make a `D = 2.5mm` hole with a `P = 0.5mm` [pitch](https://en.wikipedia.org/wiki/Screw_thread) in it for an [M3-0.5 x 18mm](https://en.wikipedia.org/wiki/ISO_metric_screw_thread#Preferred_sizes) screw (`18mm` being the length of the screw and the width of the device). Get a metric [tap and die](https://en.wikipedia.org/wiki/Tap_and_die) set that has M3x0.5 in it and carefully prepare the holes (it's better to detach the plastic case parts when doing that).
+In order to reassemble the device you will need a [tap](https://en.wikipedia.org/wiki/Tap_and_die) and a set of [M2.5](https://en.wikipedia.org/wiki/ISO_metric_screw_thread#Preferred_sizes) screws with a length of `15mm - 18mm` (`18mm` being the width of the device). Do it in the following order:
+
+- Separate the two plastic parts of the device's body after drilling the rivets out;
+- Drill a `2.5mm` hole in one part;
+- In the other part, use the metric tap to create a [thread](https://en.wikipedia.org/wiki/Screw_thread) for an M2.5 screw.
 
 ## Data Points
 
