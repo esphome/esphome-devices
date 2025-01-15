@@ -1,0 +1,38 @@
+---
+title: Solis S3 WiFi Stick
+date-published: 2023-05-01
+type: misc
+standard: global
+board: rtl87xx
+project-url: https://github.com/hn/ginlong-solis
+difficulty: 3
+---
+
+## General Notes
+
+This configuration is for the [Solis S3 WiFi Stick](https://www.solisinverters.com/us/accessories5/WiFi_Data_Logging_Stick_us.html)
+which reads usage data from Solis solar inverters.
+
+## Flashing Instuctions
+
+This device uses a MXCHIP EMW3080-E MCU (RTL8710BN clone),
+supported by [LibreTiny](https://docs.libretiny.eu/boards/generic-rtl8710bn-2mb-468k/).  
+ltchiptool works to flash an ESPHome generated .UF2 firmware via a USB to serial converter
+connected to the test points on the board.  
+
+## GPIO Pinout
+
+| Pin  | Function          |
+| ---- | ----------------- |
+| PA00 | HW watchdog reset |
+| PA05 | Status LED green  |
+| PA08 | Reset button      |
+| PA12 | Status LED orange |
+| PA18 | ModBus UART RX    |
+| PA19 | ModBus Flow Ctrl  |
+| PA23 | ModBus UART TX    |
+
+## Basic Configuration
+
+Please see the [project page](https://github.com/hn/ginlong-solis) as there a multiple options and packages.
+
