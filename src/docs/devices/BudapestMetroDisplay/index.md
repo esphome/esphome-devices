@@ -1,6 +1,6 @@
 ---
 title: BudapestMetroDisplay
-date-published: 2024-12-20
+date-published: 2025-01-16
 type: misc
 standard: global
 board: esp32
