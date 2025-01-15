@@ -35,10 +35,10 @@ board: esp8266
 
 substitutions:
   devicename: nousa4tplug
-  # Higher value gives lower watt readout
-  current_res: "0.00280"
-  # Lower value gives lower voltage readout
-  voltage_div: "775"
+  # See calculator at bottom of https://esphome.io/components/sensor/hlw8012.html to calibrate these values
+  voltage_div: "1541"
+  current_res: "0.0010829518310527565"
+  current_multiply: "0.8476903844535357"
 
 api:
 
@@ -62,11 +62,6 @@ esp8266:
   board: esp8285
   restore_from_flash: true
   early_pin_init: false
-
-
-time:
-  - platform: homeassistant
-    id: ha_time
 
 binary_sensor:
   - platform: gpio
@@ -130,6 +125,8 @@ sensor:
       accuracy_decimals: 3
       device_class: current
       state_class: measurement
+      filters:
+        - multiply: ${current_multiply}
     voltage:
       name: voltage
       id: voltage
@@ -144,14 +141,11 @@ sensor:
       accuracy_decimals: 1
       device_class: power
       state_class: measurement
-
-  - platform: total_daily_energy
-    name: daily_energy
-    power_id: power
-    restore: false
-    unit_of_measurement: Wh
-    accuracy_decimals: 0
-    device_class: energy
-    state_class: total_increasing
-
+    energy:
+      name: energy
+      id: energy
+      unit_of_measurement: Wh
+      accuracy_decimals: 0
+      device_class: energy
+      state_class: total_increasing
 ```
