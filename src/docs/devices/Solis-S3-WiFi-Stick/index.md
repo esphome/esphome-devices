@@ -1,6 +1,6 @@
 ---
 title: Solis S3 WiFi Stick
-date-published: 2023-05-01
+date-published: 2025-01-16
 type: misc
 standard: global
 board: rtl87xx
