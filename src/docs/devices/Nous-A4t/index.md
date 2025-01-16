@@ -1,6 +1,6 @@
 ---
 title: Nous A4t
-date-published: 2025-01-14
+date-published: 2025-01-16
 type: plug
 standard: eu
 board: esp8266
