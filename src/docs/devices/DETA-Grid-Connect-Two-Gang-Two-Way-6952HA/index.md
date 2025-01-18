@@ -1,6 +1,6 @@
 ---
 title: DETA Grid Connect Smart Switch 2 Way 2 Gang (6952HA)
-date-published: 2024-05-21
+date-published: 2025-01-18
 type: switch
 standard: au
 board: bk72xx
