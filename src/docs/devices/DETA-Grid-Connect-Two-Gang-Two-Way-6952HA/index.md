@@ -10,7 +10,7 @@ board: bk72xx
 
 The DETA [Switch Smart Grid 2 Way 2 Gang (6951HA)](https://www.bunnings.com.au/deta-switch-smart-grid-2-way-2-gang_p0346911) is part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia.
 
-![6852HA.jpg](./6952HA.jpg "DETA 6952HA, with 'Series 2' highlighted.")
+![6952HA packet](./6952HA-packet.jpg "DETA 6952HA packet, with 'Series 2' highlighted.")
 
 Also known as:
 
@@ -30,11 +30,14 @@ As shown on the front of the packet.
 
 ### Manual Flashing
 
-You'll need a USB to serial adapter. Follow the disassembly steps below:
+You'll need a USB to serial adapter.
 
 1. Remove the front plastic face.
 2. Unscrew the two exposed screws.
 3. Remove the clear panel and the small PCB underneath.
+4. Connect TX, RX, GND and 3V3 to the USB to serial adapter.
+
+![6952HA manual flashing](./6952HA-manual-flashing.jpg "DETA 6952HA board connected to a USB to serial adapter.")
 
 Follow the [ltchiptool](https://github.com/libretiny-eu/ltchiptool) documentation to flash the microcontroller with [ESPHome Kickstart](https://github.com/libretiny-eu/esphome-kickstart/releases), or build an ESPHome package from the configuration below.
 
