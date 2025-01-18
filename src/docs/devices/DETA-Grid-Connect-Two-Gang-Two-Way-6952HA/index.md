@@ -79,14 +79,6 @@ wifi:
 
 logger:
 
-api:
-  encryption:
-     key: !secret esphome_api_encryption_key
-
-ota:
-  platform: esphome
-  password: !secret esphome_ota_password
-
 
 # Status LED
 status_led:
