@@ -56,7 +56,7 @@ output:
   - platform: gpio
     pin: GPIO13
     id: gpio_13
-       
+
 switch:
   - name: "Top LED"
     id: led_top
@@ -66,7 +66,7 @@ switch:
     id: led_middle
     platform: output
     output: gpio_13
-       
+
 binary_sensor:
   - platform: gpio
     pin:
