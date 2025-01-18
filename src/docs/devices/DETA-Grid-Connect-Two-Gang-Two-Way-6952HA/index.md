@@ -17,14 +17,13 @@ Also known as:
 - Smart Double Gang 2 Way Touch Light Switch ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-double-gang-2-way-touch-light-switch/))
 - Twin Gang 2 Way Touch Light Switch ([Grid Connect website](https://grid-connect.com.au/download/6952ha/))
 
-
 ### Variations
 
 As shown on the front of the packet.
 
 | Variation   | Microcontroller | Board     | Firmware | Flashing methods |
 | ----------- | --------------- | --------- | -------- | ---------------- |
-| Series 2    | Beken BK7231N   | Tuya CB3S | v1.3.5   | Manual flashing  | 
+| Series 2    | Beken BK7231N   | Tuya CB3S | v1.3.5   | Manual flashing  |
 
 ## Setup Guide
 
@@ -47,16 +46,15 @@ Follow the [ltchiptool](https://github.com/libretiny-eu/ltchiptool) documentatio
 
 _See [Pinouts on CB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076#title-5-Pin%20definition) for more detail_
 
-
 | Pin    | Function                                                                          |
 | ------ | --------------------------------------------------------------------------------- |
-| P24    | Status LED  _(inverted)_
-| P26    | Button 1 _(inverted)_
-| P23    | Button 2 _(inverted)_
-| P14    | Relay 1 and Button 1 LED
-| P6    | Relay 2 and Button 2 LED
+| P24    | Status LED  _(inverted)_ |
+| P26    | Button 1 _(inverted)_ |
+| P23    | Button 2 _(inverted)_ |
+| P14    | Relay 1 and Button 1 LED |
+| P6    | Relay 2 and Button 2 LED |
 | P7     | Light 1 activation status, taking into account _this_ Light 1 switch and the _remote_ Light 1 switch _(inverted)_     |
-| P8     | Light 2 activation status, taking into account _this_ Light 2 switch and the _remote_ Light 2 switch _(inverted)_     |  |
+| P8     | Light 2 activation status, taking into account _this_ Light 2 switch and the _remote_ Light 2 switch _(inverted)_     |
 
 ## Configuration Examples
 
