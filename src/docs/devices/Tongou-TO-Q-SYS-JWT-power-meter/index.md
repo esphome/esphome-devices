@@ -27,14 +27,9 @@ The [device](https://www.tongou.com/product/single-phase-din-rail-smart-meter) i
 
 ## UART Buffer Size Adjustment
 
-The MCU sends Tuya data points quickly and needs 300+ bytes of UART buffer space. The CBU chip running Esphome is not able to process incoming bytes fast enough so many data points get discarded with the default buffer size of 64 bytes.
+The MCU sends Tuya data points quickly and needs 300+ bytes of UART buffer space. The CBU chip running ESPHome is not able to process incoming bytes fast enough so many data points get discarded with the default buffer size of 64 bytes.
 
-As it is [not possible to override](https://github.com/esphome/issues/issues/6240#issuecomment-2349516017) this setting easily, this config just incorporates a downstream change to alter the buffer size.
-
-Therefore, the attached config relies on a [version of ArduinoCore-API](https://github.com/dshcherb/ArduinoCore-API/releases/tag/2025.1.4) based on upstream 1.5.1 with two patches:
-
-- The buffer size increase from default 64 bytes to 1024 bytes: https://github.com/dshcherb/ArduinoCore-API/commit/365122ef16e4065a4cc06c4f1db786a5f6d0b7d8
-- The printf feature patch from the [Libretiny fork](https://github.com/libretiny-eu/ArduinoCore-API/commit/3a4cbfcc88f8c2c6b52e406745cd51db1370f621) of ArduinoCoreAPI: https://github.com/dshcherb/ArduinoCore-API/commit/ce57327c3bbcb70d007f915a1c5c92dd6f16a5f1
+As of [Libretiny 1.8.0](https://github.com/libretiny-eu/libretiny/releases/tag/v1.8.0) it is possible to adjust the RX buffer size using a framework option so make sure to set `LT_SERIAL_BUFFER_SIZE: 512` which is large enough for the incoming messages from the MCU.
 
 ## Flashing Instructions
 
@@ -54,9 +49,13 @@ The main board with the CBU chip is easily detachable from the main board but pi
 
 ## Disassembly and Reassembly
 
-The rivets holding the device together seem to be DIN 7340 type B (d1 = 2mm, L ~= 16mm) hollow rivets. As the rivets are small in diameter it is not possible to remove them without drilling.
+The rivets holding the device together seem to be DIN 7340 type B (d1 = 2mm, L ~= 16mm) hollow rivets. As the rivets are small in diameter it is not possible to remove them without drilling. Drill a `2mm` hole to remove the rivets.
 
-A 2mm hole can be drilled but there is enough plastic to make a `D = 2.5mm` hole with a `P = 0.5mm` [pitch](https://en.wikipedia.org/wiki/Screw_thread) in it for an [M3-0.5 x 18mm](https://en.wikipedia.org/wiki/ISO_metric_screw_thread#Preferred_sizes) screw (`18mm` being the length of the screw and the width of the device). Get a metric [tap and die](https://en.wikipedia.org/wiki/Tap_and_die) set that has M3x0.5 in it and carefully prepare the holes (it's better to detach the plastic case parts when doing that).
+In order to reassemble the device you will need a [tap](https://en.wikipedia.org/wiki/Tap_and_die) and a set of [M2.5](https://en.wikipedia.org/wiki/ISO_metric_screw_thread#Preferred_sizes) screws with a length of `15mm - 18mm` (`18mm` being the width of the device). Do it in the following order:
+
+- Separate the two plastic parts of the device's body after drilling the rivets out;
+- Drill a `2.5mm` hole in one part;
+- In the other part, use the metric tap to create a [thread](https://en.wikipedia.org/wiki/Screw_thread) for an M2.5 screw.
 
 ## Data Points
 
@@ -112,6 +111,11 @@ esphome:
 
 bk72xx:
   board: cbu
+  framework:
+    options:
+      # Increase the UART buffer size via a Libretiny-specific option.
+      LT_SERIAL_BUFFER_SIZE: 512
+    version: latest
 
 logger:
 
@@ -138,9 +142,7 @@ uart:
   rx_pin: RX1
   tx_pin: TX1
   baud_rate: 115200
-  # This does not work with libretiny unless a define in ArduinoCore-API is updated
-  # to increase the buffer size, see https://github.com/dshcherb/ArduinoCore-API/releases/tag/2025.1.4
-  rx_buffer_size: 1024
+  rx_buffer_size: 512
 
 
 time:
