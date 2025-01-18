@@ -13,11 +13,13 @@ The DETA [Switch Smart Grid 2 Way 2 Gang (6951HA)](https://www.bunnings.com.au/d
 ![6852HA.jpg](./6952HA.jpg "DETA 6952HA, with 'Series 2' highlighted.")
 
 Also known as:
- - Smart Double Gang 2 Way Touch Light Switch ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-double-gang-2-way-touch-light-switch/))
- - Twin Gang 2 Way Touch Light Switch ([Grid Connect website](https://grid-connect.com.au/download/6952ha/))
+
+- Smart Double Gang 2 Way Touch Light Switch ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-double-gang-2-way-touch-light-switch/))
+- Twin Gang 2 Way Touch Light Switch ([Grid Connect website](https://grid-connect.com.au/download/6952ha/))
 
 
 ### Variations
+
 As shown on the front of the packet.
 
 | Variation   | Microcontroller | Board     | Firmware | Flashing methods |
@@ -38,7 +40,8 @@ Follow the [ltchiptool](https://github.com/libretiny-eu/ltchiptool) documentatio
 
 ## GPIO Pinouts
 
-### Series 2 (CB3S)
+### Series 2 (CB3S) GPIO Pinouts
+
 _See [Pinouts on CB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076#title-5-Pin%20definition) for more detail_
 
 
@@ -54,7 +57,7 @@ _See [Pinouts on CB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/c
 
 ## Configuration Examples
 
-### Series 2 (CB3S)
+### Series 2 (CB3S) Configuration Examples
 
 ```yaml
 substitutions:
@@ -79,7 +82,6 @@ wifi:
 
 logger:
 
-
 # Status LED
 status_led:
   pin:
@@ -97,7 +99,7 @@ output:
 
 # Lights
 light:
-  # Keeping these internal to avoid sync issues if the lights 
+  # Keeping these internal to avoid sync issues if the lights
   # are switched off via the remote switch.
   # The lights are exposed as "switch" entities instead.
   - platform: binary
