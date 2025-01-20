@@ -217,7 +217,6 @@ light:
 
   - platform: esp32_rmt_led_strip
     rgb_order: GRB
-    rmt_channel: 0
     chipset: ws2812
     pin: GPIO25
     num_leds: 2
@@ -227,7 +226,6 @@ light:
     restore_mode: ALWAYS_OFF
   - platform: esp32_rmt_led_strip
     rgb_order: GRB
-    rmt_channel: 1
     chipset: ws2812
     pin: GPIO26
     num_leds: 2
