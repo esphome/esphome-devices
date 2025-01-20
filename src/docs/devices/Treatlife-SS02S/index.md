@@ -38,10 +38,13 @@ If flashing with the `esphome` tool does not work, you can try the `ltchiptool` 
   * Briefly disconnect power to the board and reconnect it (using the reset button of the board will disconnect the command above)
 
 ## Beken Board Versions
+
 ### WB3S Board
+
 ![BK7231S](BK7231S.jpg "BK7231S, aka WB3S board")
 
 ### CB3S Board and Flashing Setup
+
 ![BK7231N Flashing](BK7231N-flashing.jpg "BK7231N, aka CB3s board and flashing setup")
 
 ## GPIO Pinout
