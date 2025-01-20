@@ -145,9 +145,10 @@ output:
 
 ## Notes
 
-This was a pain to get open. What worked fairly well was to position the plug face up on top of the jaws of a vice, 
-where only the outer shell is resting on them.
-Then take a skinny punch to hammer through the ground hole to pop the back cover and pcb out the back.
+Opening the device can be tricky. Here’s a helpful method to open it:
 
-The GND and TX pins were also hard to get at without a precision soldering iron. The back case had to be bent and kept in
-place while soldering leads to those two pins.
+- Position the plug face-up on top of the jaws of a vice or two parallel flat surfaces, ensuring only the outer shell rests on them.
+- Use a small punch to hammer through the ground hole and pop the rear cover and PCB out of the back.
+
+Additionally, the GND and TX pins are difficult to access. A precision soldering iron is recommended to solder leads to these pins. 
+You may need to bend and hold the back case open while soldering.
