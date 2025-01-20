@@ -150,7 +150,7 @@ binary_sensor:
       - switch.turn_off: download_mode
 ```
 
-# References
+## References
 
 https://github.com/syssi/esphome-zb-gw03
 
