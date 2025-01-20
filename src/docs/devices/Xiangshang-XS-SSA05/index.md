@@ -26,7 +26,7 @@ To flash the device, you must attach GND, 3.3V, RX, and TX, and bridge IO0 to gr
 
 DO NOT ATTACH MAIN AC POWER TO DEVICE WHEN FLASHING
 
-![image](XS-SSA05-Flashing-Pins.png)
+![image](XS-SSA05-Flashing-Pins.jpg)
 
 ## GPIO Pinout
 
