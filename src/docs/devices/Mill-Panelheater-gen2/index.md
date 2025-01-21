@@ -37,8 +37,8 @@ Refer to the **GPIO Pinout section** for detailed instructions
 
 ```yaml
 substitutions:
-  devicename: "millzero_soverom"  #Lower case name
-  friendly_name: "Mill Zero Soverom"
+  devicename: "millzero_heater"  #Lower case name
+  friendly_name: "Mill Zero heater"
 
 esphome:
   name: "${devicename}"
