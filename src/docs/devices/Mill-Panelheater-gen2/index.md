@@ -10,6 +10,7 @@ difficulty: 5
 ---
 
 ## General Notes
+
 Mill panel heaters comes with different versions. This component is for the generation 2 panel heater versions (not the portable heater version).
 If you have a Generation 3 (that has ESP32 natively), take a look at this component https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater
 
@@ -23,6 +24,7 @@ Solder the 8266 as described in the GPIO Pinout section
 ![Solder](./soldered.jpg "Soldered 8266")
 
 ## GPIO Pinout
+
 | PIN (mill board) | ESP8266    | Description              |
 |------------------|------------|--------------------------|
 | +3.3V            | VCC        | Power input (3.3V)       |
@@ -59,10 +61,10 @@ captive_portal:
 # Enable logging
 logger:
   baud_rate: 0 # Deactived to prevent conflict with UART, sending UART to mill controller does not work if enabled
- 
+
 # Enable Home Assistant API
 api:
-  
+
 ota:
 
 uart:
@@ -76,5 +78,6 @@ climate:
     name: Mill heater
 ```
 
-## Credit
+## Credits
+
 This component is based on the work by https://github.com/JDolven/Replacing-HF_LPT120A-in-a-millheat-heater and https://github.com/trondsundt/MillHeat-ESPHome-NodeMCU
