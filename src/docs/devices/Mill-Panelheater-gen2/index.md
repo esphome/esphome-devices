@@ -11,10 +11,10 @@ difficulty: 5
 
 ## General Notes
 
-Mill panel heaters are available in various versions. This component is specifically designed for **Generation 2 panel heaters** (not compatible with portable heater models).
-If you have a Generation 3 panel heater (which comes with a built-in ESP32), check out this component: Mill Heater ESP32 Component. https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater
+Mill panel heaters are available in various versions. This component is specifically designed for **Generation 2 panel heaters** (not compatible with portable heater models). Have a look here to check which generation you have https://millheat.zendesk.com/hc/en-us/articles/360000252071-Which-generation-do-I-have.
+If you have a Generation 3 panel heater (which comes with a built-in ESP32), check out this component: https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater
 
-To use this component with a Generation 2 panel heater, you’ll need to replace the HF-LPT120A module with an ESP8266
+To use this component with a Generation 2 panel heater, you’ll need to replace the HF-LPT120A module with an ESP8266.
 ![Desolder](./desolder.jpg "Desolder the LPT120A chip")
 
 HF-LPT120A desoldered
