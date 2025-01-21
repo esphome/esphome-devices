@@ -11,16 +11,17 @@ difficulty: 5
 
 ## General Notes
 
-Mill panel heaters comes with different versions. This component is for the generation 2 panel heater versions (not the portable heater version).
-If you have a Generation 3 (that has ESP32 natively), take a look at this component https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater
+Mill panel heaters are available in various versions. This component is specifically designed for <strong>Generation 2 panel heaters</strong> (not compatible with portable heater models).
+If you have a Generation 3 panel heater (which comes with a built-in ESP32), check out this component: Mill Heater ESP32 Component. https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater
 
-To prepare the board you need to desolder the HF-LPT120A and replace it with a ESP 8266.
+To use this component with a Generation 2 panel heater, you’ll need to replace the HF-LPT120A module with an ESP8266
 ![Desolder](./desolder.jpg "Desolder the LPT120A chip")
 
 HF-LPT120A desoldered
 ![Removed](./removed.jpg "Removed the LPT120A chip")
 
-Solder the 8266 as described in the GPIO Pinout section
+Solder the ESP8266 in place.
+Refer to the <strong>GPIO Pinout section</strong> for detailed instructions
 ![Solder](./soldered.jpg "Soldered 8266")
 
 ## GPIO Pinout
