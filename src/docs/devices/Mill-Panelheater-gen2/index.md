@@ -18,10 +18,12 @@ To use this component with a Generation 2 panel heater, you’ll need to replace
 ![Desolder](./desolder.jpg "Desolder the LPT120A chip")
 
 HF-LPT120A desoldered
+
 ![Removed](./removed.jpg "Removed the LPT120A chip")
 
 Solder the ESP8266 in place.
 Refer to the **GPIO Pinout section** for detailed instructions
+
 ![Solder](./soldered.jpg "Soldered 8266")
 
 ## GPIO Pinout
