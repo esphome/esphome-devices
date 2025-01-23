@@ -21,7 +21,6 @@ The SelfIY Ring can be mounted on a **standard tripod thread (1/4″)**. Further
 
 More info and the housing STLs are available here: [Nerdiy.de](https://nerdiy.de/produkt/selfiy-ring-bauteile-3d-druckbarer-selfie-ring-stl-dateien/)
 
-
 ## GPIO Pinout
 
 | Pin    | Function          |
