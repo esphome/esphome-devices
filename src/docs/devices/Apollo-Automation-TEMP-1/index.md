@@ -25,7 +25,6 @@ The Apollo Automation TEMP-1 ( battery and non battery version ) is a temperatur
 - Bluetooth tracking and Bluetooth proxy
 - Battery version available
 
-
 ## Quickstart
 
 1. Plug in the TEMP-1.
