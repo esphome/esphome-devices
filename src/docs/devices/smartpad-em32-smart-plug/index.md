@@ -4,7 +4,7 @@ date-published: 2025-01-30
 type: plug
 standard: za
 board: eps32-c3
-project-url: [https://github.com/Smartpadza/Device_Configs/commit/3ff1c3319234792a9653f1f4a8b5aa4a196586c9](https://github.com/Smartpadza/Device_Configs/blob/main/smartpad-em32-smart-plug.yaml)
+project-url: (https://github.com/Smartpadza/Device_Configs/blob/main/smartpad-em32-smart-plug.yaml)
 difficulty: 1
 made-for-esphome: true
 ---
