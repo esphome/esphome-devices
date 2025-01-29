@@ -19,9 +19,12 @@ The chip is: `BK7231N`
 [Full info at libretiny:](https://docs.libretiny.eu/boards/cbu/)
 
 Macro:
+
 1. ![Chip is BK7231N](chip.jpg)
+
 Device view:
-2. ![Exterior look](image.png)
+
+1. ![Exterior look](image.png)
 
 #### Flash
 
