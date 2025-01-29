@@ -104,7 +104,6 @@ sensor:
         - below: 3.0
           then:
             - light.turn_off: switch_led
-      
 
   - platform: total_daily_energy
     name: Total Daily Energy
