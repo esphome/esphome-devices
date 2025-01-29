@@ -1,1 +1,34 @@
+---
+title: SmartPad EM32 16A Smart Plug with Energy Metering
+date-published: 2025-01-30
+type: plug
+standard: za
+board: eps32-c3
+project-url: https://github.com/Smartpadza/Device_Configs/commit/3ff1c3319234792a9653f1f4a8b5aa4a196586c9
+difficulty: 1
+made-for-esphome: true
+---
 
+![alt text](SPEM32.webp "SmartPad EM32 16A Smart Plug with Energy Metering")
+
+Maker: https://smartpad.co.za/
+Product page: https://store.smartpad.co.za/index.php/product/tasmota-16a-smart-plugs-with-energy-monitoring/
+
+Available pre-flashed with ESPHome or Tasmota.
+
+## GPIO Pinout
+
+| Pin    | Function   |
+| ------ | ---------- |
+| GPIO1  | Status LED |
+| GPIO20 | Button     |
+| GPIO4  | Relay      |
+| GPIO7  | BL0937 CF  |
+| GPIO3  | BL0937 CF1 |
+| GPIO5  | BL0937 SEL |
+| GPIO6  | Relay Led  |
+
+## Basic Configuration
+
+The [Latest configuration](https://github.com/Smartpadza/Device_Configs/blob/main/smartpad-em32-smart-plug.yaml)
+can be found on Smartpad South Africas GitHub repo.
