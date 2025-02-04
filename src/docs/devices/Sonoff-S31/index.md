@@ -31,6 +31,7 @@ esphome:
 
 esp8266:
   board: esp12e
+  early_pin_init: false
 
 wifi:
   ssid: !secret wifi_ssid
