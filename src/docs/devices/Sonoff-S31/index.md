@@ -41,6 +41,7 @@ wifi:
 api:
 
 ota:
+  platform: esphome
 
 # Device Specific Config
 
