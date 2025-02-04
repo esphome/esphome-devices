@@ -1,6 +1,6 @@
 ---
 title: Apollo Temperature Sensor (TEMP-1)
-date-published: 2025-1-29
+date-published: 2025-02-04
 type: sensor
 standard: global
 board: esp32
