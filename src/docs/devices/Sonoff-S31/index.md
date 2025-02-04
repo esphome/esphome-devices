@@ -28,17 +28,20 @@ You must [remove the cover and use the serial header](https://www.adventurousway
 # Basic Config
 esphome:
   name: sonoff_s31
-  platform: ESP8266
+
+esp8266:
   board: esp12e
+  early_pin_init: false
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-# Remove the following line if you're not using Home Assistsant or your switch will restart every now and again
+# Remove the following line if you're not using Home Assistant or your switch will restart every now and again
 api:
 
 ota:
+  platform: esphome
 
 # Device Specific Config
 
