@@ -28,7 +28,8 @@ You must [remove the cover and use the serial header](https://www.adventurousway
 # Basic Config
 esphome:
   name: sonoff_s31
-  platform: ESP8266
+
+esp8266:
   board: esp12e
 
 wifi:
