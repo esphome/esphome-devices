@@ -37,7 +37,7 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-# Remove the following line if you're not using Home Assistsant or your switch will restart every now and again
+# Remove the following line if you're not using Home Assistant or your switch will restart every now and again
 api:
 
 ota:
