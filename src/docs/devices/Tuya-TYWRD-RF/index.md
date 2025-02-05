@@ -1,6 +1,6 @@
 # TYWRD-RF WiFi Smart Garage Door Opener Switch
 
-Smart switch with rf receiver, one relay. CB3S microcontroller. 
+Smart switch with rf receiver, one relay. CB3S microcontroller.
 Input Voltage: AC85-250V or Micro-USB DC5V
 
 ## Product Image
