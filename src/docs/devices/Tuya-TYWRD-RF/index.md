@@ -47,13 +47,17 @@ remote_receiver:
 
 binary_sensor:
   - platform: gpio
-    pin: P6
+    pin:
+      number: P6
+      inverted: true
     name: "Button 1"
     on_press:
     - switch.turn_on: garagedoor
   - platform: gpio
-    pin: P14
-    name: "Button 1"
+    pin:
+      number: P14
+      inverted: true
+    name: "Button 2"
   - platform: remote_receiver
     name: "RF1"
     rc_switch_raw:
