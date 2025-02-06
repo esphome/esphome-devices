@@ -52,7 +52,7 @@ binary_sensor:
       inverted: true
     name: "Button 1"
     on_press:
-    - switch.turn_on: garagedoor
+    - button.press: garagedoor
   - platform: gpio
     pin:
       number: P14
@@ -63,15 +63,17 @@ binary_sensor:
     rc_switch_raw:
       code: '011111010000001101110011'
     on_press:
-    - switch.turn_on: garagedoor
+    - button.press: garagedoor
 
-switch:
+output:
   - platform: gpio
     pin: P24
+    id: relay
+
+button:
+  - platform: output
     name: "Garagedoor"
-    icon: "mdi:garage"
     id: garagedoor
-    on_turn_on:
-    - delay: 500ms
-    - switch.turn_off: garagedoor
+    output: relay
+    duration: 500ms
 ```
