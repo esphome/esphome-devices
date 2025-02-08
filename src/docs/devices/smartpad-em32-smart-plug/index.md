@@ -2,9 +2,9 @@
 title: SmartPad EM32 16A Smart Plug with Energy Metering
 date-published: 2025-01-30
 type: plug
-standard: in,global
-board: eps32-c3
-project-url: (https://github.com/Smartpadza/Device_Configs/blob/main/smartpad-em32-smart-plug.yaml)
+standard: global
+board: esp32
+project-url: https://github.com/Smartpadza/Device_Configs/blob/main/smartpad-em32-smart-plug.yaml
 difficulty: 1
 made-for-esphome: true
 ---
