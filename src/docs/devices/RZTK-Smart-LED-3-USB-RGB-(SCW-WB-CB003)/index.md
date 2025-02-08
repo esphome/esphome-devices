@@ -1,6 +1,6 @@
 ---
 title: RZTK Smart LED 3 USB RGB (Tuya SCW-WB-CB003)
-date-published: 2025-29-01
+date-published: 2025-01-29
 type: light
 standard: eu, us
 board: bk72xx
