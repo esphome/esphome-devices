@@ -3,7 +3,7 @@ title: Ledvance E27 RGBW Light 806lm
 date-published: 2024-08-07
 type: light
 standard: eu
-board: bk27xx
+board: bk72xx
 ---
 
 Product ID: AC33911
@@ -37,7 +37,7 @@ bk72xx:
 # Make sure logging is not using the serial port
 logger:
   baud_rate: 0
-  
+
 # Enable Home Assistant API
 api:
 
