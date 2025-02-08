@@ -90,12 +90,16 @@ i2c:
 pcf8574:
   - id: inputs_1_8
     address: 0x22
+    pcf8575: false
   - id: inputs_9_16
     address: 0x21
+    pcf8575: false
   - id: outputs_1_8
     address: 0x24
+    pcf8575: false
   - id: outputs_9_16
     address: 0x25
+    pcf8575: false
 
 binary_sensor:
   - platform: gpio
