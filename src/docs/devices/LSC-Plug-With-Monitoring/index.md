@@ -18,6 +18,7 @@ difficulty: 3
 ![plug](device.png)
 
 ## Getting it up and running
+
 I followed this [guide](https://keetsupport.nl/2024/03/20/how-to-flash-lsc-power-plug-with-esphome) with one important note - soldering isn't required if you have oscilloscope test probe clips.
 
 ## GPIO Pinout
@@ -31,7 +32,6 @@ I followed this [guide](https://keetsupport.nl/2024/03/20/how-to-flash-lsc-power
 | P8  | Relay           |
 | P6  | Red LED         |
 | P10 | Blue LED        |
-
 
 ## Basic configuration
 
@@ -54,7 +54,7 @@ substitutions:
   friendly_name: LSC Powerplug 1
   voltage_divider: '795'
   current_resistor: '0.001'
-  current_multiply: '0.450' 
+  current_multiply: '0.450'
 
 mdns:
 
