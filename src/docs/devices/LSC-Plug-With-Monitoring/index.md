@@ -14,11 +14,11 @@ difficulty: 3
 
 ## Product Images
 
-![plug with box](https://github.com/user-attachments/assets/2eb848f7-2a87-45be-8b1c-c2b323e82694)
-![plug](https://github.com/user-attachments/assets/9aa51d08-9576-4b4a-8cf2-cd5fb7c7b71c)
+![plug with box](box.png)
+![plug](device.png)
 
 ## Getting it up and running
-I followed this [guide](https://keetsupport.nl/2024/03/20/how-to-flash-lsc-power-plug-with-esphome) with only one important difference - soldering isn't required if you have oscilloscope test probe clips.
+I followed this [guide](https://keetsupport.nl/2024/03/20/how-to-flash-lsc-power-plug-with-esphome) with one important note - soldering isn't required if you have oscilloscope test probe clips.
 
 ## GPIO Pinout
 
