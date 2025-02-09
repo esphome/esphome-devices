@@ -4,7 +4,6 @@ date-published: 2025-02-09
 type: plug
 standard: eu
 board: BK7231N
-made-for-esphome: no
 difficulty: 3
 ---
 
