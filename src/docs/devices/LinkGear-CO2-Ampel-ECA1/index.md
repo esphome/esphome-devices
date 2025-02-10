@@ -10,6 +10,7 @@ made-for-esphome: True
 ---
 
 ## Available for purchase on LinkGear
+
 You can get your own LinkGear CO2 Ampel for ESPHome from the [LinkGear](https://linkgear.net/product/co2-ampel-multisensor-display-esphome/) website!
 
 ![CO2 Ampel for ESPHome](co2-ampel-for-esphome.jpg)
@@ -20,6 +21,7 @@ You can use our pre-configured ESPHome configuration to output the CO2 status on
 If you want to learn more, please check [our manual and instructions page](https://docs.linkgear.net/books/lg-eca1/)
 
 ## Flashing
+
 While all of our boards come pre-flashed and pre-tested, you can always re-flash it over at at [flash.linkgear.net](https://flash.linkgear.net/)
 
 ## Sensors
