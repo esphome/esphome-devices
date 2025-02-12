@@ -113,7 +113,7 @@ switch:
     name: "Sonoff S31 Relay"
     pin: GPIO12
     id: relay
-    restore_mode: ALWAYS_ON
+    restore_mode: ALWAYS_OFF # powering Relay may cause damage or instability when programmer supplying Vcc.
 
 time:
   - platform: sntp #(required for total_daily_energy)
