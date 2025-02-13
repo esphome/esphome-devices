@@ -6,7 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/Smartpadza/Device_Configs/blob/main/smartpad-em32-smart-plug.yaml
 difficulty: 1
-made-for-esphome: true
+made-for-esphome: false
 ---
 
 ![alt text](SPEM32.webp "SmartPad EM32 16A Smart Plug with Energy Metering")
