@@ -1,6 +1,6 @@
 ---
 title: SmartPad EM32 16A Smart Plug with Energy Metering
-date-published: 2025-01-30
+date-published: 2025-02-14
 type: plug
 standard: global
 board: esp32
