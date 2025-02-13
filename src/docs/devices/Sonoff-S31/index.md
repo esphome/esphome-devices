@@ -113,7 +113,7 @@ switch:
     name: "Sonoff S31 Relay"
     pin: GPIO12
     id: relay
-    restore_mode: ALWAYS_OFF # powering Relay may cause damage or instability when programmer supplying Vcc.
+    restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
 
 time:
   - platform: sntp #(required for total_daily_energy)
@@ -129,3 +129,4 @@ status_led:
 
 - `board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version 2024.4.0
 - `throttle_average: 60s` on cse7766 sensors is highly recommended with version 2024.2.0 or greater.
+- `restore_mode: ALWAYS_OFF` avoids potential damage or instability when using the programmer’s supply.
