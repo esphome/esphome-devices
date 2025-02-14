@@ -25,7 +25,7 @@ difficulty: 2
 | Pin    | Function   |
 | ------ | -----------|
 | GPIO17 | DC Pin |
-| GPIO21 | CS Pin | 
+| GPIO21 | CS Pin |
 | GPIO13 | WR Pin |
 | GPIO18 | RD Pin |
 | GPIO6  | Data D0 |
@@ -114,7 +114,6 @@ api:
     - lvgl.label.update:
         id: label_apistatus
         text_color: 0xFF0000
-    
 
 ota:
   - platform: esphome
@@ -154,7 +153,7 @@ time:
 output:
   - platform: ledc
     id: lcd_backlight_output
-    pin: 
+    pin:
       number: GPIO42
       inverted: false
 
@@ -196,10 +195,10 @@ display:
 
 i2c:
   - id: touchscreen_i2c
-    scl: 
+    scl:
       number: GPIO0
       ignore_strapping_warning: true
-    sda: 
+    sda:
       number: GPIO35
 
 touchscreen:
@@ -248,7 +247,7 @@ binary_sensor:
     name: Proximity Sensor
     id: proximity_sensor
     pin: GPIO11
-    on_press: 
+    on_press:
       then:
         - if:
             condition: lvgl.is_paused
@@ -262,7 +261,7 @@ switch:
   - platform: gpio
     name: Relay
     id: relay
-    pin: 
+    pin:
       number: GPIO36
     on_turn_on:
       - lvgl.widget.update:
@@ -282,7 +281,7 @@ switch:
           id: label_light_switch
           text: "\U000F0336"
           text_color: 0xFFFFFF
-  
+
   - platform: template
     name: Antiburn
     id: switch_antiburn
