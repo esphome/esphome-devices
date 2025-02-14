@@ -26,49 +26,59 @@ If the module is going to be replaced with an ESP12 it is recommended to program
 
 There are no pin headers broken out onto the board. First time programming connections will have to be made by soldering or spring pins.
 
-## GPIO Pinout
+## GPIO Pinout - Cannont Use GPIO since its wb3s board
 
 | Pin    | Function                        |
 | ------ | ------------------------------- |
-| GPIO0  | Button (inverted)               |
-| GPIO5  | Green LED (inverted)            |
-| GPIO13 | Blue LED (inverted)             |
-| GPIO14 | Left (when facing device) plug  |
-| GPIO16 | Right (when facing device) plug |
+| P1  | Button (inverted)               |
+| P8  | Green LED (inverted)            |
+| P6  | Blue LED (inverted)             |
+| P26 | Left (when facing device) plug  |
+| P14 | Right (when facing device) plug |
 
 ## Basic Configuration
 
 ```yaml
-# Basic Config
 esphome:
-  name: geeni_outdoor
-  friendly_name: geeni
-  platform: ESP8266
-  board: esp01_1m
-    # Change board to 'esp12e' if the original Tuya WB3S has been desoldered and replaced with an ESP12
+  name: greeni-duo
+  friendly_name: greeni_duo
+
+bk72xx:
+  board: wb3s
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxxxxxxxxxxxxx"
+
+ota:
+  - platform: esphome
+    password: "xxxxxxxxxxxxxx"
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-logger:
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Greeni-Duo Fallback Hotspot"
+    password: "xxxxxxxxxxxxxx"
 
-api:
-  encryption:
-    key: !secret encryption_key
-      # Or copy the encription key from the "Add Device" menu of ESPHome
-
-ota:
-  password: !secret ota_password
+captive_portal:
 
 #web_server:
 #  port: 80
   # Running the web server may cause issues on lower memory modules
 
+#----------------------------------------------------------------------
+
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO0
+      number: P1
       mode: INPUT_PULLUP
       inverted: True
     name: "Button"
@@ -90,7 +100,7 @@ binary_sensor:
 switch:
   - platform: gpio
     name: "Left plug"
-    pin: GPIO14
+    pin: P26
     id: relay_left
     on_turn_on:
       - light.turn_on: blue_led
@@ -98,7 +108,7 @@ switch:
       - light.turn_off: blue_led
   - platform: gpio
     name: "Right plug"
-    pin: GPIO16
+    pin: P14
     id: relay_right
     on_turn_on:
       - light.turn_on: green_led
@@ -107,11 +117,11 @@ switch:
 
 output:
   - platform: gpio
-    pin: GPIO5
+    pin: P8
     inverted: True
     id: green_led_gpio
   - platform: gpio
-    pin: GPIO13
+    pin: P6
     inverted: True
     id: blue_led_gpio
 
@@ -123,5 +133,5 @@ light:
   - platform: binary
     name: "Blue LED"
     id: blue_led
-    output: blue_led_gpio
+    output: blue_led_gpio    
 ```
