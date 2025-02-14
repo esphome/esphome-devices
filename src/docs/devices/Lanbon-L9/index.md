@@ -351,7 +351,7 @@ lvgl:
           styles: header_footer
           widgets:
           - label:
-              text: 
+              text:
                 time_format: "%l:%M %p"
                 time: my_sntp
               id: label_time
