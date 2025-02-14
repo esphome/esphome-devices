@@ -80,7 +80,8 @@ api:
     key: !secret esp_api_key
 
 ota:
-  password: !secret ota_secret
+  - platform: esphome
+    password: !secret ota_secret
 
 sensor:  
   - platform: wifi_signal
@@ -267,8 +268,9 @@ api:
 
 # Enable OTA
 ota:
-  safe_mode: true
-  password: !secret ota_password
+  - platform: esphome
+    safe_mode: true
+    password: !secret ota_password
 
 # Enable WiFi and AP for captive portal
 wifi:
