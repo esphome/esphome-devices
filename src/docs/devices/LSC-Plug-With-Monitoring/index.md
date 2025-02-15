@@ -116,7 +116,6 @@ output:
     pin: P10
 ```
 
-
 ## Advanced configuration
 
 ```yml
