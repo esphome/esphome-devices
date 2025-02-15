@@ -43,6 +43,91 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
 logger:
+
+web_server:
+
+captive_portal:
+
+substitutions:
+  friendly_name: Plug Living Room Desk
+
+mdns:
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  platform: esphome
+  password: !secret ota_password
+
+wifi:
+  networks:
+    - ssid: !secret wifi_ssid
+      password: !secret wifi_password
+  ap:
+
+
+sensor:
+  - platform: hlw8012
+    model: BL0937
+    change_mode_every: 2
+    cf_pin:
+      number: P26
+      inverted: true
+    cf1_pin:
+      number: P24
+      inverted: true
+    sel_pin:
+      number: P11
+      inverted: true
+
+binary_sensor:
+  - platform: gpio
+    id: binary_switch_1
+    pin:
+      number: P7
+      inverted: true
+      mode: INPUT_PULLUP
+
+switch:
+  - platform: gpio
+    id: switch_1
+    name: none
+    pin: P8
+    restore_mode: RESTORE_DEFAULT_OFF
+
+light:
+  - platform: status_led
+    id: light_red
+    name: "Red led"
+    pin: P6
+    restore_mode: RESTORE_DEFAULT_OFF
+  - platform: binary
+    name: "Status led"
+    id: blue_led
+    output: output_blue_led
+    restore_mode: RESTORE_DEFAULT_OFF
+    internal: true
+
+output:
+  - platform: gpio
+    id: output_blue_led
+    pin: P10
+```
+
+
+## Advanced configuration
+
+```yml
+esphome:
+  name: sockact
+  friendly_name: ${friendly_name}
+  
+bk72xx:
+  board: generic-bk7231n-qfn32-tuya
+
+logger:
   baud_rate: 0
 
 web_server:
