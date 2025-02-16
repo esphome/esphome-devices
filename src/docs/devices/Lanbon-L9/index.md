@@ -65,7 +65,7 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 1. Connect the GPIO0 pin to ground to put the ESP32 into the flash boot mode.
 1. Once flashed, the screen should power up and display ESPHome, while powered via the 5v supply.
 
-FIXME: insert picture of the header connections.
+![Lanbon L9 US Header](lanbon-l9-header.png)
 
 ## Example Configuration
 
@@ -206,6 +206,11 @@ touchscreen:
     id: my_touchscreen
     display: my_display
     i2c_id: touchscreen_i2c
+    calibration:
+      x_min: 0
+      y_min: 0
+      x_max: 169
+      y_max: 319
     on_release:
       - if:
           condition: lvgl.is_paused
