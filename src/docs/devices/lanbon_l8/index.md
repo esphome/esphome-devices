@@ -125,6 +125,7 @@ light:
     id: local_dimmer
     restore_mode: ALWAYS_OFF
     gamma_correct: 0.0
+    enable_pin: relay_3
 
 spi:
   clk_pin: GPIO19
