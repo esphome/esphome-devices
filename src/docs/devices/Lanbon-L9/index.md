@@ -15,7 +15,7 @@ difficulty: 2
 * Processor: ESP32-S3-WROOM-1U
 * Touchscreen: FT6336U
 * Display: ST7789V2
-* mmWave Prescence: MoreSense 10G Hand Sweeping Series MS10-3007D26M4
+* mmWave Presence: MoreSense 10G Hand Sweeping Series MS10-3007D26M4
 * Power Sensor: HLW8012 (CF pin only)
 
 ## GPIO Pinout
@@ -61,7 +61,7 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 
 1. Open the switch, by removing the terminal covers and the 4 small screws on the cornors.
 1. The front part of hte switch should "pop off", with a small amount of pressure.
-1. Connect a USB level shifter to the pin header on the front panel, using the pinout below.  Note, you must provide 5v power, while the Tx/Rx pins use a 3.3v level.  
+1. Connect a USB level shifter to the pin header on the front panel, using the pinout below.  Note, you must provide 5v power, while the Tx/Rx pins use a 3.3v level, the 3.3v power will be generated from the 5v by onboard linear regulators.
 1. Connect the GPIO0 pin to ground to put the ESP32 into the flash boot mode.
 1. Once flashed, the screen should power up and display ESPHome, while powered via the 5v supply.
 
