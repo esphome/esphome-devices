@@ -54,12 +54,9 @@ substitutions:
 mdns:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  platform: esphome
-  password: !secret ota_password
+  - platform: esphome
 
 wifi:
   networks:
