@@ -5,7 +5,7 @@ type: light
 standard: global
 board: esp32
 project-url: https://github.com/Nerdiyde/ESPHomeSnippets/blob/main/Snippets/selfIY_ring/nerdiys-selfiy-ring.yaml
-made-for-esphome: false
+made-for-esphome: true
 difficulty: 1
 ---
 
