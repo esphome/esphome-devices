@@ -177,6 +177,8 @@ switch:
     on_turn_off:
     - logger.log: "Switch Turned Off!"
     restore_mode: ALWAYS_OFF
+    turn_on_action:
+      script.execute: regular_press
     platform: template
     #lambda: |-
     #  if (id(power_status_pulses).state > 60.0f) {
