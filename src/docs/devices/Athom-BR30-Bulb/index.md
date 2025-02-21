@@ -47,11 +47,12 @@ substitutions:
 esphome:
   name: "${device_name}"
   name_add_mac_suffix: true
-  platform: ESP8266
-  board: esp8285
   project:
     name: "${project_name}"
     version: "${project_version}"
+
+esp8266:
+  board: esp8285
 
 api:
 
