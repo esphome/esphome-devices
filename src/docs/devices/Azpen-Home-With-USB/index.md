@@ -35,7 +35,8 @@ GPIO Descriptions
 # Basic Config
 esphome:
   name: azpenhome
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
