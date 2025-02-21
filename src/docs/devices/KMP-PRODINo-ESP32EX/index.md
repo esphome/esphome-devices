@@ -25,7 +25,8 @@ Manufacturer: [KMP Electronics](https://kmpelectronics.eu/shop/prodino-esp32ex/)
 # Basic Config
 esphome:
   name: prodino1
-  platform: ESP32
+
+esp32:
   board: esp-wrover-kit
 
 wifi:

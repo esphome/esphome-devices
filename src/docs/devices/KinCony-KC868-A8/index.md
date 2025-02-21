@@ -29,7 +29,8 @@ board: esp32
 # Basic Config
 esphome:
   name: kc868-a8
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 i2c:

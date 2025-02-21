@@ -52,7 +52,8 @@ substitutions:
 
 esphome:
   name: 6chan_energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:
@@ -234,7 +235,8 @@ substitutions:
 
 esphome:
   name: 6chan_energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:
@@ -517,7 +519,8 @@ substitutions:
 
 esphome:
   name: energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:

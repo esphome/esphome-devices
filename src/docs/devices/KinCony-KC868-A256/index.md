@@ -33,7 +33,8 @@ board: esp32
 # Basic Config
 esphome:
   name: KC868-A256
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 # Enable logging

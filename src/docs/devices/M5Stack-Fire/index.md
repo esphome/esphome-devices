@@ -96,7 +96,8 @@ substitutions:
 
 esphome:
   name: m5stackfire
-  platform: ESP32
+
+esp32:
   board: m5stack-fire
 
 wifi:

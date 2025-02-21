@@ -32,7 +32,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: "${device_description}"
-  platform: ESP32
+
+esp32:
   board: esp32-evb
 
 ethernet:

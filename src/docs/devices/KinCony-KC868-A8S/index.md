@@ -35,7 +35,8 @@ board: esp32
 # Basic Config
 esphome:
   name: KC868-A8S
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 remote_receiver:

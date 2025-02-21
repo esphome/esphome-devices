@@ -45,7 +45,8 @@ This board has headers for every GPIO pin on its ESP32.
 ```yaml
 esphome:
   name: ESP32 relayboard
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 # Status LED

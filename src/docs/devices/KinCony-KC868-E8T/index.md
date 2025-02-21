@@ -32,8 +32,6 @@ board: esp32
 # Basic Config
 esphome:
   name: KC868-E8T
-  platform: ESP32
-  board: esp32dev
   on_boot:  #Power chip BL0939 initialization
     priority: 600
     then:
@@ -56,6 +54,9 @@ esphome:
       - uart.write:
           id: uart_1
           data: [0xA5, 0x39, 0x00, 0x00, 0x00, 0x21]
+
+esp32:
+  board: esp32dev
 uart:
   - id: uart_1
     tx_pin: GPIO12
