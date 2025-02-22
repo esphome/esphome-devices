@@ -34,4 +34,4 @@ When contributing to this project please abide by our [Code of Conduct](CODE-OF-
 
 This devices catalog is a collaborative community effort.
 The goal is to involve more members of the ESPHome community to more actively update the devices!
-Please contact us or [start a discussion](https://github.com/esphome/esphome-devices/discussions/new/choose) if you are interested!
+Please submit a PR that adds or modifies a device if you are interested!  See this guide for adding devices: https://devices.esphome.io/adding-devices.
