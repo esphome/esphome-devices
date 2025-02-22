@@ -44,7 +44,8 @@ substitutions:
 
 esphome:
   name: wyzeoutdoor
-  platform: ESP32
+
+esp32:
   board: esp-wrover-kit
 wifi:
   ssid: !secret wifi_ssid

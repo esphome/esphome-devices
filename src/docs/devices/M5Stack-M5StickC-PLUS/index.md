@@ -45,10 +45,11 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP32
-  board: m5stick-c
   platformio_options:
     upload_speed: 115200
+
+esp32:
+  board: m5stick-c
 
 wifi:
   ssid: !secret wifi_ssid
