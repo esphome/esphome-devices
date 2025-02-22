@@ -35,9 +35,10 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  esp8266_restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
+  restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
 
 wifi:
   ssid: !secret wifi_ssid
@@ -269,9 +270,10 @@ In plug_common.yaml:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  esp8266_restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
+  restore_from_flash: true #writes each state change to flash for switch or light with restore_mode: RESTORE_DEFAULT_OFF/ON, see https://esphome.io/components/esphome.html#esp8266-restore-from-flash
 
 wifi:
   ssid: !secret wifi_ssid
