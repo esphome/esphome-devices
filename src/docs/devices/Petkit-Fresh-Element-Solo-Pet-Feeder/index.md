@@ -18,12 +18,29 @@ The feeder comes with a US power adapter and a barrel connector if ordered from 
 
 Official product [page](https://petkit.com/products/fresh-element-solo).
 
-## Flasing
+## Dissasembly
 
-The feeder base has to be taken apart to access the mainboard. This requires removal of 4 screws at the bottom side, hidden under the rubber feet. The rubber feet has to be partially peeled off to access the screws.
-See the the wiring diagram for flashing below (borrowed from the Reddit [comment](https://www.reddit.com/r/Esphome/comments/v19c7p/comment/jvl91mi/)). Press and hold the right button while plugging the adapter in, release after a second or two.
+The feeder base has to be taken apart to access the mainboard. This requires removal of four screws at the bottom side, hidden under the rubber feet. The rubber feet have to be partially peeled off to access the screws. Once the screws are removed, gently remove the base. Quite a lot of force may be required, as the red glue (pictured in the section below) used to secure the connectors in place may be adhered to the base. A heat gun on low or a hair dryer might help to loosen up the adhesive.
 
-![Wiring Diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing.png)
+## Flashing
+
+There are two (known) revisions of the mainboard:
+
+### Revision A
+
+See the the wiring diagram for flashing below (borrowed from the Reddit [comment](https://www.reddit.com/r/Esphome/comments/v19c7p/comment/jvl91mi/)). Press and hold the right button (the wifi button) while plugging the adapter in, and release after a second or two to enter boot mode.
+
+![Revision A Wiring Diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing-A.png)
+
+### Revision B
+
+This board revision is covered in silicone on the front, but there are testing pads on the bottom that can be soldered to for flashing.
+
+![Revision B Wiring Diagram](./Petkit-Fresh-Element-Solo-Pet-Feeder-Flashing-B.png)
+
+As with Revision A, hold the wifi button while plugging in the serial adapter and release after a couple seconds to enter boot mode.
+
+Revision B appears to otherwise have the same pinout as Revision A.
 
 ### Internal pinout
 
