@@ -95,13 +95,13 @@ sensor:
     pin:
       number: 34
       inverted: True
-      mode: 
-        input: True 
+      mode:
+        input: True
         pullup: False
         pulldown: False
     unit_of_measurement: 'CPS'
     name: 'Ionizing Radiation Power CPS'
-    count_mode: 
+    count_mode:
       rising_edge: DISABLE
       falling_edge: INCREMENT
     accuracy_decimals: 0
@@ -132,7 +132,7 @@ sensor:
     lambda: return id(pulse_sum);
     filters:
       delta: 1
-      
+
   - platform: copy
     source_id: geiger_cpm
     id: ionizing_radiaton_power
@@ -145,6 +145,6 @@ sensor:
       - skip_initial: 15
       - sliding_window_moving_average: # 15 measurements moving average (MA5) here
           window_size: 15
-          send_every: 1      
-      - multiply: 0.0057 # 0.0057 original value or 0.00332 for J305 by IoT-devices tube conversion factor of pulses into uSv/Hour 
+          send_every: 1
+      - multiply: 0.0057 # 0.0057 original value or 0.00332 for J305 by IoT-devices tube conversion factor of pulses into uSv/Hour
 ```
