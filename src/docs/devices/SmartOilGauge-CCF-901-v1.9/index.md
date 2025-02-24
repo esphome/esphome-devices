@@ -56,7 +56,7 @@ SMD Marking: C5F \
 https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499
 
 Switches the connection to A0 (GPIO17) 
-| SELECT | A0 (GPIO17)                  |
+| SELECT (GPIO15) | A0 (GPIO17)                  |
 | ------ | ---------------------------- |
 | LOW    | Battery Voltage*             |
 | HIGH   | Temperature (MCP9700AT-E/TT) |
