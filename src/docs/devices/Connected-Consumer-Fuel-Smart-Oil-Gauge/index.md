@@ -7,9 +7,14 @@ board: esp8266
 difficulty: 3
 ---
 
-Maker: https://www.smartoilgauge.com/
+![alt text](Product-Image.jpg "Smart Oil Gauge")
 
 Product Page: https://www.smartoilgauge.com/shop/product/ccf901i/
+
+SKU: CCF-901
+
+![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder")
+JSN-SR04T Waterproof Ultrasonic Range Finder. Configured to operate like a HC-SR04.
 
 
 ESP-WROOM-02 \
