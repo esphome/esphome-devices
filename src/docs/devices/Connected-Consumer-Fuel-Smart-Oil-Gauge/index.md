@@ -13,10 +13,10 @@ Product Page: https://www.smartoilgauge.com/shop/product/ccf901i/
 
 SKU: CCF-901
 
-![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder")
+
 JSN-SR04T Waterproof Ultrasonic Range Finder. Configured to operate like a HC-SR04.
 
-
+Look at Smartpoint layout \
 ESP-WROOM-02 \
 https://www.espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf
 
@@ -41,11 +41,13 @@ https://www.espressif.com/sites/default/files/documentation/0c-esp-wroom-02_data
 
 
 ## Ultrasonic JSN-SR04T
-https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf
-
+Datasheet: https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf \
+![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder") \
 The Ultrasonic JSN-SR04T is configured with R27 open. This causes the JSN-SR04T to operate using Trigger and Echo Pulses like an HC-SR04 Ultrasonic Distance Sensor.
 
 ## IC References
+
+![alt text](IC-Locations.jpg "IC Locations") \
 
 ### TPL5111 - Nano-Power System Timer for Power Gating
 SMD Marking: ZFVX \
@@ -58,7 +60,7 @@ Timer will cut 3.3V when DONE pin goes HIGH, will wake after 1hr.
 
 ### SN74LVC1G3157 - Single-Pole Double-Throw Analog Switch
 SMD Marking: C5F \
-https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499
+Datasheet: https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499
 
 Switches the connection to A0 (GPIO17) 
 | SELECT (GPIO15) | A0 (GPIO17)                  |
@@ -70,6 +72,6 @@ Switches the connection to A0 (GPIO17)
 
 ### MCP9700AT-E/TT - Low-Power Linear Active Thermistor IC
 SMD Marking: AFT3 \
-https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf
+Datasheet: https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf
 
 
