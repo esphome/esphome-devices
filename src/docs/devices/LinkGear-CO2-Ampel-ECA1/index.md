@@ -4,7 +4,7 @@ date-published: 2024-11-11
 type: sensor
 standard: global
 board: esp32
-project-url: https://docs.linkgear.net/books/co2-ampel-for-esphome/
+project-url: https://docs.linkgear.net/books/lg-eca1/
 difficulty: 1
 made-for-esphome: True
 ---
