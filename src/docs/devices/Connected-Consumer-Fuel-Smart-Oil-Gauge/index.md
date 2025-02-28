@@ -56,6 +56,22 @@ Datasheet: https://components101.com/sites/default/files/component_datasheet/JSN
 ![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder") \
 The Ultrasonic JSN-SR04T is configured with R27 open. This causes the JSN-SR04T to operate using Trigger and Echo Pulses like an HC-SR04 Ultrasonic Distance Sensor.
 
+## Operation
+
+Note: Be sure to modify the substitution section of the code for your tank_size and tank_orientation. \
+It is highly recomended to use an external 6.5 to 7.4 VDC power supply. Running this code will likely deplete the batteries faster than the stock firmware.
+
+The controller wakes every hour, sends three level readings to Home Assistant, and then powers down for another hour waiting for the TPL5111 to power it back up. 
+
+Pressing the control button once will either wake up the controller, or power it back down. 
+
+Double pressing the control button while powered on will toggle between allowing and not allowing the automatic power down. When the controller is on, and the automatic power down is allowed, the LED on the control board will be OFF and briefly blink ON every second. When the controller is on, the the automatic power down is not allowed, the LED on the control board will be ON and briefly blink OFF every second. Wait about 15 to 20 seconds after waking the controller before attempting to disable the automatic power down. Disabling the Automatic power down gives time to flash Esphome code updates. 
+
+| LED Behavior                 | Controller State (Double Press Control Button to switch states)                                           | 
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Short Blink ON every Second  | Controller is awake, after sending 3 oil volume measurements, will power down for 1 hour. (Default State) |
+| Short Blink OFF every Second | Controller is awake, will continue to stay awake until restarted. Usefull for reprogramming.              | 
+
 ## IC References
 
 ![alt text](IC-Locations.jpg "IC Locations") \
