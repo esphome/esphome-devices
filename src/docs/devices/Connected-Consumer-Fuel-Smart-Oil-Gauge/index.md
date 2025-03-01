@@ -13,14 +13,6 @@ Product Page: https://www.smartoilgauge.com/shop/product/ccf901i/
 
 SKU: CCF-901
 
-
-JSN-SR04T Waterproof Ultrasonic Range Finder. Configured to operate like a HC-SR04.
-
-Look at Smartpoint layout \
-ESP-WROOM-02 \
-https://www.espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf
-
-
 ## Pinout
 
 | Pin    | Function                                 |
@@ -105,7 +97,8 @@ Datasheet: https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/Produ
 
 ```yaml
 substitutions:
-  device_name: "hacked-oil"
+  device_name: "smart-oil-gauge"
+  friendly_name: "Smart Oil Gauge"
   Samples_Before_Sleep: '3'
   Auto_Sleep_On_dc: '2.5%'
   Auto_Sleep_Off_dc: '87%'
@@ -113,10 +106,9 @@ substitutions:
   tank_size: "330" # 275, 330, 500, 550, or 1000
   tank_orientation: '1'  # 1 = Vertical,  2 = Horizontal
 
-
 esphome:
   name: ${device_name}
-  friendly_name: Hacked_Oil
+  friendly_name: ${friendly_name}
   on_boot:
     - priority: 800
       then:
