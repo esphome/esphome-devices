@@ -25,13 +25,14 @@ SKU: CCF-901
 | GPIO0  | UART download                            |
 | GPIO16 | Connected to RST                         |
 | A0     | Temperature or Battery Voltage           |
-| RST    | Reset, Connected to GPIO16               | 
+| RST    | Reset, Connected to GPIO16               |
 | GPIO5  | Ultrasonic Echo (JSN-SR04T)              |
 | TXD    | UART0_TXD                                |
 | RXD    | UART0_RXD                                |
 | GPIO4  | Ultrasonic Trigger (JSN-SR04T)           |
 
 ## Flashing
+
 1) REMOVE THE BATTERIES!!
 2) Remove the control board
 3) Locate the contact points required for Physically Connecting to your Device: \
@@ -41,7 +42,7 @@ SKU: CCF-901
    https://www.sparkfun.com/ic-hook-test-leads.html \
    ![alt text](Flashing-Front.jpg "Front Flashing Connection") \
    ![alt text](Flashing-Edge.jpg "Edge Flashing Connection") \
-6) Follow the directions as outlined by Esphome for Physically Connecting to your Device: \
+5) Follow the directions as outlined by Esphome for Physically Connecting to your Device: \
    https://esphome.io/guides/physical_device_connection#physically-connecting-to-your-device \
 
 ## Operation
@@ -49,18 +50,19 @@ SKU: CCF-901
 Note: Be sure to modify the substitution section of the code for your tank_size and tank_orientation. \
 It is highly recommended to use an external 6.5 to 7.4 VDC power supply. Running this code will likely deplete the batteries faster than the stock firmware.
 
-The controller wakes every hour, sends three level readings to Home Assistant, and then powers down for another hour waiting for the TPL5111 to power it back up. 
+The controller wakes every hour, sends three level readings to Home Assistant, and then powers down for another hour waiting for the TPL5111 to power it back up.
 
-Pressing the control button once will either wake up the controller, or power it back down. 
+Pressing the control button once will either wake up the controller, or power it back down.
 
-Double pressing the control button while powered on will toggle between allowing and not allowing the automatic power down. When the controller is on, and the automatic power down is allowed, the LED on the control board will be OFF and briefly blink ON every second. When the controller is on, and the automatic power down is not allowed, the LED on the control board will be ON and briefly blink OFF every second. Wait about 15 to 20 seconds after waking the controller before attempting to disable the automatic power down. Disabling the Automatic power down gives time to flash Esphome code updates. 
+Double pressing the control button while powered on will toggle between allowing and not allowing the automatic power down. When the controller is on, and the automatic power down is allowed, the LED on the control board will be OFF and briefly blink ON every second. When the controller is on, and the automatic power down is not allowed, the LED on the control board will be ON and briefly blink OFF every second. Wait about 15 to 20 seconds after waking the controller before attempting to disable the automatic power down. Disabling the Automatic power down gives time to flash Esphome code updates.
 
-| LED Behavior                 | Controller State (Double Press Control Button to switch states)                                           | 
+| LED Behavior                 | Controller State (Double Press Control Button to switch states)                                           |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------- |
 | Short Blink ON every Second  | Controller is awake, after sending 3 oil volume measurements, will power down for 1 hour. (Default State) |
-| Short Blink OFF every Second | Controller is awake, will continue to stay awake until restarted. Useful for reprogramming.              | 
+| Short Blink OFF every Second | Controller is awake, will continue to stay awake until restarted. Useful for reprogramming.               |
 
 ## Ultrasonic JSN-SR04T
+
 Datasheet: https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf \
 ![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder") \
 The Ultrasonic JSN-SR04T is configured with R27 open. This causes the JSN-SR04T to operate using Trigger and Echo Pulses like an HC-SR04 Ultrasonic Distance Sensor.
@@ -70,6 +72,7 @@ The Ultrasonic JSN-SR04T is configured with R27 open. This causes the JSN-SR04T 
 ![alt text](IC-Locations.jpg "IC Locations") \
 
 ### TPL5111 - Nano-Power System Timer for Power Gating
+
 SMD Marking: ZFVX \
 https://www.ti.com/lit/ds/symlink/tpl5111.pdf?ts=1739630376626&ref_url=https%253A%252F%252Fwww.google.com%252F
 
@@ -79,10 +82,11 @@ Timer will cut 3.3V when DONE pin goes HIGH, will wake after 1hr.
 
 
 ### SN74LVC1G3157 - Single-Pole Double-Throw Analog Switch
+
 SMD Marking: C5F \
 Datasheet: https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499
 
-Switches the connection to A0 (GPIO17) 
+Switches the connection to A0 (GPIO17)
 | SELECT (GPIO15) | A0 (GPIO17)                  |
 | --------------- | ---------------------------- |
 | LOW             | Battery Voltage*             |
@@ -126,8 +130,8 @@ esphome:
             id: LED_pwm
             level: ${Auto_Sleep_On_dc}
         - switch.turn_on: TempSens_EN
-        
-  on_shutdown: 
+
+  on_shutdown:
     then:
       - switch.turn_off: ultrasonic_en
       - output.turn_off: LED_pwm
@@ -136,7 +140,7 @@ esphome:
             - switch.is_on: deep_sleep_trig
           then:
             - switch.turn_on: sleep_1hr
-      
+
 esp8266:
   board: esp_wroom_02
 
@@ -166,7 +170,7 @@ captive_portal:
 deep_sleep:
   id: my_deep_sleep
   sleep_duration: 30s
-    
+
 globals:
   - id: Tank_Width
     type: float
@@ -223,7 +227,7 @@ globals:
   - id: Tank_Size
     type: float
     initial_value: ${tank_size}
-  
+
   - id: Measure_Count
     type: int
     initial_value: '0'
@@ -242,7 +246,7 @@ switch:
     entity_category: "config"
     disabled_by_default: true
     optimistic: true
-    on_turn_on: 
+    on_turn_on:
       then:
         - script.execute: ultrasonic_loop
     on_turn_off:
@@ -253,13 +257,13 @@ switch:
     name: "Deep Sleep Trigger"
     id: deep_sleep_trig
     optimistic: True
-    on_turn_on: 
+    on_turn_on:
       then:
         - script.stop: ultrasonic_loop
         - switch.turn_off: ultrasonic_en
         - deep_sleep.enter:
             id: my_deep_sleep
-        
+
   - platform: template
     name: "Auto Sleep Disable"
     id: Auto_Sleep_Disable
@@ -310,7 +314,7 @@ output:
     period: 1s
     pin: GPIO2
     inverted: True
-  
+
 binary_sensor:
   - platform: gpio
     pin: 
@@ -340,7 +344,7 @@ sensor:
     state_class: measurement
     unit_of_measurement: 'gal'
     accuracy_decimals: 4
-  
+
   - platform: template
     name: 'Max Fill'
     id: Max_Fill_sens
@@ -358,7 +362,7 @@ sensor:
     entity_category: "diagnostic"
     filters:
       - lambda: |-
-          
+
           // Battery Voltage Divider R Values
           int R1 = 10;  // MOhm
           int R2 = 1;   // MOhm
@@ -371,7 +375,7 @@ sensor:
             return (x * (R1+R2))/R2; // Battery Voltage
           }
 
-    on_value: 
+    on_value:
       then:
         - if:
             condition:
@@ -440,25 +444,25 @@ sensor:
     id: Oil_Distance
     accuracy_decimals: 25
     update_interval: never # 4s
-    filters: 
+    filters:
 
       - median:
           window_size: 5
           send_every: 5
           send_first_at: 5
 
-      - sliding_window_moving_average: 
+      - sliding_window_moving_average:
           window_size: 16
           send_every: 16
           send_first_at: 16
-      
+
       - lambda: |-
-          
+
           // Calc Molecular Weight of Vapor above Oil
 
           double MW_Oil = 167.31102; // g_Oil/mol_Oil  (C12H23)
           double MW_Air = 28.9639475; // g_Air/mol_Air
-          
+
           double P_Total = 101.325; // kPa (Could use a measured pressure here)
           double P_Oil = id(VP_Oil).state; // Partial Pressure of Oil kPa
           double P_Air = P_Total - P_Oil; // Partial Pressure Of Air kPa
@@ -478,14 +482,14 @@ sensor:
           double total_dist = x * 2.0;
           double time_s = total_dist / ESP_speed_sound_m_per_s;
 
-          
+
           // Calc Speed of Sound in Vapor above Oil
           // https://en.wikipedia.org/wiki/Speed_of_sound
           double gamma = 1.4; // Oil is small enough fraction that large change in gamma is not expected
           double R = 8.31446261815324;
           double Sc = sqrt(gamma * R * 273.15 / MW_Total);          
           double speed_sound_m_per_s = Sc * sqrt(1+(id(TempC).state/273.15)); // ideal diatomic gas
-          
+
           // Calc Distance to Oil Surface
           total_dist = time_s * speed_sound_m_per_s;
           return total_dist/2.0;
@@ -494,8 +498,8 @@ sensor:
       then:
         - script.execute: Calc_Oil_Height
 
-script:    
-  
+script:
+
   - id: Calc_Oil_Height
     then:
       - if:
@@ -514,7 +518,7 @@ script:
             - lambda: |-
                 id(Oil_Height) = id(Tank_Width) - (id(Oil_Distance).state * 1000 / 25.4);
             - script.execute: Check_Oil_Height_H
-      
+
   - id: Check_Oil_Height_H
     then:
       - lambda: |-
@@ -551,13 +555,13 @@ script:
               - lambda: |-
                   return id(Oil_Height) >= 0;
               - lambda: |-
-                  return id(Oil_Height) < (id(Tank_Radius));    
+                  return id(Oil_Height) < (id(Tank_Radius));
           then:
              - lambda: |-
                 id(Rectangle_Height) = 0;
                 id(Arc_Height) = id(Oil_Height);
              - script.execute: Calc_Area
-              
+
   - id: Calc_Area
     then:
       - lambda: |-
@@ -575,7 +579,7 @@ script:
           } else { // Horizontal
             id(Rectangle_Area) = id(Rectangle_Height) * (id(Tank_Height) - id(Tank_Width));
           }
-          
+
       - lambda: |-
           id(Total_Area) = id(Rectangle_Area) + id(Arc_Area);
       - script.execute: Calc_Oil_Volume
@@ -623,18 +627,18 @@ script:
           ESP_LOGD("VarCheck", "Tank_Orientation %.15g", id(Tank_Orientation));
           ESP_LOGD("VarCheck", "Tank_Size %.15g", id(Tank_Size));
           ESP_LOGD("VarCheck", "Oil_Distance %.15g", id(Oil_Distance).state);
-          ESP_LOGD("VarCheck", "Tank_Width %.15g", id(Tank_Width)); 
-          ESP_LOGD("VarCheck", "Tank_Height %.15g", id(Tank_Height)); 
-          ESP_LOGD("VarCheck", "Tank_Length %.15g", id(Tank_Length)); 
-          ESP_LOGD("VarCheck", "Tank_Radius %.15g", id(Tank_Radius)); 
-          ESP_LOGD("VarCheck", "Oil_Height %.15g", id(Oil_Height)); 
+          ESP_LOGD("VarCheck", "Tank_Width %.15g", id(Tank_Width));
+          ESP_LOGD("VarCheck", "Tank_Height %.15g", id(Tank_Height));
+          ESP_LOGD("VarCheck", "Tank_Length %.15g", id(Tank_Length));
+          ESP_LOGD("VarCheck", "Tank_Radius %.15g", id(Tank_Radius));
+          ESP_LOGD("VarCheck", "Oil_Height %.15g", id(Oil_Height));
           ESP_LOGD("VarCheck", "Arc_Height %.15g", id(Arc_Height));
           ESP_LOGD("VarCheck", "Rectangle_Height %.15g", id(Rectangle_Height));
           ESP_LOGD("VarCheck", "Arc_Area %.15g", id(Arc_Area));
           ESP_LOGD("VarCheck", "Rectangle_Area %.15g", id(Rectangle_Area));
           ESP_LOGD("VarCheck", "Total_Area%.15g", id(Total_Area));
           ESP_LOGD("VarCheck", "Oil_In_Tank%.15g", id(Oil_In_Tank));
-  
+
   - id: ultrasonic_loop
     mode: restart
     then:
