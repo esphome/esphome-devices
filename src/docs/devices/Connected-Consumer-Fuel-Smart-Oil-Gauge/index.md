@@ -80,7 +80,6 @@ Power Gating of 3.3VDC to the ESP8266.\
 Hardwired to restart the controller every hour.\
 Timer will cut 3.3V when DONE pin goes HIGH, will wake after 1hr.
 
-
 ### SN74LVC1G3157 - Single-Pole Double-Throw Analog Switch
 
 SMD Marking: C5F \
@@ -95,6 +94,7 @@ Switches the connection to A0 (GPIO17)
 *Battery Voltage is measured with a voltage divider circuit using R1= 10MOhm, R2= 1MOhm.
 
 ### MCP9700AT-E/TT - Low-Power Linear Active Thermistor IC
+
 SMD Marking: AFT3 \
 Datasheet: https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf
 
@@ -317,7 +317,7 @@ output:
 
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: GPIO12
       inverted: true
     id: ctrl_btn
@@ -419,7 +419,7 @@ sensor:
     accuracy_decimals: 8
     lambda: |-
       return id(TempC).state;
-    filters: 
+    filters:
       - calibrate_linear:
           method: exact
           datapoints:
@@ -429,10 +429,10 @@ sensor:
             - 4.444444444 -> 0.021373756
             - 10.0 -> 0.03102642
             - 15.55555556 -> 0.051021224
-            - 21.11111111	-> 0.06205284
-            - 26.66666667	-> 0.08273712
-            - 32.22222222	-> 0.11031616
-            - 37.77777778	-> 0.15168472
+            - 21.11111111 -> 0.06205284
+            - 26.66666667 -> 0.08273712
+            - 32.22222222 -> 0.11031616
+            - 37.77777778 -> 0.15168472
 
   - platform: ultrasonic
     trigger_pin:
@@ -487,14 +487,14 @@ sensor:
           // https://en.wikipedia.org/wiki/Speed_of_sound
           double gamma = 1.4; // Oil is small enough fraction that large change in gamma is not expected
           double R = 8.31446261815324;
-          double Sc = sqrt(gamma * R * 273.15 / MW_Total);          
+          double Sc = sqrt(gamma * R * 273.15 / MW_Total);
           double speed_sound_m_per_s = Sc * sqrt(1+(id(TempC).state/273.15)); // ideal diatomic gas
 
           // Calc Distance to Oil Surface
           total_dist = time_s * speed_sound_m_per_s;
           return total_dist/2.0;
 
-    on_value: 
+    on_value:
       then:
         - script.execute: Calc_Oil_Height
 
@@ -586,7 +586,7 @@ script:
 
   - id: Calc_Oil_Volume
     then:
-      - globals.set: 
+      - globals.set:
           id: Oil_In_Tank
           value: !lambda |-
             return id(Total_Area) * id(Tank_Length) / 231;
@@ -615,7 +615,7 @@ script:
       - lambda: 'ESP_LOGD("MeasureCount", "%i", id(Measure_Count));'
 
       - if:
-          condition: 
+          condition:
             - switch.is_on: VarCheck
           then:
             - script.execute: Log_Values
