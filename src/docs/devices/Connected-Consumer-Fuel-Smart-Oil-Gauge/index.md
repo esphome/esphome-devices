@@ -1,6 +1,6 @@
 ---
 title: Smart Oil Gauge
-date-published: 2025-02-23
+date-published: 2025-03-01
 type: sensor
 standard: us
 board: esp8266
