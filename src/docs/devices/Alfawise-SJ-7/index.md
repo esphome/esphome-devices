@@ -11,6 +11,7 @@ board: esp8266
 ![alt text](diffuser.png)
 
 ### Updated for ESPHOME 2025.2.0 and later (2025-03-04)
+
 https://esphome.io/guides/contributing#a-note-about-custom-components
 
 ### Working
@@ -46,12 +47,12 @@ substitutions:
   name: alfawise
   friendly_name: "alfawise SJ-7"
 
-# ! (START) VALUES TO CHANGE ! 
+# ! (START) VALUES TO CHANGE !
   wifi_ssid: !secret wifi_ssid
   wifi_password: !secret wifi_password
   ap_password: "xxx"
   ota_password: xxx
-# ! (END) VALUES TO CHANGE ! 
+# ! (END) VALUES TO CHANGE !
 
   #commands
   receive_timer1h: "55:AA:03:1F:09:01:2B"
@@ -641,7 +642,6 @@ fan:
                     - switch.turn_on: timer1h
 captive_portal:
 ```
-
 
 ## Home Assistant integration
 
