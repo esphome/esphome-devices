@@ -778,28 +778,9 @@ text_sensor:
 
 # FONT
 font:
-- file: 'arial.ttf'
+- file: "gfonts://Roboto"
   id: font1
   size: 12
-
-- file: 'materialdesignicons-webfont.ttf'
-  id: materialdesignicons
-  size: 15
-  glyphs: [
-      "\U000F0317", # lan
-      "\U000F04A2", # signal
-      "\U000F05A9", # wifi
-      "\U000F048B", # server
-      "\U000F0FA9", # clock
-      "\U000F050F" # thermometer
-      ]
-
-- file: 'materialdesignicons-webfont.ttf'
-  id: materialdesignicons_big
-  size: 30
-  glyphs: [
-      "\U000F050F" # thermometer
-      ]
 
 # DISPLAY
 display:
@@ -819,16 +800,11 @@ display:
           int days = seconds / (24 * 3600);
           seconds = seconds % (24 * 3600);
           int hours = seconds / 3600;
-          it.print(0, 0, id(materialdesignicons), TextAlign::LEFT, "\U000F0317");
-          it.printf(18, 1,id(font1), "%s", id(ip_address).state.c_str());
-          it.print(0, 16, id(materialdesignicons), TextAlign::LEFT, "\U000F0FA9");
-          it.printf(18,17,id(font1),"%d dni, %02d godzin",days,hours);
-          it.print(0, 32, id(materialdesignicons), TextAlign::LEFT, "\U000F048B");
-          it.printf(18, 33, id(font1), "SM-LITE-1616R"); 
-          it.print(0, 48, id(materialdesignicons), TextAlign::LEFT, "\U000F050F");
-          it.printf(18, 49, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state); 
+          it.printf(1, 1,  id(font1), "%s", id(ip_address).state.c_str());
+          it.printf(1, 17, id(font1),"%d dni, %02d godzin",days,hours);
+          it.printf(1, 33, id(font1), "SM-LITE-1616R"); 
+          it.printf(1, 49, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state); 
       - id: page3
         lambda: |-
           it.printf(33, 5, id(font1), "OVERHEAT"); 
-          it.print(50, 20, id(materialdesignicons_big), TextAlign::LEFT, "\U000F050F");
           it.printf(33, 52, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state);    
