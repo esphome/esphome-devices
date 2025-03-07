@@ -11,8 +11,6 @@ made-for-esphome: false
 
 ![SMARTBOB SM-LITE-1616R smart home controller](SM-LITE-1616R.png)
 ![SMARTBOB SM-LITE-1616R smart home controller](SM-LITE-1616R-1.png)
-<img alt="alt text" height="300" src="SM-LITE-1616R.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
-<img alt="alt text" height="300" src="SM-LITE-1616R-1.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
 
 SMARTBOB devices are a series of smart-home controllers designed for open home automation.
 They are based on ESP32 controllers and offer various useful options.
@@ -102,13 +100,13 @@ Can be used to read ADC voltage up to 24V or use as input.
 
 Integrated divider with calibration values.
 
-| Adc   | Voltage  |
-|-------|----------|
-| 0.62  | 5        |
-| 1.22  | 10       | 
-| 1.83  | 15       |
-| 2.425 | 20       |
-| 2.975 | 25       |
+| Adc   | Voltage |
+|-------|---------|
+| 0.62  | 5       |
+| 1.22  | 10      | 
+| 1.83  | 15      |
+| 2.425 | 20      |
+| 2.975 | 25      |
 
 ### CT current clamp sensor input
 
@@ -270,7 +268,7 @@ sensor:
         - switch.turn_off: relay_14
         - switch.turn_off: relay_15
         - switch.turn_off: relay_16
-                
+        
   # TMP102
   - platform: tmp102
     i2c_id: bus_a
@@ -553,7 +551,6 @@ binary_sensor:
     on_press:
        then:
         - switch.toggle: relay_02
-        
   - platform: gpio
     name: "INPUT-03"
     id: input_03
