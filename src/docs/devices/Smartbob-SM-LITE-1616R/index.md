@@ -12,11 +12,11 @@ made-for-esphome: false
 <img alt="alt text" height="300" src="SM-LITE-1616R.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
 <img alt="alt text" height="300" src="SM-LITE-1616R-1.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
 
-SMARTBOB devices are a series of smart-home controllers designed for open home automation. 
+SMARTBOB devices are a series of smart-home controllers designed for open home automation.
 They are based on ESP32 controllers and offer various useful options.
 
-The product is dedicated to controlling AC and DC circuits (without power regulation, on/off), 
-such as lights, power supplies, blinds, valves, sockets, and relays, as well as control signals 
+The product is dedicated to controlling AC and DC circuits (without power regulation, on/off),
+such as lights, power supplies, blinds, valves, sockets, and relays, as well as control signals
 for gate control and alarms
 
 Available pre-flashed with ESPHome or SUPLA.
@@ -25,8 +25,8 @@ Maker: https://smartbob.pl
 
 Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 
-
 # SM-LITE-1616R - basic description
+
 * 24 power supply (max 0.5A)
 * 16 input, VCC or GND logic level (by MCP23017 expander)
 * 16 output by 10A relays, potential-free with the possibility of roller shutter lock (by MCP23017 expander)
@@ -38,7 +38,9 @@ Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 * Integrated input control test buttons
 
 ## GPIO Pinout
+
 ### LAN7820
+
 Can be used for ethernet 10/100Mb communication.
 
 | Pin    | Function  |
@@ -56,10 +58,12 @@ Can be used for ethernet 10/100Mb communication.
 | PHY    | 1         |
 
 ### I2C
-Contains two I2C data lines: 
-* I2C 1 internal for MCP23017 expanders and OLED 
+
+Contains two I2C data lines:
+
+* I2C 1 internal for MCP23017 expanders and OLED
 * I2C 2 for external sensors
-Can be used to read external sensor ex. temperature, humidity, pressure.
+  Can be used to read external sensor ex. temperature, humidity, pressure.
 
 | Pin    | Function       |
 |--------|----------------|
@@ -69,6 +73,7 @@ Can be used to read external sensor ex. temperature, humidity, pressure.
 | GPIO14 | SDA 2 external |
 
 ### RS485
+
 Can be used to read external modbus devices like power meter.
 
 | Pin    | Function |
@@ -77,6 +82,7 @@ Can be used to read external modbus devices like power meter.
 | GPIO33 | TX       |
 
 ### 1WIRE
+
 Can be used to read external sensor ex. temperature, humidity, pressure.
 
 | Pin    | Function |
@@ -84,6 +90,7 @@ Can be used to read external sensor ex. temperature, humidity, pressure.
 | GPIO32 | 1WIRE    |
 
 ### ADC or additional input
+
 Can be used to read ADC voltage up to 24V or use as input.
 
 | Pin    | Function      |
@@ -102,14 +109,15 @@ Integrated divider with calibration values.
 | 2.975 | 25      |
 
 ### CT current clamp sensor input
+
 Can be used to read from SCT-013 witch xA/1V output.
 
 | Pin    | Function |
 |--------|----------|
 | GPIO39 | CT_CLAMP |
 
-
 Example YAML:
+
 ```yaml
 
 substitutions:
@@ -802,9 +810,9 @@ display:
           int hours = seconds / 3600;
           it.printf(1, 1,  id(font1), "%s", id(ip_address).state.c_str());
           it.printf(1, 17, id(font1),"%d dni, %02d godzin",days,hours);
-          it.printf(1, 33, id(font1), "SM-LITE-1616R"); 
-          it.printf(1, 49, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state); 
+          it.printf(1, 33, id(font1), "SM-LITE-1616R");
+          it.printf(1, 49, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state);
       - id: page3
         lambda: |-
-          it.printf(33, 5, id(font1), "OVERHEAT"); 
-          it.printf(33, 52, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state);    
+          it.printf(33, 5, id(font1), "OVERHEAT");
+          it.printf(33, 52, id(font1), "%.1f°, %.1f°", id(temp_1).state, id(temp_2).state);
