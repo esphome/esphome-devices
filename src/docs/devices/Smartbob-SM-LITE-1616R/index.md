@@ -9,7 +9,8 @@ difficulty: 1
 made-for-esphome: false
 ---
 
-![alt text](SM-LITE-1616R.png "SMARTBOB SM-LITE-1616R smart home controller")
+<img alt="alt text" height="300" src="SM-LITE-1616R.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
+<img alt="alt text" height="300" src="SM-LITE-1616R-1.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
 
 SMARTBOB devices are a series of smart-home controllers designed for open home automation. 
 They are based on ESP32 controllers and offer various useful options.
