@@ -79,7 +79,7 @@ api:
 
 ota:
   - platform: esphome
-    id: my_ota 
+    id: my_ota
     password: !secret ota_password
     # display the banner
     on_begin:
@@ -88,7 +88,7 @@ ota:
         - light.turn_on: backlight
         - lambda: "id(backlight).loop();"
         - lvgl.resume:
-        - lvgl.widget.redraw:        
+        - lvgl.widget.redraw:
         #- lvgl.widget.hide: root
         - lvgl.widget.show: popup_obj
         - lvgl.resume:
@@ -183,7 +183,7 @@ text_sensor:
       name: "IP Address"
       id: ip_address
       entity_category: diagnostic
-      on_value: 
+      on_value:
         then:
           - lvgl.label.update:
               id: ip_address_label
@@ -208,7 +208,7 @@ color:
 lvgl:
   id: lvgl_comp
   displays:
-    - my_display    
+    - my_display
   touchscreens:
     - touchscreen_id: my_touchscreen
   on_idle:
@@ -224,7 +224,7 @@ lvgl:
     - timeout: 15s
       then:
         - logger.log: idle 15s timeout
-        - light.turn_off: 
+        - light.turn_off:
             id: backlight
             transition_length: 5s
         - lvgl.pause:
@@ -307,8 +307,6 @@ lvgl:
             width: 200
             align: center
             widgets:
-              
-                  
             bg_opa: TRANSP
             text_color: 0xFFFFFF
             scales:
@@ -329,7 +327,6 @@ lvgl:
                       width: 3
                       color: 0xE0E0E0
                       r_mod: -1
-
               - 
                 angle_range: 330
                 rotation: 300
@@ -358,7 +355,7 @@ lvgl:
                         return std::fmod(now.hour, 12) * 60 + now.minute;
                       width: 4
                       color: 0xA0A0A0
-                      r_mod: -20              
+                      r_mod: -20
         - obj:
             widgets:
             - label:
