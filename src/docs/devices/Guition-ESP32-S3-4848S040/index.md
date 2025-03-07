@@ -327,7 +327,7 @@ lvgl:
                       width: 3
                       color: 0xE0E0E0
                       r_mod: -1
-              - 
+              -
                 angle_range: 330
                 rotation: 300
                 range_from: 1
