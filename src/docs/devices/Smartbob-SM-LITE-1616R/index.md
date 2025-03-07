@@ -9,6 +9,8 @@ difficulty: 1
 made-for-esphome: false
 ---
 
+![SMARTBOB SM-LITE-1616R smart home controller](SM-LITE-1616R.png)
+![SMARTBOB SM-LITE-1616R smart home controller](SM-LITE-1616R-1.png)
 <img alt="alt text" height="300" src="SM-LITE-1616R.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
 <img alt="alt text" height="300" src="SM-LITE-1616R-1.png" title="SMARTBOB SM-LITE-1616R smart home controller" width="400"/>
 
@@ -25,7 +27,7 @@ Maker: https://smartbob.pl
 
 Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 
-# SM-LITE-1616R - basic description
+## SM-LITE-1616R - basic description
 
 * 24 power supply (max 0.5A)
 * 16 input, VCC or GND logic level (by MCP23017 expander)
@@ -100,13 +102,13 @@ Can be used to read ADC voltage up to 24V or use as input.
 
 Integrated divider with calibration values.
 
-| Adc   | Voltage |
-|-------|---------|
-| 0.62  | 5       |
-| 1.22  | 10      | 
-| 1.83  | 15      |
-| 2.425 | 20      |
-| 2.975 | 25      |
+| Adc   | Voltage  |
+|-------|----------|
+| 0.62  | 5        |
+| 1.22  | 10       | 
+| 1.83  | 15       |
+| 2.425 | 20       |
+| 2.975 | 25       |
 
 ### CT current clamp sensor input
 
@@ -174,7 +176,7 @@ uart:
 
 # SENSOR CONFIGURATION
 sensor:
-  # SCT SENSOR    
+  # SCT SENSOR
   - platform: ct_clamp
     sensor: adc_ct
     name: "SCT Current"
@@ -268,7 +270,7 @@ sensor:
         - switch.turn_off: relay_14
         - switch.turn_off: relay_15
         - switch.turn_off: relay_16
-    
+                
   # TMP102
   - platform: tmp102
     i2c_id: bus_a
@@ -300,7 +302,7 @@ sensor:
         - switch.turn_off: relay_14
         - switch.turn_off: relay_15
         - switch.turn_off: relay_16
-    
+        
   # TIME
   - platform: uptime
     name: Uptime Sensor
@@ -366,7 +368,7 @@ ethernet:
   #  dns2 : 8.8.4.4
 
 
-# I2C 
+# I2C
 i2c:
    - id: bus_a
      sda: 15
@@ -381,14 +383,14 @@ i2c:
 
 # MCP23017
 mcp23017:
-  - id: 'mcp23017_hub_2' 
+  - id: 'mcp23017_hub_2'
     address: 0x20
     i2c_id: bus_a
-  - id: 'mcp23017_hub_1' 
+  - id: 'mcp23017_hub_1'
     address: 0x21
     i2c_id: bus_a
 
-# OUTPUTS 
+# OUTPUTS
 switch:
   - platform: gpio
     name: "REALY-01"
@@ -551,7 +553,7 @@ binary_sensor:
     on_press:
        then:
         - switch.toggle: relay_02
-    
+        
   - platform: gpio
     name: "INPUT-03"
     id: input_03
