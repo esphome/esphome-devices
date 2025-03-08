@@ -29,7 +29,7 @@ Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 
 * 24 power supply (max 0.5A)
 * 16 input, VCC or GND logic level (by MCP23017 expander)
-* 16 output by 10A relays, potential-free with the possibility of roller shutter lock (by MCP23017 expander)
+* 16 output by 10A relays, potential-free with the possibility of roller shutter interlock (by MCP23017 expander)
 * 2x ADC for up to 24V voltage measurement (or input)
 * 1x ADC for power supply voltage measurement
 * Additional communication by: 2x I2C, 1WIRE, RS485
