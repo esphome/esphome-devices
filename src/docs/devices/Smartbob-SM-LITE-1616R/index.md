@@ -162,7 +162,7 @@ esphome:
 # HA
 api:
   encryption:
-    key: "98MUt/upiZL3PhfR1Ynu7ji8EHjd8tuvR8zOAS2/RDI="
+    key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   reboot_timeout: 0s
 
 # OTA
