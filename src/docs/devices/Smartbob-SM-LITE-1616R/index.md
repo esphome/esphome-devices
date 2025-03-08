@@ -25,9 +25,9 @@ Maker: https://smartbob.pl
 
 Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 
-## SM-LITE-1616R - basic description
+## SM-LITE-1616R V1.5 version basic description
 
-* 24 power supply (max 0.5A)
+* 24V DC power supply (max 0.5A)
 * 16 input, VCC or GND logic level (by MCP23017 expander)
 * 16 output by 10A relays, potential-free with the possibility of roller shutter interlock (by MCP23017 expander)
 * 2x ADC for up to 24V voltage measurement (or input)
@@ -40,7 +40,7 @@ Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 * Integrated hardware over-temp protection by 2xTMP102 (all relay off, hardware 80C or lower defined in YAML)
 * Integrated input control test buttons
 
-## GPIO Pinout
+## GPIO Pinout for V1.5 version
 
 ### LAN7820
 
