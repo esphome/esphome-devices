@@ -103,7 +103,7 @@ Integrated divider with calibration values.
 | Adc   | Voltage |
 |-------|---------|
 | 0.62  | 5       |
-| 1.22  | 10      | 
+| 1.22  | 10      |
 | 1.83  | 15      |
 | 2.425 | 20      |
 | 2.975 | 25      |
@@ -268,7 +268,7 @@ sensor:
         - switch.turn_off: relay_14
         - switch.turn_off: relay_15
         - switch.turn_off: relay_16
-        
+  
   # TMP102
   - platform: tmp102
     i2c_id: bus_a
@@ -300,7 +300,7 @@ sensor:
         - switch.turn_off: relay_14
         - switch.turn_off: relay_15
         - switch.turn_off: relay_16
-        
+  
   # TIME
   - platform: uptime
     name: Uptime Sensor
