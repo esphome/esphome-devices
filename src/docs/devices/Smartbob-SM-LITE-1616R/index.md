@@ -32,7 +32,7 @@ Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 * 16 output by 10A relays, potential-free with the possibility of roller shutter lock (by MCP23017 expander)
 * 2x ADC for up to 24V voltage measurement (or input)
 * 1x ADC for power supply voltage measurement
-* Additional communication by: 2x I2C, 1WIRE, RS485, 
+* Additional communication by: 2x I2C, 1WIRE, RS485
 * CT clamp input for SCT clamps
 * LAN or WIFI communication
 * 0.96C OLED display
@@ -114,8 +114,7 @@ One ADC3 is connected to power connector to measure voltage connected to board.
 | GPIO34 | External ADC2 or INPUT |
 | GPIO36 | Internal ADC3          |
 
-
-Integrated divider with calibration values.
+Integrated divider with calibration values for ADC1-2:
 
 | Adc   | Voltage |
 |-------|---------|
@@ -124,6 +123,15 @@ Integrated divider with calibration values.
 | 1.83  | 15      |
 | 2.425 | 20      |
 | 2.975 | 25      |
+
+Integrated divider with calibration values for ADC3:
+
+| Adc   | Voltage |
+|-------|---------|
+| 0.55  | 10      |
+| 0.825 | 15      |
+| 1.10  | 20      |
+| 1.37  | 25      |
 
 ### CT current clamp sensor input
 
