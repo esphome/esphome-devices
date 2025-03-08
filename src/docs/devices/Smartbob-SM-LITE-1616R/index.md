@@ -30,11 +30,14 @@ Product page: https://smartbob.pl/pl/lite-1-poziom/3-sm-lite-1616r.html
 * 24 power supply (max 0.5A)
 * 16 input, VCC or GND logic level (by MCP23017 expander)
 * 16 output by 10A relays, potential-free with the possibility of roller shutter lock (by MCP23017 expander)
-* 2x I2C, 1WIRE, RS485, CT clamp input
+* 2x ADC for up to 24V voltage measurement (or input)
+* 1x ADC for power supply voltage measurement
+* Additional communication by: 2x I2C, 1WIRE, RS485, 
+* CT clamp input for SCT clamps
 * LAN or WIFI communication
-* 0.96C OLED
+* 0.96C OLED display
 * Integrated USB programmer
-* Integrated hardware over-temp protection by 2xTMP102
+* Integrated hardware over-temp protection by 2xTMP102 (all relay off, hardware 80C or lower defined in YAML)
 * Integrated input control test buttons
 
 ## GPIO Pinout
@@ -59,22 +62,32 @@ Can be used for ethernet 10/100Mb communication.
 
 ### I2C
 
-Contains two I2C data lines:
+Contains two I2C data lines :
 
-* I2C 1 internal for MCP23017 expanders and OLED
-* I2C 2 for external sensors
-  Can be used to read external sensor ex. temperature, humidity, pressure.
+* I2C 1 internal for MCP23017 expanders and OLED (reference speed 400kHz)
+* I2C 2 for external sensors or as input (3.3V logic level). Can be used to read external I2C
+* sensor like SHT31 or as input (3.3V logic level). Integrated 2.3k Ohm pull up on all lines.
 
 | Pin    | Function       |
 |--------|----------------|
-| GPIO15 | SDA 1          |
-| GPIO5  | SCL 1          |
+| GPIO15 | SDA 1 internal |
+| GPIO5  | SCL 1 internal |
 | GPIO16 | SDA 2 external |
 | GPIO14 | SDA 2 external |
 
+Board contain this devices on internal I2C 1 line:
+
+| Address | Device       |
+|---------|--------------|
+| 0x20    | MCP23017 IN  |
+| 0x21    | MCP23017 OUT |
+| 0x3C    | OLED         |
+| 0x48    | TMP102 1     |
+| 0x49    | TMP102 2     |
+
 ### RS485
 
-Can be used to read external modbus devices like power meter.
+Can be used to read external modbus devices like power meter like Eastron SDM120/240/630.
 
 | Pin    | Function |
 |--------|----------|
@@ -83,7 +96,8 @@ Can be used to read external modbus devices like power meter.
 
 ### 1WIRE
 
-Can be used to read external sensor ex. temperature, humidity, pressure.
+Can be used to read external sensor by 1WIRE like. DS18B20 or as input (3.3V logic level).
+Integrated 2.3k Ohm pull up.
 
 | Pin    | Function |
 |--------|----------|
@@ -91,12 +105,15 @@ Can be used to read external sensor ex. temperature, humidity, pressure.
 
 ### ADC or additional input
 
-Can be used to read ADC voltage up to 24V or use as input.
+ADC1, ADC2 can be used to read ADC voltage up to 24V or use as input (24V logic level).
+One ADC3 is connected to power connector to measure voltage connected to board.
 
-| Pin    | Function      |
-|--------|---------------|
-| GPIO35 | ADC1 or INPUT |
-| GPIO34 | ADC2 or INPUT |
+| Pin    | Function               |
+|--------|------------------------|
+| GPIO35 | External ADC1 or INPUT |
+| GPIO34 | External ADC2 or INPUT |
+| GPIO36 | Internal ADC3          |
+
 
 Integrated divider with calibration values.
 
