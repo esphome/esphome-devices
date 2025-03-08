@@ -1,8 +1,8 @@
 ---
-title: SMARTBOB SM-LITE-1616R Smart-home controller
+title: SMARTBOB SM-LITE-1616R
 date-published: 2025-03-07
-type: misc
-standard: global
+type: relay
+standard: eu
 board: esp32
 project-url: https://github.com/SmartbobAutomatyka/SmartbobAutomatyka-GIT/tree/main/ESPHOME-YAML
 difficulty: 1
