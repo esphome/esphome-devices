@@ -3,7 +3,7 @@ title: Athom Smart Plug AU V3 (PG05V3-AU10A)
 date-published: 2024-04-25
 type: plug
 standard: au
-board: eps32-c3
+board: esp32-c3
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-smart-plug.yaml
 difficulty: 1
 made-for-esphome: true

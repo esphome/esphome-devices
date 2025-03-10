@@ -3,7 +3,7 @@ title: Athom Energy Meter (EM2)
 date-published: 2024-11-01
 type: sensor
 standard: global
-board: eps32-c3
+board: esp32-c3
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-energy-monitor-x2.yaml
 difficulty: 1
 made-for-esphome: true
