@@ -8,7 +8,7 @@ difficulty: 2
 ---
 
 ![R5](sonoff_switchman_r5.jpg "Sonoff SwitchMan R5")
-![S-Mate](sonoff_s-mate.webp "Sonoff S-Mate")
+![S-Mate](sonoff_s-mate.jpg "Sonoff S-Mate")
 ![S-Mate2](sonoff_s-mate2.jpg "Sonoff S-Mate2")
 
 - Following code will catch BLE advertisements from Sonoff SwitchMan R5, S-Mate & S-Mate2.
