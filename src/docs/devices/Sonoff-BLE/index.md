@@ -17,7 +17,7 @@ difficulty: 2
 - Sonoff S-Mate:
   - In DIP Switch position “Rocker” switch - generates event “short” on both transitions open-close & close-open.
   - In position “Pulse” - only generates “short” on transition open-close contact, nothing more.
-- S-Mate2:
+- Sonoff S-Mate2:
   - When DIP switch in position “Momentary switch” - detects “short/double/long” events.
   - In position “Rocker” switch - generates same event “short” on both transitions open-close & close-open.
 
