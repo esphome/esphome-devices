@@ -82,23 +82,23 @@ esp32_ble_tracker:
                 ESP_LOGD("Sonoff", "---- duplicate");
               } else {
                 btdata_store = btdata;
-                uint32_t btdevice = (btdata[2].get_uuid().uuid.uuid32 & 0xff000000) | 
+                uint32_t btdevice = (btdata[2].get_uuid().uuid.uuid32 & 0xff000000) |
                                     (btdata[3].get_uuid().uuid.uuid32 & 0x00ffffff);
                 uint32_t uuid4u32 = (btdata[4].get_uuid().uuid.uuid32);
                 ESP_LOGD("Sonoff", "0x%x : 0x%x", btdevice, uuid4u32);
 
                 for (size_t i = 0; i < id(btdata_uuid4).size(); i++) {
                   uint32_t stored_value = id(btdata_uuid4)[i];
-                  if ((((uuid4u32 >> 24) ^ (stored_value >> 24)) == ((uuid4u32 >> 16 & 0xff) ^ (stored_value >> 16 & 0xff))) && 
+                  if ((((uuid4u32 >> 24) ^ (stored_value >> 24)) == ((uuid4u32 >> 16 & 0xff) ^ (stored_value >> 16 & 0xff))) &&
                       (((uuid4u32 >> 8 & 0xff) ^ (stored_value >> 8 & 0xff)) == ((uuid4u32 & 0xff) ^ (stored_value & 0xff)))) {
 
-                    int button_number = i / 3 + 1;  // each button is grouped in multiples of 
+                    int button_number = i / 3 + 1;  // each button is grouped in multiples of
                     int button_action = i % 3;
 
                     esphome::api::CustomAPIDevice capi;
-                    capi.fire_homeassistant_event("esphome.sonoff_ble", 
-                      {{"device", format_hex(btdevice)}, 
-                       {"button", to_string(button_number)}, 
+                    capi.fire_homeassistant_event("esphome.sonoff_ble",
+                      {{"device", format_hex(btdevice)},
+                       {"button", to_string(button_number)},
                        {"action", id(button_actions)[button_action].c_str()},
                        {"service", format_hex(uuid4u32)}}
                     );
@@ -118,6 +118,7 @@ esp32_ble_tracker:
 - [Home Assistant support request](https://community.home-assistant.io/t/add-support-for-sonoff-s-mate-and-r5-ewelink-remote-sub-devices/614342/1)
 
 ## Home Assistant automation example
+
 ```yaml
   automation:
     - id: sonoff_ble_events
@@ -139,6 +140,6 @@ esp32_ble_tracker:
                 sequence:
                   - action: switch.toggle
                     target:
-                      entity_id: 
+                      entity_id:
                         - switch.xxx
 ```
