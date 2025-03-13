@@ -3,9 +3,10 @@ title: Aubess WiFi Smart Switch
 date-published: 2025-03-13
 type: switch
 standard: global
-board: bk72xx CB2S
+board: bk72xx
+pcb: CB2S
 ---
-![Product Image](/Aubess-WiFi-Smart-Switch.png "Product Image")
+![Product Image](/Aubess-WiFi-Smart-Switch.jpg "Product Image")
 
 Maker: <https://aubess.net/>
 
@@ -15,23 +16,21 @@ Also on Aliexpress.
 
 | Pin    | Function            |
 | ------ | ------------------- |
-| RX1    | BL0942 Rx           |
-| TX1    | BL0942 Tx           |
-| P23    | Button              |
-| P24    | External Switch     |
-| P26    | Relay               |
-| P8     | Status Led          |
+| P8     | Button              |
+| P26    | External Switch     |
+| p24    | Relay               |
+| P7     | Status Led          |
 
 ## Basic Configuration
 
 ```yaml
 
 esphome:
-  name: aubesspm01
-  friendly_name: AubessPM01
+  name: relayname
+  friendly_name: relayname
 
 bk72xx:
-  board: generic-bk7231n-qfn32-tuya
+  board: cb2s
 
 logger:
 api:
@@ -43,81 +42,78 @@ wifi:
   password: !secret wifi_password
   ap:
 
-uart:
-  id: uart_bus
-  tx_pin: TX1
-  rx_pin: RX1
-  baud_rate: 4800
-  stop_bits: 1
+#Pinout: https://docs.libretiny.eu/boards/cb2s/#pinout
+#PCB CB2S
 
+## -----------------------##
+## Substitution Variables ##
+## -----------------------##
+substitutions:
+  device_friendly_name: relayname
+  device_icon: "mdi:power"
+
+## ---------------- ##
+##    Status LED    ##
+## Если есть ошибка в ESPhome, то диод мигает. Eсли все хорошо, то индикатором можно управлять из HA
+## ---------------- ##
+
+light:
+  - platform: status_led
+    name: "Switch state"
+    id: led
+    pin:
+      number: P7
+      inverted: true
+## ---------------- ##
+##  Binary Sensors  ##
+## ---------------- ##
 binary_sensor:
+# Button 1
   - platform: gpio
+    id: button_back
     pin:
-      number: P23
-      mode:
-        input: true
-        pullup: true
-    id: "AubessPM01_button"
+      number: P8
+      inverted: true
+      mode: INPUT_PULLUP
     on_press:
-      - switch.toggle: aubespm01
-  - platform: gpio
-    pin:
-      number: P24
-      mode:
-        input: true
-        pullup: True
-    id: "AubessPM01_switch"
-    on_press:
-      - switch.toggle: aubespm01
-    on_release:
-      - switch.toggle: aubespm01
-
-  - platform: status
-    name: "Status"
-
-sensor:
-  - platform: wifi_signal
-    update_interval: 10s
-    id: wifi_signal_db
-  - platform: uptime
-    name: "Uptime"
-  - platform: copy
-    source_id: wifi_signal_db
-    name: "WiFi Signal Percent"
+      then:
+        - switch.toggle: relay
     filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "%"
-  - platform: bl0942
-    uart_id: uart_bus
-    current:
-      name: AubessPM01 Current
-    voltage:
-      name: AubessPM01 Voltage
-    power:
-      name: AubessPM01 Power
-      filters:
-        multiply: -1
-    energy:
-      name: AubessPM01 Energy
-    frequency:
-      name: AubessPM01 Frequency
-
-button:
-  - platform: restart
-    name: "Restart"
-
-switch:
+      - delayed_on_off: 50ms
+# Rocker switch
   - platform: gpio
-    name: "Geyser"
+    name: "${device_friendly_name} Switch S1-S2"
     pin: P26
-    id: aubespm01
-    icon: mdi:water-boiler
-    restore_mode: RESTORE_DEFAULT_OFF
+    on_press:
+      then:
+        - switch.toggle: relay
+    filters:
+      - delayed_on_off: 50ms
+## ---------------- ##
+##      Switch      ##
+## ---------------- ##
+switch:
+#Relay
+  - platform: output
+    name: "${device_friendly_name} Relay"
+    icon: ${device_icon}
+    output: relayoutput
+    id: relay
+    on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led
+    restore_mode: ALWAYS_OFF
+## ---------------- ##
+##      Relays      ##
+## ---------------- ##
 
-status_led:
-  pin:
-    number: P8
-    inverted: yes
+output:
+  # Relay
+  - platform: gpio
+    id: relayoutput
+    pin: P24
+#    inverted: true
 
 time:
   - platform: homeassistant
