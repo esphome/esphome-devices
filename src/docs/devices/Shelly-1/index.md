@@ -21,7 +21,8 @@ board: esp8266
 # Basic Config
 esphome:
   name: shelly_1
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -74,7 +75,8 @@ substitutions:
 
 esphome:
   name: shelly_detached
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -220,7 +222,8 @@ substitutions:
 
 esphome:
   name: shelly1-kitchen
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

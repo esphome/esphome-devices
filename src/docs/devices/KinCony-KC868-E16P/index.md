@@ -31,8 +31,6 @@ board: esp32
 # ESP32 Board config
 esphome:
   name: kc868-e16p
-  #platform: ESP32
-  #board: esp32dev
 
 esp32:
   board: esp32dev

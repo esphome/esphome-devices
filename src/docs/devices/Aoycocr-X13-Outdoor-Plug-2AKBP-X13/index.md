@@ -69,7 +69,8 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   arduino_version: espressif8266@2.6.2
 

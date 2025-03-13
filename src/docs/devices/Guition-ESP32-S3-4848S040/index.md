@@ -33,7 +33,7 @@ substitutions:
   friendly_name: "Guition480-basic"
   device_description: "Guition ESP32-S3-4848S040 480*480 Smart Screen"
   project_name: "Guition.ESP32_S3_4848S040"
-  project_version: "1.0.0"
+  project_version: "1.0.1"
 
   lightbulb: "\U000F0335"
   ceiling_light: "\U000F0769"
@@ -69,28 +69,96 @@ psram:
   mode: octal
   speed: 80MHz
 
+# Enable logging
 logger:
 
+# Enable Home Assistant API
 api:
   encryption:
     key: !secret encryption_key
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
+    id: my_ota
+    password: !secret ota_password
+    # display the banner
+    on_begin:
+      then:
+        - logger.log: "OTA start a"
+        - light.turn_on: backlight
+        - lambda: "id(backlight).loop();"
+        - lvgl.resume:
+        - lvgl.widget.redraw:
+        #- lvgl.widget.hide: root
+        - lvgl.widget.show: popup_obj
+        - lvgl.resume:
+        - lvgl.widget.redraw:
+        - lambda: "id(lvgl_comp).loop();"
+        - lambda: "id(lvgl_comp).loop();"
+        - logger.log: "OTA start b"
+    on_progress:
+        then:
+          - lvgl.bar.update:
+              id: popup_pb_percentage
+              value: !lambda "return (int)x;"
+          - lvgl.label.update:
+              id: popup_lbl_percentage
+              text:
+                format: "OTA progress %0.1f%%"
+                args: ["x"]
+          - lambda: "id(lvgl_comp).loop();"  
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Guitionv1 Fallback Hotspot"
+    password: !secret wifi_fallback_password
+
+time:
+  - platform: homeassistant
+    id: time_comp
+    on_time_sync:
+      - script.execute: time_update
+    on_time:
+      - minutes: '*'
+        seconds: 0
+        then:
+          - script.execute: time_update
+
+script:
+  - id: time_update
+    # update the clock display
+    then:
+      - lvgl.indicator.update:
+          id: minute_hand
+          value: !lambda |-
+            return id(time_comp).now().minute;
+      - lvgl.indicator.update:
+          id: hour_hand
+          value: !lambda |-
+            auto now = id(time_comp).now();
+            return std::fmod(now.hour, 12) * 60 + now.minute;
+      - lvgl.label.update:
+          id: date_label
+          text: !lambda |-
+            static const char * const mon_names[] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+            static char date_buf[8];
+            auto now = id(time_comp).now();
+            snprintf(date_buf, sizeof(date_buf), "%s %2d", mon_names[now.month-1], now.day_of_month);
+            return date_buf;
+      - lvgl.label.update:
+          id: day_label
+          text: !lambda |-
+            static const char * const day_names[] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+            return day_names[id(time_comp).now().day_of_week - 1];  
+
 web_server:
   port: 80
 
-external_components:
-  - source:
-      type: git
-      url: https://github.com/clydebarrow/esphome
-      ref: 82264dc2440981873b8400d613e0cc32d229daa3 #previous commit - wont be needed in the future
-    components: [lvgl]
+captive_portal:
 
 sensor:
   - platform: wifi_signal
@@ -113,7 +181,15 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: "IP Address"
+      id: ip_address
       entity_category: diagnostic
+      on_value:
+        then:
+          - lvgl.label.update:
+              id: ip_address_label
+              text:
+                format: "%s"
+                args: [ 'id(ip_address).get_state().c_str()' ]
     ssid:
       name: "Connected SSID"
       entity_category: diagnostic
@@ -121,12 +197,18 @@ text_sensor:
       name: "Mac Address"
       entity_category: diagnostic
 
+color:
+  # Create a Home Assistant blue color
+  - id: ha_blue
+    hex: 51c0f2
+
 #-------------------------------------------
 # LVGL Buttons
 #-------------------------------------------
 lvgl:
+  id: lvgl_comp
   displays:
-    - display_id: my_display
+    - my_display
   touchscreens:
     - touchscreen_id: my_touchscreen
   on_idle:
@@ -142,7 +224,11 @@ lvgl:
     - timeout: 15s
       then:
         - logger.log: idle 15s timeout
-
+        - light.turn_off:
+            id: backlight
+            transition_length: 5s
+        - lvgl.pause:
+            show_snow: true
       #- lvgl.pause:
       #- light.turn_off:
       #    id: display_backlight
@@ -162,10 +248,10 @@ lvgl:
       pad_all: 2
 
   theme:
-    btn:
+    button:
       text_font: roboto24
       scroll_on_focus: true
-      group: general
+      #group: general
       radius: 25
       width: 150
       height: 109
@@ -183,7 +269,7 @@ lvgl:
   page_wrap: true
   pages:
     - id: main_page
-      skip: true
+      skip: false
       layout:
         type: flex
         flex_flow: column_wrap
@@ -192,7 +278,7 @@ lvgl:
       bg_opa: cover
       pad_all: 5
       widgets:
-        - btn:
+        - button:
             height: 223
             checkable: true
             id: lv_button_1
@@ -208,6 +294,119 @@ lvgl:
                   long_mode: dot
             on_click:
               light.toggle: internal_light
+        - obj:
+            widgets:
+            - label:
+                id: ip_address_label
+                align: CENTER
+                text: 'Not connected'
+                text_color: ha_blue
+                y: +10
+        - meter:
+            height: 200
+            width: 200
+            align: center
+            widgets:
+            bg_opa: TRANSP
+            text_color: 0xFFFFFF
+            scales:
+              - ticks:
+                  width: 1
+                  count: 61
+                  length: 10
+                  color: 0xFFFFFF
+                range_from: 0
+                range_to: 60
+                angle_range: 360
+                rotation: 270
+                indicators:
+                  - line:
+                      id: minute_hand
+                      value: !lambda |-
+                        return id(time_comp).now().minute;
+                      width: 3
+                      color: 0xE0E0E0
+                      r_mod: -1
+              -
+                angle_range: 330
+                rotation: 300
+                range_from: 1
+                range_to: 12
+                ticks:
+                  width: 1
+                  count: 12
+                  length: 1
+                  major:
+                    stride: 1
+                    width: 4
+                    length: 8
+                    color: 0xC0C0C0
+                    label_gap: 6
+
+              - angle_range: 360
+                rotation: 270
+                range_from: 0
+                range_to: 720
+                indicators:
+                  - line:
+                      id: hour_hand
+                      value: !lambda |-
+                        auto now = id(time_comp).now();
+                        return std::fmod(now.hour, 12) * 60 + now.minute;
+                      width: 4
+                      color: 0xA0A0A0
+                      r_mod: -20
+        - obj:
+            widgets:
+            - label:
+                styles: date_style
+                id: day_label
+                y: -20
+                text: !lambda |-
+                  static const char * const day_names[] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+                  return day_names[id(time_comp).now().day_of_week-1];
+            - label:
+                styles: date_style
+                id: date_label
+                y: +20
+                text: !lambda |-
+                  static const char * const mon_names[] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+                  static char date_buf[8];
+                  auto now = id(time_comp).now();
+                  snprintf(date_buf, sizeof(date_buf), "%s %2d", mon_names[now.month-1], now.day_of_month);
+                  return date_buf;
+        - obj:
+            id: popup_obj
+            hidden: true
+            clickable: false
+            x: 0
+            y: 0
+            width: 100%
+            height: 100%
+            pad_all: 10
+            bg_opa: cover
+            widgets:
+              - label:
+                  id: lbl_popup_title
+                  x: 2
+                  y: 2
+                  text: "OTA in progress"
+              - label:
+                  id: popup_lbl_percentage
+                  x: 2
+                  y: 30
+                  width: 100%
+                  text: "0 %"
+              - bar:
+                  id: popup_pb_percentage
+                  x: 2
+                  y: 60
+                  width: 100%
+                  height: 10
+                  max_value: 100
+                  min_value: 0
+                  value: 0
+
 
 #-------------------------------------------
 # Internal outputs
@@ -274,11 +473,12 @@ font:
     size: 24
     bpp: 4
     extras:
+      # https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/fonts/materialdesignicons-webfont.ttf
       - file: "fonts/materialdesignicons-webfont.ttf" # http://materialdesignicons.com/cdn/7.4.47/
         glyphs:
           [
             "\U000F004B",
-            "\U0000f0ed",
+            #"\U0000f0ed",
             "\U000F006E",
             "\U000F012C",
             "\U000F179B",
@@ -333,7 +533,14 @@ touchscreen:
             touch.x_raw,
             touch.y_raw
             );
-
+  on_release:
+    then:
+      - if:
+          condition: lvgl.is_paused
+          then:
+            - light.turn_on: backlight
+            - lvgl.resume:
+            - lvgl.widget.redraw:
 #-------------------------------------------
 # Display st7701s spi
 #-------------------------------------------

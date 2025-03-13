@@ -185,9 +185,13 @@ sensor:
       name: Phase A
       voltage: Voltage
       current: Current
-      active_power: Active Power
+      active_power
+        id: phase_a_active_power
+        name: Active Power
       power_factor: Power Factor
-      forward_active_energy: Forward Active Energy
+      forward_active_energy
+        id: phase_a_forward_active_energy
+        name: Forward Active Energy
       reverse_active_energy: Reverse Active Energy
       calibration:
         current_gain: 3116628
@@ -198,9 +202,13 @@ sensor:
       name: Phase B
       voltage: Voltage
       current: Current
-      active_power: Active Power
+      active_power:
+        name: Active Power
+        id: phase_b_active_power
       power_factor: Power Factor
-      forward_active_energy: Forward Active Energy
+      forward_active_energy:
+        name: Forward Active Energy
+        id: phase_b_forward_active_energy
       reverse_active_energy: Reverse Active Energy
       calibration:
         current_gain: 3133655
@@ -211,9 +219,13 @@ sensor:
       name: Phase C
       voltage: Voltage
       current: Current
-      active_power: Active Power
+      active_power:
+        name: Active Power
+        id: phase_c_active_power
       power_factor: Power Factor
-      forward_active_energy: Forward Active Energy
+      forward_active_energy:
+        name: Forward Active Energy
+        id: phase_c_forward_active_energy
       reverse_active_energy: Reverse Active Energy
       calibration:
         current_gain: 3111158
@@ -225,4 +237,30 @@ sensor:
       current: Current
       calibration:
         current_gain: 311123
+  - platform: combination
+    type: sum
+    name: "Sum Active Power"
+    id: sum_active_power
+    sources:
+      - source: phase_a_active_power
+      - source: phase_b_active_power
+      - source: phase_c_active_power
+  - platform: combination
+    type: sum
+    name: "Sum Forward Active Energy"
+    state_class: total_increasing
+    sources:
+      - source: phase_a_forward_active_energy
+      - source: phase_b_forward_active_energy
+      - source: phase_c_forward_active_energy
+  - platform: total_daily_energy
+    name: 'Total Daily Energy'
+    power_id: sum_active_power
+    unit_of_measurement: 'kWh'
+    state_class: total_increasing
+    device_class: energy
+    accuracy_decimals: 3
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
 ```
