@@ -46,11 +46,15 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
 ## ---------------- ##
 ##    Status LED    ##
+## If there is an error in ESPhome, the diode blinks. If everything is fine, the indicator can be controlled from HA
 ## ---------------- ##
-status_led:
-  pin:
-    number: P26
-    inverted: false
+
+light:
+  - platform: status_led
+    name: "Switch state"
+    id: led
+    pin:
+      number: P26
 ## ---------------- ##
 ##  Binary Sensors  ##
 ## ---------------- ##
@@ -83,11 +87,15 @@ switch:
     icon: ${device_icon}
     output: relayoutput
     id: relay
+       on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led
+    restore_mode: ALWAYS_OFF
 ## ---------------- ##
 ##      Relays      ##
 ## ---------------- ##
-output:
-# Relay L1
+
 output:
   # Relay
   - platform: gpio
