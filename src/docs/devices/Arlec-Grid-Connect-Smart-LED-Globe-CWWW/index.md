@@ -39,7 +39,8 @@ As the LED bulb do not have any physical buttons, by turning the bulb on and off
 # Basic Config
 esphome:
   name: "arlec_GLD112HA"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   esp8266_restore_from_flash: true
 

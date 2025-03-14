@@ -58,7 +58,8 @@ between the GPIO13 and the RESET pin of the ESP8266 MCU.
 # https://esphome.io/devices/esp8266.html
 esphome:
   name: ir_remote
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

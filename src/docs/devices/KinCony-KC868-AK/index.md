@@ -31,7 +31,8 @@ board: esp32
 # Basic Config
 esphome:
   name: kc868-ak
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 # Example configuration entry for ESP32
