@@ -59,13 +59,18 @@ light:
 ##  Binary Sensors  ##
 ## ---------------- ##
 binary_sensor:
-# Button 1
+# Button back
   - platform: gpio
     id: button_1
     pin:
       number: P23
       inverted: true
       mode: INPUT_PULLUP
+    on_press:
+      then:
+        - switch.toggle: relay
+    filters:
+      - delayed_on_off: 50ms
 # Rocker switch
   - platform: gpio
     name: "${device_friendly_name} Switch"
