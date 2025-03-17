@@ -3,7 +3,7 @@ title: Athom Smart Plug US V3 (PG03V3-US16A)
 date-published: 2024-04-25
 type: plug
 standard: us
-board: eps32-c3
+board: esp32-c3
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-smart-plug.yaml
 difficulty: 1
 made-for-esphome: true
