@@ -6,7 +6,7 @@ standard: global
 board: bk72xx
 pcb: CB2S
 ---
-![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-front.jpg "Device front")
+![Product Image](/tuya-wifi-smart-switch-sb2s-front.jpg "Device front")
 ![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-pcb-front.jpg "PCB front")
 ![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-pcb-back.jpg "PCB back")
 ![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-submodule-front.jpg "SB2S front")
