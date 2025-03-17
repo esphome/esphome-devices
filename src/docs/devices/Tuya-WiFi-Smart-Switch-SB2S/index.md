@@ -12,8 +12,6 @@ pcb: CB2S
 ![Product Image](/tuya-wifi-smart-switch-sb2s-submodule-front.jpg "SB2S front")
 ![Product Image](/tuya-wifi-smart-switch-sb2s-submodule-back.jpg "SB2S back")
 
-
-
 ## GPIO Pinout
 
 | Pin    | Function            |
@@ -21,7 +19,6 @@ pcb: CB2S
 | P8     | Button              |
 | P7     | Status Led          |
 | p24    | Relay               |
-
 
 ## Basic Configuration
 
