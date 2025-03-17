@@ -1,25 +1,27 @@
 ---
-title: Aubess WiFi Smart Switch (CB2S)
-date-published: 2025-03-13
+title: Tuya WiFi Smart Switch (CB2S WHD06 v.1.2)
+date-published: 2025-03-17
 type: switch
 standard: global
 board: bk72xx
 pcb: CB2S
 ---
-![Product Image](/Aubess-WiFi-Smart-Switch.jpg "Product Image")
+![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-front.jpg "Device front")
+![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-pcb-front.jpg "PCB front")
+![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-pcb-back.jpg "PCB back")
+![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-submodule-front.jpg "SB2S front")
+![Product Image](/Tuya-WiFi-Smart-Switch-SB2S-submodule-back.jpg "SB2S back")
 
-Maker: <https://aubess.net/>
 
-Also on Aliexpress.
 
 ## GPIO Pinout
 
 | Pin    | Function            |
 | ------ | ------------------- |
 | P8     | Button              |
-| P26    | External Switch     |
-| p24    | Relay               |
 | P7     | Status Led          |
+| p24    | Relay               |
+
 
 ## Basic Configuration
 
@@ -70,20 +72,11 @@ light:
 binary_sensor:
 # Button 1
   - platform: gpio
-    id: button_back
+    id: button
     pin:
       number: P8
       inverted: true
       mode: INPUT_PULLUP
-    on_press:
-      then:
-        - switch.toggle: relay
-    filters:
-      - delayed_on_off: 50ms
-# Rocker switch
-  - platform: gpio
-    name: "${device_friendly_name} Switch S1-S2"
-    pin: P26
     on_press:
       then:
         - switch.toggle: relay
