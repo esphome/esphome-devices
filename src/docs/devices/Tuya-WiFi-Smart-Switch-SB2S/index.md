@@ -6,11 +6,11 @@ standard: global
 board: bk72xx
 pcb: CB2S
 ---
-![Product Image](/tuya-wifi-smart-switch-sb2s-front.jpg "Device front")
-![Product Image](/tuya-wifi-smart-switch-sb2s-pcb-front.jpg "PCB front")
-![Product Image](/tuya-wifi-smart-switch-sb2s-pcb-back.jpg "PCB back")
-![Product Image](/tuya-wifi-smart-switch-sb2s-submodule-front.jpg "SB2S front")
-![Product Image](/tuya-wifi-smart-switch-sb2s-submodule-back.jpg "SB2S back")
+![Product Image](./tuya-wifi-smart-switch-sb2s-front.jpg "Device front")
+![Product Image](./tuya-wifi-smart-switch-sb2s-pcb-front.jpg "PCB front")
+![Product Image](./tuya-wifi-smart-switch-sb2s-pcb-back.jpg "PCB back")
+![Product Image](./tuya-wifi-smart-switch-sb2s-submodule-front.jpg "SB2S front")
+![Product Image](./tuya-wifi-smart-switch-sb2s-submodule-back.jpg "SB2S back")
 
 ## GPIO Pinout
 
