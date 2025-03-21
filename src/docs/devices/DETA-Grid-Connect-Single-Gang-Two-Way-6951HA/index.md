@@ -5,6 +5,7 @@ type: switch
 standard: au
 board: bk72xx
 made-for-esphome: False
+difficulty: 1
 ---
 
 ## Overview
@@ -24,7 +25,6 @@ As shown on the front of the packet.
 | Variation   | Microcontroller | Board     | Firmware | Flashing methods |
 | ----------- | --------------- | --------- | -------- | ---------------- |
 | Series 1    | Beken BK7231T   | Tuya WB3S | v1.1.5   | Cloudcutter  |
-
 
 ## Setup Guide
 
