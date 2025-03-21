@@ -1,5 +1,5 @@
 ---
-title: DETA Grid Connect Smart Switch Single Gang Two-Way 6951HA
+title: DETA Grid Connect Smart Switch Single Gang Two-Way (6951HA)
 date-published: 2024-05-21
 type: switch
 standard: au
@@ -10,7 +10,7 @@ difficulty: 2
 
 ## Overview
 
-The DETA [Switch Smart Grid 2 Way 2 Gang (6951HA)](https://www.bunnings.com.au/deta-grid-connect-smart-single-gang-2-way-touch-light-switch_p0346910) is part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia.
+The DETA [Smart Switch Single Gang Two-Way (6951HA)](https://www.bunnings.com.au/deta-grid-connect-smart-single-gang-2-way-touch-light-switch_p0346910) is part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia.
 
 Also known as:
 
