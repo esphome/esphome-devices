@@ -5,7 +5,7 @@ type: switch
 standard: au
 board: bk72xx
 made-for-esphome: False
-difficulty: 1
+difficulty: 2
 ---
 
 ## Overview
