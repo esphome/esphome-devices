@@ -1,48 +1,38 @@
 ---
-title: DETA Grid Connect Smart Switch Single Gang Two-Way 6951HA
+title: DETA Grid Connect Smart Switch Single Gang Two-Way (6951HA)
 date-published: 2024-05-21
 type: switch
 standard: au
 board: bk72xx
+made-for-esphome: False
+difficulty: 2
 ---
-
-## General Notes
-
-The DETA [Smart Single Gang Two Way (6951HA)](https://www.bunnings.com.au/deta-grid-connect-smart-single-gang-2-way-touch-light-switch_p0346910) is made by Arlec as part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia (unfortunantly at time of writing it isn't sold in New Zealand).
-
-### Series 1
-
-Not labeled as Series 1 as there is no Series 2 at this time.
-These devices are using the Beken BK7231T microcontroller and can be OTA flashed using using Cloudcutter.
-
-The known Tuya firmware on these switches is 1.1.5 and you can use the “Lonsonho” brand “X801A 1-Gang Switch” option in Cloudcutter.
-
-## Getting it up and running
-
-### Cloudcutter
-
-[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the process of flashing Tuya-based devices. It allows you to bypass the need for physically opening the device and swapping out chips. By leveraging the cloud APIs, Cloudcutter enables you to flash the firmware remotely, making it a convenient and less intrusive option. Follow the instructions on the [Cloudcutter GitHub repository](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to use this method for flashing your device.
-
-### Disassembly
-
-If you can't or don't wish to use Cloudcutter, you can flash directly to the outlet with USB to serial adapter.
 
 ## Overview
 
-This guide covers the DETA Smart One Gang / Two-Way Switch, specifically the [Smart Single Switch Two Way (6951HA)]([https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811]), which is part of the [Grid Connect ecosystem](https://grid-connect.com.au/). These switches are available at Bunnings stores in Australia (at time of writing, not available in New Zealand).
+The DETA [Smart Switch Single Gang Two-Way (6951HA)](https://www.bunnings.com.au/deta-grid-connect-smart-single-gang-2-way-touch-light-switch_p0346910) is part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia.
 
-## Series Information
+Also known as:
 
-### Series 1 - Flashing
+- Smart Single Gang 2 Way Touch Light Switch
+ ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-single-gang-2-way-touch-light-switch/))
+- Single Gang 2 Way Touch Light Switch ([Grid Connect website](https://grid-connect.com.au/download/6951ha/))
 
-- **Microcontroller**: Beken BK7231T
-- **Flashing Method**: OTA via Cloudcutter
+### Variations
+
+As shown on the front of the packet.
+
+| Variation   | Microcontroller | Board     | Firmware | Flashing methods |
+| ----------- | --------------- | --------- | -------- | ---------------- |
+| Series 1    | Beken BK7231T   | Tuya WB3S | v1.1.5   | Cloudcutter  |
 
 ## Setup Guide
 
-### Using Cloudcutter
+### Cloudcutter
 
 [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the flashing process. Follow the [official guide](https://github.com/tuya-cloudcutter/tuya-cloudcutter) for instructions.
+
+You can use the “Lonsonho” brand “X801A 1-Gang Switch” option in Cloudcutter.
 
 ### Manual Flashing
 
@@ -56,15 +46,16 @@ Manual Flashing has not been tested on this specific model, but other models wit
 
 ## GPIO Pinouts
 
-### BK72XX-Based Models
+### Series 1 (WB3S) GPIO Pinouts
+
+_See [Pinouts on WB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/wb3s-module-datasheet?id=K9dx20n6hz5n4#title-5-Interface%20pin%20definition) for more detail_
 
 | Pin    | Function                                                                          |
 | ------ | --------------------------------------------------------------------------------- |
-| P8     | Power Status of actual light, taking into account both switches  _(inverted)_     |
-| P9     | Other members have stated this is the Remote Switch status, but unable to confirm |
-| P14    | Relay,  _(includes LED)_                                                     |
-| P24    | Status LED  _(inverted)_                                                           |
-| P26    | Button  _(inverted)_
+| P24    | Status LED  _(inverted)_ |
+| P26    | Button  _(inverted)_ |
+| P14    | Relay and Button LED  |
+| P8     | Light activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_     |
 
 > **Note**: Each relay shares a pin with its associated LED.
 
@@ -74,136 +65,87 @@ To gain individual control of button LEDs, remove specific diodes and solder a w
 
 ## Configuration Examples
 
-### 1 Gang Configuration for the BK72XX device
+### Series 1 (WB3S) Configuration Examples
 
 ```yaml
 substitutions:
-  devicename: "deta-2way-single-gang"
-  friendlyname: Deta 2-way Single Gang Switch
-  deviceid: deta_single_gang_two_way
-  deviceicon: "mdi:light-recessed"
-  devicemodel: Deta Grid Connect Single Gang Two-Way 6951HA
+  device_name: "deta-2-way-1-gang-switch"
 
-#################################
+  friendly_name: "DETA 2 Way 1 Gang Switch"
+  light_1_name: "${friendly_name}"
+  light_1_icon: "mdi:light-recessed"
+
 esphome:
-  name: ${devicename}
+  name: ${device_name}
+  friendly_name: ${friendly_name}
 
 bk72xx:
-  board: generic-bk7231t-qfn32-tuya
+  board: wb3s
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${devicename}
-    password: !secret fallback_password
-
-# Enable logging
 logger:
 
-captive_portal:
-
-# Enable Home Assistant API
-api:
-  encryption:
-     key: !secret esphome_api_encryption_key
-
-ota:
-  password: !secret esphome_ota_password
-
-web_server:
-  port: 80
-  auth:
-    username: !secret esphome_web_username
-    password: !secret esphome_web_password
-
-
-
-#################################
-
-## ---------------- ##
-##    Status LED    ##
-## ---------------- ##
 status_led:
   pin:
     number: P24
     inverted: true
 
-## ---------------- ##
-##      Relays      ##
-## ---------------- ##
-output:
-  # Relay
-  - platform: gpio
-    id: relay
-    pin: P14
-
-## ------------ ##
-##     Light    ##
-## ------------ ##
 light:
-  # Light - keeping as internal as I found it worked but if you used the other switch 2-way switch, that HA would say the light was off when the light was actually on.
-  # Using the Switch at the bottom of the config to keep everything in order. But then in HA you have to set the Switch that shows up to show up as a Light.
   - platform: binary
-    icon: ${deviceicon}
-    output: relay
-    id: light
-    internal: true
+    output: filter_1
+    id: light_1
+    name: "${light_1_name}"
+    icon: "${light_1_icon}"
 
-## ----------------- ##
-##      Buttons      ##
-## ----------------- ##
 binary_sensor:
-  # Button
+  # Buttons
   - platform: gpio
-    id: button
+    id: button_1
     pin:
       number: P26
       inverted: true
       mode: INPUT_PULLUP
     on_press:
       then:
-        - light.toggle: light
-    internal: True
-  
+        - light.toggle: light_1
+    internal: true
+
+  # Activation statuses
+  # Represents the "local" relay (this device) XOR the "remote" relay (another device).
+  # It only shows TRUE if one of the "local" or "remote" relays are active, but not both.
   - platform: gpio
-    id: remote_switch
+    id: activation_status_1
     pin:
       number: P8
-      mode: INPUT_PULLUP
+      mode: INPUT
       inverted: true  
-    name: "Status from both Switches"
+    internal: true
 
-
-## ---------------- ##
-##     Switches     ##
-## ---------------- ##
 switch:
-# Keep the light in HA in sync when using 2nd phyiscal switch
+  # Relay
+  - platform: gpio
+    id: relay_1
+    pin: P14
+    internal: true
+
+output:
+  # Filters
+  # Triggered when the "light" entity is turned on or off. Will only toggle
+  # the associated relay if the "light" entity is out of sync with the
+  # "activation status"; otherwise do nothing as the state is already correct.
   - platform: template
-    name: ${friendlyname}
-    id: lounge_deta_2way_single_gang_template
-    icon: ${deviceicon}
-    lambda: |-
-      if (id(remote_switch).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-    - if:
-        condition:
-          - binary_sensor.is_off: remote_switch
-        then:
-          - light.toggle: light
-    turn_off_action:
-    - if:
-        condition:
-          - binary_sensor.is_on: remote_switch
-        then:
-          - light.toggle: light
+    type: binary
+    id: filter_1
+    write_action:
+      then:
+        - if:
+            condition:
+              - lambda: "return state != id(activation_status_1).state;"
+            then:
+              - switch.toggle: relay_1
 ```
 
 ### Add Reboot button to HA
