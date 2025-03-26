@@ -1,5 +1,5 @@
 ---
-title: AVATTO Tuya WiFi/ZigBee Smart Switch Modul
+title: AVATTO Tuya WiFi Smart Switch Modul
 date-published: 2025-03-26
 type: misc
 standard: global
@@ -18,11 +18,6 @@ board: bk72xx
 
 ## Configuration
 
-```yaml
-# Basic Config
----
-
-# https://esphome.io/devices/esp8266.html
 esphome:
   name: "relais1"
   friendly_name: Relais1
@@ -43,7 +38,6 @@ ota:
   - platform: esphome
     password: "22200a5f3410b42a38db90fc056f95e3"
 
-#-------------------------------------------------------------------
 wifi:
   networks:
   - ssid: !secret wifi_ssid
@@ -51,19 +45,7 @@ wifi:
   - ssid: "secondWiFi"
     password: "secondWiFi"
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Fallback"
-    password: "123456789"
-
-#-------------------------------------------------------------------
-
 captive_portal:
-
-text_sensor:
-  - platform: libretiny
-    version:
-      name: LibreTiny Version
 
 light:
   - platform: status_led
@@ -118,8 +100,3 @@ output:
   - platform: gpio
     id: relayoutput
     pin: P20
-
-sensor:
-  - platform: internal_temperature
-    name: "${tongou_name} Internal Temperature"   
-```
