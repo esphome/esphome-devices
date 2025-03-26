@@ -5,7 +5,7 @@ type: misc
 standard: global
 board: e
 ---
-![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
+![Product Image](/AVATTO-Tuya-WiFi-Smart-Switch/AVATTO Tuya WiFi Smart Switch.jpg "Product Image")
 
 ## GPIO Pinout
 
