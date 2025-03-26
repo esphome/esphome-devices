@@ -18,12 +18,12 @@ board: bk72xx
 
 ## Configuration
 
+```yaml
+# Basic Config
+
 esphome:
   name: "relais1"
   friendly_name: Relais1
-
-substitutions:
-  tongou_name: "Relais 1"
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -87,7 +87,7 @@ binary_sensor:
 switch:
   - platform: output
     id: relais
-    name: "${tongou_name}"
+    name: "${friendly_name}"
     output: relayoutput
     on_turn_on: 
       then:
