@@ -13,7 +13,7 @@ board: bk72xx
 | ------ | ------------------ |
 | GPIO6  | Blue Status LED    |
 | GPIO8  | Button             |
-| GPIO14 | Input              |
+| GPIO14 | S1 Input           |
 | GPIO20 | Relais             |
 
 ## Configuration
