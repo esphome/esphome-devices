@@ -3,7 +3,7 @@ title: AVATTO Tuya WiFi/ZigBee Smart Switch Modul
 date-published: 2025-03-26
 type: misc
 standard: global
-board: e
+board: bk72xx
 ---
 ![Product Image](./AVATTOTuyaWiFiSmartSwitch.jpg "Product Image")
 
@@ -11,10 +11,10 @@ board: e
 
 | Pin    | Function           |
 | ------ | ------------------ |
-| GPIO4  | Blue Status LED    |
-| GPIO14 | Remote Transmitter |
-| GPIO5  | Remote Receiver    |
-| GPIO13 | Reset Button       |
+| GPIO6  | Blue Status LED    |
+| GPIO8  | Button             |
+| GPIO14 | Input              |
+| GPIO20 | Relais             |
 
 ## Configuration
 
@@ -48,8 +48,8 @@ wifi:
   networks:
   - ssid: !secret wifi_ssid
     password: !secret wifi_password
-  - ssid: "powergarage"
-    password: "wiedarss"
+  - ssid: "secondWiFi"
+    password: "secondWiFi"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
