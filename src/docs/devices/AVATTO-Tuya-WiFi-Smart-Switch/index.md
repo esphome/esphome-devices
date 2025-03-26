@@ -5,10 +5,13 @@ type: misc
 standard: global
 board: bk72xx
 ---
+# Product Image
 ![Product Image](./AVATTOTuyaWiFiSmartSwitch.jpg "Product Image")
 
+# internal frontside
 ![Product front](./Frontside.jpg "Product front image")
 
+# internal backside
 ![Product back](./Backside.jpg "Product back image")
 
 ## GPIO Pinout
@@ -59,8 +62,7 @@ light:
       number: P6
       inverted: true
     id: led
-    restore_mode: ALWAYS_OFF
-
+    
 binary_sensor:
   - platform: gpio
     id: button_onoff
