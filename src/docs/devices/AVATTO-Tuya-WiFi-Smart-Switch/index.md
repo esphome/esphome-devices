@@ -7,6 +7,10 @@ board: bk72xx
 ---
 ![Product Image](./AVATTOTuyaWiFiSmartSwitch.jpg "Product Image")
 
+![Product front](./Frontside.jpg "Product front image")
+
+![Product back](./Backside.jpg "Product back image")
+
 ## GPIO Pinout
 
 | Pin    | Function           |
