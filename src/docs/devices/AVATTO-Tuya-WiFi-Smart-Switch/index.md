@@ -60,7 +60,7 @@ light:
       number: P6
       inverted: true
     id: led
-    
+
 binary_sensor:
   - platform: gpio
     id: button_onoff
@@ -84,19 +84,19 @@ binary_sensor:
     on_press:
       then:
         - switch.turn_on: relais
-    on_release: 
+    on_release:
       then:
-        - switch.turn_off: relais   
+        - switch.turn_off: relais
 
 switch:
   - platform: output
     id: relais
     name: "${friendly_name}"
     output: relayoutput
-    on_turn_on: 
+    on_turn_on:
       then:
         - light.turn_on: led
-    on_turn_off: 
+    on_turn_off:
       then:
         - light.turn_off: led
 
@@ -104,3 +104,4 @@ output:
   - platform: gpio
     id: relayoutput
     pin: P20
+```
