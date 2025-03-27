@@ -5,12 +5,11 @@ type: misc
 standard: global
 board: bk72xx
 ---
+
 # Product Image
 ![Product Image](./AVATTOTuyaWiFiSmartSwitch.jpg "Product Image")
-
 # internal frontside
 ![Product front](./Frontside.jpg "Product front image")
-
 # internal backside
 ![Product back](./Backside.jpg "Product back image")
 
