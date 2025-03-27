@@ -6,11 +6,11 @@ standard: global
 board: bk72xx
 ---
 
-# Product Image
+## Product Image
 ![Product Image](./AVATTOTuyaWiFiSmartSwitch.jpg "Product Image")
-# internal frontside
+## internal frontside
 ![Product front](./Frontside.jpg "Product front image")
-# internal backside
+## internal backside
 ![Product back](./Backside.jpg "Product back image")
 
 ## GPIO Pinout
