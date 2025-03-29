@@ -43,7 +43,7 @@ api:
 ota:
 
 status_led:
-  pin: 
+  pin:
     number: GPIO2
     inverted: True
 switch:
