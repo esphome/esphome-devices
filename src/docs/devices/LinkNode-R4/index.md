@@ -3,12 +3,12 @@ title: LinkNodeR4 - 4 Relay ESP8266
 date-published: 2025-03-28
 type: relay
 standard: global
-board: esp12e
+board: esp8266
 ---
 
 ## Product Images
 
-![LinkNodeR4-01 Device](/images/linknoder4-01.jpg "LinkNodeR4-01")
+![LinkNodeR4 Device](LinkNodeR4.jpg "LinkNodeR4")
 
 ## GPIO Pinout
 
@@ -35,8 +35,6 @@ esp8266:
   board: esp12e
 
 wifi:
-  ssid: "YourWiFiSSID"
-  password: "YourWiFiPassword"
 
 logger:
 
