@@ -37,11 +37,11 @@ logger:
 
 api:
   encryption:
-    key: "jU7XiZS4XO5BPQ/Mj4bQaEXnpsWhpCEGBZ6IwjEYHQM="
+    key: "jU7XiZS4XO5BPQ/Mj4b"
 
 ota:
   - platform: esphome
-    password: "22200a5f3410b42a38db90fc056f95e3"
+    password: "22200a5f3410b42a38"
 
 wifi:
   networks:
