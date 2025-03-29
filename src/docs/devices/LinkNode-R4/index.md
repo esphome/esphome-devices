@@ -46,7 +46,6 @@ status_led:
   pin: 
     number: GPIO2
     inverted: True
-
 switch:
   - platform: gpio
     pin: GPIO12
@@ -64,4 +63,3 @@ switch:
     pin: GPIO16
     id: relay4
     name: "${friendly_name} Relay 4"
-
