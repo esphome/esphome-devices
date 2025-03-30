@@ -12,7 +12,9 @@ board: esp8266
 
 This switch uses tuya so you can [use tuya-convert to flash ESPHome](/guides/tuya-convert/).
 
-## GPIO Pinout
+**Note**: Newer versions ("SS01", 2025+) of this switch use a locked CB3S and might not be flashable; replacement with an ESP8266 module may be required.
+
+## GPIO Pinout ("S01")
 
 | Pin    | Function                   |
 | ------ | -------------------------- |
@@ -21,7 +23,7 @@ This switch uses tuya so you can [use tuya-convert to flash ESPHome](/guides/tuy
 | GPIO13 | main button (input_pullup) |
 | GPIO12 | relay (inverted)           |
 
-## Basic Configuration
+## Basic Configuration ("S01")
 
 ```yaml
 # Basic Config
@@ -139,3 +141,24 @@ sensor:
   - platform: wifi_signal
     name: $friendly_name wifi signal
 ```
+
+## GPIO Pinout ("SS01")
+
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO4  | led1 (inverted)            |
+| GPIO5  | led2 (inverted)            |
+| GPIO13 | main button (input_pullup) |
+| GPIO12 | relay                      |
+
+## Fully-featured package ("SS01")
+
+[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this device,
+which permits quick flashing with a pre-compiled binary as well as automatic adoption, deployment, and updates. This requires
+either an ESP8266-based version of the switch, or swapping out the CB3S module for an ESP8266 module.
+
+**Note**: The relay between the "S01" and "SS01" seem to have changed, and the SS01 does not invert the relay any longer.
+The configuration below might need tweaking in this regard to work on the "S01" versus the basic config above, though the
+author has not tested this.
+
+[Github Project Link](https://github.com/joshuaboniface/martinjerry-esphome)
