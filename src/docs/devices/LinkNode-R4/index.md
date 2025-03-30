@@ -63,3 +63,4 @@ switch:
     pin: GPIO16
     id: relay4
     name: "${friendly_name} Relay 4"
+```
