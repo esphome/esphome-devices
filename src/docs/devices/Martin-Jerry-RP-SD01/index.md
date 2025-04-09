@@ -71,9 +71,88 @@ The up/down rocker provides intuitive control of both brightness and relay state
 - The **Wi-Fi button** is still available but not used in the default configuration.
 - The **LED indicators** show brightness level when the relay is ON.
 
-## Example Configuration
+## Example Configurations
 
-This example includes:
+### Basic Example:
+```yaml
+substitutions:
+  name: "rp-sd01"
+
+esphome:
+  name: "${name}"
+  name_add_mac_suffix: true
+
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap: {}
+
+captive_portal:
+
+# Relay control
+switch:
+  - platform: gpio
+    name: "Relay"
+    id: relay
+    pin:
+      number: 2
+      inverted: true
+    restore_mode: ALWAYS_OFF
+
+# PWM dimmer output
+output:
+  - platform: ledc
+    id: pwm_output
+    pin: GPIO5
+    frequency: 1000 Hz
+    min_power: 0.01
+    max_power: 0.9
+
+light:
+  - platform: monochromatic
+    name: "Dimmer"
+    id: pwm_light
+    output: pwm_output
+    restore_mode: RESTORE_AND_OFF
+
+# Button GPIOs (no logic attached yet)
+binary_sensor:
+  - platform: gpio
+    id: button_wifi
+    name: "Wi-Fi Button"
+    pin: GPIO8
+
+  - platform: gpio
+    id: button_up
+    name: "Up Button"
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: true
+
+  - platform: gpio
+    id: button_down
+    name: "Down Button"
+    pin:
+      number: GPIO21
+      mode: INPUT_PULLUP
+      inverted: true
+
+```
+
+### Advanced Example which includes:
 - Dimmer control
 - Relay switching
 - Brightness feedback via LEDs
@@ -82,11 +161,11 @@ This example includes:
 
 ```yaml
 substitutions:
-  name: "livingroom-dimmer"
-  friendly_name: "Living Room Dimmer"
+  name: "rp-sd01"
 
 esphome:
   name: "${name}"
+  name_add_mac_suffix: true
   friendly_name: "${friendly_name}"
   name_add_mac_suffix: true
   platformio_options:
