@@ -46,6 +46,7 @@ To enter flash mode:
 You can now flash ESPHome using the ESPHome Dashboard or the CLI.
 
 ## GPIO Mapping
+
 | Pin | Use                       |
 | --- | ------------------------- |
 | 9   | Up Button                 |
@@ -73,7 +74,8 @@ The up/down rocker provides intuitive control of both brightness and relay state
 
 ## Example Configurations
 
-### Basic Example:
+### Basic Example
+
 ```yaml
 substitutions:
   name: "rp-sd01"
@@ -153,7 +155,8 @@ binary_sensor:
 
 ```
 
-### Advanced Example which includes:
+### Advanced Example which includes
+
 - Dimmer control
 - Relay switching
 - Brightness feedback via LEDs
