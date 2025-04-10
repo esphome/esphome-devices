@@ -46,10 +46,11 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP32
-  board: m5stick-c
   platformio_options:
     upload_speed: 115200
+
+esp32:
+  board: m5stick-c
 
 wifi:
   ssid: !secret wifi_ssid
@@ -72,7 +73,7 @@ ota:
 sensor:
   - platform: adc
     pin: GPIO38
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 60s
     name: "Battery Voltage"
     filters:

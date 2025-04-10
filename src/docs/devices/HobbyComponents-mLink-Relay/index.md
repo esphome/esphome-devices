@@ -1,5 +1,5 @@
 ---
-title: Hobby Coponents mLink 1/2/4 channel I2C relay 
+title: Hobby Components mLink 1/2/4 channel I2C relay 
 date-published: 2023-09-25
 type: relay
 standard: global

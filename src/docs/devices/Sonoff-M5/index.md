@@ -9,6 +9,7 @@ difficulty: 3
 
 ## Notes
 
+- the Matter compatible version of this switch (part numbers ending in W, e.g. M5-2C-86W) is locked and cannot be flashed
 - status LED (blue) in left-most button
 - channel LEDs (red) are dimmable (PWM)
   while relays OFF; 100% bright when ON
@@ -79,7 +80,8 @@ api:
     key: !secret esp_api_key
 
 ota:
-  password: !secret ota_secret
+  - platform: esphome
+    password: !secret ota_secret
 
 sensor:  
   - platform: wifi_signal
@@ -266,8 +268,9 @@ api:
 
 # Enable OTA
 ota:
-  safe_mode: true
-  password: !secret ota_password
+  - platform: esphome
+    safe_mode: true
+    password: !secret ota_password
 
 # Enable WiFi and AP for captive portal
 wifi:

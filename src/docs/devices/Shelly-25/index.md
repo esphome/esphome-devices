@@ -40,8 +40,8 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: !secret ssid1
-  password: !secret ssid1_pass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
 
 captive_portal:

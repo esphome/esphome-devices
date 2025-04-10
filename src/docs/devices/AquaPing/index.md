@@ -20,7 +20,7 @@ Implementation with an ESP8266 module in Home Assistant requires the custom firm
 
 ![alt text](screenshot.jpg "Example AquaPing dashboard screenshot")
 
-``` yaml
+```yaml
 esphome:
   name: esphome-web-959f0c
   friendly_name: ESPHome Web 959f0c
@@ -45,11 +45,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ""
-    password: ""
 
 captive_portal:
 

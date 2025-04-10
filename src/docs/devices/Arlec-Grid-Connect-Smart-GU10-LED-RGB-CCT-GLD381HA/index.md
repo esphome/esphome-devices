@@ -44,6 +44,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
 
 sm2135:
   clock_pin: P9
