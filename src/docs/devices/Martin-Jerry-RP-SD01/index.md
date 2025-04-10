@@ -59,7 +59,7 @@ You can now flash ESPHome using the ESPHome Dashboard or the CLI.
 | 19  | Dim level 4 LED           |
 | 20  | Dim level 5 LED           |
 
-## Button Behavior (using advanced example bellow)
+## Button Behavior (using advanced example below)
 
 The up/down rocker provides intuitive control of both brightness and relay state:
 
@@ -91,6 +91,7 @@ esp32:
 logger:
 
 api:
+  reboot_timeout: 0s
 
 ota:
 
@@ -184,6 +185,7 @@ esp32:
 logger:
 
 api:
+  reboot_timeout: 0s
 
 ota:
   - platform: esphome
