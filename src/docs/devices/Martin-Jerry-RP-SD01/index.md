@@ -3,7 +3,7 @@ title: Martin Jerry RP-SD01
 date-published: 2025-04-09
 type: dimmer
 standard: us
-board: esp32-c3-devkitm-1
+board: esp32
 ---
 
 ## Description
