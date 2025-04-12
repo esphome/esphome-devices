@@ -414,3 +414,4 @@ output:
     pin:
       number: GPIO20
       inverted: true
+```
