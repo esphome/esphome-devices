@@ -48,7 +48,7 @@ api:
 
 ota:
   - platform: esphome
-    password: !secret ota_password 
+    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -72,9 +72,9 @@ display:
       - id: page1
         lambda: |-
           it.printf(0, 0, id(roboto), "Hello World!");
-          
+
 graphical_display_menu:
-  id: main_menu 
+  id: main_menu
   display: front_display
   font: roboto
   active: false
@@ -119,10 +119,10 @@ sensor:
     attenuation: auto
     filters:
      - delta: 1.0
-    on_value_range: 
+    on_value_range:
       - above: 1.25
         below: 1.45
-        then: 
+        then:
           - display_menu.up
       - above: 1.9
         below: 2.1
