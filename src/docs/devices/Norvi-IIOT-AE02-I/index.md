@@ -8,27 +8,28 @@ difficulty: 2
 ---
 
 ## Overview
+
 This is a DIN mounted PLC-style ESP32 unit with 24V supply, OLED display, RS485, up to 8x 24V digital inputs, up to 6x 4-20mA analogue inputs, up to 6x 0-10V analogue inputs, up to 8x open collector outputs, or up to 6x 5A relay outputs (depending on the model).
 There are expansion modules that operate via i2c to provide more inputs or outputs.
 
-The example below is for the 4-20mA current input version, with an attached 8x relay output module. 
+The example below is for the 4-20mA current input version, with an attached 8x relay output module.
 
 ## Product Images
+
 ![Norvi IIOT AE02-I](https://github.com/user-attachments/assets/11dfaf8e-2827-4a4a-9ca9-9741d2220a35)
 
 ![8x 5A Relay Expansion](https://github.com/user-attachments/assets/fff40b67-0877-451f-a8ff-5c0f12929f7a)
 
 ![Schematic Front View](https://github.com/user-attachments/assets/edc0435c-f4db-41a7-91b8-dca2c112c675)
 
-
 More details at the product website [here](https://norvi.lk/norvi-iiot-industrial-esp32-for-iiot-applications) or a very similar version [here](https://sensoper.com/shop/sc-se-i8-am6-to2/)
 
 [Data Sheet](https://norvi.lk/docs/norvi-iiot-ae02-i-datasheet/)
 
-
-
 ## Example Configuration
+
 ```yml
+
 esphome:
   name: iiot-demo
   friendly_name: Norvi IIOT AE02-I Demo
@@ -98,7 +99,7 @@ uart:
 
 modbus:
   flow_control_pin: 4
-  
+
 ads1115:
   - address: 0x48
     id: ads1115_1
@@ -116,7 +117,7 @@ sensor:
     id: button_adc_input
     update_interval: 50ms
     attenuation: auto
-    filters: 
+    filters:
      - delta: 1.0
     on_value_range: 
       - above: 1.25
@@ -125,11 +126,11 @@ sensor:
           - display_menu.up
       - above: 1.9
         below: 2.1
-        then: 
+        then:
           - display_menu.down
       - above: 2.63
         below: 2.83
-        then: 
+        then:
           - if:
               condition:
                 display_menu.is_active: main_menu
@@ -199,8 +200,7 @@ binary_sensor:
  - platform: gpio
    pin: 23
    id: dio7
-  
-    
+
 output:
   - platform: gpio
     pin: 26
@@ -212,7 +212,7 @@ output:
     pin: 14
     id: led0
   - platform: gpio
-    pin: 
+    pin:
       number: 12
       ignore_strapping_warning: true
     id: led1
@@ -220,12 +220,12 @@ output:
     pin: 13
     id: led2
   - platform: gpio
-    pin: 
+    pin:
       number: 15
       ignore_strapping_warning: true
     id: led3
   - platform: gpio
-    pin: 
+    pin:
       number: 2
       ignore_strapping_warning: true
     id: led4
@@ -301,6 +301,5 @@ output:
        number: 11
        mode:
          output: True
-
 
 ```
