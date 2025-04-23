@@ -45,11 +45,10 @@ api:
 ota:
   password: "password"
 wifi:
-  ssid: "wifi_ssid"
-  password: "wifi_password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: $friendly_name
-    password: "password"
+
 captive_portal:
 
 output:

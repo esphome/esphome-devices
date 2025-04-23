@@ -4,6 +4,7 @@ date-published: 2019-10-11
 type: relay
 standard: global
 board: esp8266
+difficulty: 3
 ---
 
 ## GPIO Pinout
@@ -36,10 +37,12 @@ wifi:
 logger:
 api:
 ota:
+  - platform: esphome
 
 # Device Specific Config
 binary_sensor:
   - platform: gpio
+    name: "Sonoff 4CH Pro Button 1"
     pin:
       number: GPIO0
       mode: INPUT_PULLUP
@@ -47,6 +50,7 @@ binary_sensor:
     on_press:
       - switch.toggle: "relay_1"
   - platform: gpio
+    name: "Sonoff 4CH Pro Button 2"
     pin:
       number: GPIO9
       mode: INPUT_PULLUP
@@ -54,6 +58,7 @@ binary_sensor:
     on_press:
       - switch.toggle: "relay_2"
   - platform: gpio
+    name: "Sonoff 4CH Pro Button 3"
     pin:
       number: GPIO10
       mode: INPUT_PULLUP
@@ -61,37 +66,13 @@ binary_sensor:
     on_press:
       - switch.toggle: "relay_3"
   - platform: gpio
+    name: "Sonoff 4CH Pro Button 4"
     pin:
       number: GPIO14
       mode: INPUT_PULLUP
       inverted: True
     on_press:
       - switch.toggle: "relay_4"
-
-  - platform: gpio
-    pin:
-      number: GPIO0
-      mode: INPUT_PULLUP
-      inverted: True
-    name: "Sonoff 4CH Pro Button 1"
-  - platform: gpio
-    pin:
-      number: GPIO9
-      mode: INPUT_PULLUP
-      inverted: True
-    name: "Sonoff 4CH Pro Button 2"
-  - platform: gpio
-    pin:
-      number: GPIO10
-      mode: INPUT_PULLUP
-      inverted: True
-    name: "Sonoff 4CH Pro Button 3"
-  - platform: gpio
-    pin:
-      number: GPIO14
-      mode: INPUT_PULLUP
-      inverted: True
-    name: "Sonoff 4CH Pro Button 4"
 
   - platform: status
     name: "Sonoff 4CH Pro Status"

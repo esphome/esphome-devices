@@ -59,17 +59,8 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: ${gateway_ip}
-    subnet: ${subnet_mask}
-    dns1: ${dns_ip}
-
-  fast_connect: on
-
   ap:
-    ssid: ${device_name}
-    password: !secret wifi_password
+
 captive_portal:
 
 output:

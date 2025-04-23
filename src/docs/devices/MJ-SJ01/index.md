@@ -34,6 +34,17 @@ The header CN is under the board, visible after removing the 4 screws.
 | CN1-5 | GROUND                    |
 | CN1-6 | VCC                       |
 
+## Light as fully-featured package
+
+[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this device,
+which permits quick flashing with a pre-compiled binary as well as automatic adoption, deployment, and updates.
+
+[Github Project Link](https://github.com/joshuaboniface/martinjerry-esphome)
+
+The functionality has been modified quite significantly from the example below, to provide an experience more like a WeMo
+dimmer switch as well as provide more flexibility for control in HomeAssistant dashboards and automations. See the README
+in the repository for more information and examples.
+
 ## Light
 
 ```yaml
@@ -309,8 +320,8 @@ sensor:
 
 wifi:
   # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -318,7 +329,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
     manual_ip:
       static_ip: 192.168.1.1
@@ -566,8 +577,8 @@ sensor:
 
 wifi:
   # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -575,7 +586,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
     manual_ip:
       static_ip: 192.168.1.1

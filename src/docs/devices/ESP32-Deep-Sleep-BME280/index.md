@@ -15,7 +15,9 @@ Setting the MQTT Birth and Will message to blank stops the device from going *Un
 
 oversampling on BME280 is set to 2X to speed up reads. The i2c address for bme280 and bmp280 have to be set to 0x76, the default of 0x77 does not work with either of the devices I have.
 
-**run_duration** is calculated from from when MQTT is connected it is set to 10secs, but we want the esp to go to sleep as quickly as possible, rather than estimate the time needed which could be a bit variable over internet we send the esp to sleep as quickly as possible use **on_message** together with an HA automation. If you need to disable sleep can disable the automation and publish an MQTT message setting **ota_mode** then OTA can be done and when that is done **ota_mode** can be turned OFF and the automation enabled again.
+This sample only use ESPHome global variable and MQTT to trigger deep sleep, no need to set other automations in Home Assistant.
+
+**run_duration** is calculated from from when MQTT is connected it is commented because we want the esp to go to sleep as quickly as possible, rather than estimate the time needed which could be a bit variable over internet we send the esp to sleep as quickly as possible use **on_message** together with an HA automation. If you need to disable sleep can publish an MQTT message setting **ota_mode** then OTA can be done and when that is done **ota_mode** can be turned OFF and the automation enabled again.
 
 ## Log Output
 
@@ -47,13 +49,19 @@ oversampling on BME280 is set to 2X to speed up reads. The i2c address for bme28
 ```yaml
 esphome:
   name: bedford
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 wifi:
   ssid: 'home'
   password: 'fileybay'
   fast_connect: true
+
+globals:
+  - id: ota_mode
+    type: bool
+    initial_value: 'false'
 
 mqtt:
   broker: *redacted*.co.uk
@@ -66,12 +74,22 @@ mqtt:
     - topic: bedford/ota_mode
       payload: 'ON'
       then:
-        - deep_sleep.prevent: deep_sleep_1
-    - topic: bedford/sleep_mode
-      payload: 'ON'
+        - globals.set:
+            id: ota_mode
+            value: 'true'
+    - topic: bedford/ota_mode
+      payload: 'OFF'
       then:
-        - deep_sleep.enter: deep_sleep_1
-
+        - globals.set:
+            id: ota_mode
+            value: 'false'
+    - topic: bedford/sensor/bford_temp/state
+      then:
+        - if:
+            condition:
+              lambda: 'return !id(ota_mode);'
+            then:
+              - deep_sleep.enter: deep_sleep_1
 
 logger:
   level: INFO
@@ -82,7 +100,6 @@ ota:
 i2c:
   sda: 16
   scl: 17
-
 
 sensor:
   - platform: bme280
@@ -99,21 +116,7 @@ sensor:
 
 deep_sleep:
   id: deep_sleep_1
-  run_duration: 10s
+# run_duration: 10s
   sleep_duration: 60min
 
-```
-
-## automations.yaml
-
-```- id: bedford_sleep
-  alias: bedford sleep after mqtt receipt
-  trigger:
-  - platform: mqtt
-    topic: bedford/sensor/bedford_pres/state
-  action:
-  - data:
-      payload: 'ON'
-      topic: bedford/sleep_mode
-    service: mqtt.publish
 ```

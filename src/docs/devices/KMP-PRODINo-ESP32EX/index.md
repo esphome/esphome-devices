@@ -25,7 +25,8 @@ Manufacturer: [KMP Electronics](https://kmpelectronics.eu/shop/prodino-esp32ex/)
 # Basic Config
 esphome:
   name: prodino1
-  platform: ESP32
+
+esp32:
   board: esp-wrover-kit
 
 wifi:
@@ -51,12 +52,12 @@ ota:
   password: "password"
 
 #optional onewire
-#dallas:
+#one_wire:
 #  - pin: GPIO21
 
 sensor:
  #optional onewire
- # - platform: dallas
+ # - platform: dallas_temp
  #   address: 0xcb021564bbacffff
  #   name: "Ds18B20 Temperature"
 

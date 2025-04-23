@@ -162,7 +162,7 @@ uart:
 
 sensor:  
   - platform: cse7761
-    update_interval: 21
+    update_interval: 21s
     voltage:
       name: 'Voltage'
     current_1:

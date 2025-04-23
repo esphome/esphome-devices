@@ -55,11 +55,11 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 # This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
-  esp8266_restore_from_flash: true
-
+  restore_from_flash: true
 
 preferences:
   flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
@@ -79,11 +79,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Gosund-Sp111 Fallback Hotspot"
-    password: "REDACTED"
 
 captive_portal:
 

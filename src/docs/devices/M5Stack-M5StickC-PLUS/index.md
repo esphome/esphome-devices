@@ -45,10 +45,11 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP32
-  board: m5stick-c
   platformio_options:
     upload_speed: 115200
+
+esp32:
+  board: m5stick-c
 
 wifi:
   ssid: !secret wifi_ssid
@@ -161,4 +162,34 @@ microphone:
     adc_type: external
     pdm: true
     id: mic
+```
+
+## Workaround for using devices powered with 5V on the HY2.0-4P port
+
+The 5V power on the HY2.0-4P is fed by the axp192. Therefore these devices must be initialized some time after the axp192 has started.
+
+```yml
+i2c:
+   - id: bus_grove
+     sda: GPIO32
+     scl: GPIO33
+     scan: True
+     frequency: 100kHz
+     ## Start after the axp192 has powered up
+     ## In case an additional delay is needed this component may be helpful:
+     ## https://github.com/ssieb/esphome_components/tree/master/components/boot_delay
+     setup_priority: 500
+
+sensor:
+ ## Example: anything connected to "i2c_id: bus_grove" should have a lower setup priority than bus_grove.
+  - platform: scd30
+    setup_priority: 490
+    i2c_id: bus_grove
+    address: 0x61
+    co2:
+      name: "CO2"
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
 ```

@@ -29,7 +29,8 @@ board: esp32
 # Basic Config
 esphome:
   name: kc868-a8
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 i2c:
@@ -195,11 +196,12 @@ binary_sensor:
       number: 33
       inverted: true
 
-dallas:
-  - pin: 14
+one_wire:
+  - platform: gpio
+    pin: GPIO14
 
 sensor:
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x1c0000031edd2a28 #replace with your sensor's ID
     name: "ds18b20-1"
 

@@ -1,9 +1,10 @@
 ---
 title: Sonoff THR316
 date-published: 2023-05-16
-type: plug
-standard: us
+type: relay
+standard: global
 board: esp32
+difficulty: 3
 ---
 
 ![Sonoff THR316](SonoffTHR316.jpg)

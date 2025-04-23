@@ -43,6 +43,10 @@ ADC Input (GPIO17) have two ranges (0 - 15 or 0 - 30V), selectable by GPIO14.
 If you configure GPIO14 as switch and turn it on you get 30V input range.
 Tested by [Protoncek](https://community.home-assistant.io/u/Protoncek).
 
+Device return pure ADC readings, so need to multiply to get actual voltage.
+Linear approximation looks more or less acceptable.
+Possible multiply factors: 14.64 on 15V range, 30.64 on 30V range.
+
 ## Basic Configuration
 
 ```yaml
@@ -100,6 +104,15 @@ sensor:
     update_interval: 300s
     entity_category: "diagnostic"
 
+  - platform: adc
+    pin: GPIO17
+    name: Voltage
+    id: sensor_voltage
+    accuracy_decimals: 1
+    update_interval: 9s
+    filters:
+      - lambda: if (id(adc_range).state) return x*30.64; else return x*14.64;
+
 button:
   - platform: restart
     name: "Restart"
@@ -112,6 +125,11 @@ switch:
   - platform: output
     name: "Output 2"
     output: out_2
+  - platform: gpio
+    id: adc_range
+    name: ADC Range
+    pin: GPIO14
+    restore_mode: RESTORE_DEFAULT_ON
 
 output:
   - platform: gpio

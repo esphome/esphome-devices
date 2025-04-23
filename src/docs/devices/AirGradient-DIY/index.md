@@ -18,7 +18,8 @@ If you have multiple sensor boards, you will likely need to make each sensor nam
 ```yaml
 esphome:
   name: airgradient
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
 
 # Enable logging

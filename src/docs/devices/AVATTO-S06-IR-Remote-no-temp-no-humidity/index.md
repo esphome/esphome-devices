@@ -58,17 +58,14 @@ between the GPIO13 and the RESET pin of the ESP8266 MCU.
 # https://esphome.io/devices/esp8266.html
 esphome:
   name: ir_remote
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret ssid
-  password: !secret wlan_password
-  fast_connect: true
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: IR Remote Fallback Hotspot
-    password: !secret ap_password
 
 captive_portal:
 

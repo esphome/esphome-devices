@@ -1,10 +1,15 @@
 ---
 title: Sonoff POW Elite 20a (POWR320D)
 date-published: 2022-11-13
-type: plug
+type: relay
 standard: global
 board: esp32
+difficulty: 3
 ---
+
+## Bootloop Workaround
+
+Some people experience a boot loop after flashing esphome directly. The boot loop seems to appear on 3.3V DC power only (not on AC). Here's a workaround: https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868
 
 ## GPIO Pinout
 
@@ -28,6 +33,7 @@ board: esp32
 substitutions:
   friendly_name: POW Elite 20A
   device_name: pow-elite-20a
+  update_interval: 2s
 
 esphome:
   name: $device_name
@@ -76,6 +82,7 @@ bluetooth_proxy:
 uart:
   rx_pin: GPIO16
   baud_rate: 4800
+  parity: EVEN
 
 time:
   - platform: homeassistant
@@ -83,16 +90,21 @@ time:
 
 sensor:
   - platform: cse7766
-    update_interval: 2s
     current:
       name: $friendly_name Current
       id: a_sensor
+      filters:
+        - throttle_average: ${update_interval}
     voltage:
       name: $friendly_name Voltage
       id: v_sensor
+      filters:
+        - throttle_average: ${update_interval}
     power:
       name: $friendly_name Power
       id: w_sensor
+      filters:
+        - throttle_average: ${update_interval}
       on_value_range:
         - above: 4.0
           then:
@@ -103,6 +115,8 @@ sensor:
     energy:
       name: $friendly_name Energy
       id: wh_sensor
+      filters:
+        - throttle_average: ${update_interval}
 
   - platform: total_daily_energy
     name: $friendly_name Total Daily Energy

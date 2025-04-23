@@ -35,14 +35,14 @@ GPIO Descriptions
 # Basic Config
 esphome:
   name: azpenhome
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
-# Enter you WIFI credentials
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
+  ap:
 # Enable Logging.
 logger:
 

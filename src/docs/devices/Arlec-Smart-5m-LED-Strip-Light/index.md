@@ -28,12 +28,14 @@ which comes as a colour changing LED strip with controller and transformer.
 ```yaml
 esphome:
   name: led_strip
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: "ssid"
-  password: "password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 logger:
 

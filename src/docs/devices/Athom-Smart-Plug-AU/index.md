@@ -9,7 +9,7 @@ board: esp8266
 ![alt text](Athom-Plug-AU.png "Athom Smart Plug AU")
 Maker: https://www.athom.tech/
 
-Also on Aliexpress, with preflashed Tashmota or Homekit.
+Also on Aliexpress, with preflashed Tasmota or Homekit.
 
 ## GPIO Pinout
 
@@ -31,7 +31,8 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 # Enable logging
@@ -45,12 +46,9 @@ ota:
 captive_portal:
 
 wifi:
-  ssid: "ssid"
-  password: "password"
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "${upper_devicename} Hotspot"
-    password: ""
 
 
 

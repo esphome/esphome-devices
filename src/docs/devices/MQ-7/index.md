@@ -12,7 +12,7 @@ The MQ-7 sensor can be used for detecting carbon monoxide (CO) gas. This is done
 
 ## Heater Mod
 
-This will remove the digital output of the sensor and replace it with a digital input to control the heater of the MQ-7
+This will remove the digital output of the sensor and replace it with a digital input to control the heater of the MQ-7. There is also an OSS PCB design available under https://github.com/fablab-paderborn/mq7-adapter-board, which has the same circuit as the module after the heater mod.
 
 ### What you need
 
@@ -37,7 +37,7 @@ This will remove the digital output of the sensor and replace it with a digital 
 - Optional: Add the D0-LED you removed earlier, but with reversed polarity. It will show the status of the heater
 - Check the resistance between VCC and GND. It should be ~100Ω
 
-![Heater Mod](mq-7-heater-mod.png "Heater Mod")
+![Heater Mod](mq-7-heater-mod.webp "Heater Mod")
 
 ## ESPHome Config
 

@@ -43,12 +43,12 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
 
 captive_portal:
 
@@ -96,7 +96,7 @@ binary_sensor:
             id: ${device_name}
             relative_brightness: 5%
 
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "Remote BRIGHTDOWN"
     raw:
       code: [ -9000, 4476, -589, 537, -593, 533, -593, 536, -590, 536, -593, 536, -592, 535, -592, 535, -592, 535, -593, 1638, -593, 1638, -592, 1637, -591, 1640, -591, 1638, -592, 1639, -592, 1638, -592, 1639, -592, 1637, -591, 538, -592, 1637, -592, 1639, -592, 1637, -593, 536, -591, 536, -591, 536, -593, 534, -592, 1639, -591, 537, -592, 536, -590, 535, -593, 1637, -593, 1638, -594, 1636, -593 ]
@@ -271,8 +271,8 @@ esphome:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   use_address: ${ipaddress}
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
