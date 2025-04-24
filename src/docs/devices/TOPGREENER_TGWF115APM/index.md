@@ -1,13 +1,13 @@
 ---
-
 title: TOPGREENER TGWF115APM Smart Outlet with Energy Monitoring  
 date-published: 2025-4-23  
 type: plug  
 standard: us  
 board: esp8285  
 difficulty: 4
-
 ---
+
+![image](TGWF115APM_0001-4.png "TOPGREENER TGWF115APM Smart Outlet with Energy Monitoring")
 
 ## TOPGREENER TGWF115APM Smart Outlet with Energy Monitoring
 
