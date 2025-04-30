@@ -17,6 +17,7 @@ board: esp8266
 ## Flashing via serial
 
 To put the device into flash mode:
+
 * hold the button
 * connect board to the 5V (do not connect it to the AC)
 * release the button
