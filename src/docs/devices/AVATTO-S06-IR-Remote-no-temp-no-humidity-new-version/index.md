@@ -31,8 +31,6 @@ The device is vulnerable to `tuya-cloudcutter`, and likely `tuya-convert` as wel
 
 Some sections containing default ESPHome configuration have been removed from here. Make sure they're filled out in your config. 
 
-For use with Home Assistant integrations such as SmartIR that send raw IR commands, make sure to set the IR carrier frequency to about 38KHz. Leaving it as default may cause raw IR commands to fail to work properly. 
-
 ```yaml
 esphome:
   name: s06_ir_blaster
@@ -44,16 +42,6 @@ bk72xx:
 logger:
 
 api:
-  encryption:
-    key: "xxxxxxx"
-  services:
-    - service: send_raw_command
-      variables:
-        command: int[]
-      then:
-        - remote_transmitter.transmit_raw:
-            code: !lambda "return command;"
-            carrier_frequency: !lambda "return 38029.0;"
 
 ota:
 
@@ -81,4 +69,20 @@ remote_receiver:
   pin: 
     number: GPIO7
     inverted: true
+```
+
+For use with Home Assistant integrations such as SmartIR that send raw IR commands, make sure to set the IR carrier frequency to about 38KHz. Leaving it as default may cause raw IR commands to fail to work properly. 
+
+```yaml
+api:
+  encryption:
+    key: "xxxxxxx"
+  services:
+    - service: send_raw_command
+      variables:
+        command: int[]
+      then:
+        - remote_transmitter.transmit_raw:
+            code: !lambda "return command;"
+            carrier_frequency: !lambda "return 38029.0;"
 ```
