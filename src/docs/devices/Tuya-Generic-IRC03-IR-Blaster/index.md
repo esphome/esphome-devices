@@ -28,7 +28,7 @@ Despite appearing outwardly identical to the [Tuya Generic IR Remote Control](/d
 I used ``ltchiptool`` to backup the original firmware and flash an esphome uf2 binary to it.
 The pads are all nicely labeled.
 
-As of May 2025, these devices are also vulnerable to ``tuya-cloudcutter``, allowing for disassembly-free flashing. I've had success using the generic 2.1.5 BK7231N template as well as a 2.1.5 CB3S template to flash ESPHome Kickstart to the device, from which I uploaded a proper UF2 binary. 
+As of May 2025, these devices are also vulnerable to ``tuya-cloudcutter``, allowing for disassembly-free flashing. I've had success using the generic 2.1.5 BK7231N template as well as a 2.1.5 CB3S template to flash ESPHome Kickstart to the device, from which I uploaded a proper UF2 binary.
 
 ## Configuration
 
