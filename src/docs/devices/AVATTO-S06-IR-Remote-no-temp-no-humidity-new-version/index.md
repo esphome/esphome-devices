@@ -23,13 +23,13 @@ There's two hardware iterations of this particular IR blaster: [an older version
 
 ## Flashing
 
-The device is vulnerable to `tuya-cloudcutter`, and likely `tuya-convert` as well. I flashed mine with ESPHome Kickstart using Cloudcutter, then uploaded an ESPHome UF2 binary from there. 
+The device is vulnerable to `tuya-cloudcutter`, and likely `tuya-convert` as well. I flashed mine with ESPHome Kickstart using Cloudcutter, then uploaded an ESPHome UF2 binary from there.
 
-[According to documentation on Elektroda](https://www.elektroda.com/rtvforum/topic3961676.html), you can also use tools such as `ltchiptool` to flash this via serial. There are UART pads labeled on the board and easily accessible. The chip operates at 3.3v. 
+[According to documentation on Elektroda](https://www.elektroda.com/rtvforum/topic3961676.html), you can also use tools such as `ltchiptool` to flash this via serial. There are UART pads labeled on the board and easily accessible. The chip operates at 3.3v.
 
 ## Configuration
 
-Some sections containing default ESPHome configuration have been removed from here. Make sure they're filled out in your config. 
+Some sections containing default ESPHome configuration have been removed from here. Make sure they're filled out in your config.
 
 ```yaml
 esphome:
@@ -48,7 +48,7 @@ ota:
 wifi:
 
 captive_portal:
-    
+
 light:
   - platform: status_led
     name: "Status LED"
@@ -58,7 +58,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO6
     name: "Button"
-    filters: 
+    filters:
       - invert:
 
 remote_transmitter:
@@ -66,12 +66,12 @@ remote_transmitter:
   carrier_duty_percent: 50%
   
 remote_receiver:
-  pin: 
+  pin:
     number: GPIO7
     inverted: true
 ```
 
-For use with Home Assistant integrations such as SmartIR that send raw IR commands, make sure to set the IR carrier frequency to about 38KHz. Leaving it as default may cause raw IR commands to fail to work properly. 
+For use with Home Assistant integrations such as SmartIR that send raw IR commands, make sure to set the IR carrier frequency to about 38KHz. Leaving it as default may cause raw IR commands to fail to work properly.
 
 ```yaml
 api:
