@@ -7,11 +7,15 @@ board: bk72xx
 difficulty: 4
 ---
 
+<img alt="TOMZN TOMPD-63-WiFi" src="./20250503_202919.recorte.jpg" width="200"/>
+
 ## Programming
 
 Internally, it uses the [TUYA CBU](https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u) chip, which is based on the BK7231N.
 
-You need to solder 4 wires for the GND, +3v3, RX, and TX signals in order to connect them to a USB-to-serial (TTL) adapter.
+You need to solder 5 wires for the GND, +3v3, RX, TX and CEN (Reset) signals in order to connect them to a USB-to-serial (TTL) adapter.
+
+<img alt="TOMZN TOMPD-63-WiFi Wires" src="./20250425_175840.jpg" width="400"/>
 
 Of course you also need USB-to-serial converter, and +3v3 supply (I'm using power out on my USB-to-serial converter),
 
