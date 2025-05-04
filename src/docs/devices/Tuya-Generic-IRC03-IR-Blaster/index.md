@@ -10,6 +10,8 @@ board: bk72xx
 
 There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum/topic4012905.html).
 
+Despite appearing outwardly identical to the [Tuya Generic IR Remote Control](/devices/Tuya-Generic-WiFi-IR-Remote-Control), the IRC03 has a custom PCB with the BK7231N directly integrated into it as opposed to using the CB3S module. The pinouts between the two devices differ as a result.
+
 ![IRC03](IRC03.jpg)
 
 ## GPIO Pinout
@@ -25,6 +27,8 @@ There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum
 
 I used ``ltchiptool`` to backup the original firmware and flash an esphome uf2 binary to it.
 The pads are all nicely labeled.
+
+As of May 2025, these devices are also vulnerable to ``tuya-cloudcutter``, allowing for disassembly-free flashing. I've had success using the generic 2.1.5 BK7231N template as well as a 2.1.5 CB3S template to flash ESPHome Kickstart to the device, from which I uploaded a proper UF2 binary.
 
 ## Configuration
 
@@ -62,4 +66,20 @@ remote_receiver:
       input: true
       pullup: true
   tolerance: 55%
+```
+
+For use with Home Assistant integrations such as SmartIR that send raw IR commands, make sure to set the IR carrier frequency to about 38KHz. Leaving it as default may cause raw IR commands to fail to work properly.
+
+```yaml
+api:
+  encryption:
+    key: "xxxxxxx"
+  services:
+    - service: send_raw_command
+      variables:
+        command: int[]
+      then:
+        - remote_transmitter.transmit_raw:
+            code: !lambda "return command;"
+            carrier_frequency: !lambda "return 38029.0;"
 ```
