@@ -7,7 +7,7 @@ board: bk72xx
 difficulty: 4
 ---
 
-<img alt="TOMZN TOMPD-63-WiFi" src="./20250503_202919.recorte.jpg" width="200"/>
+![TOMZN TOMPD-63-WiFi](20250503_202919.recorte.jpg)
 
 ## Programming
 
@@ -15,18 +15,17 @@ Internally, it uses the [TUYA CBU](https://developer.tuya.com/en/docs/iot/cbu-mo
 
 You need to solder 5 wires for the GND, +3v3, RX, TX and CEN (Reset) signals in order to connect them to a USB-to-serial (TTL) adapter.
 
-<img alt="TOMZN TOMPD-63-WiFi Wires" src="./20250425_175840.jpg" width="400"/>
+![TOMZN TOMPD-63-WiFi Wires](20250425_175840.jpg)
 
 Of course you also need USB-to-serial converter, and +3v3 supply (I'm using power out on my USB-to-serial converter),
 
-You can flash the device using [ltchiptool](https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/) or directly with `esphome upload <your-config.yaml>` 
-command from the console or ESPHome web GUI
+You can flash the device using [ltchiptool](https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/) or directly with `esphome upload <your-config.yaml>` command from the console or ESPHome web GUI
 
 If flashing fails, desoldering the CBU chip may help by improving 3.3V line stability.
 
 ## Dataponts
 
-```
+```text
 [01:21:47][C][tuya:041]: Tuya:
 [01:21:47][C][tuya:058]:   Datapoint 1: int value (value: 438)
 [01:21:47][C][tuya:056]:   Datapoint 11: switch (value: OFF)
