@@ -39,45 +39,11 @@ Next, write that firmware:
 ltchiptool flash write .esphome/build/dimmer/.pioenvs/dimmer/esphome_2024.10.0_generic-bk7231n-qfn32-tuya_bk7231n_lt1.7.0.uf2
 ```
 
-## Basic Configuration
+## Basic Configuration (hardware only)
 
 ```yaml
-esphome:
-  name: feit-dimmer-11
-  friendly_name: "Feit dimmer 11"
-
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
-
-logger:
-  level: verbose
-
-web_server:
-
-captive_portal:
-
-api:
-
-ota:
-
-button:
-  - platform: restart
-    name: Restart
-
-debug:
-  update_interval: 30s
-
-text_sensor:
-  - platform: debug
-    reset_reason:
-      name: Reset Reason
-  - platform: libretiny
-    version:
-      name: LibreTiny Version
-
-sensor:
-  - platform: uptime
-    name: Uptime
 
 uart:
   rx_pin: RX1
