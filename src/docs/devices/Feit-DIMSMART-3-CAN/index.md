@@ -87,10 +87,14 @@ uart:
 tuya:
   # DPIDs processed from schema model: 000003w4ro
 
-switch:
-  - platform: tuya
-    switch_datapoint: 1
-    name: Power
+light:
+- platform: tuya
+  id: dimmer_switch
+  name: "Dimmer Switch"
+  switch_datapoint: 1
+  dimmer_datapoint: 2
+  min_value_datapoint: 3
+  max_value: 1490
 
 number:
   - platform: tuya
@@ -103,20 +107,13 @@ number:
     number_datapoint: 3
     name: Brightness Min
     min_value: 10
-    max_value: 2000
+    max_value: 1000
     step: 1
   - platform: tuya
     number_datapoint: 5
     name: Brightness Max
-    min_value: 10
-    max_value: 2000
-    step: 1
-  - platform: tuya
-    number_datapoint: 6
-    name: Countdown
-    unit_of_measurement: s
-    min_value: 0
-    max_value: 86400
+    min_value: 700
+    max_value: 1490
     step: 1
 
 select:
