@@ -19,7 +19,7 @@ You also need to solder a wire to the NRST pad on the back side of the board. Th
 
 ## Dumping original firmware
 
-Connect NRST to gnd, provide power to the board, then:
+Connect NRST to gnd (and leave it connected to ground), provide power to the board, then:
 
 ```bash
 ltchiptool flash read beken-72xx ./dimmer1
