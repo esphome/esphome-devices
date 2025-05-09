@@ -9,7 +9,7 @@ difficulty: 1
 made-for-esphome: true
 ---
 
-![Apollo TEMP-1](Apollo-TEMP-1B_3.png "Apollo TEMP-1")
+![Apollo R_PRO-1](Apollo-R_PRO-1.JPG "Apollo R_PRO-1")
 
 ## Description
 
@@ -46,5 +46,3 @@ The R_PRO-1 has been designed to fit both in recessed ceiling mounts and wall ga
 
 ## Product Images
 
-![Apollo TEMP-1](Apollo-TEMP-1_2.jpg "Apollo TEMP-1")
-![Apollo TEMP-1](Apollo-TEMP-1_1.jpg "Apollo TEMP-1")
