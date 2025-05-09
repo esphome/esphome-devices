@@ -25,8 +25,8 @@ The Apollo Automation R_PRO-1 is a PoE mmWave multisensor with the following fea
 - Bluetooth tracking and Bluetooth proxy
 
 ## Mounting
-The R_PRO-1 has been designed to fit both in recessed ceiling mounts and wall gang boxes. This provides a clean and non intrusive way to place the sensor in a room.
 
+The R_PRO-1 has been designed to fit both in recessed ceiling mounts and wall gang boxes. This provides a clean and non intrusive way to place the sensor in a room.
 
 ## Quickstart
 
@@ -45,4 +45,3 @@ The R_PRO-1 has been designed to fit both in recessed ceiling mounts and wall ga
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images
-
