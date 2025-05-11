@@ -3,21 +3,18 @@ title: KWS-303L
 date-published: 2025-05-10
 type: sensor, relay
 standard: uk, eu
-board: esp32, esp8266
 project-url: https://github.com/BieleckiLtd/KWS-303L-ESPHome
 ---
 
-# KWS-303L
+## KWS-303L
 
 Configuration for the KWS-303L Energy Meter – a compact, 1-module DIN-rail, Modbus-based device used for monitoring electrical parameters such as voltage, current (rated at 40 A), power, and more. This configuration enables seamless integration of the KWS-303L into ESPHome-based projects.
 
-<img src="kws303l.jpg" alt="KWS-303L Energy Meter" width="200">
+## KWS-303L Energy Meter
+![KWS-303L Energy Meter"](kws303l.jpg "KWS-303L Energy Meter")
 
-_KWS-303L Energy Meter_
-
-<img src="kws303lesphome.png" alt="KWS-303L Energy Meter in ESPHome" width="400">
-
-_KWS-303L Energy Meter in ESPHome_
+## KWS-303L Energy Meter in ESPHome
+![KWS-303L Energy Meter in ESPHome"](kws303lesphome.png "KWS-303L Energy Meter in ESPHome")
 
 ## Features
 
