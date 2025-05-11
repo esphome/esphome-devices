@@ -1,7 +1,7 @@
 ---
 title: KWS-303L
 date-published: 2025-05-10
-type: sensor, relay
+type: relay
 standard: uk, eu
 project-url: https://github.com/BieleckiLtd/KWS-303L-ESPHome
 ---
