@@ -32,7 +32,6 @@ RJ9 pins, when the connector is viewed from the contacts side, cables exiting at
 |  3  | Not Connected          |
 |  4  | Sensor Ground          |
 
-
 ## Configuration using DS18B20 temperature sensor
 
 Will be exposed as a climate control system in Home Assistant.
