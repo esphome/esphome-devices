@@ -30,7 +30,7 @@ Analog Output (0–10V) – 1 DAC output (MCP4725) for generating analog control
 
 Temperature Sensors – Supports 2xRTD (MAX31865) sensors.
 
-Two 1-Wire 
+Two 1-Wire.
 
 User Interface – 4 front-panel buttons and configurable LEDs for local interaction.
 
@@ -76,6 +76,7 @@ Integrated Webserver: Access the MiniPLC's IP address, upload the configuration 
 | SCL    | GPIO33                        |
 
 ### I2C addresses
+
 |              | address                     |
 | ------------ | --------------------------- |
 | pcf8574/2    | 0x38                        |
@@ -113,7 +114,7 @@ Integrated Webserver: Access the MiniPLC's IP address, upload the configuration 
 # - ADC inputs via ADS1115
 # - DAC input MCP4725
 # - OLED display over I2C
-# - Ethernet 
+# - Ethernet
 # - Web and API access
 # - Multiple GPIOs managed via PCF8574 expanders
 esphome:
@@ -150,7 +151,7 @@ captive_portal:
 #   phy_addr: 1                 # PHY address (check schematic/config)
 
 # Simple built-in web server for basic status and diagnostics
-web_server: 
+web_server:
   port: 80
   version: 3
 
@@ -189,7 +190,7 @@ i2c:
     scan: true                  # Enables automatic scanning for connected I²C devices during boot
 
 # Real-Time Clock (PCF8563) and Home Assistant time sync
-# This ensures that the ESP32 and Home Assistant remain synchronized and allows 
+# This ensures that the ESP32 and Home Assistant remain synchronized and allows
 # for time-based automations, scheduled events
 time:
   - platform: pcf8563
@@ -225,7 +226,7 @@ spi:
 
 # Text Sensor to Format Current Time for Display
 # ------------------------------------------------------------------------------
-# This text sensor is used to format the current time obtained from the PCF8563 RTC 
+# This text sensor is used to format the current time obtained from the PCF8563 RTC
 # module and send it to Home Assistant. 
 text_sensor:
   - platform: template
@@ -251,7 +252,7 @@ font:
     size: 14
 
 # OLED display via I2C (SH1106 128x64)
-# The OLED display (SH1106 128x64) is connected via I2C to provide a visual output 
+# The OLED display (SH1106 128x64) is connected via I2C to provide a visual output
 # of key information.
 #
 # The information displayed includes:
@@ -268,7 +269,6 @@ display:
     lambda: |-
       # Display the title centered at the top of the screen
       it.printf(64, 0, id(font1), TextAlign::TOP_CENTER, "HOMEMASTER");
-      
       # Display the current time from the RTC, formatted as HH:MM
       it.strftime(0, 60, id(font2), TextAlign::BASELINE_LEFT, "%H:%M", id(pcf8563_time).now());
 
@@ -276,16 +276,16 @@ display:
 binary_sensor:
   # Digital Inputs for 24V DC sourcing devices (DI)
   - platform: gpio
-    pin: { number: GPIO36 }  # DI #1 
+    pin: { number: GPIO36 }  # DI #1
     name: "DI #1"
   - platform: gpio
-    pin: { number: GPIO39 }  # DI #2 
+    pin: { number: GPIO39 }  # DI #2
     name: "DI #2"
   - platform: gpio
-    pin: { number: GPIO34 }  # DI #3 
+    pin: { number: GPIO34 }  # DI #3
     name: "DI #3"
   - platform: gpio
-    pin: { number: GPIO35 }  # DI #4 
+    pin: { number: GPIO35 }  # DI #4
     name: "DI #4"
 
   # Front Panel Buttons connected to I/O expander (PCF8574)
@@ -304,7 +304,7 @@ binary_sensor:
 
 # Switch Relays and Buzzer Configuration
 # ------------------------------------------------------------------------------
-# This section configures the relays (output switches) and buzzer connected to the I/O 
+# This section configures the relays (output switches) and buzzer connected to the I/O
 # expanders (PCF8574) and other GPIO pins on the ESP32.
 #
 # **Switch Relays**:
@@ -374,9 +374,9 @@ switch:
       - output.turn_off: buzzer_output           # Turn off buzzer
 
 # 0–10V fan output using DAC
-# In this section, the DAC is not used to control fan speed. Instead, it is used 
-# for generating a 0-10V analog voltage signal. This output can be utilized for 
-# any application requiring a 0-10V analog signal, such as controlling motors, 
+# In this section, the DAC is not used to control fan speed. Instead, it is used
+# for generating a 0-10V analog voltage signal. This output can be utilized for
+# any application requiring a 0-10V analog signal, such as controlling motors,
 # actuators, or other industrial devices.
 output:
   - platform: ledc
@@ -387,7 +387,7 @@ output:
 
 # DAC Configuration for generating 0-10V analog output
 # ------------------------------------------------------------------------------
-# The MCP4725 DAC is used to generate a 0-10V output, which can be used 
+# The MCP4725 DAC is used to generate a 0-10V output, which can be used
 # for various applications requiring an analog voltage control signal.
 # Examples: voltage-controlled devices, industrial control systems, etc.
 # DAC output for analog control
@@ -399,7 +399,7 @@ fan:
     output: dac_output              # Using DAC output to generate a 0-10V analog signal
     name: "DAC 0-10V Output"        # Descriptive name for the 0-10V analog output
     # This section demonstrates the use of the DAC for generating a 0-10V signal,
-    # which is sent to a device that requires an analog voltage input, such as a 
+    # which is sent to a device that requires an analog voltage input, such as a
     # motor or actuator, rather than controlling fan speed directly.
 
 # Temperature sensors
@@ -427,7 +427,7 @@ sensor:
   # SPI-based RTD Temperature Sensors using MAX31865
   # --------------------------------------------------------------------------
   # These sensors are connected over the SPI bus and are designed for high-accuracy
-  # temperature readings using PT100/PT1000 RTDs. 
+  # temperature readings using PT100/PT1000 RTDs.
   # MAX31865 performs resistance-to-temperature conversion internally.
   # Configuration includes reference resistance and nominal RTD resistance.
 
