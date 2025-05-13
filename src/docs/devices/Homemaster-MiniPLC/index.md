@@ -130,23 +130,10 @@ esp32:
 # Enable logging via UART for debugging
 logger:
 
-# Enable Home Assistant API for native integration
-api:
-  encryption:
-    key: "zJ8x8WqP5KVphf7smWMrvlQBPc8KWmAnfYuV8EoLgLo="
-
-# Enable over-the-air updates (OTA)
-ota:
-  - platform: esphome
-    password: "047c7b55a890fa60e31d671679c0555c"
-
 # Wi-Fi configuration with manual static IP
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  ap:
-    ssid: "MiniPLC Fallback Hotspot"   # Fallback AP name if connection fails
-    password: "12345678"
 
 # Enable fallback web portal if Wi-Fi fails
 captive_portal:
@@ -182,14 +169,6 @@ modbus:
   send_wait_time: 200ms       # Minimum time between requests (to prevent overloading devices)
   uart_id: mod_uart           # Uses the UART interface defined above
   id: mod_bus                 # ID of the Modbus master instance
-
-# Modbus device configuration (slave)
-modbus_controller:
-- id: modbus_device           # Unique ID for this Modbus slave device
-  address: 0x1                # Modbus slave address (device ID on the RS485 bus)
-  update_interval: 60s       # Frequency to poll the slave device
-  modbus_id: mod_bus          # Ties this device to the Modbus master defined earlier
-  setup_priority: -10        # Ensures it initializes early in the boot process
 
 # OneWire bus for temperature sensors (two separate GPIOs)
 one_wire:
@@ -506,16 +485,6 @@ sensor:
     name: "ADC AI1"               # Analog Input 1
     update_interval: 60s
     filters: [ { multiply: 3 } ]
-
-  # Modbus register as a temperature value
-  - platform: modbus_controller
-    modbus_controller_id: modbus_device   # ID of the Modbus device to read from
-    name: "Modbus Sensor"                 # Sensor name in Home Assistant
-    register_type: holding                # Type of register (holding/input/coils/etc.)
-    address: 0x0001                       # Modbus register address (often 0-based)
-    unit_of_measurement: "C"             # Display unit in HA
-    value_type: U_WORD                    # Unsigned 16-bit register (options: S_WORD, U_WORD, etc.)
-
 
 # ------------------------------------------------------------------------------
 # Status LED Configuration
