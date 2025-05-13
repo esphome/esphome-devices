@@ -227,7 +227,7 @@ spi:
 # Text Sensor to Format Current Time for Display
 # ------------------------------------------------------------------------------
 # This text sensor is used to format the current time obtained from the PCF8563 RTC
-# module and send it to Home Assistant. 
+# module and send it to Home Assistant.
 text_sensor:
   - platform: template
     name: "Current time"
