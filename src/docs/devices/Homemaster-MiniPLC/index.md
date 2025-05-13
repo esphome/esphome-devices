@@ -7,13 +7,12 @@ board: esp32
 project-url: https://github.com/isystemsautomation/HOMEMASTER/tree/main/MiniPLC
 difficulty: 1
 ---
-<p align="left">
-    <img src="./MiniPLC.png" alt="Description" width="400">
-</p>
+
+![alt text](./MiniPLC.png "HOMAMASTER MiniPLC")
 
 ## Product description
 
-The ESP32 MiniPLC is a powerful and compact automation controller designed for advanced smart home applications. Built around the ESP32-WROOM-32U
+The HOMAMASTER MiniPLC is a powerful and compact automation controller designed for advanced smart home applications. Built around the ESP32-WROOM-32U
 
 Maker: https://www.home-master.eu/
 
@@ -49,15 +48,12 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 Ethernet Support – Optional LAN8720 PHY via RMII interface for reliable wired networking.
 
 ## Pinout
-<p align="left">
-    <img src="./pinout.png" alt="Description" width="400">
-</p>
+
+![alt text](./pinout.png "pinout")
 
 ## MiniPLC Functional Block Diagram
-<p align="left">
-    <img src="./system_block_diagram.png" alt="Description" width="400">
-</p>
 
+![alt text](./system_block_diagram.png "System Block Diagram")
 
 ## Programming:
 The MiniPLC comes with ESPHome pre-installed and can be programmed via:
