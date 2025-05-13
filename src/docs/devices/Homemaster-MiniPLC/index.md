@@ -18,7 +18,7 @@ Maker: https://www.home-master.eu/
 
 Product page: https://www.home-master.eu/shop/esp32-miniplc-55
 
-## Key Features:
+## Key Features
 
 24V Digital Inputs – 4 industrial-grade inputs for dry contacts.
 
@@ -30,7 +30,7 @@ Analog Output (0–10V) – 1 DAC output (MCP4725) for generating analog control
 
 Temperature Sensors – Supports 2xRTD (MAX31865) sensors.
 
-1-Wire 
+Two 1-Wire 
 
 User Interface – 4 front-panel buttons and configurable LEDs for local interaction.
 
@@ -42,7 +42,8 @@ I²C Expanders – PCF8574 chips expand digital I/O for more flexible device con
 
 Modbus RTU – UART-based support for extension modules.
 
-## Networking:
+## Networking
+
 Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant integration.
 
 Ethernet Support – Optional LAN8720 PHY via RMII interface for reliable wired networking.
@@ -55,7 +56,8 @@ Ethernet Support – Optional LAN8720 PHY via RMII interface for reliable wired 
 
 ![alt text](./system_block_diagram.png "System Block Diagram")
 
-## Programming:
+## Programming
+
 The MiniPLC comes with ESPHome pre-installed and can be programmed via:
 
 Wi-Fi: Use the ESPHome Dashboard to upload the configuration.
@@ -66,14 +68,14 @@ Integrated Webserver: Access the MiniPLC's IP address, upload the configuration 
 
 ## Bus system configuration
 
-### I2C:
+### I2C
 
 |        | PIN                           |
 | ------ | ----------------------------- |
 | SDA    | GPIO32                        |
 | SCL    | GPIO33                        |
 
-### I2C addresses:
+### I2C addresses
 |              | address                     |
 | ------------ | --------------------------- |
 | pcf8574/2    | 0x38                        |
@@ -82,7 +84,7 @@ Integrated Webserver: Access the MiniPLC's IP address, upload the configuration 
 | SH1106 128x64| 0x3C                        |
 | pcf8563      | 0x51                        |
 
-### SPI:
+### SPI
 
 |        | PIN                           |
 | ------ | ----------------------------- |
@@ -90,7 +92,7 @@ Integrated Webserver: Access the MiniPLC's IP address, upload the configuration 
 | MOSI   | GPIO13                        |
 | CLK    | GPIO14                        |
 
-### SPI_CS pins:
+### SPI_CS pins
 
 |                | PIN                           |
 | -------------- | ----------------------------- |
