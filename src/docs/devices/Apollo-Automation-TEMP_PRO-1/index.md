@@ -9,7 +9,7 @@ difficulty: 1
 made-for-esphome: true
 ---
 
-![Apollo TEMP-1](Apollo-TEMP-1B_3.png "Apollo TEMP-1")
+![Apollo TEMP_PRO-1](Apollo-TEMP_PRO-1.JPG "Apollo TEMP-1")
 
 ## Description
 
@@ -44,5 +44,4 @@ The Apollo Automation TEMP_PRO-1 is a PoE temperature multisensor with the follo
 
 ## Product Images
 
-![Apollo TEMP-1](Apollo-TEMP-1_2.jpg "Apollo TEMP-1")
-![Apollo TEMP-1](Apollo-TEMP-1_1.jpg "Apollo TEMP-1")
+![Apollo TEMP_PRO-1](Apollo-TEMP_PRO-1.JPG "Apollo TEMP-1")
