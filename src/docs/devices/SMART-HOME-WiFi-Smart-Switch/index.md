@@ -6,7 +6,10 @@ standard: eu
 board: esp8266
 difficulty: 3 & 4
 ---
-![alt text](Smart Wifi Switch 1 "Image Hover Text")
+![alt text](Smart Wifi Switch 1.jpeg "SMART HOME Wifi Smart Switch")
+![alt text](Smart Wifi Switch 2.jpeg "SMART HOME Wifi Smart Switch")
+![alt text](Wiring Smart Wifi Switch.jpg "SMART HOME Wifi Smart Switch")
+![alt text](M32-V1.0.png "SMART HOME Wifi Smart Switch")
 
 ## Connection
 Take care there's high voltage on the board when it is connected to the AC power, the best is to power with another 3.3v power suply, do not connect the board to AC power.
