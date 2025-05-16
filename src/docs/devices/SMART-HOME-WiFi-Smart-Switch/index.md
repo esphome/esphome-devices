@@ -18,6 +18,7 @@ Take care there's high voltage on the board when it is connected to the AC power
 | GPIO13 | Led         |
 
 ## Basic Configuration for esp8266
+Base on https://devices.esphome.io/devices/Tuya-WiFi-Smart-Switch-SB2S
 ```yaml
 esphome:
   name: "relay"
@@ -106,7 +107,7 @@ substitutions:
   device_friendly_name:   Relay
   device_icon: "mdi:power"
 
-# Status LED s'il y a une erreur dans ESPhome, la LED clignote. Si tout va bien, l'indicateur peut être contrôlé depuis HA
+# Status LED If there is an error in ESPhome, the LED will flash. If everything is OK, the indicator can be controlled from HA
 
 light:
   - platform: status_led
