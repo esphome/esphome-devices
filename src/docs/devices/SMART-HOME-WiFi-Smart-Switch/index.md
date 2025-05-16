@@ -6,9 +6,9 @@ standard: eu
 board: esp8266
 difficulty: 3 & 4
 ---
-![alt text](Smart Wifi Switch 1.jpeg "SMART HOME Wifi Smart Switch")
-![alt text](Smart Wifi Switch 2.jpeg "SMART HOME Wifi Smart Switch")
-![alt text](Wiring Smart Wifi Switch.jpg "SMART HOME Wifi Smart Switch")
+![alt text](Smart_Wifi_Switch_1.jpeg "SMART HOME Wifi Smart Switch")
+![alt text](Smart_Wifi_Switch_2.jpeg "SMART HOME Wifi Smart Switch")
+![alt text](Wiring_Smart_Wifi_Switch.jpg "SMART HOME Wifi Smart Switch")
 ![alt text](M32-V1.0.png "SMART HOME Wifi Smart Switch")
 
 ## Connection
