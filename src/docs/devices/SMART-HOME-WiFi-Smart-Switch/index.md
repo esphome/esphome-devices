@@ -6,10 +6,10 @@ standard: eu
 board: esp8266
 difficulty: 3 & 4
 ---
-![alt text](Smart_Wifi_Switch_1.jpeg "SMART HOME Wifi Smart Switch")
-![alt text](Smart_Wifi_Switch_2.jpeg "SMART HOME Wifi Smart Switch")
-![alt text](Wiring_Smart_Wifi_Switch.jpg "SMART HOME Wifi Smart Switch")
-![alt text](M32-V1.0.png "SMART HOME Wifi Smart Switch")
+![alt text](SmartWifiSwitch1.jpeg "SMART HOME Wifi Smart Switch 1")
+![alt text](SmartWifiSwitch2.jpeg "SMART HOME Wifi Smart Switch 2 ")
+![alt text](WiringSmartWifiSwitch.jpg "SMART HOME Wifi Smart Switch Wiring")
+![alt text](M32-V1.0.png "M320V1Board")
 
 ## Connection
 Take care there's high voltage on the board when it is connected to the AC power, the best is to power with another 3.3v power suply, do not connect the board to AC power.
