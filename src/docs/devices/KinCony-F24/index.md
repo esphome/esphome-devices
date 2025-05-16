@@ -1,21 +1,23 @@
 ---
 title: KinCony-F24 (ESP32-S3 16A Removable Relay)
-date-published: 2024-12-08
+date-published: 2025-05-15
 type: relay
 standard: global
 board: esp32
 ---
 
-![Product](F24-1_small.jpg "Product Image")
-![Product](F24-6_small.jpg "Product Image")
+![Product](F24-1.jpg "Product Image")
+![Product](F24-2.jpg "Product Image")
+![Product](F24-3.jpg "Product Image")
 
 ## Resources
 
 - [ESP32 pin define details](https://www.kincony.com/forum/showthread.php?tid=7132)
+- [YouTube video tour](https://youtu.be/N4cXM2jW9Ls)
 
 ## ESPHome Configuration
 
-Here is an example YAML configuration for the KinCony-F16 board with Tuya integration.
+Here is an example YAML configuration for the KinCony-F24 board with Tuya integration.
 
 ```yaml
 esphome:
@@ -29,13 +31,18 @@ esphome:
 esp32:
   board: esp32-s3-devkitc-1
   framework:
-    type: Arduino
+    type: arduino
 
 external_components:
   - source:
       type: git
       url: https://github.com/hzkincony/esphome-tuya-wifi-mcu
       ref: v1.1.0
+
+# Enable logging
+
+  # hardware_uart: USB_SERIAL_JTAG
+# Enable Home Assistant API
 api:
 
 ethernet:
@@ -483,6 +490,7 @@ switch:
     # bind other switch, sync state
     bind_switch_id: "f24_output24"
 
+
 binary_sensor:
   - platform: gpio
     name: "f24-input01"
@@ -703,6 +711,7 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
+
   - platform: gpio
     name: "f24-input17"
     id: "f24_input17"
@@ -711,6 +720,7 @@ binary_sensor:
       number: 0
       mode: INPUT
       inverted: true
+
 
   - platform: gpio
     name: "f24-input18"
@@ -721,6 +731,7 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
+
   - platform: gpio
     name: "f24-input19"
     id: "f24_input19"
@@ -729,6 +740,7 @@ binary_sensor:
       number: 2
       mode: INPUT
       inverted: true
+
 
   - platform: gpio
     name: "f24-input20"
@@ -739,6 +751,7 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
+
   - platform: gpio
     name: "f24-input21"
     id: "f24_input21"
@@ -747,6 +760,7 @@ binary_sensor:
       number: 4
       mode: INPUT
       inverted: true
+
 
   - platform: gpio
     name: "f24-input22"
@@ -757,6 +771,7 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
+
   - platform: gpio
     name: "f24-input23"
     id: "f24_input23"
@@ -766,6 +781,7 @@ binary_sensor:
       mode: INPUT
       inverted: true
 
+
   - platform: gpio
     name: "f24-input24"
     id: "f24_input24"
@@ -774,6 +790,7 @@ binary_sensor:
       number: 7
       mode: INPUT
       inverted: true
+
 
 ##pull-up resistance on PCB
   - platform: gpio
