@@ -8,10 +8,10 @@ difficulty: 3 & 4
 ---
 ## Pinout
 
-| Pin | Function                      |
-| --- | ----------------------------- |
-| D7  | Push Button r|
-| D6  | Rotary Encoder pin_b          |
-| D5  | Rotary Encoder pin_a          |
+| Pin | Function   |
+| ---| ------------|
+| 04 | Push Button |
+| 05 | Relay       |
+| 13 | Led         |
 
 ## Basic Configuration for esp8266
