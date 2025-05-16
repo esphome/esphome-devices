@@ -419,3 +419,4 @@ binary_sensor:
 
 web_server:
   port: 80
+```
