@@ -11,8 +11,10 @@ difficulty: 3 & 4
 ![alt text](WiringSmartWifiSwitch.jpg "SMART HOME Wifi Smart Switch Wiring")
 ![alt text](M32-V1.0.png "M320V1Board")
 
-## Connection
+## Wiring
+
 Take care there's high voltage on the board when it is connected to the AC power, the best is to power with another 3.3v power suply, do not connect the board to AC power.
+
 ## Pinout
 
 |  Pin   | Function    |
@@ -22,6 +24,7 @@ Take care there's high voltage on the board when it is connected to the AC power
 | GPIO13 | Led         |
 
 ## Basic Configuration for esp8266
+
 Base on https://devices.esphome.io/devices/Tuya-WiFi-Smart-Switch-SB2S
 ```yaml
 esphome:
@@ -61,7 +64,7 @@ web_server:
 time:
   - platform: homeassistant
     id: homeassistant_time
-    
+
 # Text sensors with general information
 text_sensor:
   # Expose ESPHome version as sensor
@@ -74,7 +77,7 @@ text_sensor:
     ssid:
       name: Relay SSID
     bssid:
-      name: Relay BSSID    
+      name: Relay BSSID
 
 # Sensors with general information
 sensor:
@@ -123,7 +126,7 @@ light:
 # Binary Sensors
 
 binary_sensor:
-# Button 
+# Button
   - platform: gpio
     id: button
     pin:
