@@ -1,5 +1,5 @@
 ---
-title: KinCony-A16v3 (ESP32-S3 16CH Mosfet Board)
+title: KinCony KC868-A16v3 (ESP32-S3 16CH Mosfet Board)
 date-published: 2025-05-15
 type: relay
 standard: global

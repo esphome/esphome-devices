@@ -1,5 +1,5 @@
 ---
-title: KC868-A2v3 (ESP32-S3 2CH Relay)
+title: KinCony KC868-A2v3 (ESP32-S3 2CH Relay)
 date-published: 2025-05-15
 type: relay
 standard: global
