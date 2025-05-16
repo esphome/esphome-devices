@@ -26,6 +26,7 @@ Take care there's high voltage on the board when it is connected to the AC power
 ## Basic Configuration for esp8266
 
 Base on https://devices.esphome.io/devices/Tuya-WiFi-Smart-Switch-SB2S
+
 ```yaml
 
 esphome:
