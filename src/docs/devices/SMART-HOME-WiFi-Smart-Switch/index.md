@@ -27,6 +27,7 @@ Take care there's high voltage on the board when it is connected to the AC power
 
 Base on https://devices.esphome.io/devices/Tuya-WiFi-Smart-Switch-SB2S
 ```yaml
+
 esphome:
   name: "relay"
   friendly_name: Relay
@@ -147,4 +148,5 @@ output:
     id: relayoutput
     pin: 5
 #    inverted: true
+
 ```
