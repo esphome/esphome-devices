@@ -26,7 +26,6 @@ Unsoldering these pins will allow you to remove the PCB which reveals test pads 
 | P24 | Blue LED (Inverted) |
 | P26 | Push Button         |
 
-
 ## Basic Configuration
 
 ```yaml
