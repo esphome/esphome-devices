@@ -60,11 +60,6 @@ esp8266:
 logger:
   baud_rate: 0
 
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "<insert key here>"
-
 tuya:
 
 uart:
