@@ -11,41 +11,43 @@ Tried using Tuya-Convert (OTA), but did not work. Hence, instead opened it up. N
 
 The Tontine Comfortech WiFi Electric Blanket has a TYWE3S Tuya board that uses TuyaMCU.
 
-```
-              ┌─────────────┐               
-              │ ┌─┬─┐ ┌─┐ ┌┐│               
-              │ │ │ │ │ │ │││               
-              │ │ │ └─┘ └─┘││               
-              ├─┴─┴────────┴┤               
-         RST ─┼─           ─┼─ TX           
-              │             │               
-         ADC ─┼─           ─┼─ RX           
-              │             │               
-          EN ─┼─           ─┼─ GPIO5        
-              │             │               
-      GPIO16 ─┼─           ─┼─ GPIO4        
-              │             │               
-      GPIO14 ─┼─           ─┼─ GPIO0        
-              │             │               
-      GPIO12 ─┼─           ─┼─ GPIO2        
-              │             │               
-      GPIO13 ─┼─           ─┼─ GPIO15       
-              │             │               
-         VCC ─┼─           ─┼─ GND          
-              │             │               
-              └─────────────┘       
-```
+<pre>
+              ┌─────────────┐
+              │ ┌─┬─┐ ┌─┐ ┌┐│
+              │ │ │ │ │ │ │││
+              │ │ │ └─┘ └─┘││
+              ├─┴─┴────────┴┤
+         RST ─┼─           ─┼─ TX
+              │             │
+         ADC ─┼─           ─┼─ RX
+              │             │
+          EN ─┼─           ─┼─ GPIO5
+              │             │
+      GPIO16 ─┼─           ─┼─ GPIO4
+              │             │
+      GPIO14 ─┼─           ─┼─ GPIO0
+              │             │
+      GPIO12 ─┼─           ─┼─ GPIO2
+              │             │
+      GPIO13 ─┼─           ─┼─ GPIO15
+              │             │
+         VCC ─┼─           ─┼─ GND
+              │             │
+              └─────────────┘  
+</pre>
   
 Using a serial to USB adaptor, connect GND, TX, RX, 3.3 to GND, RX, TX, and VCC of the TYWE3S. Also, GND needs to be connected to GPIO0, to ensure it goes in to programming mode.
 
 Since it utilises TuyaMCU, it uses datapoint-IDs. There are four of them:
 
+<pre>
    dpid Power on/off = 1
    dpid Heat Level = 4
       hot/warm/sleep = 0/1/2
    dpid Timer in hrs: 9
    dpid Timer in mins = 10
-
+</pre>
+  
 All of them can be controlled in ESPHome, except for dpid 10, which seems to be read-only.
 
 ## Basic Configuration
