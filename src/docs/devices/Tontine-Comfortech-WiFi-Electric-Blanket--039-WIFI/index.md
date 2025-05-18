@@ -99,7 +99,7 @@ switch:
   - platform: restart
     name: "Restart"
     id: device_restart
-  
+
   - platform: safe_mode
     name: Use Safe Mode
     id: device_safe_mode
