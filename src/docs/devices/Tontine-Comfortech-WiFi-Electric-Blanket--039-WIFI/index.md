@@ -50,30 +50,30 @@ All of them can be controlled in ESPHome, except for dpid 10, which seems to be 
 
 ```yaml
 esphome:
-  name: tontine-electric-blanket-01
-  friendly_name: Tontine Comfortech Electric Blanket 01
+	name: tontine-electric-blanket-01
+	friendly_name: Tontine Comfortech Electric Blanket 01
 
 esp8266:
-  board: esp01_1m
+	board: esp01_1m
 
 # Enable logging
 logger:
-  baud_rate: 0
+	baud_rate: 0
 
 tuya:
 
 uart:
-  tx_pin: TX
-  rx_pin: RX
-  baud_rate: 9600
+	tx_pin: TX
+	rx_pin: RX
+	baud_rate: 9600
 
 ota:
-  - platform: esphome
-    password: "<whatever password is>"
+	- platform: esphome
+		password: "<whatever password is>"
 
 safe_mode:
-    reboot_timeout: 10min
-    num_attempts: 5
+	reboot_timeout: 10min
+	num_attempts: 5
 
 wifi:
   ssid: !secret wifi_ssid
@@ -92,11 +92,11 @@ web_server:
   include_internal: true
 
 switch:
-  - platform: "tuya"
-    name: "Power"
+	- platform: "tuya"
+		name: "Power"
     switch_datapoint: 1
 
-  - platform: restart
+	- platform: restart
     name: "Restart"
     id: device_restart
 
