@@ -33,7 +33,7 @@ The Tontine Comfortech WiFi Electric Blanket has a TYWE3S Tuya board that uses T
          VCC ─┼─           ─┼─ GND          
               │             │               
               └─────────────┘       
-		  
+  
 Using a serial to USB adaptor, connect GND, TX, RX, 3.3 to GND, RX, TX, and VCC of the TYWE3S. Also, GND needs to be connected to GPIO0, to ensure it goes in to programming mode.
 
 Since it utilises TuyaMCU, it uses datapoint-IDs. There are four of them:
@@ -140,3 +140,4 @@ sensor:
   - platform: "tuya"
     name: "Timer Remaining (mins)"
     sensor_datapoint: 10
+```
