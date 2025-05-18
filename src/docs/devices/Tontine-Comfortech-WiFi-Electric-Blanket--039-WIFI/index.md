@@ -50,89 +50,89 @@ All of them can be controlled in ESPHome, except for dpid 10, which seems to be 
 
 ```yaml
 esphome:
-	name: tontine-electric-blanket-01
-	friendly_name: Tontine Comfortech Electric Blanket 01
+ name: tontine-electric-blanket-01
+ friendly_name: Tontine Comfortech Electric Blanket 01
 
 esp8266:
-	board: esp01_1m
+ board: esp01_1m
 
 # Enable logging
 logger:
-	baud_rate: 0
+ baud_rate: 0
 
 tuya:
 
 uart:
-	tx_pin: TX
-	rx_pin: RX
-	baud_rate: 9600
+ tx_pin: TX
+ rx_pin: RX
+ baud_rate: 9600
 
 ota:
-	- platform: esphome
-		password: "<whatever password is>"
+ - platform: esphome
+   password: "<whatever password is>"
 
 safe_mode:
-	reboot_timeout: 10min
-	num_attempts: 5
+ reboot_timeout: 10min
+ num_attempts: 5
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+ ssid: !secret wifi_ssid
+ password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "TontineEB"
-    password: "<whatever>"
+ ap:
+  ssid: "TontineEB"
+  password: "<whatever>"
 
 captive_portal:
 
 mdns:
 
 web_server:
-  include_internal: true
+ include_internal: true
 
 switch:
-	- platform: "tuya"
-		name: "Power"
-    switch_datapoint: 1
+ - platform: "tuya"
+   name: "Power"
+   switch_datapoint: 1
 
-	- platform: restart
-    name: "Restart"
-    id: device_restart
+ - platform: restart
+   name: "Restart"
+   id: device_restart
 
-  - platform: safe_mode
-    name: Use Safe Mode
-    id: device_safe_mode
+ - platform: safe_mode
+   name: Use Safe Mode
+   id: device_safe_mode
 
 select:
-  - platform: "tuya"
-    id: heatselection
-    name: "Heat selection"
-    enum_datapoint: 4
-    optimistic: true
-    options:
-      0: "HOT"
-      1: "WARM"
-      2: "SLEEP"
+ - platform: "tuya"
+   id: heatselection
+   name: "Heat selection"
+   enum_datapoint: 4
+   optimistic: true
+   options:
+    0: "HOT"
+    1: "WARM"
+    2: "SLEEP"
 
-  - platform: "tuya"
-    name: "Timer selection (hours)"
-    enum_datapoint: 9
-    optimistic: true
-    options:
-      0: "1"
-      1: "2"
-      2: "3"
-      3: "4"
-      4: "5"
-      5: "6"
-      6: "7"
-      7: "8"
-      8: "9"
-      9: "10"
+ - platform: "tuya"
+   name: "Timer selection (hours)"
+   enum_datapoint: 9
+   optimistic: true
+   options:
+    0: "1"
+    1: "2"
+    2: "3"
+    3: "4"
+    4: "5"
+    5: "6"
+    6: "7"
+    7: "8"
+    8: "9"
+    9: "10"
 
 sensor:
-  - platform: "tuya"
-    name: "Timer Remaining (mins)"
-    sensor_datapoint: 10
+ - platform: "tuya"
+   name: "Timer Remaining (mins)"
+   sensor_datapoint: 10
 ```
