@@ -35,7 +35,6 @@ The serial pinout is:
 
 ![image](https://github.com/user-attachments/assets/04db7e3a-67f6-45ed-a30a-b6e2e9965c0b)
 
-
 ## GPIO Pinout
 
 | Pin    | Function     |
@@ -134,25 +133,28 @@ sensor:
 ```
 
 ## Additional Considerations
+
 ### BL0942 Energy Monitor
-The default update interval for the BL0942 energy monitor is 60 seconds, 
-which may be too slow for some applications (especially safety shutdown, 
-if implemented; see below). Add `update_interval: 1s` to the bl0942 sensor 
+
+The default update interval for the BL0942 energy monitor is 60 seconds,
+which may be too slow for some applications (especially safety shutdown,
+if implemented; see below). Add `update_interval: 1s` to the bl0942 sensor
 if desired.
 
-The calibration of values reported by the BL0942 is left to software. The 
-component has default calibration values but they may not be accurate for 
-every device. Add in new calibration values based on measurements with a 
+The calibration of values reported by the BL0942 is left to software. The
+component has default calibration values but they may not be accurate for
+every device. Add in new calibration values based on measurements with a
 quality digital multimeter and a simple resistive load.
 
 _See [ESPHome Documentation](https://esphome.io/components/sensor/bl0942.html) for more details._
 
 ### Safety Shutdown Option
-On manufacturer firmware, Shelly products provide automatic shutdown of 
+
+On manufacturer firmware, Shelly products provide automatic shutdown of
 the relay output(s) on overcurrent and overtemperature conditions.
 
-Following is a configuration snippet to restore this functionality 
-with manual reset required for both faults. _(Note: bl0942 update_interval 
+Following is a configuration snippet to restore this functionality
+with manual reset required for both faults. _(Note: bl0942 update_interval
 must be fast-acting for this function.)_
 
 ```yaml
@@ -170,10 +172,10 @@ switch:
     name: Relay
     device_class: outlet
     restore_mode: ALWAYS_ON
-    turn_on_action: 
+    turn_on_action:
       if:
         any:
-          - sensor.in_range: 
+          - sensor.in_range:
               id: temperature
               below: 75.0
           # Temperature sensor is unknown for several seconds on boot. Allow the relay to switch on anyway.
@@ -195,7 +197,7 @@ switch:
           - switch.template.publish:
               id: relay
               state: OFF
-    turn_off_action: 
+    turn_off_action:
       then:
         - output.turn_off: relay_output
         - switch.template.publish:
@@ -238,7 +240,7 @@ binary_sensor:
         - switch.turn_off: relay
 
 sensor:
-    
+  
   - id: temperature
     name: Device Temperature
     platform: ntc
