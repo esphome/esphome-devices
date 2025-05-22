@@ -45,8 +45,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-captive_portal:
-
 binary_sensor:
   - platform: gpio
     pin:
