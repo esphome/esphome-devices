@@ -1,5 +1,5 @@
 ---
-title: KinCony-B16 (ESP32-S3 16CH Mosfet board)
+title: KinCony-B16 (ESP32-S3 16CH Relay board)
 date-published: 2025-05-15
 type: relay
 standard: global
