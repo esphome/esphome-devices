@@ -6,7 +6,7 @@ standard: global
 board: esp32
 project-url: https://temp-1w8-pro.makerspace.lt/
 made-for-esphome: True
-difficulty: 1 - Comes with ESPHome
+difficulty: 1
 ---
 
 ![alt text](dev_with_sens.jpg "Device with sensor")
