@@ -66,7 +66,6 @@ No soldering required.
 
 ```yaml
 psram:
-  mode: octal
   speed: 80MHz
 
 output:
@@ -114,17 +113,8 @@ i2c:
   scl: GPIO0
 
 display:
-  - id: langbon_L8
-    platform: ili9xxx
-    model: ST7789V
-    invert_colors: false
-    dimensions: 240x320
-    cs_pin: GPIO22
-    dc_pin: GPIO21
-    reset_pin: GPIO18
-    auto_clear_enabled: false
-    update_interval: never
-    rotation: 180
+  - platform: mipi_spi
+    model: LANBON-L8
 
 touchscreen:
   platform: ft63x6
