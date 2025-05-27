@@ -60,43 +60,11 @@ See BlackAdder's instruction on [how to flash custom firmware for the L8](https:
 No soldering required.
 IMPORTANT: Both 5v and 3.3v must be supplied.
 
-![Pinout Diagram](lanbon-l9-pinout.jpb "Pinout")
+![Pinout Diagram](lanbon-l9-pinout.jpg "Pinout")
 
 ### Example Configuration
 
 ```yaml
-esphome:
-  name: cold-plunge-switch
-  friendly_name: Cold Plunge Switch
-
-esp32:
-  board: esp32-s3-devkitc-1
-  framework:
-    type: esp-idf
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "ZFMkrCZbXT+/dka9wfuP5xBN2ii1YacfaF3ODovoii4="
-
-ota:
-  - platform: esphome
-    password: "05bf93ab4e152c1a567880b9a92f798b"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Cold-Plunge-Switch"
-    password: "9GhrpRD2sCJS"
-
-captive_portal:
-
 psram:
   speed: 80MHz
 
