@@ -128,7 +128,7 @@ power_supply:
 spi:
   type: octal
   clk_pin: GPIO13  # WR pin
-  data_pins: 
+  data_pins:
     - GPIO6
     - GPIO7
     - GPIO15
