@@ -90,3 +90,10 @@ jobs:
               repo: context.repo.repo,
               body: 'This PR has been labeled as **Made for ESPHome** and is pending review. Please ensure you complete the checklist added to the description above.'
             });
+
+            await github.rest.pulls.requestReviewers({
+              pull_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              reviewers: ['esphome/made-for-esphome']
+            });
