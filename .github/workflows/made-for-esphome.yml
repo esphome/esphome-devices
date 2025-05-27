@@ -43,7 +43,7 @@ jobs:
             const baseBranch = context.payload.pull_request.base.ref;
 
             // Get the diff for src/docs/devices/**/index.md files
-            const { exitCode, stdout, stderr } = await exec.getExecOutput(`git diff ${baseBranch} -- src/docs/devices/**/index.md`);
+            const { exitCode, stdout, stderr } = await exec.getExecOutput(`git diff origin/${baseBranch} -- src/docs/devices/**/index.md`);
 
             // Check if any line contains 'made-for-esphome: true'
             return stdout.includes('+made-for-esphome: true');
