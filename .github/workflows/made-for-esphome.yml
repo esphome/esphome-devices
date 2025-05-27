@@ -95,5 +95,5 @@ jobs:
               pull_number: pr.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              team_reviewers: ['made-for-esphome']
+              team_reviewers: ['esphome/made-for-esphome']
             });
