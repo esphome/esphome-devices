@@ -5,7 +5,7 @@ type: sensor
 standard: global
 board: esp32
 project-url: https://temp-1w8-pro.makerspace.lt/
-made-for-esphome: True
+made-for-esphome: true
 difficulty: 1
 ---
 
