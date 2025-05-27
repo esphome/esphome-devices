@@ -7,7 +7,7 @@ board: esp32
 difficulty: 2
 ---
 
-![Product Image](lanbon-l9-us-white.jpb "US Version")
+![Product Image](lanbon-l9-us-white.jpg "US Version")
 
 ## Drivers
 
