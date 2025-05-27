@@ -11,7 +11,7 @@ difficulty: 2
 
 ## Drivers
 
-* Processor: ESP32-WROVER-B
+* Processor: ESP32-S3-Wroom-1U
 * Touchscreen: `6336`
 * Display: ST7789V2 (using `ili9xxxx` plaform)
 
