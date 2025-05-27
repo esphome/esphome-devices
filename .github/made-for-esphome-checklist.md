@@ -1,4 +1,4 @@
-### Made for ESPHome Checklist
+## Made for ESPHome Checklist
 
 - [ ] Project is powered by an ESP32 or _supported_ variant such as C3, C6, S2, S3 etc
 - [ ] Project is using ESPHome firmware
