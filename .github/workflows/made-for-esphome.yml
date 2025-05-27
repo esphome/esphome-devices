@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0 # Ensure we have full history for diff
 
       - name: Check for made-for-esphome
         id: check-made-for-esphome
