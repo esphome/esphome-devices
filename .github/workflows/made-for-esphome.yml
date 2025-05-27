@@ -48,7 +48,7 @@ jobs:
             const { exitCode, stdout, stderr } = await exec.getExecOutput(`git diff origin/${baseBranch} -- src/docs/devices/**/index.md`);
 
             // Check if any line contains 'made-for-esphome: true'
-            return stdout.includes('+made-for-esphome: true');
+            return stdout.includes('+made-for-esphome: true') || stdout.includes('+made-for-esphome: True');
 
   update-pull-request:
     runs-on: ubuntu-latest
