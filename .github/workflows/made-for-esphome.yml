@@ -1,0 +1,94 @@
+name: Check Made for ESPHome
+
+on:
+  pull_request:
+  # pull_request_target:
+
+jobs:
+  pre-check:
+    runs-on: ubuntu-latest
+    name: Pre-check for made-for-esphome label
+    outputs:
+      run: ${{ steps.check-label.outputs.result }}
+    steps:
+      # Check pull request does not already have `made-for-esphome` label
+      - name: Check for existing label
+        id: check-label
+        uses: actions/github-script@v6.1.0
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map(label => label.name);
+            return !labels.includes('made-for-esphome');
+
+  check:
+    runs-on: ubuntu-latest
+    name: Check for made-for-esphome
+    needs:
+      - pre-check
+    if: ${{ needs.pre-check.outputs.run == 'true' }}
+    outputs:
+      run: ${{ steps.check-made-for-esphome.outputs.result }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Check for made-for-esphome
+        id: check-made-for-esphome
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const { exec } = require('child_process');
+            const { promisify } = require('util');
+            const execAsync = promisify(exec);
+
+            // Get the base branch from the pull request
+            const baseBranch = context.payload.pull_request.base.ref;
+
+            // Get the diff for src/docs/devices/**/index.md files
+            const { stdout } = await execAsync(`git diff ${baseBranch} -- src/docs/devices/**/index.md`);
+
+            // Check if any line contains 'made-for-esphome: true'
+            return stdout.includes('+made-for-esphome: true');
+
+  update-pull-request:
+    runs-on: ubuntu-latest
+    name: Update Pull Request
+    needs:
+      - check
+    if: ${{ needs.check.outputs.run == 'true' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+      - name: Update Pull Request
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            await github.rest.issues.addLabels({
+              issue_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['made-for-esphome', 'made-for-esphome-pending']
+            });
+
+            const fs = require('fs');
+            const checklistPath = '.github/made-for-esphome-checklist.md';
+            if (!fs.existsSync(checklistPath)) {
+              throw new Error(`Checklist file not found: ${checklistPath}`);
+            }
+            const checklist = fs.readFileSync(checklistPath, 'utf8').trim();
+
+            const updatedBody = pr.body ? `${pr.body}\n\n${checklist}` : checklist;
+            await github.rest.issues.update({
+              issue_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: updatedBody
+            });
+
+            await github.rest.issues.createComment({
+              issue_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'This PR has been labeled as **Made for ESPHome** and is pending review. Please ensure you complete the checklist added to the description above.'
+            });
