@@ -37,15 +37,11 @@ jobs:
         uses: actions/github-script@v7.0.1
         with:
           script: |
-            const { exec } = require('child_process');
-            const { promisify } = require('util');
-            const execAsync = promisify(exec);
-
             // Get the base branch from the pull request
             const baseBranch = context.payload.pull_request.base.ref;
 
             // Get the diff for src/docs/devices/**/index.md files
-            const { stdout } = await execAsync(`git diff ${baseBranch} -- src/docs/devices/**/index.md`);
+            const { exitCode, stdout, stderr } = await exec.getExecOutput(`git diff ${baseBranch} -- src/docs/devices/**/index.md`);
 
             // Check if any line contains 'made-for-esphome: true'
             return stdout.includes('+made-for-esphome: true');
