@@ -35,8 +35,8 @@ the relay coils.  A naive swap of the 1N4148 snubber diode for a 5V Zener will
 lead to high power dissipation across the BJT.
 ![Snubber Diode](diode.jpg "Snubber Diode")
 
-> [!NOTE]
-> The best course of action is to feed this board with 5V on the `VIN` terminal.
+> :memo: **NOTE:** The best course of action is to feed this board with 5V on
+> the `VIN` terminal.
 
 ## Serial Progamming Pinout
 
@@ -44,7 +44,7 @@ This board has a 6 pin header for programming.
 Some images show this header pre-installed.
 My board shipped the 1x6 header separately and required soldering.
 The silkscreen labeling of this header was clear on my board.
-Does expose `GPIO0`, but does not route `EN`for automated flash support.
+Does expose `GPIO0`, but does not route `EN` for automated flash support.
 
 | Pin | Comment                                                            |
 | --- | -------------------------------------------------------------------|
@@ -59,11 +59,10 @@ Does expose `GPIO0`, but does not route `EN`for automated flash support.
 
 This board has two 2x10 headers which provide access to all GPIO pins on its ESP32.
 
-> [!NOTE]
-> The silkscreen labels on my board did not exactly match the schematic or
-> manual continuity tracing.
+> :warning: **CAUTION:** The silkscreen labels on my board did not exactly
+> match the schematic or manual continuity tracing.
 >
-> Verify correct pinout prior to use!
+> **Verify correct pinout prior to use!**
 
 Header P3 is located closest to the board edge with odd numbered pins closest to the edge
 
