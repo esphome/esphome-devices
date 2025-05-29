@@ -103,10 +103,10 @@ closest to the board edge
 |  7  | GND                                                      |
 |  8  | GPIO19                                                   |
 |  9  | GPIO18                                                   |
-| 10  | GPIO5 / G / 74HC595 <span style="text-decoration:overline">OE</span>       |
+| 10  | GPIO5 / G / 74HC595 OE                                   |
 | 11  | GPIO17                                                   |
 | 12  | GPIO16                                                   |
-| 13  | GPIO4 / SCLR / 74HC595 <span style="text-decoration:overline">SRCLR</span> |
+| 13  | GPIO4 / SCLR / 74HC595 SRCLR                             |
 | 14  | GPIO0 Tied to button labeled IO0                         |
 | 15  | GPIO2                                                    |
 | 16  | GPIO15                                                   |
