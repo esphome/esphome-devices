@@ -35,8 +35,8 @@ the relay coils.  A naive swap of the 1N4148 snubber diode for a 5V Zener will
 lead to high power dissipation across the BJT.
 ![Snubber Diode](diode.jpg "Snubber Diode")
 
-📝 **NOTE:** `The best course of action is to feed this board with 5V on
-the VIN terminal`.
+📝 **NOTE:** **The best course of action is to feed this board with 5V on
+the VIN terminal.**
 
 ## Serial Progamming Pinout
 
