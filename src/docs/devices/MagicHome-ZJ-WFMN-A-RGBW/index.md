@@ -35,7 +35,7 @@ In `magichome_ledstrip_common.yaml`:
 ```yaml
 esphome:
   name: ${device_name}
-  description: ${device_description}
+  comment: ${device_description}
 
 esp8266:
   board: esp01_1m
