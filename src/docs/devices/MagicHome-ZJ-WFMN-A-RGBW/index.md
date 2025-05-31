@@ -61,11 +61,10 @@ ota:
   - platform: esphome
     password: !secret esphomeotapwd
 
-
 remote_receiver:
   pin: GPIO4
   # Uncomment if you want to debug IR codes
-  # dump: raw 
+  # dump: raw
 
 output:
   - platform: esp8266_pwm
