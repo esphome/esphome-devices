@@ -67,6 +67,7 @@ logger:
 api:
 
 ota:
+  platform: esphome
 
 # Battery voltage measured through ADC1_CH2. PLUS2 has a voltage divider,
 # so reading needs to be multiplied by 2
