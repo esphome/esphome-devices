@@ -12,7 +12,7 @@ board: esp32
 
 This is a 16-relay board with an ESP32-WROOM-E.
 
-Each relay has COM+NO+NC exposed. Each relay supports 10Amp max load.
+Each relay has COM+NO+NC exposed and supports 10Amp max load. The relays are controlled by two Nexperia/NXP 8-bit 74HC595D shift registers with output latches.
 
 The board is powered by 12VDC.
 
@@ -45,7 +45,7 @@ esp32:
   board: esp32dev
 
 sn74hc595:
-  - id: 'sn74hc595_hub'
+  - id: sn74hc595_hub
     data_pin: GPIO14
     clock_pin: GPIO13
     latch_pin: GPIO12
@@ -54,118 +54,114 @@ sn74hc595:
 
 switch:
   - platform: gpio
-    name: "Relay01"
-    id: "relay01"
+    name: Relay01
+    id: relay01
     pin:
       sn74hc595: sn74hc595_hub
       number: 0
-      inverted: false
+
   - platform: gpio
-    name: "Relay02"
-    id: "relay02"
+    name: Relay02
+    id: relay02
     pin:
       sn74hc595: sn74hc595_hub
       number: 1
-      inverted: false
+
   - platform: gpio
-    name: "Relay03"
-    id: "relay03"
+    name: Relay03
+    id: relay03
     pin:
       sn74hc595: sn74hc595_hub
       number: 2
-      inverted: false
+
   - platform: gpio
-    name: "Relay04"
-    id: "relay04"
+    name: Relay04
+    id: relay04
     pin:
       sn74hc595: sn74hc595_hub
       number: 3
-      inverted: false
 
   - platform: gpio
-    name: "Relay05"
-    id: "relay05"
+    name: Relay05
+    id: relay05
     pin:
       sn74hc595: sn74hc595_hub
       number: 4
-      inverted: false
+
   - platform: gpio
-    name: "Relay06"
-    id: "relay06"
+    name: Relay06
+    id: relay06
     pin:
       sn74hc595: sn74hc595_hub
       number: 5
-      inverted: false
+
   - platform: gpio
-    name: "Relay07"
-    id: "relay07"
+    name: Relay07
+    id: relay07
     pin:
       sn74hc595: sn74hc595_hub
       number: 6
-      inverted: false
+
   - platform: gpio
-    name: "Relay08"
-    id: "relay08"
+    name: Relay08
+    id: relay08
     pin:
       sn74hc595: sn74hc595_hub
       number: 7
-      inverted: false
 
   - platform: gpio
-    name: "Relay09"
-    id: "relay09"
+    name: Relay09
+    id: relay09
     pin:
       sn74hc595: sn74hc595_hub
       number: 8
-      inverted: false
+
   - platform: gpio
-    name: "Relay10"
-    id: "relay10"
+    name: Relay10
+    id: relay10
     pin:
       sn74hc595: sn74hc595_hub
       number: 9
-      inverted: false
+
   - platform: gpio
-    name: "Relay11"
-    id: "relay11"
+    name: Relay11
+    id: relay11
     pin:
       sn74hc595: sn74hc595_hub
       number: 10
-      inverted: false
+
   - platform: gpio
-    name: "Relay12"
-    id: "relay12"
+    name: Relay12
+    id: relay12
     pin:
       sn74hc595: sn74hc595_hub
       number: 11
-      inverted: false
 
   - platform: gpio
-    name: "Relay13"
-    id: "relay13"
+    name: Relay13
+    id: relay13
     pin:
       sn74hc595: sn74hc595_hub
       number: 12
-      inverted: false
+
   - platform: gpio
-    name: "Relay14"
-    id: "relay14"
+    name: Relay14
+    id: relay14
     pin:
       sn74hc595: sn74hc595_hub
       number: 13
-      inverted: false
+
   - platform: gpio
-    name: "Relay15"
-    id: "relay15"
+    name: Relay15
+    id: relay15
     pin:
       sn74hc595: sn74hc595_hub
       number: 14
-      inverted: false
+
   - platform: gpio
-    name: "Relay16"
-    id: "relay16"
+    name: Relay16
+    id: relay16
     pin:
       sn74hc595: sn74hc595_hub
       number: 15
-      inverted: false
 ```
