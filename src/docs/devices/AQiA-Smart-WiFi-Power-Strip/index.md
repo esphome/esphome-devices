@@ -11,7 +11,7 @@ difficulty: 4
 
 ## Description
 
-The AQiA Smart WiFi Power Strip is a three outlet smart power strip, sold by Micro Center and manufactured by IPOTEK (manufacturer part number SK569-WU-AC). The three outlets are independently switchable via software, while the two USB ports are permanently on. Each outlet has an indicator light that is lit when the relay is closed, and cannot be controlled in software. The only physical control on the device is a single power button that has a propensity to get stuck.
+The AQiA Smart WiFi Power Strip is a three outlet smart power strip, [sold by Micro Center](https://www.microcenter.com/product/665655/aqia-smart-wi-fi-power-strip) and manufactured by IPOTEK (manufacturer part number SK569-WU-AC). The three outlets are independently switchable via software, while the two USB ports are permanently on. Each outlet has an indicator light that is lit when the relay is closed, and cannot be controlled in software. The only physical control on the device is a single power button that has a propensity to get stuck.
 
 Internally the strip is powered by a CB2S module, which uses the BK7231N controller.
 
