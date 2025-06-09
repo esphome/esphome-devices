@@ -164,7 +164,7 @@ spi:
   type: octal
   id: display_spi
   clk_pin: GPIO21
-  data_pins: 
+  data_pins:
     - GPIO6
     - GPIO7
     - GPIO15
