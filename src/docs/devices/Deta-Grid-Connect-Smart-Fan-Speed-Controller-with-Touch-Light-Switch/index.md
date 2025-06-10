@@ -18,6 +18,10 @@ Original version uses ESP8266 controller.
 
 Newer revision uses BK7231T controller on the Tuya [WB3S module](https://developer.tuya.com/en/docs/iot/wb3s-module-datasheet?id=K9dx20n6hz5n4).
 
+### Series 3
+
+revision uses BK7231N controller on the Tuya [CB3S module](https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076)
+
 ## GPIO Pinout
 
 ### ESP8266 Version
@@ -52,6 +56,19 @@ Newer revision uses BK7231T controller on the Tuya [WB3S module](https://develop
 |     P7 |   Fan Relay 2 |
 |     P9 |   Fan Relay 3 |
 
+### BK7231N Version
+
+|  Pin # |     Component |
+|:------:|--------------:|
+|    P14 |       Button1 |
+|    P20 |       Button2 |
+|     P7 |       Button3 |
+|    P10 |           Led |
+|    P26 |   Light Relay |
+|     P6 |   Fan Relay 1 |
+|     P8 |   Fan Relay 2 |
+|     P9 |   Fan Relay 3 |
+
 ## Getting it up and running
 
 ### Series 1 - Tuya Convert
@@ -65,7 +82,7 @@ These switches are Tuya devices, so if you don't want to open them up to flash d
 
 [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the flashing process. Follow the [official guide](https://github.com/tuya-cloudcutter/tuya-cloudcutter) for instructions.
 
-### Manual Flashing
+### Manual Flashing - Series 3
 
 If you prefer to flash manually, you'll need a USB to serial adapter. Follow the disassembly steps below:
 
