@@ -9,22 +9,18 @@ difficulty: 2
 
 ![ESP32-S3 4.0 Inch Smart Display](ESP32-S3-4.0-Inch-Smart-Display.jpg "ESP32-S3 4.0 Inch Smart Display")
 
-
 ## Description
 
-The "ESP32-S3 4.0 Inch Smart Display" is a cheap (~30 Euro) wall-mounted touch display 
+The "ESP32-S3 4.0 Inch Smart Display" is a cheap (~30 Euro) wall-mounted touch display
 
 - ESP32-S3 (QFN56) with 16MB flash and 8MB PSRAM
 - 4 inch display (driven with a ST7701s) and a GT911 touch screen
 - 1 or 3 relays
 
-
 ## Links
 
 - [Shop](https://www.aliexpress.com/item/1005006335587633.html)
 - [Schematics, Datasheets and Examples](http://pan.jczn1688.com/directlink/1/ESP32%20module/4.0inch_ESP32-4848S040.zip)
-
-
 
 ## Simple Configuration
 
@@ -106,7 +102,8 @@ display:
     - [0xC1, 0x0D, 0x02]
     - [0xC2, 0x31, 0x05]
     #- [0xCD, 0x08]
-    - [0xCD, 0x00] #this differs from the standard init seq. We have to set MDT=0 
+    - [0xCD, 0x00] #This differs from the standard init sequence. 
+                   #We need to set MDT=0. 
     - [
         0xB0,
         0x00,
@@ -255,18 +252,14 @@ switch:        #relais
     pin: GPIO1
     id: relay3    
 
-``` 
+```
   
-  
-  
-
 ## Advanced Configuration
+
 - to be combined with the simple configuration above
 - shows an analog clock and a button that triggers an animation
 
 ![ESP32-S3 4.0 Inch Smart Display showing an animation](ESP32-S3-4.0-Inch-Smart-Display_animation.jpg "ESP32-S3 4.0 Inch Smart Display showing an animation")
-
-
 
 ```yaml  
     
@@ -301,11 +294,15 @@ script:
       - lvgl.label.update:
           id: date_label
           text: !lambda |-
-            static const char * const mon_names[] = {"JAN", "FEB", "MAR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"};
-            static const char * const day_names[] = {"SO", "MO", "DI", "MI", "DO", "FR", "SA"};
+            static const char * const mon_names[] = 
+                {"JAN", "FEB", "MAR", "APR", "MAI", "JUN", 
+                "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"};
+            static const char * const day_names[] = 
+                {"SO", "MO", "DI", "MI", "DO", "FR", "SA"};
             static char date_buf[16];
             auto now = id(time_homeassistant).now();
-            snprintf(date_buf, sizeof(date_buf), "%s,%2d.%s", day_names[now.day_of_week-1], now.day_of_month, mon_names[now.month-1]);
+            snprintf(date_buf, sizeof(date_buf), "%s,%2d.%s", 
+                day_names[now.day_of_week-1], now.day_of_month, mon_names[now.month-1]);
             return date_buf;
       - lvgl.label.update:
           id: time_label
