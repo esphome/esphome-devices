@@ -95,7 +95,6 @@ sensor:
     active_power_1:
       name: Power
       id: w_sensor
-      filters:
       icon: mdi:flash
       on_value_range:
         - above: 4.0
