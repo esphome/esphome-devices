@@ -152,7 +152,7 @@ switch:
 binary_sensor:
   - platform: status
     name: "Status"
-   
+
   - platform: gpio
     pin:
       number: GPIO4
@@ -206,7 +206,6 @@ binary_sensor:
                       - event.trigger:
                           id: switch_event
                           event_type: switch_1
-    
 
       - timing:
           - ON for at least 50ms
