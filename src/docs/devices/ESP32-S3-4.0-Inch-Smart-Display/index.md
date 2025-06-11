@@ -27,22 +27,22 @@ The "ESP32-S3 4.0 Inch Smart Display" is a cheap (~30 Euro) wall-mounted touch d
 ```yaml
 substitutions:
   device_name: touchdisplay1
-     
+
 esphome:
-  name: $device_name   
+  name: $device_name
   on_boot:
     - output.turn_on: backlight
-   
+
 psram:
   mode: octal
   speed: 80MHz
 
 esp32:
   board: esp32-s3-devkitc-1
-  flash_size: 16MB   
+  flash_size: 16MB
   framework:
     type: esp-idf
-   
+
 api:
 
 sensor:
@@ -58,11 +58,11 @@ sensor:
     name: "$device_name Uptime"
     update_interval: 15s
     entity_category: "diagnostic"
-    
+
 spi:
       mosi_pin: GPIO47
       clk_pin: GPIO48
-      
+
 display:
   - platform: st7701s
     color_order: RGB
@@ -75,26 +75,26 @@ display:
     vsync_pin: GPIO17
     pclk_pin: GPIO21
     data_rate: 40MHz
-    
+
     data_pins:
-        - 46 
-        - 9 
-        - 10 
-        - 11 
+        - 46
+        - 9
+        - 10
+        - 11
         - 12
-        - 13 
+        - 13
         - 14
-        - 0         
+        - 0
         - 4
-        - 5 
-        - 6 
-        - 7 
+        - 5
+        - 6
+        - 7
         - 15
-        - 8 
-        - 20 
-        - 3 
-                
-    
+        - 8
+        - 20
+        - 3
+
+
     init_sequence:
     - [0x01]
     - [0xFF, 0x77, 0x01, 0x00, 0x00, 0x10]
@@ -102,8 +102,8 @@ display:
     - [0xC1, 0x0D, 0x02]
     - [0xC2, 0x31, 0x05]
     #- [0xCD, 0x08]
-    - [0xCD, 0x00] #This differs from the standard init sequence. 
-                   #We need to set MDT=0. 
+    - [0xCD, 0x00] #This differs from the standard init sequence.
+                   #We need to set MDT=0.
     - [
         0xB0,
         0x00,
@@ -221,23 +221,23 @@ display:
     - [0xFF, 0x77, 0x01, 0x00, 0x00, 0x13]
     - [0xE5, 0xE4]
     - [0x3A, 0x60]
-    
+
 #    show_test_card: true
-        
+
 touchscreen:
   platform: gt911
   id: my_touchscreen
   #interrupt_pin: GPIOXX
-  
+
 i2c:
    scl: GPIO45
-   sda: GPIO19 
-  
+   sda: GPIO19
+
 output:
   - platform: ledc
     pin: GPIO38
     id: backlight
-    
+
 switch:        #relais
   - platform: gpio
     name: "$device_name Relay 1"
@@ -246,14 +246,14 @@ switch:        #relais
   - platform: gpio
     name: "$device_name Relay 2"
     pin: GPIO2
-    id: relay2       
+    id: relay2
   - platform: gpio
     name: "$device_name Relay 3"
     pin: GPIO1
-    id: relay3    
+    id: relay3
 
 ```
-  
+
 ## Advanced Configuration
 
 - to be combined with the simple configuration above
@@ -261,8 +261,8 @@ switch:        #relais
 
 ![ESP32-S3 4.0 Inch Smart Display showing an animation](ESP32-S3-4.0-Inch-Smart-Display_animation.jpg "ESP32-S3 4.0 Inch Smart Display showing an animation")
 
-```yaml  
-    
+```yaml
+
 time:
   - platform: homeassistant
     id: time_homeassistant
@@ -271,14 +271,14 @@ interval:
   - interval: 5s
     then:
       - script.execute: time_update
-      
+
   - interval: 0.05s
     then:
         - animation.next_frame: my_animation
         - lvgl.image.update:
                 id: img_id
-                src: my_animation    
-  
+                src: my_animation
+
 script:
   - id: time_update
     then:
@@ -294,14 +294,14 @@ script:
       - lvgl.label.update:
           id: date_label
           text: !lambda |-
-            static const char * const mon_names[] = 
-                {"JAN", "FEB", "MAR", "APR", "MAI", "JUN", 
+            static const char * const mon_names[] =
+                {"JAN", "FEB", "MAR", "APR", "MAI", "JUN",
                 "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"};
-            static const char * const day_names[] = 
+            static const char * const day_names[] =
                 {"SO", "MO", "DI", "MI", "DO", "FR", "SA"};
             static char date_buf[16];
             auto now = id(time_homeassistant).now();
-            snprintf(date_buf, sizeof(date_buf), "%s,%2d.%s", 
+            snprintf(date_buf, sizeof(date_buf), "%s,%2d.%s",
                 day_names[now.day_of_week-1], now.day_of_month, mon_names[now.month-1]);
             return date_buf;
       - lvgl.label.update:
@@ -318,7 +318,7 @@ lvgl:
   bg_color: 0x000000
   text_font: montserrat_30
   align: center
-  
+
   style_definitions:
     - id: date_style
       text_font: montserrat_40
@@ -328,9 +328,9 @@ lvgl:
       bg_color: 0x3f3f3f
       radius: 4
       pad_all: 2
-      
+
   pages:
-    - id: clock_page 
+    - id: clock_page
       widgets:
         - meter:
             height: 480
@@ -378,8 +378,8 @@ lvgl:
                       id: hour_hand
                       width: 8
                       color: 0xF0A0A0
-                      r_mod: -20            
-                
+                      r_mod: -20
+
         - label:
             styles: date_style
             id: date_label
@@ -406,7 +406,7 @@ lvgl:
                 - lvgl.page.show: animation_page
 
 
-    - id: animation_page 
+    - id: animation_page
       widgets:
         - image:
             align: CENTER
@@ -417,13 +417,13 @@ lvgl:
             on_short_click:
               then:
                 - lvgl.page.show: clock_page
-            
+
 animation:
   - file: "mario.webp" # https://i.giphy.com/2sdLzwCEu043Jw2EG5.webp
     id: my_animation
     #resize: 480x480 #this does not fit in the flash
     resize: 400x400
     type: RGB565
-    
+
 
 ```
