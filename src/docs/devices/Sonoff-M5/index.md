@@ -18,6 +18,11 @@ difficulty: 3
 - in 2-gang version LED 2 to/can be
   activated separately from Relay
 
+## Troubleshooting
+
+- FTDI adapters typically provide enough power to flash ESPHome onto these devices, but due to the PCB design, they do not provide sufficient power to boot. This will typically present as esphome rst:0x1 (POWERON_RESET), boot:0x13 (SPI_FAST_FLASH_BOOT). When connected to and powered by its wall plate, it will boot normally.
+
+
 ![header](/Sonoff_M5_2gang_MB.jpg "Pin header for flashing incl. GPIO00")
 
 ## GPIO Pinout
