@@ -25,9 +25,7 @@ This device comes pre-installed with Tasmota. To flash it with ESPHome, refer to
 | GPIO13 | Relay      |
 | GPIO18 | Switch     |
 
-## Example configuration
-
-This example configures the relay as a 2-gang light switch relay with an optional decoupled mode. The NOUS B3T can also be used to control blinds. Refer to the [**Cover Component**](https://esphome.io/components/cover/) and [**Current Based Cover**](https://esphome.io/components/cover/current_based) documentation for further instructions.
+## Basic configuration
 
 ```yaml
 esphome:
@@ -62,18 +60,6 @@ wifi:
 
 captive_portal:
 
-esp32_ble_tracker:
-
-bluetooth_proxy:
-  active: true
-
-network:
-  enable_ipv6: true
-
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-
 uart:
   tx_pin: GPIO01
   rx_pin: GPIO03
@@ -82,20 +68,6 @@ uart:
   stop_bits: 2
 
 sensor:
-  - platform: uptime
-    type: timestamp
-    name: "Uptime"
-    id: uptime_sensor
-    entity_category: diagnostic
-  - platform: wifi_signal
-    name: "RSSI"
-    id: rssi
-    update_interval: 60s
-    disabled_by_default: true
-  - platform: internal_temperature
-    name: "Device Temperature"
-    id: device_temperature
-
   - platform: bl0939
     voltage:
       name: "RMS Voltage"
@@ -141,18 +113,7 @@ switch:
     device_class: switch
     restore_mode: restore_default_on
 
-  - platform: template
-    name: "Decoupled Mode"
-    id: decoupled_mode
-    restore_mode: RESTORE_DEFAULT_ON
-    optimistic: true
-    entity_category: config
-    icon: "mdi:connection"
-
 binary_sensor:
-  - platform: status
-    name: "Status"
-
   - platform: gpio
     pin:
       number: GPIO4
@@ -168,10 +129,66 @@ binary_sensor:
     on_press:
       - switch.toggle: relay_1
       - switch.toggle: relay_2
-      - event.trigger:
-          id: switch_event
-          event_type: builtin_button
 
+  - platform: gpio
+    name: "Switch 1 (external)"
+    pin:
+      number: GPIO05
+      mode: INPUT_PULLUP
+      inverted: true
+      ignore_strapping_warning: true
+    id: switch_1
+    icon: "mdi:light-switch"
+    entity_category: diagnostic
+    filters:
+      - delayed_on_off: 50ms
+    on_press:
+      then:
+        - switch.toggle: relay_1
+
+  - platform: gpio
+    name: "Switch 2 (external)"
+    pin:
+      number: GPIO18
+      mode: INPUT_PULLUP
+      inverted: true
+    id: switch_2
+    icon: "mdi:light-switch"
+    entity_category: diagnostic
+    filters:
+      - delayed_on_off: 50ms
+    on_press:
+      then:
+        - switch.toggle: relay_2
+   
+```
+
+## Configuration as light switch 
+
+This example demonstrates how to configure the 2-gang relay for use with a double rocker light switch. The relay can operate in two modes: directly toggling the connected relays, or in decoupled mode, where switch events are exposed in an event entity that can be used in automations. The NOUS B3T can also be used to control blinds. Refer to the [**Cover Component**](https://esphome.io/components/cover/) and [**Current Based Cover**](https://esphome.io/components/cover/current_based) documentation for further instructions.
+
+```yaml
+switch:
+  - platform: template
+    name: "Decoupled Mode"
+    id: decoupled_mode
+    restore_mode: RESTORE_DEFAULT_ON
+    optimistic: true
+    entity_category: config
+    icon: "mdi:connection"
+
+event:
+  - platform: template
+    device_class: button
+    name: None
+    icon: "mdi:light-switch"
+    id: switch_event
+    event_types:
+      - switch_1
+      - switch_2
+      - failsafe
+
+binary_sensor:
   - platform: gpio
     name: "Switch 1 (external)"
     pin:
@@ -326,19 +343,6 @@ binary_sensor:
           - event.trigger:
               id: switch_event
               event_type: failsafe
-
-
-event:
-  - platform: template
-    device_class: button
-    name: None
-    icon: "mdi:light-switch"
-    id: switch_event
-    event_types:
-      - switch_1
-      - switch_2
-      - failsafe
-      - builtin_button
 
 ```
 
