@@ -160,10 +160,10 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: relay_2
-   
+
 ```
 
-## Configuration as light switch 
+## Configuration as light switch
 
 This example demonstrates how to configure the 2-gang relay for use with a double rocker light switch. The relay can operate in two modes: directly toggling the connected relays, or in decoupled mode, where switch events are exposed in an event entity that can be used in automations. The NOUS B3T can also be used to control blinds. Refer to the [**Cover Component**](https://esphome.io/components/cover/) and [**Current Based Cover**](https://esphome.io/components/cover/current_based) documentation for further instructions.
 
