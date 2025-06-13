@@ -10,7 +10,7 @@ difficulty: 2
 
 ![NOUS B3T](B3T_mockup.jpg "Nous B3T WiFi Tasmota Switch Module(2 channel with PM) / Curtain module(1 channel) (ESP32)")
 
-This device comes pre-installed with Tasmota. To flash it with ESPHome, refer to the [**Migrating from Tasmota**](https://esphome.io/guides/migrate_sonoff_tasmota.html)guide. Alternatively, you can disassemble the device and solder wires to the test pads (see pinout) for manual flashing.
+This device comes pre-installed with Tasmota. To flash it with ESPHome, refer to the [**Migrating from Tasmota**](https://esphome.io/guides/migrate_sonoff_tasmota.html)guide. Alternatively, you can disassemble the device and solder wires to the test pads ([see pinout](#pinout)) for manual flashing.
 
 ## GPIO Pinout
 
