@@ -82,7 +82,7 @@ These switches are Tuya devices, so if you don't want to open them up to flash d
 
 [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the flashing process. Follow the [official guide](https://github.com/tuya-cloudcutter/tuya-cloudcutter) for instructions.
 
-### Manual Flashing - Series 3
+### Manual Flashing
 
 If you prefer to flash manually, you'll need a USB to serial adapter. Follow the disassembly steps below:
 
