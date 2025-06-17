@@ -14,22 +14,27 @@ Sold at Bunnings in Australia as [Model number ALD295HA](https://www.bunnings.co
 This device uses a CB2S module (BK7231N MCU) + BP5768 10 Pin LED Driver, and can be flashed with the `kickstart-bk7231n.uf2` [Kickstart](https://github.com/libretiny-eu/esphome-kickstart) firmware using [ltchiptool](https://github.com/libretiny-eu/ltchiptool).
 
 ## Tuya Cloudcutter / Tuya Convert
-The board cannot be flashed using Tuya Cloudcutter (Running Tuya version 1.5.40). I haven't tried Tuya Convert. 
+
+The board cannot be flashed using Tuya Cloudcutter (Running Tuya version 1.5.40). I haven't tried Tuya Convert.
 
 ## Access
+
 Ensure device is not plugged in.
 This device can be accessed easily enough with a suction cup and a Phillips head screwdriver:
+
 - Using a suction cup on the front diffuser, pop out the front diffuser, remove that and the cardboard reflector.
 - Undo the 2 Phillips head screws and remove the back cover.
-- Carefully remove the Control PCB from the LED PCB (6 Pin Connector). 
+- Carefully remove the Control PCB from the LED PCB (6 Pin Connector).
 - Once board has been removed, the TX/RX pins can be accessed for flashing.
+
 ![Remove diffuser Image](/1.jpg "1")
 ![Remove card and screws Image](/2.jpg "2")
 ![Remove back cover and PCB Image](/3.jpg "3")
 
 ## Flashing
+
 I have had best success flashing these Tuya chips  with the ESP Test Rack Module Programmer.
-Solder connections to 3V3, GND, TX, RX and connect to module programmer of choice. additional GND required to touch CEN during start of flashing process. 
+Solder connections to 3V3, GND, TX, RX and connect to module programmer of choice. additional GND required to touch CEN during start of flashing process.
 
 | CB2S     | Programmer                |
 | -------- | ------------------------- |
@@ -55,13 +60,14 @@ Solder connections to 3V3, GND, TX, RX and connect to module programmer of choic
 ![LED Driver](/4.jpg "BP5758")
 
 ## Example Configuration
+
 Some values are commented out. Values were pulled from tuya dump.
 
 ```yaml
 # model: Arlec 9W 92mm Grid Connect Smart RGB+CCT LED Downlight - ALD295HA (CB2S(BK7231N,tuya version was 1.5.40) + BP5758D)
 
 substitutions:
-  device_name: arlec-rgb-cct-ald295ha 
+  device_name: arlec-rgb-cct-ald295ha
   friendly_name: Arlec ALD295HA
   id_name: arlec_rgb_cct
 #  light_name: Downlight  # Uncomment this line and change name under light entity to specifically name the light.
