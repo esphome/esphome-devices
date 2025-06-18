@@ -12,6 +12,8 @@ board: esp8266
 
 This switch uses tuya so you can [use tuya-convert to flash ESPHome](/guides/tuya-convert/).
 
+**Note**: Newer versions (2025+) of this switch seem to use a locked CB3S module and might not be flashable; replacement with an ESP8266 module may be required.
+
 ## GPIO Pinout
 
 | Pin    | Function                   |
@@ -139,3 +141,15 @@ sensor:
   - platform: wifi_signal
     name: $friendly_name wifi signal
 ```
+
+## Fully-featured package ("SS01")
+
+[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this device,
+which permits quick flashing with a pre-compiled binary as well as automatic adoption, deployment, and updates. This requires
+either an ESP8266-based version of the switch, or swapping out the CB3S module for an ESP8266 module (2025 purchase version).
+
+**Note**: The relay seems to have changed in the recent revisions of this switch (2025 purchase) and these do not seem to
+invert the relay pin any longer in my tests. If you use an older revision, you may need to tweak the configuration below
+to account for this, though the author only has recent versions to test with.
+
+[Github Project Link](https://github.com/joshuaboniface/martinjerry-esphome)

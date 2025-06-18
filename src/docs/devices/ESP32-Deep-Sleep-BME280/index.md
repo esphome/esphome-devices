@@ -49,7 +49,8 @@ This sample only use ESPHome global variable and MQTT to trigger deep sleep, no 
 ```yaml
 esphome:
   name: bedford
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 wifi:

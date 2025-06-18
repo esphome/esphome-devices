@@ -19,7 +19,7 @@ You also need to solder a wire to the NRST pad on the back side of the board. Th
 
 ## Dumping original firmware
 
-Connect NRST to gnd, provide power to the board, then:
+Connect NRST to gnd (and leave it connected to ground), provide power to the board, then:
 
 ```bash
 ltchiptool flash read beken-72xx ./dimmer1
@@ -39,45 +39,11 @@ Next, write that firmware:
 ltchiptool flash write .esphome/build/dimmer/.pioenvs/dimmer/esphome_2024.10.0_generic-bk7231n-qfn32-tuya_bk7231n_lt1.7.0.uf2
 ```
 
-## Basic Configuration
+## Basic Configuration (hardware only)
 
 ```yaml
-esphome:
-  name: feit-dimmer-11
-  friendly_name: "Feit dimmer 11"
-
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
-
-logger:
-  level: verbose
-
-web_server:
-
-captive_portal:
-
-api:
-
-ota:
-
-button:
-  - platform: restart
-    name: Restart
-
-debug:
-  update_interval: 30s
-
-text_sensor:
-  - platform: debug
-    reset_reason:
-      name: Reset Reason
-  - platform: libretiny
-    version:
-      name: LibreTiny Version
-
-sensor:
-  - platform: uptime
-    name: Uptime
 
 uart:
   rx_pin: RX1
@@ -87,10 +53,14 @@ uart:
 tuya:
   # DPIDs processed from schema model: 000003w4ro
 
-switch:
-  - platform: tuya
-    switch_datapoint: 1
-    name: Power
+light:
+- platform: tuya
+  id: dimmer_switch
+  name: "Dimmer Switch"
+  switch_datapoint: 1
+  dimmer_datapoint: 2
+  min_value_datapoint: 3
+  max_value: 1490
 
 number:
   - platform: tuya
@@ -103,20 +73,13 @@ number:
     number_datapoint: 3
     name: Brightness Min
     min_value: 10
-    max_value: 2000
+    max_value: 1000
     step: 1
   - platform: tuya
     number_datapoint: 5
     name: Brightness Max
-    min_value: 10
-    max_value: 2000
-    step: 1
-  - platform: tuya
-    number_datapoint: 6
-    name: Countdown
-    unit_of_measurement: s
-    min_value: 0
-    max_value: 86400
+    min_value: 700
+    max_value: 1490
     step: 1
 
 select:
