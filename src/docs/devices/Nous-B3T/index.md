@@ -1,6 +1,6 @@
 ---
 title: NOUS B3T
-date-published: 2025-06-05
+date-published: 2025-06-18
 type: relay
 standard: global
 board: esp32
