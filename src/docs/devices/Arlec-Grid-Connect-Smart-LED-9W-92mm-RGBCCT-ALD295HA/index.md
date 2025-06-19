@@ -75,18 +75,6 @@ substitutions:
 esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
-  on_boot:
-    priority: -100
-    then:
-      - if:
-          condition:
-            light.is_off: ${id_name} #Checking if light is off to set default state
-          then:
-            - light.turn_on: #setting default 80%/3800K
-                id: ${id_name}
-                brightness: 80%
-                color_temperature: 3800 K
-                transition_length: 0.5s
 
 bk72xx:
   board: cb2s
