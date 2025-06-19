@@ -104,11 +104,6 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  fast_connect: true
-  reboot_timeout: 15min
-  ap:
-    ssid: "${friendly_name} Fallback"
-    password: !secret wifi_ap_password
 
 
 bp5758d:
