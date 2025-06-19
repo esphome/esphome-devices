@@ -69,6 +69,136 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 
 ## Example Configuration
 
+Below is a hardware only ocnfiguration, that enables the display with the ESPhome test card, along with the power meter, relay, and proximity sensor.
+
+```yaml
+esphome:
+  name: lanbon-l9
+  friendly_name: Lanbon L9
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: DEBUG
+  baud_rate: 115200
+  hardware_uart: UART0
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+psram:
+  speed: 80MHz
+
+output:
+  - platform: ledc
+    id: lcd_backlight_output
+    pin:
+      number: GPIO42
+      inverted: false
+
+light:
+  - platform: monochromatic
+    output: lcd_backlight_output
+    name: Display Backlight
+    id: display_backlight
+    restore_mode: ALWAYS_ON
+
+spi:
+  type: octal
+  id: display_spi
+  clk_pin: GPIO21
+  data_pins:
+    - GPIO6
+    - GPIO7
+    - GPIO15
+    - GPIO16
+    - GPIO10
+    - GPIO9
+    - GPIO46
+    - GPIO3
+
+display:
+  - platform: mipi_spi
+    id: my_display
+    model: st7789v
+    spi_id: display_spi
+    bus_mode: octal
+    dc_pin: GPIO17
+    dimensions:
+      height: 320
+      width: 170
+      offset_height: 0
+      offset_width: 35
+    invert_colors: true
+    show_test_card: true
+    data_rate: 4MHz
+    color_depth: 16BIT
+    color_order: BGR
+    auto_clear_enabled: false
+    update_interval: 250ms
+
+i2c:
+  - id: touchscreen_i2c
+    scl:
+      number: GPIO0
+      ignore_strapping_warning: true
+    sda:
+      number: GPIO35
+
+touchscreen:
+  - platform: ft63x6
+    id: my_touchscreen
+    display: my_display
+    i2c_id: touchscreen_i2c
+    calibration:
+      x_min: 0
+      y_min: 0
+      x_max: 169
+      y_max: 319
+
+sensor:
+  - platform: pulse_meter
+    name: Power
+    id: power_pulse_meter
+    pin: GPIO5
+    unit_of_measurement: 'W'
+    device_class: power
+    state_class: measurement
+    internal_filter_mode: PULSE
+    accuracy_decimals: 1
+    filters:
+      - filter_out: nan
+      - throttle: 15s
+      - multiply: 0.0813287514318442  # Calibration may be needed
+
+binary_sensor:
+  - platform: gpio
+    name: Proximity Sensor
+    id: proximity_sensor
+    pin: GPIO11
+
+switch:
+  - platform: gpio
+    name: Relay
+    id: relay
+    pin:
+      number: GPIO36
+```
+
+## Detailed Configuration with LVGL
+
 ![Lanbon L9 with ESPHome](lanbon-l9-esphome.png)
 
 The following configuration implements the following features and examples from the LVGL component.
