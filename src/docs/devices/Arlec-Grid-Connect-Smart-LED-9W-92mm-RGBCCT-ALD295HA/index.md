@@ -110,26 +110,6 @@ wifi:
     ssid: "${friendly_name} Fallback"
     password: !secret wifi_ap_password
 
-button:
-  - platform: restart
-    name: "Restart"
-
-debug:
-  update_interval: 30s
-
-text_sensor:
-  - platform: debug
-    reset_reason:
-      name: "Reset Reason"
-  - platform: libretiny
-    version:
-      name: "LibreTiny Version"
-
-sensor:
-  - platform: uptime
-    name: "Uptime"
-  - platform: wifi_signal
-    name: "Signal Strength"
 
 bp5758d:
   clock_pin: P26
