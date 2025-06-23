@@ -1,6 +1,6 @@
 ---
 title: Lanbon L9 Smart Light Switch
-date-published: 2025-02-14
+date-published: 2025-06-23
 type: switch
 standard: us
 board: esp32
