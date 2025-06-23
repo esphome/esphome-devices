@@ -69,7 +69,7 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 
 ## Example Configuration
 
-Below is a hardware only ocnfiguration, that enables the display with the ESPhome test card, along with the power meter, relay, and proximity sensor.
+Below is a hardware only configuration, that enables the display with the ESPHome test card, along with the power meter, relay, and proximity sensor.
 
 ```yaml
 esphome:
