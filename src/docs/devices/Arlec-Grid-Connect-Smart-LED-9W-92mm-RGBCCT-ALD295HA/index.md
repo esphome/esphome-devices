@@ -1,6 +1,6 @@
 ---
 title: Arlec 9W 92mm Grid Connect Smart RGB+CCT LED Downlight (ALD295HA)
-date-published: 2025-06-17
+date-published: 2025-06-23
 type: light
 standard: au
 board: bk72xx
