@@ -77,20 +77,51 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: true
     name: "${device_name}_button"
-    on_press:
-      - switch.toggle: relay3
+    on_multi_click:
+      - timing:
+          - ON for 5ms to 350ms
+          - OFF for at least 750ms
+        then:
+          - switch.toggle: relayusb
+      - timing:
+          - ON for 5ms to 350ms
+          - OFF for 5ms to 350ms
+          - ON for 5ms to 350ms
+          - OFF for at least 750ms
+        then:
+          - switch.toggle: relay1
+      - timing:
+          - ON for 5ms to 350ms
+          - OFF for 5ms to 350ms
+          - ON for 5ms to 350ms
+          - OFF for 5ms to 350ms
+          - ON for 5ms to 350ms
+          - OFF for at least 750ms
+        then:
+          - switch.toggle: relay2
+      - timing:
+          - ON for 5ms to 350ms
+          - OFF for 5ms to 350ms
+          - ON for 5ms to 350ms
+          - OFF for 5ms to 350ms
+          - ON for 5ms to 350ms
+          - OFF for 5ms to 350ms
+          - ON for 5ms to 350ms
+          - OFF for at least 750ms
+        then:
+          - switch.toggle: relay3
 
   - platform: status
     name: "${device_name}_status"
 
-switch:
-  - platform: gpio
+light:
+  - platform: status_led
     id: green_led
     pin:
       number: GPIO1
       inverted: true
-    restore_mode: ALWAYS_OFF
 
+switch:
   - platform: gpio
     name: "${device_name}_plug1"
     pin: GPIO13
@@ -112,9 +143,9 @@ switch:
     icon: ${plug_icon}
     restore_mode: ${plug3_restore}
     on_turn_on:
-      - switch.turn_on: green_led
+      - light.turn_on: green_led
     on_turn_off:
-      - switch.turn_off: green_led
+      - light.turn_off: green_led
 
   - platform: gpio
     name: "${device_name}_usb"
