@@ -8,7 +8,7 @@ board: esp8266
 ---
   ![alt text](kogan-smarterhome-smart-power-board-with-usb-ports-energy-meter.jpg "Product Image")
 
-[https://www.kogan.com/au/buy/kogan-smarterhome-smart-power-board-with-usb-ports-energy-meter/](https://www.kogan.com/au/buy/kogan-smarterhome-smart-power-board-with-usb-ports-energy-meter/)
+[Kogan SmarterHome™ Smart Power Board With USB Ports & Energy Meter - (KASPS10A3P3UA) - Manual](https://help.kogan.com/s/article/KoganSmarterHomeSmartPowerBoardWithUSBPortsEnergyMeterKASPS10A3P3UAManual)
 
 ## GPIO Pinout
 
