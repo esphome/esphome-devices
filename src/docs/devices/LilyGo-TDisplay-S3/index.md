@@ -32,7 +32,6 @@ api:
 
 ota:
   - platform: esphome
-    password: ""
 
 wifi:
   ssid: !secret wifi_ssid
@@ -52,7 +51,7 @@ binary_sensor:
 
 output:
   - platform: ledc
-    frequency: 9765Hz
+    frequency: 2000
     pin: GPIO38
     id: backlight_output
 
@@ -87,8 +86,6 @@ display:
   - platform: mipi_spi
     model: t-display-s3
     rotation: 270
-
-# display basic hello-world via LVGL
-lvgl:
+    show_test_card: true # display basic hello-world
 
 ```
