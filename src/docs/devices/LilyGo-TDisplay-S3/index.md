@@ -13,7 +13,7 @@ project-url: https://www.lilygo.cc/en-ca/products/t-display-s3
 
 ## Basic Configuration
 
-Below example is for LilyGo T-Display S3 non-touch (ESP32-S3 1.9 inch ST7789 LCD Display), with ESPHome 2025.6.2.
+Below example is for Lilygo T-Display S3 non-touch (ESP32-S3 1.9 inch ST7789 LCD Display), with ESPHome 2025.6.2.
 
 ```yaml
 esphome:
