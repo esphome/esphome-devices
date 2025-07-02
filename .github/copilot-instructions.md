@@ -108,7 +108,7 @@ The configuration contains secrets references which violates Made for ESPHome re
 - Line 23: `password: !secret api_password` should be removed
 - Line 31: Static IP `192.168.1.100` should be removed
 
-Made for ESPHome devices must work without any user changes after adoption.
+Made for ESPHome devices must work without any user changes after the user chooses to "take control".
 ```
 
 ### For Qualification Issues
