@@ -34,7 +34,7 @@ When a device has `made-for-esphome: true` in its frontmatter, it must meet ALL 
 
 - ✅ **ESP32 or supported variant** (C3, C6, S2, S3, etc.)
 - ✅ **ESPHome firmware** is being used
-- ✅ **Project naming** cannot contain "ESPHome" except when ending with "for ESPHome"
+- ✅ **Project name** cannot contain "ESPHome" except when ending with "for ESPHome"
 
 #### Open Source Requirements
 
@@ -43,22 +43,33 @@ When a device has `made-for-esphome: true` in its frontmatter, it must meet ALL 
 
 #### Wi-Fi Device Requirements (if applicable)
 
-- ✅ **esp32_improv component** must be included in configuration
-- ✅ **improv_serial component** must be included if device has USB port
+- ✅ **`esp32_improv:` component** must be included in configuration
+- ✅ **`improv_serial:` component** must be included if device has USB port
 
 #### User Control & Updates
 
 The device must allow users to "take control" via ESPHome Builder:
 
-- ✅ **dashboard_import** component included to facilitate adoption
-- ✅ **ota.esphome** component included for OTA updates
+- ✅ **`dashboard_import:` component** included to facilitate adoption
+- ✅ **`ota.esphome` component** included for OTA updates
+  - Example:
+    ```yaml
+    ota:
+      - platform: esphome
+    ```
 - ✅ **Serial flashing NOT disabled**
 - ✅ **No secrets references** in the configuration
 - ✅ **No passwords** in the configuration
 - ✅ **No static IP addresses** in the configuration
 - ✅ **Configuration must compile and run successfully** without any user changes after taking control
 - ✅ **Every entity/component** (sensor, switch, etc.) must have an `id` defined
-- ✅ **update.http_request component** included for OTA updates
+- ✅ **`update.http_request` component** included for OTA updates
+  - Example:
+    ```yaml
+    update:
+      - platform: http_request
+        source: "https://example.com/manifest.json"
+    ```
 
 ## Review Process
 
