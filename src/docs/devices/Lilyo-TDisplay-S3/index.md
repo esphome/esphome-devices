@@ -19,10 +19,6 @@ Below example is for LilyGo T-Display S3 non-touch (ESP32-S3 1.9 inch ST7789 LCD
 esphome:
   name: s3
   friendly_name: ESP32-S3 T-Display
-  platformio_options:
-    board_build.f_flash: 80000000L
-    board_build.partitions: default_16MB.csv
-    board_build.arduino.memory_type: qio_opi
 
 esp32:
   board: esp32-s3-devkitc-1
