@@ -13,24 +13,17 @@ project-url: https://www.lilygo.cc/en-ca/products/t-display-s3
 
 ## Basic Configuration
 
+Below example is for Lilygo T-Display S3 non-touch (ESP32-S3 1.9 inch ST7789 LCD Display), with ESPHome 2025.6.2.
+
 ```yaml
 esphome:
   name: s3
   friendly_name: ESP32-S3 T-Display
-  platformio_options:
-    board_build.f_flash: 80000000L
-    board_build.partitions: default_16MB.csv
-    board_build.arduino.memory_type: qio_opi
-
-external_components:
-  - source: github://landonr/lilygo-tdisplays3-esphome
-    components: [tdisplays3]
 
 esp32:
   board: esp32-s3-devkitc-1
-  variant: esp32s3
   framework:
-    type: arduino
+    type: esp-idf
   flash_size: 16MB
 
 logger:
@@ -38,7 +31,7 @@ logger:
 api:
 
 ota:
-  platform: esphome
+  - platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -58,41 +51,41 @@ binary_sensor:
 
 output:
   - platform: ledc
-    pin: GPIO38
-    id: gpio38
     frequency: 2000
+    pin: GPIO38
+    id: backlight_output
 
 light:
   - platform: monochromatic
-    output: gpio38
-    name: "Backlight"
-    restore_mode: RESTORE_DEFAULT_ON
+    output: backlight_output
+    name: LCD Backlight
+    id: led
+    restore_mode: ALWAYS_ON
+    default_transition_length: 0s
 
-# You can either setup the backlight as a switch like below or make it dimmable using a light output like above
-# switch:
-#   - platform: gpio
-#     pin: GPIO38
-#     name: "Backlight"
-#     id: backlight
-#     internal: true
-#     restore_mode: RESTORE_DEFAULT_ON
+spi:
+  type: octal
+  clk_pin: 8
+  data_pins:
+    - 39
+    - 40
+    - 41
+    - 42
+    - ignore_strapping_warning: true
+      number: 45
+    - ignore_strapping_warning: true
+      number: 46
+    - 47
+    - 48
+
+psram:
+  speed: 80MHz
+  mode: octal
 
 display:
-  - platform: tdisplays3
-    id: disp
-    update_interval: 1s
+  - platform: mipi_spi
+    model: t-display-s3
     rotation: 270
-    lambda: |-
-      it.printf(20, 70, id(roboto), Color(255, 0, 0), id(ha_time).now().strftime("%Y-%m-%d %H:%M:%S").c_str());
+    show_test_card: true # display basic hello-world
 
-# Used for example above
-
-font:
-  - file: "gfonts://Roboto"
-    id: roboto
-    size: 30
-
-time:
-  - platform: homeassistant
-    id: ha_time
 ```
