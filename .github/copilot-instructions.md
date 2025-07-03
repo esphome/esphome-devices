@@ -8,19 +8,47 @@ This repository contains device documentation for ESPHome-compatible devices. Wh
 
 ### General Review Points (All PRs)
 
-1. **Security & Privacy**
+1. **Pull Request Title**
+
+   - ✅ Should clearly describe what device is being added/updated
+   - ✅ Format: "Add [Device Name]" for new devices
+   - ✅ Format: "Update [Device Name] - [brief description]" for updates
+   - ✅ Use proper capitalization and spelling
+   - ❌ Avoid generic titles like "Update device" or "Fix docs"
+
+2. **Pull Request Scope**
+
+   - ✅ One PR should include only a single new device page
+   - ✅ One PR should include only a single device update unless it's a general code quality update
+   - ✅ General code quality updates can be grouped across multiple devices if related
+   - ❌ Multiple new devices should be submitted in separate PRs
+
+3. **Markdown Syntax**
+
+   - ✅ Proper frontmatter formatting with correct YAML syntax
+   - ✅ Consistent heading levels (# ## ### ####)
+   - ✅ Proper table formatting with aligned columns
+   - ✅ Valid markdown links `[text](url)` format
+   - ✅ Consistent code block formatting with language specifiers
+   - ✅ Proper image syntax `![alt text](image.jpg "title")`
+   - ✅ No trailing whitespace
+   - ✅ Files should end with a single newline
+
+4. **Security & Privacy**
 
    - ❌ No passwords or secrets in configuration examples (except `!secret wifi_ssid` and `!secret wifi_password`)
    - ❌ No static/manual IP addresses in wifi or ethernet blocks
    - ❌ No hardcoded credentials or sensitive information
 
-2. **Configuration Structure**
+5. **Configuration Structure**
 
-   - ✅ First configuration should be hardware definitions only
+   - ✅ **CRITICAL: First configuration should be hardware definitions only** - This is non-negotiable
+   - ✅ Core ESPHome components are allowed in first configuration: `api:`, `ota:`, `wifi:`, `logger:`, `captive_portal:`
+   - ❌ `web_server:` component should NOT be included in any configurations on device pages
    - ✅ More complex examples can be provided in separate configuration blocks
    - ✅ Proper YAML formatting and indentation
 
-3. **Documentation Quality**
+6. **Documentation Quality**
    - ✅ Clear device description and features
    - ✅ Proper GPIO pinout tables when applicable
    - ✅ Links to purchase/source and documentation
@@ -117,6 +145,16 @@ Made for ESPHome devices must work without any user changes after the user choos
 This device appears to be based on ESP8266, but Made for ESPHome devices must use ESP32 or supported variants (C3, C6, S2, S3, etc.). Please either:
 1. Update to ESP32 hardware, or
 2. Remove the `made-for-esphome: true` flag if staying with ESP8266
+```
+
+### For Configuration Structure Issues
+
+```
+The configuration contains components that should not be included on device pages:
+- Line 25: `web_server:` component should be removed - not allowed on device pages
+- Line 30: `time:` component should be in a separate configuration block
+
+**The first configuration should contain hardware definitions and core ESPHome components only** (esphome:, esp32:, sensor:, switch:, api:, ota:, wifi:, logger:, captive_portal:). Please remove web_server entirely and move other advanced components to a second configuration block.
 ```
 
 ## Workflow Integration
