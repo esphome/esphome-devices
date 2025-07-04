@@ -4,21 +4,17 @@ date-published: 2025-7-4
 type: sensor
 standard: global
 board: bk72xx
-
 made-for-esphome: False
 difficulty: 3
 ---
 
-
 ![Tuya ZY-HPS01](ZY_HPS01.png "Tuya ZY-HPS01")
-
 
 ## Description
 
 The Tuya `ZY-HPS01` is a generic tuya human presence sensor available cheaply from AliExpress. On it is a CB3S BK7231N module for wireless communications, and an Airtouch AT5820 5.8GHz radar module from MoreSense acting as the Tuya MCU.
 
 There appears to be a second, less common and almost identical variant of the `ZY-HPS01` - the `ZY-ZHPS01`. This appears to be almost functionally identical, apart from a slight change in the configuration of the illuminance sensor as detailed below. It has almost the exact same hardware.
-
 
 Every bit of IO on this device is attached to the Tuya MCU module and goes through the UART channel. Therefore, the LED right next to the illuminance sensor cannot be controlled and will light up and interfere with readings when the pairing button is pressed. None of the sensor values will work while the red LED is powered on. This will only happen if the button is held down to enter pairing mode. It is best to just not touch the pairing button at all.
 
@@ -31,7 +27,6 @@ This device can be flashed without soldering, although I do recommend soldering 
 You should flash it using `ltchiptool`. Once you have started `ltchiptool` and it is actively trying to connect, you should briefly bridge either one of the `CEN` pins to ground and then release.
 
 ![CB3S Pinout](cb3s.png "CB3S Pinout")
-
 
 ## ZY-HPS01 Configuration
 
@@ -130,9 +125,8 @@ binary_sensor:
 
 ```
 
-
-
 ## ZY-ZHPS01 Configuration
+
 This variant will work by simply changing the illuminance sensor datapoint ID in the other configuration from 103 to 11.
 
 ```yaml
@@ -146,5 +140,3 @@ sensor:
     device_class: "illuminance"
     state_class: "measurement"
 ```
-
-
