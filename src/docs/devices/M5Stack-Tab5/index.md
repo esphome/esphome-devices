@@ -60,16 +60,6 @@ i2c:
     scl: GPIO32
     frequency: 400kHz
 
-external_components:
-  - source: github://pr#8888
-    components: pi4ioe5v6408
-  - source: github://pr#8833
-    components: esp32_hosted
-  - source: github://pr#8342
-    components: es8388
-  - source: github://pr#8545
-    components: psram
-
 pi4ioe5v6408:
   - id: pi4ioe1
     address: 0x43
