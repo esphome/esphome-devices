@@ -4,8 +4,7 @@ date-published: 2025-7-4
 type: sensor
 standard: global
 board: bk72xx
-made-for-esphome: False
-difficulty: 3
+difficulty: 4
 ---
 
 ![Tuya ZY-HPS01](ZY_HPS01.png "Tuya ZY-HPS01")
