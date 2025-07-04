@@ -22,7 +22,7 @@ Every bit of IO on this device is attached to the Tuya MCU module and goes throu
 
 This device does not seem to be vulnerable to `tuya-cloudcutter` or `tuya-convert`. Therefore it must be flashed manually.
 
-This device can be flashed without soldering, although I do recommend soldering some 2.54mm headers onto it next to the USB port for an easier experience. 
+This device can be flashed without soldering, although I do recommend soldering some 2.54mm headers onto it next to the USB port for an easier experience.
 
 You should flash it using `ltchiptool`. Once you have started `ltchiptool` and it is actively trying to connect, you should briefly bridge either one of the `CEN` pins to ground and then release.
 
@@ -92,7 +92,7 @@ number:
     name: "Min Range"
     number_datapoint: 110
     min_value: 0
-    max_value: 600 
+    max_value: 600
     step: 1
     mode: slider
     unit_of_measurement: "cm"
@@ -120,7 +120,7 @@ binary_sensor:
     name: "Presence State"
     sensor_datapoint: 101
     device_class: occupancy
-    filters: 
+    filters:
       - invert:
 
 ```
