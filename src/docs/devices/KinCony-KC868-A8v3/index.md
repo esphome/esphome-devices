@@ -41,6 +41,9 @@ external_components:
 
 api:
 
+ota:
+  platform: esphome
+
 ethernet:
   type: W5500
   clk_pin: GPIO1
