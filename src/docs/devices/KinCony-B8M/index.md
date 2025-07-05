@@ -332,7 +332,7 @@ binary_sensor:
     bind_binary_sensor_id: b8m_input08
     internal: true
 
-## pull-up resistance on PCB
+  ## pull-up resistance on PCB
   - platform: gpio
     name: "b8m-W1-io47"
     pin:
