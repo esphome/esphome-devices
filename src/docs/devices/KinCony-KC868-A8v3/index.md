@@ -54,11 +54,11 @@ ethernet:
   reset_pin: GPIO44
 
 i2c:
-   - id: bus_a
-     sda: 8
-     scl: 18
-     scan: true
-     frequency: 400kHz
+  - id: bus_a
+    sda: 8
+    scl: 18
+    scan: true
+    frequency: 400kHz
 
 pcf8574:
   - id: 'pcf8574_hub_out_1'  # for output channel 0-7| input channel 8-15
@@ -336,7 +336,7 @@ binary_sensor:
     bind_binary_sensor_id: a8v3_input08
     internal: true
 
-##pull-up resistance on PCB
+## pull-up resistance on PCB
   - platform: gpio
     name: "a8v3-W1-io13"
     pin:
