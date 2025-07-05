@@ -1,6 +1,6 @@
 ---
 title: Tuya ZY-HPS01/ZY-ZHPS01 Human Presence Sensor
-date-published: 2025-7-4
+date-published: 2025-07-04
 type: sensor
 standard: global
 board: bk72xx
