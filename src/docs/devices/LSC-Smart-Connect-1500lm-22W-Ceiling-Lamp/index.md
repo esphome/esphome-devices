@@ -22,8 +22,8 @@ difficulty: 4
 | Pin | Function           |
 | --- | ------------------ |
 | P16 | PWM 47 (outer rgb) |
-| P24 | PWM 5  (main cold) |
-| P26 | PWM 4  (main warm) |
+| P24 | PWM 5  (main warm) |
+| P26 | PWM 4  (main cold) |
 
 ## Basic configuration
 
