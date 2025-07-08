@@ -8,10 +8,12 @@ made-for-esphome: False
 difficulty: 4
 ---
 
+<!--
 ## Notice
 
-<!-- not checked if that works -->
-<!-- - This light is flashable using the latest tuya-cloudcutter with a compiled ESPHome binary. -->
+(not checked if that works)
+- This light is flashable using the latest tuya-cloudcutter with a compiled ESPHome binary.
+-->
 
 ## Product Images
 
@@ -41,7 +43,6 @@ bk72xx:
 
 logger:
 
-# Enable Home Assistant API
 api:
   encryption:
     key: !secret api_encryption_key
@@ -53,7 +54,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-   # Enable fallback hotspot in case wifi connection fails
   ap:
     ssid: "LSC-ceiling-Light"
     password: ""
