@@ -1,10 +1,9 @@
 ---
 title: LSC Smart Connect 1500lm 22W Ceiling Lamp 3206306
-date-published: 2025-07-01
+date-published: 2025-07-09
 type: light
 standard: eu
 board: bk72xx
-made-for-esphome: False
 difficulty: 4
 ---
 
@@ -30,13 +29,9 @@ difficulty: 4
 ## Basic configuration
 
 ```yml
-substitutions:
+esphome:
   name: lsc-ceiling-light
   friendly_name: lsc-ceiling-light
-
-esphome:
-  name: ${name}
-  friendly_name: ${friendly_name}
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -44,19 +39,15 @@ bk72xx:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
   ap:
-    ssid: "LSC-ceiling-Light"
-    password: ""
 
 light:
   - platform: beken_spi_led_strip
@@ -65,18 +56,6 @@ light:
     chipset: SM16703
     num_leds: 120 # copied from OpenBekenIOT (not verified)
     rgb_order: RGB
-    effects:
-     - random:
-     - pulse:
-     - strobe:
-     - flicker:
-     - addressable_rainbow:
-     - addressable_color_wipe:
-     - addressable_scan:
-     - addressable_twinkle:
-     - addressable_random_twinkle:
-     - addressable_fireworks:
-     - addressable_flicker:
     restore_mode: RESTORE_DEFAULT_ON
   - platform: cwww
     id: light_cwww
