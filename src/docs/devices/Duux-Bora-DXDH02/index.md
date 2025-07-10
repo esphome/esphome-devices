@@ -14,10 +14,14 @@ The esp32 is mounted in a small case behind the front of the unit (hidden). To d
 
 ## Flashing
 
-To flash the pcb board use the solder pads on the back and connect as follows:
-P10 to TX (on your adapter)
-P11 to RX
-P13 (GPIO0) must be bridged to GND on bootup (use P3 for example)
+Use the pads on the back of the pcb to flash:
+
+| Pad       | Connect to                        |
+| --------- | --------------------------------- |
+| P10       | Serial adapter TXD                |
+| P11       | Serial adapter RXD                |
+| P13       | Short to GND for flashing (GPIO0) |
+| P3        | Can be used as GND for P13        |
 
 ## GPIO Pinout
 
