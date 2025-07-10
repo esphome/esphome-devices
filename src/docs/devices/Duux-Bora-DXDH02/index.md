@@ -14,7 +14,7 @@ difficulty: 3
 
 | Pin    | Function   |
 | ------ | ---------- |
-| GPIO00 | Nono       |
+| GPIO00 | None       |
 | GPIO01 | None       |
 | GPIO02 | None       |
 | GPIO03 | None       |
