@@ -56,7 +56,6 @@ Based on the procedure shared by [maxwroc](https://community.home-assistant.io/t
 >
 > Source: (DJBenson, Home Assistant Community Forum) https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/16
 
-
 ## ESPHome Example Configuration
 Here is an example YAML configuration for Knightsbridge CU9KW. It defines all the hardware but nothing more than that.
 
@@ -156,11 +155,8 @@ sensor:
     update_interval: 10s
 ```
 
-
 ## ESPHome Configuration with Power Monitoring
 Here is a YAML configuration which exposes power monitoring sensors to Home Assistant, including calibration coefficients. To perform the calibration, put a known load on the plug and in HA got to `Developer Tools` -> `Actions` -> `<device_name>_calibrate_current` and enter the correct amount for the known load. Repeat for voltage and power.
-
-
 
 ```yaml
 substitutions:
