@@ -34,6 +34,17 @@ The header CN is under the board, visible after removing the 4 screws.
 | CN1-5 | GROUND                    |
 | CN1-6 | VCC                       |
 
+## Light as fully-featured package
+
+[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this device,
+which permits quick flashing with a pre-compiled binary as well as automatic adoption, deployment, and updates.
+
+[Github Project Link](https://github.com/joshuaboniface/martinjerry-esphome)
+
+The functionality has been modified quite significantly from the example below, to provide an experience more like a WeMo
+dimmer switch as well as provide more flexibility for control in HomeAssistant dashboards and automations. See the README
+in the repository for more information and examples.
+
 ## Light
 
 ```yaml

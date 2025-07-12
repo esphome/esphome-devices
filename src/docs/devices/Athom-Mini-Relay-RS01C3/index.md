@@ -3,7 +3,7 @@ title: Athom Mini Relay (RS01C3)
 date-published: 2024-11-01
 type: relay
 standard: global
-board: eps32-c3
+board: esp32-c3
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-mini-relay-v2.yaml
 difficulty: 1
 made-for-esphome: true

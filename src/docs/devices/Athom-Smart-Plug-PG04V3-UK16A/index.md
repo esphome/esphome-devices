@@ -3,7 +3,7 @@ title: Athom Smart Plug UK V3 (PG04V3-UK16A)
 date-published: 2024-04-25
 type: plug
 standard: uk
-board: eps32-c3
+board: esp32-c3
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-smart-plug.yaml
 difficulty: 1
 made-for-esphome: true

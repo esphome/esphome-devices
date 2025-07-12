@@ -30,6 +30,8 @@ You can learn more about [Gatsby develop mode here](https://www.gatsbyjs.com/doc
 
 When contributing to this project please abide by our [Code of Conduct](CODE-OF-CONDUCT.md)
 
-### This is a fork, join our effort
+### This is a an open source project, join our effort
 
-This is a fork of [jonathanadams/esphome-configs](https://github.com/jonathanadams/esphome-configs). The goal is to involve more members of the ESPHome community to more actively update the devices! Please contact us or submit an issue if you are interested!
+This devices catalog is a collaborative community effort.
+The goal is to involve more members of the ESPHome community to more actively update the devices!
+Please submit a PR that adds or modifies a device if you are interested!  See this guide for adding devices: https://devices.esphome.io/adding-devices.

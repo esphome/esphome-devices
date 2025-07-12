@@ -38,7 +38,8 @@ As the flood lights do not have any physical buttons, you will follow the same f
 # Basic Config
 esphome:
   name: fl052ha_flood_light
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

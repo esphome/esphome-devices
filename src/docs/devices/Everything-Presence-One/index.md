@@ -16,7 +16,7 @@ The Everything Presence One is a motion/occupancy sensor with the following feat
 - SHTC3 Temperature and Humidity sensor
 - BH1750 Light intensity sensor
 
-You can purchase a pre-built version from [https://shop.everythingsmart.io/en-au/products/everything-presence-one-kit](https://shop.everythingsmart.io/en-au/products/everything-presence-one-kit).
+You can purchase a pre-built version from [https://shop.everythingsmart.io/products/everything-presence-one-kit](https://shop.everythingsmart.io/products/everything-presence-one-kit).
 
 The full project yaml is available from the projects github: [https://github.com/EverythingSmartHome/everything-presence-one/blob/main/everything-presence-one.yaml](https://github.com/EverythingSmartHome/everything-presence-one/blob/main/everything-presence-one.yaml)
 

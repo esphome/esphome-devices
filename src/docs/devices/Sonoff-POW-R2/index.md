@@ -31,12 +31,11 @@ over the LED in the event of a error/warning state, such as when WiFi is disrupt
 # Basic Config
 substitutions:
   update_interval: 60s
+  name: "sonoff-pow-r2"
+  ota_password: "your_ota_password_here"
 
 esphome:
-  name: "Sonoff POW R2"
-  project:
-    name: Sonoff.relay
-    version: 'POWR2'
+  name: "${name}"
 
 esp8266:
   board: esp01_1m
@@ -48,6 +47,8 @@ logger:
 api:
 
 ota:
+  - platform: esphome
+    password: "${ota_password}"
 
 wifi:
   networks:
@@ -57,6 +58,7 @@ wifi:
 uart:
   rx_pin: RX
   baud_rate: 4800
+  parity: EVEN
 
 binary_sensor:
   - platform: gpio
