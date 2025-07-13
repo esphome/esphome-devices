@@ -220,7 +220,7 @@ light:
     default_transition_length: 250ms
 ```
 
-## Wake word voice assistant
+## Audio / Wake word voice assistant
 
 ```yaml
 # The DAC Output select needs to be manually (or with an automation) changed to `LINE1` for the onboard speaker
