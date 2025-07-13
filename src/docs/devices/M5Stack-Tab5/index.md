@@ -161,6 +161,16 @@ select:
             - switch.turn_off: wifi_antenna_int_ext
           else:
             - switch.turn_on: wifi_antenna_int_ext
+
+sensor:
+  - platform: ina226
+    address: 0x41
+    bus_voltage:
+      name: Battery Voltage
+    current:
+      name: Battery Current
+      # Positive means discharging
+      # Negative means charging
 ```
 
 ## Display
