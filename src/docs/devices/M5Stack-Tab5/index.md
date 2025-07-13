@@ -191,7 +191,63 @@ microphone:
 audio_dac:
   - platform: es8388
     id: es8388_dac
+```
 
+## Display
+
+```yaml
+external_components:
+  - source: github://pr#9403
+    components: [const, mipi, mipi_dsi, esp_ldo]
+    refresh: 1h
+
+# The GPIO pin on the touchscreen has a pull-up resistor on the interrupt pin (which goes against the gt911 datasheet).
+# If we dont pull this line low, the touchscreen will not produce touches. The downside to this is that we cannot use
+# the interrupt pin for touchscreen events, and it has to poll every loop.
+# Note: This needs to be merged with the `switch` list above manually otherwise you will get duplicate key YAML errors.
+switch:
+  - platform: gpio
+    id: touch_interrupt
+    pin: GPIO23
+    restore_mode: ALWAYS_OFF
+
+touchscreen:
+  - platform: gt911
+    reset_pin:
+      pi4ioe5v6408: pi4ioe1
+      number: 5
+    calibration:
+      x_min: 0
+      x_max: 720
+      y_min: 0
+      y_max: 1280
+    id: touch
+
+esp_ldo:
+  - voltage: 2.5V
+    channel: 3
+
+display:
+  - platform: mipi_dsi
+    model: M5Stack-Tab5
+    reset_pin:
+      pi4ioe5v6408: pi4ioe1
+      number: 4
+    show_test_card: true
+
+output:
+  - platform: ledc
+    pin: GPIO22
+    id: backlight_pwm
+    frequency: 1000Hz
+
+light:
+  - platform: monochromatic
+    output: backlight_pwm
+    name: "Display Backlight"
+    id: backlight
+    restore_mode: RESTORE_DEFAULT_ON
+    default_transition_length: 250ms
 ```
 
 ## Wake word voice assistant
@@ -207,7 +263,6 @@ speaker:
     buffer_duration: 100ms
     bits_per_sample: 16bit
     sample_rate: 48000
-
 
 media_player:
   - platform: speaker
