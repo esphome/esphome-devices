@@ -161,36 +161,6 @@ select:
             - switch.turn_off: wifi_antenna_int_ext
           else:
             - switch.turn_on: wifi_antenna_int_ext
-
-  - platform: es8388
-    dac_output:
-      name: DAC Output
-    adc_input_mic:
-      name: ADC Input Mic
-
-i2s_audio:
-  - id: mic_bus
-    i2s_lrclk_pin: GPIO29
-    i2s_bclk_pin: GPIO27
-    i2s_mclk_pin: GPIO30
-
-audio_adc:
-  - platform: es7210
-    id: es7210_adc
-    bits_per_sample: 16bit
-    sample_rate: 16000
-
-microphone:
-  - platform: i2s_audio
-    id: tab5_microphone
-    i2s_din_pin: GPIO28
-    sample_rate: 16000
-    bits_per_sample: 16bit
-    adc_type: external
-
-audio_dac:
-  - platform: es8388
-    id: es8388_dac
 ```
 
 ## Display
@@ -253,6 +223,38 @@ light:
 ## Wake word voice assistant
 
 ```yaml
+# The DAC Output select needs to be manually (or with an automation) changed to `LINE1` for the onboard speaker
+select:
+  - platform: es8388
+    dac_output:
+      name: DAC Output
+    adc_input_mic:
+      name: ADC Input Mic
+
+i2s_audio:
+  - id: mic_bus
+    i2s_lrclk_pin: GPIO29
+    i2s_bclk_pin: GPIO27
+    i2s_mclk_pin: GPIO30
+
+audio_adc:
+  - platform: es7210
+    id: es7210_adc
+    bits_per_sample: 16bit
+    sample_rate: 16000
+
+microphone:
+  - platform: i2s_audio
+    id: tab5_microphone
+    i2s_din_pin: GPIO28
+    sample_rate: 16000
+    bits_per_sample: 16bit
+    adc_type: external
+
+audio_dac:
+  - platform: es8388
+    id: es8388_dac
+
 speaker:
   - platform: i2s_audio
     id: tab5_speaker
