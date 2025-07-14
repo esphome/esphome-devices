@@ -165,6 +165,9 @@ select:
 sensor:
   - platform: ina226
     address: 0x41
+    adc_averaging: 16
+    max_current: 8.192A
+    shunt_resistance: 0.005ohm
     bus_voltage:
       name: Battery Voltage
     current:
