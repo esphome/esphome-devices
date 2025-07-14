@@ -43,7 +43,7 @@ Based on the procedure shared by [acvigue](https://github.com/acvigue/esphome-le
 * Hold **GPIO0** to GND while applying power to enter the ESP32 bootloader
 * Use your preferred flasher (e.g., `esptool.py`) to write the ESPHome firmware
 
-## ESPHome Configuration 
+## ESPHome Configuration
 
 ```yaml
 esphome:
