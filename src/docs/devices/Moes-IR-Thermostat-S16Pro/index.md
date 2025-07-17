@@ -269,12 +269,6 @@ climate:
             id(sync_in_progress) = false;
           }
 
-      # Swing mode not directly supported on the device. May be used in other devices that support it
-      # - lambda: |-
-      #     if (primary->swing_mode.has_value()) {
-      #       
-      #     }
-
   # THIS THE THE SECONDARY HIDDEN CLIMATE DEVICE THAT PROCESSES THE COMMANDS FROM THE PRIMARY ENTITY AS IR COMMANDS
 
   - platform: climate_ir_lg
