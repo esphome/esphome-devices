@@ -7,8 +7,6 @@ board: bk72xx
 difficulty: 4
 ---
 
-
-
 - Has CB3L (BK7231N) chip.
 - Product site: https://www.immax.cz/immax-neo-lite-tudo-smart-stropni-svitidlo-rgb-podsviceni-40cm-50w-tuya-wifi-beacon-bila-p15662/
 
@@ -80,7 +78,7 @@ light:
     id: "ceiling"
     red: red_color
     green: green_color
-    blue: blue_color
+    blue: blue_color  
     cold_white: cold_white
     warm_white: warm_white
     cold_white_color_temperature: 6536 K
