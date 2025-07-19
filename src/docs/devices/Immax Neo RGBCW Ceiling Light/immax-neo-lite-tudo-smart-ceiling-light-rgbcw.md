@@ -12,7 +12,6 @@ difficulty: 4
 - Product site: https://www.immax.cz/immax-neo-lite-tudo-smart-stropni-svitidlo-rgb-podsviceni-40cm-50w-tuya-wifi-beacon-bila-p15662/
 
 ![PCB in the light](pcb.jpg)
-![CB3L Labeled](c3bl_labeled.jpg)
 ![C3BL Pinout Photo](c3bl_pinout_photo.png)
 
 ## Basic Configuration
