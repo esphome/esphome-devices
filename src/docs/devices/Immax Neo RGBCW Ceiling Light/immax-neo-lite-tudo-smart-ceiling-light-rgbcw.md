@@ -44,5 +44,4 @@ wifi:
   ap:
     ssid: "Immax Fallback Hotspot"
     password: "xxxxxxxxxxxxxxxxxxxxxxxx"
-    
 ```
