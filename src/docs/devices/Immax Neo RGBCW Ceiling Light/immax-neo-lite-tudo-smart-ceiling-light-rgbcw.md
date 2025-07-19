@@ -6,9 +6,14 @@ standard: global
 board: bk72xx
 difficulty: 4
 ---
+![Immax Neo RGBCW Ceiling Light](product_photo.png)
 
 - The Immax RGBCW ceiling light has has CB3L (BK7231N) chip.
 - Product site: https://www.immax.cz/immax-neo-lite-tudo-smart-stropni-svitidlo-rgb-podsviceni-40cm-50w-tuya-wifi-beacon-bila-p15662/
+
+![PCB in the light](pcb.jpg)
+![CB3L Labeled](c3bl_labeled.jpg)
+![C3BL Pinout Photo](c3bl_pinout_photo.png)
 
 ## Basic Configuration
 
@@ -40,44 +45,5 @@ wifi:
   ap:
     ssid: "Immax Fallback Hotspot"
     password: "xxxxxxxxxxxxxxxxxxxxxxxx"
-
-output:
-- platform: libretiny_pwm
-  id: red_color
-  pin: P8
-  inverted: False
-- platform: libretiny_pwm
-  id: green_color
-  pin: P7
-  inverted: False
-- platform: libretiny_pwm
-  id: blue_color
-  pin: P6
-  inverted: False
-- platform: libretiny_pwm
-  id: cold_white
-  pin: P9
-  inverted: False
-  # max_power: 50%
-- platform: libretiny_pwm
-  id: warm_white
-  pin: P24
-  inverted: False
-  # max_power: 50%
-
-#light device
-light:
-  - platform: rgbww
-    name: "Ceiling Light"
-    id: "ceiling"
-    red: red_color
-    green: green_color
-    blue: blue_color  
-    cold_white: cold_white
-    warm_white: warm_white
-    cold_white_color_temperature: 6536 K
-    warm_white_color_temperature: 2000 K
-    color_interlock: true
-    restore_mode: RESTORE_DEFAULT_ON
     
 ```
