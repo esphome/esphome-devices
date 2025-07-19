@@ -1,0 +1,83 @@
+---
+title: Immax NEO 07166-B40 - LED RGB+CCT Dimmable ceiling light
+date-published: 2025-07-19
+type: light
+standard: global
+board: bk72xx
+difficulty: 4
+---
+
+- The Immax RGBCW ceiling light has has CB3L (BK7231N) chip.
+- Product site: https://www.immax.cz/immax-neo-lite-tudo-smart-stropni-svitidlo-rgb-podsviceni-40cm-50w-tuya-wifi-beacon-bila-p15662/
+
+## Basic Configuration
+
+```yaml
+esphome:
+  name: miro_ceiling_light
+  friendly_name: immax_ceiling_light
+
+bk72xx:
+  board: cb3l
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+ota:
+  - platform: esphome
+    password: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+wifi:
+  ssid: !secret wifi_ssid_iot
+  password: !secret wifi_password_iot
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Immax Fallback Hotspot"
+    password: "xxxxxxxxxxxxxxxxxxxxxxxx"
+
+output:
+- platform: libretiny_pwm
+  id: red_color
+  pin: P8
+  inverted: False
+- platform: libretiny_pwm
+  id: green_color
+  pin: P7
+  inverted: False
+- platform: libretiny_pwm
+  id: blue_color
+  pin: P6
+  inverted: False
+- platform: libretiny_pwm
+  id: cold_white
+  pin: P9
+  inverted: False
+  # max_power: 50%
+- platform: libretiny_pwm
+  id: warm_white
+  pin: P24
+  inverted: False
+  # max_power: 50%
+
+#light device
+light:
+  - platform: rgbww
+    name: "Ceiling Light"
+    id: "ceiling"
+    red: red_color
+    green: green_color
+    blue: blue_color  
+    cold_white: cold_white
+    warm_white: warm_white
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2000 K
+    color_interlock: true
+    restore_mode: RESTORE_DEFAULT_ON
+    
+```
