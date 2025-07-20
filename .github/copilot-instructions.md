@@ -60,7 +60,7 @@ This repository contains device documentation for ESPHome-compatible devices. Wh
 
 8. **Markdown frontmatter**
    - ✅ The `title`, `date-published`, `type`, and `standard` data are required to be specified in the frontmatter
-   - ✅ Check the `date-published` markdown frontmatter and make sure it's in the format of `YYYY-MM-DD`.  If the month or date values are 1-9, it should be prefixed with a 0, for example: `2025-07-04`
+   - ✅ Check the `date-published` markdown frontmatter and make sure it's in the format of `YYYY-MM-DD`.  If the month or day values are 1-9, it should be prefixed with a 0, for example: `2025-07-04`
 
 ### Made for ESPHome Devices (made-for-esphome: true)
 
