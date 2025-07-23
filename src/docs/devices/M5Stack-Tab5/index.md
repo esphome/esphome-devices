@@ -183,19 +183,14 @@ external_components:
   - source: github://pr#9403
     components: [const, mipi, mipi_dsi, esp_ldo]
     refresh: 1h
-
-# The GPIO pin on the touchscreen has a pull-up resistor on the interrupt pin (which goes against the gt911 datasheet).
-# If we dont pull this line low, the touchscreen will not produce touches. The downside to this is that we cannot use
-# the interrupt pin for touchscreen events, and it has to poll every loop.
-# Note: This needs to be merged with the `switch` list above manually otherwise you will get duplicate key YAML errors.
-switch:
-  - platform: gpio
-    id: touch_interrupt
-    pin: GPIO23
-    restore_mode: ALWAYS_OFF
+  - source: github://pr#9822
+    components: gt911
+    refresh: 1h
 
 touchscreen:
   - platform: gt911
+    interrupt_pin: GPIO23
+    update_interval: never
     reset_pin:
       pi4ioe5v6408: pi4ioe1
       number: 5
