@@ -6,14 +6,18 @@ standard: global
 boaard: esp32
 ---
 
-*Setup & requirements*
+## Setup & requirements
 
-ESP32 Board
-MAX485 transceiver
+- ESP32 Board
+- MAX485 transceiver
+
+![alt text](esp32.png "Schematics")
 
 ---
 
-Basic configuration
+## Basic configuration
+
+**Latest version can be found here [Github](https://github.com/Slicit/HomeAssistant/blob/main/esphome/devices/earu_ea777.yaml)**
 
 ```yaml
 esphome:
