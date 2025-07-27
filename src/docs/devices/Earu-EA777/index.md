@@ -84,7 +84,7 @@ sensor:
     accuracy_decimals: 1
     value_type: U_WORD
     unit_of_measurement: "V"
-    filters: 
+    filters:
       - multiply: 0.1
 
   - platform: modbus_controller
@@ -96,7 +96,7 @@ sensor:
     accuracy_decimals: 1
     value_type: U_WORD
     unit_of_measurement: "V"
-    filters: 
+    filters:
       - multiply: 0.1
 
   - platform: modbus_controller
@@ -108,7 +108,7 @@ sensor:
     accuracy_decimals: 1
     value_type: U_WORD
     unit_of_measurement: "V"
-    filters: 
+    filters:
       - multiply: 0.1
 
   # Current section in Amperes, precision 0.1A
@@ -121,7 +121,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_WORD
     unit_of_measurement: "A"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -133,7 +133,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_WORD
     unit_of_measurement: "A"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -145,7 +145,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_WORD
     unit_of_measurement: "A"
-    filters: 
+    filters:
       - multiply: 0.01
 
   # Active power in Watts: Total, Phases A, B, C
@@ -243,7 +243,7 @@ sensor:
     accuracy_decimals: 3
     value_type: U_WORD
     unit_of_measurement: "cos φ"
-    filters: 
+    filters:
       - multiply: 0.001
 
   - platform: modbus_controller
@@ -255,7 +255,7 @@ sensor:
     accuracy_decimals: 3
     value_type: U_WORD
     unit_of_measurement: "cos φ"
-    filters: 
+    filters:
       - multiply: 0.001
 
   - platform: modbus_controller
@@ -267,7 +267,7 @@ sensor:
     accuracy_decimals: 3
     value_type: U_WORD
     unit_of_measurement: "cos φ"
-    filters: 
+    filters:
       - multiply: 0.001
 
   # Frequency, Hertz, precision 0.01Hz
@@ -280,7 +280,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_WORD
     unit_of_measurement: "Hz"
-    filters: 
+    filters:
       - multiply: 0.01
 
   # Settings
@@ -319,7 +319,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_DWORD
     unit_of_measurement: "kWh"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -332,7 +332,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_DWORD
     unit_of_measurement: "kWh"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -345,7 +345,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_DWORD
     unit_of_measurement: "kWh"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -358,7 +358,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_DWORD
     unit_of_measurement: "kVArh"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -371,7 +371,7 @@ sensor:
     accuracy_decimals: 2
     value_type: U_DWORD
     unit_of_measurement: "kVArh"
-    filters: 
+    filters:
       - multiply: 0.01
 
   - platform: modbus_controller
@@ -384,6 +384,6 @@ sensor:
     accuracy_decimals: 2
     value_type: U_DWORD
     unit_of_measurement: "kVArh"
-    filters: 
+    filters:
       - multiply: 0.01
 ```
