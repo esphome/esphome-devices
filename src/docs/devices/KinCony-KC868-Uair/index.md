@@ -84,11 +84,10 @@ sensor:
     update_interval: 15s
 
 light:
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     pin: GPIO32    # Pin Define connected with LED strip
     num_leds: 4  #LEDs number
-    rgb_order: GRB
     name: "Uair-Bottom-LED"
     effects:
       - addressable_rainbow:        ##defined 7 effects styles
@@ -99,11 +98,10 @@ light:
       - addressable_fireworks:
       - addressable_flicker:
 
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     pin: GPIO33    # Pin Define connected with LED strip
     num_leds: 1  #LEDs number
-    rgb_order: RGB
     name: "Uair-VVertical-LED"
     effects:
       - addressable_rainbow:        ##defined 7 effects styles

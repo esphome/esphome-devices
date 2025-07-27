@@ -57,11 +57,10 @@ binary_sensor:
     name: "${friendly_name} top button"
 
 light:
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     pin: GPIO25
     num_leds: 50
-    rgb_order: BRG
     name: "${friendly_name} light1"
     effects:
       - random:
@@ -75,11 +74,10 @@ light:
       - addressable_random_twinkle:
       - addressable_fireworks:
       - addressable_flicker:
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     pin: GPIO26
     num_leds: 50
-    rgb_order: BRG
     name: "${friendly_name} light2"
     effects:
       - random:
