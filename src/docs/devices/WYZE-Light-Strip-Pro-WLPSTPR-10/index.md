@@ -61,6 +61,7 @@ light:
     chipset: ws2812
     pin: GPIO25
     num_leds: 50
+    rgb_order: BRG
     name: "${friendly_name} light1"
     effects:
       - random:
@@ -78,6 +79,7 @@ light:
     chipset: ws2812
     pin: GPIO26
     num_leds: 50
+    rgb_order: BRG
     name: "${friendly_name} light2"
     effects:
       - random:

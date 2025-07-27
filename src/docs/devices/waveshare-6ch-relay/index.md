@@ -135,6 +135,7 @@ light:
     chipset: ws2812
     pin: GPIO38
     num_leds: 1
+    rgb_order: RGB
     name: "RGB LED"
     id: rgb_led
 

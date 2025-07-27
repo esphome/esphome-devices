@@ -194,5 +194,6 @@ light:
     chipset: ws2812
     pin: GPIO0
     num_leds: 1
+    rgb_order: GRB
     name: "LED WS2812B"
 ```
