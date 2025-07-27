@@ -24,6 +24,7 @@ More info and the housing STLs are available here:
 - [RÖDALM 5"x7" frame insert](https://nerdiy.de/en/product-2/ikea-roedalm-eink-rahmeneinsatz-fuer-13x18cm-5x7-bilderrahmen-3d-druckbar-stl-dateien/)
 
 
+![_DSC4210 - Kopie](https://github.com/user-attachments/assets/1432519f-94c0-4074-b2f8-330649b9d926)
 
 ## GPIO Pinout
 
@@ -90,13 +91,26 @@ The latest state of the configuration is available [here](https://github.com/Ner
 | 1x       | [USB Power Supply 5V/3A](https://www.amazon.de/dp/B00WLI5E3M?tag=nerdiyde018-21&linkCode=ogi)     |
 | 1x       | [Ikea RÖDALM Picture Frame 5 x 7 Inch](https://www.amazon.de/dp/B0DRGT6H7P?tag=nerdiyde018-21&linkCode=ogi) |
 
-
-## Dimensions
-
-
 ## Pictures
 
 ### RIBBA frame insert
 
+![_DSC4210 - Kopie](https://github.com/user-attachments/assets/1432519f-94c0-4074-b2f8-330649b9d926)
+![20240324_144441](https://github.com/user-attachments/assets/80339294-db06-421b-9511-5c2e3cb48f80)
 
 ### RÖDALM frame insert
+
+![20250714_181641 - Kopie](https://github.com/user-attachments/assets/4a522a83-275d-4b0e-94e7-c6876c0f56e1)
+![20250714_181441](https://github.com/user-attachments/assets/aa3c3bee-0164-4be3-adff-7eafe872498b)
+
+
+## Dimensions
+
+### RIBBA frame insert
+
+![ribba_eInk_frame_V1 0](https://github.com/user-attachments/assets/32324862-3212-4fc7-8811-a30b2884f247)
+
+### RÖDALM frame insert
+
+![roedalm_eInk_frame_V1 0](https://github.com/user-attachments/assets/f5c8c322-812f-43dd-927e-e7946ef27090)
+
