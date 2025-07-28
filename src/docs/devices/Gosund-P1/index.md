@@ -16,9 +16,10 @@ board: esp8266
 ```yaml
 esphome:
   name: p1_01
-  platform: ESP8266
-  board: esp8285
   esp8266_restore_from_flash: true
+
+esp8266:
+  board: esp8285
 
 substitutions:
   plug_name: p1_01

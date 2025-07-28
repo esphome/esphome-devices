@@ -357,10 +357,11 @@ substitutions:
 #################################
 
 esphome:
-  platform: ESP8266
-  board: esp01_1m
   name: ${device_name}
   esp8266_restore_from_flash: true
+
+esp8266:
+  board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid
@@ -661,10 +662,11 @@ substitutions:
 #################################
 
 esphome:
-  platform: ESP8266
-  board: esp01_1m
   name: ${device_name}
   esp8266_restore_from_flash: true
+
+esp8266:
+  board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid

@@ -44,14 +44,15 @@ globals:
 
 esphome:
   name: ${name}
-  platform: ESP8266
-  board: esp8285
   on_boot:
     # Raise the power pin very early (pri 700) to keep the ESP awake
     # until we're done sending the event
     priority: 700
     then:
       - output.turn_on: power_pin
+
+esp8266:
+  board: esp8285
 
 wifi:
   ssid: !secret wifi_ssid

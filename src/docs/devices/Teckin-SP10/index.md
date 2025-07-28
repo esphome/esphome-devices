@@ -22,9 +22,10 @@ board: esp8266
 ---
 esphome:
   name: SP10
-  platform: ESP8266
-  board: esp01_1m
   esp8266_restore_from_flash: true
+
+esp8266:
+  board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid

@@ -32,12 +32,12 @@ Gosund Smart Power Strip Works with Alexa/Google Home, Smart Plugs WiFi Surge Pr
 substitutions:
   name: power_strip
   upper_name: Power Strip
-  platform: ESP8266
   board: esp01_1m
 
 esphome:
   name: $name
-  platform: $platform
+
+esp8266:
   board: $board
 
 <<: !include ../secrets.yaml

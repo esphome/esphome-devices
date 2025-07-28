@@ -37,12 +37,12 @@ For versions produced before 04/2021:
 substitutions:
   name: plug_strip
   upper_name: Plug Strip
-  platform: ESP8266
   board: esp01_1m
 
 esphome:
   name: $name
-  platform: $platform
+
+esp8266:
   board: $board
 
 <<: !include ../secrets.yaml
@@ -108,12 +108,12 @@ For versions produced after 04/2021:
 substitutions:
   name: plug_strip
   upper_name: Plug Strip
-  platform: ESP8266
   board: esp8285
 
 esphome:
   name: $name
-  platform: $platform
+
+esp8266:
   board: $board
 
 <<: !include ../secrets.yaml

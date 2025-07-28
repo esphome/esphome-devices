@@ -45,7 +45,6 @@ Wiring of switch
 
 ```yaml
 substitutions:
-  platform: ESP8266
   board: esp01_1m
   device_name: esphome_dining_room_switch
   friendly_name: "Dining Room Switch"
@@ -56,10 +55,11 @@ substitutions:
 #################################
 
 esphome:
-  platform: ${platform}
-  board: ${board}
   name: ${device_name}
   esp8266_restore_from_flash: true
+
+esp8266:
+  board: ${board}
 
 wifi:
   ssid: !secret wifi_iot_ssid
@@ -177,7 +177,6 @@ light:
 
 ```yaml
 substitutions:
-  platform: ESP8266
   board: esp01_1m
   device_name: esphome_dining_room_switch
   friendly_name: "Living Room Switch"
@@ -188,10 +187,11 @@ substitutions:
 #################################
 
 esphome:
-  platform: ${platform}
-  board: ${board}
   name: ${device_name}
   esp8266_restore_from_flash: true
+
+esp8266:
+  board: ${board}
 
 wifi:
   ssid: !secret wifi_iot_ssid

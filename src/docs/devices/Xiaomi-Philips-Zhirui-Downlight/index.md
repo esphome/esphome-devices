@@ -20,9 +20,10 @@ substitutions:
 esphome:
   name_add_mac_suffix: true
   name: $hostname
-  platform: ESP8266
-  board: esp_wroom_02
   board_flash_mode: dout
+
+esp8266:
+  board: esp_wroom_02
 
 
 # WiFi connection

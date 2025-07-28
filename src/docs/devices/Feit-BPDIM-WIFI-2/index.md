@@ -25,7 +25,6 @@ a manual, serial flash. Once accomplished, OTA is the way to go.
 ```yaml
 substitutions:
   comment: "...any comment here, like the device hostname..."
-  platform: ESP8266
   board: esp01_1m
   devicename: my_bpdim_1
   propername: "My BPDIM 1"
@@ -34,9 +33,10 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: $platform
-  board: $board
   comment: "${comment}"
+
+esp8266:
+  board: $board
 
 wifi:
   ssid: !secret wifi_ssid

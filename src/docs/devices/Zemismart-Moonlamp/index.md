@@ -51,7 +51,8 @@ substitutions:
 
 esphome:
   name: "${espname}"
-  platform: ESP8266
+
+esp8266:
   board: esp01-1m
 
 wifi:

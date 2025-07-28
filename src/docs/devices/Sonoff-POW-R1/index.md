@@ -30,9 +30,10 @@ difficulty: 3
 # Basic Config
 esphome:
   name: "SonOff POW r1"
-  platform: ESP8266
-  board: esp01_1m
   board_flash_mode: dout
+
+esp8266:
+  board: esp01_1m
 
 binary_sensor:
   - platform: gpio

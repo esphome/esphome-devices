@@ -31,8 +31,9 @@ The HLW8012 SEL pin is permanently pulled high, so you can only read power and v
 
 ```yaml
 esphome:
-  platform: ESP8266
   arduino_version: 2.5.1
+
+esp8266:
   board: esp01_1m
 
 wifi:

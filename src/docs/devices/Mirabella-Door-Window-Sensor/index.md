@@ -24,12 +24,13 @@ Credit to [Brandon D](https://github.com/brandond) for the file and esphome conf
 # https://mirabellagenio.net.au/door-%26-window-sensor
 esphome:
   name: mirabella_genio_door_window_sensor
-  platform: ESP8266
-  board: esp01_1m
   arduino_version: 2.5.1
   board_flash_mode: dout
   includes:
     - sb1_uart.h
+
+esp8266:
+  board: esp01_1m
 
 wifi:
   ssid: 'Wifi SSID'
