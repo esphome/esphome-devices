@@ -60,7 +60,8 @@ dpID 108 is still unknown, it is always reporting 5 and doesn’t respond to any
 ```yaml
 esphome:
   name: smart_kettle
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:

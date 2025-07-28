@@ -38,7 +38,8 @@ substitutions:
   restore_mode: "ALWAYS_ON"
 
 esphome:
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 binary_sensor:

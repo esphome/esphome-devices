@@ -27,7 +27,8 @@ You can also use this to control, for example, smart bulbs.
 ```yaml
 esphome:
   name: wemos
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
 
 wifi:

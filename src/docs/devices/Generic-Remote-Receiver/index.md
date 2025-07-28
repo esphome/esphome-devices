@@ -54,7 +54,8 @@ can handle it pretty well with generic GPIO.
 ```yaml
 esphome:
   name: irl01
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
 
 wifi:
