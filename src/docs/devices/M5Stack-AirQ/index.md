@@ -158,11 +158,11 @@ light:
     rgb_order: GRB
     pin: GPIO21
     num_leds: 1
-    rmt_channel: 0
     chipset: SK6812
     name: "LED"
     restore_mode: RESTORE_AND_ON
     id: id_led
+    color_correct: [20%, 20%, 20%]
 
 text_sensor:
   - platform: wifi_info
