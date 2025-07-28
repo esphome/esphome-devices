@@ -26,6 +26,7 @@ esphome:
 
 esp8266:
   board: esp01_1m
+
 wifi:
   ssid: "sid"
   password: "wifi_password"

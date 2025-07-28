@@ -26,10 +26,10 @@ substitutions:
 esphome:
   name: $devicename
   friendly_name: $friendlyname
-  board_flash_mode: dout
 
 esp8266:
   board: esp01_1m
+  board_flash_mode: dout
 
 wifi:
   ssid: !secret wifi_ssid
