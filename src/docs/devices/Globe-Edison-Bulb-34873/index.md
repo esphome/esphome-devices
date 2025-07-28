@@ -31,8 +31,6 @@ Then follow the [tuya-convert](/guides/tuya-convert) guide.
 # Basic Config
 esphome:
   name: "globe-34873"
-  esp8266_restore_from_flash: true
-
 esp8266:
   board: esp01_1m
 
@@ -60,7 +58,9 @@ output:
     id: cw
     pin: GPIO14
 
+
 light:
+  restore_from_flash: true
 - platform: cwww
   name: light
   cold_white: cw

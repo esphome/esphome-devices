@@ -34,6 +34,7 @@ esphome:
 esp8266:
   board: esp01_1m
 
+
 wifi:
   ssid: "YourSSID"
   password: "YourWifiPassword"

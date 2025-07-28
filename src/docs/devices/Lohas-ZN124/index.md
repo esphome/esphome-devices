@@ -15,47 +15,29 @@ board: esp8266
 ## Basic Configuration
 
 ```yaml
-# Basic Config
-# https://www.lohas-led.com/lohas-smart-led-light-bulbs-google-home-siri-and-iftttno-hub-required-e26-daylight-5000k-dimmable-2-pack-p0238-p0238.html
-# https://amzn.to/2Pe5j2m
-
 esphome:
   name: lightname
-  esp8266_restore_from_flash: true
-
 esp8266:
   board: esp01_1m
-
+  restore_from_flash: true
 wifi:
-  ssid: "ssid"
-  password: "password"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: ssid
+  password: password
   ap:
-    ssid: "light Fallback Hotspot"
-    password: "1234567890"
-
-captive_portal:
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-
-ota:
-
-web_server:
-
+    ssid: light Fallback Hotspot
+    password: '1234567890'
+captive_portal: null
+logger: null
+api: null
+ota: null
+web_server: null
 output:
-  - platform: esp8266_pwm
-    id: pwm_output
-    # frequency: 1000 Hz
-    pin: GPIO14
-
+- platform: esp8266_pwm
+  id: pwm_output
+  pin: GPIO14
 light:
-  - platform: monochromatic
-    name: "lightname"
-    default_transition_length: 1s
-    output: pwm_output
+- platform: monochromatic
+  name: lightname
+  default_transition_length: 1s
+  output: pwm_output
 ```

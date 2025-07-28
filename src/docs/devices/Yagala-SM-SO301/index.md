@@ -33,10 +33,9 @@ substitutions:
 
 esphome:
   name: ${unique_id}
-  esp8266_restore_from_flash: true
-
 esp8266:
   board: esp01_1m
+  restore_from_flash: true
 
 # WiFi connection
 wifi:

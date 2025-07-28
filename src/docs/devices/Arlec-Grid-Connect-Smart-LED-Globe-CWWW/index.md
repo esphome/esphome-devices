@@ -42,7 +42,7 @@ esphome:
 
 esp8266:
   board: esp01_1m
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 wifi:
   ssid: !secret wifi_ssid
@@ -68,6 +68,7 @@ output:
     id: color_temp
     pin: GPIO13
     inverted: true
+
 
 light:
 - platform: color_temperature

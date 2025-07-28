@@ -42,7 +42,7 @@ esphome:
 esp8266:
   board: esp01_1m
 # This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 preferences:
   flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly

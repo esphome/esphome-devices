@@ -30,14 +30,14 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  esp8266_restore_from_flash: true
-
 esp8266:
   board: esp01_1m
+
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  restore_from_flash: true
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:

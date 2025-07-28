@@ -41,7 +41,7 @@ esphome:
   name: double-outlet-plug
   platform: esp8266
   board: esp8285
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
   # Because the right button is analog, its value will change to unpredictable
   # values during the boot process.  We must wait until the boot process has
   # loaded all sensors.

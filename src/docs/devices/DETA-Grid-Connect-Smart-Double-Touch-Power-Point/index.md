@@ -60,7 +60,7 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 esp8266:
   board: esp01_1m

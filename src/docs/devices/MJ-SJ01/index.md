@@ -308,7 +308,7 @@ power_supply:
 esphome:
   # https://esphome.io/components/esphome
   name: ${device_name}
-  # esp8266_restore_from_flash: true
+  # restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
 
 esp8266:
@@ -566,7 +566,7 @@ power_supply:
 esphome:
   # https://esphome.io/components/esphome
   name: ${device_name}
-  # esp8266_restore_from_flash: true
+  # restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
 
 esp8266:

@@ -25,12 +25,12 @@ Credit to [Brandon D](https://github.com/brandond) for the file and esphome conf
 esphome:
   name: mirabella_genio_door_window_sensor
   arduino_version: 2.5.1
-  board_flash_mode: dout
   includes:
     - sb1_uart.h
 
 esp8266:
   board: esp01_1m
+  board_flash_mode: dout
 
 wifi:
   ssid: 'Wifi SSID'

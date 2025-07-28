@@ -36,10 +36,10 @@ These devices appear to be individually calibrated for voltage.  As a result, yo
 esphome:
   name: wall-outlet
   # Allow saving the last state of each outlet in case of power failure
-  esp8266_restore_from_flash: true
 
 esp8266:
   board: esp8285
+  restore_from_flash: true
 
 wifi:
   ssid: !secret wifi_ssid

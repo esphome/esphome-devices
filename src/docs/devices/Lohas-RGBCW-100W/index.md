@@ -26,89 +26,69 @@ New versions with the same model do not have ESP chips in them, and can't be fla
 ## Basic Configuration
 
 ```yaml
-#
-# Better description of config nuances from https://github.com/digiblur/ESPHome_LOHAS_LED
-#
-#
-# Basic Config
-# https://www.lohas-led.com/lohas-smart-led-bulb-a21-e26-100w-equivalent-14w-rgb-cool-white-dimmable-wifi-app-controlled-alexa-google-assistant-compatible-p0230-p0230.html
-# https://amzn.to/2P1Xugr
 esphome:
   name: light_name
-  esp8266_restore_from_flash: true
   includes:
-    - copychan3.h
-    # See https://github.com/digiblur/ESPHome_LOHAS_LED for details on copychan3.h
-
+  - copychan3.h
 esp8266:
   board: esp01_1m
-
+  restore_from_flash: true
 substitutions:
   display_name: LightName
-
 wifi:
-  ssid: "ssid"
-  password: "password"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: ssid
+  password: password
   ap:
-    ssid: "Light Fallback Hotspot"
-    password: "1234567890"
-
-captive_portal:
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-
-ota:
-
-web_server:
-
+    ssid: Light Fallback Hotspot
+    password: '1234567890'
+captive_portal: null
+logger: null
+api: null
+ota: null
+web_server: null
 my9231:
   data_pin: GPIO13
   clock_pin: GPIO15
   num_channels: 6
   num_chips: 2
-
 output:
-  - platform: my9231
-    id: output_blue
-    channel: 3
-  - platform: my9231
-    id: output_red
-    channel: 5
-  - platform: my9231
-    id: output_green
-    channel: 4
-  - platform: my9231
-    id: output_cw0
-    channel: 0
-  - platform: my9231
-    id: output_cw1
-    channel: 1
-  - platform: my9231
-    id: output_cw2
-    channel: 2
-  - platform: custom
-    type: float
-    lambda: |-
-      auto *copy = new CopyOutput();
-      copy->channel_a = id(output_cw0);
-      copy->channel_b = id(output_cw1);
-      copy->channel_c = id(output_cw2);
-      return {copy};
-    outputs:
-      - id: cw
+- platform: my9231
+  id: output_blue
+  channel: 3
+- platform: my9231
+  id: output_red
+  channel: 5
+- platform: my9231
+  id: output_green
+  channel: 4
+- platform: my9231
+  id: output_cw0
+  channel: 0
+- platform: my9231
+  id: output_cw1
+  channel: 1
+- platform: my9231
+  id: output_cw2
+  channel: 2
+- platform: custom
+  type: float
+  lambda: 'auto *copy = new CopyOutput();
 
+    copy->channel_a = id(output_cw0);
+
+    copy->channel_b = id(output_cw1);
+
+    copy->channel_c = id(output_cw2);
+
+    return {copy};'
+  outputs:
+  - id: cw
 light:
-  - platform: rgbw
-    name: lightname
-    default_transition_length: 0s
-    red: output_red
-    green: output_green
-    blue: output_blue
-    white: cw
+- platform: rgbw
+  name: lightname
+  default_transition_length: 0s
+  red: output_red
+  green: output_green
+  blue: output_blue
+  white: cw
 ```
