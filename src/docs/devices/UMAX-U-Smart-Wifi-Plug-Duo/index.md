@@ -30,7 +30,8 @@ Leds for active sockets are not controlled separatelly, only through the switch.
 ```yaml
 esphome:
   name: umax
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:

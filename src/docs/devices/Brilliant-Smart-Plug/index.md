@@ -26,7 +26,8 @@ substitutions:
 esphome:
   name: $devicename
   friendly_name: $friendlyname
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   board_flash_mode: dout
 
