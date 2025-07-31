@@ -127,8 +127,6 @@ ethernet:
   miso_pin: GPIO14
   cs_pin: GPIO16
   interrupt_pin: GPIO12
- #reset_pin: GPIOXX
-
 text_sensor:
   - platform: ethernet_info
     ip_address:
