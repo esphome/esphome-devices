@@ -28,9 +28,10 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
-  board: esp01_1m
   comment: "Shelly 1PM"
+
+esp8266:
+  board: esp01_1m
 
 logger:
 

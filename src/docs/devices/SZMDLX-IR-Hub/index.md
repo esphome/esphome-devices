@@ -27,7 +27,8 @@ board: esp8266
 # Basic Config
 esphome:
   name: SZMDLX IR Hub
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:

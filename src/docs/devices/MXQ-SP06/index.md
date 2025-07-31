@@ -29,7 +29,8 @@ substitutions:
 
 esphome:
   name: mxq_night_light_01
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

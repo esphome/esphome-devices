@@ -34,12 +34,13 @@ To get into the boot loader it is necessary to short IO0 to ground. This require
 ---
 esphome:
   name: esphome_ir1
-  platform: ESP8266
-  board: esp01_1m
   on_boot:
     priority: 100 # Highest priority, ensures light turns on without delay.
     then:
       - light.turn_on: light_red_led
+
+esp8266:
+  board: esp01_1m
 wifi:
   ssid: "ssid"
   password: "wifi_password"
