@@ -33,12 +33,6 @@ esp32:
   framework:
     type: arduino
 
-external_components:
-  - source:
-      type: git
-      url: https://github.com/hzkincony/esphome-tuya-wifi-mcu
-      ref: v1.1.0
-
 api:
 
 ota:
@@ -77,18 +71,6 @@ uart:
     tx_pin: 39
     rx_pin: 38
 
-  - id: tuya_mcu_uart
-    tx_pin: GPIO16
-    rx_pin: GPIO17
-    baud_rate: 9600
-
-tuya_wifi_mcu:
-  # tuya mcu product id
-  product_id: qlvsreramxcldwek
-  uart_id: tuya_mcu_uart
-  wifi_reset_pin: 28
-  wifi_led_pin: 16
-
 switch:
   - platform: uart
     uart_id: uart_1
@@ -103,13 +85,6 @@ switch:
       number: 0
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output1-tuya
-    dp_id: 1
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output01"
 
   - platform: gpio
     name: "a8v3-output02"
@@ -119,13 +94,6 @@ switch:
       number: 1
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output2-tuya
-    dp_id: 2
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output02"
 
   - platform: gpio
     name: "a8v3-output03"
@@ -135,13 +103,6 @@ switch:
       number: 2
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output3-tuya
-    dp_id: 3
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output03"
 
   - platform: gpio
     name: "a8v3-output04"
@@ -151,13 +112,6 @@ switch:
       number: 3
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output4-tuya
-    dp_id: 4
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output04"
 
   - platform: gpio
     name: "a8v3-output05"
@@ -167,13 +121,6 @@ switch:
       number: 4
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output5-tuya
-    dp_id: 5
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output05"
 
   - platform: gpio
     name: "a8v3-output06"
@@ -183,13 +130,6 @@ switch:
       number: 5
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output6-tuya
-    dp_id: 6
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output06"
 
   - platform: gpio
     name: "a8v3-output07"
@@ -199,13 +139,6 @@ switch:
       number: 6
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output7-tuya
-    dp_id: 101
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output07"
 
   - platform: gpio
     name: "a8v3-output08"
@@ -215,13 +148,6 @@ switch:
       number: 7
       mode: OUTPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-output8-tuya
-    dp_id: 102
-    # hide from homeassistant ui
-    internal: true
-    # bind other switch, sync state
-    bind_switch_id: "a8v3_output08"
 
 binary_sensor:
   - platform: gpio
@@ -232,11 +158,6 @@ binary_sensor:
       number: 8
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input1-tuya
-    dp_id: 111
-    bind_binary_sensor_id: a8v3_input01
-    internal: true
 
   - platform: gpio
     name: "a8v3-input02"
@@ -246,11 +167,6 @@ binary_sensor:
       number: 9
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input2-tuya
-    dp_id: 112
-    bind_binary_sensor_id: a8v3_input02
-    internal: true
 
   - platform: gpio
     name: "a8v3-input03"
@@ -260,11 +176,6 @@ binary_sensor:
       number: 10
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input3-tuya
-    dp_id: 113
-    bind_binary_sensor_id: a8v3_input03
-    internal: true
 
   - platform: gpio
     name: "a8v3-input04"
@@ -274,11 +185,6 @@ binary_sensor:
       number: 11
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input4-tuya
-    dp_id: 114
-    bind_binary_sensor_id: a8v3_input04
-    internal: true
 
   - platform: gpio
     name: "a8v3-input05"
@@ -288,11 +194,6 @@ binary_sensor:
       number: 12
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input5-tuya
-    dp_id: 115
-    bind_binary_sensor_id: a8v3_input05
-    internal: true
 
   - platform: gpio
     name: "a8v3-input06"
@@ -302,11 +203,6 @@ binary_sensor:
       number: 13
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input6-tuya
-    dp_id: 116
-    bind_binary_sensor_id: a8v3_input06
-    internal: true
 
   - platform: gpio
     name: "a8v3-input07"
@@ -316,11 +212,6 @@ binary_sensor:
       number: 14
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input7-tuya
-    dp_id: 117
-    bind_binary_sensor_id: a8v3_input07
-    internal: true
 
   - platform: gpio
     name: "a8v3-input08"
@@ -330,11 +221,6 @@ binary_sensor:
       number: 15
       mode: INPUT
       inverted: true
-  - platform: tuya_wifi_mcu
-    name: a8v3-input8-tuya
-    dp_id: 118
-    bind_binary_sensor_id: a8v3_input08
-    internal: true
 
 ## pull-up resistance on PCB
   - platform: gpio
