@@ -55,7 +55,7 @@ esphome:
   name: ${device_name}
   friendly_name: ${device_friendly}
   min_version: 2025.5.0
-  comment: $device_comment
+  comment: ${device_comment}
   name_add_mac_suffix: false
   on_boot:
     then:
