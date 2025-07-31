@@ -16,7 +16,6 @@ board: esp32
 - [YouTube video tour](https://youtu.be/aM0hhjnLKbM)
 
 ## ESPHome Configuration
-
 Here is an example YAML configuration for the KinCony KC868-A8v3 relay board.
 
 ```yaml
