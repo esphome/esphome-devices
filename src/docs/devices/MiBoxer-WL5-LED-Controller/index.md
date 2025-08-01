@@ -113,6 +113,33 @@ uart:
   rx_pin: RX0
   tx_pin: TX0
   baud_rate: 9600
+
+tuya:
+
+number:
+  - platform: tuya
+    name: Auto-off timer
+    number_datapoint: 26
+    min_value: 0
+    max_value: 86400
+    step: 1
+    multiply: 60
+    unit_of_measurement: min.
+    entity_category: config
+    icon: mdi:timer
+
+
+select:
+  - platform: tuya
+    name: Mode
+    enum_datapoint: 21
+    optimistic: true
+    options:
+      0: White
+      1: Color
+      2: Scene
+    icon: mdi:menu-open
+    entity_category: config
 ```
 
 ## Configuring output modes
@@ -122,7 +149,7 @@ uart:
 ```yaml
 light:
   - platform: tuya
-    name: None
+    name: Light
     switch_datapoint: 20
     color_interlock: true
     gamma_correct: 1
@@ -138,11 +165,9 @@ light:
 ```yaml
 light:
   - platform: tuya
-    name: None
+    name: Light
     switch_datapoint: 20
     color_interlock: true
-    gamma_correct: 1
-    default_transition_length: 0s
 
     dimmer_datapoint: 22
     min_value: 0
@@ -160,11 +185,9 @@ light:
 ```yaml
 light:
   - platform: tuya
-    name: None
+    name: Light
     switch_datapoint: 20
     color_interlock: true
-    gamma_correct: 1
-    default_transition_length: 0s
 
     color_datapoint: 24
     color_type: hsv
@@ -175,11 +198,9 @@ light:
 ```yaml
 light:
   - platform: tuya
-    name: None
+    name: Light
     switch_datapoint: 20
     color_interlock: true
-    gamma_correct: 1
-    default_transition_length: 0s
 
     dimmer_datapoint: 22
     min_value: 0
@@ -194,11 +215,9 @@ light:
 ```yaml
 light:
   - platform: tuya
-    name: None
+    name: Light
     switch_datapoint: 20
     color_interlock: true
-    gamma_correct: 1
-    default_transition_length: 0s
 
     dimmer_datapoint: 22
     min_value: 0
