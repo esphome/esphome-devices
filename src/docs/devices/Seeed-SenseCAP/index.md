@@ -202,8 +202,8 @@ lvgl:
       - light.turn_off: backlight
       - lvgl.pause:
 
-  top_layer: 
-    widgets:   
+  top_layer:
+    widgets:
       - obj:
           id: boot_screen
           x: 0
