@@ -325,5 +325,5 @@ button:
 
 ## Buzzer control through ESPHome
 
-Read more about it here: https://esphome.io/components/rtttl.html#test-setup
+Read more about it here: https://esphome.io/components/rtttl.html#test-setup. 
 Some fun beeps to send are here: https://esphome.io/components/rtttl.html#common-beeps
