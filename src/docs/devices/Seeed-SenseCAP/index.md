@@ -6,7 +6,7 @@ board: esp32, RP2040
 difficulty: 0
 ---
 
-![Product Image](seeed-sensecap.jpg "US Version")
+![Product Image](seeed-sensecap.png "US Version")
 
 ## Drivers
 
@@ -54,29 +54,6 @@ difficulty: 0
 esphome:
   name: seeed-sensecap
   friendly_name: Seeed SenseCAP
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "DA/rILHEMnaNaJs7KF6qmUAbSS080ofMp+olR+Ri5GY="
-
-ota:
-  - platform: esphome
-    password: "853cfbce5d44c6d98cc4d70adf8a964a"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Seeed-Sensecap Fallback Hotspot"
-    password: "TW8pvuI7DtDp"
-
-captive_portal:
 
 esp32:
   board: esp32-s3-devkitc-1
