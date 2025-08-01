@@ -26,14 +26,12 @@ ABS rail-mount enclosure for safe, easy installation
 Each relay has COM+NO+NC exposed. Rating ≤10A 250VAC/30VDC.
 The board can be powered either via 7-36DC or via 5VDC (USB-C).
 
-This board exists in a regular Ethernet version (ESP32-S3-ETH-8DI-8RO) and POE enabled 
+This board exists in a regular Ethernet version (ESP32-S3-ETH-8DI-8RO) and POE enabled
 version (ESP32-S3-POE-ETH-8DI-8RO). The config below will work for both versions.
 
 More information:
- - Product page: https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm
- - Wiki: https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO
-
-
+- Product page: https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm
+- Wiki: https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO
 
 ## GPIO Pinout
 
@@ -72,7 +70,7 @@ esp32:
 
 psram:
   mode: octal
-  speed: 80MHz 
+  speed: 80MHz
 
 # Enable logging
 logger:
