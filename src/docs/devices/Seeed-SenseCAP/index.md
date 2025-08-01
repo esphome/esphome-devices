@@ -47,14 +47,10 @@ difficulty: 0
 | ------ | ------------- |
 | GPIO45  | backlight   |
 
-## Basic Configuration
+## Hardware Configuration
 
 ```yaml
 # Basic Config
-esphome:
-  name: seeed-sensecap
-  friendly_name: Seeed SenseCAP
-
 esp32:
   board: esp32-s3-devkitc-1
   variant: esp32s3
@@ -152,6 +148,31 @@ light:
     id: backlight
     output: ledc_gpio45
     restore_mode: ALWAYS_ON
+
+touchscreen:
+  platform: ft5x06
+  id: sensecap_touchscreen
+  transform:
+    mirror_x: true
+    mirror_y: true
+  on_release:
+    - if:
+        condition: lvgl.is_paused
+        then:
+          - lvgl.resume:
+          - lvgl.widget.redraw:
+          - light.turn_on: backlight
+```
+
+## Example Configuration
+
+```yaml
+# Basic Config
+esphome:
+  name: seeed-sensecap
+  friendly_name: Seeed SenseCAP
+
+<hardware configation from above>
 
 touchscreen:
   platform: ft5x06
