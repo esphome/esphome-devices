@@ -53,7 +53,7 @@ esphome:
   name: ${device_name}
   friendly_name: ${device_friendly}
   min_version: 2025.5.0
-  comment: $device_comment
+  comment: ${device_comment}
   name_add_mac_suffix: false
   on_boot:
     then:
@@ -125,8 +125,6 @@ ethernet:
   miso_pin: GPIO14
   cs_pin: GPIO16
   interrupt_pin: GPIO12
- #reset_pin: GPIOXX
-
 text_sensor:
   - platform: ethernet_info
     ip_address:
