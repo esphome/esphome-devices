@@ -2,6 +2,7 @@
 title: Seeed SenseCap Indicator
 date-published: 2025-08-01
 type:  misc
+standard: global
 board: esp32, RP2040
 difficulty: 0
 ---
