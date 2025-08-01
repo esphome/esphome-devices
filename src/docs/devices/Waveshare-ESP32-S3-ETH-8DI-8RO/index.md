@@ -9,6 +9,7 @@ board: esp32-s3
 ![Product](./image1.jpg "Product Image")
 
 ## Product description
+
 This is a feature packed 8-relay board with an ESP32-S3-WROOM-1U-N16R8.
 It also has:-
 Powered by ESP32-S3 with dual-core Xtensa LX7 CPU up to 240 MHz
@@ -30,6 +31,7 @@ This board exists in a regular Ethernet version (ESP32-S3-ETH-8DI-8RO) and POE e
 version (ESP32-S3-POE-ETH-8DI-8RO). The config below will work for both versions.
 
 More information:
+
 - Product page: https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm
 - Wiki: https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO
 
@@ -64,7 +66,7 @@ esphome:
 # -> 8 MB psram
 esp32:
   board: esp32s3box #esp32-s3-devkitc-1
-  flash_size: 16MB   
+  flash_size: 16MB
   framework:
     type: arduino
 
@@ -177,7 +179,7 @@ time:
     on_time_sync:
       then:
         # Update the RTC when the synchronization was successful
-        pcf85063.write_time:    
+        pcf85063.write_time:
   - platform: pcf85063
     id: pcf85063_time
 
