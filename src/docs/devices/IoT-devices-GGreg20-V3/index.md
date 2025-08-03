@@ -39,7 +39,8 @@ If you want to power the GGreg20_V3 from a 2.4 volt source, you need to short th
 ```yaml
 esphome:
   name: esphome_node1 # Controller Unique Name
-  platform: ESP8266 # Platform type you have to select when creating new yaml-config in ESP Home
+
+esp8266:
   board: nodemcuv2 # Controller type you have to select when creating new yaml-config in ESP Home
 wifi:
   ssid: "YourWiFiSSID"

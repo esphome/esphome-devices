@@ -190,8 +190,8 @@ binary_sensor:
       inverted: True
 
 light:
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     pin: GPIO0
     num_leds: 1
     rgb_order: GRB

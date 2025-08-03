@@ -14,7 +14,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${friendly_name}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 # Enable logging

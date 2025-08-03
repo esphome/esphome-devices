@@ -21,7 +21,8 @@ This one works with 3.3V and does direction switching automatically
 ```yaml
 esphome:
   name: energy_meter
-  platform: ESP8266
+
+esp8266:
   board: esp12e
 
 # Configure logging

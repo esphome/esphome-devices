@@ -16,7 +16,8 @@ You are now looking at ESP configuration, Bekken version can be found [here](./G
 ```yaml
 esphome:
   name: sp211
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:

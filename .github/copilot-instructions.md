@@ -54,6 +54,14 @@ This repository contains device documentation for ESPHome-compatible devices. Wh
    - ✅ Links to purchase/source and documentation
    - ✅ Installation/setup instructions
 
+7. **File path for device pages**
+   - ✅ All devices pages should be created at `src/docs/devices/{DeviceName}/index.md`
+   - ✅ The device name in the path must not contain spaces and should use dashes as a seperator
+
+8. **Markdown frontmatter**
+   - ✅ The `title`, `date-published`, `type`, and `standard` data are required to be specified in the frontmatter
+   - ✅ Check the `date-published` markdown frontmatter and make sure it's in the format of `YYYY-MM-DD`.  If the month or day values are 1-9, it should be prefixed with a 0, for example: `2025-07-04`
+
 ### Made for ESPHome Devices (made-for-esphome: true)
 
 When a device has `made-for-esphome: true` in its frontmatter, it must meet ALL of the following requirements:
