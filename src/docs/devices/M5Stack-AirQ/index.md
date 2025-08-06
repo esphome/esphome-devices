@@ -64,13 +64,16 @@ substitutions:
   friendlyname: AirQ
   location: Office
   sensor_interval: 60s
-
+  log_level: DEBUG
   # Security related substitutions - CHANGE THESE VALUES!
   encryption_key: "YOUR_32_CHARACTER_ENCRYPTION_KEY_HERE"
   ota_password: "YOUR_OTA_PASSWORD_HERE"
   ap_password: "airq-device" # Fallback AP password
   # Sensor calibration
   altitude_compensation: "207m" # Local altitude for CO2 sensor
+  # temp sensor adjustment
+  temp_offset: -3.0
+  temp_time_constant: 1200
 
 esphome:
   name: ${devicename}
@@ -86,9 +89,9 @@ esphome:
     - priority: 800
       then:
         - output.turn_on: enable
-    - priority: 800
-      then:
-        - pcf8563.read_time
+    # - priority: 800
+    #   then:
+    #     - pcf8563.read_time
 
 esp32:
   board: esp32-s3-devkitc-1 #m5stack-stamps3
@@ -96,6 +99,7 @@ esp32:
 
 # Enable logging
 logger:
+  level: ${log_level}
 
 # Enable Home Assistant API
 api:
@@ -138,28 +142,29 @@ spi:
   mosi_pin: GPIO06
 
 time:
-  - platform: pcf8563
-    address: 0x51
-    update_interval: 10min
-  - platform: sntp
+  - platform: homeassistant
     id: sntp_time
-    timezone: CST6CDT,M3.2.0,M11.1.0
-    #   US Central Time zone, update with your own
-    #    servers:
-    #      - YOUR HOME ASSISTANT IP HERE
-    on_time_sync:
-      then:
-        pcf8563.write_time:
+    # - platform: pcf8563
+    #   address: 0x51
+    #   update_interval: 10min
+    # - platform: sntp
+    #   id: sntp_time
+    #   timezone: CST6CDT,M3.2.0,M11.1.0
+    #   #   US Central Time zone, update with your own
+    #   #    servers:
+    #   #      - YOUR HOME ASSISTANT IP HERE
+    # on_time_sync:
+    #   then:
+    #     pcf8563.write_time:
 
 light:
   - platform: esp32_rmt_led_strip
     rgb_order: GRB
     pin: GPIO21
     num_leds: 1
-    rmt_channel: 0
     chipset: SK6812
     name: "LED"
-    restore_mode: RESTORE_AND_ON
+    restore_mode: RESTORE_AND_OFF
     id: id_led
 
 text_sensor:
@@ -252,7 +257,7 @@ sensor:
             float MAX_VALUE = 100.0;
             if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
             else return {};
-    altitude_compensation: 207m
+    altitude_compensation: ${altitude_compensation}
     address: 0x62
     update_interval: $sensor_interval
 
@@ -311,9 +316,9 @@ sensor:
         std_initial: 50
         gain_factor: 230
     temperature_compensation:
-      offset: 0
+      offset: ${temp_offset}
       normalized_offset_slope: 0
-      time_constant: 0
+      time_constant: ${temp_time_constant}
     acceleration_mode: low
     store_baseline: true
     address: 0x69
