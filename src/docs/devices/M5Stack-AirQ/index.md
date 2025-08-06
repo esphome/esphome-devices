@@ -229,6 +229,11 @@ text_sensor:
       }
 
 sensor:
+  - platform: uptime
+    name: "Uptime"
+    id: uptime_sensor
+    update_interval: $sensor_interval
+
   - platform: scd4x
     co2:
       name: CO2
@@ -451,41 +456,61 @@ display:
     busy_pin:
       number: GPIO01
       inverted: false
-    full_update_every: 6
+    full_update_every: 5
     reset_duration: 2ms
-    update_interval: 10s
+    update_interval: $sensor_interval
     lambda: |-
-      auto now = id(sntp_time).now().strftime("%I:%M%p %m/%d/%y").c_str();
-      it.printf(it.get_width()/2, 0, id(f16), TextAlign::TOP_CENTER, "${location} @ %s", now);
+      if (id(uptime_sensor).state < 120) {
+        it.fill(COLOR_OFF);
+        it.printf(it.get_width()/2, it.get_height()/2 - 16,
+                  id(f18), COLOR_ON, TextAlign::CENTER,
+                  "Warming up sensors");
+        it.printf(it.get_width()/2, it.get_height()/2 + 16,
+                  id(f16), COLOR_ON, TextAlign::CENTER,
+                  "Waiting for 2 minutes");
+        return;
+      }
 
-      it.print(0, 23, id(f24), TextAlign::TOP_LEFT, "PM 1: ");
-      it.print(0, 48, id(f24), TextAlign::TOP_LEFT, "PM 2.5: ");
-      it.print(0, 73, id(f24), TextAlign::TOP_LEFT, "PM 4: ");
-      it.print(0, 98, id(f24), TextAlign::TOP_LEFT, "PM 10: ");
-      it.print(0, 123, id(f24), TextAlign::TOP_LEFT, "CO2: ");
-      it.print(0, 148, id(f24), TextAlign::TOP_LEFT, "VOC: ");
-      it.print(0, 173, id(f24), TextAlign::TOP_LEFT, "NOx: ");
+      it.line(100, 0,   100, 200);
+      it.line(it.get_width()-1, 0, it.get_width()-1, it.get_height());
 
-      it.printf(it.get_width() - 50, 23, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM1_0).state);
-      it.print(it.get_width(), 23, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+      it.line(0,   50, 0,   160);   // linkerkant
+      it.line(0,   50, 100, 50);    // bovenkant
+      it.rectangle(100, 0, 100, 160);
+      it.rectangle(0, 160,100, 40);
 
-      it.printf(it.get_width() - 50, 48, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM2_5).state);
-      it.print(it.get_width(), 48, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+      auto t = id(sntp_time).now();
+      char buf[20];
+      snprintf(buf, sizeof(buf), "%02d:%02d", t.hour, t.minute);
+      it.printf(2, 0,   id(f24), COLOR_ON,  TextAlign::TOP_LEFT,  "%s", buf);
+      t.strftime(buf, sizeof(buf), "%Y-%m-%d");
+      it.printf(2, 30,  id(f12), COLOR_ON,  TextAlign::TOP_LEFT,  "%s", buf);
 
-      it.printf(it.get_width() - 50, 73, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM4_0).state);
-      it.print(it.get_width(), 73, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+      it.printf(5, 52,  id(f16), COLOR_ON, TextAlign::TOP_LEFT, "SCD40");
+      it.printf(5, 75,  id(f12), COLOR_ON, TextAlign::TOP_LEFT, "Co2:");
+      it.printf(90,75,  id(f16), COLOR_ON, TextAlign::TOP_RIGHT, "%.0f", id(CO2).state);
+      it.printf(5, 95,  id(f12), COLOR_ON, TextAlign::TOP_LEFT, "Temp:");
+      it.printf(90,95,  id(f16), COLOR_ON, TextAlign::TOP_RIGHT, "%.1f", id(temperature).state);
+      it.printf(5,115,  id(f12), COLOR_ON, TextAlign::TOP_LEFT, "Humid:");
+      it.printf(90,115, id(f16), COLOR_ON, TextAlign::TOP_RIGHT, "%.1f", id(humidity).state);
 
-      it.printf(it.get_width() - 50, 98, id(f24), TextAlign::TOP_RIGHT, "%.1f", id(PM10_0).state);
-      it.print(it.get_width(), 98, id(f18), TextAlign::TOP_RIGHT, "µg/m³");
+      it.printf(105,5,  id(f16), COLOR_ON, TextAlign::TOP_LEFT, "SEN55");
+      const char* labels[] = {"PM1.0:","PM2.5:","PM4.0:","PM10:","VOC:","NOX:"};
+      float vals[] = {
+        id(PM1_0).state, id(PM2_5).state, id(PM4_0).state, id(PM10_0).state,
+        id(voc).state, id(nox).state
+      };
+      for(int i = 0; i < 6; i++) {
+        int y = 25 + i * 20;
+        it.printf(105, y, id(f12), COLOR_ON, TextAlign::TOP_LEFT,  labels[i]);
+        it.printf(190, y, id(f16), COLOR_ON, TextAlign::TOP_RIGHT,
+                  i < 4 ? "%.1f" : "%.0f", vals[i]);
+      }
+      it.printf(105,161, id(f16), COLOR_ON, TextAlign::TOP_LEFT, "WIFI");
+      it.printf(105,180, id(f12), COLOR_ON, TextAlign::TOP_LEFT, "%s", id(ssid).state.c_str());
 
-      it.printf(it.get_width() - 50, 123, id(f24), TextAlign::TOP_RIGHT, "%.0f", id(CO2).state);
-      it.print(it.get_width(), 123, id(f18), TextAlign::TOP_RIGHT, "ppm");
-
-      it.printf(it.get_width() - 50, 148, id(f24), TextAlign::TOP_RIGHT, "%.0f", id(voc).state);
-      it.print(it.get_width(), 148, id(f18), TextAlign::TOP_RIGHT, "ppb");
-
-      it.printf(it.get_width() - 50, 173, id(f24), TextAlign::TOP_RIGHT, "%.0f", id(nox).state);
-      it.print(it.get_width(), 173, id(f18), TextAlign::TOP_RIGHT, "ppb");
+      it.filled_rectangle(1, 161, 98, 39, COLOR_ON);
+      it.print(50, 180, id(f18), COLOR_OFF, TextAlign::CENTER, "${friendlyname}");
 
 font:
   - file:
