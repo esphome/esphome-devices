@@ -70,7 +70,7 @@ substitutions:
   ota_password: "YOUR_OTA_PASSWORD_HERE"
   ap_password: "airq-device" # Fallback AP password
   # Sensor calibration
-  altitude_compensation: "207m" # Local altitude for CO2 sensor
+  altitude_compensation: "0m" # Local altitude for CO2 sensor
   # temp sensor adjustment
   temp_offset: -3.0
   temp_time_constant: 1200
