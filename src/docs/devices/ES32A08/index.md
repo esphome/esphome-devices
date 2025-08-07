@@ -14,10 +14,8 @@ difficulty: 2
 This is a very capable little automation/relay/io board from [AliExpress](https://www.aliexpress.us/item/3256805999936525.html)  
 It runs on 12V or 24V depending on your configuration and is perfect for industrial and home automation
 
-![Product](./ES32A08.jpg "Product Image")
+![Product](./ES32A08.jpg "Product Image")  
 [Schematic](./Schematic_ES32A08.pdf)
-
-## Basic Configuration
 
 ### Exposes
 
@@ -33,6 +31,8 @@ It runs on 12V or 24V depending on your configuration and is perfect for industr
 
 - 4 Digit display has problems with trailing dots
 - RS485 has a hardware bug and can't be used reliably, see https://github.com/makstech/esphome-es32a08-expansion-board-example/issues/2#issuecomment-3165396638
+
+## Basic Configuration
 
 ```yaml
 esphome:
