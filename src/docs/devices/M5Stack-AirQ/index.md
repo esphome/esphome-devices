@@ -8,7 +8,7 @@ difficulty: 2
 
 ## Product Images
 
-![M5Stack AirQ](https://github.com/user-attachments/assets/97a290ed-4d6e-4715-a72d-26679e2302af)
+![M5Stack AirQ](M5stack-AirQsensorDisplay.jpeg "M5Stack AirQ esphome edition")
 ![M5Stack AirQ](M5stack-AirQ.webp "M5Stack AirQ Product Details")
 
 ## Description
@@ -19,7 +19,7 @@ This ESPhome YAML will enable the ability to display some of the sensor data on 
 
 The device comes with a 1.54-inch e-ink display with a resolution of 200x200, providing a clear visual representation of the data.
 
-This YAML was adapted from a sample provided by **joshblake87** at https://www.reddit.com/r/Esphome/comments/1e2q8jj/m5_stack_airq_air_quality_sensor/
+This YAML was adapted from a sample provided by **joshblake87** at <https://www.reddit.com/r/Esphome/comments/1e2q8jj/m5_stack_airq_air_quality_sensor/>
 
 ## Known Issues
 
