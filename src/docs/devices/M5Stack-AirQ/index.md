@@ -8,7 +8,7 @@ difficulty: 2
 
 ## Product Images
 
-![M5Stack AirQ](M5stack-AirQsensorDisplay2.jpg "M5Stack AirQ ESPhome Screen")
+![M5Stack AirQ](https://github.com/user-attachments/assets/97a290ed-4d6e-4715-a72d-26679e2302af)
 ![M5Stack AirQ](M5stack-AirQ.webp "M5Stack AirQ Product Details")
 
 ## Description
@@ -65,13 +65,7 @@ substitutions:
   location: Office
   sensor_interval: 60s
   log_level: DEBUG
-  # Security related substitutions - CHANGE THESE VALUES!
-  encryption_key: "YOUR_32_CHARACTER_ENCRYPTION_KEY_HERE"
-  ota_password: "YOUR_OTA_PASSWORD_HERE"
-  ap_password: "airq-device" # Fallback AP password
-  # Sensor calibration
   altitude_compensation: "0m" # Local altitude for CO2 sensor
-  # temp sensor adjustment
   temp_offset: -3.0
   temp_time_constant: 1200
 
@@ -89,26 +83,21 @@ esphome:
     - priority: 800
       then:
         - output.turn_on: enable
-    # - priority: 800
-    #   then:
-    #     - pcf8563.read_time
+    - priority: 200 # na wifi/sensor init
+      then:
+        - script.execute: warmup_refresh
 
 esp32:
   board: esp32-s3-devkitc-1 #m5stack-stamps3
   variant: esp32s3
 
-# Enable logging
 logger:
   level: ${log_level}
 
-# Enable Home Assistant API
 api:
-  encryption:
-    key: "${encryption_key}"
 
 ota:
   - platform: esphome
-    password: "${ota_password}"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -117,7 +106,6 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${devicename} Fallback Hotspot"
-    password: "${ap_password}"
 
 captive_portal:
 
@@ -143,19 +131,15 @@ spi:
 
 time:
   - platform: homeassistant
+    id: ha_time
+
+  - platform: sntp
     id: sntp_time
-    # - platform: pcf8563
-    #   address: 0x51
-    #   update_interval: 10min
-    # - platform: sntp
-    #   id: sntp_time
-    #   timezone: CST6CDT,M3.2.0,M11.1.0
-    #   #   US Central Time zone, update with your own
-    #   #    servers:
-    #   #      - YOUR HOME ASSISTANT IP HERE
-    # on_time_sync:
-    #   then:
-    #     pcf8563.write_time:
+    timezone: Europe/Amsterdam
+    # optioneel: eigen NTP servers
+    # servers:
+    #   - 0.nl.pool.ntp.org
+    #   - 1.nl.pool.ntp.org
 
 light:
   - platform: esp32_rmt_led_strip
@@ -167,18 +151,23 @@ light:
     restore_mode: RESTORE_AND_OFF
     id: id_led
 
+script:
+  - id: warmup_refresh
+    mode: restart
+    then:
+      - while:
+          condition:
+            lambda: |-
+              return id(uptime_sensor).state < 120;
+          then:
+            - component.update: disp
+            - delay: 1s
+
 text_sensor:
   - platform: wifi_info
-    ip_address:
-      name: IP
     ssid:
       name: SSID
-    bssid:
-      name: BSSID
-    mac_address:
-      name: MAC
-    dns_address:
-      name: DNS
+      id: ssid
 
   - platform: template
     name: "VOC IAQ Classification"
@@ -232,7 +221,8 @@ sensor:
   - platform: uptime
     name: "Uptime"
     id: uptime_sensor
-    update_interval: $sensor_interval
+    update_interval: 1s
+    internal: true
 
   - platform: scd4x
     co2:
@@ -460,6 +450,7 @@ display:
     reset_duration: 2ms
     update_interval: $sensor_interval
     lambda: |-
+      // 1) Warming up check: eerste 120 s enkel melding tonen
       if (id(uptime_sensor).state < 120) {
         it.fill(COLOR_OFF);
         it.printf(it.get_width()/2, it.get_height()/2 - 16,
@@ -471,14 +462,29 @@ display:
         return;
       }
 
+      // 1) GRID lijnen
+      // Verticale verdeellijn
       it.line(100, 0,   100, 200);
+      // Horizontale bovenste scheiding
+      //it.line(0,   50, 200, 0);
+      // Middenlijn onder Sen55 alleen rechts (x ≥ 100)
+      // it.line(100,120,200,120);
+      // Onderste scheiding
       it.line(it.get_width()-1, 0, it.get_width()-1, it.get_height());
 
+      // 2) Vakken
+      // SCD40 linksonder, zonder onderrand
       it.line(0,   50, 0,   160);   // linkerkant
       it.line(0,   50, 100, 50);    // bovenkant
+      //it.line(100, 50, 100,160);    // rechterkant
+      // Sen55 rechtsboven (0→120)
       it.rectangle(100, 0, 100, 160);
+      // Wi-Fi rechtsonder (160→200)
+      //it.rectangle(100,160,100, 40);
+      // Optioneel: vak linksonder voor je logo
       it.rectangle(0, 160,100, 40);
 
+      // KLOK & DATUM (kleiner font)
       auto t = id(sntp_time).now();
       char buf[20];
       snprintf(buf, sizeof(buf), "%02d:%02d", t.hour, t.minute);
@@ -486,6 +492,7 @@ display:
       t.strftime(buf, sizeof(buf), "%Y-%m-%d");
       it.printf(2, 30,  id(f12), COLOR_ON,  TextAlign::TOP_LEFT,  "%s", buf);
 
+      // SCD40 LINKS
       it.printf(5, 52,  id(f16), COLOR_ON, TextAlign::TOP_LEFT, "SCD40");
       it.printf(5, 75,  id(f12), COLOR_ON, TextAlign::TOP_LEFT, "Co2:");
       it.printf(90,75,  id(f16), COLOR_ON, TextAlign::TOP_RIGHT, "%.0f", id(CO2).state);
@@ -494,6 +501,7 @@ display:
       it.printf(5,115,  id(f12), COLOR_ON, TextAlign::TOP_LEFT, "Humid:");
       it.printf(90,115, id(f16), COLOR_ON, TextAlign::TOP_RIGHT, "%.1f", id(humidity).state);
 
+      // SEN55 RECHTS
       it.printf(105,5,  id(f16), COLOR_ON, TextAlign::TOP_LEFT, "SEN55");
       const char* labels[] = {"PM1.0:","PM2.5:","PM4.0:","PM10:","VOC:","NOX:"};
       float vals[] = {
@@ -506,9 +514,12 @@ display:
         it.printf(190, y, id(f16), COLOR_ON, TextAlign::TOP_RIGHT,
                   i < 4 ? "%.1f" : "%.0f", vals[i]);
       }
+
+      // 6) Wi-Fi (rechtsonder, y=160→200)
       it.printf(105,161, id(f16), COLOR_ON, TextAlign::TOP_LEFT, "WIFI");
       it.printf(105,180, id(f12), COLOR_ON, TextAlign::TOP_LEFT, "%s", id(ssid).state.c_str());
 
+      // 7) Logo of friendlyname (linksonder)
       it.filled_rectangle(1, 161, 98, 39, COLOR_ON);
       it.print(50, 180, id(f18), COLOR_OFF, TextAlign::CENTER, "${friendlyname}");
 
@@ -1526,4 +1537,5 @@ font:
     id: font_xsmall
     size: 16
     glyphs: '!"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz»'
+
 ```
