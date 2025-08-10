@@ -23,7 +23,9 @@ Date Code: 08/19
 CHIP: EPS8285
 
 ## Getting it up and running
+
 ### USB Serial Converter
+
 The device must be disassembled to access the UART contacts. There are three screws: two are visible, and the third is under the sticker in the middle on the opposite side. Once the screws are removed, the lid can be easily taken off.  
 ![alt text](CCRCWFIO2PK-disassembled.jpg "PRIME CCRCWFIO2PK Plug disassembled")
 
@@ -37,7 +39,6 @@ Connect IO0 to GND to enter boot mode. To restart the device before entering boo
 | GPIO05 | Red LED              |
 | GPIO12 | Relay                |
 | GPIO13 | Button               |
-
 
 ## Hardware definition Configuration
 
@@ -140,5 +141,4 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: relay
-
 ```
