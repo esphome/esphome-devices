@@ -26,17 +26,6 @@ CHIP: EPS8285
 ### USB Serial Converter
 The device must be disassembled to access the UART contacts. There are three screws: two are visible, and the third is under the sticker in the middle on the opposite side. Once the screws are removed, the lid can be easily taken off.  
 ![alt text](CCRCWFIO2PK-disassembled.jpg "PRIME CCRCWFIO2PK Plug disassembled")
-| Pin    | Connection           |
-| ------ | -------------------- |
-| 3V     | Connect to 3.3V      |
-| IO0    | Connect to any GND   |
-| RX     | Connect to TX        |
-| TX     | Connect to RX        |
-| GND1   |                      |
-| ....   | ...                  |
-| GND1   |                      |
-| ....   | ...                  |
-| RST    |                      |
 
 Connect IO0 to GND to enter boot mode. To restart the device before entering boot mode, either reconnect GND or momentarily connect RST to GND. It is possible to flash the device without soldering the pins, but it may be a bit tricky.
 
@@ -55,55 +44,45 @@ Connect IO0 to GND to enter boot mode. To restart the device before entering boo
 ```yaml
 substitutions:
   name: ccrwfio2pk
-
 esphome:
-  name: "${name}"
-  friendly_name: "${name}"
-
+  name: '${name}'
+  friendly_name: '${name}'
 esp8266:
   board: esp8285
-
-logger:
-  
+logger: null
 ota:
   - platform: esphome
     password: !secret ota_password
-
 wifi:
-  ssid: !secret wifi_ssid
+  ssid: wifi_ssid
   password: !secret wifi_password
-
   ap:
-    ssid: "${name} Fallback Hotspot"
+    ssid: '${name} Fallback Hotspot'
     password: !secret ap_password
-
-captive_portal:
-
+captive_portal: null
 switch:
   - platform: gpio
-    name: "Blue LED"
+    name: Blue LED
     inverted: true
     pin:
       number: GPIO4
-
   - platform: gpio
-    name: "Red LED"
+    name: Red LED
     inverted: true
     pin:
       number: GPIO5
-
   - platform: gpio
-    name: "Relay"
+    name: Relay
     pin:
       number: GPIO12
-
 binary_sensor:
   - platform: gpio
-    name: "Button"
+    name: Button
     pin:
       number: GPIO13
       mode: INPUT_PULLUP
       inverted: true
+
 ```
 
 ## Basic Configuration
@@ -113,64 +92,53 @@ The following configuration mimics the original behavior: pressing the `Button` 
 ```yaml
 substitutions:
   name: ccrwfio2pk
-
 esphome:
-  name: "${name}"
-  friendly_name: "${name}"
-
+  name: '${name}'
+  friendly_name: '${name}'
 esp8266:
   board: esp8285
-
-logger:
-  
+logger: null
 ota:
   - platform: esphome
     password: !secret ota_password
-
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
   ap:
-    ssid: "${name} Fallback Hotspot"
+    ssid: '${name} Fallback Hotspot'
     password: !secret ap_password
-
-captive_portal:
-
+captive_portal: null
 web_server:
   version: 3
-
 status_led:
   pin:
     number: GPIO4
-    inverted: True
-
+    inverted: true
 switch:
   - platform: gpio
     id: relay
-    name: "Relay"
+    name: Relay
     pin:
       number: GPIO12
     on_turn_on:
       - output.turn_on: red_led
     on_turn_off:
-      - output.turn_off: red_led      
-
+      - output.turn_off: red_led
 output:
   - platform: gpio
     id: red_led
     pin:
       number: GPIO5
-      inverted: true      
-
+      inverted: true
 binary_sensor:
   - platform: gpio
-    name: "Button"
+    name: Button
     pin:
       number: GPIO13
       mode: INPUT_PULLUP
       inverted: true
     on_press:
       then:
-        - switch.toggle: relay 
+        - switch.toggle: relay
+
 ```
