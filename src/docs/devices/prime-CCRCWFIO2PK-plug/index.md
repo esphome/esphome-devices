@@ -50,6 +50,62 @@ Connect IO0 to GND to enter boot mode. To restart the device before entering boo
 | GPIO13 | Button               |
 
 
+## Hardware definition Configuration
+
+```yaml
+substitutions:
+  name: ccrwfio2pk
+
+esphome:
+  name: "${name}"
+  friendly_name: "${name}"
+
+esp8266:
+  board: esp8285
+
+logger:
+  
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  ap:
+    ssid: "${name} Fallback Hotspot"
+    password: !secret ap_password
+
+captive_portal:
+
+switch:
+  - platform: gpio
+    name: "Blue LED"
+    inverted: true
+    pin:
+      number: GPIO4
+
+  - platform: gpio
+    name: "Red LED"
+    inverted: true
+    pin:
+      number: GPIO5
+
+  - platform: gpio
+    name: "Relay"
+    pin:
+      number: GPIO12
+
+binary_sensor:
+  - platform: gpio
+    name: "Button"
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: true
+```
+
 ## Basic Configuration
 
 The following configuration mimics the original behavior: pressing the `Button` toggles the `Relay`. The `Blue LED` indicates status, and the `Red LED` turns on when the `Relay` is on.
