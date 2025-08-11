@@ -22,7 +22,7 @@ esp32:
   board: esp32-s3-devkitc-1
   framework:
     type: esp-idf
-  flash_size: 16MB    
+  flash_size: 16MB
 
 logger:
 
@@ -36,16 +36,16 @@ spi:
     clk_pin: GPIO39
     mosi_pin: GPIO40
   - id: spi_lcd
-    clk_pin: 5
-    mosi_pin: 3  
+    clk_pin: GPIO5
+    mosi_pin: GPIO3
 
 display:
   - platform: st7735
     spi_id: spi_lcd
     model: "INITR_MINI160X80"
-    reset_pin: 1
-    cs_pin: 4
-    dc_pin: 2
+    reset_pin: GPIO1
+    cs_pin: GPIO4
+    dc_pin: GPIO2
     rotation: 270
     device_width: 82
     device_height: 161
@@ -59,7 +59,7 @@ display:
 output:
   - platform: ledc
     frequency: 2000
-    pin: 38
+    pin: GPIO38
     inverted: True
     id: backlight_output
 
