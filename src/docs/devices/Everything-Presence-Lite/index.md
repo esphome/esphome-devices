@@ -25,11 +25,13 @@ The Everything Presence Lite is a compact mmWave presence sensor with the follow
 - USB-C powered with injection molded case
 
 Compatible with multiple mmWave sensors including:
+
 - DFRobot SEN0395
 - HiLink LD2410C
 - Various Seeed mmWave sensors
 
 ## Zones
+
 The Everything Presence Zone Configurator makes it easy to setup zones and exclusion zones visually with real-time feedback:
 ![Everything Presence Lite Zone Configurator](everything-presence-lite-zone-configurator.png "Everything Presence Lite Zone Configurator")
 
@@ -40,7 +42,7 @@ The Everything Presence Zone Configurator makes it easy to setup zones and exclu
 3. Hit add and enter WiFi details
 4. In Home Assistant, look at discovered devices.
 
-## Need help?
+## Support
 
 - [Shop](https://shop.everythingsmart.io/products/everything-presence-lite)
 - [Official Documentation](https://docs.everythingsmart.io/s/products/doc/everything-presence-lite-epl-ZVnBzYzuX2)
