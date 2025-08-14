@@ -35,11 +35,9 @@ Hiking TOMZN (Tuya)
 ![dxs238xw_4w](https://github.com/user-attachments/assets/8dbf7cbf-d088-439d-8c7a-555e7b71c49c)
 ![dxs238xw_7w](https://github.com/user-attachments/assets/d3e32c38-1e86-4c4f-9690-8c635da3c6b1)
 
-
 # DDS238-4 W and DTS238-7 W Wifi Energy Meters
 
 The `dxs238xw` component allows full use of all the functions of the DDS238-4 W and DTS238-7 W Wifi energy meters. The `dxs238xw` component together with ESPHome is a good replacement for the original firmware of these meters and allows a perfect integration with Home Assistant.
-
 
 ## Flashing info
 
@@ -54,7 +52,6 @@ It is convenient before installing the new firmware, make a backup copy of the o
 This development works only with the meters that work with the WISEN app. If your meter is TUYA, this solution is not for you.
 
 ![dxs238xw_uart](https://github.com/user-attachments/assets/d71fc2be-8287-41cb-8a9e-cf4c6997e70c)
-
 
 ## Basic Configuration
 
