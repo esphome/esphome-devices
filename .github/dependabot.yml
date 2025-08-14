@@ -3,17 +3,17 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     labels:
-      - "dependencies"
-      - "github-actions"
-    directory: "/"
+      - dependencies
+      - github-actions
+    directory: /
     schedule:
       interval: daily
     open-pull-requests-limit: 10
 
-  - package-ecosystem: "npm"
+  - package-ecosystem: npm
     labels:
-      - "dependencies"
-      - "npm"
-    directory: "/"
+      - dependencies
+      - npm
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
