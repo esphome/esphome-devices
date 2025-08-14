@@ -217,16 +217,16 @@ This development works only with the meters that work with the WISEN app. If you
       - platform: dxs238xw
         current_phase_1:
           name: "Current"
-          
+
         voltage_phase_1:
           name: "Voltage"
-          
+
         reactive_power_phase_1:
           name: "Reactive Power"
-          
+
         active_power_phase_1:
           name: "Active Power"
-          
+
         power_factor_phase_1:
           name: "Power Factor"
 ```
