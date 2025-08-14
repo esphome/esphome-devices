@@ -5,6 +5,11 @@ on:
   push:
   pull_request:
 
+concurrency:
+  # yamllint disable-line rule:line-length
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   markdown_lint:
     name: Markdown Lint
