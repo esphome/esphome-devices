@@ -31,6 +31,7 @@ Hiking TOMZN (Tuya)
 35mm Din Rail install, 4 modules width
 
 ## Product Images
+
 ![dxs238xw_4w](https://github.com/user-attachments/assets/8dbf7cbf-d088-439d-8c7a-555e7b71c49c)
 ![dxs238xw_7w](https://github.com/user-attachments/assets/d3e32c38-1e86-4c4f-9690-8c635da3c6b1)
 
