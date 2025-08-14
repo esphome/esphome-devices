@@ -47,4 +47,3 @@ Compatible mmWave sensors (validated only):
 - [GitHub](https://github.com/EverythingSmartHome/everything-presence-one)
 - [YouTube](https://www.youtube.com/@EverythingSmartHome)
 - [Discord](https://discord.everythingsmarthome.co.uk/)
-
