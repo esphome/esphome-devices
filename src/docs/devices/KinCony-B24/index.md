@@ -15,7 +15,7 @@ board: esp32
 
 ## ESPHome Configuration
 
-Here is an example YAML configuration for the KinCony B24M ESP32-S3 mosfet board.
+Here is an example YAML configuration for the KinCony B24 ESP32-S3 relay board.
 
 ```yaml
 esphome:
