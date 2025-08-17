@@ -16,6 +16,7 @@ board: esp32
 ## ESPHome Configuration
 
 Here is an example YAML configuration for the KinCony N60 AC energy meter board.
+
 ```yaml
 esphome:
   name: n60
