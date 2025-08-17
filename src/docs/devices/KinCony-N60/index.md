@@ -54,9 +54,6 @@ uart:
   data_bits: 8
   parity: NONE
 
-web_server:
-  port: 80
-
 text_sensor:
   - platform: ethernet_info
     ip_address:
@@ -852,7 +849,7 @@ sensor:
     register_type: holding
     name: bl0910_2_tps1
     id: n60_2_tps_1
-    unit_of_measurement: "\xB0C"
+    unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1
     value_type: FP32_R
@@ -1213,7 +1210,7 @@ sensor:
     register_type: holding
     name: bl0910_3_tps1
     id: n60_3_tps_1
-    unit_of_measurement: "\xB0C"
+    unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1
     value_type: FP32_R
@@ -1574,7 +1571,7 @@ sensor:
     register_type: holding
     name: bl0910_4_tps1
     id: n60_4_tps_1
-    unit_of_measurement: "\xB0C"
+    unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1
     value_type: FP32_R
@@ -1935,7 +1932,7 @@ sensor:
     register_type: holding
     name: bl0910_5_tps1
     id: n60_5_tps_1
-    unit_of_measurement: "\xB0C"
+    unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1
     value_type: FP32_R
@@ -2296,7 +2293,7 @@ sensor:
     register_type: holding
     name: bl0910_6_tps1
     id: n60_6_tps_1
-    unit_of_measurement: "\xB0C"
+    unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1
     value_type: FP32_R
