@@ -1,6 +1,6 @@
 ---
 title: KinCony-T64M (ESP32-S3 64CH Mosfet board)
-date-published: 2025-08-02
+date-published: 2025-08-17
 type: relay
 standard: global
 board: esp32
@@ -29,7 +29,6 @@ esp32:
 # Enable logging
 logger:
   hardware_uart: USB_SERIAL_JTAG
-
 # Enable Home Assistant API
 api:
 
@@ -48,26 +47,53 @@ i2c:
      scl: 47
      scan: true
      frequency: 400kHz
+   - id: bus_b
+     sda: 12
+     scl: 11
+     scan: true
+     frequency: 400kHz
 
 pcf8574:
   - id: 'pcf8574_hub_out_1'  # for output channel 1-16
     i2c_id: bus_a
-    address: 0x21
+    address: 0x25
     pcf8575: true
 
   - id: 'pcf8574_hub_out_2'  # for output channel 17-32
     i2c_id: bus_a
+    address: 0x24
+    pcf8575: true
+
+  - id: 'pcf8574_hub_out_3'  # for output channel 33-48
+    i2c_id: bus_a
+    address: 0x21
+    pcf8575: true
+
+  - id: 'pcf8574_hub_out_4'  # for output channel 49-64
+    i2c_id: bus_a
     address: 0x20
     pcf8575: true
 
+
+
   - id: 'pcf8574_hub_in_1'  # for input channel 1-16
-    i2c_id: bus_a
+    i2c_id: bus_b
     address: 0x25
     pcf8575: true
 
   - id: 'pcf8574_hub_in_2'  # for input channel 17-32
-    i2c_id: bus_a
+    i2c_id: bus_b
     address: 0x24
+    pcf8575: true
+
+  - id: 'pcf8574_hub_in_3'  # for input channel 33-48
+    i2c_id: bus_b
+    address: 0x21
+    pcf8575: true
+
+  - id: 'pcf8574_hub_in_4'  # for input channel 49-64
+    i2c_id: bus_b
+    address: 0x20
     pcf8575: true
 
 switch:
@@ -351,10 +377,298 @@ switch:
       inverted: true
 
   - platform: gpio
+    name: "t64m-output32"
+    id: "t64m_output32"
+    pin:
+      pcf8574: pcf8574_hub_out_2
+      number: 15
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output33"
+    id: "t64m_output33"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 0
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output34"
+    id: "t64m_output34"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 1
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output35"
+    id: "t64m_output35"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 2
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output36"
+    id: "t64m_output36"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 3
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output37"
+    id: "t64m_output37"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 4
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output38"
+    id: "t64m_output38"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 5
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output39"
+    id: "t64m_output39"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 6
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output40"
+    id: "t64m_output40"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 7
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output41"
+    id: "t64m_output41"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 8
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output42"
+    id: "t64m_output42"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 9
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output43"
+    id: "t64m_output43"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 10
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output44"
+    id: "t64m_output44"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 11
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output45"
+    id: "t64m_output45"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 12
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output46"
+    id: "t64m_output46"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 13
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output47"
+    id: "t64m_output47"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 14
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output48"
+    id: "t64m_output48"
+    pin:
+      pcf8574: pcf8574_hub_out_3
+      number: 15
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output49"
+    id: "t64m_output49"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 0
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output50"
+    id: "t64m_output50"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 1
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output51"
+    id: "t64m_output51"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 2
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output52"
+    id: "t64m_output52"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 3
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output53"
+    id: "t64m_output53"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 4
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output54"
+    id: "t64m_output54"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 5
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output55"
+    id: "t64m_output55"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 6
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output56"
+    id: "t64m_output56"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 7
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output57"
+    id: "t64m_output57"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 8
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output58"
+    id: "t64m_output58"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 9
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output59"
+    id: "t64m_output59"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 10
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output60"
+    id: "t64m_output60"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 11
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output61"
+    id: "t64m_output61"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 12
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output62"
+    id: "t64m_output62"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 13
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-output63"
+    id: "t64m_output63"
+    pin:
+      pcf8574: pcf8574_hub_out_4
+      number: 14
+      mode: OUTPUT
+      inverted: true
+
+  - platform: gpio
     name: "t64m-output64"
     id: "t64m_output64"
     pin:
-      pcf8574: pcf8574_hub_out_2
+      pcf8574: pcf8574_hub_out_4
       number: 15
       mode: OUTPUT
       inverted: true
@@ -609,9 +923,265 @@ binary_sensor:
       inverted: true
 
   - platform: gpio
-    name: "t64m-input64"
+    name: "t64m-input32"
     pin:
       pcf8574: pcf8574_hub_in_2
+      number: 15
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input33"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 0
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input34"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 1
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input35"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 2
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input36"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 3
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input37"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 4
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input38"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 5
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input39"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 6
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input40"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 7
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input41"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 8
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input42"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 9
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input43"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 10
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input44"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 11
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input45"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 12
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input46"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 13
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input47"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 14
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input48"
+    pin:
+      pcf8574: pcf8574_hub_in_3
+      number: 15
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input49"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 0
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input50"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 1
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input51"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 2
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input52"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 3
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input53"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 4
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input54"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 5
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input55"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 6
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input56"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 7
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input57"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 8
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input58"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 9
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input59"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 10
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input60"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 11
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input61"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 12
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input62"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 13
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input63"
+    pin:
+      pcf8574: pcf8574_hub_in_4
+      number: 14
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "t64m-input64"
+    pin:
+      pcf8574: pcf8574_hub_in_4
       number: 15
       mode: INPUT
       inverted: true
