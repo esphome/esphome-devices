@@ -40,7 +40,6 @@ Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/Opentherm
 - **Improv**: Wi-Fi Configuration
 - **DIN-Rail Mountable**: Standardized enclosure for electrical cabinets
 - **Status LEDs**: Visual indicators for power, relay, OpenTherm, and Wi-Fi status
-- **Open Source**: Both hardware and firmware are open for community contribution
 
 ## Networking
 
