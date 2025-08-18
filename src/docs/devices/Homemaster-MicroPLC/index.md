@@ -48,21 +48,22 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 The MicroPLC comes with ESPHome pre-installed and can be confgured via:
 
-### Improve:
+### Improve
 
 Quick Start. Set Up Wi-Fi with Improv
+
 1. Power On Your Device. Plug in your HomeMaster MicroPLC.
 2. Open the Improv Wi-Fi Tool. Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
-3. Connect via USB or Bluetooth. USB (Serial): Select your device’s COM/USB port. Bluetooth LE: Select your device from the list.
+3. Connect via USB or Bluetooth. USB (Serial) - Select your device’s COM/USB port. Bluetooth LE - Select your device from the list.
 4. Enter Your Wi-Fi Credentials. Type in your SSID and password, then press Connect.
 5. Done!
 
 The device joins your Wi-Fi and returns a local URL (e.g., http://homemaster-microplc.local).
 Open it to continue setup or manage the device from Home Assistant.
 
-### Wi-Fi: Use the ESPHome Dashboard to upload the configuration.
+### Wi-Fi: Use the ESPHome Dashboard to upload the configuration
 
-### USB Type-C: Use the ESPHome Dashboard to upload the configuration.
+### USB Type-C: Use the ESPHome Dashboard to upload the configuration
 
 ## Bus system configuration
 
