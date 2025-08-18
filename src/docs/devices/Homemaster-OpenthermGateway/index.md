@@ -4,7 +4,7 @@ date-published: 2025-08-18
 type: relay
 standard: global
 board: esp32
-project-url: [https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
+project-url: (https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
 difficulty: 1
 ---
 
