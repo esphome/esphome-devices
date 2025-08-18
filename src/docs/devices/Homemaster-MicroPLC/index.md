@@ -50,24 +50,30 @@ The MicroPLC comes with ESPHome pre-installed and can be confgured via:
 
 ### Improve
 
-Quick Start. Set Up Wi-Fi with Improv
+Wi-Fi Configuration with Improv
 
-1. Power On Your Device.
-Plug in your HomeMaster MicroPLC.
-2. Open the Improv Wi-Fi Tool.
-Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
-3. Connect via USB or Bluetooth.
-USB (Serial) - Select your device’s COM/USB port. Bluetooth LE - Select your device from the list.
-4. Enter Your Wi-Fi Credentials.
-Type in your SSID and password, then press Connect.
-5. Done!
+1. Power on your HomeMaster MicroPLC.
+2. Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
+3. Connect via USB (Serial) or Bluetooth LE.
+4. Enter your Wi-Fi SSID and password, then press Connect.
+5. The device joins your Wi-Fi and is now ready.
 
-The device joins your Wi-Fi and returns a local URL (e.g., http://homemaster-microplc.local).
-Open it to continue setup or manage the device from Home Assistant.
+You can then access it via its local address (e.g., http://homemaster-microplc.local) or directly in Home Assistant.
 
-### Wi-Fi: Use the ESPHome Dashboard to upload the configuration
+### One-Click Import (ESPHome Dashboard Import)
+
+Once connected to Wi-Fi, the MicroPLC will be automatically discovered in ESPHome Dashboard.
+When the device appears in ESPHome Dashboard, click “Take Control”.
+The MicroPLC supports dashboard import, automatically pulling its official configuration from GitHub
 
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
+
+1. Connect the MicroPLC to your computer with a USB Type-C cable.
+2. Download the YAML configuration file from our GitHub repository.(https://github.com/isystemsautomation/HOMEMASTER/blob/main/MicroPLC/Firmware/microplc.yaml)
+3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
+4. Flash the device directly from ESPHome Dashboard.
+5. The MicroPLC supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
+6. After flashing, the device will reboot automatically and run the updated firmware.
 
 ## Bus system configuration
 
