@@ -8,7 +8,7 @@ project-url: (https://github.com/isystemsautomation/HOMEMASTER/tree/main/Openthe
 difficulty: 1
 ---
 
-# 🔥 Opentherm Gateway – DIN-Rail Smart Heating Interface for Home Assistant
+## 🔥 Opentherm Gateway – DIN-Rail Smart Heating Interface for Home Assistant
 
 ![alt text](./opentherm.png "HOMAMASTER MicroPLC")
 
@@ -37,7 +37,7 @@ Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/Opentherm
 - **Power Options**: Operates on 24 VDC or 220 VAC/220VDC for flexible installation
 - **USB Type-C**: For firmware updates, serial configuration, and power
 - **OTA Updates**: Supported via ESPHome for wireless firmware management
-- **Improv**: Wi-Fi Configuration 
+- **Improv**: Wi-Fi Configuration
 - **DIN-Rail Mountable**: Standardized enclosure for electrical cabinets
 - **Status LEDs**: Visual indicators for power, relay, OpenTherm, and Wi-Fi status
 - **Open Source**: Both hardware and firmware are open for community contribution
@@ -84,7 +84,6 @@ The OpenTherm Gateway supports dashboard import, automatically pulling its offic
 4. Flash the device directly from ESPHome Dashboard.
 5. The OpenTherm Gateway supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
 6. After flashing, the device will reboot automatically and run the updated firmware.
-
 
 ## Specifications
 
