@@ -1,6 +1,6 @@
 ---
 title: Homemaster-OpenthermGateway
-date-published: 2025-08-18
+date-published: 2025-08-19
 type: relay
 standard: global
 board: esp32
@@ -115,11 +115,11 @@ When flashed with ESPHome, the Opentherm Gateway exposes the following entities 
 
 ```yaml
 substitutions:
-  name: "homemaster-microplc"           # Internal device name (used by ESPHome & hostname)
-  friendly_name: "Homemaster MicroPLC"  # Friendly name (shown in Home Assistant UI)
+  name: "homemaster-opentherm"           # Internal device name (used by ESPHome & hostname)
+  friendly_name: "Homemaster Opentherm Gateway"  # Friendly name (shown in Home Assistant UI)
   room: ""                              # Optional: assign device to a room in HA
-  device_description: "Homemaster MicroPLC"  # Description for documentation
-  project_name: "Homemaster.MicroPLC"   # Project identifier
+  device_description: "Homemaster Opentherm Gateway"  # Description for documentation
+  project_name: "Homemaster.Opentherm Gateway"   # Project identifier
   project_version: "v1.0.0"             # Firmware version
   update_interval: 60s                  # Default sensor update interval
   dns_domain: ".local"                  # mDNS domain suffix for network discovery
@@ -183,26 +183,17 @@ esp32_improv:
   authorizer: none                      # No additional authorization required for Improv
 
 dashboard_import:
-  package_import_url: github://isystemsautomation/HOMEMASTER/MicroPLC/Firmware/microplc.yaml@main
+  package_import_url: github://isystemsautomation/HOMEMASTER/OpenthermGateway/Firmware
+/opentherm.yamll@main
   import_full_config: true
   # Allows importing this YAML from GitHub into ESPHome Dashboard
 
-uart:
-  tx_pin: 17                            # UART TX pin
-  rx_pin: 16                            # UART RX pin
-  baud_rate: 115200                     # UART baud rate
-  id: mod_uart                          # Identifier for UART bus
 
 time:
-  - platform: pcf8563                   # Real-time clock (RTC) module via I2C
-    id: pcf8563_time
-    address: 0x51                       # I2C address of PCF8563
   - platform: homeassistant
     # instead try to synchronize via network repeatedly ...
     on_time_sync:
       then:
-              # ... and update the RTC when the synchronization was successful
-        - pcf8563.write_time
         # Update last restart time, but only once.
         - if:
             condition:
@@ -251,25 +242,92 @@ text_sensor:
     icon: mdi:clock
     entity_category: "diagnostic"
 #    device_class: timestamp
-i2c:
-  - id: bus_a
-    sda: 32                             # I2C SDA pin
-    scl: 33                             # I2C SCL pin
-    scan: true                          # Scan for devices at startup
 
-one_wire:
+# OpenTherm hardware pin configuration
+opentherm:
+  in_pin: 21      # GPIO21 receives OpenTherm signal
+  out_pin: 26     # GPIO26 sends OpenTherm signal
+
+# OpenTherm sensors (read-only values from boiler)
+sensor:
+  - platform: opentherm
+    t_dhw: { name: "DHW temperature (°C)" }                      # Domestic hot water temperature
+    rel_mod_level: { name: "Relative modulation level (%)" }     # Modulation %
+    ch_pressure: { name: "Water pressure in CH circuit (bar)" }  # Heating circuit pressure
+    dhw_flow_rate: { name: "Water flow rate in DHW circuit (l/min)" } # DHW flow
+    t_boiler: { name: "Boiler water temperature (°C)" }          # Boiler water temp
+    t_exhaust: { name: "Boiler exhaust temperature (°C)" }       # Boiler flue gas temp
+    t_dhw_set_ub: { name: "Upper bound for DHW setpoint (°C)" }
+    t_dhw_set_lb: { name: "Lower bound for DHW setpoint (°C)" }
+    max_t_set_ub: { name: "Upper bound for max CH setpoint (°C)" }
+    max_t_set_lb: { name: "Lower bound for max CH setpoint (°C)" }
+    t_dhw_set: { name: "DHW temperature setpoint (°C)" }
+    max_t_set: { name: "Max CH water setpoint (°C)" }
+
+# Binary sensors from OpenTherm protocol
+binary_sensor:
+  - platform: opentherm
+    ch_active: { name: "Boiler Central Heating active" }     # CH mode active
+    dhw_active: { name: "Boiler Domestic Hot Water active" } # DHW mode active
+    flame_on: { name: "Boiler Flame on" }                    # Flame is on
+    fault_indication:
+      name: "Boiler Fault indication"                        # Boiler fault status
+      entity_category: diagnostic
+    diagnostic_indication:
+      name: "Boiler Diagnostic event"                        # Diagnostic event
+      entity_category: diagnostic
+
+  # GPIO button (hardware input on GPIO35)
   - platform: gpio
-    pin: GPIO04                         # Pin for 1-Wire devices (e.g., DS18B20 sensors)
-    id: hub_1
+    name: "Button #1"
+    id: button_1
+    pin: GPIO35
 
+# Number entity for writing setpoints to the boiler
+number:
+  - platform: opentherm
+    t_set:
+      id: t_set
+      min_value: 20        # Min boiler setpoint
+      max_value: 65        # Max boiler setpoint
+      name: "Boiler Control setpoint"
+
+# Relay and OpenTherm-based switches
 switch:
   - platform: gpio
-    name: "Relay"                       # Relay switch exposed to Home Assistant
-    pin: 26                             # GPIO pin controlling the relay
+    pin: GPIO32            # Relay control pin
+    name: "RELAY"
 
+  - platform: opentherm
+    ch_enable:
+      name: "Boiler Central Heating enabled"
+      restore_mode: RESTORE_DEFAULT_ON  # Retains state after restart
+
+# Optional 1-Wire setup (commented out)
+# one_wire:
+#   - platform: gpio
+#     pin: GPIO04
+#     id: hub_1
+#   - platform: gpio
+#     pin: GPIO02
+#     id: hub_2
+
+# Optional Dallas temperature sensors (commented out)
+# sensor:
+#   - platform: dallas_temp
+#     one_wire_id: hub_1
+#     address: 0x6f7c86e908646128
+#     name: "1-WIRE Dallas temperature BUS1"
+#     update_interval: 60s
+#   - platform: dallas_temp
+#     one_wire_id: hub_2
+#     address: 0xbc3c01d075cb5128
+#     name: "1-WIRE Dallas temperature BUS2"
+#     update_interval: 60s
+
+# Status LED for visual indicator of device status
 status_led:
   pin:
-    number: GPIO25                      # Pin for status LED
-    inverted: true                      # Inverted logic (LED ON when pin LOW)
-
+     number: GPIO33        # Status LED pin
+     inverted: true        # LED is active LOW
 ```
