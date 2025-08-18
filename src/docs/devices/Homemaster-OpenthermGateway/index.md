@@ -7,6 +7,7 @@ board: esp32
 project-url: [https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
 difficulty: 1
 ---
+
 # 🔥 Opentherm Gateway – DIN-Rail Smart Heating Interface for Home Assistant
 
 ![alt text](./opentherm.png "HOMAMASTER MicroPLC")
