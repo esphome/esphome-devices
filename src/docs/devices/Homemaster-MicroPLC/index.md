@@ -21,16 +21,16 @@ Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC/
 
 ## Features
 
-- ESP32-WROOM-32U microcontroller with Wi-Fi and Bluetooth
-- ESPHome compatible firmware for seamless Home Assistant integration
-- RS-485 Modbus RTU interface for extension module communication
-- USB Type-C port for programming, debugging, and power
-- 1-Wire interface with ESD and overvoltage protection
-- PCF8563 RTC for accurate time-based automation
-- One industrial-grade relay with varistor and opto-isolation
-- **One 24V digital input with surge protection (ISO1212)
-- Four front-panel buttons and status LEDs for local control and diagnostics
-- DIN-rail mountable for standard electrical enclosures
+- **ESP32-WROOM-32U** microcontroller with Wi-Fi and Bluetooth
+- **ESPHome compatible firmware** for seamless Home Assistant integration
+- **RS-485 Modbus RTU** interface for extension module communication
+- **USB Type-C port** for programming, debugging, and power
+- **1-Wire interface** with ESD and overvoltage protection
+- **PCF8563 RTC** for accurate time-based automation
+- **One industrial-grade relay** with varistor and opto-isolation
+- **One 24V digital input** with surge protection (ISO1212)
+- **Four front-panel buttons** and **status LEDs** for local control and diagnostics
+- **DIN-rail mountable** for standard electrical enclosures
 
 ## Networking
 
