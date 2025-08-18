@@ -50,7 +50,7 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 The MicroPLC comes with ESPHome pre-installed and can be confgured via:
 
-Improve: 
+Improve:
 
 Wi-Fi: Use the ESPHome Dashboard to upload the configuration.
 
@@ -71,7 +71,7 @@ USB Type-C: Use the ESPHome Dashboard to upload the configuration.
 | ------------ | --------------------------- |
 | pcf8563      | 0x51                        |
 
-## 📦 Specifications
+## Specifications
 
 | Feature              | Details                              |
 |----------------------|--------------------------------------|
@@ -139,20 +139,19 @@ web_server:
 api:                                    # Enable ESPHome API for Home Assistant integration
 
 ota:
-  - platform: esphome                   
+  - platform: esphome
 
 network:
-  enable_ipv6: ${ipv6_enable}           
+  enable_ipv6: ${ipv6_enable}
 
 wifi:
-  ap: {}                                
+  ap: {}
   fast_connect: "${wifi_fast_connect}"  
   domain: "${dns_domain}"               
 
 captive_portal:                         # Captive portal for fallback hotspot
 
 improv_serial:                          # Allows setup via Improv over Serial
-
 
 esp32_improv:
   authorizer: none                      # No additional authorization required for Improv
@@ -248,4 +247,3 @@ status_led:
     inverted: true                      # Inverted logic (LED ON when pin LOW)
 
 ```
-
