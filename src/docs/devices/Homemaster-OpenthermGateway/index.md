@@ -79,7 +79,7 @@ The OpenTherm Gateway supports dashboard import, automatically pulling its offic
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
 
 1. Connect the OpenTherm Gateway to your computer with a USB Type-C cable.
-2. Download the YAML configuration file from our GitHub repository.(https://github.com/isystemsautomation/HOMEMASTER/blob/main/OpenthermGateway/Firmware/opentherm.yaml)
+2. Download the YAML configuration file from our GitHub repository.
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
 5. The OpenTherm Gateway supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
