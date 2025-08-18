@@ -63,7 +63,9 @@ You can then access it via its local address (e.g., http://homemaster-microplc.l
 ### One-Click Import (ESPHome Dashboard Import)
 
 Once connected to Wi-Fi, the MicroPLC will be automatically discovered in ESPHome Dashboard.
+
 When the device appears in ESPHome Dashboard, click “Take Control”.
+
 The MicroPLC supports dashboard import, automatically pulling its official configuration from GitHub
 
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
