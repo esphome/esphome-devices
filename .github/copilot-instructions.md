@@ -47,20 +47,23 @@ This repository contains device documentation for ESPHome-compatible devices. Wh
    - ❌ `web_server:` component should NOT be included in any configurations on device pages
    - ✅ More complex examples can be provided in separate configuration blocks
    - ✅ Proper YAML formatting and indentation
+   - ✅ An empty `lvgl:` block is allowed for devices with a `display` which will show a built-in test page.
 
 6. **Documentation Quality**
+
    - ✅ Clear device description and features
    - ✅ Proper GPIO pinout tables when applicable
    - ✅ Links to purchase/source and documentation
    - ✅ Installation/setup instructions
 
 7. **File path for device pages**
+
    - ✅ All devices pages should be created at `src/docs/devices/{DeviceName}/index.md`
    - ✅ The device name in the path must not contain spaces and should use dashes as a seperator
 
 8. **Markdown frontmatter**
    - ✅ The `title`, `date-published`, `type`, and `standard` data are required to be specified in the frontmatter
-   - ✅ Check the `date-published` markdown frontmatter and make sure it's in the format of `YYYY-MM-DD`.  If the month or day values are 1-9, it should be prefixed with a 0, for example: `2025-07-04`
+   - ✅ Check the `date-published` markdown frontmatter and make sure it's in the format of `YYYY-MM-DD`. If the month or day values are 1-9, it should be prefixed with a 0, for example: `2025-07-04`
 
 ### Made for ESPHome Devices (made-for-esphome: true)
 
