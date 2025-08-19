@@ -114,219 +114,214 @@ When flashed with ESPHome, the Opentherm Gateway exposes the following entities 
 
 ```yaml
 substitutions:
-  name: "homemaster-opentherm"           # Internal device name (used by ESPHome & hostname)
-  friendly_name: "Homemaster Opentherm Gateway"  # Friendly name (shown in Home Assistant UI)
-  room: ""                              # Optional: assign device to a room in HA
-  device_description: "Homemaster Opentherm Gateway"  # Description for documentation
-  project_name: "Homemaster.Opentherm Gateway"   # Project identifier
-  project_version: "v1.0.0"             # Firmware version
-  update_interval: 60s                  # Default sensor update interval
-  dns_domain: ".local"                  # mDNS domain suffix for network discovery
-  timezone: ""                          # Timezone (can be set if device runs in different region)
-  sntp_update_interval: 6h              # Sync interval for time updates from NTP servers
-  sntp_server_1: "0.pool.ntp.org"       # Primary NTP server
-  sntp_server_2: "1.pool.ntp.org"       # Secondary NTP server
-  sntp_server_3: "2.pool.ntp.org"       # Tertiary NTP server
-  wifi_fast_connect: "false"            # If true, reconnects faster (skips Wi-Fi scans)
-  log_level: "DEBUG"                    # Logging level (NONE, ERROR, WARN, INFO, DEBUG, VERBOSE)
-  ipv6_enable: "false"                  # Enable IPv6 if supported
+  # General metadata and variables for reuse in the config
+  name: "homemaster-opentherm"                # Device hostname in ESPHome / network
+  friendly_name: "Homemaster Opentherm Gateway"  # Friendly name in Home Assistant UI
+  room: ""                                   # Optional: assign to a room in HA
+  device_description: "Homemaster Opentherm Gateway" # Description for metadata
+  project_name: "Homemaster.Opentherm Gateway" # Unique project identifier
+  project_version: "v1.0.0"                  # Firmware version
+  update_interval: 60s                       # Default sensor update frequency
+  dns_domain: ".local"                       # mDNS domain suffix
+  timezone: ""                               # Timezone (if needed different from HA server)
+  sntp_update_interval: 6h                   # Time sync frequency
+  sntp_server_1: "0.pool.ntp.org"            # Primary NTP server
+  sntp_server_2: "1.pool.ntp.org"            # Secondary NTP server
+  sntp_server_3: "2.pool.ntp.org"            # Tertiary NTP server
+  wifi_fast_connect: "false"                 # Faster reconnect if true (skips scan)
+  log_level: "DEBUG"                         # Logging level
+  ipv6_enable: "false"                       # IPv6 support toggle
 
 esphome:
-  name: "${name}"                       # Uses substitution for device name
-  friendly_name: "${friendly_name}"     # Uses substitution for friendly name
-  comment: "${device_description}"      # Metadata comment
-  area: "${room}"                       # Assign device to a room
-  name_add_mac_suffix: true             # Appends MAC suffix to avoid duplicate hostnames
-  min_version: 2025.7.0                 # Minimum ESPHome version required
+  # Device-level settings for ESPHome
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+  comment: "${device_description}"
+  area: "${room}"
+  name_add_mac_suffix: true                  # Append MAC to hostname to avoid duplicates
+  min_version: 2025.7.0                      # Minimum ESPHome version required
   project:
-    name: "${project_name}"             # Project name
-    version: "${project_version}"       # Project version
+    name: "${project_name}"
+    version: "${project_version}"
 
 esp32:
-  board: esp32dev                       # Target board type (generic ESP32 DevKit)
+  # Target hardware platform
+  board: esp32dev
   framework:
-    type: esp-idf                       # Use ESP-IDF (official Espressif framework)
-    version: recommended                # Recommended stable version
+    type: esp-idf                            # Use Espressif IDF framework
+    version: recommended
 
 preferences:
-  flash_write_interval: 5min            # How often preferences are written to flash
+  flash_write_interval: 5min                 # How often preferences are saved to flash
 
 logger:
-  baud_rate: 115200                     # Serial logging baud rate
-  level: ${log_level}                   # Logging level from substitutions
+  baud_rate: 115200                          # Serial log speed
+  level: ${log_level}                        # Log level set from substitutions
 
 mdns:
-  disabled: false                       # Enable mDNS for auto-discovery on the network
+  disabled: false                            # Enable mDNS for network discovery
 
 web_server:
-  port: 80                              # Enables local web server on port 80
+  port: 80                                   # Local webserver for diagnostics
 
-api:                                    # Enable ESPHome API for Home Assistant integration
+api:                                         # Enable native ESPHome <-> Home Assistant API
 
 ota:
   - platform: esphome
+    id: ota_esphome                          # Over-the-air updates
 
 network:
-  enable_ipv6: ${ipv6_enable}
+  enable_ipv6: ${ipv6_enable}                # Enable/disable IPv6
 
 wifi:
-  ap: {}
-  fast_connect: "${wifi_fast_connect}"  
-  domain: "${dns_domain}"
+  ap: {}                                     # Fallback AP for first-time setup
+  fast_connect: "${wifi_fast_connect}"       # Quick reconnect option
+  domain: "${dns_domain}"                    # mDNS suffix
 
-captive_portal:                         # Captive portal for fallback hotspot
+captive_portal:                              # Captive portal for AP fallback
 
-improv_serial:                          # Allows setup via Improv over Serial
+improv_serial:
+  id: improv_serial_if                       # Enable Improv setup over serial
 
 esp32_improv:
-  authorizer: none                      # No additional authorization required for Improv
+  authorizer: none
+  id: improv_ble_if                          # Enable Improv setup over BLE
 
 dashboard_import:
-  package_import_url: github://isystemsautomation/HOMEMASTER/OpenthermGateway/Firmware
-/opentherm.yamll@main
+  # Auto-import official config from GitHub into ESPHome Dashboard
+  package_import_url: github://isystemsautomation/HOMEMASTER/OpenthermGateway/Firmware/opentherm.yaml@main
   import_full_config: true
-  # Allows importing this YAML from GitHub into ESPHome Dashboard
-
 
 time:
-  - platform: homeassistant
-    # instead try to synchronize via network repeatedly ...
-    on_time_sync:
+  - platform: homeassistant                  # Sync time from Home Assistant
+    id: homeassistant_time
+    on_time_sync:                            # On first sync, publish "last restart"
       then:
-        # Update last restart time, but only once.
         - if:
             condition:
               lambda: 'return id(device_last_restart).state == "";'
             then:
               - text_sensor.template.publish:
                   id: device_last_restart
-                  state: !lambda 'return id(pcf8563_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
+                  state: !lambda 'return id(homeassistant_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
+
+text_sensor:
+  # Diagnostic text sensors (network info + last restart)
+  - platform: wifi_info
+    ip_address:
+      id: ts_ip_address
+      name: "IP Address"
+      entity_category: diagnostic
+    ssid:
+      id: ts_ssid
+      name: "Connected SSID"
+      entity_category: diagnostic
+    mac_address:
+      id: ts_mac
+      name: "Mac Address"
+      entity_category: diagnostic
+
+  - platform: template
+    name: "Last Restart"
+    id: device_last_restart
+    icon: mdi:clock
+    entity_category: diagnostic
+
+opentherm:
+  id: ot_bus                                 # OpenTherm bus definition
+  in_pin: 21                                 # GPIO for receiving OpenTherm signal
+  out_pin: 26                                # GPIO for sending OpenTherm signal
 
 sensor:
+  # OpenTherm boiler sensors (read-only values)
+  - platform: opentherm
+    t_dhw:            { id: s_t_dhw,            name: "DHW temperature (°C)" }
+    rel_mod_level:    { id: s_rel_mod_level,    name: "Relative modulation level (%)" }
+    ch_pressure:      { id: s_ch_pressure,      name: "Water pressure in CH circuit (bar)" }
+    dhw_flow_rate:    { id: s_dhw_flow_rate,    name: "Water flow rate in DHW circuit (l/min)" }
+    t_boiler:         { id: s_t_boiler,         name: "Boiler water temperature (°C)" }
+    t_exhaust:        { id: s_t_exhaust,        name: "Boiler exhaust temperature (°C)" }
+    t_dhw_set_ub:     { id: s_t_dhw_set_ub,     name: "Upper bound for DHW setpoint (°C)" }
+    t_dhw_set_lb:     { id: s_t_dhw_set_lb,     name: "Lower bound for DHW setpoint (°C)" }
+    max_t_set_ub:     { id: s_max_t_set_ub,     name: "Upper bound for max CH setpoint (°C)" }
+    max_t_set_lb:     { id: s_max_t_set_lb,     name: "Lower bound for max CH setpoint (°C)" }
+    t_dhw_set:        { id: s_t_dhw_set,        name: "DHW temperature setpoint (°C)" }
+    max_t_set:        { id: s_max_t_set,        name: "Max CH water setpoint (°C)" }
+
   - platform: uptime
-    name: "Uptime Sensor"
     id: uptime_sensor
-    type:
-      timestamp
-    entity_category: "diagnostic"
+    name: "Uptime Sensor"
+    type: timestamp
+    entity_category: diagnostic
 
-  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
-    name: "WiFi Signal dB"
+  - platform: wifi_signal                    # Wi-Fi signal (RSSI in dB)
     id: wifi_signal_db
+    name: "WiFi Signal dB"
     update_interval: "${update_interval}"
-    entity_category: "diagnostic"
+    entity_category: diagnostic
 
-  - platform: copy # Reports the WiFi signal strength in %
+  - platform: copy                           # Wi-Fi signal converted to %
+    id: wifi_signal_percent
     source_id: wifi_signal_db
     name: "WiFi Signal Percent"
     filters:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
     unit_of_measurement: "Signal %"
-    entity_category: "diagnostic"
+    entity_category: diagnostic
     device_class: ""
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-      entity_category: "diagnostic"
-    ssid:
-      name: "Connected SSID"
-      entity_category: "diagnostic"
-    mac_address:
-      name: "Mac Address"
-      entity_category: "diagnostic"
-  - platform: template
-    name: 'Last Restart'
-    id: device_last_restart
-    icon: mdi:clock
-    entity_category: "diagnostic"
-#    device_class: timestamp
 
-# OpenTherm hardware pin configuration
-opentherm:
-  in_pin: 21      # GPIO21 receives OpenTherm signal
-  out_pin: 26     # GPIO26 sends OpenTherm signal
-
-# OpenTherm sensors (read-only values from boiler)
-sensor:
-  - platform: opentherm
-    t_dhw: { name: "DHW temperature (°C)" }                      # Domestic hot water temperature
-    rel_mod_level: { name: "Relative modulation level (%)" }     # Modulation %
-    ch_pressure: { name: "Water pressure in CH circuit (bar)" }  # Heating circuit pressure
-    dhw_flow_rate: { name: "Water flow rate in DHW circuit (l/min)" } # DHW flow
-    t_boiler: { name: "Boiler water temperature (°C)" }          # Boiler water temp
-    t_exhaust: { name: "Boiler exhaust temperature (°C)" }       # Boiler flue gas temp
-    t_dhw_set_ub: { name: "Upper bound for DHW setpoint (°C)" }
-    t_dhw_set_lb: { name: "Lower bound for DHW setpoint (°C)" }
-    max_t_set_ub: { name: "Upper bound for max CH setpoint (°C)" }
-    max_t_set_lb: { name: "Lower bound for max CH setpoint (°C)" }
-    t_dhw_set: { name: "DHW temperature setpoint (°C)" }
-    max_t_set: { name: "Max CH water setpoint (°C)" }
-
-# Binary sensors from OpenTherm protocol
 binary_sensor:
+  # OpenTherm boiler state sensors
   - platform: opentherm
-    ch_active: { name: "Boiler Central Heating active" }     # CH mode active
-    dhw_active: { name: "Boiler Domestic Hot Water active" } # DHW mode active
-    flame_on: { name: "Boiler Flame on" }                    # Flame is on
+    ch_active:
+      id: bs_ch_active
+      name: "Boiler Central Heating active"
+    dhw_active:
+      id: bs_dhw_active
+      name: "Boiler Domestic Hot Water active"
+    flame_on:
+      id: bs_flame_on
+      name: "Boiler Flame on"
     fault_indication:
-      name: "Boiler Fault indication"                        # Boiler fault status
+      id: bs_fault
+      name: "Boiler Fault indication"
       entity_category: diagnostic
     diagnostic_indication:
-      name: "Boiler Diagnostic event"                        # Diagnostic event
+      id: bs_diag
+      name: "Boiler Diagnostic event"
       entity_category: diagnostic
 
-  # GPIO button (hardware input on GPIO35)
+  # Local button on GPIO35
   - platform: gpio
+    id: bs_button_1
     name: "Button #1"
-    id: button_1
     pin: GPIO35
 
-# Number entity for writing setpoints to the boiler
 number:
+  # Control setpoints (writeable values)
   - platform: opentherm
     t_set:
-      id: t_set
-      min_value: 20        # Min boiler setpoint
-      max_value: 65        # Max boiler setpoint
+      id: n_t_set
+      min_value: 20
+      max_value: 65
       name: "Boiler Control setpoint"
 
-# Relay and OpenTherm-based switches
 switch:
+  # Local relay output
   - platform: gpio
-    pin: GPIO32            # Relay control pin
+    id: sw_relay
+    pin: GPIO32
     name: "RELAY"
 
+  # Enable/disable boiler central heating via OpenTherm
   - platform: opentherm
     ch_enable:
+      id: sw_ch_enable
       name: "Boiler Central Heating enabled"
-      restore_mode: RESTORE_DEFAULT_ON  # Retains state after restart
+      restore_mode: RESTORE_DEFAULT_ON
 
-# Optional 1-Wire setup (commented out)
-# one_wire:
-#   - platform: gpio
-#     pin: GPIO04
-#     id: hub_1
-#   - platform: gpio
-#     pin: GPIO02
-#     id: hub_2
-
-# Optional Dallas temperature sensors (commented out)
-# sensor:
-#   - platform: dallas_temp
-#     one_wire_id: hub_1
-#     address: 0x6f7c86e908646128
-#     name: "1-WIRE Dallas temperature BUS1"
-#     update_interval: 60s
-#   - platform: dallas_temp
-#     one_wire_id: hub_2
-#     address: 0xbc3c01d075cb5128
-#     name: "1-WIRE Dallas temperature BUS2"
-#     update_interval: 60s
-
-# Status LED for visual indicator of device status
 status_led:
   pin:
-     number: GPIO33        # Status LED pin
-     inverted: true        # LED is active LOW
+    number: GPIO33                          # Status LED pin
+    inverted: true                          # LED is active-low
 ```
