@@ -46,7 +46,7 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 ## Programming
 
-The MicroPLC comes with ESPHome pre-installed and can be confgured via:
+The MicroPLC comes with ESPHome pre-installed and can be configured via:
 
 ### Improve
 
