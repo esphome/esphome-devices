@@ -55,7 +55,7 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 ## Programming
 
-The OpenTherm Gateway comes with ESPHome pre-installed and can be confgured via:
+The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via:
 
 ### Improve
 
