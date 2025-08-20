@@ -140,18 +140,12 @@ esp32:
     type: esp-idf                       # Use ESP-IDF (official Espressif framework)
     version: recommended                # Recommended stable version
 
-preferences:
-  flash_write_interval: 5min            # How often preferences are written to flash
-
 logger:
   baud_rate: 115200                     # Serial logging baud rate
   level: ${log_level}                   # Logging level from substitutions
 
 mdns:
   disabled: false                       # Enable mDNS for auto-discovery on the network
-
-web_server:
-  port: 80                              # Enables local web server on port 80
 
 api:                                    # Enable ESPHome API for Home Assistant integration
 
