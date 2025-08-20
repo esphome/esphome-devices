@@ -119,10 +119,6 @@ substitutions:
   update_interval: 60s                  # Default sensor update interval
   dns_domain: ".local"                  # mDNS domain suffix for network discovery
   timezone: ""                          # Timezone (can be set if device runs in different region)
-  sntp_update_interval: 6h              # Sync interval for time updates from NTP servers
-  sntp_server_1: "0.pool.ntp.org"       # Primary NTP server
-  sntp_server_2: "1.pool.ntp.org"       # Secondary NTP server
-  sntp_server_3: "2.pool.ntp.org"       # Tertiary NTP server
   wifi_fast_connect: "false"            # If true, reconnects faster (skips Wi-Fi scans)
   log_level: "DEBUG"                    # Logging level (NONE, ERROR, WARN, INFO, DEBUG, VERBOSE)
   ipv6_enable: "false"                  # Enable IPv6 if supported
@@ -206,46 +202,6 @@ time:
               - text_sensor.template.publish:
                   id: device_last_restart
                   state: !lambda 'return id(pcf8563_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
-
-sensor:
-  - platform: uptime
-    name: "Uptime Sensor"
-    id: uptime_sensor
-    type:
-    type: timestamp
-    entity_category: "diagnostic"
-
-  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
-    name: "WiFi Signal dB"
-    id: wifi_signal_db
-    update_interval: "${update_interval}"
-    entity_category: "diagnostic"
-
-  - platform: copy # Reports the WiFi signal strength in %
-    source_id: wifi_signal_db
-    name: "WiFi Signal Percent"
-    filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "Signal %"
-    entity_category: "diagnostic"
-    device_class: ""
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-      entity_category: "diagnostic"
-    ssid:
-      name: "Connected SSID"
-      entity_category: "diagnostic"
-    mac_address:
-      name: "Mac Address"
-      entity_category: "diagnostic"
-  - platform: template
-    name: 'Last Restart'
-    id: device_last_restart
-    icon: mdi:clock
-    entity_category: "diagnostic"
-#    device_class: timestamp
 i2c:
   - id: bus_a
     sda: 32                             # I2C SDA pin
