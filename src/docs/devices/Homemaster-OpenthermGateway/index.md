@@ -4,7 +4,7 @@ date-published: 2025-08-19
 type: relay
 standard: global
 board: esp32
-project-url: (https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
+project-url: https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway
 difficulty: 1
 ---
 
@@ -124,10 +124,6 @@ substitutions:
   update_interval: 60s                       # Default sensor update frequency
   dns_domain: ".local"                       # mDNS domain suffix
   timezone: ""                               # Timezone (if needed different from HA server)
-  sntp_update_interval: 6h                   # Time sync frequency
-  sntp_server_1: "0.pool.ntp.org"            # Primary NTP server
-  sntp_server_2: "1.pool.ntp.org"            # Secondary NTP server
-  sntp_server_3: "2.pool.ntp.org"            # Tertiary NTP server
   wifi_fast_connect: "false"                 # Faster reconnect if true (skips scan)
   log_level: "DEBUG"                         # Logging level
   ipv6_enable: "false"                       # IPv6 support toggle
@@ -151,18 +147,12 @@ esp32:
     type: esp-idf                            # Use Espressif IDF framework
     version: recommended
 
-preferences:
-  flash_write_interval: 5min                 # How often preferences are saved to flash
-
 logger:
   baud_rate: 115200                          # Serial log speed
   level: ${log_level}                        # Log level set from substitutions
 
 mdns:
   disabled: false                            # Enable mDNS for network discovery
-
-web_server:
-  port: 80                                   # Local webserver for diagnostics
 
 api:                                         # Enable native ESPHome <-> Home Assistant API
 
@@ -205,120 +195,23 @@ time:
                   id: device_last_restart
                   state: !lambda 'return id(homeassistant_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
 
-text_sensor:
-  # Diagnostic text sensors (network info + last restart)
-  - platform: wifi_info
-    ip_address:
-      id: ts_ip_address
-      name: "IP Address"
-      entity_category: diagnostic
-    ssid:
-      id: ts_ssid
-      name: "Connected SSID"
-      entity_category: diagnostic
-    mac_address:
-      id: ts_mac
-      name: "Mac Address"
-      entity_category: diagnostic
-
-  - platform: template
-    name: "Last Restart"
-    id: device_last_restart
-    icon: mdi:clock
-    entity_category: diagnostic
-
 opentherm:
   id: ot_bus                                 # OpenTherm bus definition
   in_pin: 21                                 # GPIO for receiving OpenTherm signal
   out_pin: 26                                # GPIO for sending OpenTherm signal
 
-sensor:
-  # OpenTherm boiler sensors (read-only values)
-  - platform: opentherm
-    t_dhw:            { id: s_t_dhw,            name: "DHW temperature (°C)" }
-    rel_mod_level:    { id: s_rel_mod_level,    name: "Relative modulation level (%)" }
-    ch_pressure:      { id: s_ch_pressure,      name: "Water pressure in CH circuit (bar)" }
-    dhw_flow_rate:    { id: s_dhw_flow_rate,    name: "Water flow rate in DHW circuit (l/min)" }
-    t_boiler:         { id: s_t_boiler,         name: "Boiler water temperature (°C)" }
-    t_exhaust:        { id: s_t_exhaust,        name: "Boiler exhaust temperature (°C)" }
-    t_dhw_set_ub:     { id: s_t_dhw_set_ub,     name: "Upper bound for DHW setpoint (°C)" }
-    t_dhw_set_lb:     { id: s_t_dhw_set_lb,     name: "Lower bound for DHW setpoint (°C)" }
-    max_t_set_ub:     { id: s_max_t_set_ub,     name: "Upper bound for max CH setpoint (°C)" }
-    max_t_set_lb:     { id: s_max_t_set_lb,     name: "Lower bound for max CH setpoint (°C)" }
-    t_dhw_set:        { id: s_t_dhw_set,        name: "DHW temperature setpoint (°C)" }
-    max_t_set:        { id: s_max_t_set,        name: "Max CH water setpoint (°C)" }
-
-  - platform: uptime
-    id: uptime_sensor
-    name: "Uptime Sensor"
-    type: timestamp
-    entity_category: diagnostic
-
-  - platform: wifi_signal                    # Wi-Fi signal (RSSI in dB)
-    id: wifi_signal_db
-    name: "WiFi Signal dB"
-    update_interval: "${update_interval}"
-    entity_category: diagnostic
-
-  - platform: copy                           # Wi-Fi signal converted to %
-    id: wifi_signal_percent
-    source_id: wifi_signal_db
-    name: "WiFi Signal Percent"
-    filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "Signal %"
-    entity_category: diagnostic
-    device_class: ""
-
-binary_sensor:
-  # OpenTherm boiler state sensors
-  - platform: opentherm
-    ch_active:
-      id: bs_ch_active
-      name: "Boiler Central Heating active"
-    dhw_active:
-      id: bs_dhw_active
-      name: "Boiler Domestic Hot Water active"
-    flame_on:
-      id: bs_flame_on
-      name: "Boiler Flame on"
-    fault_indication:
-      id: bs_fault
-      name: "Boiler Fault indication"
-      entity_category: diagnostic
-    diagnostic_indication:
-      id: bs_diag
-      name: "Boiler Diagnostic event"
-      entity_category: diagnostic
-
-  # Local button on GPIO35
+# Local button on GPIO35
   - platform: gpio
     id: bs_button_1
     name: "Button #1"
     pin: GPIO35
 
-number:
-  # Control setpoints (writeable values)
-  - platform: opentherm
-    t_set:
-      id: n_t_set
-      min_value: 20
-      max_value: 65
-      name: "Boiler Control setpoint"
-
 switch:
-  # Local relay output
+# Local relay output
   - platform: gpio
     id: sw_relay
     pin: GPIO32
     name: "RELAY"
-
-  # Enable/disable boiler central heating via OpenTherm
-  - platform: opentherm
-    ch_enable:
-      id: sw_ch_enable
-      name: "Boiler Central Heating enabled"
-      restore_mode: RESTORE_DEFAULT_ON
 
 status_led:
   pin:
