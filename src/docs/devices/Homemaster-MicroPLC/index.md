@@ -212,7 +212,7 @@ sensor:
     name: "Uptime Sensor"
     id: uptime_sensor
     type:
-      timestamp
+    type: timestamp
     entity_category: "diagnostic"
 
   - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
