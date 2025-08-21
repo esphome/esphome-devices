@@ -7,20 +7,15 @@ board: bk72xx
 difficulty: 4
 ---
 
-## Flashing method
-
-Serial flashing
-
 ## GPIO pinout
-
 
 | Pin    | Function          |
 |--------|-------------------|
-| P26 	 | Red               |
-| P6	 | Green             |
-| P24	 | Blue              |
-| P8	 | Output cold  	 |
-| P7	 | Output warm		 |
+| P26    | Red               |
+| P6     | Green             |
+| P24    | Blue              |
+| P8     | Output cold       |
+| P7     | Output warm       |
 
 ## Basic configuration
 
@@ -54,7 +49,7 @@ wifi:
     password: ""
 
 captive_portal:
-    
+
 web_server:
   port: 80
 
