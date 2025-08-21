@@ -131,11 +131,11 @@ rtttl:
   gain: 30%
 
 light:
-  - platform: neopixelbus
-    type: RGB
-    variant: 800KBPS
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     pin: GPIO38
     num_leds: 1
+    rgb_order: RGB
     name: "RGB LED"
     id: rgb_led
 

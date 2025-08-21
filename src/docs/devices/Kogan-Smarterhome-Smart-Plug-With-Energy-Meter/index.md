@@ -26,7 +26,8 @@ board: esp8266
 ```yaml
 esphome:
   name: kogan_plug_1
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:

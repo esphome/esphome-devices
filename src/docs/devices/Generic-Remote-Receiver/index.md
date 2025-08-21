@@ -21,7 +21,8 @@ the esp32dev board. You can get 5 receivers for $5 from [amazon.com](https://amz
 # https://www.espressif.com/en/products/hardware/esp32/overview
 esphome:
   name: irl00
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 wifi:
@@ -53,7 +54,8 @@ can handle it pretty well with generic GPIO.
 ```yaml
 esphome:
   name: irl01
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
 
 wifi:

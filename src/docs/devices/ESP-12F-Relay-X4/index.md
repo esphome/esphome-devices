@@ -66,7 +66,8 @@ This board has headers for every GPIO pin on its ESP-12F.
 ```yaml
 esphome:
   name: relayboard
-  platform: ESP8266
+
+esp8266:
   board: esp12e
 
 # Use the blue LED in the device as a status LED, which will blink if there are warnings (slow) or errors (fast)

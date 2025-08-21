@@ -46,10 +46,11 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP32
-  board: m5stick-c
   platformio_options:
     upload_speed: 115200
+
+esp32:
+  board: m5stick-c
 
 wifi:
   ssid: !secret wifi_ssid
@@ -66,6 +67,7 @@ logger:
 api:
 
 ota:
+  platform: esphome
 
 # Battery voltage measured through ADC1_CH2. PLUS2 has a voltage divider,
 # so reading needs to be multiplied by 2
