@@ -58,7 +58,7 @@ switch:
     id: relay
     on_turn_on:
       - switch.turn_on: blue_led
-    on_turn_off: 
+    on_turn_off:
       - switch.turn_off: blue_led
 
   - platform: gpio
