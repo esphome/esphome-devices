@@ -12,6 +12,8 @@ board: BK7231N
 
 As of November 2024, there are two methods of flashing this device, using a serial adapter and ltchiptool, or OTA using tuya-cloudcutterflash
 
+Attention: Recently purchased units (Decemeber, 2024) contain a Lightning Semi LN882H rather than the Beken BK7231N.  These units cannot be flashed with ESPHome.  The newly purchased units also have screw terminals on the switch body for the wiring.  The older units had four wires coming off of the back of the switch body.
+
 ### OTA
 
 CAUTION: either install the device properly in the wall before attempting, or have another way of safely powering the device. OTA flashing when the device is powered with mains current can be dangerous
@@ -24,7 +26,7 @@ Once the tool is installed, run it with this command:
 
 ```sudo ./tuya-cloudcutter.sh -p gosund-sw5-a-v2.1-smart-switch-bk7231n-v1.0.1 -f ESPHome-Kickstart-v23.08.29_bk7231n_app.ota.ug.bin```
 
-FOllow the onscreen instructions to put the device into "slow blink" mode, and then power off/back on when prompted. This will install the ESPHome Kickstart firmware. From there is is possible to OTA install full ESPHome.
+Follow the onscreen instructions to put the device into "slow blink" mode, and then power off/back on when prompted. This will install the ESPHome Kickstart firmware. From there is is possible to OTA install full ESPHome.
 
 ### Serial
 

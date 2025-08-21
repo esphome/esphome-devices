@@ -27,7 +27,8 @@ difficulty: 3
 # Basic Config
 esphome:
   name: sonoff_4chpror2
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -37,7 +38,7 @@ wifi:
 logger:
 api:
 ota:
-
+  - platform: esphome
 
 # Device Specific Config
 binary_sensor:

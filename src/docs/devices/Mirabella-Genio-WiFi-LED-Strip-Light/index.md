@@ -34,7 +34,8 @@ Inside is a TYWE3S module based on the ESP8266 microcontroller. It is possible t
 # Config for Mirabella Genio WiFi LED Strip Light
 # https://devices.esphome.io/devices/Mirabella-Genio-WiFi-LED-Strip-Light/
 esphome:
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

@@ -22,21 +22,31 @@ I bought it from: https://www.aliexpress.us/item/3256802045374301.html
 
 This board has headers for every GPIO pin on its ESP32.
 
-| Pin   | Comment                                                 |
-| ----- | ------------------------------------------------------- |
-| 5V    | Do not use 5V for programming                           |
-| TX    | Exposed on board 3.3V level!                            |
-| RX    | Exposed on board 3.3V level!                            |
-| GND   |                                                         |
-| GND   |                                                         |
-| GPIO0 | 3.3V level! (Connected to a push button for programing) |
+| Pin    | Comment                                                  |
+| ------ | -------------------------------------------------------- |
+| 5V     | Do not use 5V for programming                            |
+| TX     | Exposed on board 3.3V level!                             |
+| RX     | Exposed on board 3.3V level!                             |
+| GND    |                                                          |
+| GND    |                                                          |
+| GPIO0  | 3.3V level! (Connected to a push button for programing)  |
+| GPIO23 | On-board general purpose LED                             |
+| GPIO32 | Relay 1                                                  |
+| GPIO33 | Relay 2                                                  |
+| GPIO25 | Relay 3                                                  |
+| GPIO26 | Relay 4                                                  |
+| GPIO27 | Relay 5                                                  |
+| GPIO14 | Relay 6                                                  |
+| GPIO12 | Relay 7                                                  |
+| GPIO13 | Relay 8                                                  |
 
 ## Basic Config
 
 ```yaml
 esphome:
   name: ESP32 relayboard
-  platform: ESP32
+
+esp32:
   board: esp32dev
 
 # Status LED

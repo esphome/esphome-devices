@@ -21,6 +21,17 @@ difficulty: 3
 | GPIO25 | Dallas Sensor Bus Data In/Out      |
 | GPIO27 | Dallas Sensor 3.3V Power           |
 
+## RJ9 Pinout
+
+RJ9 pins, when the connector is viewed from the contacts side, cables exiting at the bottom, and pin 1 is farthest left.
+
+| Pin | Function               |
+| --- | ---------------------- |
+|  1  | Sensor 3.3V Power      |
+|  2  | Sensor Bus Data In/Out |
+|  3  | Not Connected          |
+|  4  | Sensor Ground          |
+
 ## Configuration using DS18B20 temperature sensor
 
 Will be exposed as a climate control system in Home Assistant.

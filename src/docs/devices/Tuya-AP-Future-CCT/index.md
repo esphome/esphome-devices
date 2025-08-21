@@ -38,7 +38,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

@@ -24,7 +24,7 @@ If you want to go the solderless route you will only need male-to-female Dupont 
 
 There are no screws or glue stopping you from opening this case. GL.iNet even left a little notch in the back plate where you will start.
 
-![Open Here](image2.webp "Open Here")
+![Open Here](image2.jpg "Open Here")
 
 Once opened disconnect the external antenna from the IPEX connector on the ESP32 module.
 

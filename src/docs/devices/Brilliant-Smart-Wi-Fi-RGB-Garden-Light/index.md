@@ -26,7 +26,8 @@ which comes as a kit with 4 LED RGB spotlights, a transformer and the controller
 ```yaml
 esphome:
   name: garden_light
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

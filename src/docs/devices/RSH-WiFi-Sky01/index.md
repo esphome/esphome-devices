@@ -46,12 +46,13 @@ substitutions:
 esphome:
   name: $device_name
   comment: $device_description
-  platform: ESP8266
-  board: esp12e
-  esp8266_restore_from_flash: true
   project:
     name: 'tuya.galaxy'
     version: 'RSH-WiFi-Sky01'
+
+esp8266:
+  board: esp12e
+  restore_from_flash: true
 
 globals:
   - id: dim

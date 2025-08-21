@@ -13,10 +13,11 @@ This is the 100W Bulb from FEIT Electric. It is sold at Lowe's and it is complet
 ```yaml
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   includes:
     - better_rgbw_output.h
+
+esp8266:
+  board: esp01_1m
 
 output:
   - platform: esp8266_pwm
