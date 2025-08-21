@@ -7,7 +7,6 @@ board: rtl87xx
 difficulty: 4
 ---
 
-
 ## GPIO Pinout
 
 | Pin    | Function                   |
@@ -61,7 +60,7 @@ switch:
       - switch.turn_on: blue_led
     on_turn_off: 
       - switch.turn_off: blue_led
-       
+
   - platform: gpio
     pin:
       number: PA23
@@ -79,5 +78,3 @@ binary_sensor:
     name: "Button"
     on_press:
       - switch.toggle: relay
-
-```
