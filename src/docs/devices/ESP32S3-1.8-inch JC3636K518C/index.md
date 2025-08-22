@@ -49,7 +49,7 @@ esphome:
 
 esp32:
   board: esp32-s3-devkitc-1
-  flash_size: 16MB 
+  flash_size: 16MB
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -128,16 +128,16 @@ light:
     id: display_backlight
     name: "Backlight"
     output: backlight_pwm
-    default_transition_length: 
+    default_transition_length:
       milliseconds: 0
-    initial_state: 
+    initial_state:
       brightness: 100%
     restore_mode:
       ALWAYS_ON
 
 output:
   - platform: ledc
-    pin: 
+    pin:
       number: GPIO47
     id: backlight_pwm
 
@@ -153,7 +153,7 @@ display:
     reset_pin: 21
     invert_colors: true
     auto_clear_enabled: false
-    init_sequence: 
+    init_sequence:
       - [ 0xF0, 0x28 ]
       - [ 0xF2, 0x28 ]
       - [ 0x73, 0xF0 ]
