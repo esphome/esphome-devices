@@ -9,7 +9,7 @@ difficulty: 1
 made-for-esphome: true
 ---
 
-![Apollo H-2](Apollo-H-2.jpg "Apollo H-2")
+![Apollo H-2](Apollo-H-2.JPG "Apollo H-2")
 
 ## Description
 
@@ -57,6 +57,6 @@ It's techy enough for the smart home enthusiasts but simple enough that anyone c
 
 ## Product Images
 
-![Apollo H-2](Apollo-H-2.jpg "Apollo H-2")
+![Apollo H-2](Apollo-H-2.JPG "Apollo H-2")
 
-![Apollo H-2 Size](Apollo-H-2-Size.jpg "Apollo H-2 Size")
+![Apollo H-2 Size](Apollo-H-2-Size.JPG "Apollo H-2 Size")
