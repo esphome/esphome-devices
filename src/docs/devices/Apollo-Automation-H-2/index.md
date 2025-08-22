@@ -18,6 +18,7 @@ Meet the Apollo H-2 Holiday Ornament! Year two of our awesome charity ornament s
 This isn't your grandma's tree decoration. We packed 44 individually addressable RGB LEDs into this little beauty, so it lights up like a tiny disco ball when you want it to. Press any of the 4 buttons and boom, a different light shows with matching tunes courtesy of the built-in piezo buzzer. It's like having a mini concert on your Christmas tree!
 
 **The fun stuff:**
+
 - 44 RGB LEDs that dance to your command
 - 4 buttons = 4 different light shows + songs
 - Built-in piezo buzzer for holiday jams
@@ -26,9 +27,11 @@ This isn't your grandma's tree decoration. We packed 44 individually addressable
 - QR code that takes you to our year in review page
 
 **The feel-good stuff:**
+
 This is our second annual charity ornament, so you're not just decorating your tree, you're helping make the holidays brighter for others too. ALL PROFITS from every Apollo H-2 Holiday Ornament sold go directly to two incredible charities:
 
 - **CASA of Lexington** - These amazing volunteers advocate for children in the family court system who've experienced abuse or neglect, making sure their voices are heard and their best interests come first.
+
 - **Open Home Foundation** - Supporting Home Assistant and the open source mission that keeps our smart home dreams alive and accessible to everyone.
 
 Every ornament you buy helps fund real change while adding some tech-savvy sparkle to your holidays. Win-win!
