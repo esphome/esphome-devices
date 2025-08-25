@@ -25,7 +25,6 @@ Maker: https://www.athom.tech
 ## Note
 Can flash firmware directly via USB.
 
-
 ## GPIO Pinout
 
 | Pin    | Function            |
