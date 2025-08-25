@@ -32,5 +32,5 @@ Can flash firmware directly via USB.
 | ------ | ------------------- |
 | GPIO9  | Button              |
 | GPIO21 | WS2812              |
-| GPIO18 | SDA                 |
-| GPIO19 | SCL                 |
+| GPIO10 | SDA                 |
+| GPIO8  | SCL                 |
