@@ -23,6 +23,7 @@ Maker: https://www.athom.tech
 - Built-in Sensirion's SHT40 sensor.
 
 ## Note
+
 Can flash firmware directly via USB.
 
 ## GPIO Pinout
