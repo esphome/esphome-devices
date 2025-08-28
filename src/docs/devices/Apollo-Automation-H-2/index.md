@@ -28,11 +28,9 @@ This isn't your grandma's tree decoration. We packed 24 individually addressable
 
 **The feel-good stuff:**
 
-This is our second annual charity ornament, so you're not just decorating your tree, you're helping make the holidays brighter for others too. ALL PROFITS from every Apollo H-2 Holiday Ornament sold go directly to two incredible charities:
+This is our second annual charity ornament, so you're not just decorating your tree, you're helping make the holidays brighter for others too. ALL PROFITS from every Apollo H-2 Holiday Ornament sold go directly to the following incredible charities:
 
 - **CASA of Lexington** - These amazing volunteers advocate for children in the family court system who've experienced abuse or neglect, making sure their voices are heard and their best interests come first.
-
-- **Open Home Foundation** - Supporting Home Assistant and the open source mission that keeps our smart home dreams alive and accessible to everyone.
 
 Every ornament you buy helps fund real change while adding some tech-savvy sparkle to your holidays. Win-win!
 
