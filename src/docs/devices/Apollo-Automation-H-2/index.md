@@ -15,11 +15,11 @@ made-for-esphome: true
 
 Meet the Apollo H-2 Holiday Ornament! Year two of our awesome charity ornament series!
 
-This isn't your grandma's tree decoration. We packed 44 individually addressable RGB LEDs into this little beauty, so it lights up like a tiny disco ball when you want it to. Press any of the 4 buttons and boom, a different light shows with matching tunes courtesy of the built-in piezo buzzer. It's like having a mini concert on your Christmas tree!
+This isn't your grandma's tree decoration. We packed 24 individually addressable RGB LEDs into this little beauty, so it lights up like a tiny disco ball when you want it to. Press any of the 4 buttons and boom, a different light shows with matching tunes courtesy of the built-in piezo buzzer. It's like having a mini concert on your Christmas tree!
 
 **The fun stuff:**
 
-- 44 RGB LEDs that dance to your command
+- 24 RGB LEDs that dance to your command
 - 4 buttons = 4 different light shows + songs
 - Built-in piezo buzzer for holiday jams
 - Rechargeable battery (16340/RC CR123A)
