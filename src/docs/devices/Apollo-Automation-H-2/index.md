@@ -1,6 +1,6 @@
 ---
 title: Apollo H-2
-date-published: 2025-08-21
+date-published: 2025-08-28
 type: sensor
 standard: global
 board: esp32
