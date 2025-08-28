@@ -1,6 +1,6 @@
 ---
 title: Apollo BTN-1 Macro Deck
-date-published: 2025-08-22
+date-published: 2025-08-28
 type: sensor
 standard: global
 board: esp32
