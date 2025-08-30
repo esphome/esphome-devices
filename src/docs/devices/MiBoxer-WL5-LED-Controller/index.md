@@ -1,6 +1,6 @@
 ---
 title: MiBoxer WL5 WiFi 5 in 1 LED Strip Controller
-date-published: 2028-07-31
+date-published: 2025-07-31
 type: light
 standard: global
 board: rtl87xx
