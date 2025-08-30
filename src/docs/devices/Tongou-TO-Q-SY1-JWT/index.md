@@ -74,7 +74,7 @@ PREF: 3091 / 10
 EREF: 2653
 ```
 
-Alternatively, the values may be stored in flash in the "key value store" Tuya partition, typically at address `0x001d5000`:
+Alternatively, the values may be stored in flash in the "key value store" Tuya partition, typically at address `0x001d5000` (in more recent devices this address changed to `0x001d9000`):
 
 ```us
 001d5000  60 3e 00 00 82 30 00 00  13 0c 00 00 5d 0a 00 00  |`>...0......]...|

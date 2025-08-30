@@ -43,11 +43,11 @@ difficulty: 2
 
 ### Mood Light
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO26  | red   |
-| GPIO32  | green   |
-| GPIO33  | blue   |
+| Pin     | Function      | Newer devices   |
+| ------- | ------------- | --------------- |
+| GPIO26  | red           | controls WS2811 |
+| GPIO32  | green         | unused          |
+| GPIO33  | blue          | unused          |
 
 ### Relay (3-gang switch model)
 
@@ -92,16 +92,25 @@ output:
     id: relay_3
 
 light:
-  - platform: rgb
-    name: "Mood Light"
-    red: moodRed
-    green: moodGreen
-    blue: moodBlue
   - platform: monochromatic
     name: "Backlight"
     id: backlight
     output: backlight_pwm
     restore_mode: ALWAYS_ON
+  # Older devices use 3-channel RGB moodlight
+  - platform: rgb
+    name: "Mood Light"
+    red: moodRed
+    green: moodGreen
+    blue: moodBlue
+  # Newer devices use a WS2811 controller
+  # Make sure to disable the output on GPIO26
+  #- platform: esp32_rmt_led_strip
+  #  rgb_order: RGB
+  #  pin: GPIO26
+  #  num_leds: 8
+  #  chipset: ws2811
+  #  name: "Mood Light"
 
 spi:
   clk_pin: GPIO19
