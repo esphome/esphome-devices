@@ -39,9 +39,6 @@ The nightlight feature cannot be controlled by the ESP IO, and cannot be disable
 # Basic Config
 esphome:
   name: double-outlet-plug
-  platform: esp8266
-  board: esp8285
-  esp8266_restore_from_flash: true
   # Because the right button is analog, its value will change to unpredictable
   # values during the boot process.  We must wait until the boot process has
   # loaded all sensors.
@@ -56,6 +53,10 @@ esphome:
       globals.set:
         id: allow_analog_button_input
         value: 'true'
+
+esp8266:
+  board: esp8285
+  restore_from_flash: true
 
 # These values may need to be calibrated per device to correct displayed values
 # for amperage, voltage, and power.

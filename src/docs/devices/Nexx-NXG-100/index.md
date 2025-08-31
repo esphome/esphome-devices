@@ -37,7 +37,8 @@ On each transition of the door sensor, the green LED will blink.
 ```yaml
 esphome:
   name: nxg100
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 ota:
@@ -163,7 +164,8 @@ Similarly if the door is open, the open button does nothing.
 ```yaml
 esphome:
   name: nxg100
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 ota:

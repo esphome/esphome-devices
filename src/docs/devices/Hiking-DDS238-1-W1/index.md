@@ -126,7 +126,8 @@ substitutions:
 esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
-  platform: ESP8266
+
+esp8266:
   board: esp12e
 
 wifi:

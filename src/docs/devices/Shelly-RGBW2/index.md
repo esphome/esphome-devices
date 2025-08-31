@@ -27,7 +27,8 @@ board: esp8266
 ```yaml
 esphome:
   name: shelly_rgbw2
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -81,7 +82,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 logger:
@@ -229,8 +231,6 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   on_boot:
     then:
       # Enable both strips at 60% Brightness, Warm Color on startup
@@ -242,6 +242,9 @@ esphome:
           id: light2
           brightness: 60%
           color_temperature: 3500 K
+
+esp8266:
+  board: esp01_1m
 
 logger:
 api:
