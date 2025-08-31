@@ -1,6 +1,6 @@
 ---
 title: M5Stack Tab5
-date-published: 2025-07-05
+date-published: 2025-09-01
 type: misc
 standard: global
 board: esp32
@@ -9,7 +9,18 @@ project-url: https://docs.m5stack.com/en/core/Tab5
 
 ## Description
 
-TBD
+The M5Stack Tab5 is a self contained, optionally battery powered 5 inch touchscreen display with an ESP32-P4 at the heart.
+It has an ESP32-C6 co-processor that gives the P4 Wi-Fi capabilities.
+
+The Tab5 has many peripherals built in including but not limited to:
+
+- Display
+- Touchscreen
+- Microphone
+- Speaker
+- Camera
+- IMU
+- RTC
 
 ## Example Configuration
 
@@ -179,14 +190,6 @@ sensor:
 ## Display
 
 ```yaml
-external_components:
-  - source: github://pr#9403
-    components: [const, mipi, mipi_dsi, esp_ldo]
-    refresh: 1h
-  - source: github://pr#9822
-    components: gt911
-    refresh: 1h
-
 touchscreen:
   - platform: gt911
     interrupt_pin: GPIO23
