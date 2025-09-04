@@ -15,7 +15,7 @@ This is a wall mounted light dimmer for EU standard wall boxes. The rotary dimme
 
 ## Flashing
 
-The device contains a WB3S module (BK72xx, WiFi), which can be directly flashed using ltchiptool. 
+The device contains a WB3S module (BK72xx, WiFi), which can be directly flashed using ltchiptool.
 Alternatively, it should also be possible to replace the module with e.g. a WT0132C6-S5 (ESP32C6) module.
 
 ## Configuration example
@@ -58,6 +58,7 @@ tuya:
 # Main light entity
 light:
   - platform: "tuya"
+    id: light
     name: "Wall Dimmer"
     dimmer_datapoint: 2        # Brightness
     switch_datapoint: 1        # On/Off
@@ -68,6 +69,7 @@ light:
 # Minimum brightness (user adjustable)
 number:
   - platform: "tuya"
+    id: min_brightness
     name: "Min Brightness"
     number_datapoint: 3
     min_value: 0
@@ -77,6 +79,7 @@ number:
 
 select:
   - platform: "tuya"
+    id: load_type
     name: "Load Type"
     enum_datapoint: 4
     options:
@@ -86,6 +89,7 @@ select:
     entity_category: config
 
   - platform: "tuya"
+    id: indicator_led
     name: "Indicator LED"
     enum_datapoint: 21
     options:
