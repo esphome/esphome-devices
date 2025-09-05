@@ -63,7 +63,7 @@ binary_sensor:
     on_press:
       then:
         - cover.stop: curtain
-      
+
   - platform: gpio
     id: close_button
     pin: P8
