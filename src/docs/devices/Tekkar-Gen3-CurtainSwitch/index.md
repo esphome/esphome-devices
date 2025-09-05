@@ -37,7 +37,6 @@ To flash the chip, the front cover needs to be removed. After removing it, the c
 
 For flashing, you can use `ltchiptool`. Once you have soldered and connected, start `ltchiptool`. While it is actively trying to connect, briefly bridge either one of the `CEN` pins to ground and then release.
 
-
 ## Basic Configuration
 
 ```yaml
@@ -128,7 +127,6 @@ light:
     id: led_blue
     output: led_blue_out
     restore_mode: RESTORE_DEFAULT_OFF
-
 
 # Status LED
 #status_led:
