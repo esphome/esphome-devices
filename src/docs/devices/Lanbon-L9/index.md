@@ -36,6 +36,7 @@ difficulty: 2
 | GPIO9  | Data D5 |
 | GPIO46 | Data D6 |
 | GPIO3  | Data D7 |
+| GPIO4  | Reset Pin |
 
 ### I²C (used for touchscreen)
 
@@ -136,6 +137,7 @@ display:
     spi_id: display_spi
     bus_mode: octal
     dc_pin: GPIO17
+    reset_pin: GPIO4
     dimensions:
       height: 320
       width: 170
@@ -311,6 +313,7 @@ display:
     spi_id: display_spi
     bus_mode: octal
     dc_pin: GPIO17
+    reset_pin: GPIO4
     dimensions:
       height: 320
       width: 170
