@@ -226,7 +226,7 @@ display:
     } else {
       it.display_voltage(false);
       it.display_kwh(true);
-      it.printf(0, "%.1f", id(wh_sensor).state);
+      it.printf(0, "%.1f", id(wh_sensor).state/1000);
       it.printf(1, "%.1f", id(w_sensor).state);
     }
 
