@@ -46,7 +46,7 @@ logger:
 # Enable Home Assistant API
 api:
     password: !secret api_password
-  # RTTTL play can be called from Dev Tools or from Scritps. 
+  # RTTTL play can be called from Dev Tools or from Scritps.
   actions:
   - action: rtttl_play
     variables:
