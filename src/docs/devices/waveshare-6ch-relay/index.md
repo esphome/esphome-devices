@@ -46,6 +46,14 @@ logger:
 # Enable Home Assistant API
 api:
     password: !secret api_password
+  # RTTTL play can be called from Dev Tools or from Scritps.
+  actions:
+  - action: rtttl_play
+    variables:
+      song_str: string
+    then:
+      - rtttl.play:
+          rtttl: !lambda 'return song_str;'
 
 ota:
   - platform: esphome
@@ -60,6 +68,9 @@ captive_portal:
 
 web_server:
   port: 80
+
+bluetooth_proxy:
+  active: true
 
 time:
   - platform: homeassistant
