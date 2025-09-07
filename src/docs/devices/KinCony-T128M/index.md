@@ -29,8 +29,12 @@ esp32:
 # Enable logging
 logger:
   hardware_uart: USB_SERIAL_JTAG
+
 # Enable Home Assistant API
 api:
+
+ota:
+  platform: esphome
 
 ethernet:
   type: W5500
