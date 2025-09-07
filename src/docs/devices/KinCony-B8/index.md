@@ -16,6 +16,7 @@ board: esp32
 ## ESPHome Configuration
 
 Here is an example YAML configuration for the KinCony B8 ESP32-S3 relay board.
+
 ```yaml
 esphome:
   name: b8
