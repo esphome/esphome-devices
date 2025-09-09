@@ -83,6 +83,7 @@ display:
     address: 0x3C
     lambda: |-
       it.printf(0, 15, id(roboto), "IP: %s", id(eth_ip).state.c_str());
+
 uart:
   id: dac_uart
   rx_pin: 4
