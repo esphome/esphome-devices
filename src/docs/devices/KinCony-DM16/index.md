@@ -16,6 +16,7 @@ board: esp32
 ## ESPHome Configuration
 
 Here is an example YAML configuration for the KinCony DM16 ESP32-S3 dimmer board.
+
 ```yaml
 esphome:
   name: dm16
