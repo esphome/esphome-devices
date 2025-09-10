@@ -39,6 +39,7 @@ Flashing can be achieved by popping off the top cover and soldering to easily ac
 [Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the process of flashing Tuya-based devices. It allows you to bypass the need for physically opening the device and swapping out chips. By leveraging the cloud APIs, Cloudcutter enables you to flash the firmware remotely, making it a convenient and less intrusive option.
 
 After cloning the tuya-cloudcutter git repository, run the tuya-cloudcutter script and once the docker image has successfully been built, make the following selections:
+
 - When prompted with "Select your desired operation" enter "2" for "Flash 3rd Party Firmware"
 - When prompted with "How do you want to choose the device?", choose "device-profiles (i.e. custom profile)"
 - When prompted with "Select device profile", choose "tuya-generic-universal-ir-remote-control-cb3s-v2.0.0"
