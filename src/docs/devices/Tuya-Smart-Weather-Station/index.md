@@ -25,9 +25,11 @@ This device is based on the WBR3 Tuya Module, you can check for flashing setup i
 ## Features
 
 ### Home Assistant Integration
+
 Pulls and displays real-time weather data (temperature, humidity, pressure, wind speed, UV index, real feel, and weather condition) directly from your Home Assistant sensors.
 
 ### Local and RF Sensor Support
+
 Displays and exposes data from its built-in sensor and up to three additional wireless RF sub-sensors.
 
 ## GPIO Pinout
