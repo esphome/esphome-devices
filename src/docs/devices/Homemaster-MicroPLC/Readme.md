@@ -207,7 +207,7 @@ switch:
     name: "Relay"                       # Relay switch exposed to Home Assistant
     pin: 26
     id: relay1
-                             
+
 status_led:
   pin:
     number: GPIO25                      # Pin for status LED
