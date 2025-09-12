@@ -5,7 +5,7 @@ type: relay
 standard: global
 board: esp32
 project-url: https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC
-made-for-esphome: True
+made-for-esphome: False
 difficulty: 1
 ---
 
