@@ -183,19 +183,13 @@ time:
     id: pcf8563_time
     address: 0x51                       # I2C address of PCF8563
   - platform: homeassistant
+    id: ha_time
     # instead try to synchronize via network repeatedly ...
     on_time_sync:
       then:
               # ... and update the RTC when the synchronization was successful
         - pcf8563.write_time
-        # Update last restart time, but only once.
-        - if:
-            condition:
-              lambda: 'return id(device_last_restart).state == "";'
-            then:
-              - text_sensor.template.publish:
-                  id: device_last_restart
-                  state: !lambda 'return id(pcf8563_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
+
 i2c:
   - id: bus_a
     sda: 32                             # I2C SDA pin
@@ -210,11 +204,12 @@ one_wire:
 switch:
   - platform: gpio
     name: "Relay"                       # Relay switch exposed to Home Assistant
-    pin: 26                             # GPIO pin controlling the relay
-
+    pin: 26
+    id: relay1
+                             
 status_led:
   pin:
     number: GPIO25                      # Pin for status LED
     inverted: true                      # Inverted logic (LED ON when pin LOW)
-
+    id: st_led
 ```
