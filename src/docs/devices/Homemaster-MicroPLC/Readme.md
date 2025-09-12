@@ -1,10 +1,11 @@
 ---
 title: Homemaster-MicroPLC
-date-published: 2025-08-18
+date-published: 2025-09-12
 type: relay
 standard: global
 board: esp32
 project-url: https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC
+made-for-esphome: True
 difficulty: 1
 ---
 
