@@ -38,7 +38,7 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 ## Pinout
 
-![alt text](./pinout.png "pinout")
+![alt text](./pinout_MicroPLC.png "pinout")
 
 ## MicroPLC Functional Block Diagram
 
