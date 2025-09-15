@@ -17,6 +17,7 @@ board: esp32
 ## ESPHome Configuration
 
 Here is an example YAML configuration for the KinCony AIO Hybrid ESP32-S3 ALL IN ONE board.
+
 ```yaml
 esphome:
   name: aio-hybrid
