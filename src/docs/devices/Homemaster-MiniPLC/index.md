@@ -181,15 +181,15 @@ mdns:
 api:                                    # Enable ESPHome API for Home Assistant integration
 
 ota:
-  - platform: esphome                   
+  - platform: esphome
 
 network:
-  enable_ipv6: ${ipv6_enable}           
+  enable_ipv6: ${ipv6_enable}
 
 wifi:
-  ap: {}                                
-  fast_connect: "${wifi_fast_connect}"  
-  domain: "${dns_domain}"               
+  ap: {}
+  fast_connect: "${wifi_fast_connect}"
+  domain: "${dns_domain}"
 
 captive_portal:                         # Captive portal for fallback hotspot
 
@@ -388,14 +388,14 @@ switch:
          level: "75%"
    turn_off_action:
      - output.turn_off: buzzer_output
-     
+
 fan:
   - platform: speed
     output: dac_output
     name: "DAC 0-10V"
 
 sensor:
-#MAX 31865 RTD 
+#MAX 31865 RTD
 #  - platform: max31865
 #    name: "MAX 31856 Temperature 1"
 #    cs_pin: GPIO1
