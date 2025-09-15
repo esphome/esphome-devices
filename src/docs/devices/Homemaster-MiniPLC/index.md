@@ -5,6 +5,7 @@ type: relay
 standard: global
 board: esp32
 project-url: https://github.com/isystemsautomation/HOMEMASTER/tree/main/MiniPLC
+made-for-esphome: True
 difficulty: 1
 ---
 
