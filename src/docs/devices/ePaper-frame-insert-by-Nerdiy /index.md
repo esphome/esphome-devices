@@ -20,6 +20,7 @@ This elegant solution makes your Smart Home data visually accessible with minima
 ## Files for 3D print
 
 More info and the housing STLs are available here:
+
 - [RIBBA 5"x7" frame insert](https://nerdiy.de/en/product-2/eink-frame-insert-suitable-for-ikea-ribba-5x7-picture-frame-3d-printable-stl-files/)
 - [RÖDALM 5"x7" frame insert](https://nerdiy.de/en/product-2/ikea-roedalm-eink-rahmeneinsatz-fuer-13x18cm-5x7-bilderrahmen-3d-druckbar-stl-dateien/)
 
