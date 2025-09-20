@@ -1,7 +1,7 @@
 ---
 title: Generic 2CH Wifi Curtain Module
 date-published: 2024-08-13
-type: cover
+type: misc
 standard: global
 board: bk72xx
 Difficulty: Soldering required
