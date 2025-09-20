@@ -29,17 +29,14 @@ substitutions:
 
 esphome:
   name: "${device_name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "${device_name} Fallback Hotspot"
-    password: !secret wifi_fallback_pw
 
 # Enable logging
 logger:

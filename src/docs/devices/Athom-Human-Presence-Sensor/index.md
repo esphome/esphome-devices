@@ -72,7 +72,9 @@ web_server:
   port: 80
 
 wifi:
-  ap: {}
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 captive_portal:
 

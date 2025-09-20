@@ -26,12 +26,13 @@ substitutions:
 
 esphome:
   name: "${name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: "YourSSID"
-  password: "YourWifiPassword"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 # Enable logging
 logger:

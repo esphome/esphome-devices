@@ -32,21 +32,13 @@ substitutions:
 esphome:
   name: $devicename
   comment: ${device_description}
-  platform: ESP8266
 
+esp8266:
+  board: esp01_1m
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Brilliant Plug 1"
-    password: !secret AP_Password
-
-  manual_ip:
-      static_ip: 192.168.x.xx
-      gateway: 192.168.x.x
-      subnet: 255.255.255.0
 
 captive_portal:
 

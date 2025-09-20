@@ -22,17 +22,18 @@ board: esp8266
 ---
 esphome:
   name: SP10
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   ap:
     ssid: SP10_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
 
 logger:

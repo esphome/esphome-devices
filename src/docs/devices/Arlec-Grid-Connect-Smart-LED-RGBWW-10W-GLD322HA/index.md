@@ -30,7 +30,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 # Enable logging
@@ -46,6 +47,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
 
 web_server:
   port: 80

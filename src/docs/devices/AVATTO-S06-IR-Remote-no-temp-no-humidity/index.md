@@ -7,6 +7,10 @@ board: esp8266
 ---
 ![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
 
+## General Notes
+
+There's two hardware iterations of this particular IR blaster: the older version documented here that uses an ESP01 module, and [a newer one that uses a CB3S module](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version) (a Beken BK7231N module in the same form factor as the older ESP01). Outwardly, both appear identical.
+
 ## GPIO Pinout
 
 | Pin    | Function           |
@@ -58,17 +62,14 @@ between the GPIO13 and the RESET pin of the ESP8266 MCU.
 # https://esphome.io/devices/esp8266.html
 esphome:
   name: ir_remote
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret ssid
-  password: !secret wlan_password
-  fast_connect: true
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: IR Remote Fallback Hotspot
-    password: !secret ap_password
 
 captive_portal:
 

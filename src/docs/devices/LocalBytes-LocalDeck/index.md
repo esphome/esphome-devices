@@ -27,7 +27,7 @@ substitutions:
   friendly_name: Localbytes LocalDeck <NAME>
 
 packages:
-  localbytes.plug-pm: github://LocalBytes/localdeck-config/blob/main/packages/localdeck-codegen/esphome-localdeck.yaml
+  localbytes.plug-pm: github://LocalBytes/localdeck-config/packages/localdeck-codegen/esphome-localdeck.yaml
 
 esphome:
   name: ${name}

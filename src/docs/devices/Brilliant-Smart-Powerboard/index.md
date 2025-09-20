@@ -41,7 +41,8 @@ The blue led is used as a status led and flashes as the wifi is connecting. The 
 ```yaml
 esphome:
   name: multibox
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

@@ -44,7 +44,8 @@ substitutions:
 
 esphome:
   name: wyzeoutdoor
-  platform: ESP32
+
+esp32:
   board: esp-wrover-kit
 wifi:
   ssid: !secret wifi_ssid
@@ -126,6 +127,8 @@ sensor:
       name: "${display_name} Volts"
       unit_of_measurement: V
       accuracy_decimals: 1
+    energy:
+      name: "${display_name} Energy"
     power:
       name: "${display_name} Watts"
       unit_of_measurement: W

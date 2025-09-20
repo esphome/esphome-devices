@@ -13,14 +13,14 @@ Generation 3 of Shelly Plus i4.
 
 ## GPIO Pinout
 
-| Pin    | Function     |
-| ------ | ------------ |
-| ?      | LED          |
-| GPI03  | NTC          |
-| GPIO10 | Switch 1     |
-| GPIO7  | Switch 2     |
-| GPIO6  | Switch 3     |
-| GPIO5  | Switch 4     |
+| Pin    | Function |
+| ------ | -------- |
+| ?      | LED      |
+| GPI03  | NTC      |
+| GPIO10 | Switch 1 |
+| GPIO7  | Switch 2 |
+| GPIO6  | Switch 3 |
+| GPIO5  | Switch 4 |
 
 ## Programming Interface
 
@@ -31,13 +31,9 @@ same as for Shelly Plus i4
 ## Basic Configuration
 
 ```yaml
-substitutions:
-  device_name: "sehlly-i4-gen3"
-  friendly_name : "Shelly i4 Gen3"
-
 esphome:
-  name: ${device_name}
-  friendly_name: ${friendly_name}
+  name: "shelly-i4-gen3"
+  friendly_name: "Shelly i4 Gen3"
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -47,24 +43,15 @@ esp32:
     version: recommended
     sdkconfig_options:
       COMPILER_OPTIMIZATION_SIZE: y
-    advanced:
-      ignore_efuse_mac_crc: false
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
-    ssid: "$(device_name) Fallback Hotspot"
-    password: !secret wifi_password
 
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
 
 time:
   - platform: homeassistant
@@ -99,10 +86,10 @@ binary_sensor:
     pin: 10
     on_press:
       then:
-        - logger.log: "Seitch 1 pressed"
+        - logger.log: "Switch 1 pressed"
     on_release:
       then:
-        - logger.log: "Seitch 1 released"
+        - logger.log: "Switch 1 released"
     filters:
       - delayed_on_off: 50ms
   - platform: gpio
@@ -111,34 +98,34 @@ binary_sensor:
     pin: 7
     on_press:
       then:
-        - logger.log: "Seitch 2 pressed"
+        - logger.log: "Switch 2 pressed"
     on_release:
       then:
-        - logger.log: "Seitch 2 released"
+        - logger.log: "Switch 2 released"
     filters:
-      - delayed_on_off: 50ms  
+      - delayed_on_off: 50ms
   - platform: gpio
     name: "Switch 3"
     id: switch3
     pin: 6
     on_press:
       then:
-        - logger.log: "Seitch 3 pressed"
+        - logger.log: "Switch 3 pressed"
     on_release:
       then:
-        - logger.log: "Seitch 3 released"
+        - logger.log: "Switch 3 released"
     filters:
-      - delayed_on_off: 50ms  
+      - delayed_on_off: 50ms
   - platform: gpio
     name: "Switch 4"
     id: switch4
     pin: 5
     on_press:
       then:
-        - logger.log: "Seitch 4 pressed"
+        - logger.log: "Switch 4 pressed"
     on_release:
       then:
-        - logger.log: "Seitch 4 released"
+        - logger.log: "Switch 4 released"
     filters:
       - delayed_on_off: 50ms
 

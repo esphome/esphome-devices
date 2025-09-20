@@ -50,7 +50,8 @@ As of May 2022 these switches use a WB3S chip (BK7231T) and are no longer compat
 ```yaml
 esphome:
   name: ds_102
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -150,7 +151,8 @@ light:
 ```yaml
 esphome:
   name: ds_102
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
