@@ -19,8 +19,6 @@
       link: '/type/sensor'
     - label: 'Switches'
       link: '/type/switch'
-    - label: 'Covers'
-      link: '/type/cover'
 - label: 'Electrical Standard'
   items:
     - label: 'AU Devices'
