@@ -19,7 +19,9 @@ You also need to solder a wire to the NRST pad on the back side of the board. Th
 
 ## Dumping original firmware
 
-Connect NRST to gnd (and leave it connected to ground), provide power to the board, then:
+Connect NRST to gnd while you provide power to the board. This puts the board in flash mode. Once you disconnect ground from NRST, the board "boots". The board needs to be in flash mode to read the flash or to write the flash but once the process starts you can disconnect ground from NRST.
+
+I don't like to solder onto that pad because it can pull the pad off. This makes the board undlashable. Instead, I hold (with fingers) a ground-connected wire to NRST, power the board, press enter on the command. Then I can let go.
 
 ```bash
 ltchiptool flash read beken-72xx ./dimmer1
