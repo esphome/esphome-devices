@@ -80,7 +80,7 @@ button:
   name: Reboot in safe mode
 
 # ==========================
-# RELAYS & LED (OUTPUTS)
+# RELAYS (OUTPUTS)
 # ==========================
 switch:
   - platform: gpio
@@ -161,13 +161,12 @@ uart:
   tx_pin: 19   # Modbus TX
   baud_rate: 9600
 
-# ------------------------------
+# ==========================
 # Status LED (system state)
-# ------------------------------
+# ==========================
 status_led:
   pin:
     number: 15
     inverted: true
     ignore_strapping_warning: true
-
 ```
