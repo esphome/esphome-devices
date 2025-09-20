@@ -19,7 +19,7 @@ You also need to solder a wire to the NRST pad on the back side of the board. Th
 
 ## Dumping original firmware
 
-Connect NRST to gnd while you provide power to the board. This puts the board in flash mode. Once you disconnect ground from NRST, the board "boots". The board needs to be in flash mode to read the flash or to write the flash but once the process starts you can disconnect ground from NRST.
+In the plastic socket on the board is a place for ground and 3v3. Connect NRST to gnd as you provide power to the board to put the board in flash mode. Once you disconnect ground from NRST, the board "boots". The board needs to be in flash mode to read the flash or to write the flash but once the process starts you can disconnect ground from NRST.
 
 I don't like to solder onto that pad because it can pull the pad off. This makes the board undlashable. Instead, I hold (with fingers) a ground-connected wire to NRST, power the board, press enter on the command. Then I can let go.
 
@@ -38,7 +38,7 @@ esphome compile dimmer.yml
 Next, write that firmware:
 
 ```bash
-ltchiptool flash write .esphome/build/dimmer/.pioenvs/dimmer/esphome_2024.10.0_generic-bk7231n-qfn32-tuya_bk7231n_lt1.7.0.uf2
+ltchiptool flash write .esphome/build/dimmer/.pioenvs/dimmer/esphome_2024.10.0_generic-bk7231n-qfn32-tuya_bk7231n_lt1.7.0.uf2 --device=/dev/tty.usbserial-0001
 ```
 
 ## Basic Configuration (hardware only)
