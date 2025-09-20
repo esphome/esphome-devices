@@ -11,7 +11,7 @@ difficulty: 2
 
 ## Product description
 
-This is a 4-relay board, having 4 inputs and an RS485 interface based on an ESP32. The inputs are optoisolated (mine came with TLP785GB with 4.7k resistors on inputs, making it safe to operate them around max 24V), with a common ground, independent from the board's main gound.
+This is a 4-relay board, having 4 inputs and an RS485 interface based on an ESP32. The inputs are optoisolated (mine came with TLP785GB with 4.7k resistors on inputs, making it safe to operate them around max 24V), with a common ground, independent from the board's main gound. The RS485 transceiver is a SP3485E.
 
 I bought it from: https://www.aliexpress.com/item/1005008876629425.html
 
@@ -19,24 +19,21 @@ I bought it from: https://www.aliexpress.com/item/1005008876629425.html
 
 | Pin    | Function  |
 | ------ | --------- |
-| GPIO2  | Wifi LED  |
-| GPIO25 | Bus RX    |
-| GPIO26 | Bus TX    |
 | GPIO23 | Relay 1   |
 | GPIO5  | Relay 2   |
 | GPIO4  | Relay 3   |
 | GPIO13 | Relay 4   |
-| GPIO15 | LED       |
 | GPIO25 | Input 1   |
 | GPIO26 | Input 2   |
 | GPIO27 | Input 3   |
 | GPIO33 | Input 4   |
-| GPIO16 | Pad RX2   |
-| GPIO17 | Pad TX2   | 
 | GPIO19 | ModBUS TX | 
 | GPIO18 | ModBUS RX |
+| GPIO15 | LED       |
+| GPIO16 | Pad RX2   |
+| GPIO17 | Pad TX2   | 
 
-All pins are inverted.
+All pins are inverted. It also exposes GPIOs 12, 14, 21, 22 labelled appropriately on the board.
 
 ## Basic Config
 
