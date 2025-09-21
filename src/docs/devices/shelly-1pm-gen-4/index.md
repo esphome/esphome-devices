@@ -1,12 +1,12 @@
 ---
-title: Shelly Plus 1PM Gen 4
+title: Shelly 1PM Gen 4
 date-published: 2025-09-21
 type: relay
 standard: uk, us, eu
 board: esp32-c6
 ---
 
-## Shelly Plus 1PM Gen 4
+## Shelly 1PM Gen 4
 
 ## GPIO Pinout
 
@@ -23,7 +23,7 @@ board: esp32-c6
 | GPIO16 | Add-on module Data in       |
 | GPIO17 | Add-on module Analog in     |
 
-The Shelly Plus 1PM Gen 4 is based on the ESP32-C6 (Single core, 160MHz, 8MB embedded flash)
+The Shelly 1PM Gen 4 is based on the ESP32-C6 (Single core, 160MHz, 8MB embedded flash)
 
 Please calibrate the NTC and the voltage / power measurements, the values below are just a rough estimate!
 
