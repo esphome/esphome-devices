@@ -1,5 +1,5 @@
 ---
-title: AC/DC powered ESP32 Relay Board x4
+title: ESP32_Relay x4 (AC/DC powered)
 date-published: 2023-05-06
 type: relay
 standard: global
@@ -11,11 +11,9 @@ board: esp32
 
 ## Product description
 
-This is a 4-relay board with an ESP32-WROOM-E that can be powered from AC mains and vide range of VDC.
+This is a 4-relay board with an ESP32-WROOM-E that can be powered from either AC mains or a wide range of DC. The board can be powered either via 120-220VAC, 7-30VDC or 5VDC (separate connectors).
 
-Each relay has COM+NO+NC exposed. Product descriptions don't seem to specify maximum load. Each relay supports 10Amp max load, acconding to the label.
-
-The board can be powered either via 120-220VAC, 7-30VDC or 5VDC (separate connectors).
+Each relay has COM+NO+NC exposed. The board also exposes a plethora of free GPIOs to use on solder pads.
 
 I bought it from: [eBay](https://www.ebay.com/itm/295164946172), but very similar boards are being sold everywhere.
 
@@ -59,48 +57,23 @@ esphome:
 esp32:
   board: esp32dev
   framework:
-    type: arduino
+    type: esp-idf
 
-output:
-  - platform: gpio
-    pin: GPIO23
-    id: led
+switch:
   - platform: gpio
     pin: GPIO32
-    id: relay_pin_1
+    name: "Relay 1"
   - platform: gpio
     pin: GPIO33
-    id: relay_pin_2
+    name: "Relay 2"
   - platform: gpio
     pin: GPIO25
-    id: relay_pin_3
+    name: "Relay 3"
   - platform: gpio
     pin: GPIO26
-    id: relay_pin_4
-
-# Define the switches based on the relay pins
-switch:
-  - platform: output
-    id: relay_1
-    name: "Relay 1"
-    output: relay_pin_1
-  - platform: output
-    id: relay_2
-    name: "Relay 2"
-    output: relay_pin_2
-  - platform: output
-    id: relay_3
-    name: "Relay 3"
-    output: relay_pin_3
-  - platform: output
-    id: relay_4
     name: "Relay 4"
-    output: relay_pin_4
 
-interval:
-  - interval: 1000ms
-    then:
-      - output.turn_on: led
-      - delay: 500ms
-      - output.turn_off: led
+
+status_led:
+  pin: GPIO23
 ```
