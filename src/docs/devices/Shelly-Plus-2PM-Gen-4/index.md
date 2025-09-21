@@ -6,7 +6,7 @@ standard: uk, us, eu
 board: esp32-c6
 ---
 
-# Shelly Plus 2PM Gen 4
+## Shelly Plus 2PM Gen 4
 
 ## GPIO Pinout
 
