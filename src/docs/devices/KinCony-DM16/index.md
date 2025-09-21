@@ -1,8 +1,7 @@
 ---
 title: KinCony-DM16 (ESP32-S3 16CH Dimmer board)
 date-published: 2025-09-10
-
-type: Dimmers
+type: dimmer
 standard: global
 board: esp32
 ---
