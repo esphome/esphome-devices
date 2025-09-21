@@ -15,10 +15,10 @@ difficulty: 1
 
 The HOMAMASTER MicroPLC is a compact and powerful open-source automation controller based on the ESP32-WROOM-32U. Designed for seamless integration with Home Assistant using ESPHome, it enables control of smart home devices, sensors, actuators, and industrial systems through RS-485 Modbus and wireless communication.
 
-Maker: https://www.home-master.eu/
+Maker: <https://www.home-master.eu/>
 
-Product page: https://www.home-master.eu/shop/esp32-microplc-56
-Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC/Schematic
+Product page: <https://www.home-master.eu/shop/esp32-microplc-56>
+Schematics: <https://github.com/isystemsautomation/HOMEMASTER/tree/main/MicroPLC/Schematic>
 
 ## Features
 
@@ -59,7 +59,7 @@ Wi-Fi Configuration with Improv
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-You can then access it via its local address (e.g., http://homemaster-microplc.local) or directly in Home Assistant.
+You can then access it via its local address (e.g., <http://homemaster-microplc.local>) or directly in Home Assistant.
 
 ### One-Click Import (ESPHome Dashboard Import)
 
@@ -72,7 +72,7 @@ The MicroPLC supports dashboard import, automatically pulling its official confi
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
 
 1. Connect the MicroPLC to your computer with a USB Type-C cable.
-2. Download the YAML configuration file from our GitHub repository.(https://github.com/isystemsautomation/HOMEMASTER/blob/main/MicroPLC/Firmware/microplc.yaml)
+2. Download the YAML configuration file from our GitHub repository.(<https://github.com/isystemsautomation/HOMEMASTER/blob/main/MicroPLC/Firmware/microplc.yaml>)
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
 5. The MicroPLC supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
