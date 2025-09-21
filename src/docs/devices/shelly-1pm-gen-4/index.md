@@ -27,7 +27,7 @@ The Shelly Plus 1PM Gen 4 is based on the ESP32-C6 (Single core, 160MHz, 8MB emb
 
 Please calibrate the NTC and the voltage / power measurements, the values below are just a rough estimate!
 
-## basic config
+## Basic config
 
 ```yaml
 esphome:
