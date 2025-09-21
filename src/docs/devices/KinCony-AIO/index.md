@@ -1,6 +1,6 @@
 ---
 title: KinCony-AIO Hybrid (ESP32-S3 ALL IN ONE Removable Relay board)
-date-published: 2024-06-10
+date-published: 2025-09-15
 type: relay
 standard: global
 board: esp32
