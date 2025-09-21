@@ -1,3 +1,4 @@
+---
 title: Shelly Plus 2PM Gen 4
 date-published: 2025-09-21
 type: relay
@@ -5,7 +6,7 @@ standard: uk, us, eu
 board: esp32-c6
 ---
 
-![Shelly Plus 2PM Gen 4]
+#Shelly Plus 2PM Gen 4
 
 ## GPIO Pinout
 
@@ -26,7 +27,7 @@ The Shelly Plus 2PM Gen 4 is based on the ESP32-C6 (Single core, 160MHz, 8MB emb
 
 Please calibrate the NTC and the voltage / power measurements, the values below are just a rough estimate!
 
-##basic config
+## basic config
 
 ```yaml
 esphome:
@@ -145,7 +146,8 @@ status_led:
     inverted: true
 ```
 
-## Configuration as relay with overpower and overtemperature protection
+## Configuration with protections
+Configuration as relay with overpower and overtemperature protection
 
 ```yaml
 esphome:
