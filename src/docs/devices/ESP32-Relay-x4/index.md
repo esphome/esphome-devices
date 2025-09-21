@@ -1,5 +1,5 @@
 ---
-title: ESP32_Relay x4 (AC/DC powered)
+title: ESP32_Relay X4 (AC/DC powered)
 date-published: 2023-05-06
 type: relay
 standard: global
