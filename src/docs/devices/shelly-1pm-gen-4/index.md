@@ -3,7 +3,7 @@ title: Shelly 1PM Gen 4
 date-published: 2025-09-21
 type: relay
 standard: uk, us, eu
-board: esp32-c6
+board: esp32
 ---
 
 ## Shelly 1PM Gen 4
