@@ -15,7 +15,7 @@ This is a 4-relay board with an ESP32-WROOM-E that can be powered from either AC
 
 Each relay has COM+NO+NC exposed. The board also exposes a plethora of free GPIOs to use on solder pads.
 
-I bought it from: [eBay](https://www.ebay.com/itm/295164946172), but very similar boards are being sold everywhere.
+Link: https://www.aliexpress.com/item/1005008762604101.html
 
 Note: v1.1 of this board is nearly identical except the chip is an ESP32-WROOOM-32E
 
@@ -72,7 +72,6 @@ switch:
   - platform: gpio
     pin: GPIO26
     name: "Relay 4"
-
 
 status_led:
   pin: GPIO23
