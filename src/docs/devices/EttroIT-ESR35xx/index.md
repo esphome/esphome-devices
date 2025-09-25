@@ -24,15 +24,16 @@ these when you reassemble the unit; M1.6 nuts and 16mm bolts work well, also the
 
 Once open, try to not move the controlling wheels mechanism and keep some photo to remount everything in the right place in case something moves or is accidentally removed from it's place, you will need 4 points to solder and attach the serial connection:
 
-![Open unit](unit-disassembled.png "Open unit") ![CBU ACCESS](unit-disassembled.png "CBU")
+![Open unit](unit-disassembled.png "Open unit")
 
-All the pins you need to flash the device are accessible from the BL0942 with SOIC probes:
+All the pins you need to flash the device are accessible:
 
 - VDD / +3.3v (red circled visible in the open unit)
 - GND (black one circled visible in the open unit)
 *NOTE*: to check if GND is correct use a multimeter and check who gives you short circuit against metal shell of CBU, that is GND access, other one is VDD
 - RX
 - TX
+
 *NOTE*: TX and RX are referred as per CBU spec, so you have to use TX for RX and vice versa when connecting to serial
 
 You don't need to completely remove the board from the device, as shown in the picture below. But do not attempt to flash it while it's connected to the mains!
