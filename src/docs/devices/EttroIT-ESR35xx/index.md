@@ -65,7 +65,84 @@ bk72xx:
 esphome:
   name: $name
   friendly_name: $friendly_name
-  #min_version: !secret min_version
+  name_add_mac_suffix: false
+
+mdns:
+
+text_sensor:
+  - platform: libretiny
+    version:
+      name: LibreTiny Version
+
+# Enable logging
+logger:
+  level: INFO
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api
+  reboot_timeout: 30min
+
+ota:
+  - platform: esphome
+    password: !secret ota
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  reboot_timeout: 20min
+
+button:
+  - platform: restart
+    name: "Restart"
+    id: button_restart
+
+binary_sensor:
+  - platform: tuya
+    id: mlock
+    sensor_datapoint: 102
+    name: Mechanic Lock
+    on_press: 
+      then: #remove remote lock so we can rearm the device in case it goes offline!
+        - switch.turn_off: rlock
+  - platform: tuya
+    id: llock
+    sensor_datapoint: 104
+    name: Local Lock
+
+uart:
+  rx_pin: RX1
+  tx_pin: TX1
+  baud_rate: 115200
+
+tuya:
+
+switch:
+  - platform: tuya
+    switch_datapoint: 1
+    name: Switch
+    id: MTD
+    restore_mode: RESTORE_DEFAULT_OFF
+  - platform: tuya
+    id: rlock
+    switch_datapoint: 103
+    name: Remote Lock
+    restore_mode: RESTORE_DEFAULT_OFF
+```
+
+A more complex configuration can allow the switch to be reset automatically, like the one shown below:
+```yaml
+substitutions:
+  name: "remote-rcbo"
+  friendly_name: "Remote RCBO"
+
+bk72xx:
+  board: generic-bk7231n-qfn32-tuya
+
+esphome:
+  name: $name
+  friendly_name: $friendly_name
   name_add_mac_suffix: false
 
 mdns:
@@ -195,7 +272,7 @@ script:
             - lambda: |- 
                 (id(attempts) = 0);
 ```
-*NOTE*: this particular script will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or retries (so 3, 6 and 9 minutes), you can remove the script or reuse it as you like.
+*NOTE*: this particular configuration will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or retries (so 3, 6 and 9 minutes).
 
 ![Certification Test Report EMC](5-Test-Report-EMC.pdf "Test Report EMC")
 ![Certification Test Report LVD](5-Test-Report-LVD.pdf "Test Report LVD")
