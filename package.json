@@ -7,7 +7,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@rocketseat/gatsby-theme-docs": "^3.2.0",
-    "algoliasearch": "^4.14.2",
+    "algoliasearch": "^5.38.0",
     "gatsby": "^4.25.9",
     "gatsby-plugin-algolia": "^0.26.0",
     "gatsby-plugin-canonical-urls": "^4.25.0",
