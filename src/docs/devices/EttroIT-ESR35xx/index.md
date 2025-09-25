@@ -31,8 +31,8 @@ All the pins you need to flash the device are accessible from the BL0942 with SO
 - VDD / +3.3v (red circled visible in the open unit)
 - GND (black one circled visible in the open unit)
 *NOTE*: to check if GND is correct use a multimeter and check who gives you short circuit against metal shell of CBU, that is GND access, other one is VDD
-- RX 
-- TX 
+- RX
+- TX
 *NOTE*: TX and RX are referred as per CBU spec, so you have to use TX for RX and vice versa when connecting to serial
 
 You don't need to completely remove the board from the device, as shown in the picture below. But do not attempt to flash it while it's connected to the mains!
@@ -103,7 +103,7 @@ binary_sensor:
     id: mlock
     sensor_datapoint: 102
     name: Mechanic Lock
-    on_press: 
+    on_press:
       then: #remove remote lock so we can rearm the device in case it goes offline!
         - switch.turn_off: rlock
   - platform: tuya
@@ -132,6 +132,7 @@ switch:
 ```
 
 A more complex configuration can allow the switch to be reset automatically, like the one shown below:
+
 ```yaml
 substitutions:
   name: "remote-rcbo"
@@ -181,10 +182,10 @@ binary_sensor:
     id: mlock
     sensor_datapoint: 102
     name: Mechanic Lock
-    on_press: 
+    on_press:
       then: #remove remote lock so we can rearm the device in case it goes offline!
         - switch.turn_off: rlock
-    on_release: 
+    on_release:
       then:
         - lambda: |-
             (id(attempts) = 0);
@@ -192,7 +193,7 @@ binary_sensor:
     id: llock
     sensor_datapoint: 104
     name: Local Lock
-    on_release: 
+    on_release:
       then:
         - lambda: |-
             (id(attempts) = 0);
@@ -210,12 +211,12 @@ switch:
     name: Switch
     id: MTD
     restore_mode: RESTORE_DEFAULT_OFF
-    on_turn_on: 
+    on_turn_on:
       then:
         - script.stop: cycle_script
         - script.stop: act_script
         - script.execute: act_script
-    on_turn_off: 
+    on_turn_off:
       then:
         - script.stop: act_script
         - script.stop: cycle_script
@@ -225,7 +226,7 @@ switch:
     switch_datapoint: 103
     name: Remote Lock
     restore_mode: RESTORE_DEFAULT_OFF
-    on_turn_off: 
+    on_turn_off:
       then:
         - lambda: |-
             (id(attempts) = 0);
@@ -249,7 +250,7 @@ script:
               - lambda: |-
                   return (id(attempts) < 3);
           then:
-            - lambda: |- 
+            - lambda: |-
                 (id(attempts) += 1);
             - delay: !lambda |-
                 return (id(attempts) * 180000);
@@ -269,9 +270,10 @@ script:
           condition:
             - switch.is_on: MTD
           then:
-            - lambda: |- 
+            - lambda: |-
                 (id(attempts) = 0);
 ```
+
 *NOTE*: this particular configuration will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or retries (so 3, 6 and 9 minutes).
 
 ![Certification Test Report EMC](5-Test-Report-EMC.pdf "Test Report EMC")
