@@ -1,8 +1,8 @@
 ---
 title: EttroIT ESR3516/ESR3532 DIN Rail RCBO
 date-published: 2025-09-25
-type: RCD device complete with overcurrent protection
-standard: europe
+type: misc
+standard: eu
 board: bk72xx
 difficulty: 4
 ---
