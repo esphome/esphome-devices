@@ -277,6 +277,6 @@ script:
 
 *NOTE*: this particular configuration will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or retries (so 3, 6 and 9 minutes).
 
-![Certification Test Report EMC](5-Test-Report-EMC.pdf "Test Report EMC")
-![Certification Test Report LVD](5-Test-Report-LVD.pdf "Test Report LVD")
-![Certification Conformity LVD ECD](M-2025_206_C122911.pdf "Conformity LVD ECD")
+[Test Report EMC](5-Test-Report-EMC.pdf)
+[Test Report LVD](5-Test-Report-LVD.pdf)
+[Certification Conformity LVD ECD](M-2025_206_C122911.pdf)
