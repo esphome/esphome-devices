@@ -36,7 +36,7 @@ All the pins you need to flash the device are accessible:
 
 *NOTE*: TX and RX are referred as per CBU spec, so you have to use TX for RX and vice versa when connecting to serial
 
-You don't need to completely remove the board from the device, as shown in the picture below. But do not attempt to flash it while it's connected to the mains!
+You don't need to completely remove the board from the device, as shown in the picture above. But do not attempt to flash it while it's connected to the mains!
 
 When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power off/on)` disconnect and reconnect the GND line, and it should proceed.
 
