@@ -19,7 +19,8 @@ Also available on Aliexpress with other namings, but without certifications.
 These units generally ship with a firmware which is no longer exploitable by tuya-fwcutter,
 so some disassembly and soldering will be required to flash using serial.
 
-First, the 6 rivets need to be drilled out with a 2mm drill bit. You'll need something to replace
+First, you need to separate the motor unit from the RCBO, open the two plastics un top and botton that keep the unit together, there is also a tiny screw, on the motor unit, remove it before separating the two units.
+Second, the 6 rivets need to be drilled out with a 2mm drill bit from the motor unit. You'll need something to replace
 these when you reassemble the unit; M1.6 nuts and 16mm bolts work well, also there are available some rivets on the internet marketplaces, in case you want to use rivets, you will need 2mm diameter, 18mm length.
 
 Once open, try to not move the controlling wheels mechanism and keep some photo to remount everything in the right place in case something moves or is accidentally removed from it's place, you will need 4 points to solder and attach the serial connection:
@@ -30,9 +31,11 @@ All the pins you need to flash the device are accessible:
 
 - VDD / +3.3v (red circled visible in the open unit)
 - GND (black one circled visible in the open unit)
+
 *NOTE*: to check if GND is correct use a multimeter and check who gives you short circuit against metal shell of CBU, that is GND access, other one is VDD
-- RX
-- TX
+
+- RX (white circled visible in open unit)
+- TX (green circled visible in open unit)
 
 *NOTE*: TX and RX are referred as per CBU spec, so you have to use TX for RX and vice versa when connecting to serial
 
