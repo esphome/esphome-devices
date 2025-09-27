@@ -14,6 +14,11 @@ using ESPHome.
 ## T1
 
 ``` yaml
+esphome:
+  name: "sonoff-t1"
+  friendly_name: Sonoff T1
+  name_add_mac_suffix: false
+
 esp8266:
   board: esp01_1m
 
@@ -53,6 +58,11 @@ status_led:
 ## T2
 
 ``` yaml
+esphome:
+  name: "sonoff-t2"
+  friendly_name: Sonoff T2
+  name_add_mac_suffix: false
+
 esp8266:
   board: esp01_1m
 
@@ -113,6 +123,11 @@ status_led:
 ## T3
 
 ``` yaml
+esphome:
+  name: "sonoff-t3"
+  friendly_name: Sonoff T3
+  name_add_mac_suffix: false
+
 esp8266:
   board: esp01_1m
 
