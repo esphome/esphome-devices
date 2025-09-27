@@ -22,6 +22,10 @@ esphome:
 esp8266:
   board: esp01_1m
 
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
 binary_sensor:
   - platform: gpio
     pin:
@@ -65,6 +69,10 @@ esphome:
 
 esp8266:
   board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 binary_sensor:
   - platform: gpio
