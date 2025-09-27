@@ -16,7 +16,7 @@ using ESPHome.
 ``` yaml
 esphome:
   name: "sonoff-t1"
-  friendly_name: Sonoff T1
+  friendly_name: "Sonoff T1"
   name_add_mac_suffix: false
 
 esp8266:
@@ -60,7 +60,7 @@ status_led:
 ``` yaml
 esphome:
   name: "sonoff-t2"
-  friendly_name: Sonoff T2
+  friendly_name: "Sonoff T2"
   name_add_mac_suffix: false
 
 esp8266:
@@ -125,7 +125,7 @@ status_led:
 ``` yaml
 esphome:
   name: "sonoff-t3"
-  friendly_name: Sonoff T3
+  friendly_name: "Sonoff T3"
   name_add_mac_suffix: false
 
 esp8266:
