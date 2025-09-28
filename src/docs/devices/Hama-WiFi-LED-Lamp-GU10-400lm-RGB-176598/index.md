@@ -75,10 +75,10 @@ output:
     channel: 4
   - platform: bp1658cj
     id: output_red
-    channel: 1 
+    channel: 1
   - platform: bp1658cj
     id: output_green
-    channel: 0 
+    channel: 0
   - platform: bp1658cj
     id: output_blue
     channel: 2
