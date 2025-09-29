@@ -58,7 +58,7 @@ output:
   - platform: ledc
     id: output_red
     pin: GPIO25
-    frequency: 24000 Hz           
+    frequency: 24000 Hz
   - platform: ledc
     id: output_green
     pin: GPIO26
