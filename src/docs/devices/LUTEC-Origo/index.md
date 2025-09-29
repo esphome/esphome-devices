@@ -32,7 +32,8 @@ IP54 ingress protection
 
 ![LUTEC Origo WiZ ceiling/wall lamp](./LUTEC-Origo.jpg "LUTEC Origo WiZ ceiling/wall lamp")
 
-## GPIO Pinout  
+## GPIO Pinout
+
 | Pin    | Function      |
 | ------ | ------------- |
 | GPIO13 | WW Output     |
