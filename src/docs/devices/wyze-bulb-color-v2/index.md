@@ -25,11 +25,11 @@ Wyze updated their original wyze bulb color which makes it slightly easier to fl
 2. Remove the LED array. This is also only held in with adhesive so just pry it up by one of the sides. Be careful not to damage the 6 metal pins and the antenna that go through the led array plate.
 3. Remove the potting. The potting only needs to be removed on the side opposite of the 6 led pins. Be careful not to damage any components on the board while removing.
 
-![Remove Potting](potting.JPG "Remove Potting")
+   ![Remove Potting](potting.JPG "Remove Potting")
 
 4. Solder to pads on the bulb. The tight space can make this tricky but it's very doable. Make sure you aren't shorting anything.
 
-![Back Pads](back.JPG "Back Pads")
+   ![Back Pads](back.JPG "Back Pads")
 
 5. Connect your wires to your usb-uart adapter and flash. See connection chart below.
 6. Reassemble the bulb in reverse
