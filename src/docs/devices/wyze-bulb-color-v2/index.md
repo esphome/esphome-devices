@@ -10,7 +10,7 @@ difficulty: 4
 
 ## Gernal Notes
 
-Wyze updated their original wyze bulb color which makes it slightly easier to flash esphome. The V2 features an esp32-c3 that controls a BP5758 LED driver.
+Wyze updated their original wyze bulb color which makes it slightly easier to flash esphome. The V2 features an esp32-c3 that controls a BP5758 LED driver. [Product Page](https://www.wyze.com/products/wyze-bulb-color)
 
 ## Materials
 
