@@ -15,15 +15,15 @@ The LED driver hums when the brightness gets too high and the PWM frequency is t
 On the LED's driver board, there is a small PCB with an ESP32-WROOM-32 module. It's glued in and connected with a 2 MM pitched header. On the backside of the PCB are pads with 2.54 MM header that can be used to flash.
 
 ## Light Specifications  
-Color: RGB+Warm+Cold White
-Color Temperature: 2700-6500K
-Warm White LEDs: 5x3
-Warm White LEDs: 5x3
-RGB LEDs: 6
-Brightness: 830 lumens
-Voltage: 110V~250V
-Power: 15W
-IP54 ingress protection
+Color: RGB+Warm+Cold White  
+Color Temperature: 2700-6500K  
+Warm White LEDs: 5x3  
+Warm White LEDs: 5x3  
+RGB LEDs: 6  
+Brightness: 830 lumens  
+Voltage: 110V~250V  
+Power: 15W  
+IP54 ingress protection  
 
 ## Product Images
 ![LUTEC Origo WiZ ceiling/wall lamp](./LUTEC-Origo.jpg "LUTEC Origo WiZ ceiling/wall lamp")
