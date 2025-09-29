@@ -7,14 +7,17 @@ board: esp32
 difficulty: 4
 ---
 
-## Notes  
+## Notes
+
 An older version (non WiZ) exists with 2xE27 socket and no wifi.
 The LED driver hums when the brightness gets too high and the PWM frequency is too low.
 
-## Flashing Procedure  
+## Flashing Procedure
+
 On the LED's driver board, there is a small PCB with an ESP32-WROOM-32 module. It's glued in and connected with a 2 MM pitched header. On the backside of the PCB are pads with 2.54 MM header that can be used to flash.
 
-## Light Specifications  
+## Light Specifications
+
 Color: RGB+Warm+Cold White  
 Color Temperature: 2700-6500K  
 Warm White LEDs: 5x3  
@@ -26,6 +29,7 @@ Power: 15W
 IP54 ingress protection  
 
 ## Product Images
+
 ![LUTEC Origo WiZ ceiling/wall lamp](./LUTEC-Origo.jpg "LUTEC Origo WiZ ceiling/wall lamp")
 
 ## GPIO Pinout  
@@ -37,7 +41,8 @@ IP54 ingress protection
 | GPIO26 | Green Output  |
 | GPIO27 | Blue Output   |
 
-## Basic Configuration  
+## Basic Configuration
+
 ```yaml
 esphome:
   name: lutec-origo
