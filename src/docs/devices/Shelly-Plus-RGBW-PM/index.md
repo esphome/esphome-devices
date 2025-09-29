@@ -168,7 +168,8 @@ sensor:
     unit_of_measurement: A
 ```
 
-## Configuration for 4 monochromatic channels
+## Configuration for 4 monochromatic channel
+
 ```yaml
 esphome:
   name: shelly-plus-rgbw-pm-monochrome
