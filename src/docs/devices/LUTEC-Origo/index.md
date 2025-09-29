@@ -26,7 +26,7 @@ Power: 15W
 IP54 ingress protection
 
 ## Product Images
-![LUTEC Origo WiZ ceiling/wall lamp](/LUTEC-Origo.jpg "LUTEC Origo WiZ ceiling/wall lamp")
+![LUTEC Origo WiZ ceiling/wall lamp](./LUTEC-Origo.jpg "LUTEC Origo WiZ ceiling/wall lamp")
 
 ## GPIO Pinout  
 | Pin    | Function      |
