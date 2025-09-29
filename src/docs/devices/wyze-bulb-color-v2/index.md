@@ -36,7 +36,7 @@ Wyze updated their original wyze bulb color which makes it slightly easier to fl
 
 ### Flashing Connections
 
-| Bulb  | USB-uart |
+| Bulb  | USB-UART |
 | ----- | -------- |
 | 3.3v  | 3.3v     |
 | GND   | GND      |
