@@ -48,14 +48,13 @@ esphome:
 
 esp32:
   board: esp32dev
+  framework:
+    type: esp-idf
 
 # Status LED
-light:
-  - platform: status_led
-    name: "RelayBoard Led"
-    restore_mode: ALWAYS_ON
-    pin:
-      number: GPIO23
+status_led:
+  pin:
+    number: 23
 
 # 8 relay outputs, exposed as switches in Home Assistant
 switch:
@@ -84,7 +83,9 @@ switch:
     name: Relay6
     id: relay6
   - platform: gpio
-    pin: GPIO12
+    pin:
+      number: 12
+      ignore_strapping_warning: true
     name: Relay7
     id: relay7
   - platform: gpio
