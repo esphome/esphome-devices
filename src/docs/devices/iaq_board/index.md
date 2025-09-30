@@ -141,7 +141,8 @@ sensor:
             send_first_at: 15
 
 light:
-  - platform: neopixelbus
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
     num_leds: 3
     pin: GPIO16
     name: "RGB strip"

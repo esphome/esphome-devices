@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/ApolloAutomation/MSR-2
 difficulty: 1
+made-for-esphome: true
 ---
 
 ![Apollo MSR-2](Apollo-MSR-2.jpeg "Apollo MSR-2")
@@ -35,7 +36,7 @@ The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-
 - [Shop](https://apolloautomation.com/products/msr-2)
 - [GitHub](https://github.com/ApolloAutomation/MSR-2)
 - [Wiki](https://wiki.apolloautomation.com/)
-- [Discord](https://discord.gg/mMNgQPyF94)
+- [Discord](https://dsc.gg/ApolloAutomation)
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images

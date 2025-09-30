@@ -27,7 +27,8 @@ The GPIO pinout was learned from [Blakadder Tasmota](https://templates.blakadder
 # Type BSD01 plug (AliExpress x 5)
 esphome:
   name: ${lower_devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 logger:

@@ -118,12 +118,12 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: GPIO32
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: adc
     name: "${device_name} Relay Supply Voltage"
     pin: GPIO33
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 8
 

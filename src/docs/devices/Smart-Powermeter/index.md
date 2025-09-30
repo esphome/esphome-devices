@@ -83,37 +83,37 @@ sensor:
   - platform: adc
     pin: GPIO1
     id: Input_1
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 1s
 
   - platform: adc
     pin: GPIO2
     id: Input_2
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 1s
 
   - platform: adc
     pin: GPIO3
     id: Input_3
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 1s
 
   - platform: adc
     pin: GPIO4
     id: Input_4
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 1s
 
   - platform: adc
     pin: GPIO5
     id: Input_5
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 1s
 
   - platform: adc
     pin: GPIO6
     id: Input_6
-    attenuation: 11db
+    attenuation: 12db
     update_interval: 1s
 
   - platform: ct_clamp

@@ -23,18 +23,22 @@ difficulty: 3
 
 ## Basic Configuration
 
+As the only controllable LED is the Blue LED, it is configured here to use the
+[`status_led` light component](https://esphome.io/components/light/status_led), which will take
+over the LED in the event of a error/warning state, such as when WiFi is disrupted.
+
 ```yaml
 # Basic Config
 substitutions:
   update_interval: 60s
+  name: "sonoff-pow-r2"
+  ota_password: "your_ota_password_here"
 
 esphome:
-  name: "Sonoff POW R2"
-  platform: ESP8266
+  name: "${name}"
+
+esp8266:
   board: esp01_1m
-  project:
-    name: Sonoff.relay
-    version: 'POWR2'
 
 logger:
   baud_rate: 0
@@ -43,6 +47,8 @@ logger:
 api:
 
 ota:
+  - platform: esphome
+    password: "${ota_password}"
 
 wifi:
   networks:
@@ -52,6 +58,7 @@ wifi:
 uart:
   rx_pin: RX
   baud_rate: 4800
+  parity: EVEN
 
 binary_sensor:
   - platform: gpio
@@ -103,16 +110,11 @@ switch:
     id: relay
     pin: GPIO12
 
-output:
-  - platform: esp8266_pwm
+light:
+  - platform: status_led
+    name: Sonoff POW Blue LED
     id: pow_blue_led
     pin:
-      number: GPIO13
-      inverted: True
-
-light:
-  - platform: monochromatic
-    name: Sonoff POW Blue LED
-    output: pow_blue_led
-    id: led
+        number: GPIO13
+        inverted: True
 ```

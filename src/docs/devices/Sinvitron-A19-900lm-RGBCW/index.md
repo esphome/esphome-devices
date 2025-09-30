@@ -34,16 +34,17 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   fast_connect: on #we only have one WiFi AP so just use the first one that matches
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
 
 # Enable logging
 logger:
@@ -147,16 +148,17 @@ sinvitron-common.yaml:
 ```yaml
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   fast_connect: on #we only have one WiFi AP so just use the first one that matches
   ap: #since we listed an SSID above, this AP mode will only enable if no WiFi connection could be made
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
 
 # Enable logging
 logger:

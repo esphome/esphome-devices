@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/ApolloAutomation/MTR-1/
 difficulty: 1
+made-for-esphome: true
 ---
 
 ![Apollo MTR-1](Apollo-MTR-1.JPG "Apollo MTR-1")
@@ -35,7 +36,7 @@ The Apollo Automation MTR-1 is a multi-target radar sensor with the following fe
 - [EU Distributor](https://opencircuit.shop/brand/apollo-automation)
 - [GitHub](https://github.com/ApolloAutomation/MTR-1)
 - [Wiki](https://wiki.apolloautomation.com/)
-- [Discord](https://discord.gg/mMNgQPyF94)
+- [Discord](https://dsc.gg/ApolloAutomation)
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images

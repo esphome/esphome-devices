@@ -35,12 +35,13 @@ New versions with the same model do not have ESP chips in them, and can't be fla
 # https://amzn.to/2P1Xugr
 esphome:
   name: light_name
-  platform: ESP8266
-  board: esp01_1m
-  esp8266_restore_from_flash: true
   includes:
     - copychan3.h
     # See https://github.com/digiblur/ESPHome_LOHAS_LED for details on copychan3.h
+
+esp8266:
+  board: esp01_1m
+  restore_from_flash: true
 
 substitutions:
   display_name: LightName

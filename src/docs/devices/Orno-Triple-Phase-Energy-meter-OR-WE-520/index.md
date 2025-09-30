@@ -22,7 +22,8 @@ Pull's D8 high on pluse from energy meter (800 per kilowatt)
 ```yaml
 esphome:
   name: energy_meter
-  platform: ESP8266
+
+esp8266:
   board: nodemcuv2
 
 # Enable logging

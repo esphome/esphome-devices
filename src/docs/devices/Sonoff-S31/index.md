@@ -28,17 +28,20 @@ You must [remove the cover and use the serial header](https://www.adventurousway
 # Basic Config
 esphome:
   name: sonoff_s31
-  platform: ESP8266
-  board: esp01_1m
+
+esp8266:
+  board: esp12e
+  early_pin_init: false
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-# Remove the following line if you're not using Home Assistsant or your switch will restart every now and again
+# Remove the following line if you're not using Home Assistant or your switch will restart every now and again
 api:
 
 ota:
+  platform: esphome
 
 # Device Specific Config
 
@@ -50,6 +53,7 @@ logger:
 uart:
   rx_pin: RX
   baud_rate: 4800
+  parity: EVEN
 
 binary_sensor:
   - platform: gpio
@@ -109,7 +113,7 @@ switch:
     name: "Sonoff S31 Relay"
     pin: GPIO12
     id: relay
-    restore_mode: ALWAYS_ON
+    restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
 
 time:
   - platform: sntp #(required for total_daily_energy)
@@ -121,6 +125,9 @@ status_led:
     inverted: True
 ```
 
-## Warning
+## Warnings
 
-`throttle_average` of cse7766 sensors is highly recommended with version 2024.2.0 or greater.
+- `board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version 2024.4.0
+- `throttle_average: 60s` on cse7766 sensors is highly recommended with version 2024.2.0 or greater.
+- `restore_mode: ALWAYS_OFF` avoids potential damage or instability when using the programmer’s supply.
+- `web_server:` can cause instability due to the device's slower ESP8266 processor

@@ -38,7 +38,8 @@ This configuration is based directly on information from this post: https://www.
 ```yaml
 esphome:
   name: gosundsw5
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 substitutions:
@@ -52,15 +53,10 @@ logger:
 api:
 
 ota:
-
 wifi:
-  ssid: "ssid"
-  password: "PASSWORD"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "Gosund Fallback Hotspot"
-    password: "ul57sDUAqbcl"
 
 captive_portal:
 

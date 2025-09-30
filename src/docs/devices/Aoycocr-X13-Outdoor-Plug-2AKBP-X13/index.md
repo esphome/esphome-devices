@@ -69,19 +69,15 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   arduino_version: espressif8266@2.6.2
 
 wifi:
-  ssid: !secret ssid
-  password: !secret ssid_password
-  use_address: "$devicename.home"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "$proper_devicename Hotspot"
-    password: !secret ap_password
 
 
 captive_portal:

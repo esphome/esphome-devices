@@ -58,16 +58,18 @@ substitutions:
 
 esphome:
   name: "${device_name}"
-  platform: ESP8266
-  board: esp8285
   on_boot:
     then:
       - switch.turn_on: relay
       - output.turn_on: led
 
+esp8266:
+  board: esp8285
+
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipw
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 
 logger:
   baud_rate: 0

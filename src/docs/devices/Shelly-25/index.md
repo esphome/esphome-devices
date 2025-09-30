@@ -36,12 +36,13 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret ssid1
-  password: !secret ssid1_pass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
 
 captive_portal:
@@ -160,7 +161,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -356,7 +358,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -488,7 +491,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

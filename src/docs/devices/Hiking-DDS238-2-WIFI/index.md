@@ -42,11 +42,12 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifissid
+  ssid: !secret wifi_ssid
   password: !secret wifipassword
   ap:
     ssid: ${friendly_name}
