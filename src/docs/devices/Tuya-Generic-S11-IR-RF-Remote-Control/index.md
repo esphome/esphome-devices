@@ -75,10 +75,6 @@ wifi:
 
 captive_portal:
 
-web_server:
-  port: 80
-  version: 3
-
 sensor:
   - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
     name: "WiFi Signal dB"
