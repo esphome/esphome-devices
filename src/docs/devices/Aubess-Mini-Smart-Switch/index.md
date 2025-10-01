@@ -21,9 +21,11 @@ Also on Aliexpress.
 | P6     | Status Led          |
 
 ## Internals
+
 ![Internals Image](/aubess-mini-smart-switch-internals.jpg "Internals Image")
 
 ## UART Pinout
+
 ![Uart Pinout](/aubess-mini-smart-switch-uart-pinout.jpg "UART PINOUT")
 
 ## Basic Configuration
