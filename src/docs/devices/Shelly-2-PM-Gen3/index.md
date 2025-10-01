@@ -30,13 +30,10 @@ General hardware info, including serial pinout is on the [Shelly Knowledgebase](
 
 ![Shelly 2 PM Gen3](../Shelly-2-PM-Gen3/shelly_2_pm_gen3_pcb.jpeg "Shelly 2 PM Gen3")
 
-## Configuration as a relay
+These configurations may be flashable from the Shelly stock firmware OTA using mgos32-to-tasmota32, but was only tested via direct serial flash. OTA changes and upgrades after initial flash via ESPHome Web seem to work fine.
 
-This will appear in Home Assistant as two relays and several sensors. The switches are two of these sensors. Relay 1 is linked to Switch 1, and relay 2 is disconnected from the switch.
-
-This configuration includes energy and temperature monitoring. Most of this configuration was taken from [the Home Assistant Community](https://community.home-assistant.io/t/do-you-have-a-working-esphome-config-for-shelly-3gen-2pm/833575/3), and the work to figure out the GPIO pins is thanks to [the Tasmota community.](https://github.com/arendst/Tasmota/discussions/22526#discussioncomment-11407244)
-
-This may be flashable from the Shelly stock firmware OTA using mgos32-to-tasmota32, but was only tested via direct serial flash. OTA changes and upgrades after initial flash via ESPHome Web seem to work fine.
+## Basic Configuration
+This will appear in Home Assistant as two relays linked to the switch inputs.
 
 ```yaml
 substitutions:
@@ -47,6 +44,7 @@ substitutions:
   channel_2_name: Switch 2
   max_power: "2000.0" # watt
   max_temp: "70.0" # °C
+  restore_mode: RESTORE_DEFAULT_OFF
 
 esphome:
   name: ${device_name}
@@ -247,7 +245,7 @@ switch:
       mode:
         output: true
     icon: "mdi:electric-switch"
-    restore_mode: ALWAYS_ON
+    restore_mode: ${restore_mode}
 
   - platform: gpio
     id: shelly_relay_2
@@ -257,7 +255,285 @@ switch:
       mode:
         output: true
     icon: "mdi:electric-switch"
-    restore_mode: RESTORE_DEFAULT_OFF
+    restore_mode: ${restore_mode}
+
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO18
+    name: ${channel_1_name} input
+    id: channel1_input
+    # small delay to prevent bouncing
+    filters:
+      - delayed_on_off: 50ms
+    on_state:
+        then:
+          - logger.log: ${device_name} Switch State Changed.
+          - if:
+              condition:
+                binary_sensor.is_on: channel1_input
+              then:
+                - switch.turn_on: shelly_relay_1
+              else:
+                - switch.turn_off: shelly_relay_1
+          
+  - platform: gpio
+    pin:
+      number: GPIO10
+    name: ${channel_2_name} input
+    id: channel2_input
+    # small delay to prevent bouncing
+    filters:
+      - delayed_on_off: 50ms
+    on_state:
+        then:
+          - logger.log: ${device_name} Switch State Changed.
+          - if:
+              condition:
+                binary_sensor.is_on: channel2_input
+              then:
+                - switch.turn_on: shelly_relay_2
+              else:
+                - switch.turn_off: shelly_relay_2
+
+  - platform: gpio
+    name: "Reset Button"
+    pin:
+      number: 19
+      inverted: yes
+      mode:
+        input: true
+        pullup: true
+
+
+## Configuration as a disconnected switch and a relay
+
+This will appear in Home Assistant as two relays and several sensors. The switches are two of these sensors. Relay 1 is linked to Switch 1, and relay 2 is disconnected from the switch.
+
+This configuration includes energy and temperature monitoring. Most of this configuration was taken from [the Home Assistant Community](https://community.home-assistant.io/t/do-you-have-a-working-esphome-config-for-shelly-3gen-2pm/833575/3), and the work to figure out the GPIO pins is thanks to [the Tasmota community.](https://github.com/arendst/Tasmota/discussions/22526#discussioncomment-11407244)
+
+```yaml
+substitutions:
+  device_name: shelly-2-pm-gen3
+  friendly_name: Shelly 2 PM Gen3
+  # Friendly name for each switch
+  channel_1_name: Switch 1
+  channel_2_name: Switch 2
+  max_power: "2000.0" # watt
+  max_temp: "70.0" # °C
+  restore_mode: RESTORE_DEFAULT_OFF
+
+esphome:
+  name: ${device_name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+
+esp32:
+  board: esp32-c3-devkitm-1
+  flash_size: 8MB
+  framework:
+    type: esp-idf
+    version: recommended
+    sdkconfig_options:
+      COMPILER_OPTIMIZATION_SIZE: y
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_enc
+
+ota:
+  - platform: esphome
+    password: !secret ota_pwd
+
+mdns:
+  disabled: false
+
+web_server:
+  port: 80
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  power_save_mode: none
+  fast_connect: true
+  ap:
+    ssid: "${friendly_name}"
+    password: !secret ap_pwd
+
+captive_portal:
+
+time:
+  - platform: sntp
+    id: my_time
+
+button:
+  - platform: factory_reset
+    name: Restart with Factory Default Settings
+    id: Reset
+
+  - platform: restart
+    name: "Restart Switch"
+    id: Restart
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: ${device_name} ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: ${device_name} IP
+    mac_address:
+      name: ${device_name} MAC Address
+      disabled_by_default: False
+    ssid:
+      name: ${device_name} SSID
+
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: ${device_name} Uptime
+    
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: ${device_name} WiFi Signal
+    update_interval: 60s
+
+  - platform: ade7953_i2c
+    irq_pin: GPIO1
+    voltage:
+      name: "Voltage"
+      id: voltage
+      icon: mdi:alpha-v-circle-outline
+      device_class: voltage
+    frequency:
+      name: "Frequency"
+      id: frequency
+      accuracy_decimals: 2
+      icon: mdi:cosine-wave
+      device_class: frequency
+    current_a:
+      name: ${channel_1_name} Current
+      id: channel_1_current
+      icon: mdi:alpha-a-circle-outline
+      device_class: current
+    current_b:
+      name: ${channel_2_name} Current
+      id: chanenl_2_current
+      icon: mdi:alpha-a-circle-outline
+      device_class: current
+    active_power_a:
+      name: ${channel_1_name} Power
+      id: channel_1_power
+      icon: mdi:power
+      device_class: power
+      filters:
+        - multiply: -1
+    active_power_b:
+      name: ${channel_2_name} Power
+      id: channel_2_power
+      icon: mdi:power
+      device_class: power
+      filters:
+        - multiply: -1
+    update_interval: 5s
+    
+  - platform: total_daily_energy
+    name: ${channel_1_name} energy
+    power_id: channel_1_power
+    filters:
+      # Multiplication factor from W to kWh is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+  - platform: total_daily_energy
+    name: ${channel_2_name} energy
+    power_id: channel_2_power
+    filters:
+      # Multiplication factor from W to kWh is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+  # NTC Temperature
+  - platform: ntc
+    sensor: temp_resistance_reading
+    name: "Temperature"
+    id: temperature
+    icon: "mdi:thermometer"
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      reference_temperature: 298.15K
+    on_value:
+      then:
+        - if:
+            condition:
+              - sensor.in_range:
+                  id: temperature
+                  above: ${max_temp}
+            then:
+              - switch.turn_off:
+                  id: shelly_relay_1
+              - switch.turn_off:
+                  id: shelly_relay_2
+              - logger.log: "Switch turned off because temperature exceeded ${max_temp}°C"
+              - homeassistant.service:
+                  service: persistent_notification.create
+                  data:
+                    title: Message from ${device_name}
+                  data_template:
+                    message: Switch turned off because temperature exceeded ${max_temp}°C
+
+    on_value_range:
+      - above: ${max_temp}
+        then:
+          - logger.log: "Temperature exceeded ${max_temp}°C"
+  
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 32kOhm
+  
+  - platform: adc
+    id: temp_analog_reading
+    pin: 4
+
+status_led:
+  pin:
+    number: 2
+    inverted: true
+
+switch:
+  - platform: gpio
+    id: shelly_relay_1
+    name: ${channel_1_name} relay
+    pin: 
+      number: 5
+      mode:
+        output: true
+    icon: "mdi:electric-switch"
+    restore_mode: ${restore_mode}
+
+  - platform: gpio
+    id: shelly_relay_2
+    name: ${channel_2_name} relay
+    pin: 
+      number: 3
+      mode:
+        output: true
+    icon: "mdi:electric-switch"
+    restore_mode: ${restore_mode}
 
 
 binary_sensor:
@@ -276,7 +552,6 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO10
-      inverted: yes
     name: ${channel_2_name} input
     id: channel2_input
     # small delay to prevent bouncing
