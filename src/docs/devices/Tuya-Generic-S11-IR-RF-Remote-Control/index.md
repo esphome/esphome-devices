@@ -138,19 +138,22 @@ button:
   - platform: restart
     name: "Restart"
     id: restart_button
+```
 
-#  - platform: template
-#    name: "MID - Blinds"
-#    web_server:
-#      sorting_weight: 20
-#    on_press:
-#      - output.turn_on: status
-#      - remote_transmitter.transmit_raw:
-#          transmitter_id: rf
-#          repeat:
-#            times: 2
-#            wait_time: 0s
-#          code:
-#            [ 7997, -4311, 1811, -375, 718, -719, 343, -375, 719, -389, 711, -374, 712, -375, 687, -750, 344, -749, 312, -750, 344, -749, 344, -750, 343, -719, 375, -718, 375, -343, 719, -718, 375, -719, 374, -375, 687, -407, 687, -374, 719, -375, 687, -406, 687, -2905, 375, -344, 749, -344, 718, -375, 719, -374, 688, -406, 687, -749, 344, -375, 720, -717, 343, -375, 719, -749, 375, -344, 718, -719, 375, -343, 750, -687, 406, -344, 718, -719 ]
-#      - output.turn_off: status
+You can add RF buttons for the codes you learn later:
+
+```yaml
+button:
+  - platform: template
+    name: "MID - Blinds"
+    web_server:
+      sorting_weight: 20
+    on_press:
+      - remote_transmitter.transmit_raw:
+          transmitter_id: rf
+          repeat:
+            times: 2
+            wait_time: 0s
+          code:
+            [ 7997, -4311, 1811, -375, 718, -719, 343, -375, 719, -389, 711, -374, 712, -375, 687, -750, 344, -749, 312, -750, 344, -749, 344, -750, 343, -719, 375, -718, 375, -343, 719, -718, 375, -719, 374, -375, 687, -407, 687, -374, 719, -375, 687, -406, 687, -2905, 375, -344, 749, -344, 718, -375, 719, -374, 688, -406, 687, -749, 344, -375, 720, -717, 343, -375, 719, -749, 375, -344, 718, -719, 375, -343, 750, -687, 406, -344, 718, -719 ]
 ```
