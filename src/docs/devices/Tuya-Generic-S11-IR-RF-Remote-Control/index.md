@@ -23,8 +23,8 @@ but still note that you will need to write the RF codes into your ESPHome device
 | --- | ------------- |
 | P7  | IR Transmitter|
 | P8  | IR Receiver   |
-| P9  | Button        |
-| P24 | LED           |
+| P9  | LED           |
+| P23 | Button        |
 
 ## Flashing
 
