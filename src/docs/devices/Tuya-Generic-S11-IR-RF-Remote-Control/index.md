@@ -98,10 +98,10 @@ switch:
       - tuya_rf.turn_off_receiver
 
 binary_sensor:
-- platform: gpio
-  pin: P23
-  name: Button
-  icon: mdi:button-pointer
+  - platform: gpio
+    pin: P23
+    name: Button
+    icon: mdi:button-pointer
 
 status_led:
   pin: P9
