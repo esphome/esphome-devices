@@ -58,20 +58,15 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
   - platform: esphome
-    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: ${device_name}
+  ap: {}
 
 captive_portal:
 
@@ -97,8 +92,6 @@ switch:
     id: rf_receiver_switch
     optimistic: true
     restore_mode: ALWAYS_OFF
-    web_server:
-      sorting_weight: 1010
     on_turn_on:
       - tuya_rf.turn_on_receiver
     on_turn_off:
@@ -142,8 +135,6 @@ You can add RF buttons for the codes you learn later:
 button:
   - platform: template
     name: "MID - Blinds"
-    web_server:
-      sorting_weight: 20
     on_press:
       - remote_transmitter.transmit_raw:
           transmitter_id: rf
