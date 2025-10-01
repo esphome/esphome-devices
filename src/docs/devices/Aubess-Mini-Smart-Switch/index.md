@@ -21,8 +21,10 @@ Also on Aliexpress.
 | P6     | Status Led          |
 
 ## Internals
+![Internals Image](/aubess-mini-smart-switch-internals.jpg "Internals Image")
 
 ## UART Pinout
+![Uart Pinout](/aubess-mini-smart-switch-uart-pinout.jpg "UART PINOUT")
 
 ## Basic Configuration
 
@@ -67,7 +69,6 @@ binary_sensor:
     on_release:
       - switch.toggle: aubesMini01
 
-
 button:
   - platform: restart
     name: "Restart"
@@ -78,9 +79,7 @@ switch:
     pin: P26
     id: aubesMini01
 
-
 status_led:
   pin:
     number: P6
     inverted: yes
-
