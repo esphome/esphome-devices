@@ -177,6 +177,7 @@ status_led:
   pin:
     number: 2
     inverted: true
+    ignore_strapping_warning: true
 
 switch:
   - platform: gpio
