@@ -70,6 +70,7 @@ binary_sensor:
     internal: true
     pin:
       number: GPIO9
+      inverted: true
     on_press:
       - switch.toggle: switch_1
     filters:
