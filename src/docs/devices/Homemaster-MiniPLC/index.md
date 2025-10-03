@@ -61,7 +61,7 @@ Ethernet Support – Optional LAN8720 PHY via RMII interface for reliable wired 
 
 The MicroPLC comes with ESPHome pre-installed and can be confgured via:
 
-### Improve
+### Improv
 
 Wi-Fi Configuration with Improv
 
