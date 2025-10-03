@@ -175,22 +175,8 @@ esphome:
 
 <hardware configation from above>
 
-touchscreen:
-  platform: ft5x06
-  id: sensecap_touchscreen
-  transform:
-    mirror_x: true
-    mirror_y: true
-  on_release:
-    - if:
-        condition: lvgl.is_paused
-        then:
-          - lvgl.resume:
-          - lvgl.widget.redraw:
-          - light.turn_on: backlight
-
 image:
-  - file: https://esphome.io/_static/favicon-512x512.png
+  - file: https://esphome.io/favicon-512x512.png
     id: boot_logo
     resize: 200x200
     type: RGB565
