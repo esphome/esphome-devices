@@ -4,7 +4,7 @@ date-published: 2025-10-04
 type: fan
 standard: us
 board: esp32-c3
-difficulty: 4
+difficulty: 3
 project-url: https://github.com/esphome/esphome-devices
 ---
 
