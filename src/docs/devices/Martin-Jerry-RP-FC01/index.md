@@ -143,15 +143,15 @@ select:
 
 ## Behavior Notes
 
-* **Speed cycling:**
+- **Speed cycling:**
   The physical paddle cycles through the four fan speeds (25–100%).
   Long-pressing the **down paddle** powers the fan off.
 
-* **Preset mode:**
+- **Preset mode:**
   The mode selector in Home Assistant (Normal/Natural/Sleep) persists internally but may reset visually when fan speed changes.
   This is purely a UI sync quirk; the MCU retains its selected mode.
 
-* **Timer function:**
+- **Timer function:**
   The MCU includes a timer datapoint, but this integration omits it by default since it’s rarely used.
 
 ---
@@ -173,14 +173,13 @@ This guide was field-tested and verified by **Tim Irvin** in October 2025.
 
 ## Caveats
 
-* Requires disassembly for the first flash.
-* CN2 header pins are not marked, pin 1 has the square pad.
-* Always verify voltage at CN2 before connecting USB-TTL (must be 3.3V).
+- Requires disassembly for the first flash.
+- CN2 header pins are not marked, pin 1 has the square pad.
+- Always verify voltage at CN2 before connecting USB-TTL (must be 3.3V).
 
 ---
 
 ## Revision History
 
-* **2025-10-04:** Initial public release (confirmed working ESPHome build)
+- **2025-10-04:** Initial public release (confirmed working ESPHome build)
 
-```
