@@ -182,4 +182,3 @@ This guide was field-tested and verified by **Tim Irvin** in October 2025.
 ## Revision History
 
 - **2025-10-04:** Initial public release (confirmed working ESPHome build)
-
