@@ -20,6 +20,8 @@ With ESPHome, the device can be locally controlled in Home Assistant without clo
 
 This integration provides full speed and mode control via ESPHome while preserving the physical paddle switch functionality.
 
+[Amazon link](https://www.amazon.com/Ceiling-Control-MartinJerry-4-Level-Controller/dp/B0DT67QMT1)
+
 ---
 
 ## Features
