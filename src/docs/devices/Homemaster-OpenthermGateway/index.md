@@ -256,7 +256,7 @@ switch:
     ch_enable: { id: sw_ch_enable, name: "Boiler Central Heating enabled", restore_mode: RESTORE_DEFAULT_ON }
 ```
 
-### 💡 Tip:
+### 💡 Tip
 
 Ensure the `opentherm:` component is defined in your configuration like this:
 
@@ -373,11 +373,10 @@ Connect the boiler’s **OpenTherm interface** to the OT+ and OT− terminals.
 
 > 📘 **Tip**: Always follow **local electrical code** and **boiler manufacturer guidelines** when wiring heating systems.
 
+**Notes**:
 
-> 💡 **Notes**
-> - Verify polarity and follow **electrical safety standards** at all times.
-> - Telemetry and control features depend on your **boiler’s OpenTherm support**. Check the boiler manual for details.
-
+- Verify polarity and follow **electrical safety standards** at all times.
+- Telemetry and control features depend on your **boiler’s OpenTherm support**. Check the boiler manual for details.
 
 ## 📚 Resources
 
