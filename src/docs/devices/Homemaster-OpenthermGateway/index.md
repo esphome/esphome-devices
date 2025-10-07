@@ -52,27 +52,43 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via:
 
-### Improv
 
-Wi-Fi Configuration with Improv
+### 🚀 Improv – Wi-Fi Configuration (Zero Configuration Setup)
 
-1. Power on your HomeMaster OpenTherm Gateway.
-2. Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
-3. Connect via USB (Serial) or Bluetooth LE.
-4. Enter your Wi-Fi SSID and password, then press Connect.
-5. The device joins your Wi-Fi and is now ready.
+To connect your **Homemaster OpenTherm Gateway** to your Wi-Fi without flashing, use **Improv**:
 
-You can then access the device through the **ESPHome Dashboard** or directly in **Home Assistant**, where it will appear automatically after joining your Wi‑Fi.
+1. Power on your device.
+2. Open [improv-wifi.com](https://www.improv-wifi.com) in **Chrome** or **Edge** (desktop or mobile).
+3. Connect to the device using **USB (Serial)** or **Bluetooth LE**.
+4. Enter your Wi-Fi credentials and click **Connect**.
 
-> **Note:** The device does **not** host a web server by default, so a simple `.local` URL like `http://opentherm.local` will **not** work unless you add the `web_server:` component to ESPHome.  
-> Also, because `name_add_mac_suffix: true` is enabled, the mDNS hostname includes a unique suffix (e.g., `http://homemaster-opentherm-3f9a7c.local`). Use ESPHome or Home Assistant for discovery and management.
+![Wi-Fi Setup](./improv.png)
 
+5. Once provisioned, you’ll see confirmation:
 
-### One-Click Import (ESPHome Dashboard Import)
+![Provisioned](./improv_connected.png)
 
-Once connected to Wi-Fi, the OpenTherm Gateway will be automatically discovered in ESPHome Dashboard.
-When the device appears in ESPHome Dashboard, click “Take Control”.
-The OpenTherm Gateway supports dashboard import, automatically pulling its official configuration from GitHub
+✅ The device is now on your network.
+
+You can now manage it from the **ESPHome Dashboard** or directly in **Home Assistant**, where it will appear automatically.
+
+> ⚠️ **Note:**  
+> The device does **not** host a web server by default, so accessing it via `http://opentherm.local` will **not work** unless `web_server:` is added to the YAML.  
+> Also, because `name_add_mac_suffix: true` is set, the actual hostname includes a unique suffix, like `http://homemaster-opentherm-3f9a7c.local`. Use ESPHome or Home Assistant for discovery.
+
+---
+
+### 🧩 One-Click Import (ESPHome Dashboard)
+
+Once connected to Wi-Fi, the OpenTherm Gateway will appear in your **ESPHome Dashboard** as a discovered device:
+
+![Improv Discovered](./take_control.png)
+
+- Click **Take Control** to claim the device.
+- ESPHome will automatically pull the official config from GitHub.
+
+> ℹ️ No manual flashing is needed if the device is provisioned via Improv.
+
 
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
 
