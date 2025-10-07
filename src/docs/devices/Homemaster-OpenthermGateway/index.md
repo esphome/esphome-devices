@@ -21,12 +21,6 @@ The Opentherm Gateway enables full bidirectional OpenTherm communication for int
 
 A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
 
-Maker: https://www.home-master.eu/
-
-Product page: https://www.home-master.eu/shop/esp32-opentherm-gateway-59
-
-Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic
-
 ## Features
 
 ## ⚙️ Key Features
@@ -100,20 +94,6 @@ The OpenTherm Gateway supports dashboard import, automatically pulling its offic
 | 1-Wire               | 2 channels (ESD/OVP protected)        |
 | Mounting             | DIN-rail                             |
 | Firmware             | ESPHome (pre-installed), Arduino |
-
-## 🏠 Integration with Home Assistant
-
-When flashed with ESPHome, the Opentherm Gateway exposes the following entities in Home Assistant:
-
-- Boiler on/off
-- Burner status
-- Flame modulation level (%)
-- CH/DHW setpoint temperatures
-- Boiler water temperature
-- System pressure (if supported)
-- Relay output status
-- Temperature readings from connected 1-Wire sensors
-- etc.
 
 ## Basic Config
 
@@ -288,13 +268,24 @@ opentherm:
   in_pin: 21
   out_pin: 26
 ```
+## 🏠 Integration with Home Assistant
 
+When flashed with ESPHome, the Opentherm Gateway exposes the following entities in Home Assistant:
+
+- Boiler on/off
+- Burner status
+- Flame modulation level (%)
+- CH/DHW setpoint temperatures
+- Boiler water temperature
+- System pressure (if supported)
+- Relay output status
+- Temperature readings from connected 1-Wire sensors
+- etc.
+  
 Once uploaded, the above entities will automatically appear in Home Assistant if OpenTherm communication is working correctly.
-
 
 ## 📚 Resources
 
 - 💾 [GitHub Repository](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
 - 🛒 [Product Page](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
 - 📘 [Schematics & Datasheets](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic)
-- 🌐 [ESPHome Docs](https://esphome.io/)
