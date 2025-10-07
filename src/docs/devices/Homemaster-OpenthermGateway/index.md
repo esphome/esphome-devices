@@ -52,14 +52,14 @@ The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via
 
 To connect your **Homemaster OpenTherm Gateway** to your Wi-Fi without flashing, use **Improv**:
 
-1. Power on your device.
-2. Open [improv-wifi.com](https://www.improv-wifi.com) in **Chrome** or **Edge** (desktop or mobile).
-3. Connect to the device using **USB (Serial)** or **Bluetooth LE**.
-4. Enter your Wi-Fi credentials and click **Connect**.
+Power on your device.
+Open [improv-wifi.com](https://www.improv-wifi.com) in **Chrome** or **Edge** (desktop or mobile).
+Connect to the device using **USB (Serial)** or **Bluetooth LE**.
+Enter your Wi-Fi credentials and click **Connect**.
 
 ![Wi-Fi Setup](./improv.png)
 
-5. Once provisioned, you’ll see confirmation:
+Once provisioned, you’ll see confirmation:
 
 ![Provisioned](./improv_connected.png)
 
@@ -83,7 +83,6 @@ Once connected to Wi-Fi, the OpenTherm Gateway will appear in your **ESPHome Das
 - ESPHome will automatically pull the official config from GitHub.
 
 > ℹ️ No manual flashing is needed if the device is provisioned via Improv.
-
 
 ### 💻 USB Type-C Flashing (Manual Configuration)
 
@@ -203,7 +202,6 @@ status_led:
     inverted: true                          # LED is active-low
 ```
 
-
 ## 📥 Example: OpenTherm Boiler Configuration in ESPHome
 
 To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler, add the following to your ESPHome configuration:
@@ -257,7 +255,6 @@ switch:
   - platform: opentherm
     ch_enable: { id: sw_ch_enable, name: "Boiler Central Heating enabled", restore_mode: RESTORE_DEFAULT_ON }
 ```
-
 ### 💡 Tip:
 Ensure the `opentherm:` component is defined in your configuration like this:
 
@@ -267,6 +264,7 @@ opentherm:
   in_pin: 21
   out_pin: 26
 ```
+
 ## 🏠 Integration with Home Assistant
 
 When flashed with ESPHome, the Opentherm Gateway exposes the following entities in Home Assistant:
