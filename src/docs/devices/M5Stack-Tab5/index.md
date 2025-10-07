@@ -210,6 +210,9 @@ esp_ldo:
 
 display:
   - platform: mipi_dsi
+    dimensions:
+      height: 1280
+      width: 720
     model: M5Stack-Tab5
     reset_pin:
       pi4ioe5v6408: pi4ioe1
@@ -229,6 +232,13 @@ light:
     id: backlight
     restore_mode: RESTORE_DEFAULT_ON
     default_transition_length: 250ms
+```
+
+## LVGL
+
+```yaml
+lvgl:
+  byte_order: little_endian
 ```
 
 ## Audio / Wake word voice assistant
