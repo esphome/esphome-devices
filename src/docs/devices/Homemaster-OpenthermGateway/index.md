@@ -100,7 +100,7 @@ The OpenTherm Gateway supports dashboard import, automatically pulling its offic
 ```yaml
 substitutions:
   # General metadata and variables for reuse in the config
-  name: "homemaster-opentherm"                # Device hostname in ESPHome / network
+  name: "opentherm"                # Device hostname in ESPHome / network
   friendly_name: "Homemaster Opentherm Gateway"  # Friendly name in Home Assistant UI
   room: ""                                   # Optional: assign to a room in HA
   device_description: "Homemaster Opentherm Gateway" # Description for metadata
@@ -164,21 +164,9 @@ esp32_improv:
 
 dashboard_import:
   # Auto-import official config from GitHub into ESPHome Dashboard
-  package_import_url: github://isystemsautomation/HOMEMASTER/OpenthermGateway/Firmware/opentherm.yaml@main
+  package_import_url: 
+    github://isystemsautomation/HOMEMASTER/OpenthermGateway/Firmware/opentherm.yaml@main
   import_full_config: true
-
-time:
-  - platform: homeassistant                  # Sync time from Home Assistant
-    id: homeassistant_time
-    on_time_sync:                            # On first sync, publish "last restart"
-      then:
-        - if:
-            condition:
-              lambda: 'return id(device_last_restart).state == "";'
-            then:
-              - text_sensor.template.publish:
-                  id: device_last_restart
-                  state: !lambda 'return id(homeassistant_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
 
 opentherm:
   id: ot_bus                                 # OpenTherm bus definition
@@ -186,6 +174,7 @@ opentherm:
   out_pin: 26                                # GPIO for sending OpenTherm signal
 
 # Local button on GPIO35
+binary_sensor:
   - platform: gpio
     id: bs_button_1
     name: "Button #1"
