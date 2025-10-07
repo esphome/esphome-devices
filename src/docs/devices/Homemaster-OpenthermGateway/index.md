@@ -255,7 +255,9 @@ switch:
   - platform: opentherm
     ch_enable: { id: sw_ch_enable, name: "Boiler Central Heating enabled", restore_mode: RESTORE_DEFAULT_ON }
 ```
+
 ### 💡 Tip:
+
 Ensure the `opentherm:` component is defined in your configuration like this:
 
 ```yaml
@@ -332,6 +334,7 @@ Use it to control zone valves, pumps, or backup heating.
 ### 🌡️ 1-Wire Sensor Connections
 
 Two independent **1-Wire buses** are available, each with:
+
 - ESD protection (DS9503)
 - Series resistor + clamping diodes
 - Separate power lines (`1-WIRE1`, `1-WIRE2`) and +5V rail
@@ -346,10 +349,11 @@ You can connect **DS18B20** sensors using parasitic or powered mode.
 
 Connect the boiler’s **OpenTherm interface** to the OT+ and OT− terminals.
 
-> 💡 These lines are optically isolated and buffered using:
-> - BAV99S protection diodes
-> - OpenTherm transceivers and opto-isolators (e.g., PC817)
-> - Pull-ups and current-limiting resistors
+**Note:** These lines are optically isolated and buffered using:
+
+- BAV99S protection diodes
+- OpenTherm transceivers and opto-isolators (e.g., PC817)
+- Pull-ups and current-limiting resistors
 
 ![OpenTherm Bus](./OpenTherm_OTConnection.png)
 
