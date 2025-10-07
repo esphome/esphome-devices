@@ -11,7 +11,7 @@ difficulty: 1
 
 ## 🔥 Opentherm Gateway – DIN-Rail Smart Heating Interface for Home Assistant
 
-![alt text](./opentherm.png "HOMAMASTER MicroPLC")
+![alt text](./opentherm.png "HOMAMASTER Opentherm Gateway")
 
 ## Product description
 
@@ -68,7 +68,11 @@ Wi-Fi Configuration with Improv
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-You can then access it via its local address (e.g., http://opentherm.local) or directly in Home Assistant.
+You can then access the device through the **ESPHome Dashboard** or directly in **Home Assistant**, where it will appear automatically after joining your Wi‑Fi.
+
+> **Note:** The device does **not** host a web server by default, so a simple `.local` URL like `http://opentherm.local` will **not** work unless you add the `web_server:` component to ESPHome.  
+> Also, because `name_add_mac_suffix: true` is enabled, the mDNS hostname includes a unique suffix (e.g., `http://homemaster-opentherm-3f9a7c.local`). Use ESPHome or Home Assistant for discovery and management.
+
 
 ### One-Click Import (ESPHome Dashboard Import)
 
@@ -219,3 +223,78 @@ status_led:
     number: GPIO33                          # Status LED pin
     inverted: true                          # LED is active-low
 ```
+
+
+## 📥 Example: OpenTherm Boiler Configuration in ESPHome
+
+To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler, add the following to your ESPHome configuration:
+
+> ⚠️ **Note:**  
+> This is a **configuration example**. The exact list of available values depends on your **boiler model** and which OpenTherm parameters it supports.
+
+### 🔧 OpenTherm Sensors (`sensor:`)
+
+```yaml
+sensor:
+  # OpenTherm boiler sensors (read-only values)
+  - platform: opentherm
+    t_dhw:           { id: s_t_dhw,         name: "DHW temperature (°C)" }
+    rel_mod_level:   { id: s_rel_mod_level, name: "Relative modulation level (%)" }
+    ch_pressure:     { id: s_ch_pressure,   name: "Water pressure in CH circuit (bar)" }
+    dhw_flow_rate:   { id: s_dhw_flow_rate, name: "Water flow rate in DHW circuit (l/min)" }
+    t_boiler:        { id: s_t_boiler,      name: "Boiler water temperature (°C)" }
+    t_exhaust:       { id: s_t_exhaust,     name: "Boiler exhaust temperature (°C)" }
+    t_dhw_set_ub:    { id: s_t_dhw_set_ub,  name: "Upper bound for DHW setpoint (°C)" }
+    t_dhw_set_lb:    { id: s_t_dhw_set_lb,  name: "Lower bound for DHW setpoint (°C)" }
+    max_t_set_ub:    { id: s_max_t_set_ub,  name: "Upper bound for max CH setpoint (°C)" }
+    max_t_set_lb:    { id: s_max_t_set_lb,  name: "Lower bound for max CH setpoint (°C)" }
+    t_dhw_set:       { id: s_t_dhw_set,     name: "DHW temperature setpoint (°C)" }
+    max_t_set:       { id: s_max_t_set,     name: "Max CH water setpoint (°C)" }
+```
+
+### 🔧 OpenTherm State Sensors (`binary_sensor:`)
+
+```yaml
+binary_sensor:
+  # OpenTherm boiler state sensors
+  - platform: opentherm
+    ch_active:             { id: bs_ch_active,  name: "Boiler Central Heating active" }
+    dhw_active:            { id: bs_dhw_active, name: "Boiler Domestic Hot Water active" }
+    flame_on:              { id: bs_flame_on,   name: "Boiler Flame on" }
+    fault_indication:      { id: bs_fault,      name: "Boiler Fault indication", entity_category: diagnostic }
+    diagnostic_indication: { id: bs_diag,       name: "Boiler Diagnostic event",  entity_category: diagnostic }
+```
+
+### 🔧 Writable OpenTherm Parameters (`number:` and `switch:`)
+
+```yaml
+number:
+  # Control setpoints (writable values)
+  - platform: opentherm
+    t_set: { id: n_t_set, name: "Boiler Control setpoint", min_value: 20, max_value: 65, step: 0.5 }
+
+switch:
+  # Enable/disable boiler central heating via OpenTherm
+  - platform: opentherm
+    ch_enable: { id: sw_ch_enable, name: "Boiler Central Heating enabled", restore_mode: RESTORE_DEFAULT_ON }
+```
+
+### 💡 Tip:
+Ensure the `opentherm:` component is defined in your configuration like this:
+
+```yaml
+opentherm:
+  id: ot_bus
+  in_pin: 21
+  out_pin: 26
+```
+
+Once uploaded, the above entities will automatically appear in Home Assistant if OpenTherm communication is working correctly.
+
+
+## 📚 Resources
+
+- 💾 [GitHub Repository](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
+- 🛒 [Product Page](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+- 📘 [Schematics & Datasheets](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic)
+- 🌐 [ESPHome Docs](https://esphome.io/)
