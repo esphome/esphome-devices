@@ -48,7 +48,6 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via:
 
-
 ### 🚀 Improv – Wi-Fi Configuration (Zero Configuration Setup)
 
 To connect your **Homemaster OpenTherm Gateway** to your Wi-Fi without flashing, use **Improv**:
