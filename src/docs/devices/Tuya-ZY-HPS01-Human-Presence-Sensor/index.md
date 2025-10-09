@@ -27,7 +27,8 @@ If you prefer not to solder this board directly or if you have several boards to
 
 You should flash it using `ltchiptool`. Once you have started `ltchiptool` and it is actively trying to connect, you should briefly bridge either one of the `CEN` pins to ground and then release.
 
-Some users have reported that they had trouble getting into programming mode. Try one or both of the following: 
+Some users have reported that they had trouble getting into programming mode. Try one or both of the following:
+
 1. Try holding the reset button throughout the flashing process. A clothespin or similar comes in handy.
 2. Try starting a download instead of an upload in `ltchiptool`. Cancel the download and then try the upload - you shouldn't need to touch the `CEN` pins again between the cancelled download and the upload.
 
