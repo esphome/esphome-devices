@@ -21,9 +21,9 @@ difficulty: 2
 
 ## Product description
 
-Nice little integrated screen, touch screen, power supply and case with built in relay (or three) and 120v/220v power supply.
+Avalible on [AliExpress](https://www.aliexpress.com/item/3256806115962222.html) at various vendors. Can be purchased with or without the relay module, which does not fit into a standard EU round 60mm box.
 
-Avalible on [AliExpress](https://www.aliexpress.com/item/3256806115962222.html) for ~$24.
+![Connector pinout](./guition-esp32-s3-4848s040-connector.jpg "Connector pinout")
 
 ## Basic Config
 
@@ -60,26 +60,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-binary_sensor:
-  - platform: gpio
-    name: "GPIO40 IN"
-    pin:
-      number: 40
-      mode: INPUT_PULLUP
-      inverted: true
-  - platform: gpio
-    name: "GPIO2 IN"
-    pin:
-      number: 2
-      mode: INPUT_PULLUP
-      inverted: true
-  - platform: gpio
-    name: "GPIO1 IN"
-    pin:
-      number: 1
-      mode: INPUT_PULLUP
-      inverted: true
-
 output:
   - platform: ledc
     id: backlight_output
@@ -87,6 +67,16 @@ output:
     frequency: 150Hz
     min_power: 0.01
     zero_means_zero: true
+    
+  - id: internal_relay_1
+    platform: gpio
+    pin: 40
+  - id: internal_relay_2
+    platform: gpio
+    pin: 2
+  - id: internal_relay_3
+    platform: gpio
+    pin: 1
 
 light:
   - platform: monochromatic
