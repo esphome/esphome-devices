@@ -60,14 +60,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-output:
-  - platform: ledc
-    id: backlight_output
-    pin: GPIO38
-    frequency: 150Hz
-    min_power: 0.01
-    zero_means_zero: true
-
 switch:
   - platform: gpio
     name: Relay 1
@@ -84,6 +76,14 @@ switch:
     pin:
       number: GPIO1
       inverted: true
+
+output:
+  - platform: ledc
+    id: backlight_output
+    pin: GPIO38
+    frequency: 150Hz
+    min_power: 0.01
+    zero_means_zero: true
 
 light:
   - platform: monochromatic
