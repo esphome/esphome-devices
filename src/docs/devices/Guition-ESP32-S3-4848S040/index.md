@@ -67,7 +67,7 @@ output:
     frequency: 150Hz
     min_power: 0.01
     zero_means_zero: true
-    
+
   - id: internal_relay_1
     platform: gpio
     pin: 40
