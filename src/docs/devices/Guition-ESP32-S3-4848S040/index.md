@@ -68,15 +68,22 @@ output:
     min_power: 0.01
     zero_means_zero: true
 
-  - id: internal_relay_1
-    platform: gpio
-    pin: 40
-  - id: internal_relay_2
-    platform: gpio
-    pin: 2
-  - id: internal_relay_3
-    platform: gpio
-    pin: 1
+switch:
+  - platform: gpio
+    name: Relay 1
+    pin:
+      number: GPIO40
+      inverted: true
+  - platform: gpio
+    name: Relay 2
+    pin:
+      number: GPIO2
+      inverted: true
+  - platform: gpio
+    name: Relay 3
+    pin:
+      number: GPIO1
+      inverted: true
 
 light:
   - platform: monochromatic
