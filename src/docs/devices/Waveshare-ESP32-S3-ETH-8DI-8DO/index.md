@@ -99,7 +99,7 @@ wifi:
 
   # Enable AP when WiFi connection fails
   ap:
-    ssid: "${device_friendly} AP"
+    ssid: "${friendly_name} AP"
     password: "12345678"
 
 captive_portal:
