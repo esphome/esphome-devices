@@ -13,6 +13,7 @@ board: esp32-s3
 This is a feature packed I/o board with an ESP32-S3-WROOM-1U-N16R8.
 
 It has
+
 - Powered by ESP32-S3 with dual-core Xtensa LX7 CPU up to 240 MHz
 - Integrated 2.4 GHz Wi-Fi + Bluetooth LE with external antenna
 - Ethernet port than can provide PoE power
