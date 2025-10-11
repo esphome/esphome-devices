@@ -1,12 +1,12 @@
 ---
 title: WAVESHARE ESP32-S3-ETH-8DI-8RO
 date-published: 2025-10-10
-type: re
+type: sensor
 standard: global
 board: esp32-s3
 ---
 
-<img width="635" height="617" alt="image" src="https://github.com/user-attachments/assets/cdd2258d-7594-4d2b-8d42-14a0ba610d49" />
+![Device](https://github.com/anthonysecco/esphome-devices/blob/main/src/docs/devices/Waveshare-ESP32-S3-ETH-8DI-8DO/Screenshot%202025-10-10%20200840.png "device")
 
 ## Product description
 
