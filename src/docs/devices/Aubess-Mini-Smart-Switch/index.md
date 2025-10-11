@@ -85,3 +85,4 @@ status_led:
   pin:
     number: P6
     inverted: yes
+```
