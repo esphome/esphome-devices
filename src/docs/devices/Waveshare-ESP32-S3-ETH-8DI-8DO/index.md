@@ -31,7 +31,6 @@ It has
 The board can be powered either via 7-36DC or via 5VDC (USB-C).
 Outputs provide current sinking up to 500ma
 
-
 More information:
 
 - Product page: [https://www.waveshare.com/esp32-s3-eth-8di-8do.htm](https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm)
