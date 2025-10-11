@@ -1,5 +1,5 @@
 ---
-title: Shelly 3 PM Gen3
+title: Shelly 2 PM Gen3
 date-published: 2025-09-30
 type: relay
 standard: uk, us, eu
