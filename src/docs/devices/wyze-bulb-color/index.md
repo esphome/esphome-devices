@@ -25,17 +25,17 @@ This is for the original Wyze Bulb Color, Check out the V2 if you're buying new 
 1. Remove the plastic globe. This is held in with adhesive and can be removed with a flat blade or metal spudger
 2. Remove the LED array. This held on with two philips head screws
 
-   ![LED Array](led-array.JPG "LED Array")
+   ![LED Array](led-array.jpg "LED Array")
 
 3. Remove the metal plate. This is going to be a challenge. I used a needle nose plyers to grab under the hole in the middle of the plate and slowly wiggle it out. The plate will most likely get bent up but you can easily bend it back into shape for reinstallation.
 4. Remove the potting. The potting only needs to be removed above the esp32 chip (and surrounding area). See picture for reference
 
-   ![Remove Potting](potting.JPG "Remove Potting")
+   ![Remove Potting](potting.jpg "Remove Potting")
 
 5. Solder to pads on the bulb. You can also use the ground pin thats part of the 8 pins that go to the led array
 
-   ![Pinout](pinout.JPG "Pinout")
-   ![Soldered](soldered.JPG "Soldered")
+   ![Pinout](pinout.jpg "Pinout")
+   ![Soldered](soldered.jpg "Soldered")
 
 6. Connect your wires to your usb-uart adapter and flash. See connection chart below.
 7. Reassemble the bulb in reverse
