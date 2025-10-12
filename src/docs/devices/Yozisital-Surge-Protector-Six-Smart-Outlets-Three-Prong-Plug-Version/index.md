@@ -9,7 +9,6 @@ difficulty: 4
 
 ![Yozisital Surge Protector with Six Smart Outlets](1.jpg "Yozisital Surge Protector with Six Smart Outlets")
 
-
 ## Description
 
 The Yozisital Surge Protector has a total of eight outlets, with six outlets individually software switchable. The extra two outlets and four USB ports are not software switchable.
