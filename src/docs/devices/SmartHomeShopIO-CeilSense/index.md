@@ -8,6 +8,7 @@ project-url: https://github.com/smarthomeshop/ceilsense
 made-for-esphome: true
 difficulty: 1
 ---
+<!-- markdownlint-disable MD041 -->
 
 ![CeilSense](ceilsense-topview1.png "CeilSense")
 
@@ -59,7 +60,7 @@ Power it via **110–240 VAC**, **USB-C (5 V)**, or **PoE Ethernet**. It fits a 
 
 ## Gallery
 
-| Top view | In‑ceiling (cut‑out) |
+| Top view | In-ceiling (cut-out) |
 | --- | --- |
 | ![Top view](ceilsense-topview1.png) | ![In ceiling](ceilsense-in-ceiling-cutout.jpg) |
 
