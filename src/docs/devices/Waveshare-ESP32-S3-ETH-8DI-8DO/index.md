@@ -6,7 +6,7 @@ standard: global
 board: esp32-s3
 ---
 
-![Device](https://github.com/anthonysecco/esphome-devices/blob/main/src/docs/devices/Waveshare-ESP32-S3-ETH-8DI-8DO/Screenshot%202025-10-10%20200840.png "device")
+![Device](./device.png "device")
 
 ## Product description
 
@@ -35,10 +35,6 @@ More information:
 
 - Product page: [https://www.waveshare.com/esp32-s3-eth-8di-8do.htm](https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm)
 - Wiki: [https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO](https://www.waveshare.com/wiki/ESP32-S3-POE-ETH-8DI-8DO)
-
-## GPIO Pinout
-
-![GPIO](./image2.jpg "GPIO Image")
 
 ## Basic Config
 
