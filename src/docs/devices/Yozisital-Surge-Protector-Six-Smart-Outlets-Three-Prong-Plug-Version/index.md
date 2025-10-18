@@ -31,7 +31,7 @@ The input voltage for the device is 100-250V worldwide with a rated current of 1
 The device is fairly easy to disassemble.
 
 Start by removing the eight pads from the bottom side of the device.
-This will reveal eigth pitted\tamper resistant torx screws.
+This will reveal eight pitted\tamper resistant torx screws.
 Once the screws are removed, you will be able to remove the back plate by slightly lifting the strain relief section of the power cord.
 You will then see four more pitted\tamper resistant torx screws.
 These screws were a slightly smaller size for which I did not have a toolhead, but I was able to break off the center stub using a flathead screwdriver and then use the same toolhead at an angle to remove each screw.
