@@ -22,6 +22,8 @@ The UART Pinout is the same as other Shelly Plus Mini.
 | BootSEL | Purple |
 | GND     | Black  |
 
+To enter bootloader mode, BootSEL needs to be pulled down (connected to ground).
+
 ![Shelly PM Mini Gen3](../Shelly-PM-Mini-Gen3/shelly_pm_mini_gen3_pcb_a.png "Shelly PM Mini Gen3")
 
 ## GPIO Pinout
