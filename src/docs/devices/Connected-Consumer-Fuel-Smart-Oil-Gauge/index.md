@@ -86,6 +86,7 @@ SMD Marking: C5F \
 Datasheet: https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499
 
 Switches the connection to A0 (GPIO17)
+
 | SELECT (GPIO15) | A0 (GPIO17)                  |
 | --------------- | ---------------------------- |
 | LOW             | Battery Voltage*             |

@@ -17,7 +17,6 @@ The PCB is designed to fit inside the Dikale Filament Dryer and can be powered b
 
 ## GPIO Pinout
 
--------------------
 | XIAO Pin | Pin | Function | Description |
 | --- | --- | --- | --- |
 | D0 | GPIO2 | Fan 1 | Original 12v Fan |
