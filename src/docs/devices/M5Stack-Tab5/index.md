@@ -180,11 +180,29 @@ sensor:
     max_current: 8.192A
     shunt_resistance: 0.005ohm
     bus_voltage:
-      name: Battery Voltage
+      id: battery_voltage
+      name: "Battery Voltage"
     current:
-      name: Battery Current
+      id: battery_current
+      name: "Battery Current"
       # Positive means discharging
       # Negative means charging
+
+    # Tab5 built-in battery discharges from full (8.23 V) to shutdown threshold (6.0 V)
+  - platform: template
+    name: "Battery Percentage"
+    lambda: |-
+      float voltage = id(battery_voltage).state;
+      // Adjust these values based on your battery's actual min/max voltage
+      float min_voltage = 6.0;  // Discharged voltage
+      float max_voltage = 8.23;  // Fully charged voltage
+      float percentage = (voltage - min_voltage) / (max_voltage - min_voltage) * 100.0;
+      if (percentage > 100.0) return 100.0;
+      if (percentage < 0.0) return 0.0;
+      return percentage;
+    update_interval: 60s
+    unit_of_measurement: "%"
+    accuracy_decimals: 1
 ```
 
 ## Display
