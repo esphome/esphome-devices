@@ -29,7 +29,7 @@ for more details on the hardware.
 You can use the [RGBWW](https://esphome.io/components/light/rgbww.html) and the
 [ESP8266 Software PWM output](https://esphome.io/components/output/esp8266_pwm.html) components using below configuration:
 
-``` yaml
+```yaml
 esphome:
   name: h801light
 
@@ -78,7 +78,7 @@ light:
 For [RGBW](https://esphome.io/components/light/rgbw.html)
 lights, the `pwm_w2` output is not used (and can be removed):
 
-``` yaml
+```yaml
 light:
   - platform: rgbw
     name: "H801 Light"
@@ -124,7 +124,7 @@ H801 shown with PIR connected to header pins
 The following can be appended to the YAML file for your H801 to
 configure the TX pin as a motion sensor input.
 
-``` yaml
+```yaml
 binary_sensor:
   - platform: gpio
     pin: GPIO3
@@ -159,15 +159,15 @@ It looks like this:
 
 Pinout:
 
-| Function       | ESP Pin |
-| -------------- | ------- |
-| R (PWM1)       | GPIO14  |
-| G (PWM2)       | GPIO12  |
-| B (PWM3)       | GPIO13  |
-| W (PWM4)       | GPIO15  |
-| Jumper J3      | GPIO0   |
-| RX             | GPIO3   |
-| TX             | GPIO2   |
+| Function  | ESP Pin |
+| --------- | ------- |
+| R (PWM1)  | GPIO14  |
+| G (PWM2)  | GPIO12  |
+| B (PWM3)  | GPIO13  |
+| W (PWM4)  | GPIO15  |
+| Jumper J3 | GPIO0   |
+| RX        | GPIO3   |
+| TX        | GPIO2   |
 
 Unlike the H801, the H802 has no LEDs of its own.
 Note that the RGBW pinout is reversed compared to the H801.

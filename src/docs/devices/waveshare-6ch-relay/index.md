@@ -20,7 +20,7 @@ Rail-mounted ABS case, easy to install, safe to use
 
 Each relay has COM+NO+NC exposed. Rating ≤10A 250VAC/30VDC.
 The board can be powered either via 7-36DC or via 5VDC (USB-C).
-It can bought from: https://www.waveshare.com/esp32-s3-relay-6ch.htm
+It can bought from: <https://www.waveshare.com/esp32-s3-relay-6ch.htm>
 
 ## GPIO Pinout
 

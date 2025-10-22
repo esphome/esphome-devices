@@ -49,7 +49,7 @@ using [esptool](https://github.com/espressif/esptool/), or, in case your model
 shipped with a BK72xx, using
 [ltchiptool](https://github.com/libretiny-eu/ltchiptool).
 
-The dehumidifier can be easily disassembled using a Philips screwdriver.  The
+The dehumidifier can be easily disassembled using a Philips screwdriver. The
 Tuya module can be found on a separate daughterboard, connected using a JST
 connector to the mainboard, which provides the board with `+5V`, `GND`, as well
 as `RX`/`TX` pins for the UART connecting to the main MCU. The daughterboard

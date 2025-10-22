@@ -115,6 +115,6 @@ light:
     name: Sonoff POW Blue LED
     id: pow_blue_led
     pin:
-        number: GPIO13
-        inverted: True
+      number: GPIO13
+      inverted: True
 ```

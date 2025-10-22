@@ -10,7 +10,7 @@ difficulty: 1
 
 ![SS01-CO2](SS01-CO2.webp "Athom Multi Target Radar Sensor - SS01-CO2")
 
-Maker: https://www.athom.tech
+Maker: <https://www.athom.tech>
 
 ## Available from
 
@@ -28,9 +28,9 @@ Can flash firmware directly via USB.
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO9  | Button              |
-| GPIO21 | WS2812              |
-| GPIO10 | SDA                 |
-| GPIO8  | SCL                 |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO9  | Button   |
+| GPIO21 | WS2812   |
+| GPIO10 | SDA      |
+| GPIO8  | SCL      |

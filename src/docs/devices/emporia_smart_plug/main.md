@@ -9,7 +9,9 @@ difficulty: 4
 
 ## Initial Install
 
-You must dissasemble the case to access the VDD, GND, RX, and TX pins. They can be accessed on the ESP daughterboard or from under the main board at the board connection. Modifying the rear housing is required to access the daugherboard mounting pins.
+You must dissasemble the case to access the VDD, GND, RX, and TX pins. They can be accessed on the ESP daughterboard or
+from under the main board at the board connection. Modifying the rear housing is required to access the daugherboard
+mounting pins.
 
 ## GPIO Pinout
 
@@ -38,7 +40,7 @@ wifi:
   password: !secret wifi_password
 
 logger:
-  
+
 # Remove this line if you're not using Home Assistsant or your switch will restart every now and again
 api:
 
@@ -62,7 +64,7 @@ sensor:
     name: "Emporia Smart Plug WiFi Signal"
     update_interval: 60s
   - platform: hlw8012
-    model: BL0937  
+    model: BL0937
     sel_pin:
       number: 12
       inverted: true

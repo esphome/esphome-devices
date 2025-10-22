@@ -32,8 +32,8 @@ version (ESP32-S3-POE-ETH-8DI-8RO). The config below will work for both versions
 
 More information:
 
-- Product page: https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm
-- Wiki: https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO
+- Product page: <https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm>
+- Wiki: <https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO>
 
 ## GPIO Pinout
 
@@ -42,7 +42,8 @@ More information:
 ## Basic Config
 
 This config has Ethernet enabled by default. You cannot use both WiFi and Ethernet at the same
-time ([link](https://esphome.io/components/ethernet.html#ethernet-component)). In order to use WiFi,
+time ([ESPHome Ethernet documentation](https://esphome.io/components/ethernet.html#ethernet-component)). In order to use
+WiFi,
 uncomment the WiFi block and comment the Ethernet blocks.
 
 ```yaml
@@ -325,5 +326,5 @@ button:
 
 ## Buzzer control through ESPHome
 
-Read more about it here: https://esphome.io/components/rtttl.html#test-setup.
-Some fun beeps to send are here: https://esphome.io/components/rtttl.html#common-beeps
+Read more about it here: <https://esphome.io/components/rtttl.html#test-setup>.
+Some fun beeps to send are here: <https://esphome.io/components/rtttl.html#common-beeps>

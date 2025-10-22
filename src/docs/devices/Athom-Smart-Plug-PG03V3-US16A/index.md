@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](athom-plug-us-v3.webp "Athom Smart Plug US V3 - PG03V3-US16A")
 
-Maker: https://www.athom.tech/
-Product page: https://www.athom.tech/blank-1/esp32-c3-us-plug-for-esphome
+Maker: <https://www.athom.tech/>
+Product page: <https://www.athom.tech/blank-1/esp32-c3-us-plug-for-esphome>
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

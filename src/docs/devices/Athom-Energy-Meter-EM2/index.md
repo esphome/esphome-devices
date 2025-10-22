@@ -11,19 +11,19 @@ made-for-esphome: true
 
 ![alt text](athom_EM2.webp "Athom Energy Meter - EM2")
 
-Maker: https://www.athom.tech/
-Product page: https://www.athom.tech/blank-1/2-ch-energy-meter-made-for-esphome
+Maker: <https://www.athom.tech/>
+Product page: <https://www.athom.tech/blank-1/2-ch-energy-meter-made-for-esphome>
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 
 ## GPIO Pinout
 
-| Pin    | Function   |
-| ------ | ---------- |
-| GPIO7  | bl0906_tx  |
-| GPIO8  | bl0906_rx  |
-| GPIO9  | button     |
-| GPIO10 | led        |
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO7  | bl0906_tx |
+| GPIO8  | bl0906_rx |
+| GPIO9  | button    |
+| GPIO10 | led       |
 
 ## Basic Configuration
 

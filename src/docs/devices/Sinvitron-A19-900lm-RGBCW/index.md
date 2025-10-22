@@ -6,7 +6,8 @@ standard: global
 board: esp8266
 ---
 
-Standard RGB warm and cold white bulb. Flashable via tuya-convert. [Purchased from Amazon, pack of 2.](https://amzn.to/3lVKCEp)
+Standard RGB warm and cold white bulb. Flashable via tuya-convert.
+[Purchased from Amazon, pack of 2.](https://amzn.to/3lVKCEp)
 
 Generally don't power on both a white channel and the color channel at full brightness - this can overheat the bulb.
 
@@ -141,7 +142,8 @@ light:
 
 ## Split Configuration
 
-If you have multiple of these bulbs (likely since they come in packs), you may want to keep the shared code in one file and only put device specific information in files for each relay.
+If you have multiple of these bulbs (likely since they come in packs), you may want to keep the shared code in one file
+and only put device specific information in files for each relay.
 
 sinvitron-common.yaml:
 

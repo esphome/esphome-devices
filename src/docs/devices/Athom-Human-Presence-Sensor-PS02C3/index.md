@@ -12,7 +12,7 @@ difficulty: 1
 ![PS02C3-2](PS02C3-2.webp "Athom Human Presence Sensor - PS02C3-2")
 ![PS02C3-3](PS02C3-3.webp "Athom Human Presence Sensor - PS02C3-3")
 
-Maker: https://www.athom.tech
+Maker: <https://www.athom.tech>
 
 ## Available from
 
@@ -28,17 +28,18 @@ Maker: https://www.athom.tech
 
 ## Note
 
-Built-in CH340C serial port chip, connect the Type-C data cable to flash the firmware directly (the attached Type-C cable has no data cable, you need to prepare the Type-C data cable to flash the firmware)
+Built-in CH340C serial port chip, connect the Type-C data cable to flash the firmware directly (the attached Type-C
+cable has no data cable, you need to prepare the Type-C data cable to flash the firmware)
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO9  | Button              |
-| GPIO3  | Pir Output          |
-| GPIO5  | Radar RX            |
-| GPIO4  | Radar Output        |
-| GPIO8  | Radar TX            |
-| GPIO2  | LedLink             |
-| GPIO18 | SDA                 |
-| GPIO19 | SCL                 |
+| Pin    | Function     |
+| ------ | ------------ |
+| GPIO9  | Button       |
+| GPIO3  | Pir Output   |
+| GPIO5  | Radar RX     |
+| GPIO4  | Radar Output |
+| GPIO8  | Radar TX     |
+| GPIO2  | LedLink      |
+| GPIO18 | SDA          |
+| GPIO19 | SCL          |

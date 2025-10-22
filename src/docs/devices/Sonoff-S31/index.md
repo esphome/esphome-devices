@@ -10,7 +10,8 @@ board: esp8266
 
 This device cannot be converted to ESPHome using tuya-convert.
 
-You must [remove the cover and use the serial header](https://www.adventurousway.com/blog/sonoff-s31) for first upload. Hold down the button while powering on the device to put it into bootloader mode.
+You must [remove the cover and use the serial header](https://www.adventurousway.com/blog/sonoff-s31) for first upload.
+Hold down the button while powering on the device to put it into bootloader mode.
 
 ## GPIO Pinout
 
@@ -127,7 +128,8 @@ status_led:
 
 ## Warnings
 
-- `board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version 2024.4.0
+- `board: esp12e` is required to enable all 4MB of flash, allowing OTA updates to work after approximately version
+  2024.4.0
 - `throttle_average: 60s` on cse7766 sensors is highly recommended with version 2024.2.0 or greater.
 - `restore_mode: ALWAYS_OFF` avoids potential damage or instability when using the programmer’s supply.
 - `web_server:` can cause instability due to the device's slower ESP8266 processor

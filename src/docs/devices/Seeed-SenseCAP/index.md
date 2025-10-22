@@ -1,7 +1,7 @@
 ---
 title: Seeed SenseCap Indicator
 date-published: 2025-08-01
-type:  misc
+type: misc
 standard: global
 board: esp32, RP2040
 difficulty: 0
@@ -11,9 +11,9 @@ difficulty: 0
 
 ## Drivers
 
-* Processor: ESP32-S3, RP2040
-* Touchscreen: ft5x06`
-* Display: ST7701S
+- Processor: ESP32-S3, RP2040
+- Touchscreen: ft5x06`
+- Display: ST7701S
 
 [Seeed Link](https://www.seeedstudio.com/SenseCAP-Indicator-D1-p-5643.html)
 
@@ -21,32 +21,32 @@ difficulty: 0
 
 ### SPI (used for display)
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO41 | clock   |
-| GPIO48 | mosi    |
-| GPIO4 | cs      |
-| GPIO18 | de      |
-| GPIO5 | reset   |
-| GPIO16 | hsync   |
-| GPIO17 | vsync   |
-| GPIO21 | pclk   |
-| GPIO4, GPIO3, GPIO2, GPIO1, GPIO0 | red   |
-| GPIO10, GPIO9, GPIO8, GPIO7, GPIO6, GPIO5 | green   |
-| GPIO15, GPIO14, GPIO13, GPIO12, GPIO11 | green   |
+| Pin                                       | Function |
+| ----------------------------------------- | -------- |
+| GPIO41                                    | clock    |
+| GPIO48                                    | mosi     |
+| GPIO4                                     | cs       |
+| GPIO18                                    | de       |
+| GPIO5                                     | reset    |
+| GPIO16                                    | hsync    |
+| GPIO17                                    | vsync    |
+| GPIO21                                    | pclk     |
+| GPIO4, GPIO3, GPIO2, GPIO1, GPIO0         | red      |
+| GPIO10, GPIO9, GPIO8, GPIO7, GPIO6, GPIO5 | green    |
+| GPIO15, GPIO14, GPIO13, GPIO12, GPIO11    | green    |
 
 ### I²C (used for touchscreen)
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO39 | i2c SDA     |
-| GPIO40 | i2c SCL     |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO39 | i2c SDA  |
+| GPIO40 | i2c SCL  |
 
 ### Backlight
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO45  | backlight   |
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO45 | backlight |
 
 ## Hardware Configuration
 
@@ -121,27 +121,27 @@ display:
     init_sequence:
       - 1 # select canned init sequence number 1
       - delay 5ms
-      - [ 0xE0, 0x1F ]  # Set sunlight readable enhancement
+      - [0xE0, 0x1F] # Set sunlight readable enhancement
     data_pins:
       red:
-        - GPIO4         #r1
-        - GPIO3         #r2
-        - GPIO2         #r3
-        - GPIO1         #r4
-        - GPIO0         #r5
+        - GPIO4 #r1
+        - GPIO3 #r2
+        - GPIO2 #r3
+        - GPIO1 #r4
+        - GPIO0 #r5
       green:
-        - GPIO10        #g0
-        - GPIO9         #g1
-        - GPIO8         #g2
-        - GPIO7         #g3
-        - GPIO6         #g4
-        - GPIO5         #g5
+        - GPIO10 #g0
+        - GPIO9 #g1
+        - GPIO8 #g2
+        - GPIO7 #g3
+        - GPIO6 #g4
+        - GPIO5 #g5
       blue:
-        - GPIO15        #b1
-        - GPIO14        #b2
-        - GPIO13        #b3
-        - GPIO12        #b4
-        - GPIO11        #b5
+        - GPIO15 #b1
+        - GPIO14 #b2
+        - GPIO13 #b3
+        - GPIO12 #b4
+        - GPIO11 #b5
 
 light:
   - platform: monochromatic

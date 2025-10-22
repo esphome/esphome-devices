@@ -6,6 +6,7 @@ standard: global
 board: bk72xx
 pcb: CB2S
 ---
+
 ![Product Image](./Tuya-WiFi-Smart-Switch-SB2S-front.jpg "Device front")
 ![Product Image](./Tuya-WiFi-Smart-Switch-SB2S-pcb-front.jpg "PCB front")
 ![Product Image](./Tuya-WiFi-Smart-Switch-SB2S-pcb-back.jpg "PCB back")
@@ -23,7 +24,6 @@ pcb: CB2S
 ## Basic Configuration
 
 ```yaml
-
 esphome:
   name: relayname
   friendly_name: relayname
@@ -67,7 +67,7 @@ light:
 ##  Binary Sensors  ##
 ## ---------------- ##
 binary_sensor:
-# Button 1
+  # Button 1
   - platform: gpio
     id: button
     pin:
@@ -83,7 +83,7 @@ binary_sensor:
 ##      Switch      ##
 ## ---------------- ##
 switch:
-#Relay
+  #Relay
   - platform: output
     name: "${device_friendly_name} Relay"
     icon: ${device_icon}
