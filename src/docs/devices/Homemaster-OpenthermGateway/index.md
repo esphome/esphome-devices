@@ -23,11 +23,11 @@ system diagnostics.
 A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire
 interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
 
-Maker: https://www.home-master.eu/
+Maker: <https://www.home-master.eu/>
 
-Product page: https://www.home-master.eu/shop/esp32-opentherm-gateway-59
+Product page: <https://www.home-master.eu/shop/esp32-opentherm-gateway-59>
 
-Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic
+Schematics: <https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic>
 
 ## Features
 
@@ -70,7 +70,7 @@ Wi-Fi Configuration with Improv
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-You can then access it via its local address (e.g., http://opentherm.local) or directly in Home Assistant.
+You can then access it via its local address (e.g., <http://opentherm.local>) or directly in Home Assistant.
 
 ### One-Click Import (ESPHome Dashboard Import)
 

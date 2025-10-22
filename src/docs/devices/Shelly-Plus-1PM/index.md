@@ -29,7 +29,7 @@ Please calibrate the NTC and the voltage / power measurements, the values below 
 
 Credit and thanks to
 
-- https://templates.blakadder.com/shelly_plus_1.html
+- <https://templates.blakadder.com/shelly_plus_1.html>
 
 ## Configuration as relay with overpower and overtemperature protection
 

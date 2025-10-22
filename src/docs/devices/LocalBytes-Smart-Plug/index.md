@@ -9,7 +9,7 @@ difficulty: 1
 ---
 
 ![alt text](LocalBytes-Plug.png "LocalBytes Plug")
-Maker: https://mylocalbytes.com/
+Maker: <https://mylocalbytes.com/>
 
 Preflashed with ESPHome or Tasmota
 

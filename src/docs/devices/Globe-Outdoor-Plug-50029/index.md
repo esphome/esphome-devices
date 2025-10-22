@@ -15,7 +15,7 @@ to be flashed over a UART serial connection if Tuya-Convert does not work.
 This template was built using ESPHome 2021.11.3 and does not expose the LEDs or the button to Home Assistant as that was
 not deemed to add any value to the automation.
 
-Inspired by the Tasmota template (https://templates.blakadder.com/globe_50029.html)
+Inspired by the Tasmota template (<https://templates.blakadder.com/globe_50029.html>)
 
 ## GPIO Pinout
 

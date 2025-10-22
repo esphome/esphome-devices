@@ -10,7 +10,7 @@ difficulty: 1
 
 ![alt text](athom-plug-au-v2.webp "Athom Smart Plug AU V2 - PG05V2-AU10A")
 
-Maker: https://www.athom.tech/
+Maker: <https://www.athom.tech/>
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

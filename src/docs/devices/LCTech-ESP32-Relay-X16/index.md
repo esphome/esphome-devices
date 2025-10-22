@@ -17,9 +17,9 @@ Each relay has COM+NO+NC exposed. Each relay supports 10Amp max load (Songle SRD
 Many vendors advertise that this board can be powered with 5-12VDC.
 The manufacturer LCTech literature lists it as a 5V product.
 
-I bought it from: https://www.aliexpress.us/item/3256808359095569.html
+I bought it from: <https://www.aliexpress.us/item/3256808359095569.html>
 
-LCTech Wiki page: http://www.chinalctech.com/cpzx/Programmer/Relay_Module/735.html
+LCTech Wiki page: <http://www.chinalctech.com/cpzx/Programmer/Relay_Module/735.html>
 
 ## Input voltage considerations
 

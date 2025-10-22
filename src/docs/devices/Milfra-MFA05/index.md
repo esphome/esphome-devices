@@ -29,7 +29,7 @@ This device is also sold and marketed as the CloudFree SWM1.
 ## Example Configuration
 
 Courtesy of rootnegativ1 on the Home Assistant forums:
-https://community.home-assistant.io/t/milfra-motion-sensor-light-switch-mfa05/439857/8
+<https://community.home-assistant.io/t/milfra-motion-sensor-light-switch-mfa05/439857/8>
 
 ```yaml
 # https://templates.blakadder.com/cloudfree_SWM1.html

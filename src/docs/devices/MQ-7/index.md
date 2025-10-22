@@ -15,7 +15,7 @@ need to be modified.
 ## Heater Mod
 
 This will remove the digital output of the sensor and replace it with a digital input to control the heater of the MQ-7.
-There is also an OSS PCB design available under https://github.com/fablab-paderborn/mq7-adapter-board, which has the
+There is also an OSS PCB design available under <https://github.com/fablab-paderborn/mq7-adapter-board>, which has the
 same circuit as the module after the heater mod.
 
 ### What you need

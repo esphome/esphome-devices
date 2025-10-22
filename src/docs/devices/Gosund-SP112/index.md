@@ -189,7 +189,7 @@ switch:
 WARNING: Soldering involved, warranty broken, electric hazard, make sure you know what you are doing at your own
 responsibility
 
-- Replace Cuco-chip with ESP-M2: https://github.com/c-klinger/Gosund-ESPMod/tree/main (courtesy: Chris Klinger)
+- Replace Cuco-chip with ESP-M2: <https://github.com/c-klinger/Gosund-ESPMod/tree/main> (courtesy: Chris Klinger)
 
 - ESPHome basic configuration:
 

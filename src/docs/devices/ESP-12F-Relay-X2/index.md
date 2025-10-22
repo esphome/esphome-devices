@@ -17,12 +17,12 @@ Each relay has COM+NO+NC exposed. Relay load of up to 250VAC or 30VDC.
 
 The board can be powered either via 7-80VDC, or via 5VDC (separate connectors).
 
-I bought it from: https://www.aliexpress.com/item/1005003516399175.html (no affiliation, no guarantee it will continue
+I bought it from: <https://www.aliexpress.com/item/1005003516399175.html> (no affiliation, no guarantee it will continue
 to exist).
 
-Search for more: https://www.aliexpress.com/wholesale?SearchText=esp-12f+relay+2+channel
+Search for more: <https://www.aliexpress.com/wholesale?SearchText=esp-12f+relay+2+channel>
 
-Technical specification here: http://www.chinalctech.com/cpzx/Programmer/Relay_Module/510.html (Link working 23 May
+Technical specification here: <http://www.chinalctech.com/cpzx/Programmer/Relay_Module/510.html> (Link working 23 May
 2024)
 
 ## GPIO Pinout

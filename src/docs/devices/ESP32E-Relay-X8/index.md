@@ -18,7 +18,7 @@ load, acconding to the label.
 The board can be powered either via 7-30VDC or via 5VDC (separate connectors). It draws about 100mA with the relays off,
 and just over 500mA with all the relays on.
 
-I bought it from: https://www.aliexpress.us/item/3256802045374301.html
+I bought it from: <https://www.aliexpress.us/item/3256802045374301.html>
 
 ## GPIO Pinout
 

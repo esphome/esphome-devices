@@ -72,4 +72,4 @@ cover:
       switch.turn_off: mcu_cover
 ```
 
-Note that this device is affected by https://github.com/esphome/issues/issues/6503.
+Note that this device is affected by <https://github.com/esphome/issues/issues/6503>.

@@ -12,7 +12,7 @@ difficulty: 5
 ![alt text](MaxcioRMC020.jpg "Maxcio RMC020 IT Product Image")
 ![alt text](MaxcioRMC020retro.jpg "Maxcio RMC020 IT Product Back Image")
 
-Maker: https://maxcio.com/collections/plug-and-strip/
+Maker: <https://maxcio.com/collections/plug-and-strip/>
 
 ## ESP-02S GPIO Pinout
 

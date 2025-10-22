@@ -9,7 +9,7 @@ difficulty: 3
 
 ![alt text](Product-Image.jpg "Smart Oil Gauge")
 
-Product Page: https://www.smartoilgauge.com/shop/product/ccf901i/
+Product Page: <https://www.smartoilgauge.com/shop/product/ccf901i/>
 
 SKU: CCF-901
 
@@ -39,11 +39,11 @@ SKU: CCF-901
    ![alt text](Connections-Front.jpg "Front Flashing Contact Points") \
    ![alt text](Connections-Back.jpg "Back Flashing Contact Points") \
 4. Solderless connections to the contact point can be made using IC Hook Test Leads such as these: \
-   https://www.sparkfun.com/ic-hook-test-leads.html \
+   <https://www.sparkfun.com/ic-hook-test-leads.html> \
    ![alt text](Flashing-Front.jpg "Front Flashing Connection") \
    ![alt text](Flashing-Edge.jpg "Edge Flashing Connection") \
 5. Follow the directions as outlined by Esphome for Physically Connecting to your Device: \
-   https://esphome.io/guides/physical_device_connection#physically-connecting-to-your-device \
+   <https://esphome.io/guides/physical_device_connection#physically-connecting-to-your-device> \
 
 ## Operation
 
@@ -70,7 +70,7 @@ code updates.
 
 ## Ultrasonic JSN-SR04T
 
-Datasheet: https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf \
+Datasheet: <https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf> \
 ![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder") \
 The Ultrasonic JSN-SR04T is configured with R27 open. This causes the JSN-SR04T to operate using Trigger and Echo Pulses
 like an HC-SR04 Ultrasonic Distance Sensor.
@@ -82,7 +82,7 @@ like an HC-SR04 Ultrasonic Distance Sensor.
 ### TPL5111 - Nano-Power System Timer for Power Gating
 
 SMD Marking: ZFVX \
-https://www.ti.com/lit/ds/symlink/tpl5111.pdf?ts=1739630376626&ref_url=https%253A%252F%252Fwww.google.com%252F
+<https://www.ti.com/lit/ds/symlink/tpl5111.pdf?ts=1739630376626&ref_url=https%253A%252F%252Fwww.google.com%252F>
 
 Power Gating of 3.3VDC to the ESP8266.\
 Hardwired to restart the controller every hour.\
@@ -91,7 +91,7 @@ Timer will cut 3.3V when DONE pin goes HIGH, will wake after 1hr.
 ### SN74LVC1G3157 - Single-Pole Double-Throw Analog Switch
 
 SMD Marking: C5F \
-Datasheet: https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499
+Datasheet: <https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499>
 
 Switches the connection to A0 (GPIO17)
 
@@ -106,7 +106,7 @@ Switches the connection to A0 (GPIO17)
 
 SMD Marking: AFT3 \
 Datasheet:
-https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf
+<https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf>
 
 ## Basic Configuration
 

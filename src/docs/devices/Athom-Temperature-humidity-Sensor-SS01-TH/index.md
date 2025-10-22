@@ -10,7 +10,7 @@ difficulty: 1
 
 ![SS01-CO2](SS01-TH.webp "Athom Temperature humidity Sensor - SS01-TH")
 
-Maker: https://www.athom.tech
+Maker: <https://www.athom.tech>
 
 ## Available from
 

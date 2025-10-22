@@ -54,7 +54,7 @@ following in order to flash ESPHome:
 - Run `SetOption78 1` in the Tasmota console, reboot/restart your device, then "upgrade" to ESPHome
   - This option is undocumented, and likely to be removed in some future version of Tasmota
 - Use a version of ESPHome which identifies as "compatible" to Tasmota 8.x
-  - Fixed in https://github.com/esphome/esphome/pull/1152. Binaries compiled with ESPHome higher than 1.15.0 are
+  - Fixed in <https://github.com/esphome/esphome/pull/1152>. Binaries compiled with ESPHome higher than 1.15.0 are
     compatible.
 
 ## ESPHome

@@ -315,4 +315,4 @@ EIA level input and output DSR/RTS etc.
 | Data Carrier Detect | DCD          | In        | 8         | 1        |
 | Signal Ground       | G            | Common    | 7         | 5        |
 
-More to see @ https://www.gelidus.ca
+More to see @ <https://www.gelidus.ca>

@@ -29,7 +29,7 @@ board: esp8266
 
 ## Configuration as relay with overpower and overtemperature protection
 
-This is the original device documentation page when it is flashed with Tasmota: https://templates.blakadder.com/refoss_P11.html
+This is the original device documentation page when it is flashed with Tasmota: <https://templates.blakadder.com/refoss_P11.html>
 For accurate energy consumption measurements this device requires power monitoring calibration.
 
 ```yaml

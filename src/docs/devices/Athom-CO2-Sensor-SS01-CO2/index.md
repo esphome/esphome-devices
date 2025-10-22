@@ -10,7 +10,7 @@ difficulty: 1
 
 ![SS01-CO2](SS01-CO2.webp "Athom Multi Target Radar Sensor - SS01-CO2")
 
-Maker: https://www.athom.tech
+Maker: <https://www.athom.tech>
 
 ## Available from
 

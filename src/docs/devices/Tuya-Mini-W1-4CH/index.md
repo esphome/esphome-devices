@@ -7,7 +7,6 @@ board: bk72xx
 difficulty: 4
 ---
 
-
 ## Product Images
 
 ![front](/front.jpg "FRONT")
@@ -20,12 +19,13 @@ Solder USB TTL wires like below
 
 ![soldering](/soldering.jpg "soldering")
 
-To enter bootloader mode, ground CEN pin and power device. I used https://github.com/libretiny-eu/ltchiptool to program it
+To enter bootloader mode, ground CEN pin and power device. I used <https://github.com/libretiny-eu/ltchiptool> to
+program it
 
 ## GPIO Pinout
 
 | Pin    | Function    |
-|--------|-------------|
+| ------ | ----------- |
 | GPIO23 | Push Button |
 | GPIO10 | Relay #1    |
 | GPIO24 | Relay #2    |
@@ -145,5 +145,4 @@ binary_sensor:
         pullup: true
       inverted: true
     name: "Push Button"
-
 ```

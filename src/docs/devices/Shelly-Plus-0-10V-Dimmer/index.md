@@ -32,7 +32,7 @@ Please calibrate the NTC, the value below is just a rough estimate!
 
 Credit and thanks to
 
-- https://templates.blakadder.com/shelly_plus_0-10v_dimmer.html
+- <https://templates.blakadder.com/shelly_plus_0-10v_dimmer.html>
 
 ## Complete configuration
 

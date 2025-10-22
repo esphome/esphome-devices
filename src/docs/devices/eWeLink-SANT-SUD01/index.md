@@ -57,7 +57,7 @@ While not strictly necessary, you may wish to backup the flash content before ov
 If you are an experienced ESPHome dev/user -- you know what to do from here. Just flash the device however you like.
 
 If you are looking for more of a step-by-step guide -- you can flash your new device using a Chromium-based browser
-(Chromium, Chrome, Edge) by going to https://web.esphome.io/ and clicking on 'Install for first-time' (or whatever
+(Chromium, Chrome, Edge) by going to <https://web.esphome.io/> and clicking on 'Install for first-time' (or whatever
 wording they have). Once your device has been flashed, power cycle the device, and then use your phone or a WiFi capable
 device to search for the new ESPHome AP that will be broadcast by the card. Once you have connected to the ESPHome AP,
 you can then tell the device what your home's WiFi network is and the password for getting it connected.

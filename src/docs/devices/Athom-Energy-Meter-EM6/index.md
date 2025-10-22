@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](athom_EM6.webp "Athom Energy Meter - EM6")
 
-Maker: https://www.athom.tech/
-Product page: https://www.athom.tech/blank-1/6-ch-energy-meter-made-for-esphome
+Maker: <https://www.athom.tech/>
+Product page: <https://www.athom.tech/blank-1/6-ch-energy-meter-made-for-esphome>
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

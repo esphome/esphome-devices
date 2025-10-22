@@ -10,7 +10,7 @@ made-for-esphome: True
 ---
 
 ![alt text](LocalBytes-LocalDeck.png "LocalBytes LocalDeck")
-Maker: https://mylocalbytes.com/
+Maker: <https://mylocalbytes.com/>
 
 Preflashed with ESPHome
 

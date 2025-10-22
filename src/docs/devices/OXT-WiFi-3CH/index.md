@@ -22,14 +22,15 @@ Solder USB TTL wires like below
 
 ![soldering](/soldering.jpg "soldering")
 
-To enter bootloader mode, ground CEN pin and power device. I used https://github.com/libretiny-eu/ltchiptool to program it
+To enter bootloader mode, ground CEN pin and power device. I used <https://github.com/libretiny-eu/ltchiptool> to
+program it
 
 ## GPIO Pinout
 
 ### OXT Wi-Fi 3CH - PCB ZH-Z02-A REV:C
 
 | Pin | Function   |
-|-----|------------|
+| --- | ---------- |
 | P7  | Relay #1   |
 | P8  | Relay #2   |
 | P9  | Relay #3   |
@@ -99,5 +100,4 @@ binary_sensor:
       - light.toggle: relay3
     on_release:
       - light.toggle: relay3
-
 ```

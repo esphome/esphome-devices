@@ -32,7 +32,7 @@ It runs on 12V or 24V depending on your configuration and is perfect for industr
 
 - 4 Digit display has problems with trailing dots
 - RS485 has a hardware bug and can't be used reliably, see
-  https://github.com/makstech/esphome-es32a08-expansion-board-example/issues/2#issuecomment-3165396638
+  <https://github.com/makstech/esphome-es32a08-expansion-board-example/issues/2#issuecomment-3165396638>
 
 ## Example Configuration
 

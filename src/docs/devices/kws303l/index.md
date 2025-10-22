@@ -32,7 +32,7 @@ integration of the KWS-303L into ESPHome-based projects.
 
 ## Manufacturer Documentation
 
-For technical specifications, refer to the official user manual (source: http://kowsi.cn/):  
+For technical specifications, refer to the official user manual (source: <http://kowsi.cn/>):  
 [**KWS-303L User Manual**](kws303.pdf)
 
 > **Important:** The manufacturer does not publish register mappings for this device. This configuration is based on

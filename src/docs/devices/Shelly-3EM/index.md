@@ -41,10 +41,10 @@ you'll have the calibration data and can skip steps 1-2 of the
 instructions below.
 
 1. Ensure that you are able to access the device's web interface
-   (http://ip.address.of.device).
+   (<http://ip.address.of.device>).
 
 1. Download the calibration data file from
-   http://ip.address.of.device/calib.dat. The file will look similar
+   <http://ip.address.of.device/calib.dat>. The file will look similar
    to this:
 
 ```json
