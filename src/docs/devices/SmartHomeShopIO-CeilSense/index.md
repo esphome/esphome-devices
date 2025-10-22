@@ -1,6 +1,6 @@
 ---
 title: SmartHomeShopIO Ceiling-mounted All-in-One Sensor (CeilSense)
-date-published: 2025-10-13
+date-published: 2025-10-22
 type: sensor
 standard: uk,us,eu,au,global
 board: esp32
@@ -8,7 +8,6 @@ project-url: https://github.com/smarthomeshop/ceilsense
 made-for-esphome: true
 difficulty: 1
 ---
-<!-- markdownlint-disable MD041 -->
 
 ![CeilSense](ceilsense-topview1.png "CeilSense")
 
@@ -39,16 +38,15 @@ Power it via **110–240 VAC**, **USB-C (5 V)**, or **PoE Ethernet**. It fits a 
 - **CeilSense Basic** — LD2412 + BH1750 + BMP3xx + 16× RGB ring  
 - **CeilSense Complete** — **Basic + SCD41** (CO₂/Temp/Humidity)
 
-> Ethernet/PoE builds are separate YAMLs. Flash the **Ethernet** variant if you plan to use PoE.
+> Ethernet/PoE builds are separate YAMLs. Flash the **Ethernet** variant if you plan to use Ethernet (with or without PoE).
 
 ## Quickstart
 
 1. **Install** the device in a **68 mm** cut-out; connect mains or USB-C; optionally RJ45 for PoE.  
-2. **Flash** the matching firmware (Basic/Complete × Wi-Fi/Ethernet).  
-3. **Onboard**  
-   - **Wi-Fi** builds: join CeilSense AP → provide Wi-Fi → appears as **Discovered** in Home Assistant.  
-   - **Ethernet** builds: plug UTP → gets DHCP → appears as **Discovered**.  
-4. **Adopt** in ESPHome / Home Assistant and tune (radar thresholds, LED effects).
+2. **Onboard**  
+   - **Wi-Fi** builds: join CeilSense AP → provide Wi-Fi credentials of your network → appears as **Discovered** in Home Assistant.  
+   - **Ethernet** builds: plug UTP → gets DHCP → appears as **Discovered** in Home Assistant.  
+3. **Adopt** in ESPHome / Home Assistant and tune (radar thresholds, LED effects).
 
 > Please check our full documentation and Quick Start Guide: **https://smarthomeshop.io/quick-start-ceilsense**
 
