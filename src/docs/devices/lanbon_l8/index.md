@@ -65,6 +65,11 @@ No soldering required.
 ### Example Configuration
 
 ```yaml
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
 psram:
   speed: 80MHz
 
