@@ -14,12 +14,12 @@ Also on Aliexpress.
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| P8     | Button              |
-| P26    | External Switch     |
-| p24    | Relay               |
-| P7     | Status Led          |
+| Pin | Function        |
+| --- | --------------- |
+| P8  | Button          |
+| P26 | External Switch |
+| p24 | Relay           |
+| P7  | Status Led      |
 
 ## Basic Configuration
 
@@ -54,7 +54,7 @@ substitutions:
 
 ## ---------------- ##
 ##    Status LED    ##
-## Если есть ошибка в ESPhome, то диод мигает. Eсли все хорошо, то индикатором можно управлять из HA
+## Если есть ошибка в ESPHome, то диод мигает. Eсли все хорошо, то индикатором можно управлять из HA
 ## ---------------- ##
 
 light:

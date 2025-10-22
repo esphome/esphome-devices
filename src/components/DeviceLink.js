@@ -63,7 +63,7 @@ export function MadeForESPHomeLogo({width}) {
 
 export function DifficultyLookup({ difficulty }) {
   const levels = {
-    1: "Comes with ESPhome",
+    1: "Comes with ESPHome",
     2: "Plug-n-flash",
     3: "Disassembly required",
     4: "Soldering required",

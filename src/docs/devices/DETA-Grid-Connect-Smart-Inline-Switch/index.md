@@ -96,7 +96,7 @@ sensor:
 
 text_sensor:
   - platform: version
-    name: ${device_name} ESPhome Version
+    name: ${device_name} ESPHome Version
   - platform: wifi_info
     ip_address:
       name: ${device_name} IP

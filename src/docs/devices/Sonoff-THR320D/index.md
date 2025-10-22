@@ -26,19 +26,19 @@ Note that until March 2024 there was an error in this page causing a safety issu
 The code was considering the relays GPIO as being active-low, when they are actually active-high. So the two main relay pins were stay simultaneously active most of the time, making the device dangerously hot.
 If you copied the old version of the code from here, please remove the ```inverted: True``` line for the relays and update your devices as soon as possible.
 
-| Pin    | Function                                                                  |
-| ------ | ----------------------------------                                        |
-| GPIO0  | Push Button (HIGH = off, LOW = on)                                        |
-| GPIO4  | Small Relay (Dry Contact)                                                 |
-| GPIO19 | Large/Main Relay pin 1, pull high for relay ON                            |
-| GPIO22 | Large/Main Relay pin 2, pull high for relay OFF                           |
-| GPIO5  | Display (TM1621) Data                                                     |
-| GPIO17 | Display (TM1621) CS                                                       |
-| GPIO18 | Display (TM1621) Write                                                    |
-| GPIO23 | Display (TM1621) Read                                                     |
-| GPIO16 | Left LED (Red)                                                            |
-| GPIO15 | Middle LED (Blue)                                                         |
-| GPIO13 | Right LED (Green)                                                         |
+| Pin    | Function                                        |
+| ------ | ----------------------------------------------- |
+| GPIO0  | Push Button (HIGH = off, LOW = on)              |
+| GPIO4  | Small Relay (Dry Contact)                       |
+| GPIO19 | Large/Main Relay pin 1, pull high for relay ON  |
+| GPIO22 | Large/Main Relay pin 2, pull high for relay OFF |
+| GPIO5  | Display (TM1621) Data                           |
+| GPIO17 | Display (TM1621) CS                             |
+| GPIO18 | Display (TM1621) Write                          |
+| GPIO23 | Display (TM1621) Read                           |
+| GPIO16 | Left LED (Red)                                  |
+| GPIO15 | Middle LED (Blue)                               |
+| GPIO13 | Right LED (Green)                               |
 
 ## Basic Configuration
 
@@ -328,7 +328,7 @@ switch:
 
 output:
   # Ideally, these two relay GPIOs should be interlocked to prevent
-  # simultaneous operation. ESPhome currently does not support
+  # simultaneous operation. ESPHome currently does not support
   # interlocks at an output: level, or even at a button: level
   # BE CAREFUL!
   - platform: gpio
