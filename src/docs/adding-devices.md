@@ -8,9 +8,7 @@ permalink: /adding-devices/
 
 1. To add a new device create a new folder named after your device under the `src/docs/devices` directory in the [GitHub Repository](https://github.com/esphome/esphome-devices). In that folder, create a markdown (`.md`) file named `index.md` with the content. Please avoid using underscores or spaces in the filenames and use hypens instead as this makes for easier to understand the URLs generated when the site is built. When using the _Add file_ -> _Create new file_ button in the `Devices` folder or by following [this link](https://github.com/esphome/esphome-devices/new/main/src/docs/devices), Github will automatically create a fork of the repository and a new branch for your changes. Just type the device name for the folder followed by a `/index.md` (including the slash).
 
-   <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-   <a class="github-button" href="https://github.com/esphome/esphome-devices/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork esphome-devices/esphome-devices on GitHub">Fork</a>
+   [Fork](https://github.com/esphome/esphome-devices/fork) on GitHub
 
 2. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [in the GitHub documentation](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
 
