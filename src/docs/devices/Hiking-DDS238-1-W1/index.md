@@ -90,29 +90,29 @@ Tuya:
 
 Relay is driven by Tuya MCU. ESP restart will not affect state of Relay !
 
-| DP  | Sensor           | Multiply | Unit | Decimals |
-| --- | ---------------- | -------- | ---- | -------- |
-| 101 | Energy Total     | 0.001    | kWh  | 3        |
-|   1 | Energy from Grid | 0.001    | kWh  | 3        |
-| 102 | Energy to Grid   | 0.001    | kWh  | 3        |
-| 103 | Power Active     | 0.001    | kW   | 3        |
-| 110 | Power Reactive   | 0.001    | kVAr | 3        |
-| 111 | Power Factor     | 0.001    |      | 3        |
-| 105 | Frequency        | 0.01     | Hz   | 2        |
-| 108 | So far always reported 0 |  | | | |
-| 109 | Power Flow - Reported 4 when flow is to Grid |  | | | |
+| DP  | Sensor                                        | Multiply | Unit | Decimals |
+| --- | --------------------------------------------- | -------- | ---- | -------- |
+| 101 | Energy Total                                  | 0.001    | kWh  | 3        |
+|   1 | Energy from Grid                              | 0.001    | kWh  | 3        |
+| 102 | Energy to Grid                                | 0.001    | kWh  | 3        |
+| 103 | Power Active                                  | 0.001    | kW   | 3        |
+| 110 | Power Reactive                                | 0.001    | kVAr | 3        |
+| 111 | Power Factor                                  | 0.001    |      | 3        |
+| 105 | Frequency                                     | 0.01     | Hz   | 2        |
+| 108 | So far always reported 0                      |          |      |          |
+| 109 | Power Flow - Reported 4 when flow is to Grid  |          |      |          |
 
 Report negative "Power Active" when power flow is to Grid.
 
 ## Tuya DataPoint 6 (raw, 15 bytes)
 
-| Bytes | Sensor         | Multiply | Unit | Decimals | Parsed by MCU |
-| ----- | -------------- | -------- | ---- | -------- | ------------- |
-| 13,14 | Voltage        | 0.1      | V    | 1        |               |
-| 11,12 | Current        | 0.001    | A    | 3        |               |
-| 06,07 | Power Reactive | 0.001    | kVAr | 3        | as DP110      |
-| 02,03 | Power Active   | 0.001    | kW   | 3        | as DP103      |
-|    00 | Power Flow Direction: 00 - from Grid, 01 - to Grid | | | | |
+| Bytes | Sensor                                              | Multiply | Unit | Decimals | Parsed by MCU |
+| ----- | --------------------------------------------------- | -------- | ---- | -------- | ------------- |
+| 13,14 | Voltage                                             | 0.1      | V    | 1        |               |
+| 11,12 | Current                                             | 0.001    | A    | 3        |               |
+| 06,07 | Power Reactive                                      | 0.001    | kVAr | 3        | as DP110      |
+| 02,03 | Power Active                                        | 0.001    | kW   | 3        | as DP103      |
+|    00 | Power Flow Direction: 00 - from Grid, 01 - to Grid |          |      |          |               |
 
 ## Basic Configuration
 

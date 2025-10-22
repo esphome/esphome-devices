@@ -51,7 +51,7 @@ difficulty: 2
 | ------ | -----------|
 | GPIO32 | LCD Backlight (output, ledc) |
 | GPIO36 | Load Relay (output, switch) |
-| GPIO5  | HLW8012 CF Pin (input, pulse_meter)
+| GPIO5  | HLW8012 CF Pin (input, pulse_meter)            |
 | GPIO11 | mmWave Proximity Sensor (input, binary_sensor) |
 | GPIO2  | mmWave Proximity Sensor (output, unknown) |
 | GPIO1  | mmWave Proximity Sensor (output, unknown) |

@@ -36,16 +36,16 @@ It uses the ESP32 DOWDQ6.
 
 A shift register is controlling the status LEDs and the relay output, the pinout for it is the following:
 
-SN74HC595B| Component
-----------|----------
-QA        |Relay
-QB        |Out 2LED
-QC        |RGB Blue
-QD        |RGB Green
-QE        |RGB Red
-QF        |nc
-QG        |nc
-QH        |nc
+| SN74HC595B | Component  |
+| ---------- | ---------- |
+| QA         | Relay      |
+| QB         | Out 2LED   |
+| QC         | RGB Blue   |
+| QD         | RGB Green  |
+| QE         | RGB Red    |
+| QF         | nc         |
+| QG         | nc         |
+| QH         | nc         |
 
 The Out 1 status LED and the relay are on the same output. From what I've seen the board looks like it's being used for the Shelly Pro 1, Pro 2, Pro 1PM, and Pro 2PM. But I can't comfirm it.
 There are all the spaces needed for all device variants.

@@ -12,21 +12,21 @@ made-for-esphome: True
 
 ## Pinout
 
-ESP32-S2    | Sensor        | e-Paper  | Other
-------------|---------------|----------|----------
-GPIO 00     |Flash button   |          |
-GPIO 01     |Soil moisture  |          |
-GPIO 02     |Battery volts  |          |
-GPIO 03     |Solar charge   |          |
-GPIO 04     |               |          |Sensor powering
-GPIO 10     |               |CS        |
-GPIO 11     |               |MOSI      |
-GPIO 12     |               |CLK       |
-GPIO 13     |               |DC/MISO   |
-GPIO 14     |               |BUSY      |
-GPIO 15     |               |RST       |
-GPIO 33     |SDA            |          |
-GPIO 34     |SCL            |          |
+| ESP32-S2 | Sensor          | e-Paper | Other           |
+| -------- | --------------- | ------- | --------------- |
+| GPIO 00  | Flash button    |         |                 |
+| GPIO 01  | Soil moisture   |         |                 |
+| GPIO 02  | Battery volts   |         |                 |
+| GPIO 03  | Solar charge    |         |                 |
+| GPIO 04  |                 |         | Sensor powering |
+| GPIO 10  |                 | CS      |                 |
+| GPIO 11  |                 | MOSI    |                 |
+| GPIO 12  |                 | CLK     |                 |
+| GPIO 13  |                 | DC/MISO |                 |
+| GPIO 14  |                 | BUSY    |                 |
+| GPIO 15  |                 | RST     |                 |
+| GPIO 33  | SDA             |         |                 |
+| GPIO 34  | SCL             |         |                 |
 
 ## Basic Configuration
 
