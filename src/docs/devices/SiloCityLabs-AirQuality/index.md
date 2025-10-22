@@ -32,7 +32,7 @@ The Air Quality Monitor Kit is designed to provide real-time data on air quality
 
 ## Basic Config
 
-The latest state of the configuration is available [here](https://github.com/SiloCityLabs/esp32-airquality/blob/main/esphome-v1.yaml).
+The latest state of the configuration is [available on GitHub](https://github.com/SiloCityLabs/esp32-airquality/blob/main/esphome-v1.yaml).
 
 ## Pictures
 

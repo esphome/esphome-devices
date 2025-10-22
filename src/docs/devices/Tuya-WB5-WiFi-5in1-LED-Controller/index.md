@@ -32,7 +32,7 @@ There are 2 ways of flashing ESPHome on to this controller.
 
 ## Manual Flashing guide
 
-1. Get a UF2 file from the ESPHome Home Assistant addon. first create a new device(Just select ESP32 The yaml file below changes the controller to bk72xx) then copy the yaml file coresponding with your led strip in the edit window and lastly click install(Top Right) and manual download the file as a UF2 package. **IMPORTANT: Change the api encription key with a random genarated key from [here](https://esphome.io/components/api.html#configuration-variables), change the ota password if you want to use ota and change the ap password if you want to have a fallback ap.**
+1. Get a UF2 file from the ESPHome Home Assistant addon. first create a new device(Just select ESP32 The yaml file below changes the controller to bk72xx) then copy the yaml file coresponding with your led strip in the edit window and lastly click install(Top Right) and manual download the file as a UF2 package. **IMPORTANT: Change the api encription key with a random generated key from [the ESPHome API documentation](https://esphome.io/components/api.html#configuration-variables), change the ota password if you want to use ota and change the ap password if you want to have a fallback ap.**
 2. Get a USB to serial converter that can work with 3.3V. Example:
 ![usb serial adapter](usb-serial-adapter.jpg "usb serial adapter")
 3. Set the jumper to 3.3V if you have one (image is set to 5V).

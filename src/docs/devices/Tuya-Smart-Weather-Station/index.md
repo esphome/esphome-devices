@@ -20,7 +20,7 @@ We also use a custom tuya component in order to correctly handle the weather com
 
 ## Flashing Instuctions
 
-This device is based on the WBR3 Tuya Module, you can check for flashing setup in [here](https://www.elektroda.com/rtvforum/topic4097185.html). With the WBR3 removed and with the probe pins soldered you can use ltchiptool to flash it via UART. We strongly recommend using an external power source for the 3v3 power supply. Make sure to connect the GND of the supply and the serial converter together, so they share the same GND reference.
+This device is based on the WBR3 Tuya Module, you can check for flashing setup [on the Elektroda forum](https://www.elektroda.com/rtvforum/topic4097185.html). With the WBR3 removed and with the probe pins soldered you can use ltchiptool to flash it via UART. We strongly recommend using an external power source for the 3v3 power supply. Make sure to connect the GND of the supply and the serial converter together, so they share the same GND reference.
 
 ## Features
 

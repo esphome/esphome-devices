@@ -20,7 +20,7 @@ CAUTION: either install the device properly in the wall before attempting, or ha
 
 Newer versions of this switch use the BK7231N chip, running 1.0.1 firmware. These devices are able to be flashed using tuya-cloudcutter.
 
-Install Tuya-cloudcutter, following instructions [here](https://github.com/tuya-cloudcutter/tuya-cloudcutter/tree/main/custom-firmware)
+Install Tuya-cloudcutter, following instructions [in the tuya-cloudcutter repository](https://github.com/tuya-cloudcutter/tuya-cloudcutter/tree/main/custom-firmware)
 
 Once the tool is installed, run it with this command:
 
@@ -40,7 +40,7 @@ build the firmware in esphome and flash it using the itchiptool
 
 download the firmware in the uf2 format
 
-Install itchiptool from [here](https://github.com/libretiny-eu/ltchiptool)
+Install ltchiptool from [the ltchiptool repository](https://github.com/libretiny-eu/ltchiptool)
 
 figure out the serial port the device is connected to and run the following command
 (in my case it was /dev/ttyUSB0 in linux, but in windows it will be a com port)

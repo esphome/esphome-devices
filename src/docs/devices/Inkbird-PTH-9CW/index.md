@@ -9,7 +9,7 @@ difficulty: 4
 
 ## Overview
 
-The Inkbird PTH-9CW (INK-CO2W) is an air quality sensor that provides CO2 concentration, temperature and humidity measurements. A teardown of this device can be found [here](https://goughlui.com/2023/10/22/review-teardown-inkbird-pth-9cw-wi-fi-carbon-dioxide-detector/) thanks to Dr. Gough.
+The Inkbird PTH-9CW (INK-CO2W) is an air quality sensor that provides CO2 concentration, temperature and humidity measurements. A teardown of this device can be found [on Dr. Gough's blog](https://goughlui.com/2023/10/22/review-teardown-inkbird-pth-9cw-wi-fi-carbon-dioxide-detector/) thanks to Dr. Gough.
 
 This is a Tuya device with a CB3S module inside. The NDIR CO2 sensor is either an MH-Z19D or MH-Z19E, and the temp/humidity sensor is an SHT40. All the sensors and the display are connected to the Tuya MCU.
 

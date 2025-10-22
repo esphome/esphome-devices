@@ -13,7 +13,7 @@ board: esp8266
 | GPIO4 | Temprature |
 | GPIO5 | Brightness |
 
-This template was made using the Tasmota template found [here](https://github.com/arendst/mgos-to-tasmota) with the [GPIO conversion in the Tasmota docs](https://tasmota.github.io/docs/GPIO-Conversion/#gpio-conversion).
+This template was made using [the Tasmota template](https://github.com/arendst/mgos-to-tasmota) with the [GPIO conversion in the Tasmota docs](https://tasmota.github.io/docs/GPIO-Conversion/#gpio-conversion).
 
 ```yaml
 esphome:

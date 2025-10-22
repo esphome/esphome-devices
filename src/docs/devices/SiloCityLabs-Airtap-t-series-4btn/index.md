@@ -28,7 +28,7 @@ The Airtap T Series Custom PCB by SiloCityLabs is a custom PCB designed to repla
 
 ## Basic Config
 
-The latest state of the configuration is available [here](https://github.com/SiloCityLabs/ac-infinity-esp32/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml).
+The latest state of the configuration is [available on GitHub](https://github.com/SiloCityLabs/ac-infinity-esp32/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml).
 
 ## Pictures
 

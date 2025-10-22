@@ -12,7 +12,7 @@ permalink: /adding-devices/
 
    <a class="github-button" href="https://github.com/esphome/esphome-devices/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork esphome-devices/esphome-devices on GitHub">Fork</a>
 
-2. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
+2. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull request from a fork can be found [in the GitHub documentation](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) if you are unsure.
 
 ## YAML Front Matter
 

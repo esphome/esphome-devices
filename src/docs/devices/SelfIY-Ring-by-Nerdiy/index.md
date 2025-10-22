@@ -31,7 +31,7 @@ More info and the housing STLs are available here: [Nerdiy.de](https://nerdiy.de
 
 ## Basic Config
 
-The latest state of the configuration is available [here](https://github.com/Nerdiyde/ESPHomeSnippets/blob/main/Snippets/selfIY_ring/nerdiys-selfiy-ring.yaml).
+The latest state of the configuration is [available on GitHub](https://github.com/Nerdiyde/ESPHomeSnippets/blob/main/Snippets/selfIY_ring/nerdiys-selfiy-ring.yaml).
 
 ## Dimensions
 

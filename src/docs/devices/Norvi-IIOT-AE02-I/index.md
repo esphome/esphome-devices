@@ -22,7 +22,7 @@ The example below is for the 4-20mA current input version, with an attached 8x r
 
 ![Schematic Front View](https://github.com/user-attachments/assets/edc0435c-f4db-41a7-91b8-dca2c112c675)
 
-More details at the product website [here](https://norvi.lk/norvi-iiot-industrial-esp32-for-iiot-applications) or a very similar version [here](https://sensoper.com/shop/sc-se-i8-am6-to2/)
+More details at [the Norvi product website](https://norvi.lk/norvi-iiot-industrial-esp32-for-iiot-applications) or [a very similar version on Sensoper](https://sensoper.com/shop/sc-se-i8-am6-to2/)
 
 [Data Sheet](https://norvi.lk/docs/norvi-iiot-ae02-i-datasheet/)
 

@@ -93,7 +93,7 @@ Follow the steps below to boot the ESP module into Flash Mode:
 
 If you want to make a backup of the OEM firmware so you can reflash it later for any reason, follow the steps below.
 
-⚠ **SECURITY WARNING:** If the device is already set up, this procedure will also include any specific configurations, such as Wi-Fi credentials. You may want to factory reset the device and back up a clean version of the firmware as well if you plan on reselling this item in the future. Additional documentation on how to use esptool can be found [here](https://docs.espressif.com/projects/esptool/en/latest/esp32/index.html).
+⚠ **SECURITY WARNING:** If the device is already set up, this procedure will also include any specific configurations, such as Wi-Fi credentials. You may want to factory reset the device and back up a clean version of the firmware as well if you plan on reselling this item in the future. Additional documentation on how to use esptool can be found [in the esptool documentation](https://docs.espressif.com/projects/esptool/en/latest/esp32/index.html).
 
 Follow the steps below to back up the firmware currently installed on the ESP module.
 

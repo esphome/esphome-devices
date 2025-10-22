@@ -21,7 +21,7 @@ Use a RS485 adapter (RS485 to TTL) like [this one](https://esphome.io/_images/rs
 
 ## ESPHome configuration
 
-Available memory registries can be found [here](https://github.com/arendst/Tasmota/discussions/15541#discussion-4053434).
+Available memory registries can be found [in the Tasmota discussions](https://github.com/arendst/Tasmota/discussions/15541#discussion-4053434).
 
 ```yaml
 esphome:

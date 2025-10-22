@@ -42,7 +42,7 @@ More information:
 ## Basic Config
 
 This config has Ethernet enabled by default. You cannot use both WiFi and Ethernet at the same
-time ([link](https://esphome.io/components/ethernet.html#ethernet-component)). In order to use WiFi,
+time ([ESPHome Ethernet documentation](https://esphome.io/components/ethernet.html#ethernet-component)). In order to use WiFi,
 uncomment the WiFi block and comment the Ethernet blocks.
 
 ```yaml

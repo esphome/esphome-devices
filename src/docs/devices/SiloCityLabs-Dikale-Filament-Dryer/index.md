@@ -33,7 +33,7 @@ The PCB is designed to fit inside the Dikale Filament Dryer and can be powered b
 
 ## Basic Config
 
-The latest state of the configuration is available [here](https://github.com/SiloCityLabs/esp32-dikale-dryer/blob/main/config.yaml).
+The latest state of the configuration is [available on GitHub](https://github.com/SiloCityLabs/esp32-dikale-dryer/blob/main/config.yaml).
 
 ## Pictures
 
