@@ -9,8 +9,7 @@ made-for-esphome: False
 
 ## General Notes
 
-[Mirabella Genio Wi-Fi Dimmable 9W LED CCT Downlight
-](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-dimmable-9w-led/)
+[Mirabella Genio Wi-Fi Dimmable 9W LED CCT Downlight](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-dimmable-9w-led/)
 
 ![Mirabella Genio Wi-Fi Dimmable 9W LED CCT Downlight](Mirabella-Genio-Downlight-9W-I002741.jpg 'Mirabella Genio Wi-Fi Dimmable 9W LED CCT Downlight')
 

@@ -9,8 +9,7 @@ made-for-esphome: False
 
 ## General Notes
 
-[Connect SmartHome Wi-Fi Plug with USB Ports
-](https://www.connectsmarthome.com.au/smart-power/connect-smart-wi-fi-plug-with-usb-ports-alexa-google-compatible/)
+[Connect SmartHome Wi-Fi Plug with USB Ports](https://www.connectsmarthome.com.au/smart-power/connect-smart-wi-fi-plug-with-usb-ports-alexa-google-compatible/)
 
 ![Connect SmartHome Wi-Fi Plug with USB Ports](CSH-PLGUSB.png 'Connect SmartHome Wi-Fi Plug with USB Ports')
 
