@@ -82,7 +82,7 @@ sensor:
 
 text_sensor:
   - platform: version
-    name: SP10 ESPhome Version
+    name: SP10 ESPHome Version
   - platform: wifi_info
     ip_address:
       name: SP10 IP

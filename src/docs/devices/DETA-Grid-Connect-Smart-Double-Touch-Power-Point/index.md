@@ -33,21 +33,21 @@ You may be able to simply dig at it enough that the 3v3 pin is accessible.
 
 ## GPIO pinout
 
-| GPIO # | Component   |
-|:------:|------------:|
-| GPIO00 |        None |
-| GPIO01 |        None |
-| GPIO02 |        None |
-| GPIO03 |        None |
-| GPIO04 |  Status LED |
-| GPIO05 |        None |
-| GPIO09 |        None |
-| GPIO10 |        None |
-| GPIO12 |   Button 2n |
-| GPIO13 |     Relay 1 |
-| GPIO14 |     Relay 2 |
-| GPIO15 |        None |
-| GPIO16 |   Button 1n |
+| GPIO # |  Component |
+| :----: | ---------: |
+| GPIO00 |       None |
+| GPIO01 |       None |
+| GPIO02 |       None |
+| GPIO03 |       None |
+| GPIO04 | Status LED |
+| GPIO05 |       None |
+| GPIO09 |       None |
+| GPIO10 |       None |
+| GPIO12 |  Button 2n |
+| GPIO13 |    Relay 1 |
+| GPIO14 |    Relay 2 |
+| GPIO15 |       None |
+| GPIO16 |  Button 1n |
 
 ## Basic Configuration
 
@@ -95,7 +95,7 @@ sensor:
 
 text_sensor:  
   - platform: version
-    name: ${device_name} ESPhome Version
+    name: ${device_name} ESPHome Version
   - platform: wifi_info
     ip_address:
       name: ${device_name} IP

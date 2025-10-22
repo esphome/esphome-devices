@@ -16,7 +16,7 @@ It uses the PCIe power rails to determine whether the host PC is turned on, but 
 
 ## GPIO Pinout
 
-| Pin    | Function | Notes                                                                                       |
+| Pin    | Function | Notes                                                                                                                         |
 | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | GPIO0  | INPUT    | Button on module PCB, used by OEM firmware for WiFi config (inverted); also receives a ~2.5Hz signal when the PC is turned on |
 | GPIO12 | OUTPUT   | Wired to the PC power button / motherboard, to simulate pressing the power button                                             |
@@ -50,9 +50,9 @@ While not strictly necessary, you may wish to backup the flash content before ov
 ❯ esptool.py --port /dev/ttyUSB0 read_flash 0x000000 0x100000 flash_backup.bin
 ```
 
-If you are an experienced ESPhome dev/user -- you know what to do from here.  Just flash the device however you like.
+If you are an experienced ESPHome dev/user -- you know what to do from here.  Just flash the device however you like.
 
-If you are looking for more of a step-by-step guide -- you can flash your new device using a Chromium-based browser (Chromium, Chrome, Edge) by going to https://web.esphome.io/ and clicking on 'Install for first-time' (or whatever wording they have). Once your device has been flashed, power cycle the device, and then use your phone or a WiFi capable device to search for the new ESPhome AP that will be broadcast by the card.  Once you have connected to the ESPhome AP, you can then tell the device what your home's WiFi network is and the password for getting it connected.
+If you are looking for more of a step-by-step guide -- you can flash your new device using a Chromium-based browser (Chromium, Chrome, Edge) by going to https://web.esphome.io/ and clicking on 'Install for first-time' (or whatever wording they have). Once your device has been flashed, power cycle the device, and then use your phone or a WiFi capable device to search for the new ESPHome AP that will be broadcast by the card.  Once you have connected to the ESPHome AP, you can then tell the device what your home's WiFi network is and the password for getting it connected.
 
 ## Basic Configuration
 
@@ -238,9 +238,9 @@ web_server:
 
 ## Home Assistant Integration and Setup
 
-**READ THIS LINE** -- There is a difference between configuring ESPhome **devices** in HA , and using the **ESPhome HA Add-On**.  The ESPhome Add-On is what you'll need to use in order to compile the ESPhome firmware for this device.
+**READ THIS LINE** -- There is a difference between configuring ESPHome **devices** in HA , and using the **ESPHome HA Add-On**.  The ESPHome Add-On is what you'll need to use in order to compile the ESPHome firmware for this device.
 
-In your home assistant, go to "Settings -> Add-Ons -> Add-On Store"  Search for "ESPhome" and add the official ESPhome Add-On. Startup and go into the new ESPhome Addon.  Click on "Secrets" in the upper-right corner and add your home network's WiFi settings.
+In your home assistant, go to "Settings -> Add-Ons -> Add-On Store"  Search for "ESPHome" and add the official ESPHome Add-On. Startup and go into the new ESPHome Addon.  Click on "Secrets" in the upper-right corner and add your home network's WiFi settings.
 
 ```yaml
 # Your Wi-Fi SSID and password
@@ -251,7 +251,7 @@ wifi_password: "password_here"
 
 And click on "Save" (upper right corner).
 
-Assuming that your HA is on the same network as your newly flashed PCI-E card, the ESPhome Add-On should automatically list the new device with the option to "Adopt" the new device.  Go ahead and "Adopt" it. **BUT DO NOT 'INITIALISE'**  You can click on 'Skip'.
+Assuming that your HA is on the same network as your newly flashed PCI-E card, the ESPHome Add-On should automatically list the new device with the option to "Adopt" the new device.  Go ahead and "Adopt" it. **BUT DO NOT 'INITIALISE'**  You can click on 'Skip'.
 Now click on "Edit" underneath your newly adopted device.  You can now copy the above configuration YAML and paste it into the text box on your adopted device.  Click on "Save" and then click on "Install".  I recommend selecting the option that allows you to create a binary file and save it to your computer in order to flash the new device from any number of methods.  Once you have your new binary file, you can flash it to your new device and it should automatically reboot itself.  
 
 **Note:** If you flash the device using OTA while it is fully connected to your PC , it will boot-up and simulate a 'power-button-pressed' action on boot.  

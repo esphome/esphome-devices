@@ -121,7 +121,7 @@ sensor:
 
 text_sensor:
   - platform: version
-    name: ${friendly_name} ESPhome Version
+    name: ${friendly_name} ESPHome Version
   - platform: wifi_info
     ip_address:
       name: ${friendly_name} IP

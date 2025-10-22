@@ -97,6 +97,6 @@ This is where we can say thanks to the amazing feature set of Theo Arends' Tasmo
 - If you installed Tasmota 8.x, see the [Tasmota 8.x Warning](#tasmota-v8x-warning) above.
 - Click [Firmware Upgrade], in the following dialog on the lower part click [Browse] and navigate to the binary file you downloaded or compiled above, then hit [Start upgrade] and wait up to 2 minutes.
 
-Upon returning to the ESPhome dashboard (if you're using it), you should see your device coming online with the indicator changing from red Offline to green Online. Any further changes to the firmware can now be done, compiled and uploaded over the air directly from here.
+Upon returning to the ESPHome dashboard (if you're using it), you should see your device coming online with the indicator changing from red Offline to green Online. Any further changes to the firmware can now be done, compiled and uploaded over the air directly from here.
 
 Your device should now be available to integrate with Home Assistant - enjoy!

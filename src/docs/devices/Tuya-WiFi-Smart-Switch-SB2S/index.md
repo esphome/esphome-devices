@@ -14,11 +14,11 @@ pcb: CB2S
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| P8     | Button              |
-| P7     | Status Led          |
-| p24    | Relay               |
+| Pin | Function   |
+| --- | ---------- |
+| P8  | Button     |
+| P7  | Status Led |
+| p24 | Relay      |
 
 ## Basic Configuration
 
@@ -53,7 +53,7 @@ substitutions:
 
 ## ---------------- ##
 ##    Status LED    ##
-## Если есть ошибка в ESPhome, то диод мигает. Eсли все хорошо, то индикатором можно управлять из HA
+## Если есть ошибка в ESPHome, то диод мигает. Eсли все хорошо, то индикатором можно управлять из HA
 ## ---------------- ##
 
 light:
