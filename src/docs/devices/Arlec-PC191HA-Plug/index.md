@@ -13,7 +13,7 @@ These are available in White (PC191HA) or Black (PC191BKHA), and in 4-packs of W
 It is compact, easily fitting side-by-side in double wall sockets.  
 
 The Arlec Grid Connect Smart Plug In Socket With Energy Meter uses a WB2S module with BK7231T chip (a variant of bk72xx) and is supplied with Tuya firmware.  
-As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#Using-Cloudcutter).  
+As at the time of writing, they can be flashed without disassembly or soldering [using cloudcutter](#using-cloudcutter).  
 
 ### Series 2 Info
 
