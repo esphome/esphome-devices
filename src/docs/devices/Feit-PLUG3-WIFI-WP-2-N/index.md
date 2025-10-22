@@ -21,13 +21,13 @@ The SmartPlug leverages a Generic BK7231N module based on the BK7231N chip (a va
 
 ## GPIO Pinout
 
-| Pin | Function            |
-| --- | --------------------|
-| P26 | (PWM0) Pushbutton   |
-| P17 | (PWM1) Status LED   |
-| P15 | (PWM2) Relay        |
-| P10 | (RXD1) UART 1 RX    |
-| P11 | (TXD1) UART 1 TX    |
+| Pin | Function          |
+| --- | ----------------- |
+| P26 | (PWM0) Pushbutton |
+| P17 | (PWM1) Status LED |
+| P15 | (PWM2) Relay      |
+| P10 | (RXD1) UART 1 RX  |
+| P11 | (TXD1) UART 1 TX  |
 
 Disassembly is straightforward but DO NOT open the device while it is plugged into mains power as that presents a safety hazard. There are six phillips head screws on the bottom; they are all the same size. Remove those screws and set aside.
 ![Bottom Image](bottom.jpg "Bottom of device")
@@ -40,7 +40,7 @@ Next, use a USB FTDI adapter (I used [this](https://www.amazon.com/HiLetgo-FT232
 
 ## Preparing to flash
 
-Using ESPhome, create a new device and give it a name. On the "Installation" screen, click 'SKIP THIS STEP' at the bottom. For the device type, you can select "Generic - BK7231N (Tuya QFN32)". Copy the encryption key if you plan on using it otherwise click 'skip'. Now you should see that device in the list; click on 'EDIT' just below and copy over the config with the one below. Make sure to update with your Wifi credentials and encryption key if using. Then click 'INSTALL' and then choose the 'Manual download' option. The reason for this is we need to use a special tool for the initial flash; ESPhome OTA updates will work as expected after the initial installation. Once it's compiled, select the top button to download the uf2 file.
+Using ESPHome, create a new device and give it a name. On the "Installation" screen, click 'SKIP THIS STEP' at the bottom. For the device type, you can select "Generic - BK7231N (Tuya QFN32)". Copy the encryption key if you plan on using it otherwise click 'skip'. Now you should see that device in the list; click on 'EDIT' just below and copy over the config with the one below. Make sure to update with your Wifi credentials and encryption key if using. Then click 'INSTALL' and then choose the 'Manual download' option. The reason for this is we need to use a special tool for the initial flash; ESPHome OTA updates will work as expected after the initial installation. Once it's compiled, select the top button to download the uf2 file.
 
 Using a Windows computer, [download](https://github.com/libretiny-eu/ltchiptool/releases) and run LTCHIPTOOL and be sure you are on the 'Flashing' tab. Plug in your USB FTDI adapter and select it from the 'Device port' list, set the baud rate of 115200, and set the 'Chip family' to 'Beken 72xx'. It is recommended to read through the [Beken BK72xx](https://docs.libretiny.eu/docs/platform/beken-72xx/) info page to better understand the following steps.
 
@@ -48,7 +48,7 @@ Using a Windows computer, [download](https://github.com/libretiny-eu/ltchiptool/
 
 If you'd like to dump the original firmware, obviously you need to do this before flashing. If you have no interest in ever returning to the stock firmware skip to the next section. In the 'Output file' box, select the location you would like to save the file to. Select "Read flash" and then click 'Start'. Now is when you need that jumper wire you attached to ground earlier. Use it to tap the CEN pin briefly while LTCHIPTOOL is trying to read the device. This will reboot the BK7231N where it very briefly goes into program mode before continuing to its regular routine. You should see the progress of the read begin. You may have to try this a couple times to get it right. It will take a minute or two to dowload the flash. If you'd like to download the ROM for whatever reason (contains the bootloader/download mode), you can also do that now using the same method but selecting 'Read ROM' before hitting 'Start' again.
 
-## Installing ESPhome
+## Installing ESPHome
 
 On the 'Flashing' tab within LTCHIPTOOL, choose 'Write flash / identify file' option and then browse to the uF2 file you compiled earlier and then press 'Start'. You will again need to tickle the CEN pin on the BK7231N module with your ground wire to get it to start flashing. Once it completes, it should reboot and join your WiFi network. You can now disconnect your temporary wire connections to the PCB, carefully reseat the PCB on to the pegs. Place the top cover back onto the base ensuring that the cord and outlet seals are all seated properly. Secure it all shut with the 6 screws and you're done!!
 

@@ -231,7 +231,7 @@ sensor:
 
 ### Partition file
 
-Into a file named `partitions-16MB-nvs-extended.csv` next to your ESPhome YAML config, write this content:
+Into a file named `partitions-16MB-nvs-extended.csv` next to your ESPHome YAML config, write this content:
 
 ```csv
 otadata,  data,   ota, ,   0x2000,

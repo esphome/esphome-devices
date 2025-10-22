@@ -24,10 +24,10 @@ They are available from aliexpress.
 
 This board has headers for every GPIO pin on its ESP32 via 2 sets of 2x10 headers, and an additional 6 pin header below the ESP32 for flashing. The micro USB is for power only, no serial connection.
 
-I was able to flash it using the ESPhome web tool and an FTDI connector. I was able to use the 5V pin with the FTDI set to 5V as well and connected to the GPIO pins, but 3.3V should be used if possible (it would not flash for me at 3.3V). I was unable to flash with a USB cable.
+I was able to flash it using the ESPHome web tool and an FTDI connector. I was able to use the 5V pin with the FTDI set to 5V as well and connected to the GPIO pins, but 3.3V should be used if possible (it would not flash for me at 3.3V). I was unable to flash with a USB cable.
 
-| GPIO  | Connected onboard to
-| ----- | --------------------- |
+| GPIO   | Connected onboard to |
+| ------ | -------------------- |
 | GPIO0  | Button               |
 | GPIO16 | Relay                |
 | GPIO23 | LED                  |

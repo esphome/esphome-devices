@@ -37,7 +37,7 @@ At time of writing, models 21D/G use 1.0.7 and 23A uses 1.1.8. If newer firmware
 
 * Check out the project https://github.com/tuya-cloudcutter/tuya-cloudcutter
 * Put the plug into AP mode, by holding the button down for 5 seconds to enter EZ mode (fast flashing LED), then hold again to enter AP mode (slow flashing LED).
-* Run: `sudo ./tuya-cloudcutter.sh -f FIRMWARE` where FIRMWARE is either the ESPhome Kickstart file or your pre-compiled ESPHome device firmware. I prefer to use the Kickstart firmware first.
+* Run: `sudo ./tuya-cloudcutter.sh -f FIRMWARE` where FIRMWARE is either the ESPHome Kickstart file or your pre-compiled ESPHome device firmware. I prefer to use the Kickstart firmware first.
 
 Models 21D/G use the `ESPHome-Kickstart-v23.08.29_bk7231t_app.ota.ug.bin` file, while 23A uses `ESPHome-Kickstart-v23.08.29_bk7231n_app.ota.ug.bin`, both located in located in `custom-firmware`. Your version number may differ in the future.
 
@@ -55,12 +55,12 @@ From the kickstart firmware web interface, you can validate the GPIO pins are as
 
 ### GPIO Pinout
 
-| Pin    | Function BK7231T | Function BK7231N |
-|--------|------------------|------------------|
-| P6     | Button           | Red LED                      |
-| P7     | Green LED        | Blue LED         |
-| P8     | Red LED          | Button           |
-| P24    | Relay            | Relay            |
+| Pin | Function BK7231T | Function BK7231N |
+| --- | ---------------- | ---------------- |
+| P6  | Button           | Red LED          |
+| P7  | Green LED        | Blue LED         |
+| P8  | Red LED          | Button           |
+| P24 | Relay            | Relay            |
 
 ### Basic configuration
 

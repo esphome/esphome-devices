@@ -36,7 +36,7 @@ standard: uk, us
 | `board`            | Type of board used in product                                                                                                                          | `esp8266`, `esp32`, `rp2040`, `bk72xx`, `rtl87xx`                                                                           | No (but required to show on Boards page) |
 | `project-url`      | URL for product or GitHub. This should point directly to a working Yaml file or page where the yaml file is easily accessible (ie. a Github Repo) Repo |                                                                                                                             | No                                       |
 | `made-for-esphome` | Has the manufacturer certified the device for ESPHome                                                                                                  | `True`, `False`                                                                                                             | No                                       |
-| `difficulty`       | Difficulty rating                                                                                                                                      | `1`: Comes with ESPhome, `2`: Plug-n-flash, `3`: Disassembly required, `4`: Soldering required, `5`: Chip needs replacement | No                                       |
+| `difficulty`       | Difficulty rating                                                                                                                                      | `1`: Comes with ESPHome, `2`: Plug-n-flash, `3`: Disassembly required, `4`: Soldering required, `5`: Chip needs replacement | No                                       |
 
 ## Images
 
