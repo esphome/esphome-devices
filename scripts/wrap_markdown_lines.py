@@ -128,7 +128,11 @@ def wrap_line(line, max_length=120):
         # Wrap the content
         current = prefix + content
         first_line = True
-        while len(current) > max_length:
+        max_iterations = 1000  # Safety limit to prevent infinite loops
+        iteration = 0
+        while len(current) > max_length and iteration < max_iterations:
+            iteration += 1
+            prev_len = len(current)
             wrap_point = find_wrap_point(current, max_length)
             if wrap_point <= 0:
                 # Can't wrap nicely, keep as is
@@ -139,6 +143,13 @@ def wrap_line(line, max_length=120):
             # Continue with proper indentation
             remainder = current[wrap_point:].lstrip()
             current = list_indent + remainder if remainder else ''
+
+            # Safety check: ensure we're making progress
+            if len(current) >= prev_len:
+                # Not making progress, line can't be wrapped further
+                if current:
+                    wrapped_lines.append(current)
+                break
             first_line = False
         else:
             if current:  # Add remaining text if any
@@ -146,7 +157,11 @@ def wrap_line(line, max_length=120):
     else:
         # Regular paragraph text
         current = text
-        while len(current) > max_length:
+        max_iterations = 1000  # Safety limit to prevent infinite loops
+        iteration = 0
+        while len(current) > max_length and iteration < max_iterations:
+            iteration += 1
+            prev_len = len(current)
             wrap_point = find_wrap_point(current, max_length)
             if wrap_point <= 0:
                 # Can't wrap nicely, keep as is
@@ -156,6 +171,12 @@ def wrap_line(line, max_length=120):
             wrapped_lines.append(current[:wrap_point])
             remainder = current[wrap_point:].lstrip()
             current = remainder if remainder else ''
+
+            # Safety check: ensure we're making progress
+            if current and len(current) >= prev_len:
+                # Not making progress, line can't be wrapped further
+                wrapped_lines.append(current)
+                break
         else:
             if current:  # Add remaining text if any
                 wrapped_lines.append(current)

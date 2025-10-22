@@ -10,7 +10,8 @@ LEDVANCE SMART+ TABLE FRAME MULTICOLOR
 
 ## Product Details
 
-- [SMART+ Wifi Frame Table Powerbank USB RGB + W](https://ledvance.com/en-int/home-lighting/products/smart-home/smart-luminaires/smart-outdoor-luminaires/smart-outdoor-table-luminaires/table-luminaire-rechargeable-via-usb-with-wifi-technology-c169539?productId=30539)
+-
+  [SMART+ Wifi Frame Table Powerbank USB RGB + W](https://ledvance.com/en-int/home-lighting/products/smart-home/smart-luminaires/smart-outdoor-luminaires/smart-outdoor-table-luminaires/table-luminaire-rechargeable-via-usb-with-wifi-technology-c169539?productId=30539)
 - GTIN/EAN 4058075564466
 
 ![Product Image](product.jpg)
@@ -28,7 +29,8 @@ LEDVANCE SMART+ TABLE FRAME MULTICOLOR
 
 - Unknown if this light can be flashed without disassembly.
 - Diffuser is glued/caulked in place, can be cleanly removed by clamping the base in a vise and applying force.
-- cb3l module can be removed from base PCB for flashing using ltchiptool. See [flashing instructions](https://docs.libretiny.eu/docs/platform/beken-72xx/) at libretiny.
+- cb3l module can be removed from base PCB for flashing using ltchiptool. See
+  [flashing instructions](https://docs.libretiny.eu/docs/platform/beken-72xx/) at libretiny.
 
 ![Product disassembled](product-disassembled.jpg)
 
