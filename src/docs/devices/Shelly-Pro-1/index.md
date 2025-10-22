@@ -14,23 +14,23 @@ It uses the ESP32 DOWDQ6.
 
 ## Pinout
 
-ESP32 DOWDQ6| SN74HC595B | LAN8720A | Component
-------------|------------|----------|----------
-GPIO 4      |RCLK        |          |
-GPIO 13     |SER         |          |
-GPIO 14     |SRCLK       |          |
-GPIO 17     |            |CLKIN     |
-GPIO 18     |            |MDIO      |
-GPIO 19     |            |TXD0      |
-GPIO 21     |            |TXEN      |
-GPIO 22     |            |TXD1      |
-GPIO 23     |            |MDC       |
-GPIO 25     |            |RXD0      |
-GPIO 26     |            |RXD1      |
-GPIO 27     |            |CRS_DV    |
-GPIO 35     |            |          |Reset Button
-GPIO 38     |            |          |Switch input 1
-GPIO 39     |            |          |Switch input 2
+| ESP32 DOWDQ6 | SN74HC595B | LAN8720A | Component |
+|--------------|------------|----------|-----------|
+| GPIO 4      | RCLK        |          |           |
+| GPIO 13     | SER         |          |           |
+| GPIO 14     | SRCLK       |          |           |
+| GPIO 17     |             | CLKIN    |           |
+| GPIO 18     |             | MDIO     |           |
+| GPIO 19     |             | TXD0     |           |
+| GPIO 21     |             | TXEN     |           |
+| GPIO 22     |             | TXD1     |           |
+| GPIO 23     |             | MDC      |           |
+| GPIO 25     |             | RXD0     |           |
+| GPIO 26     |             | RXD1     |           |
+| GPIO 27     |             | CRS_DV   |           |
+| GPIO 35     |             |          | Reset Button |
+| GPIO 38     |             |          | Switch input 1 |
+| GPIO 39     |             |          | Switch input 2 |
 
 ## Shift register
 
