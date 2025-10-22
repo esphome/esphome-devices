@@ -37,7 +37,7 @@ If flashing with the `esphome` tool does not work, you can try the `ltchiptool` 
 * Compile the esphome firmware: `esphome compile treatlife-2way.yaml` (use the file name of your yaml)
 * Upload the esphome firmware:
   * Run
-   
+
     `ltchiptool flash write ./.esphome/build/treatlifeswitch/.pioenvs/treatlifeswitch/esphome_2024.12.2_generic-bk7231t-qfn32-tuya_bk7231t_lt1.7.0.uf2` (your firmware location and name may be different)
   * Briefly disconnect power to the board and reconnect it (using the reset button of the board will disconnect the
     command above)

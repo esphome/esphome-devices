@@ -21,7 +21,7 @@ BK72xx, and that did the trick.
 - **Model**: SHOME-LAM
 - **Board**: BK7231 (WB3L variant)
 - **Link**:
- 
+
   [Lámpara LED Wi-Fi\* RGB+W multicolor de 12 W](https://www.steren.com.mx/lampara-led-wi-fi-multicolor-para-escritorio-de-12-w.html)
 
 ## Images

@@ -13,7 +13,7 @@ board: BK7231N
 As of November 2024, there are two methods of flashing this device, using a serial adapter and ltchiptool, or OTA using
 tuya-cloudcutterflash
 
-Attention: Recently purchased units (Decemeber, 2024) contain a Lightning Semi LN882H rather than the Beken BK7231N. 
+Attention: Recently purchased units (Decemeber, 2024) contain a Lightning Semi LN882H rather than the Beken BK7231N.
 These units cannot be flashed with ESPHome.  The newly purchased units also have screw terminals on the switch body for
 the wiring.  The older units had four wires coming off of the back of the switch body.
 

@@ -37,7 +37,6 @@ for:
 1. Triggering a self-test which sets the alarm off as if the gas level is above a built-in threshold;
 2. Triggering a Wi-Fi module reset (the reset button is connected to the MCU which
   
-  
 [can trigger the Wi-Fi module reset](https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb#title-10-Reset%20Wi-Fi%20connection)).
 
 There is no way to adjust the gas threshold which is documented in the printed manual to be at 7±3 LEL
