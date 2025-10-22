@@ -95,4 +95,4 @@ binary_sensor:
 
 ## Enclosure
 
-A 3D-printable case design for this board is available [here](https://github.com/clydebarrow/3dmodels/tree/main/ESP32%20Relay%20x1).
+A 3D-printable case design for this board is [available on GitHub](https://github.com/clydebarrow/3dmodels/tree/main/ESP32%20Relay%20x1).
