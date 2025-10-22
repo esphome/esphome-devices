@@ -27,8 +27,10 @@ adapter for 6x1.25mm but the Vin- screw terminal could also be used for conveien
 
 ## Basic Config
 
-The following configuration is adapted from
-https://github.com/esphome/esphome-devices/blob/main/_devices/Sinilink-XY-WFUSB-USB-Switch-Relay/Sinilink-XY-WFUSB-USB-Switch-Relay.md with only minor changes to fit the new device.
+The following configuration is adapted from [this ESPHome devices repository][1] with only minor changes to fit the new
+device.
+
+[1]: https://github.com/esphome/esphome-devices/blob/main/_devices/Sinilink-XY-WFUSB-USB-Switch-Relay/Sinilink-XY-WFUSB-USB-Switch-Relay.md
 
 There is a 3D printable case available from https://www.thingiverse.com/thing:4638431 which I remixed from
 https://www.thingiverse.com/thing:4146127

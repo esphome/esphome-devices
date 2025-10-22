@@ -27,8 +27,9 @@ Chinese). The device has Wi-Fi and Zigbee variants (this page is for the Wi-Fi m
 ## System Interactions
 
 The MCU communicates with the WB2S chip over UART1 which is also the UART used for flashing the chip. The protocol
-interactions follow
-[the Tuya serial protocol](https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb) and so the Tuya components implemented in ESPHome are applicable here.
+interactions follow [the Tuya serial protocol][1] and so the Tuya components implemented in ESPHome are applicable here.
+
+[1]: https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb
 
 The gas level tracking and alarm logic is built into the MCU which exchanges the data points with the WB2S module, some
 parameters can be changed by the Wi-Fi module, some are merely used for status updates. There are also hardware buttons
@@ -51,11 +52,13 @@ which is normal and expected.
 
 ## Data Points
 
-There are a number of
-[Tuya data points](https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb#title-3-Data%20units) exchanged between the Wi-Fi module and the MCU.
+There are a number of [Tuya data points][2] exchanged between the Wi-Fi module and the MCU.
 
-During the
-[module initialization](https://developer.tuya.com/en/docs/iot/mcu-protocol?id=K9hrdpyujeotg#title-6-Module%20initialization) process those data points are exposed by the MCU:
+[2]: https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb#title-3-Data%20units
+
+During the [module initialization][3] process those data points are exposed by the MCU:
+
+[3]: https://developer.tuya.com/en/docs/iot/mcu-protocol?id=K9hrdpyujeotg#title-6-Module%20initialization
 
 ```log
   [21:50:55][C][tuya:041]: Tuya:

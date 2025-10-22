@@ -18,7 +18,9 @@ this is a AU/NZ standard wall outlet/powerpoint based on the TYWE3S module.
 These outlets are Tuya devices, so if you don't want to open them up to flash directly, you can attempt to
 [use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/) however recently purchased devices are no
 longer Tuya-Convert compatible.  There's a useful guide to disassemble and serial flash similar switches
-[on Mike McGuire's blog](https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/). After that, you can use ESPHome's OTA functionality to make any further changes.
+[on Mike McGuire's blog][1]. After that, you can use ESPHome's OTA functionality to make any further changes.
+
+[1]: https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/
 
 - Put the outlet into "smartconfig" / "autoconfig" / pairing mode by holding any button for about 5 seconds.
 - The status LED (to the side of the button(s)) blinks rapidly to confirm that it has entered pairing mode.

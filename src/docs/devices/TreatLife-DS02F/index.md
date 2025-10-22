@@ -30,7 +30,12 @@ your DS02F device.
 ### Swap chip
 
 The main board has the appropriate footprint for an ESP-12F. Further instructions can be found
-[in the Home Assistant community](https://community.home-assistant.io/t/treatlife-dual-outlet-indoor-dimmer-plug-wb3s-to-esp-12-transplant/256798). When desoldering the WB3S chip, take care if you use a heat gun near the black foam light guards around the speed LEDs and main switch LED. When overheated, the foam shrinks to less than half its original size. With a little patience, it is instead possible to peel the foam and adhesive off the PCB, set them to the side, and replace them after swapping out the WB3S.
+[in the Home Assistant community][1]. When desoldering the WB3S chip, take care if you use a heat gun near the black
+foam light guards around the speed LEDs and main switch LED. When overheated, the foam shrinks to less than half its
+original size. With a little patience, it is instead possible to peel the foam and adhesive off the PCB, set them to
+the side, and replace them after swapping out the WB3S.
+
+[1]: https://community.home-assistant.io/t/treatlife-dual-outlet-indoor-dimmer-plug-wb3s-to-esp-12-transplant/256798
 
 Like the Treatlife DS03, the Tuya MCU UART runs at a baud rate of 115200. You may see a warning like
 `Invalid baud_rate: Integration requested baud_rate 9600 but you have 115200!` logged, but it is safe to ignore.

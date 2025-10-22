@@ -8,8 +8,10 @@ board: esp32
 
 ## Initial Install
 
-This device requires a triangle screw driver bit to
-[remove the cover and use the serial header](https://www.digiblur.com/2021/03/how-to-flash-wyze-outdoor-plug-esphome.html) for the first upload.
+This device requires a triangle screw driver bit to [remove the cover and use the serial header][1] for the first
+upload.
+
+[1]: https://www.digiblur.com/2021/03/how-to-flash-wyze-outdoor-plug-esphome.html
 
 ## GPIO Pinout
 

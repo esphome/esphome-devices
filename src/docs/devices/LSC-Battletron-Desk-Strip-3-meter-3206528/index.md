@@ -8,10 +8,16 @@ standard: global
 
 ## General Notes
 
-![LSC Battletron Desk Strip 3 meter - 3206528](lsc-battlestron-desk-led-strip-3m-3206528.jpg "LSC Battletron Desk Strip 3 meter - 3206528")
+![LSC Battletron Desk Strip 3 meter - 3206528][1]
 
-This configuration is for the
-[LSC Battletron Desk Strip 3 meter - 3206528](https://www.action.com/nl-nl/p/3206528/battletron-bureau-led-lichtstrip-razer-chroma/) which comes as a color changing LED strip with controller and power adapter. The LED controller itself takes it's power from a 24 volt power source, the adapter is local to each region. The led strip with original firmware works with the [razer chroma](https://www.razer.com/chroma) software suite, however compatibility with home assistant requires a [seperate integration](https://www.razer.com/chroma).
+This configuration is for the [LSC Battletron Desk Strip 3 meter - 3206528][2] which comes as a color changing LED strip
+with controller and power adapter. The LED controller itself takes it's power from a 24 volt power source, the adapter
+is local to each region. The led strip with original firmware works with the [razer chroma][3] software suite, however
+compatibility with home assistant requires a [seperate integration][4].
+
+[2]: https://www.action.com/nl-nl/p/3206528/battletron-bureau-led-lichtstrip-razer-chroma/
+[3]: https://www.razer.com/chroma
+[4]: https://www.razer.com/chroma
 
 The original firmware is based upon the TuyaOS v3.3.40 based on the BS 40.00.
 
@@ -435,3 +441,5 @@ sensor:
   - platform: uptime
     name: "Uptime"
 ```
+
+[1]: lsc-battlestron-desk-led-strip-3m-3206528.jpg "LSC Battletron Desk Strip 3 meter - 3206528"

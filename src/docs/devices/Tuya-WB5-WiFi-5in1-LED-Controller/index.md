@@ -12,7 +12,10 @@ difficulty: 2
 
 This is a LED controller that can work with single color, CCT, RGB, RGBW and RGBWW led strips. Its sold on aliexpress by
 a few diferent sellers there are also a few varients with screw terminals that may or may not
-work.([exact one I got](https://www.aliexpress.com/item/1005003081976104.html?spm=a2g0o.order_list.order_list_main.41.3d091802QzgWWc)) It can be controlled via a rf remote or wifi. The controller is based on a Tuya CB3L(BK7231N) and a Tuya mcu. This means that the leds are not directly controlled by the BK7231N which you can flash with ESPHome. There are also varients with a Tuya CB3S but this controller is identical except for a few more gpio pins. This controller supports bluethooth but it is not yet implemented into ESPHome.
+work.([exact one I got][1]) It can be controlled via a rf remote or wifi. The controller is based on a Tuya
+CB3L(BK7231N) and a Tuya mcu. This means that the leds are not directly controlled by the BK7231N which you can flash
+with ESPHome. There are also varients with a Tuya CB3S but this controller is identical except for a few more gpio pins.
+This controller supports bluethooth but it is not yet implemented into ESPHome.
 
 ## Setup
 
@@ -433,3 +436,5 @@ light:
     color_datapoint: 24
     color_type: hsv
 ```
+
+[1]: https://www.aliexpress.com/item/1005003081976104.html

@@ -8,8 +8,12 @@ board: bk72xx
 
 ## General Notes
 
-The DETA
-[Smart Single Switch (6911HA)](https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811) and [Smart Double Switch (6912HA)](https://www.bunnings.com.au/deta-smart-double-gang-light-switch-touch-activated-with-grid-connect_p0098812) are made by Arlec as part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and are sold at Bunnings in Australia and New Zealand.
+The DETA [Smart Single Switch (6911HA)][1] and [Smart Double Switch (6912HA)][2] are made by Arlec as part of the
+[Grid Connect ecosystem][3], and are sold at Bunnings in Australia and New Zealand.
+
+[1]: https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811
+[2]: https://www.bunnings.com.au/deta-smart-double-gang-light-switch-touch-activated-with-grid-connect_p0098812
+[3]: https://grid-connect.com.au/
 
 ### Series 1
 
@@ -19,7 +23,12 @@ Series 1 models could be OTA flashed using using tuya-convert.
 
 Recently purchased devices are using the Beken BK7231T microcontroller and can be OTA flashed using using Cloudcutter.
 
-[Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang switches. Some 4 gang switches are on random Tuya firmware 1.1.5 and may need to use the “Lonsonho” brand “X804A 4 Gang Smart Wifi Switch” option in Cloudcutter, otherwise use the Deta single gang switch.
+[Triple 6903HA][4] and [Quad 6904HA][5] The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang
+switches. Some 4 gang switches are on random Tuya firmware 1.1.5 and may need to use the "Lonsonho" brand
+"X804A 4 Gang Smart Wifi Switch" option in Cloudcutter, otherwise use the Deta single gang switch.
+
+[4]: https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014
+[5]: https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015
 
 ## Getting it up and running
 
@@ -38,8 +47,8 @@ If you can't or don't wish to use Cloudcutter, you can flash directly to the out
 
 ## Overview
 
-This guide covers the DETA Smart Switches, including the
-[Single (6911HA)](https://www.bunnings.com.au/deta-smart-single-gang-light-switch-touch-activated-with-grid-connect_p0098811) and [Double (6912HA)](https://www.bunnings.com.au/deta-smart-double-gang-light-switch-touch-activated-with-grid-connect_p0098812), which are part of the [Grid Connect ecosystem](https://grid-connect.com.au/). These switches are available at Bunnings stores in Australia and New Zealand.
+This guide covers the DETA Smart Switches, including the [Single (6911HA)][1] and [Double (6912HA)][2], which are part
+of the [Grid Connect ecosystem][3]. These switches are available at Bunnings stores in Australia and New Zealand.
 
 ## Series Information
 
@@ -52,8 +61,8 @@ This guide covers the DETA Smart Switches, including the
 - **Microcontroller**: Beken BK7231T
 - **Flashing Method**: OTA via Cloudcutter
 
-> **Note**: The
-[Triple 6903HA](https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014) and [Quad 6904HA](https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015) models have different pinouts compared to the 1 and 2 gang switches.
+> **Note**: The [Triple 6903HA][4] and [Quad 6904HA][5] models have different pinouts compared to the 1 and 2 gang
+switches.
 
 ## Setup Guide
 

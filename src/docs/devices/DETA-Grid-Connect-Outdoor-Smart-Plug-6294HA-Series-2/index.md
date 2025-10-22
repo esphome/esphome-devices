@@ -8,8 +8,9 @@ board: bk72xx
 
 ## Overview
 
-The
-[DETA Outdoor Double Powerpoint Series 2](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) comes with a CB2S module.
+The [DETA Outdoor Double Powerpoint Series 2][1] comes with a CB2S module.
+
+[1]: https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781
 
 This is in contrast to the series 1 device which has a WB2S module. The associated pins for each function have changed
 slightly as a result.

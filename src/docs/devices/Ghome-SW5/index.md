@@ -32,7 +32,8 @@ Once the tool is installed, run it with this command:
 
 ```sudo ./tuya-cloudcutter.sh -p gosund-sw5-a-v2.1-smart-switch-bk7231n-v1.0.1 -f ESPHome-Kickstart-v23.08.29_bk7231n_app.ota.ug.bin```
 
-Follow the onscreen instructions to put the device into "slow blink" mode, and then power off/back on when prompted. This will install the ESPHome Kickstart firmware. From there is is possible to OTA install full ESPHome.
+Follow the onscreen instructions to put the device into "slow blink" mode, and then power off/back on when prompted.
+This will install the ESPHome Kickstart firmware. From there is is possible to OTA install full ESPHome.
 
 ### Serial
 
@@ -195,7 +196,7 @@ confirmed the chip on my board
 - This is an exact teardown of the device (with the other
   controller) [Teardown](https://www.elektroda.com/rtvforum/topic3892160.html)
 - I designed and 3d printed a pogo based clip to flash the device here is
-  the [Onshape Link](https://cad.onshape.com/documents/bd911beb7a4a52211fd6ff0a/w/639be8dce01942437b84688a/e/92c75704a7d638fc027182f4?renderMode=0&uiState=66d5ece2b7272918ae9b9502)
+  the [Onshape Link][1]
 - Amazon link for the pogo pins [Amazon Link](https://www.amazon.com/gp/product/B00TX43QEQ)
   - Labeled on amazon `uxcell 100 Pcs PL75-B1 0.7mm Tip 16mm Spring Test Probes Pin for PCB Board`
 
@@ -209,3 +210,5 @@ A Closeup of fully assembled clip
 
 Janky flashing setup with a dedicated 3.3v power supply
 ![Flashing Setup](janky.png "Flashing Setup")
+
+[1]: https://cad.onshape.com/documents/bd911beb7a4a52211fd6ff0a/w/639be8dce01942437b84688a/e/92c75704a7d638fc027182f4?renderMode=0&uiState=66d5ece2b7272918ae9b9502

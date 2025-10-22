@@ -23,9 +23,13 @@ To put ESP32-C3 in flash mode EN needs to be pulled high and GPIO9 need to be pu
 just disconnect and reconnect 3V3 while keeping GPIO9 pulled low and click the retry button again until it works.
 
 The [datasheet](https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf) references GPIO8 which needs
-to be pulled low during flashing, use the following board to achieve this you can purchase
-([AliExpress](https://www.aliexpress.com/item/1005002668365356.html), [Amazon](https://amzn.to/3o8owSb),
-[Banggood](https://www.banggood.com/ESP8266-Test-Board-Burner-Development-Board-WIFI-Module-For-ESP-01-ESP-01S-ESP-12E-ESP-12F-ESP-12S-ESP-18T-p-1684992.html)) a test board for effortless flashing. Just drop the module in, plug in the USB cable, hold the boot button while powering up and flash!
+to be pulled low during flashing, use the following board to achieve this you can purchase ([AliExpress][1],
+[Amazon][2], [Banggood][3]) a test board for effortless flashing. Just drop the module in, plug in the USB cable, hold
+the boot button while powering up and flash!
+
+[1]: https://www.aliexpress.com/item/1005002668365356.html
+[2]: https://amzn.to/3o8owSb
+[3]: https://www.banggood.com/ESP8266-Test-Board-Burner-Development-Board-WIFI-Module-For-ESP-01-ESP-01S-ESP-12E-ESP-12F-ESP-12S-ESP-18T-p-1684992.html
 
 ![Test Board](test_board.jpg "Test Board")
 

@@ -8,8 +8,10 @@ board: esp8266
 
 ## General Notes
 
-The
-[Mirabella Genio Wi-Fi LED Strip Light](https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-led-3-metre-strip-light/) features a row of both RGB and cool white LEDs alternating between the two along the strip.
+The [Mirabella Genio Wi-Fi LED Strip Light][2] features a row of both RGB and cool white LEDs alternating between the
+two along the strip.
+
+[2]: https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-led-3-metre-strip-light/
 
 ![Genio Wi-Fi LED Strip Light](/Mirabella-Genio-WiFi-LED-Strip-Light.jpg "Genio Wi-Fi LED Strip Light")
 
@@ -20,7 +22,7 @@ Inside is a TYWE3S module based on the ESP8266 microcontroller. It is possible t
 [OTA using tuya-convert](/guides/tuya-convert/) and may also work with current ones. If you attempt to flash a current
 unit OTA, you should update this page specify if it's still possible or not.
 
-![Genio Wi-Fi LED Strip Light Teardown](/Mirabella-Genio-WiFi-LED-Strip-Light_Teardown.jpg "Genio Wi-Fi LED Strip Light Teardown")
+![Genio Wi-Fi LED Strip Light Teardown][1]
 
 ## GPIO Pinout
 
@@ -95,3 +97,5 @@ binary_sensor:
       then:
         - light.toggle: strip_light
 ```
+
+[1]: /Mirabella-Genio-WiFi-LED-Strip-Light_Teardown.jpg "Genio Wi-Fi LED Strip Light Teardown"

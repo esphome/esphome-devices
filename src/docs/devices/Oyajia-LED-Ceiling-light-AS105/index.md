@@ -6,9 +6,11 @@ standard: global
 difficulty: 4
 ---
 
-Available on Amazon
-([DE](https://www.amazon.de/Oyajia-Deckenleuchte-Bluetooth-Wifi-Fernbedienung-Deckenlampe/dp/B0BN65QGFP),
-[FR](https://www.amazon.fr/intelligente-t%C3%A9l%C3%A9commande-Bluetooth-Wifi-Contr%C3%B4lable-lapplication/dp/B0BN65QGFP), [IT](https://www.amazon.it/dimmerabile-telecomando-Bluetooth-intelligente-compatibile/dp/B0BN65QGFP))
+Available on Amazon ([DE][1], [FR][2], [IT][3])
+
+[1]: https://www.amazon.de/Oyajia-Deckenleuchte-Bluetooth-Wifi-Fernbedienung-Deckenlampe/dp/B0BN65QGFP
+[2]: https://www.amazon.fr/intelligente-t%C3%A9l%C3%A9commande-Bluetooth-Wifi-Contr%C3%B4lable-lapplication/dp/B0BN65QGFP
+[3]: https://www.amazon.it/dimmerabile-telecomando-Bluetooth-intelligente-compatibile/dp/B0BN65QGFP
 
 ![Product Image](AS105.png "Product Image")
 

@@ -29,8 +29,10 @@ Use profile 1.1.9 bk7231s_common_iot_config_ty
 
 replacing the WB3S chip with a ESP-12F chip and adding a 10k pull-down resister on GPIO15 as WB3S does not require it
 and omits it from the board.
-There's a useful guide to disassemble and serial flash these switches
-[on Mike McGuire's blog](https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/). After that, you can use ESPHome's OTA functionality to make any further changes.
+There's a useful guide to disassemble and serial flash these switches [on Mike McGuire's blog][1]. After that, you can
+use ESPHome's OTA functionality to make any further changes.
+
+[1]: https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/
 
 ### ESP-Based Pinout
 

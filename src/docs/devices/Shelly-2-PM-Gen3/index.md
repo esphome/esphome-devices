@@ -39,8 +39,11 @@ via direct serial flash. OTA changes and upgrades after initial flash via ESPHom
 This will appear in Home Assistant as two relays linked to the switch inputs. This includes power and temperature
 monitoring of the I2C interfaces.
 
-Most of this configuration was taken from
-[this Home Assistant Community thread](https://community.home-assistant.io/t/do-you-have-a-working-esphome-config-for-shelly-3gen-2pm/833575/3), and the work to figure out the GPIO pins is thanks to [the Tasmota community.](https://github.com/arendst/Tasmota/discussions/22526#discussioncomment-11407244)
+Most of this configuration was taken from [this Home Assistant Community thread][1], and the work to figure out the GPIO
+pins is thanks to [the Tasmota community.][2]
+
+[1]: https://community.home-assistant.io/t/do-you-have-a-working-esphome-config-for-shelly-3gen-2pm/833575/3
+[2]: https://github.com/arendst/Tasmota/discussions/22526#discussioncomment-11407244
 
 ```yaml
 substitutions:
