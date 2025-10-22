@@ -33,13 +33,13 @@ Built-in CH340C serial port chip, connect the Type-C data cable to flash the fir
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO9  | Button              |
-| GPIO3  | Pir Output          |
-| GPIO5  | Radar RX            |
-| GPIO4  | Radar Output        |
-| GPIO8  | Radar TX            |
-| GPIO2  | LedLink             |
-| GPIO18 | SDA                 |
-| GPIO19 | SCL                 |
+| Pin    | Function     |
+| ------ | ------------ |
+| GPIO9  | Button       |
+| GPIO3  | Pir Output   |
+| GPIO5  | Radar RX     |
+| GPIO4  | Radar Output |
+| GPIO8  | Radar TX     |
+| GPIO2  | LedLink      |
+| GPIO18 | SDA          |
+| GPIO19 | SCL          |

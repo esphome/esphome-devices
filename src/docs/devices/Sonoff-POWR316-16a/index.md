@@ -41,7 +41,7 @@ esphome:
   on_boot:
     then:
       - switch.turn_on: relay
-  
+
 esp32:
   board: nodemcu-32s
 
@@ -75,7 +75,7 @@ uart:
   rx_pin: GPIO16
   baud_rate: 4800
   parity: EVEN
-  
+
 sensor:
   - platform: cse7766
     current:

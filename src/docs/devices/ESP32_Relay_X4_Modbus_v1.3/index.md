@@ -70,14 +70,14 @@ wifi:
   reboot_timeout: 30min
 
 sensor:
-- platform: uptime
-  name: Uptime
+  - platform: uptime
+    name: Uptime
 
 button:
-- platform: restart
-  name: Reboot
-- platform: safe_mode
-  name: Reboot in safe mode
+  - platform: restart
+    name: Reboot
+  - platform: safe_mode
+    name: Reboot in safe mode
 
 # ==========================
 # RELAYS (OUTPUTS)
@@ -136,9 +136,9 @@ binary_sensor:
       inverted: true
     name: "Input 4"
 
-# ==========================
-# EXTRA PADS (RX2/TX2)
-# ==========================
+  # ==========================
+  # EXTRA PADS (RX2/TX2)
+  # ==========================
   - platform: gpio
     pin:
       number: 16
@@ -157,8 +157,8 @@ binary_sensor:
 # MODBUS UART
 # ==========================
 uart:
-  rx_pin: 18   # Modbus RX
-  tx_pin: 19   # Modbus TX
+  rx_pin: 18 # Modbus RX
+  tx_pin: 19 # Modbus TX
   baud_rate: 9600
 
 # ==========================

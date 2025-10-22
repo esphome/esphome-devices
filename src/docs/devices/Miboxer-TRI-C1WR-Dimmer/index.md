@@ -28,15 +28,15 @@ The [datasheet](https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specifi
 
 ![Test Board](test_board.jpg "Test Board")
 
-| ESP32 Pin | USB Serial Pin | Comments |
-| --- | --- | --- |
-| 3V3 | 3V3 | Connect to dedicated 3V3 1A power supply if encountering brown out |
-| G | GND | |
-| IO9 | Ground | Round contact pad on back of board, pull low BEFORE attaching 3V3 |
-| IO8 | 3V3 | Could not find this pin, but it didn't seem to be required |
-| TX | RX | |
-| RX | TX | |
-| EN | 3V3 | Pull high to enable ESP32 (do not leave floating) |
+| ESP32 Pin | USB Serial Pin | Comments                                                           |
+| --------- | -------------- | ------------------------------------------------------------------ |
+| 3V3       | 3V3            | Connect to dedicated 3V3 1A power supply if encountering brown out |
+| G         | GND            |                                                                    |
+| IO9       | Ground         | Round contact pad on back of board, pull low BEFORE attaching 3V3  |
+| IO8       | 3V3            | Could not find this pin, but it didn't seem to be required         |
+| TX        | RX             |                                                                    |
+| RX        | TX             |                                                                    |
+| EN        | 3V3            | Pull high to enable ESP32 (do not leave floating)                  |
 
 ## Running
 
@@ -46,10 +46,10 @@ ESP32's are power hungry on boot and the USB to serial adapter might not be able
 
 ## GPIO Pinout for ESP32-C3
 
-| Pin    | Function       |
-| ------ | -------------- |
-| GPIO20 | RX             |
-| GPIO21 | TX             |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO20 | RX       |
+| GPIO21 | TX       |
 
 ## Getting it up and running
 

@@ -82,13 +82,13 @@ The following is an excellent video guide for this process:
 
 | Pin | Function   |
 | --- | ---------- |
-| P6 | Outlet 1   |
+| P6  | Outlet 1   |
 | P7  | Outlet 2   |
-| P8 | Outlet 3   |
+| P8  | Outlet 3   |
 | P23 | Outlet 4   |
 | P24 | Outlet 5   |
 | P26 | Outlet 6   |
-| P11  | Button     |
+| P11 | Button     |
 | P10 | Status LED |
 
 ## Configuration

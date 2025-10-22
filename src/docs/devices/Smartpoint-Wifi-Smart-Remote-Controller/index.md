@@ -35,7 +35,7 @@ On newer patched devices (likely yours), [tuya-convert](https://devices.esphome.
 - Ground GPIO0 during boot to enter flashing mode (located below the RDX pin). You can release the grounding after booting.
 - Flash using any of the ESPHome flashing methods.
 
-> Note that the Tasmota flashing documentation for the  [TYWE3S](https://tasmota.github.io/docs/devices/TYWE3S/) specifies that the TX and RX pins are reversed. I did not find that to be true and was able to follow the silkscreen on the board.
+> Note that the Tasmota flashing documentation for the [TYWE3S](https://tasmota.github.io/docs/devices/TYWE3S/) specifies that the TX and RX pins are reversed. I did not find that to be true and was able to follow the silkscreen on the board.
 
 ## Disassembly
 

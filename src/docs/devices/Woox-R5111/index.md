@@ -15,16 +15,15 @@ Initial flashing instructions can be found here: <https://www.elektroda.com/rtvf
 
 ## GPIO Pinout
 
-| Pin  | Function          |
-| ---- | ----------------- |
-| P0   | IR Receiver       |
-| P6   | PWM WW            |
-| P8   | PWM CW            |
+| Pin | Function    |
+| --- | ----------- |
+| P0  | IR Receiver |
+| P6  | PWM WW      |
+| P8  | PWM CW      |
 
 ## Board Configuration
 
 ```yaml
-
 output:
   - platform: libretiny_pwm
     id: output_cw
@@ -46,5 +45,4 @@ light:
 remote_receiver:
   pin: P0
   dump: all
-
 ```

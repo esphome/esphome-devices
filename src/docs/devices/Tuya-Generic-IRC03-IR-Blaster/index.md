@@ -17,19 +17,19 @@ Despite appearing outwardly identical to the [Tuya Generic IR Remote Control](/d
 
 ## GPIO Pinout
 
-| Pin | Function      |
-| --- | ------------- |
-| P7  | IR Transmitter|
-| P8  | IR Receiver   |
-| P9  | Button        |
-| P24 | LED           |
+| Pin | Function       |
+| --- | -------------- |
+| P7  | IR Transmitter |
+| P8  | IR Receiver    |
+| P9  | Button         |
+| P24 | LED            |
 
 ## Flashing
 
-I used ``ltchiptool`` to backup the original firmware and flash an esphome uf2 binary to it.
+I used `ltchiptool` to backup the original firmware and flash an esphome uf2 binary to it.
 The pads are all nicely labeled.
 
-As of May 2025, these devices are also vulnerable to ``tuya-cloudcutter`` (and likely ``tuya-convert``), allowing for disassembly-free flashing. I've had success using the generic 2.1.5 BK7231N template as well as a 2.1.5 CB3S template to flash ESPHome Kickstart to the device, from which I uploaded a proper UF2 binary compiled from ESPHome.
+As of May 2025, these devices are also vulnerable to `tuya-cloudcutter` (and likely `tuya-convert`), allowing for disassembly-free flashing. I've had success using the generic 2.1.5 BK7231N template as well as a 2.1.5 CB3S template to flash ESPHome Kickstart to the device, from which I uploaded a proper UF2 binary compiled from ESPHome.
 
 ## Configuration
 

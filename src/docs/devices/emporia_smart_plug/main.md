@@ -38,7 +38,7 @@ wifi:
   password: !secret wifi_password
 
 logger:
-  
+
 # Remove this line if you're not using Home Assistsant or your switch will restart every now and again
 api:
 
@@ -62,7 +62,7 @@ sensor:
     name: "Emporia Smart Plug WiFi Signal"
     update_interval: 60s
   - platform: hlw8012
-    model: BL0937  
+    model: BL0937
     sel_pin:
       number: 12
       inverted: true

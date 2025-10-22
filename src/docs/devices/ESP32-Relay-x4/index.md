@@ -39,13 +39,13 @@ If you'll power it up with 3.3V on 5V pin - the MCU will brownout.
 
 ### Internal pinout
 
-| Pin    | Function                      |
-| ------ | ----------------------------- |
-| GPIO23 | Status LED                    |
-| GPIO32 | Relay #1                      |
-| GPIO33 | Relay #2                      |
-| GPIO25 | Relay #3                      |
-| GPIO26 | Relay #4                      |
+| Pin    | Function   |
+| ------ | ---------- |
+| GPIO23 | Status LED |
+| GPIO32 | Relay #1   |
+| GPIO33 | Relay #2   |
+| GPIO25 | Relay #3   |
+| GPIO26 | Relay #4   |
 
 ## Basic Config
 

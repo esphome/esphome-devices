@@ -1538,5 +1538,4 @@ font:
     id: font_xsmall
     size: 16
     glyphs: '!"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz»'
-
 ```

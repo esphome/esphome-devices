@@ -27,14 +27,14 @@ Tuya designs and does not require further introduction.
 
 ## GPIO Pinout
 
-| Pin   | Function          |
-| ----- | ----------------- |
-| P08   | BL0937 cf_pin     |
-| P06   | BL0937 cf1_pin    |
-| P26   | BL0937 sel_pin    |
-| P07   | Relay             |
-| P10   | Button (Inverted) |
-| P11   | LED (Inverted)    |
+| Pin | Function          |
+| --- | ----------------- |
+| P08 | BL0937 cf_pin     |
+| P06 | BL0937 cf1_pin    |
+| P26 | BL0937 sel_pin    |
+| P07 | Relay             |
+| P10 | Button (Inverted) |
+| P11 | LED (Inverted)    |
 
 ## Basic ESPHome config
 

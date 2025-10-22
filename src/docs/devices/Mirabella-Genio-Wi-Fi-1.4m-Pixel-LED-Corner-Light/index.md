@@ -21,12 +21,12 @@ Inside is a [T103_V1.0](https://docs.libretiny.eu/boards/t103-v1.0/) module base
 
 ## GPIO Pinout
 
-| Pin    | Function          |
-| ------ | ----------------- |
-| PA12   | PWR Push Button   |
-| PA05   | LED Push Button   |
-| PA00   | Sound Push Button |
-| PA23?  | Light - Data      |
+| Pin   | Function          |
+| ----- | ----------------- |
+| PA12  | PWR Push Button   |
+| PA05  | LED Push Button   |
+| PA00  | Sound Push Button |
+| PA23? | Light - Data      |
 
 ## Basic Configuration
 

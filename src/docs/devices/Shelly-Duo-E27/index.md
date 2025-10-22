@@ -46,7 +46,7 @@ wifi:
     password: !fallback_password
 
 captive_portal:
-  
+
 output:
   - platform: esp8266_pwm
     id: warm_white

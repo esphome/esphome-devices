@@ -32,14 +32,14 @@ The board can be powered either via 7-30 VDC or 5 VDC (separate terminals and Ty
 
 ## GPIO Pinout
 
-| Pin    | Function   |
-| ------ | ---------- |
-| GPIO36 | Button1    |
-| GPIO39 | Button2    |
-| GPIO27 | Relay1     |
-| GPIO14 | Relay2     |
-| GPIO15 | Led        |
-| GPIO16 | RF33       |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO36 | Button1  |
+| GPIO39 | Button2  |
+| GPIO27 | Relay1   |
+| GPIO14 | Relay2   |
+| GPIO15 | Led      |
+| GPIO16 | RF33     |
 
 ## Basic Configuration
 

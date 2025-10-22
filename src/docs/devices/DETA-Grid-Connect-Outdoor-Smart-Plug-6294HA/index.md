@@ -26,25 +26,25 @@ Power measurement uses the HLW8032 or CSE7766 protocol at 4800 baud. Program the
 
 #### ESP-Based Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| GPIO03 | RX for CSE7766            |
-| GPIO04 | Button 1 (inverted)       |
-| GPIO05 | LED (inverted)            |
-| GPIO12 | Button 2 (inverted)       |
-| GPIO13 | Relay 1                   |
-| GPIO14 | Relay 2                   |
+| Pin    | Function            |
+| ------ | ------------------- |
+| GPIO03 | RX for CSE7766      |
+| GPIO04 | Button 1 (inverted) |
+| GPIO05 | LED (inverted)      |
+| GPIO12 | Button 2 (inverted) |
+| GPIO13 | Relay 1             |
+| GPIO14 | Relay 2             |
 
 #### BK72XX-Based Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| RX1    | RX for CSE7766            |
-| P7     | Button 1 (inverted)       |
-| P8     | LED (inverted)            |
-| P24    | Button 2 (inverted)       |
-| P6     | Relay 1                   |
-| P26    | Relay 2                   |
+| Pin | Function            |
+| --- | ------------------- |
+| RX1 | RX for CSE7766      |
+| P7  | Button 1 (inverted) |
+| P8  | LED (inverted)      |
+| P24 | Button 2 (inverted) |
+| P6  | Relay 1             |
+| P26 | Relay 2             |
 
 ---
 
@@ -81,7 +81,11 @@ bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
 packages:
-  device_base: !include { file: common/device_base.yaml, vars: { friendlyname : 'Patio Power Point 1'} }
+  device_base:
+    !include {
+      file: common/device_base.yaml,
+      vars: { friendlyname: "Patio Power Point 1" },
+    }
 
 #################################
 
@@ -178,12 +182,11 @@ switch:
 light:
   # Right Outlet
   - platform: binary
-    name:  ${friendlyname_right}
+    name: ${friendlyname_right}
     icon: ${deviceicon_right}
     output: relay_2
     restore_mode: RESTORE_AND_OFF
     id: right_outlet
-
 
 ## ------------------ ##
 ##  Power Monitoring  ##

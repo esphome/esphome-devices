@@ -15,16 +15,16 @@ The DETA [Smart Switch Single Gang Two-Way (6951HA)](https://www.bunnings.com.au
 Also known as:
 
 - Smart Single Gang 2 Way Touch Light Switch
- ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-single-gang-2-way-touch-light-switch/))
+  ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-single-gang-2-way-touch-light-switch/))
 - Single Gang 2 Way Touch Light Switch ([Grid Connect website](https://grid-connect.com.au/download/6951ha/))
 
 ### Variations
 
 As shown on the front of the packet.
 
-| Variation   | Microcontroller | Board     | Firmware | Flashing methods |
-| ----------- | --------------- | --------- | -------- | ---------------- |
-| Series 1    | Beken BK7231T   | Tuya WB3S | v1.1.5   | Cloudcutter  |
+| Variation | Microcontroller | Board     | Firmware | Flashing methods |
+| --------- | --------------- | --------- | -------- | ---------------- |
+| Series 1  | Beken BK7231T   | Tuya WB3S | v1.1.5   | Cloudcutter      |
 
 ## Setup Guide
 
@@ -50,12 +50,12 @@ Manual Flashing has not been tested on this specific model, but other models wit
 
 _See [Pinouts on WB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/wb3s-module-datasheet?id=K9dx20n6hz5n4#title-5-Interface%20pin%20definition) for more detail_
 
-| Pin    | Function                                                                          |
-| ------ | --------------------------------------------------------------------------------- |
-| P24    | Status LED  _(inverted)_ |
-| P26    | Button  _(inverted)_ |
-| P14    | Relay and Button LED  |
-| P8     | Light activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_     |
+| Pin | Function                                                                                                                                    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| P24 | Status LED _(inverted)_                                                                                                                     |
+| P26 | Button _(inverted)_                                                                                                                         |
+| P14 | Relay and Button LED                                                                                                                        |
+| P8  | Light activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_ |
 
 > **Note**: Each relay shares a pin with its associated LED.
 
@@ -121,7 +121,7 @@ binary_sensor:
     pin:
       number: P8
       mode: INPUT
-      inverted: true  
+      inverted: true
     internal: true
 
 switch:

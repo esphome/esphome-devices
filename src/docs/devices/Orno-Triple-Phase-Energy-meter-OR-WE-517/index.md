@@ -181,5 +181,4 @@ sensor:
     unit_of_measurement: "Hz"
     accuracy_decimals: 2
     value_type: FP32
-
 ```

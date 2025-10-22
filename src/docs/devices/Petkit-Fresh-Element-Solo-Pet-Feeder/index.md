@@ -44,19 +44,19 @@ Revision B appears to otherwise have the same pinout as Revision A.
 
 ### Internal pinout
 
-| Pin    | Function                      |
-| ------ | ----------------------------- |
-| GPIO5  | Status LED                    |
-| GPIO16 | RTTTL Buzzer                  |
-| GPIO34 | Feed button                   |
-| GPIO27 | Feeder motor sensor           |
-| GPIO14 | Food optical sensor           |
-| GPIO19 | Feeder motor control*         |
-| GPIO33 | Feeder sensors control*       |
-| GPIO18 | Feed forward control*         |
-| GPIO17 | Reverse feed control*         |
+| Pin    | Function                 |
+| ------ | ------------------------ |
+| GPIO5  | Status LED               |
+| GPIO16 | RTTTL Buzzer             |
+| GPIO34 | Feed button              |
+| GPIO27 | Feeder motor sensor      |
+| GPIO14 | Food optical sensor      |
+| GPIO19 | Feeder motor control\*   |
+| GPIO33 | Feeder sensors control\* |
+| GPIO18 | Feed forward control\*   |
+| GPIO17 | Reverse feed control\*   |
 
-\* *purpose of some of these pins is unclear*
+\* _purpose of some of these pins is unclear_
 
 ## Config
 
@@ -90,7 +90,7 @@ esphome:
   on_boot:
     - light.turn_on:
         id: led
-        effect: fast_blink  
+        effect: fast_blink
 
 esp32:
   board: esp32dev
@@ -112,12 +112,12 @@ globals:
   - id: food_sensor_count
     type: int
   - id: last_food_sensor_count
-    type: int  
-    initial_value: '0'
+    type: int
+    initial_value: "0"
     restore_value: True
   - id: last_food_scoops_count
-    type: int  
-    initial_value: '0'
+    type: int
+    initial_value: "0"
     restore_value: True
 
 script:
@@ -130,7 +130,7 @@ script:
             lambda: return !(id(mute_sounds).state);
           then:
             - rtttl.play:
-                rtttl: !lambda 'return song_str;'
+                rtttl: !lambda "return song_str;"
   - id: actuate_feeder
     parameters:
       scoops: int
@@ -142,7 +142,7 @@ script:
             - logger.log:
                 level: INFO
                 format: "Serving %d scoops"
-                args: [ scoops ]
+                args: [scoops]
             - lambda: |-
                 id(play_rtttl)->execute("two_shorts:d=4,o=5,b=100:16e6,16e6");
                 id(scoops_count) = 0;
@@ -587,7 +587,7 @@ time:
         then:
           - lambda: |-
               id(check_food_level)->execute(/* food_dispensed = */ false, /* play_sound = */ true, /* send_event = */ false);
-      - hours: '*'
+      - hours: "*"
         minutes: 0
         seconds: 0
         then:
@@ -649,7 +649,7 @@ binary_sensor:
         - logger.log:
             level: INFO
             format: "%d/%d scoops served"
-            args: [ id(scoops_count), id(max_scoops) ]
+            args: [id(scoops_count), id(max_scoops)]
 
   - id: feed_sensor
     internal: true
@@ -777,4 +777,4 @@ action:
 mode: single
 ```
 
-*Note: currently, `esphome.feeder_food_dispensed event` is ignored to not spam the users with multiple notifications about food being dispensed multiple times a day. Only `esphome.feeder_food_low` will result in persistent notification in Home Assistant and mobile app notifications.*
+_Note: currently, `esphome.feeder_food_dispensed event` is ignored to not spam the users with multiple notifications about food being dispensed multiple times a day. Only `esphome.feeder_food_low` will result in persistent notification in Home Assistant and mobile app notifications._

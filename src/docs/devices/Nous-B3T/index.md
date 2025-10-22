@@ -7,23 +7,22 @@ board: esp32
 difficulty: 2
 ---
 
-
 ![NOUS B3T](B3T_mockup.jpg "Nous B3T WiFi Tasmota Switch Module(2 channel with PM) / Curtain module(1 channel) (ESP32)")
 
 This device comes pre-installed with Tasmota. To flash it with ESPHome, refer to the [**Migrating from Tasmota**](https://esphome.io/guides/migrate_sonoff_tasmota.html)guide. Alternatively, you can disassemble the device and solder wires to the test pads ([see pinout](#pinout)) for manual flashing.
 
 ## GPIO Pinout
 
-| Pin    | Function   |
-| ------ | ---------- |
-| GPIO00 | LED        |
-| GPIO01 | TX         |
-| GPIO03 | BL0939 RX  |
-| GPIO04 | Button     |
-| GPIO05 | Switch     |
-| GPIO12 | Relay      |
-| GPIO13 | Relay      |
-| GPIO18 | Switch     |
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO00 | LED       |
+| GPIO01 | TX        |
+| GPIO03 | BL0939 RX |
+| GPIO04 | Button    |
+| GPIO05 | Switch    |
+| GPIO12 | Relay     |
+| GPIO13 | Relay     |
+| GPIO18 | Switch    |
 
 ## Basic configuration
 
@@ -160,7 +159,6 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: relay_2
-
 ```
 
 ## Configuration as light switch
@@ -301,7 +299,6 @@ binary_sensor:
                           id: switch_event
                           event_type: switch_2
 
-
       - timing:
           - ON for at least 50ms
         then:
@@ -323,7 +320,6 @@ binary_sensor:
                           id: switch_event
                           event_type: switch_2
 
-
       - timing:
           - ON for 50ms to 350ms
           - OFF for 50ms to 350ms
@@ -343,7 +339,6 @@ binary_sensor:
           - event.trigger:
               id: switch_event
               event_type: failsafe
-
 ```
 
 ## Pinout

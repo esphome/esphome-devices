@@ -287,21 +287,21 @@ binary_sensor:
       - delayed_on_off: 50ms
     # config for state change of input button
     on_state:
-        then:
-          - if:
-              condition:
-                and:
-                  - wifi.connected:
-                  - api.connected:
-                  - switch.is_on: shelly_relay
-              # toggle smart light if wifi and api are connected and relay is on
-              then:
-                - homeassistant.service:
-                    service: light.toggle
-                    data:
-                      entity_id: light.kitchen
-              # else, toggle relay
-              else:
-                - switch.toggle: shelly_relay
+      then:
+        - if:
+            condition:
+              and:
+                - wifi.connected:
+                - api.connected:
+                - switch.is_on: shelly_relay
+            # toggle smart light if wifi and api are connected and relay is on
+            then:
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.kitchen
+            # else, toggle relay
+            else:
+              - switch.toggle: shelly_relay
     id: button
 ```

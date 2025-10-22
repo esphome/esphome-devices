@@ -30,7 +30,7 @@ You can also use the micro-USB to power the board with 5V during the flash, just
 ## GPIO Pinout
 
 | Pin    | Function |
-| ------ | ---------|
+| ------ | -------- |
 | GPIO00 | Button   |
 | GPIO12 | Relay    |
 | GPIO13 | Red LED  |

@@ -16,11 +16,11 @@ There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum
 
 ## GPIO Pinout
 
-| Pin | Function      |
-| --- | ------------- |
-| P6  | Button        |
-| P8  | LED           |
-| P26 | IR Transmitter|
+| Pin | Function       |
+| --- | -------------- |
+| P6  | Button         |
+| P8  | LED            |
+| P26 | IR Transmitter |
 
 An IR receiver on pin 8 is mentioned in a few places, but it's definitely connected to the LED.
 I tried other pins, but nothing receives and I don't see any mention of that being a capability in any seller descriptions.
@@ -29,9 +29,9 @@ The wifi status works over the Tuya protocol, so I assume the setting just point
 
 ## Flashing
 
-The S09 that I got has a CB3S module.  Others have a WB3S, but they're very similar.
+The S09 that I got has a CB3S module. Others have a WB3S, but they're very similar.
 
-I used ``ltchiptool`` to backup the original firmware and flash an esphome uf2 binary to it.
+I used `ltchiptool` to backup the original firmware and flash an esphome uf2 binary to it.
 
 ## Configuration
 
@@ -70,7 +70,7 @@ output:
   - platform: libretiny_pwm
     id: led
     pin: 8
-  
+
 light:
   - platform: monochromatic
     name: LED

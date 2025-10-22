@@ -23,9 +23,9 @@ Also known as:
 
 As shown on the front of the packet.
 
-| Variation   | Microcontroller | Board     | Firmware | Flashing methods |
-| ----------- | --------------- | --------- | -------- | ---------------- |
-| Series 2    | Beken BK7231N   | Tuya CB3S | v1.3.5   | Manual flashing  |
+| Variation | Microcontroller | Board     | Firmware | Flashing methods |
+| --------- | --------------- | --------- | -------- | ---------------- |
+| Series 2  | Beken BK7231N   | Tuya CB3S | v1.3.5   | Manual flashing  |
 
 ## Setup Guide
 
@@ -48,15 +48,15 @@ Follow the [ltchiptool](https://github.com/libretiny-eu/ltchiptool) documentatio
 
 _See [Pinouts on CB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076#title-5-Pin%20definition) for more detail_
 
-| Pin    | Function                                                                          |
-| ------ | --------------------------------------------------------------------------------- |
-| P24    | Status LED  _(inverted)_ |
-| P26    | Button 1 _(inverted)_ |
-| P23    | Button 2 _(inverted)_ |
-| P14    | Relay 1 and Button 1 LED |
-| P6    | Relay 2 and Button 2 LED |
-| P7     | Light 1 activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_     |
-| P8     | Light 2 activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_     |
+| Pin | Function                                                                                                                                      |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| P24 | Status LED _(inverted)_                                                                                                                       |
+| P26 | Button 1 _(inverted)_                                                                                                                         |
+| P23 | Button 2 _(inverted)_                                                                                                                         |
+| P14 | Relay 1 and Button 1 LED                                                                                                                      |
+| P6  | Relay 2 and Button 2 LED                                                                                                                      |
+| P7  | Light 1 activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_ |
+| P8  | Light 2 activation status, taking into account the _local_ activation (this device) xor the _remote_ activation (another device) _(inverted)_ |
 
 ## Configuration Examples
 
@@ -135,7 +135,7 @@ binary_sensor:
     pin:
       number: P7
       mode: INPUT
-      inverted: true  
+      inverted: true
     internal: true
 
   - platform: gpio
@@ -143,7 +143,7 @@ binary_sensor:
     pin:
       number: P8
       mode: INPUT
-      inverted: true  
+      inverted: true
     internal: true
 
 switch:

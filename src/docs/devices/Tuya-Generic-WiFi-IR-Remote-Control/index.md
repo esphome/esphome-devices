@@ -16,12 +16,12 @@ Despite appearing outwardly identical to the [Tuya Generic IRC03 IR Blaster](/de
 
 ## GPIO Pinout
 
-| Pin | Function      |
-| --- | ------------- |
-| P6  | Button        |
-| P7  | IR Receiver   |
-| P8  | LED           |
-| P26 | IR Transmitter|
+| Pin | Function       |
+| --- | -------------- |
+| P6  | Button         |
+| P7  | IR Receiver    |
+| P8  | LED            |
+| P26 | IR Transmitter |
 
 ## Flashing
 

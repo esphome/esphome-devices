@@ -27,10 +27,10 @@ Cloudcutter relies on a vulnerability in the original Tuya firmware to work, so 
 
 Due to the fact that this uses a custom ESPHome firmware the pin numbers start with a P instead of the usual GPIO
 
-| Pin | Name   | Function         |
-| --- | ------ | ---------------- |
-| P6  | LED    | LED Driver Clock |
-| P7  | LED    | LED Driver Data  |
+| Pin | Name | Function         |
+| --- | ---- | ---------------- |
+| P6  | LED  | LED Driver Clock |
+| P7  | LED  | LED Driver Data  |
 
 ## Basic Configuration
 
@@ -56,7 +56,6 @@ wifi:
 logger:
 
 api:
-
 
 bp5758d:
   data_pin: P7

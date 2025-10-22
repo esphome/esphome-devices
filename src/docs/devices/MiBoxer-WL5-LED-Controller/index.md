@@ -30,11 +30,12 @@ Functionally, it closely resembles the [Tuya WB5 LED controller](/devices/Tuya-W
 ## Prerequisites
 
 - Connect your **serial programming adapter** to the **WR3 module** as follows:
+
   - **GND** → GND
   - **3V3** → 3V3
   - **RX** → TX2
   - **TX** → RX2  
-  Refer to the image above for the pinout layout.
+    Refer to the image above for the pinout layout.
 
 - If you haven’t already, download [**ltchiptool**](https://github.com/libretiny-eu/ltchiptool), a command-line utility for flashing and dumping firmware.  
   **Note**: The standard ESP flasher is not compatible with this device.
@@ -45,10 +46,10 @@ Before flashing or dumping firmware, the device must be placed in **download mod
 
 1. **Short TX2 to GND.**
 2. **Power on the device** by connecting either:
-   - the **3.3V and GND lines** to an adjustable power supply, or  
+   - the **3.3V and GND lines** to an adjustable power supply, or
    - the device’s **12–24V DC power supply** via the `INPUT` plug connection.
-3. Connect the programming adapter to your PC.  
-   > *ltchiptool will prompt you later to disconnect TX2 from GND.*
+3. Connect the programming adapter to your PC.
+   > _ltchiptool will prompt you later to disconnect TX2 from GND._
 
 **Note:** As an alternative to disconnecting and reconnecting power, you can also **power cycle** the device by shorting the **EN** pin to **GND**
 
@@ -65,7 +66,7 @@ After issuing the command, disconnect TX2 from GND to begin the backup process.
 ### Flashing ESPHome
 
 1. In the ESPHome device builder, after configuring your firmware, select:
-**Install > Manual download**, then click **UF2 package** to download the compiled binary.
+   **Install > Manual download**, then click **UF2 package** to download the compiled binary.
 2. Put the device back into download mode (short TX2 to GND, then power on).
 3. Flash the new firmware using:
 
@@ -127,7 +128,6 @@ number:
     unit_of_measurement: min.
     entity_category: config
     icon: mdi:timer
-
 
 select:
   - platform: tuya

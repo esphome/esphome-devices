@@ -26,12 +26,12 @@ The board has headers for every GPIO pin on the ESP32. They are labeled on the r
 
 ### Pin Functions
 
-| Pin    | Comment              |
-| ------ | -------------------- |
-| GPIO0  | Onboard button       |
-| GPIO16 | Relay 1 (Outermost)  |
-| GPIO17 | Relay 2              |
-| GPIO23 | LED                  |
+| Pin    | Comment             |
+| ------ | ------------------- |
+| GPIO0  | Onboard button      |
+| GPIO16 | Relay 1 (Outermost) |
+| GPIO17 | Relay 2             |
+| GPIO23 | LED                 |
 
 ## Programming
 

@@ -17,9 +17,9 @@ MagicHome LED controller too be used with an monochromatic LED strip.
 
 ## GPIO Pinout
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO12 | PWM           |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO12 | PWM      |
 
 ## Basic Configuration
 

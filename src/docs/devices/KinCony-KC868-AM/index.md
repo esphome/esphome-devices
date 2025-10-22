@@ -6,11 +6,10 @@ standard: global
 board: esp32
 ---
 
-
 ## GPIO Pinout
 
 | Pin    | Function            |
-| ------ | ------------------  |
+| ------ | ------------------- |
 | GPIO15 | Relay               |
 | GPIO5  | 1-Wire GPIO         |
 | GPIO14 | 1-Wire GPIO         |

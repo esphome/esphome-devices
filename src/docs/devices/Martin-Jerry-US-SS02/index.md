@@ -5,6 +5,7 @@ type: switch
 standard: us
 board: esp8266
 ---
+
 [Amazon Link](https://amzn.to/3GQvWBH)
 
 [Device on Martin Jerry](https://www.martinjerry.com/us-ss02)
@@ -19,11 +20,11 @@ This can be worked around by flashing the device with a [Tasmota minimal binary]
 
 ## GPIO Pinout
 
-| Pin   | Function |
-| ----- | -------- |
-| GPIO3 | button |
-| GPIO5 | relay  |
-| GPIO4 | i2c SCL  |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO3  | button   |
+| GPIO5  | relay    |
+| GPIO4  | i2c SCL  |
 | GPIO12 | red LED  |
 | GPIO13 | i2c SDA  |
 | GPIO14 | blue LED |
@@ -84,7 +85,7 @@ number:
     icon: "mdi:water-percent"
     entity_category: config
     on_value:
-      - lambda: 'id(aht10_sensor).update();'
+      - lambda: "id(aht10_sensor).update();"
   - platform: template
     name: "${friendly_name} Off Humidity Threshold"
     id: off_humidity_threshold_ui
@@ -100,7 +101,7 @@ number:
     icon: "mdi:water-percent"
     entity_category: config
     on_value:
-      - lambda: 'id(aht10_sensor).update();'
+      - lambda: "id(aht10_sensor).update();"
 
 sensor:
   - platform: aht10

@@ -10,10 +10,10 @@ board: esp8266
 
 ## GPIO Pinout
 
-| Pin    | Function                              |
-| ------ | ------------------------------------- |
-| GPIO01 | Tuya RX                               |
-| GPIO03 | Tuya TX                               |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO01 | Tuya RX  |
+| GPIO03 | Tuya TX  |
 
 Pinout from [ProfiCook PC-WKS Template for Tasmota](https://templates.blakadder.com/proficook_PC-WKS_1167.html)
 
@@ -216,5 +216,4 @@ sensor:
                       case 4: return {"Overheated"};
                       default: return {"other error"};
                     }
-
 ```

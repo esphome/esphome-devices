@@ -17,12 +17,12 @@ Can be programmed without removing from PCB.
 
 ## GPIO Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| GPIO0  |  Panel Button             |
-| GPIO12 |  PWM Green                |
-| GPIO13 |  PWM Red                  |
-| GPIO14 |  PWM Blue                 |
+| Pin    | Function     |
+| ------ | ------------ |
+| GPIO0  | Panel Button |
+| GPIO12 | PWM Green    |
+| GPIO13 | PWM Red      |
+| GPIO14 | PWM Blue     |
 
 ## Status LED Not Implemented
 

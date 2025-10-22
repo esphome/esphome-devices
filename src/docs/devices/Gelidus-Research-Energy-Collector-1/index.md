@@ -40,7 +40,6 @@ Inside the enclosure.
 ## GREC1 YAML Example
 
 ```yaml
-
 esphome:
   name: grec1
   friendly_name: "GREC1"
@@ -79,16 +78,16 @@ substitutions:
   #   | ----------------- |
   #     -----------------
 
-  photo_pulse_pin: GPIO22   # J2 Pin 1 - Shielded wire to a Photo diode GND = Cathode, Impluse = Anode
-  wired_pulse_pin: GPIO27   # J2 Pin 3 - Input is zener clamped to 3.3v, max +50VDC, can also be configued for pullup with active low
-  digi_pot_pin: GPIO25      # DAC voltage output, this GPIO allows you to digitally control photo diode sensitivity
-  rs485_rx_pin: GPIO14      # J2 Pin 7 - RS485 B Input (JP2 2-3) Default
-  rs485_tx_pin: GPIO16      # J2 Pin 8 - RS485 A Output (JP1 2-3) Default
-  flow_control_pin: GPIO15  # RS485 Transmit/Recieve control
-  rs232_rx_pin: GPIO19      # J2 Pin 5 - RS232 Recieve
-  rs232_tx_pin: GPIO17      # J2 Pin 6 - RS232 Transmit
-  rs232_in_pin: GPIO18      # J2 Pin 7 - Optional RS232 pin config when RS485 is not required (JP2 1-2)
-  rs232_out_pin: GPIO20     # J2 Pin 8 - Optional RS232 pin config when RS485 is not required (JP1 1-2)
+  photo_pulse_pin: GPIO22 # J2 Pin 1 - Shielded wire to a Photo diode GND = Cathode, Impluse = Anode
+  wired_pulse_pin: GPIO27 # J2 Pin 3 - Input is zener clamped to 3.3v, max +50VDC, can also be configued for pullup with active low
+  digi_pot_pin: GPIO25 # DAC voltage output, this GPIO allows you to digitally control photo diode sensitivity
+  rs485_rx_pin: GPIO14 # J2 Pin 7 - RS485 B Input (JP2 2-3) Default
+  rs485_tx_pin: GPIO16 # J2 Pin 8 - RS485 A Output (JP1 2-3) Default
+  flow_control_pin: GPIO15 # RS485 Transmit/Recieve control
+  rs232_rx_pin: GPIO19 # J2 Pin 5 - RS232 Recieve
+  rs232_tx_pin: GPIO17 # J2 Pin 6 - RS232 Transmit
+  rs232_in_pin: GPIO18 # J2 Pin 7 - Optional RS232 pin config when RS485 is not required (JP2 1-2)
+  rs232_out_pin: GPIO20 # J2 Pin 8 - Optional RS232 pin config when RS485 is not required (JP1 1-2)
 
 wifi:
   ssid: <YOUR_SSID> # or !secret wifi_ssid
@@ -129,14 +128,14 @@ modbus:
 modbus_controller:
   id: modbus_grec1
   modbus_id: modbus_client
-  address: 0x02  # Address of the Modbus Device
+  address: 0x02 # Address of the Modbus Device
   update_interval: 15s
 
 number:
   # Set the pulse rate of the LED on your meter
   - platform: template
     id: select_pulse_rate
-    name: 'Pulse rate - imp/kWh'
+    name: "Pulse rate - imp/kWh"
     optimistic: true
     mode: box
     min_value: 100
@@ -148,7 +147,7 @@ number:
   # Reset total energy to given value
   - platform: template
     id: select_reset_total
-    name: 'Reset Value - Total Energy kWh'
+    name: "Reset Value - Total Energy kWh"
     entity_category: config
     optimistic: true
     mode: box
@@ -199,7 +198,7 @@ sensor:
   # Not setting at the midpoint will cause significant false counts do to reading noise near the comparator threshhold.
   - platform: pulse_meter
     id: sensor_energy_pulse_meter
-    name: '${friendly_name} - Power Consumption'
+    name: "${friendly_name} - Power Consumption"
     unit_of_measurement: W
     state_class: measurement
     device_class: power
@@ -212,13 +211,13 @@ sensor:
         input: true
         pullup: true
 
-# Wired Example Active low
-#    pin:
-#      number: ${wired_pulse_pin}
-#      inverted: true
-#      mode:
-#        input: true
-#        pullup: true
+    # Wired Example Active low
+    #    pin:
+    #      number: ${wired_pulse_pin}
+    #      inverted: true
+    #      mode:
+    #        input: true
+    #        pullup: true
 
     filters:
       # multiply value = (60 / imp value) * 1000
@@ -227,7 +226,7 @@ sensor:
 
     total:
       id: sensor_total_energy
-      name: '${friendly_name} - Total Energy'
+      name: "${friendly_name} - Total Energy"
       unit_of_measurement: kWh
       icon: mdi:circle-slice-3
       state_class: total_increasing
@@ -241,7 +240,7 @@ sensor:
   # Total day usage
   - platform: total_daily_energy
     id: sensor_total_daily_energy
-    name: '${friendly_name} - Daily Energy'
+    name: "${friendly_name} - Daily Energy"
     power_id: sensor_energy_pulse_meter
     unit_of_measurement: kWh
     icon: mdi:circle-slice-3

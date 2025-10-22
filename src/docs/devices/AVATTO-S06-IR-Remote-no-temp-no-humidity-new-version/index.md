@@ -6,6 +6,7 @@ standard: global
 board: bk72xx
 difficulty: 2
 ---
+
 ![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
 
 ## General Notes
@@ -67,7 +68,7 @@ binary_sensor:
 remote_transmitter:
   pin: GPIO26
   carrier_duty_percent: 50%
-  
+
 remote_receiver:
   pin:
     number: GPIO7

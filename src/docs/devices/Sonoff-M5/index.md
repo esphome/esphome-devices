@@ -28,38 +28,38 @@ difficulty: 3
 
 ### 1-Gang Version
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO00 | Button 1            |
-| GPIO23 | Relay  1            |
-| GPIO19 | LED    1            |
-| GPIO05 | Status LED          |
-| GPIO18 | PWM for LED 1       |
+| Pin    | Function      |
+| ------ | ------------- |
+| GPIO00 | Button 1      |
+| GPIO23 | Relay 1       |
+| GPIO19 | LED 1         |
+| GPIO05 | Status LED    |
+| GPIO18 | PWM for LED 1 |
 
 ### 2-Gang Version
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO04 | Button 1            |
-| GPIO15 | Button 2            |
-| GPIO23 | Relay  1 / LED 1    |
-| GPIO19 | Relay  2            |
-| GPIO22 | LED    2            |
-| GPIO05 | Status LED          |
-| GPIO18 | PWM for LED 1/2     |
+| Pin    | Function        |
+| ------ | --------------- |
+| GPIO04 | Button 1        |
+| GPIO15 | Button 2        |
+| GPIO23 | Relay 1 / LED 1 |
+| GPIO19 | Relay 2         |
+| GPIO22 | LED 2           |
+| GPIO05 | Status LED      |
+| GPIO18 | PWM for LED 1/2 |
 
 ### 3-Gang Version
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO04 | Button 1            |
-| GPIO00 | Button 2            |
-| GPIO15 | Button 3            |
-| GPIO23 | Relay  1 / LED 1    |
-| GPIO19 | Relay  2 / LED 2    |
-| GPIO22 | Relay  3 / LED 3    |
-| GPIO05 | Status LED          |
-| GPIO18 | PWM for LED 1/2/3   |
+| Pin    | Function          |
+| ------ | ----------------- |
+| GPIO04 | Button 1          |
+| GPIO00 | Button 2          |
+| GPIO15 | Button 3          |
+| GPIO23 | Relay 1 / LED 1   |
+| GPIO19 | Relay 2 / LED 2   |
+| GPIO22 | Relay 3 / LED 3   |
+| GPIO05 | Status LED        |
+| GPIO18 | PWM for LED 1/2/3 |
 
 ## Basic Configuration (2-Gang)
 
@@ -87,7 +87,7 @@ ota:
   - platform: esphome
     password: !secret ota_secret
 
-sensor:  
+sensor:
   - platform: wifi_signal
     name: "RSSI"
     id: sensor_rssi
@@ -141,8 +141,8 @@ binary_sensor:
     name: "API connected"
     id: sensor_api_connected
     internal: True
-    entity_category: 'diagnostic'
-    device_class: 'connectivity'
+    entity_category: "diagnostic"
+    device_class: "connectivity"
     lambda: return global_api_server->is_connected();
     on_press:
       - light.turn_on: led_status
@@ -181,8 +181,8 @@ light:
     output: pwm_output
     name: "LEDs"
     restore_mode: RESTORE_DEFAULT_OFF
-    icon: 'mdi:led-outline'
-    entity_category: 'config'
+    icon: "mdi:led-outline"
+    entity_category: "config"
 ```
 
 ## Advanced Configuration (3-Gang, US Version)
@@ -333,7 +333,6 @@ button:
     name: "Restart"
     id: button_restart
 
-
 switch:
   # Physical GPIO Relay
   - platform: gpio
@@ -359,8 +358,8 @@ switch:
     id: relay_a_decoupled
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
-    icon: 'mdi:link-box-outline'
-    entity_category: 'config'
+    icon: "mdi:link-box-outline"
+    entity_category: "config"
 
   # Config-only switch to decouple relay from button
   - platform: template
@@ -368,8 +367,8 @@ switch:
     id: relay_b_decoupled
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
-    icon: 'mdi:link-box-outline'
-    entity_category: 'config'
+    icon: "mdi:link-box-outline"
+    entity_category: "config"
 
   # Config-only switch to decouple relay from button
   - platform: template
@@ -377,8 +376,8 @@ switch:
     id: relay_c_decoupled
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
-    icon: 'mdi:link-box-outline'
-    entity_category: 'config'
+    icon: "mdi:link-box-outline"
+    entity_category: "config"
 
 output:
   # Physical GPIO PWM for off-state background brightness
@@ -400,8 +399,8 @@ binary_sensor:
     name: "API connected"
     id: sensor_api_connected
     internal: true
-    entity_category: 'diagnostic'
-    device_class: 'connectivity'
+    entity_category: "diagnostic"
+    device_class: "connectivity"
     lambda: return global_api_server->is_connected();
     on_press:
       - light.turn_off: led_status
@@ -430,8 +429,8 @@ binary_sensor:
     on_multi_click:
       # single click detection
       - timing:
-        - ON for at most 900ms
-        - OFF for at least 600ms
+          - ON for at most 900ms
+          - OFF for at least 600ms
         then:
           - homeassistant.event:
               event: esphome.on_gesture
@@ -490,8 +489,8 @@ binary_sensor:
     on_multi_click:
       # single click detection
       - timing:
-        - ON for at most 900ms
-        - OFF for at least 600ms
+          - ON for at most 900ms
+          - OFF for at least 600ms
         then:
           - homeassistant.event:
               event: esphome.on_gesture
@@ -550,8 +549,8 @@ binary_sensor:
     on_multi_click:
       # single click detection
       - timing:
-        - ON for at most 900ms
-        - OFF for at least 600ms
+          - ON for at most 900ms
+          - OFF for at least 600ms
         then:
           - homeassistant.event:
               event: esphome.on_gesture
@@ -606,6 +605,6 @@ light:
     output: pwm_output
     name: "Background Brightness"
     restore_mode: RESTORE_DEFAULT_OFF
-    icon: 'mdi:led-outline'
-    entity_category: 'config'
+    icon: "mdi:led-outline"
+    entity_category: "config"
 ```

@@ -22,12 +22,12 @@ The board uses V+, V-, R/Q1, and G/Q2 for the connectors. B/Q3 is unpopulated an
 
 ## GPIO Pinout
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO2  | Side Button   |
-| GPIO19 | Top Button    |
-| GPIO25 | Light 1       |
-| GPIO26 | Light 2       |
+| Pin    | Function    |
+| ------ | ----------- |
+| GPIO2  | Side Button |
+| GPIO19 | Top Button  |
+| GPIO25 | Light 1     |
+| GPIO26 | Light 2     |
 
 ## Basic Configuration
 

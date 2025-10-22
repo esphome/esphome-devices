@@ -33,12 +33,12 @@ Connect IO0 to GND to enter boot mode. To restart the device before entering boo
 
 ## GPIO Pinout
 
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO04 | Blue LED             |
-| GPIO05 | Red LED              |
-| GPIO12 | Relay                |
-| GPIO13 | Button               |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO04 | Blue LED |
+| GPIO05 | Red LED  |
+| GPIO12 | Relay    |
+| GPIO13 | Button   |
 
 ## Hardware definition Configuration
 
@@ -46,8 +46,8 @@ Connect IO0 to GND to enter boot mode. To restart the device before entering boo
 substitutions:
   name: ccrwfio2pk
 esphome:
-  name: '${name}'
-  friendly_name: '${name}'
+  name: "${name}"
+  friendly_name: "${name}"
 esp8266:
   board: esp8285
 logger: null
@@ -58,7 +58,7 @@ wifi:
   ssid: wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: '${name} Fallback Hotspot'
+    ssid: "${name} Fallback Hotspot"
     password: !secret ap_password
 captive_portal: null
 switch:
@@ -83,7 +83,6 @@ binary_sensor:
       number: GPIO13
       mode: INPUT_PULLUP
       inverted: true
-
 ```
 
 ## Basic Configuration
@@ -94,8 +93,8 @@ The following configuration mimics the original behavior: pressing the `Button` 
 substitutions:
   name: ccrwfio2pk
 esphome:
-  name: '${name}'
-  friendly_name: '${name}'
+  name: "${name}"
+  friendly_name: "${name}"
 esp8266:
   board: esp8285
 logger: null
@@ -106,7 +105,7 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: '${name} Fallback Hotspot'
+    ssid: "${name} Fallback Hotspot"
     password: !secret ap_password
 captive_portal: null
 web_server:

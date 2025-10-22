@@ -21,17 +21,17 @@ It uses a wifi board called CBU.
 
 ## GPIO Pinout (Per top to bottom when installed)
 
-| Pin    | Function                       |
-| ------ | ------------------------------ |
-| GPIO11 | S1, Curtain1 Open switch       |
-| GPIO10 | S2, Curtain1 Close switch      |
-| GPIO9  | S3, Curtain2 Open switch       |
-| GPIO8  | S4, Curtain2 Close switch      |
-| GPIO4  | L1, to Curtain1 Open motor     |
-| GPIO17 | L2, to Curtain1 Close motor    |
-| GPIO20 | L3, to Curtain2 Open motor     |
-| GPIO2  | L4, to Curtain2 Close motor    |
-| GPIO19 | LED                            |
+| Pin    | Function                    |
+| ------ | --------------------------- |
+| GPIO11 | S1, Curtain1 Open switch    |
+| GPIO10 | S2, Curtain1 Close switch   |
+| GPIO9  | S3, Curtain2 Open switch    |
+| GPIO8  | S4, Curtain2 Close switch   |
+| GPIO4  | L1, to Curtain1 Open motor  |
+| GPIO17 | L2, to Curtain1 Close motor |
+| GPIO20 | L3, to Curtain2 Open motor  |
+| GPIO2  | L4, to Curtain2 Close motor |
+| GPIO19 | LED                         |
 
 ## Basic Configuration
 
@@ -40,17 +40,17 @@ esphome:
   name: double-cover
   friendly_name: Livingroom_double_cover
   on_boot:
-     - delay: 1s
-     - switch.turn_off: "L2_close"
-     - switch.turn_off: "L4_close"
-     - delay: 1s
-     - switch.turn_on: L1_open
-     - switch.turn_on: L3_open
-     - delay: 40s
-     - switch.turn_off: L1_open
-     - switch.turn_off: L3_open
-     - cover.open: "right_cover"
-     - cover.open: "left_cover"
+    - delay: 1s
+    - switch.turn_off: "L2_close"
+    - switch.turn_off: "L4_close"
+    - delay: 1s
+    - switch.turn_on: L1_open
+    - switch.turn_on: L3_open
+    - delay: 40s
+    - switch.turn_off: L1_open
+    - switch.turn_off: L3_open
+    - cover.open: "right_cover"
+    - cover.open: "left_cover"
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -78,9 +78,8 @@ wifi:
 captive_portal:
 
 web_server:
-  
-switch:
 
+switch:
   - platform: gpio
     pin:
       number: P20

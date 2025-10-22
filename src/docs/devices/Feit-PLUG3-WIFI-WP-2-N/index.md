@@ -114,11 +114,10 @@ switch:
       - light.turn_on: led_status
     on_turn_off:
       - light.turn_off: led_status
-
 ```
 
 ## References
 
 - <https://docs.libretiny.eu/boards/generic-bk7231n-qfn32-tuya/> - BK7231N pinout
 - <https://www.youtube.com/watch?v=t0o8nMbqOSA> - Video of LTCHIPTOOL process on different device
-- <https://devices.esphome.io/devices/Feit-PLUG3-WIFI-WP-2>       - Instructions for the other variant of this device
+- <https://devices.esphome.io/devices/Feit-PLUG3-WIFI-WP-2> - Instructions for the other variant of this device

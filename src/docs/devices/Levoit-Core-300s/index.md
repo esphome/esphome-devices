@@ -18,10 +18,10 @@ Manufacturer: [Levoit](http://www.levoit.com)
 
 ## GPIO Pinout
 
-| Pin    | Function                                 |
-| ------ | ---------------------------------------- |
-| GPIO16 | TX Pin                                   |
-| GPIO17 | RX Pin                                   |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO16 | TX Pin   |
+| GPIO17 | RX Pin   |
 
 ## Flashing
 
@@ -29,19 +29,19 @@ Based on the procedure shared by [acvigue](https://github.com/acvigue/esphome-le
 
 ### Disassembly
 
-* Place upside down and remove base cover and filter to expose 8 screws (4 have washers)
-* Remove all 8 screws. *Be careful, as these are made out of a soft metal*
-* Using a pry tool slide in between tabs
-* Separate base and top sleeve
-* Unplug logic board
+- Place upside down and remove base cover and filter to expose 8 screws (4 have washers)
+- Remove all 8 screws. _Be careful, as these are made out of a soft metal_
+- Using a pry tool slide in between tabs
+- Separate base and top sleeve
+- Unplug logic board
 
 ### Flash
 
-* Solder a header or wires to the module’s pins (3.3 V, GND, TX, RX, and GPIO0)
-![ESP Board](./levoit-core-300s-flashing.jpeg "ESP32 module ready for flashing")
-* Connect TX→RX, RX→TX, GND→GND, and 3.3 V→3.3 V (do **not** use 5 V)
-* Hold **GPIO0** to GND while applying power to enter the ESP32 bootloader
-* Use your preferred flasher (e.g., `esptool.py`) to write the ESPHome firmware
+- Solder a header or wires to the module’s pins (3.3 V, GND, TX, RX, and GPIO0)
+  ![ESP Board](./levoit-core-300s-flashing.jpeg "ESP32 module ready for flashing")
+- Connect TX→RX, RX→TX, GND→GND, and 3.3 V→3.3 V (do **not** use 5 V)
+- Hold **GPIO0** to GND while applying power to enter the ESP32 bootloader
+- Use your preferred flasher (e.g., `esptool.py`) to write the ESPHome firmware
 
 ## ESPHome Configuration
 

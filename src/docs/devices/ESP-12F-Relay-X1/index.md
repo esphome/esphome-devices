@@ -18,9 +18,9 @@ The board can be powered either via 90-250VAC or via 7-12VDC, or via 5VDC from U
 
 All 5V inputs feed the same rail:
 
-* the AC switchmode power supply
-* the DC linear regulator
-* the Micro-USB port
+- the AC switchmode power supply
+- the DC linear regulator
+- the Micro-USB port
 
 IMPORTANT: connect only one of the three power inputs at the same time!
 
@@ -36,48 +36,48 @@ By default, the relay is connected to GPIO5. If you want to change that, remove 
 
 Programming header:
 
-| Pin   | Comment                                                 |
-| ----- | ------------------------------------------------------- |
-| 5V    | Could inject +5V from the USB serial-TTL-converter      |
-| TX    | 3.3V level!                                             |
-| RX    | 3.3V level!                                             |
-| GPIO0 | 3.3V level! (pulled up, connect to GND for flashing)    |
-| GND   |                                                         |
-| GND   |                                                         |
+| Pin   | Comment                                              |
+| ----- | ---------------------------------------------------- |
+| 5V    | Could inject +5V from the USB serial-TTL-converter   |
+| TX    | 3.3V level!                                          |
+| RX    | 3.3V level!                                          |
+| GPIO0 | 3.3V level! (pulled up, connect to GND for flashing) |
+| GND   |                                                      |
+| GND   |                                                      |
 
 Left header:
 
-| Pin    | Comment                                 |
-| ------ | --------------------------------------- |
-| 5V     | 5V rail                                 |
-| 3V3    | from onboard voltage regulator          |
-| TX     | 3.3V level!                             |
-| RX     | 3.3V level!                             |
-| GPIO5  | drives relay via R14                    |
-| GPIO4  |                                         |
-| GPIO0  |                                         |
-| GPIO2  |                                                |
-| GPIO15 |                                                |
-| Relay  | once R14 removed, can be bridged to any GPIO   |
-| SCLK   |                                         |
-| GND    |                                         |
+| Pin    | Comment                                      |
+| ------ | -------------------------------------------- |
+| 5V     | 5V rail                                      |
+| 3V3    | from onboard voltage regulator               |
+| TX     | 3.3V level!                                  |
+| RX     | 3.3V level!                                  |
+| GPIO5  | drives relay via R14                         |
+| GPIO4  |                                              |
+| GPIO0  |                                              |
+| GPIO2  |                                              |
+| GPIO15 |                                              |
+| Relay  | once R14 removed, can be bridged to any GPIO |
+| SCLK   |                                              |
+| GND    |                                              |
 
 Right header:
 
-| Pin    | Comment                               |
-| ------ | ------------------------------------- |
-| GND    |                                       |
-| 3V3    |                                       |
-| GPIO16 | connected to red LED                  |
-| ADC    | 0V-1V only                            |
-| GPIO12 |                                       |
-| GPIO14 |                                       |
-| CSO    |                                       |
-| GPIO13 |                                       |
-| GPIO9  |                                       |
-| MISO   |                                       |
-| MOSI   |                                       |
-| GPIO10 |                                       |
+| Pin    | Comment              |
+| ------ | -------------------- |
+| GND    |                      |
+| 3V3    |                      |
+| GPIO16 | connected to red LED |
+| ADC    | 0V-1V only           |
+| GPIO12 |                      |
+| GPIO14 |                      |
+| CSO    |                      |
+| GPIO13 |                      |
+| GPIO9  |                      |
+| MISO   |                      |
+| MOSI   |                      |
+| GPIO10 |                      |
 
 ## Basic Config
 

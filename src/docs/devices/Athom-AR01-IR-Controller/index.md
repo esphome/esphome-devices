@@ -7,6 +7,7 @@ board: esp8266
 made-for-esphome: False
 difficulty: 2
 ---
+
 This is an IR receiver and transmitter that is shipped with Tasmota installed by the manufacturer.
 
 **Manufacturer product page:** [Athom AR-01 Tasmota IR Controller](https://www.athom.tech/blank-1/tasmota-ir-controller)
@@ -23,13 +24,13 @@ I did not test this, but there is what looks to be pads for a serial connection.
 
 ## GPIO Pinout
 
-| Pin    | Component |
-| --- | --- |
-| GPIO0 | Button |
-| GPIO4 | IR transmitter |
-| GPIO5 | IR receiver |
-| GPIO12 | LED3 (top) |
-| GPIO13 | LED2 (middle) |
+| Pin    | Component      |
+| ------ | -------------- |
+| GPIO0  | Button         |
+| GPIO4  | IR transmitter |
+| GPIO5  | IR receiver    |
+| GPIO12 | LED3 (top)     |
+| GPIO13 | LED2 (middle)  |
 
 ## Configuration
 

@@ -6,7 +6,6 @@ standard: au
 board: esp8266
 ---
 
-
 The Arlec 6000HA power plug is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold at Bunnings in Australia and New Zealand.
 
 As at the time of writing, they can be flashed without disassembly or soldering [using tuya-convert](#tuya-convert).

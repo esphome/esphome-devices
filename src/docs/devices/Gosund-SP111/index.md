@@ -58,16 +58,16 @@ esphome:
 
 esp8266:
   board: esp8285
-# This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
+  # This allows the device to restore the last saved relay state, either "ON" or "OFF" for the switch later in this config
   restore_from_flash: true
 
 preferences:
-  flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
-  
+  flash_write_interval: 1min # set to 5min to prevent wearing out the onboard flash module too quickly
+
 # Enable logging
 logger:
   baud_rate: 0
-  
+
 # Enable Home Assistant API
 api:
   encryption:
@@ -183,9 +183,9 @@ switch:
     name: "${devicename} - Switch"
     icon: mdi:power
     optimistic: true
-# This is where the "restore_from_flash" comes in. I set it to try to restore from flash and, if that fails, set it to ON
+    # This is where the "restore_from_flash" comes in. I set it to try to restore from flash and, if that fails, set it to ON
     restore_mode: RESTORE_DEFAULT_ON
-    lambda: 'return id(relay).state;'
+    lambda: "return id(relay).state;"
     id: button_switch
     turn_on_action:
       - switch.turn_on: relay

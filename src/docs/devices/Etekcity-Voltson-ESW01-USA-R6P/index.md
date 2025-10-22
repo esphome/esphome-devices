@@ -14,14 +14,14 @@ difficulty: 4
 
 The Etekcity Voltson ESW01-USA-R6P is a Wi-Fi connected 10-amp Smart Outlet with energy monitoring, controlled via the VeSync app when running OEM firmware.
 
-| Specification | Details
-| ------------- | -
-| Manufacturer  | Etekcity
-| Model         | Voltson ESW01-USA-R6P
-| Input         | AC 120V, 60Hz
-| Max Load      | 10A resistive
-| Environment   | 14°-104°F / -10°-40°C
-| FCC ID        | [2AB22-ESWO1-USA2](https://fcc.report/FCC-ID/2AB22-ESWO1-USA2)
+| Specification | Details                                                        |
+| ------------- | -------------------------------------------------------------- |
+| Manufacturer  | Etekcity                                                       |
+| Model         | Voltson ESW01-USA-R6P                                          |
+| Input         | AC 120V, 60Hz                                                  |
+| Max Load      | 10A resistive                                                  |
+| Environment   | 14°-104°F / -10°-40°C                                          |
+| FCC ID        | [2AB22-ESWO1-USA2](https://fcc.report/FCC-ID/2AB22-ESWO1-USA2) |
 
 ## Additional Resources
 
@@ -34,14 +34,14 @@ The Etekcity Voltson ESW01-USA-R6P is a Wi-Fi connected 10-amp Smart Outlet with
 
 - [Ai-Thinker - ESP 01E Datasheet](https://docs.ai-thinker.com/_media/esp8266/docs/esp-01e_product_specification_en.pdf)
 
-| Specification   | Details
-| --------------- | -
-| Manufacturer    | Ai-Thinker
-| Module Model    | ESP-01E
-| SPI Flash       | 1MB built-in flash
-| UART Baud Rate  | 300 ~ 4608000 bps (Default 115200 bps)
-| Frequency Range | 2412 ~ 2484MHz
-| Power Supply    | 3.0V ~ 3.6V (Typical 3.3V, >500mA)
+| Specification   | Details                                |
+| --------------- | -------------------------------------- |
+| Manufacturer    | Ai-Thinker                             |
+| Module Model    | ESP-01E                                |
+| SPI Flash       | 1MB built-in flash                     |
+| UART Baud Rate  | 300 ~ 4608000 bps (Default 115200 bps) |
+| Frequency Range | 2412 ~ 2484MHz                         |
+| Power Supply    | 3.0V ~ 3.6V (Typical 3.3V, >500mA)     |
 
 ## Disassembly
 
@@ -64,15 +64,15 @@ Because this model does not seem to allow the removal of the PCB without desolde
 
 Using the table below as a guide, connect each pin of a USB serial converter to its corresponding test pad on the PCB.
 
-| USB serial converter | Smart Outlet Test Pad
-| -------------------- | -
-| RX / RXD             | TX
-| TX / TXD             | RX
-| GND                  | T4/GND
-| VCC                  | T5/5V
-| GND                  | IO0 (looks like 100)
+| USB serial converter | Smart Outlet Test Pad |
+| -------------------- | --------------------- |
+| RX / RXD             | TX                    |
+| TX / TXD             | RX                    |
+| GND                  | T4/GND                |
+| VCC                  | T5/5V                 |
+| GND                  | IO0 (looks like 100)  |
 
-**_NOTE:_**  The IO0 test pad on the PCB might look like the number 100. This pad is connected to GPIO0 on the ESP 01E. When pulled low (grounded) during power on, it will put the ESP module into Flash Mode. You can either connect this to the GND pin of the USB serial converter or the GND test pad on the device. **You will need to disconnect this pad from ground for the device to boot normally. If you want to test the firmware before reassembling the plug, wire this in such a way that you can easily detach it from ground.**
+**_NOTE:_** The IO0 test pad on the PCB might look like the number 100. This pad is connected to GPIO0 on the ESP 01E. When pulled low (grounded) during power on, it will put the ESP module into Flash Mode. You can either connect this to the GND pin of the USB serial converter or the GND test pad on the device. **You will need to disconnect this pad from ground for the device to boot normally. If you want to test the firmware before reassembling the plug, wire this in such a way that you can easily detach it from ground.**
 
 ⚠ **WARNING:** While the AI-Thinker ESP 01E is typically powered by 3.3V, the test pad seems to be connected to other components on the board and requires 5V. Flashing using 3.3V on this test pad has been tested, but even though the installation reports success, the device does not seem to boot correctly afterward, even when powering it with 5V.
 
@@ -124,22 +124,22 @@ If you do not already have an instance of [ESPHome Dashboard](https://esphome.io
 3. Disconnect the IO0 test pad from GND so that the device will no longer boot into Flash Mode when powered on.
 4. Plug the VCC wire back into the USB serial converter. The device should now boot normally.
 5. You should now see an access point with the name "esphome" in it. Connect to the access point and use the [captive portal](https://esphome.io/components/captive_portal) to configure the Wi-Fi settings on the device.
-    - **_NOTE:_** If [Improv via Serial](https://esphome.io/components/improv_serial) was included in the configuration, you can also configure the Wi-Fi settings via serial.
+   - **_NOTE:_** If [Improv via Serial](https://esphome.io/components/improv_serial) was included in the configuration, you can also configure the Wi-Fi settings via serial.
 6. Once connected to Wi-Fi, you should be able to access the device's [web server](https://esphome.io/components/web_server) via its IP address. If you have not already, you can now adopt the device with ESPHome Dashboard.
 
 ## ESP Home Configuration
 
 ### GPIO Pinout
 
-| Pin    | Function
-| ------ | -
-| GPIO4  | Outlet Relay
-| GPIO5  | LED blue
-| GPIO12 | HLWBL CF1 Pin
-| GPIO13 | HLW8012 CF Pin
-| GPIO14 | Button
-| GPIO15 | HLWBL SEL Pin
-| GPIO16 | LED yellow
+| Pin    | Function       |
+| ------ | -------------- |
+| GPIO4  | Outlet Relay   |
+| GPIO5  | LED blue       |
+| GPIO12 | HLWBL CF1 Pin  |
+| GPIO13 | HLW8012 CF Pin |
+| GPIO14 | Button         |
+| GPIO15 | HLWBL SEL Pin  |
+| GPIO16 | LED yellow     |
 
 ### Basic ESPHome Configuration
 
@@ -147,7 +147,7 @@ The configuration below can be used when you initially set up the device to get 
 
 **⚠ IMPORTANT:** Please pay attention to any comments in the configurations below that start with "**⚠ SECURITY WARNING**". These comments highlight security features that are not necessary for the device to function normally but should be considered for additional security based on your personal risk tolerance.
 
-``` yaml
+```yaml
 ##############################
 ### Variable Substitutions ###
 ##############################
@@ -196,10 +196,10 @@ wifi: # More information available at https://esphome.io/components/wifi
   password: !secret wifi_password
   # Optional Manual IP.
   # NOTE: This is also useful when ESPHome Dashboard has problems resolving the mDNS name of the device after flashing.
-#  manual_ip:
-#    static_ip: 192.168.0.100
-#    gateway: 192.168.0.1
-#    subnet: 255.255.255.0
+  #  manual_ip:
+  #    static_ip: 192.168.0.100
+  #    gateway: 192.168.0.1
+  #    subnet: 255.255.255.0
 
   # The AP option will make the device broadcast an access point (AP) when the specified Wi-Fi cannot be reached.
   # ⚠ SECURITY WARNING: Not specifying a password here will allow anyone who can see this AP to reconfigure your device!
@@ -211,13 +211,13 @@ wifi: # More information available at https://esphome.io/components/wifi
 captive_portal: # More information available at https://esphome.io/components/captive_portal
 
 # Enables Home Assistant API
-api: # More information available at https://esphome.io/components/api
+api:# More information available at https://esphome.io/components/api
   # ⚠ SECURITY WARNING: Not specifying an encryption key here will allow anyone on your network with the IP of the device to interact with the API!
 #  encryption: # The key value for the "encryption" option is a 32-byte base64 encoded string. A random one can be copied from https://esphome.io/components/api
 #    key: O3FXh9ceOxMU8swMRjlhGvvef4YkiVU8jmGkL/RbcMg=
 
 # Allow Over-The-Air updates
-ota: # More information available at https://esphome.io/components/ota
+ota:# More information available at https://esphome.io/components/ota
   # ⚠ SECURITY WARNING: Not specifying a password here will allow anyone on your network with the ip of the device to reflash a new binary!
 #  password: !secret ota_password
 
@@ -241,21 +241,21 @@ status_led:
 
 # Outlet State LED (Yellow)
 output:
-- platform: gpio
-  id: outlet_state_led
-  pin: GPIO16
+  - platform: gpio
+    id: outlet_state_led
+    pin: GPIO16
 
 # Outlet Relay Button
 switch:
-- platform: gpio
-  name: "Outlet"
-  id: outlet_relay
-  pin: GPIO4
-  restore_mode: RESTORE_DEFAULT_ON
-  on_turn_on:
-    - output.turn_on: outlet_state_led
-  on_turn_off:
-    - output.turn_off: outlet_state_led
+  - platform: gpio
+    name: "Outlet"
+    id: outlet_relay
+    pin: GPIO4
+    restore_mode: RESTORE_DEFAULT_ON
+    on_turn_on:
+      - output.turn_on: outlet_state_led
+    on_turn_off:
+      - output.turn_off: outlet_state_led
 
 # Outlet Relay Toggle When Button Pushed
 binary_sensor:
@@ -329,9 +329,9 @@ sensor:
   # Total Daily Energy Sensor
   # More information available at https://esphome.io/components/sensor/total_daily_energy
   - platform: total_daily_energy
-    name: 'Total Daily Energy'
+    name: "Total Daily Energy"
     power_id: wattage
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: "kWh"
     state_class: total_increasing
     device_class: energy
     accuracy_decimals: 3

@@ -23,11 +23,11 @@ More info and the housing STLs are available here: [Nerdiy.de](https://nerdiy.de
 
 ## GPIO Pinout
 
-| Pin    | Function          |
-| ------ | ----------------- |
-| GPIO07  | Touch Button "Plus" |
-| GPIO08 | Touch Button "Minus"             |
-| GPIO05 | LED-Strip               |
+| Pin    | Function             |
+| ------ | -------------------- |
+| GPIO07 | Touch Button "Plus"  |
+| GPIO08 | Touch Button "Minus" |
+| GPIO05 | LED-Strip            |
 
 ## Basic Config
 

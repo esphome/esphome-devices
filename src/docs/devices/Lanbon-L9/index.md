@@ -12,49 +12,49 @@ difficulty: 2
 
 ## Drivers
 
-* Processor: ESP32-S3-WROOM-1U
-* Touchscreen: FT6336U
-* Display: ST7789V2
-* mmWave Prescence: MoreSense 10G Hand Sweeping Series MS10-3007D26M4
-* Power Sensor: HLW8012 (CF pin only)
+- Processor: ESP32-S3-WROOM-1U
+- Touchscreen: FT6336U
+- Display: ST7789V2
+- mmWave Prescence: MoreSense 10G Hand Sweeping Series MS10-3007D26M4
+- Power Sensor: HLW8012 (CF pin only)
 
 ## GPIO Pinout
 
 ### i80 Display
 
-| Pin    | Function   |
-| ------ | -----------|
-| GPIO17 | DC Pin |
-| GPIO21 | CS Pin |
-| GPIO13 | WR Pin |
-| GPIO18 | RD Pin |
-| GPIO6  | Data D0 |
-| GPIO7  | Data D1 |
-| GPIO15 | Data D2 |
-| GPIO16 | Data D3 |
-| GPIO10 | Data D4 |
-| GPIO9  | Data D5 |
-| GPIO46 | Data D6 |
-| GPIO3  | Data D7 |
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO17 | DC Pin    |
+| GPIO21 | CS Pin    |
+| GPIO13 | WR Pin    |
+| GPIO18 | RD Pin    |
+| GPIO6  | Data D0   |
+| GPIO7  | Data D1   |
+| GPIO15 | Data D2   |
+| GPIO16 | Data D3   |
+| GPIO10 | Data D4   |
+| GPIO9  | Data D5   |
+| GPIO46 | Data D6   |
+| GPIO3  | Data D7   |
 | GPIO4  | Reset Pin |
 
 ### I²C (used for touchscreen)
 
-| Pin    | Function   |
-| ------ | -----------|
-| GPIO0  | i2c SCL |
-| GPIO35 | i2c SCA |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO0  | i2c SCL  |
+| GPIO35 | i2c SCA  |
 
 ### General Purpose IO
 
-| Pin    | Function   |
-| ------ | -----------|
-| GPIO32 | LCD Backlight (output, ledc) |
-| GPIO36 | Load Relay (output, switch) |
+| Pin    | Function                                       |
+| ------ | ---------------------------------------------- |
+| GPIO32 | LCD Backlight (output, ledc)                   |
+| GPIO36 | Load Relay (output, switch)                    |
 | GPIO5  | HLW8012 CF Pin (input, pulse_meter)            |
 | GPIO11 | mmWave Proximity Sensor (input, binary_sensor) |
-| GPIO2  | mmWave Proximity Sensor (output, unknown) |
-| GPIO1  | mmWave Proximity Sensor (output, unknown) |
+| GPIO2  | mmWave Proximity Sensor (output, unknown)      |
+| GPIO1  | mmWave Proximity Sensor (output, unknown)      |
 
 Note, programming the proximity sensor for different sensitivity, etc. is not yet possible.
 
@@ -62,7 +62,7 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 
 1. Open the switch, by removing the terminal covers and the 4 small screws on the cornors.
 1. The front part of hte switch should "pop off", with a small amount of pressure.
-1. Connect a USB level shifter to the pin header on the front panel, using the pinout below.  Note, you must provide 5v power, while the Tx/Rx pins use a 3.3v level.  
+1. Connect a USB level shifter to the pin header on the front panel, using the pinout below. Note, you must provide 5v power, while the Tx/Rx pins use a 3.3v level.
 1. Connect the GPIO0 pin to ground to put the ESP32 into the flash boot mode.
 1. Once flashed, the screen should power up and display ESPHome, while powered via the 5v supply.
 
@@ -175,7 +175,7 @@ sensor:
     name: Power
     id: power_pulse_meter
     pin: GPIO5
-    unit_of_measurement: 'W'
+    unit_of_measurement: "W"
     device_class: power
     state_class: measurement
     internal_filter_mode: PULSE
@@ -183,7 +183,7 @@ sensor:
     filters:
       - filter_out: nan
       - throttle: 15s
-      - multiply: 0.0813287514318442  # Calibration may be needed
+      - multiply: 0.0813287514318442 # Calibration may be needed
 
 binary_sensor:
   - platform: gpio
@@ -205,13 +205,13 @@ switch:
 
 The following configuration implements the following features and examples from the LVGL component.
 
-* Button with status update based on load relay gpio
-* Screen time-out (backlight) and activation via touch or proximity
-* Load power measurement via HLW8012
-* Anti-burn
-* Header icon showing API status
-* Header label showing current time via SNTP
-* Footer for page navigation
+- Button with status update based on load relay gpio
+- Screen time-out (backlight) and activation via touch or proximity
+- Load power measurement via HLW8012
+- Anti-burn
+- Header icon showing API status
+- Header label showing current time via SNTP
+- Footer for page navigation
 
 ```yaml
 esphome:
@@ -270,7 +270,7 @@ time:
         then:
           - switch.turn_off: switch_antiburn
       - seconds: 0
-        minutes: '*'
+        minutes: "*"
         then:
           - lvgl.label.update:
               id: label_time
@@ -371,7 +371,7 @@ sensor:
     name: Power
     id: power_pulse_meter
     pin: GPIO5
-    unit_of_measurement: 'W'
+    unit_of_measurement: "W"
     device_class: power
     state_class: measurement
     internal_filter_mode: PULSE
@@ -379,7 +379,7 @@ sensor:
     filters:
       - filter_out: nan
       - throttle: 15s
-      - multiply: 0.0813287514318442  # Calibration may be needed
+      - multiply: 0.0813287514318442 # Calibration may be needed
 
 binary_sensor:
   - platform: gpio
@@ -450,10 +450,7 @@ font:
     id: mdi_icons
     bpp: 4
     size: 52
-    glyphs: [
-      "\U000F0336",
-      "\U000F06E9"
-    ]
+    glyphs: ["\U000F0336", "\U000F06E9"]
 
 lvgl:
   displays:
@@ -489,22 +486,22 @@ lvgl:
           align: TOP_MID
           styles: header_footer
           widgets:
-          - label:
-              text:
-                time_format: "%l:%M %p"
-                time: my_sntp
-              id: label_time
-              align: CENTER
-              text_align: CENTER
-              text_color: 0xFFFFFF
-          - label:
-              text: "\uF1EB"
-              id: label_apistatus
-              align: top_right
-              x: -2
-              y: 7
-              text_align: right
-              text_color: 0xFFFFFF
+            - label:
+                text:
+                  time_format: "%l:%M %p"
+                  time: my_sntp
+                id: label_time
+                align: CENTER
+                text_align: CENTER
+                text_color: 0xFFFFFF
+            - label:
+                text: "\uF1EB"
+                id: label_apistatus
+                align: top_right
+                x: -2
+                y: 7
+                text_align: right
+                text_color: 0xFFFFFF
       - buttonmatrix:
           align: bottom_mid
           styles: header_footer
@@ -515,21 +512,21 @@ lvgl:
             styles: header_footer
           rows:
             - buttons:
-              - id: page_prev
-                text: "\uF053"
-                on_press:
-                  then:
-                    lvgl.page.previous:
-              - id: page_home
-                text: "\uF015"
-                on_press:
-                  then:
-                    lvgl.page.show: page_light_switch
-              - id: page_next
-                text: "\uF054"
-                on_press:
-                  then:
-                    lvgl.page.next:
+                - id: page_prev
+                  text: "\uF053"
+                  on_press:
+                    then:
+                      lvgl.page.previous:
+                - id: page_home
+                  text: "\uF015"
+                  on_press:
+                    then:
+                      lvgl.page.show: page_light_switch
+                - id: page_next
+                  text: "\uF054"
+                  on_press:
+                    then:
+                      lvgl.page.next:
   pages:
     - id: page_light_switch
       widgets:

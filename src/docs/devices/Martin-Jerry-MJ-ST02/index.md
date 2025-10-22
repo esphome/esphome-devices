@@ -5,6 +5,7 @@ type: switch
 standard: us
 board: esp8266
 ---
+
 [Amazon Link](https://amzn.to/3GFjAMY)
 
 Martin Jerry MJ-ST02 3-Way Switch
@@ -13,7 +14,7 @@ I received mine when ordering Tasmota pre-flashed Martin Jerry 3-way switches fr
 
 ## Notes
 
-This product uses Tuya MCU to control the relay.  It requires a baud rate of 9600.
+This product uses Tuya MCU to control the relay. It requires a baud rate of 9600.
 
 ## GPIO Pinout
 
@@ -25,7 +26,7 @@ This product uses Tuya MCU to control the relay.  It requires a baud rate of 960
 ## Tuya Datapoints
 
 | Datapoint | Function  |
-| -----     | --------  |
+| --------- | --------- |
 | 1         | switch    |
 | 7         | int value |
 

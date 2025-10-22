@@ -17,12 +17,12 @@ LEDVANCE SMART+ TABLE FRAME MULTICOLOR
 
 ## GPIO Pinout
 
-| Pin    | Function       |
-| ------ | -------------- |
-| GPIO7  | White Led PWM  |
-| GPIO8  | Red Led PWM    |
-| GPIO24 | Green Led PWM  |
-| GPIO26 | Blue Led PWM   |
+| Pin    | Function      |
+| ------ | ------------- |
+| GPIO7  | White Led PWM |
+| GPIO8  | Red Led PWM   |
+| GPIO24 | Green Led PWM |
+| GPIO26 | Blue Led PWM  |
 
 ## Flashing Instructions
 
@@ -132,5 +132,4 @@ light:
     restore_mode: RESTORE_AND_ON
     color_interlock: True
     gamma_correct: 1.0 # this is handled by custom lookup table
-
 ```

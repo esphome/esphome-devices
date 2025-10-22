@@ -27,13 +27,13 @@ The board uses GPIO16 for RXD so it will always be briefly be powered on at boot
 This board has headers for every GPIO pin on its ESP-12F.
 
 | J8 Pin | Comment                                                 |
-| ----- | ------------------------------------------------------- |
-| 5V    | Do not use 5V for programming                           |
-| TX    | 3.3V level!                                             |
-| RX    | 3.3V level!                                             |
-| GPIO0 | 3.3V level! (pulled up, connect to GND for programming) |
-| GND   |                                                         |
-| GND   |                                                         |
+| ------ | ------------------------------------------------------- |
+| 5V     | Do not use 5V for programming                           |
+| TX     | 3.3V level!                                             |
+| RX     | 3.3V level!                                             |
+| GPIO0  | 3.3V level! (pulled up, connect to GND for programming) |
+| GND    |                                                         |
+| GND    |                                                         |
 
 | J7 Pin | Comment                                 |
 | ------ | --------------------------------------- |
@@ -51,15 +51,15 @@ This board has headers for every GPIO pin on its ESP-12F.
 | GPIO15 | 3.3V level                              |
 | GND    |                                         |
 
-| J6 Pin | Comment                               | J5 Pin |
-| ------ | ------------------------------------- | ------ |
-| ADC    | 0V-1V only                            | |
-| EN     | Pulled up                             | |
-| GPIO16 | Use a jumper to RY1 to enable Relay 1 (Warning, see note above about power-on state) | RY1 |
-| GPIO15 | Optionally, use a longer jumper to RY1 to enable Relay 1 | RY1 |
-| GPIO14 | Use a jumper to RY2 to enable Relay 2 | RY2 |
-| GPIO12 | Use a jumper to RY3 to enable Relay 3 | RY3 |
-| GPIO13 | Use a jumper to RY4 to enable Relay 4 | RY4 |
+| J6 Pin | Comment                                                                              | J5 Pin |
+| ------ | ------------------------------------------------------------------------------------ | ------ |
+| ADC    | 0V-1V only                                                                           |        |
+| EN     | Pulled up                                                                            |        |
+| GPIO16 | Use a jumper to RY1 to enable Relay 1 (Warning, see note above about power-on state) | RY1    |
+| GPIO15 | Optionally, use a longer jumper to RY1 to enable Relay 1                             | RY1    |
+| GPIO14 | Use a jumper to RY2 to enable Relay 2                                                | RY2    |
+| GPIO12 | Use a jumper to RY3 to enable Relay 3                                                | RY3    |
+| GPIO13 | Use a jumper to RY4 to enable Relay 4                                                | RY4    |
 
 ## Basic Config
 

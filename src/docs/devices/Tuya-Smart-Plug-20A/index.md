@@ -36,14 +36,14 @@ Note: Need to reset the chip to enter programming, ie. by shorting CEN to GND fo
 
 ## GPIO Pinout
 
-| Pin   | Function          |
-| ----- | ----------------- |
-| P06   | BL0937 cf_pin     |
-| P07   | BL0937 cf1_pin    |
-| P08   | BL0937 sel_pin    |
-| P24   | Relay & LED2      |
-| P26   | Button  (Inverted)|
-| P28   | LED (Inverted)    |
+| Pin | Function          |
+| --- | ----------------- |
+| P06 | BL0937 cf_pin     |
+| P07 | BL0937 cf1_pin    |
+| P08 | BL0937 sel_pin    |
+| P24 | Relay & LED2      |
+| P26 | Button (Inverted) |
+| P28 | LED (Inverted)    |
 
 ## Basic ESPHome config
 
@@ -71,7 +71,7 @@ binary_sensor:
         input: True
         pullup: True
       inverted: True
-    icon: 'mdi:radiobox-blank'
+    icon: "mdi:radiobox-blank"
     filters:
       - delayed_on: 50ms
 

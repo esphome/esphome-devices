@@ -5,6 +5,7 @@ type: plug
 standard: us
 board: esp8266
 ---
+
 [Amazon Link](https://amzn.to/3S3zypi)
 
 [Manufacturer Link](https://mygeeni.com/products/outdoor-duo-dual-outlet-smart-wi-fi-plug-grey)
@@ -42,7 +43,8 @@ There are no pin headers broken out onto the board. First time programming conne
 # Basic Config
 esphome:
   name: geeni_outdoor
-  friendly_name: geeni
+  friendly_name:
+    geeni
     # Change board to 'esp12e' if the original Tuya WB3S has been desoldered and replaced with an ESP12
 
 esp8266:
@@ -56,7 +58,8 @@ logger:
 
 api:
   encryption:
-    key: !secret encryption_key
+    key:
+      !secret encryption_key
       # Or copy the encription key from the "Add Device" menu of ESPHome
 
 ota:
@@ -64,7 +67,7 @@ ota:
 
 #web_server:
 #  port: 80
-  # Running the web server may cause issues on lower memory modules
+# Running the web server may cause issues on lower memory modules
 
 binary_sensor:
   - platform: gpio

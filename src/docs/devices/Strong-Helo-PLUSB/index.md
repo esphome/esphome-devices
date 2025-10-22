@@ -13,15 +13,15 @@ This plug has a socket output switched by a relay and a separately switchable du
 
 ## GPIO Pinout
 
-| Pin    | Function                           |
-| ------ | ---------------------------------- |
-| GPIO00 | Button                             |
-| GPIO04 | BL0937 CF                          |
-| GPIO05 | HLWBL CF1                          |
-| GPIO12 | HLWBL SELi                         |
-| GPIO13 | Status LED (inverted)              |
-| GPIO14 | Relay 1 (socket)                   |
-| GPIO15 | Relay 2 (USB power)                |
+| Pin    | Function              |
+| ------ | --------------------- |
+| GPIO00 | Button                |
+| GPIO04 | BL0937 CF             |
+| GPIO05 | HLWBL CF1             |
+| GPIO12 | HLWBL SELi            |
+| GPIO13 | Status LED (inverted) |
+| GPIO14 | Relay 1 (socket)      |
+| GPIO15 | Relay 2 (USB power)   |
 
 ## Initial Setup
 
@@ -38,7 +38,7 @@ substitutions:
   device_name: plug-helo-plusb
   friendly_name: "Helo PLUSB Plug"
   device_description: "Strong Helo PLUSB 2x USB Power Monitoring Plug (HELO-PLUSB-EU)"
-  voltage_div: "1655.66630552546"  # Lower value gives lower voltage readout. Calibrate for higher accuracy.
+  voltage_div: "1655.66630552546" # Lower value gives lower voltage readout. Calibrate for higher accuracy.
   current_res: "0.00092" # Higher value gives lower watt readout. Calibrate for higher accuracy.
   current_mul: "0.914285714285714" # Muliplier for current sensor filter. Calibrate for higher accuracy.
 
@@ -81,16 +81,16 @@ binary_sensor:
       - invert:
       - delayed_off: 10ms
     on_multi_click:
-    - timing: #short press to toggle socket relay
-        - ON for at most 1s
-      then:
-        - switch.toggle:
-            id: switch_skt
-    - timing: #long press to toggle USB power output
-        - ON for at least 1s
-      then:
-        - switch.toggle:
-            id: switch_usb
+      - timing: #short press to toggle socket relay
+          - ON for at most 1s
+        then:
+          - switch.toggle:
+              id: switch_skt
+      - timing: #long press to toggle USB power output
+          - ON for at least 1s
+        then:
+          - switch.toggle:
+              id: switch_usb
 
 output:
   - platform: gpio

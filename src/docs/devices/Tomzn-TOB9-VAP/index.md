@@ -30,15 +30,15 @@ Disassembling this device is simple, provided you find a way to remove the golde
 
 ## GPIO Pinout
 
-| Pin    | Function            | Notes    |
-| ------ | ------------------- |----------|
-| GPIO09 | Red LED             | inverted |
-| GPIO10 | RX for BL0942       | RX1      |
-| GPIO11 | TX for BL0942       | TX1      |
-| GPIO15 | Blue LED (status)   | inverted |
-| GPIO17 | Button              | inverted |
-| GPIO24 | Bridge forward      | pulse    |
-| GPIO26 | Bridge reverse      | pulse    |
+| Pin    | Function          | Notes    |
+| ------ | ----------------- | -------- |
+| GPIO09 | Red LED           | inverted |
+| GPIO10 | RX for BL0942     | RX1      |
+| GPIO11 | TX for BL0942     | TX1      |
+| GPIO15 | Blue LED (status) | inverted |
+| GPIO17 | Button            | inverted |
+| GPIO24 | Bridge forward    | pulse    |
+| GPIO26 | Bridge reverse    | pulse    |
 
 ## Basic Configuration
 

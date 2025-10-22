@@ -89,13 +89,13 @@ Triple 6903HA
 
 ### BK72XX-Based Models
 
-| Pin    | Function                       |
-| ------ | ------------------------------ |
-| P6     | Relay, Left  _(includes LED)_  |
-| P9     | Status LED _(inverted)_        |
-| P14    | Button, Left                   |
-| P24    | Button, Right                  |
-| P26    | Relay, Right _(includes LED)_  |
+| Pin | Function                      |
+| --- | ----------------------------- |
+| P6  | Relay, Left _(includes LED)_  |
+| P9  | Status LED _(inverted)_       |
+| P14 | Button, Left                  |
+| P24 | Button, Right                 |
+| P26 | Relay, Right _(includes LED)_ |
 
 > **Note**: Each relay shares a pin with its associated LED.
 
@@ -125,7 +125,11 @@ bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
 packages:
-  device_base: !include { file: common/device_base.yaml, vars: { friendlyname : 'Deta Double Gang Switch'} }
+  device_base:
+    !include {
+      file: common/device_base.yaml,
+      vars: { friendlyname: "Deta Double Gang Switch" },
+    }
 
 #################################
 
@@ -274,7 +278,7 @@ output:
   # Relay 2
   - platform: gpio
     id: relay_2
-    pin: P26  
+    pin: P26
   # Relay 3
   - platform: gpio
     id: relay_3
@@ -298,7 +302,7 @@ light:
     output: relay_2
     id: light_2
 
-   # Light 3
+    # Light 3
   - platform: binary
     name: ${friendlyname_3}
     icon: ${deviceicon}
@@ -554,7 +558,7 @@ output:
   # Relay 2
   - platform: gpio
     id: relay_2
-    pin: P26  
+    pin: P26
   # Relay 3
   - platform: gpio
     id: relay_3
@@ -582,14 +586,14 @@ light:
     output: relay_2
     id: light_2
 
-   # Light 3
+    # Light 3
   - platform: binary
     name: ${friendlyname_3}
     icon: ${deviceicon}
     output: relay_3
     id: light_3
 
-   # Light 4
+    # Light 4
   - platform: binary
     name: ${friendlyname_4}
     icon: ${deviceicon}

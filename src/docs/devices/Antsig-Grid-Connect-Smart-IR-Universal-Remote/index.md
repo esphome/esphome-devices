@@ -16,12 +16,12 @@ Flashing can be achieved by popping off the top cover and soldering to easily ac
 
 ## GPIO Pinout
 
-| Pin    | Function              |
-| ------ | --------------------- |
-| P6 | Reset button (active low) |
-| P7 | IR Receiver |
-| P8 | Status LED |
-| P26 | IR Blaster Output |
+| Pin | Function                  |
+| --- | ------------------------- |
+| P6  | Reset button (active low) |
+| P7  | IR Receiver               |
+| P8  | Status LED                |
+| P26 | IR Blaster Output         |
 
 ## Flashing via UART
 
@@ -59,8 +59,8 @@ After cloning the tuya-cloudcutter git repository, run the tuya-cloudcutter scri
 ```yaml
 esphome:
   name: antsig-ir-hub
-  friendly_name:  Antsig IR Hub
-  
+  friendly_name: Antsig IR Hub
+
 bk72xx:
   board: cb3s
 
@@ -97,5 +97,4 @@ remote_receiver:
       input: true
       pullup: true
   tolerance: 55%
-
 ```

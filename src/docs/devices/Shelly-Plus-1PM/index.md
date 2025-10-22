@@ -161,7 +161,7 @@ sensor:
     name: "${device_name} Daily energy consumed"
     power_id: power
     filters:
-        - multiply: 0.001
+      - multiply: 0.001
     unit_of_measurement: kWh
     icon: mdi:clock-alert
 

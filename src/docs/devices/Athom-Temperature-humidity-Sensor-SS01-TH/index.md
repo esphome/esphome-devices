@@ -28,9 +28,9 @@ Can flash firmware directly via USB.
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| GPIO9  | Button              |
-| GPIO21 | WS2812              |
-| GPIO10 | SDA                 |
-| GPIO8  | SCL                 |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO9  | Button   |
+| GPIO21 | WS2812   |
+| GPIO10 | SDA      |
+| GPIO8  | SCL      |

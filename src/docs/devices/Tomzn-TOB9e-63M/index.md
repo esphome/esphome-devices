@@ -23,13 +23,13 @@ difficulty: 3
 
 ## GPIO Pinout
 
-| Pin    | Function            | Notes    |
-| ------ | ------------------- |----------|
-| GPIO00 | Button              |          |
-| GPIO12 | Relay               |          |
-| GPIO13 | Status LED - Blue   | inverted |
-| GPIO03 | CSE7759B meter      |          |
-| GPIO07 | soldered, unknown   |          |
+| Pin    | Function          | Notes    |
+| ------ | ----------------- | -------- |
+| GPIO00 | Button            |          |
+| GPIO12 | Relay             |          |
+| GPIO13 | Status LED - Blue | inverted |
+| GPIO03 | CSE7759B meter    |          |
+| GPIO07 | soldered, unknown |          |
 
 ## Required for CSE7759B meter
 
@@ -44,6 +44,6 @@ uart:
   rx_pin: RX
   baud_rate: 4800
 
-sensor:  
+sensor:
   - platform: cse7766
 ```

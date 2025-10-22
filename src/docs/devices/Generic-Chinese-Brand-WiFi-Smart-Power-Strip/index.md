@@ -16,16 +16,16 @@ This type of device typically has four individually controllable AC outlets (eac
 
 For reference only if you want to develop something more than the basic functions.
 
-| Pin    | Function                     |
-| ------ | ---------------------------- |
-| GPIO0  | Led1 (Inverted: true)        |
-| GPIO3  | Led2 (Inverted: true)        |
-| GPIO4  | Socket 1 (Inverted: true)    |
-| GPIO5  | Push Button (Inverted:true)  |
-| GPIO12 | Socket 3 (Inverted: true)    |
-| GPIO13 | Socket 2 (Inverted: true)    |
-| GPIO14 | Socket 4 (Inverted: true)    |
-| GPIO16 | 4 USB Ports                  |
+| Pin    | Function                    |
+| ------ | --------------------------- |
+| GPIO0  | Led1 (Inverted: true)       |
+| GPIO3  | Led2 (Inverted: true)       |
+| GPIO4  | Socket 1 (Inverted: true)   |
+| GPIO5  | Push Button (Inverted:true) |
+| GPIO12 | Socket 3 (Inverted: true)   |
+| GPIO13 | Socket 2 (Inverted: true)   |
+| GPIO14 | Socket 4 (Inverted: true)   |
+| GPIO16 | 4 USB Ports                 |
 
 ## Firmware Setup
 

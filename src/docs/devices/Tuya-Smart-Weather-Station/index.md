@@ -42,25 +42,25 @@ Displays and exposes data from its built-in sensor and up to three additional wi
 
 ## TuyaMCU DP IDs
 
-| DP ID | Function | Type | Values / Notes |
-| :--- | :--- | :--- | :--- |
-| `102` | 24 Hour Format | Boolean | `0`: 12h, `1`: 24h |
-| `103` | Weather Condition | Raw | Unknown format |
-| `105` | Temperature Unit | Enum | `0`: Celsius, `1`: Fahrenheit |
-| `106` | Panel Brightness | Enum | `0`: Off, `1`: 30%, `2`: 60%, `3`: 100% |
-| `108` | Panel Display Config | Raw | 11-byte bitmask to show/hide screen elements |
-| `109` | Wind Speed Unit | Enum | `0`: mph, `1`: km/h |
-| `110` | Pressure Unit | Enum | `0`: hPa, `1`: mbar |
-| `129` | Night Mode | Boolean | `0`: Off, `1`: On |
-| `130` | Night Mode Duration | Raw | 4 bytes: `[StartH] [StartM] [EndH] [EndM]` |
-| `131` | Local Temperature | Value | Integer, Celsius * 10 |
-| `132` | Local Humidity | Value | Integer |
-| `133` | Sub1 Temperature | Value | Integer, Celsius * 10 |
-| `134` | Sub1 Humidity | Value | Integer |
-| `135` | Sub2 Temperature | Value | Integer, Celsius * 10 |
-| `136` | Sub2 Humidity | Value | Integer |
-| `137` | Sub3 Temperature | Value | Integer, Celsius * 10 |
-| `138` | Sub3 Humidity | Value | Integer |
+| DP ID | Function             | Type    | Values / Notes                               |
+| :---- | :------------------- | :------ | :------------------------------------------- |
+| `102` | 24 Hour Format       | Boolean | `0`: 12h, `1`: 24h                           |
+| `103` | Weather Condition    | Raw     | Unknown format                               |
+| `105` | Temperature Unit     | Enum    | `0`: Celsius, `1`: Fahrenheit                |
+| `106` | Panel Brightness     | Enum    | `0`: Off, `1`: 30%, `2`: 60%, `3`: 100%      |
+| `108` | Panel Display Config | Raw     | 11-byte bitmask to show/hide screen elements |
+| `109` | Wind Speed Unit      | Enum    | `0`: mph, `1`: km/h                          |
+| `110` | Pressure Unit        | Enum    | `0`: hPa, `1`: mbar                          |
+| `129` | Night Mode           | Boolean | `0`: Off, `1`: On                            |
+| `130` | Night Mode Duration  | Raw     | 4 bytes: `[StartH] [StartM] [EndH] [EndM]`   |
+| `131` | Local Temperature    | Value   | Integer, Celsius \* 10                       |
+| `132` | Local Humidity       | Value   | Integer                                      |
+| `133` | Sub1 Temperature     | Value   | Integer, Celsius \* 10                       |
+| `134` | Sub1 Humidity        | Value   | Integer                                      |
+| `135` | Sub2 Temperature     | Value   | Integer, Celsius \* 10                       |
+| `136` | Sub2 Humidity        | Value   | Integer                                      |
+| `137` | Sub3 Temperature     | Value   | Integer, Celsius \* 10                       |
+| `138` | Sub3 Humidity        | Value   | Integer                                      |
 
 ## Example ESPHome Configuration
 
@@ -95,7 +95,7 @@ rtl87xx:
 # commands
 external_components:
   - source: github://vitoralb/esphome@2025.8.3
-    components: [ tuya ]
+    components: [tuya]
 
 logger:
   baud_rate: 0
@@ -129,7 +129,7 @@ datetime:
     entity_category: CONFIG
     name: "Night Mode Start Time"
     id: night_mode_start
-    type: time  
+    type: time
     optimistic: true
     set_action:
       then:
@@ -193,12 +193,12 @@ sensor:
       round: 0
     on_value:
       then:
-      - lambda: |-
-          auto* weather_service = id(tuya_mcu).get_weather_service();
-          if (weather_service != nullptr) {
-            weather_service->set_weather_data_int("w.temp", x);
-            weather_service->send_weather_data();
-          }
+        - lambda: |-
+            auto* weather_service = id(tuya_mcu).get_weather_service();
+            if (weather_service != nullptr) {
+              weather_service->set_weather_data_int("w.temp", x);
+              weather_service->send_weather_data();
+            }
   - platform: homeassistant
     id: current_humidity
     entity_id: ${humidity_entity}
@@ -207,12 +207,12 @@ sensor:
       round: 0
     on_value:
       then:
-      - lambda: |-
-          auto* weather_service = id(tuya_mcu).get_weather_service();
-          if (weather_service != nullptr) {
-            weather_service->set_weather_data_int("w.humidity", x);
-            weather_service->send_weather_data();
-          }
+        - lambda: |-
+            auto* weather_service = id(tuya_mcu).get_weather_service();
+            if (weather_service != nullptr) {
+              weather_service->set_weather_data_int("w.humidity", x);
+              weather_service->send_weather_data();
+            }
   - platform: homeassistant
     id: current_pressure
     entity_id: ${pressure_entity}
@@ -485,7 +485,6 @@ switch:
     on_turn_off:
       - script.execute: assemble_and_send_display_config
 
-
 text_sensor:
   - platform: template
     id: current_weathercode
@@ -597,5 +596,4 @@ script:
           }
       - delay: 10s
       - script.execute: retry_initial_weather_sync
-
 ```

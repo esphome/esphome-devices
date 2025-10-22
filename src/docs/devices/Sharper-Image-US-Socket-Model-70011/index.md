@@ -18,11 +18,11 @@ They can be flashed with soldering or without soldering by using jumpers. The bo
 
 ## GPIO Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| GPIO14 | Relay                     |
-| GPIO13 | Green LED (Inverted: true)|
-| GPIO0  | Button                    |
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO14 | Relay                      |
+| GPIO13 | Green LED (Inverted: true) |
+| GPIO0  | Button                     |
 
 ## Getting it up and running
 
@@ -48,7 +48,6 @@ It is required to hold the device's button down to boot into flashing mode until
 substitutions:
   name: si-smartplug-model-70011
   friendly_name: si-smartplug-model-70011
-
 ```
 
 ```yaml
@@ -59,7 +58,7 @@ esphome:
 
 esp8266:
   board: d1_mini
-  early_pin_init: false  # Prevent the physical relay flipping on reboot.
+  early_pin_init: false # Prevent the physical relay flipping on reboot.
 
 api:
 ota:
@@ -70,7 +69,7 @@ logger:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-#  domain: !secret wifi_mydomain
+  #  domain: !secret wifi_mydomain
   ap:
     password: !secret ap_password
 

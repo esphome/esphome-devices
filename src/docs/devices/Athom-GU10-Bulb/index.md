@@ -19,7 +19,7 @@ Color Temperature: 3000-6000K
 Brightness: 300 lumens
 Voltage: 110V~240V
 Power: 4.5W
-Base:  GU10
+Base: GU10
 
 ## Product Images
 
@@ -99,7 +99,6 @@ output:
   - platform: esp8266_pwm
     id: white_output
     pin: GPIO5
-
 
 light:
   - platform: rgbww

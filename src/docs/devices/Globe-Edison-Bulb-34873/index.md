@@ -61,12 +61,12 @@ output:
     pin: GPIO14
 
 light:
-- platform: cwww
-  name: light
-  cold_white: cw
-  warm_white: ww
-  cold_white_color_temperature: 5000 K
-  warm_white_color_temperature: 2000 K
-  restore_mode: RESTORE_DEFAULT_ON
-  constant_brightness: true
+  - platform: cwww
+    name: light
+    cold_white: cw
+    warm_white: ww
+    cold_white_color_temperature: 5000 K
+    warm_white_color_temperature: 2000 K
+    restore_mode: RESTORE_DEFAULT_ON
+    constant_brightness: true
 ```

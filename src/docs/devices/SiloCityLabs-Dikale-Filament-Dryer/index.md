@@ -17,18 +17,18 @@ The PCB is designed to fit inside the Dikale Filament Dryer and can be powered b
 
 ## GPIO Pinout
 
-| XIAO Pin | Pin | Function | Description |
-| --- | --- | --- | --- |
-| D0 | GPIO2 | Fan 1 | Original 12v Fan |
-| D1 | GPIO3 | Fan 2 | 4 pin PWM fan |
-| D2 | GPIO4 | 10k NTC | OEM Temp sensor |
-| D3 | GPIO5 | Heat Element | Relay for heating element |
-| D4 | GPIO6 | i2c SDA | Shared Bus |
-| D5 | GPIO7 | i2c SCL | Shared Bus |
-| D9 | GPIO9 | BTN pwr | Power Button |
-| D10 | GPIO10 | BTN mode | Mode Button |
-| D7 | GPIO20 | BTN up | Up Button |
-| D8 | GPIO8 | BTN down | Down Button |
+| XIAO Pin | Pin    | Function     | Description               |
+| -------- | ------ | ------------ | ------------------------- |
+| D0       | GPIO2  | Fan 1        | Original 12v Fan          |
+| D1       | GPIO3  | Fan 2        | 4 pin PWM fan             |
+| D2       | GPIO4  | 10k NTC      | OEM Temp sensor           |
+| D3       | GPIO5  | Heat Element | Relay for heating element |
+| D4       | GPIO6  | i2c SDA      | Shared Bus                |
+| D5       | GPIO7  | i2c SCL      | Shared Bus                |
+| D9       | GPIO9  | BTN pwr      | Power Button              |
+| D10      | GPIO10 | BTN mode     | Mode Button               |
+| D7       | GPIO20 | BTN up       | Up Button                 |
+| D8       | GPIO8  | BTN down     | Down Button               |
 
 ## Basic Config
 

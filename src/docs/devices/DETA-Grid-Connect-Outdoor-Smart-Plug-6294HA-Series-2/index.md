@@ -28,25 +28,25 @@ Power measurement uses the HLW8032 or CSE7766 protocol at 4800 baud. Program the
 
 #### ESP-Based Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| GPIO03 | RX for CSE7766            |
-| GPIO04 | Button 1 (inverted)       |
-| GPIO05 | LED (inverted)            |
-| GPIO12 | Button 2 (inverted)       |
-| GPIO13 | Relay 1                   |
-| GPIO14 | Relay 2                   |
+| Pin    | Function            |
+| ------ | ------------------- |
+| GPIO03 | RX for CSE7766      |
+| GPIO04 | Button 1 (inverted) |
+| GPIO05 | LED (inverted)      |
+| GPIO12 | Button 2 (inverted) |
+| GPIO13 | Relay 1             |
+| GPIO14 | Relay 2             |
 
 #### BK72XX-Based Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| RX1    | RX for CSE7766            |
-| P7     | Button 1 (inverted)       |
-| P6     | LED (inverted)            |
-| P24    | Button 2 (inverted)       |
-| P8     | Relay 1                   |
-| P26    | Relay 2                   |
+| Pin | Function            |
+| --- | ------------------- |
+| RX1 | RX for CSE7766      |
+| P7  | Button 1 (inverted) |
+| P6  | LED (inverted)      |
+| P24 | Button 2 (inverted) |
+| P8  | Relay 1             |
+| P26 | Relay 2             |
 
 ---
 
@@ -71,13 +71,12 @@ substitutions:
   friendlyname_left: Socket 1
   # Right Socket
   friendlyname_right: Socket 2
-  
+
   update_interval: 1s
 
 #################################
 
 wifi:
-  
   ap:
     ssid: DETA Outdoor Double Power Point
     password: ""
@@ -89,7 +88,7 @@ api:
 captive_portal:
 
 ota:
-    platform: esphome
+  platform: esphome
 
 esphome:
   name: ${devicename}
@@ -179,7 +178,7 @@ switch:
       - switch.turn_on: relay_1
     turn_off_action:
       - switch.turn_off: relay_1
-  
+
     # Right Switch (Templated)
   - platform: template
     name: ${friendlyname_right}
@@ -194,7 +193,6 @@ switch:
       - switch.turn_on: relay_2
     turn_off_action:
       - switch.turn_off: relay_2
-
 
 ## ------------------ ##
 ##  Power Monitoring  ##
@@ -218,8 +216,8 @@ sensor:
       filters:
         - throttle_average: ${update_interval}
         - calibrate_linear:
-          - 0.0 -> 0.0
-          - 120.0 -> 230.0
+            - 0.0 -> 0.0
+            - 120.0 -> 230.0
     power:
       name: "${friendlyname} Power"
       filters:

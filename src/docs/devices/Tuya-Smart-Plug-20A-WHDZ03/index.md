@@ -11,7 +11,7 @@ difficulty: 4
 
 These plugs with/without energy monitoring are sold under many brands on Aliexpress / taobao / pinduoduo, and are available in both 16A or 20A.
 
-The 20A smart plug with energy monitor is *not* flashable using tuya-cloudcutter. The main module version on smart life app is V1.1.23, which is on the known patched firmware list.
+The 20A smart plug with energy monitor is _not_ flashable using tuya-cloudcutter. The main module version on smart life app is V1.1.23, which is on the known patched firmware list.
 
 The socket is not glued but factory pressed. I do not recommend using a screwdriver to pry it open, I did and I left some damage on the side (see picture). It may be better to try opening by pushing a tool through the earth pin to apply force, holding the outer shell. After opening we can see that it is using a CB2S wifi module with the BK7231N chip.
 

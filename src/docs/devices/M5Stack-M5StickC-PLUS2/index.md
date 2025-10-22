@@ -13,24 +13,24 @@ project-url: https://docs.m5stack.com/en/core/M5StickC%20PLUS2
 
 ## GPIO Pinout
 
-| Pin    | Function          |
-| ------ | ----------------- |
-| GPIO37 | Button A          |
-| GPIO39 | Button B          |
-| GPIO35 | Button C          |
-| GPIO19 | Internal LED/IR   |
-| GPIO13 | SPI CLK           |
-| GPIO15 | SPI MOSI          |
-| GPIO21 | I2C SDA           |
-| GPIO22 | I2C SCL           |
-| GPIO05 | Display CS        |
-| GPIO14 | Display DC        |
-| GPIO12 | Display Reset     |
-| GPIO00 | I2S CLK           |
-| GPIO26 | I2S LRCLK         |
-| GPIO34 | Microphone Data   |
-| GPIO38 | Battery Level     |
-| GPIO02 | Buzzer            |
+| Pin    | Function        |
+| ------ | --------------- |
+| GPIO37 | Button A        |
+| GPIO39 | Button B        |
+| GPIO35 | Button C        |
+| GPIO19 | Internal LED/IR |
+| GPIO13 | SPI CLK         |
+| GPIO15 | SPI MOSI        |
+| GPIO21 | I2C SDA         |
+| GPIO22 | I2C SCL         |
+| GPIO05 | Display CS      |
+| GPIO14 | Display DC      |
+| GPIO12 | Display Reset   |
+| GPIO00 | I2S CLK         |
+| GPIO26 | I2S LRCLK       |
+| GPIO34 | Microphone Data |
+| GPIO38 | Battery Level   |
+| GPIO02 | Buzzer          |
 
 ## External Component
 
@@ -55,7 +55,7 @@ esp32:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
+
   ap:
     ssid: $devicename Fallback Hotspot
     password: !secret wifi_password
@@ -80,7 +80,7 @@ sensor:
     filters:
       - multiply: 2.0
 
-# Built-in 6-axis intertial measurement unit (IMU) that also includes a temperature sensor
+  # Built-in 6-axis intertial measurement unit (IMU) that also includes a temperature sensor
   - platform: mpu6886
     i2c_id: bus_a
     address: 0x68
@@ -136,12 +136,12 @@ binary_sensor:
 
 light:
   - platform: monochromatic
-    output:  builtin_led
+    output: builtin_led
     name: ${upper_devicename} Led
     id: led1
 
   - platform: monochromatic
-    output:  backlight
+    output: backlight
     name: ${upper_devicename} Backlight
     id: display_bl
 
@@ -166,10 +166,10 @@ spi:
   mosi_pin: GPIO15
 
 i2c:
-   - id: bus_a
-     sda: GPIO21
-     scl: GPIO22
-     scan: True
+  - id: bus_a
+    sda: GPIO21
+    scl: GPIO22
+    scan: True
 
 font:
   - file: "gfonts://Roboto"
@@ -184,14 +184,14 @@ color:
 
 # 1.14 inch, 135*240 Colorful TFT LCD, ST7789v2
 display:
-  - platform:  st7789v
+  - platform: st7789v
     model: TTGO TDisplay 135x240
     cs_pin: GPIO5
     dc_pin: GPIO14
     reset_pin: GPIO12
     rotation: 270
     lambda: |-
-     it.print(80, 0, id(roboto), id(my_white), TextAlign::TOP_CENTER, "M5Stick Test");
+      it.print(80, 0, id(roboto), id(my_white), TextAlign::TOP_CENTER, "M5Stick Test");
 
 # note: Audio hasn't been tested
 i2s_audio:

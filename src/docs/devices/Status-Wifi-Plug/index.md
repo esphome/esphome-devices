@@ -35,19 +35,19 @@ These instructions will probably work for other Beken-based devices if you can i
 
 At time of writing, models 21D/G use 1.0.7 and 23A uses 1.1.8. If newer firmware is installed, Tuya might have patched it against using Cloudcutter. To determine the version you'll need to pair up with the Status Smart app (Tuya's own app may work, not tested). Edit/manage the device and follow Device Update to view the current version.
 
-* Check out the project https://github.com/tuya-cloudcutter/tuya-cloudcutter
-* Put the plug into AP mode, by holding the button down for 5 seconds to enter EZ mode (fast flashing LED), then hold again to enter AP mode (slow flashing LED).
-* Run: `sudo ./tuya-cloudcutter.sh -f FIRMWARE` where FIRMWARE is either the ESPHome Kickstart file or your pre-compiled ESPHome device firmware. I prefer to use the Kickstart firmware first.
+- Check out the project https://github.com/tuya-cloudcutter/tuya-cloudcutter
+- Put the plug into AP mode, by holding the button down for 5 seconds to enter EZ mode (fast flashing LED), then hold again to enter AP mode (slow flashing LED).
+- Run: `sudo ./tuya-cloudcutter.sh -f FIRMWARE` where FIRMWARE is either the ESPHome Kickstart file or your pre-compiled ESPHome device firmware. I prefer to use the Kickstart firmware first.
 
 Models 21D/G use the `ESPHome-Kickstart-v23.08.29_bk7231t_app.ota.ug.bin` file, while 23A uses `ESPHome-Kickstart-v23.08.29_bk7231n_app.ota.ug.bin`, both located in located in `custom-firmware`. Your version number may differ in the future.
 
-* When prompted, select `By firmware version and name`. For the BK7231T versions with 1.0.7 I selected `1.0.7 - BK7231T / oem_bk7231s_rnd_switch` and for the BK7231N 1.1.8 model I used `1.1.8 - BK7231N / oem_bk7231n_plug`. I suspect all that matters is matching up the version with the correct MCU.
+- When prompted, select `By firmware version and name`. For the BK7231T versions with 1.0.7 I selected `1.0.7 - BK7231T / oem_bk7231s_rnd_switch` and for the BK7231N 1.1.8 model I used `1.1.8 - BK7231N / oem_bk7231n_plug`. I suspect all that matters is matching up the version with the correct MCU.
 
 ![alt text](term1.png "Terminal start")
 
-* Follow instructions. When prompted, power cycle the plug, and re-enter AP mode again. The process should then complete within a minute or two. If you receive a message about flashing unsuccessful, verify the firmware version and try either BK7231T or BK7231N MCU variants. It took me a few attempts before figuring out the 23A models use a different MCU to the one I disassembled.
+- Follow instructions. When prompted, power cycle the plug, and re-enter AP mode again. The process should then complete within a minute or two. If you receive a message about flashing unsuccessful, verify the firmware version and try either BK7231T or BK7231N MCU variants. It took me a few attempts before figuring out the 23A models use a different MCU to the one I disassembled.
 
-* After completion, if you used the Kickstart firmware, you should see a Kickstart AP appear (eg kickstart-bk7231n). Connect, and configure your wireless network. Power cycle, then visit http://kickstart-bk7231n.local or http://kickstart-bk7231t.local depending on the variant.
+- After completion, if you used the Kickstart firmware, you should see a Kickstart AP appear (eg kickstart-bk7231n). Connect, and configure your wireless network. Power cycle, then visit http://kickstart-bk7231n.local or http://kickstart-bk7231t.local depending on the variant.
 
 ![alt text](term2.png "Terminal finish")
 

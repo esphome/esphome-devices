@@ -7,6 +7,7 @@ board: esp8266
 made-for-esphome: False
 difficulty: 4
 ---
+
 ## General Notes
 
 These devices run a Tuya TYWE3S module which needs flashing.
@@ -16,10 +17,10 @@ The BlitzWolf BW-AP1 looks awfully similiar, probably the same device, so it's p
 
 ## GPIO Pinout
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO1  | UART TX       |
-| GPIO3  | UART RX       |
+| Pin   | Function |
+| ----- | -------- |
+| GPIO1 | UART TX  |
+| GPIO3 | UART RX  |
 
 ## Configuration
 
@@ -61,7 +62,7 @@ api:
 ota:
   safe_mode: true
   password: !secret esphome_wifi_pass
-  
+
 esp8266:
   board: esp01_1m
 
@@ -257,7 +258,7 @@ api:
 ota:
   safe_mode: true
   password: !secret esphome_wifi_pass
-  
+
 esp8266:
   board: esp01_1m
 
@@ -365,7 +366,7 @@ select:
       2: "2 hours"
       3: "4 hours"
       4: "8 hours"
-  
+
   - platform: tuya
     name: ${devicename} Mode
     enum_datapoint: 3

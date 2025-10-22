@@ -78,7 +78,7 @@ ota:
 
 external_components:
   - source: github://stefanthoss/esphome-axp2101
-    components: [ axp2101 ]
+    components: [axp2101]
 
 sensor:
   - platform: axp2101

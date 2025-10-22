@@ -6,6 +6,7 @@ standard: global
 board: bk72xx
 difficulty: 3
 ---
+
 ![Product Image](TO-Q-SY1-JWT.jpeg "Product Image")
 
 Maker: <https://www.tongou.net/>
@@ -14,7 +15,7 @@ Also on Aliexpress.
 
 ## Installation
 
-*NOTE*: Try not to lose the original calibration data. If you have set up the device with Tuya, first see [Calibration](#calibration) and extract the calibration data from the running unit. And make sure you read the full 2MiB of the original flash before overwriting it.
+_NOTE_: Try not to lose the original calibration data. If you have set up the device with Tuya, first see [Calibration](#calibration) and extract the calibration data from the running unit. And make sure you read the full 2MiB of the original flash before overwriting it.
 
 These units generally ship with a firmware which is no longer exploitable by tuya-fwcutter,
 so some disassembly will be required to flash using serial.
@@ -42,7 +43,7 @@ You don't need to completely remove the board from the device, as shown in the p
 
 ![BL0942 with probes attached](bl0942-probes.jpeg "BL0942 with probes attached")
 
-When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power off/on)` first make sure you have read the [Calibration](#calibration) section and you are *reading* the flash before overwriting it. Then disconnect and reconnect the GND line, and it should proceed.
+When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power off/on)` first make sure you have read the [Calibration](#calibration) section and you are _reading_ the flash before overwriting it. Then disconnect and reconnect the GND line, and it should proceed.
 
 ## Calibration
 
@@ -92,8 +93,8 @@ You can use these checks to validate the values you see:
 
 Applying those sanity checks to the example above, we get:
 
-- PREF = 12968 × 124180 × 3537 / (305978 × 73989) = 309.8 *(close enough)*
-- EREF = 309.1 × 3600000 / 419430.4 = 2653.0 *(spot on)*
+- PREF = 12968 × 124180 × 3537 / (305978 × 73989) = 309.8 _(close enough)_
+- EREF = 309.1 × 3600000 / 419430.4 = 2653.0 _(spot on)_
 
 The PREF values in the Tuya firmware are often a little lower than the calculation would suggest, but close enough that you can be confident you're looking at the right values.
 
@@ -101,15 +102,15 @@ If the calibration data are not available, it's still possible to calibrate the 
 
 ## GPIO Pinout
 
-| Pin    | Function              |
-| ------ | --------------------- |
-| RX1    | BL0942 Tx             |
-| TX1    | BL0942 Rx             |
-| P9     | Power LED (inverted)  |
-| P15    | Status LED (inverted) |
-| P27    | Button (inverted)     |
-| P24    | Relay forward         |
-| P26    | Relay reverse         |
+| Pin | Function              |
+| --- | --------------------- |
+| RX1 | BL0942 Tx             |
+| TX1 | BL0942 Rx             |
+| P9  | Power LED (inverted)  |
+| P15 | Status LED (inverted) |
+| P27 | Button (inverted)     |
+| P24 | Relay forward         |
+| P26 | Relay reverse         |
 
 ## Configuration
 
@@ -178,10 +179,10 @@ binary_sensor:
       number: P17
       inverted: true
     filters:
-     - delayed_off: 10ms
+      - delayed_off: 10ms
     on_press:
       then:
-         switch.toggle: relay
+        switch.toggle: relay
 
 switch:
   - platform: gpio
@@ -204,16 +205,16 @@ switch:
     restore_mode: RESTORE_DEFAULT_ON
     on_turn_on:
       then:
-       - switch.turn_off: relay_off
-       - switch.turn_on: relay_on
-       - delay: 100ms
-       - switch.turn_off: relay_on
+        - switch.turn_off: relay_off
+        - switch.turn_on: relay_on
+        - delay: 100ms
+        - switch.turn_off: relay_on
     on_turn_off:
       then:
-       - switch.turn_off: relay_on
-       - switch.turn_on: relay_off
-       - delay: 100ms
-       - switch.turn_off: relay_off
+        - switch.turn_off: relay_on
+        - switch.turn_on: relay_off
+        - delay: 100ms
+        - switch.turn_off: relay_off
 
 uart:
   id: uart_bus
@@ -248,5 +249,4 @@ sensor:
     current_reference: ${current_ref}
     power_reference: ${power_ref}
     energy_reference: ${energy_ref}
-
 ```

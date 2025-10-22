@@ -42,12 +42,12 @@ Be aware that relay 1 and 6 will be momentarily toggled on during boot.
 | GPIO0  | Relay 6 (high on boot)                      |
 | GPIO2  | Exposed on board, (blue) LED on the ESP-12F |
 | GPIO4  | Relay 7                                     |
-| GPIO5  | Relay 8                                       |
-| GPIO12 | Relay 3                                       |
-| GPIO13 | Relay 4                                       |
-| GPIO14 | Relay 2                                       |
-| GPIO15 | Relay 5                                       |
-| GPIO16 | Relay 1 (high on boot)                        |
+| GPIO5  | Relay 8                                     |
+| GPIO12 | Relay 3                                     |
+| GPIO13 | Relay 4                                     |
+| GPIO14 | Relay 2                                     |
+| GPIO15 | Relay 5                                     |
+| GPIO16 | Relay 1 (high on boot)                      |
 
 ## Basic Config
 

@@ -11,14 +11,14 @@ difficulty: 2
 
 ## GPIO Pinout
 
-| Pin    | Function                    |
-| ------ | --------------------------- |
-| GPIO0  | LED (Inverted)              |
-| GPIO4  | Switch 1 input              |
-| GPIO18 | Switch 2 input              |
-| GPIO25 | Button (Inverted, Pull-up)  |
-| GPIO26 | PWM (Inverted)              |
-| GPIO32 | NTC                         |
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO0  | LED (Inverted)             |
+| GPIO4  | Switch 1 input             |
+| GPIO18 | Switch 2 input             |
+| GPIO25 | Button (Inverted, Pull-up) |
+| GPIO26 | PWM (Inverted)             |
+| GPIO32 | NTC                        |
 
 The Shelly Plus 0-10V is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash).
 
@@ -36,8 +36,8 @@ Credit and thanks to
 
 ```yaml
 substitutions:
-    device_name: shelly-0-10
-    room: myhome
+  device_name: shelly-0-10
+  room: myhome
 esphome:
   name: $device_name
   platformio_options:
@@ -74,7 +74,6 @@ api:
 ota:
   password: !secret ota_password
 
-
 output:
   - platform: ledc
     pin: GPIO26
@@ -83,7 +82,7 @@ output:
     frequency: "1220Hz"
     channel: 0
     min_power: 0.6 #Set the minimum % that gives at least some light, so that low values of the output are low values of light. Remove if not needed.
-    zero_means_zero: true  #to avoid having the lamp on when at 0% with min power. Remove if not needed
+    zero_means_zero: true #to avoid having the lamp on when at 0% with min power. Remove if not needed
 
 # Example usage in a light
 light:
@@ -140,7 +139,6 @@ sensor:
     id: temp_analog_reading
     pin: GPIO32
     attenuation: 12db
-
 
 status_led:
   pin:

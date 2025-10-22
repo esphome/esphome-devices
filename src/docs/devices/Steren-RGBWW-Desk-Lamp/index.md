@@ -8,7 +8,6 @@ made-for-esphome: false
 difficulty: 2
 ---
 
-
 Smart desk lamp with a sleek design, it has RGB and warm/cold white LEDs.
 it uses pwm to control each channel.
 You can flash it, you can use tuya cloud-cutter, or you can swap out the chip.

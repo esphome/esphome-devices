@@ -23,15 +23,15 @@ To put ESP32-C3 in flash mode EN needs to be pulled high and GPIO9 need to be pu
 
 The [datasheet](https://templates.blakadder.com/assets/WT32C3-01N_datasheet.pdf) references GPIO8 which needs to be pulled low during flashing, but I couldn't easily find this on the board. Didn't seem to matter though.
 
-| ESP32 Pin | USB Serial Pin | Comments |
-| --- | --- | --- |
-| 3V3 | 3V3 | Connect to dedicated 3V3 1A power supply if encountering brown out |
-| G | GND | |
-| IO9 | Ground | Round contact pad on back of board, pull low BEFORE attaching 3V3 |
-| IO8 | 3V3 | Could not find this pin, but it didn't seem to be required |
-| TX | RX | |
-| RX | TX | |
-| EN | 3V3 | Pull high to enable ESP32 (do not leave floating) |
+| ESP32 Pin | USB Serial Pin | Comments                                                           |
+| --------- | -------------- | ------------------------------------------------------------------ |
+| 3V3       | 3V3            | Connect to dedicated 3V3 1A power supply if encountering brown out |
+| G         | GND            |                                                                    |
+| IO9       | Ground         | Round contact pad on back of board, pull low BEFORE attaching 3V3  |
+| IO8       | 3V3            | Could not find this pin, but it didn't seem to be required         |
+| TX        | RX             |                                                                    |
+| RX        | TX             |                                                                    |
+| EN        | 3V3            | Pull high to enable ESP32 (do not leave floating)                  |
 
 ## Running
 
@@ -43,15 +43,15 @@ ESP32's are power hungry on boot and the USB to serial adapter might not be able
 
 PINs matched using Saleae analyzer with the original WB2S module. The original chip uses 1KHz PWM by default, however the and the ESP32-C3 seem to work better at [1220Hz](https://www.esphome.io/components/output/ledc.html "ESPHome LEDC Frequencies").
 
-| Pin    | Name | Function                        |
-| ------ | ---- | ------------------------------- |
-| GPIO3  | PWM1 | red (pwm, default 1KHz)         |
-| GPIO10 | PWM2 | green (pwm, default 1KHz)       |
-| GPIO6  | PWM3 | blue (pwm, default 1KHz)        |
-| GPIO5  | PWM4 | warm white (pwm, default 1KHz)  |
-| GPIO4  | PWM5 | cold white (pwm, default 1KHz)  |
-| GPIO1  |      | unused, leave floating or low   |
-| EN     |      | chip enable (pull high)         |
+| Pin    | Name | Function                       |
+| ------ | ---- | ------------------------------ |
+| GPIO3  | PWM1 | red (pwm, default 1KHz)        |
+| GPIO10 | PWM2 | green (pwm, default 1KHz)      |
+| GPIO6  | PWM3 | blue (pwm, default 1KHz)       |
+| GPIO5  | PWM4 | warm white (pwm, default 1KHz) |
+| GPIO4  | PWM5 | cold white (pwm, default 1KHz) |
+| GPIO1  |      | unused, leave floating or low  |
+| EN     |      | chip enable (pull high)        |
 
 NOTE: To pull EN high for normal use, solder a wire between the round 3V3 and EN contact pads on the back of the board. This must be done manually otherwise the chip won't power on if left floating.
 
@@ -92,7 +92,7 @@ logger:
   baud_rate: 115200
 
 # Enable Home Assistant API
-ota: {"password": !secret ota_password }
+ota: { "password": !secret ota_password }
 api:
   encryption:
     key: !secret encryption_key
@@ -167,5 +167,4 @@ output:
     pin: GPIO4
     frequency: ${ledc_frequency}
     id: output_pwm5_white_cold
-
 ```

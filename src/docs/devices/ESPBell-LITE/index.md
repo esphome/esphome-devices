@@ -20,14 +20,14 @@ You can buy an assembled device from the official store https://www.pricelesstoo
 
 ## GPIO Pinout
 
-| Pin    | Function                    |
-| ------ | -------------------------   |
-| GPIO12 | Free                        |
-| GPIO13 | Free                        |
-| GPIO14 | Free                        |
-| GPIO4  | Doorbell Input 2-30v AC/DC  |
-| GPIO5  | Lock "SSR 2.4A 30v Max"     |
-| GPIO17 | ADC 1V Max                  |
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO12 | Free                       |
+| GPIO13 | Free                       |
+| GPIO14 | Free                       |
+| GPIO4  | Doorbell Input 2-30v AC/DC |
+| GPIO5  | Lock "SSR 2.4A 30v Max"    |
+| GPIO17 | ADC 1V Max                 |
 
 - Requires 5V Power supply 0.5A
 
@@ -47,7 +47,6 @@ esphome:
 esp8266:
   board: esp12e
 
-
 dashboard_import:
   package_import_url: github://PricelessToolkit/ESPBell-LITE/Code/ESPHome/espbell-lite.yaml@main
   import_full_config: true
@@ -59,9 +58,8 @@ logger:
 api:
 
 ota:
-- platform: esphome
-  password: "54699445e0aab07e709ffadssd188eb0"
-
+  - platform: esphome
+    password: "54699445e0aab07e709ffadssd188eb0"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -78,18 +76,16 @@ wifi:
 captive_portal:
 
 sensor:
+  - platform: uptime
+    name: "${name}"
+    id: uptime_seconds
+    update_interval: 60
 
-- platform: uptime
-  name: "${name}"
-  id: uptime_seconds
-  update_interval: 60
-
-- platform: wifi_signal
-  name: "${name} WiFi Signal"
+  - platform: wifi_signal
+    name: "${name} WiFi Signal"
 
 binary_sensor:
-
-# Doorbell Sensor
+  # Doorbell Sensor
   - platform: gpio
     pin:
       number: 4
@@ -103,8 +99,7 @@ binary_sensor:
     name: "${name} Status"
 
 switch:
-
-# Door Lock Opener "Momentary Switch" Keeps SSR ON for 1.5s.
+  # Door Lock Opener "Momentary Switch" Keeps SSR ON for 1.5s.
   - platform: gpio
     pin: 5
     id: Lock
@@ -112,8 +107,8 @@ switch:
     icon: "mdi:lock"
     restore_mode: ALWAYS_OFF
     on_turn_on:
-    - delay: 1500ms
-    - switch.turn_off: Lock
+      - delay: 1500ms
+      - switch.turn_off: Lock
 
   - platform: restart
     name: ${name} restart

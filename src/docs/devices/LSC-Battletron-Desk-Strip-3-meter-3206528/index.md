@@ -33,24 +33,24 @@ The PCB top contains all functions, the bottom is mostly a ground plane, with ve
 
 ## GPIO Pinout
 
-| Pin    | Function      |
-| ------ | ------------- |
-| P8     | Power for LEDs|
-| P16    | WS2812        |
-| P26    | IR-Receiver   |
-| P28    | Button        |
+| Pin | Function       |
+| --- | -------------- |
+| P8  | Power for LEDs |
+| P16 | WS2812         |
+| P26 | IR-Receiver    |
+| P28 | Button         |
 
 ## Programming
 
 To program the board it is not possible to use [tuya cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter/issues/744), as the stock firmware is built using a patched tuya SDK. Connecting a USB to serial adapter (FTDI etc) to UART1_RX, UART1_TX and GND pins (Make sure to connect USB UART RX to OCLS26 TX) and triggering a reset by connecting CEN to Ground. Power can be supplied with the supplied transformer. Flashing can then be done either directly via ESPHome or by downloading the uf2 file from a 'manual' download, and flashing it using [ltchiptool](https://github.com/libretiny-eu/ltchiptool).
 
-> __Note:__ Not all USB adapters are equal. A PL2303 seemed not able to perform the flash, but worked fine for reading the log output on UART2_TX. A proper FTDI controller may be required.
+> **Note:** Not all USB adapters are equal. A PL2303 seemed not able to perform the flash, but worked fine for reading the log output on UART2_TX. A proper FTDI controller may be required.
 
 ```console
 ltchiptool flash write -d /dev/ttyUSBn lsc-battletron-desk-strip-3m.uf2
 ```
 
-> __Warning:__ The BK7231N is quite sensitive to trigger flash mode, and several attempts to reset the board using CEN may be required. There are no known cases where the BK7231N is unable to enter flash mode.
+> **Warning:** The BK7231N is quite sensitive to trigger flash mode, and several attempts to reset the board using CEN may be required. There are no known cases where the BK7231N is unable to enter flash mode.
 
 ## Basic hardware configuration
 
@@ -59,8 +59,8 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
 power_supply:
-    id: led_power
-    pin: P8
+  id: led_power
+  pin: P8
 
 light:
   - platform: beken_spi_led_strip
@@ -397,8 +397,8 @@ binary_sensor:
             effect: "Twinkle"
 
 power_supply:
-    id: led_power
-    pin: P8
+  id: led_power
+  pin: P8
 
 light:
   - platform: beken_spi_led_strip
@@ -410,16 +410,16 @@ light:
     rgb_order: GRB
     power_supply: led_power
     effects:
-     - random:
-     - pulse:
-     - strobe:
-     - flicker:
-     - addressable_rainbow:
-     - addressable_color_wipe:
-     - addressable_scan:
-     - addressable_twinkle:
-     - addressable_random_twinkle:
-     - addressable_fireworks:
+      - random:
+      - pulse:
+      - strobe:
+      - flicker:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+      - addressable_scan:
+      - addressable_twinkle:
+      - addressable_random_twinkle:
+      - addressable_fireworks:
 
 sensor:
   - platform: uptime

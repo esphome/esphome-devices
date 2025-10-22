@@ -6,6 +6,7 @@ standard: global
 board: bk72xx
 pcb: CB2S
 ---
+
 ![Product Image](/Aubess-WiFi-Smart-Switch.jpg "Product Image")
 
 Maker: <https://aubess.net/>
@@ -24,7 +25,6 @@ Also on Aliexpress.
 ## Basic Configuration
 
 ```yaml
-
 esphome:
   name: relayname
   friendly_name: relayname
@@ -68,7 +68,7 @@ light:
 ##  Binary Sensors  ##
 ## ---------------- ##
 binary_sensor:
-# Button 1
+  # Button 1
   - platform: gpio
     id: button_back
     pin:
@@ -80,7 +80,7 @@ binary_sensor:
         - switch.toggle: relay
     filters:
       - delayed_on_off: 50ms
-# Rocker switch
+  # Rocker switch
   - platform: gpio
     name: "${device_friendly_name} Switch S1-S2"
     pin: P26
@@ -93,7 +93,7 @@ binary_sensor:
 ##      Switch      ##
 ## ---------------- ##
 switch:
-#Relay
+  #Relay
   - platform: output
     name: "${device_friendly_name} Relay"
     icon: ${device_icon}

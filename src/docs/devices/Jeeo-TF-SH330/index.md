@@ -14,11 +14,11 @@ Inspired by the Tasmota template: https://templates.blakadder.com/jeeo_TF-SH330.
 
 ## GPIO Pinout
 
-| Pin    | Function                   |
-| ------ | -------------------------- |
-| GPIO0  | Blue Status LED            |
-| GPIO13 | Switch Input               |
-| GPIO15 | Mains Relay                |
+| Pin    | Function        |
+| ------ | --------------- |
+| GPIO0  | Blue Status LED |
+| GPIO13 | Switch Input    |
+| GPIO15 | Mains Relay     |
 
 ## Basic Configuration
 
@@ -98,5 +98,4 @@ light:
     internal: true
     output: led
     restore_mode: RESTORE_DEFAULT_OFF
-
 ```

@@ -4,7 +4,7 @@ date-published: 2023-07-10
 type: switch
 standard: eu
 board: esp8266
-difficulty: 2 
+difficulty: 2
 ---
 
 An example of how to integrate a Nous 1 Channel Touch Swith Module (L1T) into Home Assistant
@@ -38,13 +38,13 @@ After tests, the pinout has been corrected from what is shown in the manual (GPI
 
 ## Basic Configuration
 
-``` yaml
+```yaml
 esphome:
   on_boot:
     then:
       - if:
           condition:
-            lambda: 'return id(light_1).current_values.is_on();'
+            lambda: "return id(light_1).current_values.is_on();"
           then:
             - light.turn_off:
                 id: button_led
@@ -90,7 +90,6 @@ light:
     on_turn_off:
       - light.turn_on: button_led
 
-
   - platform: monochromatic
     id: button_led
     output: button_led_output
@@ -99,5 +98,4 @@ status_led:
   pin:
     number: GPIO0
     inverted: yes
-
 ```

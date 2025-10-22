@@ -26,7 +26,7 @@ RGB LEDs: 6
 Brightness: 830 lumens  
 Voltage: 110V~250V  
 Power: 15W  
-IP54 ingress protection  
+IP54 ingress protection
 
 ## Product Images
 
@@ -34,13 +34,13 @@ IP54 ingress protection
 
 ## GPIO Pinout
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO13 | WW Output     |
-| GPIO5  | CW Output     |
-| GPIO25 | Red Output    |
-| GPIO26 | Green Output  |
-| GPIO27 | Blue Output   |
+| Pin    | Function     |
+| ------ | ------------ |
+| GPIO13 | WW Output    |
+| GPIO5  | CW Output    |
+| GPIO25 | Red Output   |
+| GPIO26 | Green Output |
+| GPIO27 | Blue Output  |
 
 ## Basic Configuration
 

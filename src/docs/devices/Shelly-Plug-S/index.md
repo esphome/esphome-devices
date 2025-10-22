@@ -195,8 +195,8 @@ sensor:
       unit_of_measurement: "W"
       filters:
         - calibrate_linear:
-          - 0.0 -> 0.0
-          - ${power_cal_meas} -> ${power_cal_real}
+            - 0.0 -> 0.0
+            - ${power_cal_meas} -> ${power_cal_real}
       icon: mdi:flash-outline
       on_value_range:
         - above: ${max_power}

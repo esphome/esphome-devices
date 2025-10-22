@@ -20,10 +20,10 @@ Flashed using the [Digiblur Clamp method](https://www.digiblur.com/2020/07/free-
 
 ## GPIO Pinout
 
-| Pin    | Function             |
-| ------ | -------------------- |
-| GPIO5  | Cold White Channel   |
-| CPIO13 | Warm White Channel   |
+| Pin    | Function           |
+| ------ | ------------------ |
+| GPIO5  | Cold White Channel |
+| CPIO13 | Warm White Channel |
 
 ## Basic Configuration
 
@@ -82,5 +82,4 @@ output:
   - platform: esp8266_pwm
     id: cold_white_channel
     pin: GPIO5
-
 ```

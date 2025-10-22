@@ -12,19 +12,19 @@ This device requires a triangle screw driver bit to [remove the cover and use th
 
 ## GPIO Pinout
 
-| Pin    | Function                           |
-| ------ | ---------------------------------- |
-| GPIO5  | Status LED                         |
-| GPIO18 | Button 1                           |
-| GPIO17 | Button 2                           |
-| GPIO15 | Relay 1                            |
-| GPIO32 | Relay 2                            |
-| GPIO19 | Relay 1 LED                        |
-| GPIO16 | Relay 2 LED                        |
-| GPIO34 | LUX Sensor                         |
-| GPIO25 | SEL                                |
-| GPIO27 | CF                                 |
-| GPIO26 | CF1                                |
+| Pin    | Function    |
+| ------ | ----------- |
+| GPIO5  | Status LED  |
+| GPIO18 | Button 1    |
+| GPIO17 | Button 2    |
+| GPIO15 | Relay 1     |
+| GPIO32 | Relay 2     |
+| GPIO19 | Relay 1 LED |
+| GPIO16 | Relay 2 LED |
+| GPIO34 | LUX Sensor  |
+| GPIO25 | SEL         |
+| GPIO27 | CF          |
+| GPIO26 | CF1         |
 
 ## Notes
 
@@ -161,14 +161,14 @@ binary_sensor:
     name: ${display_name} daylight
     device_class: light
     lambda: |-
-        // the senor reads 3.1 volts if there is light and 0.5 if there is not light not much inbetween
-        if (id(lux_sensor).state > 2) {
-          // there is daylight outside.
-          return true;
-        } else {
-          // there is no daylight outside (e.g. it is dark).
-          return false;
-        }
+      // the senor reads 3.1 volts if there is light and 0.5 if there is not light not much inbetween
+      if (id(lux_sensor).state > 2) {
+        // there is daylight outside.
+        return true;
+      } else {
+        // there is no daylight outside (e.g. it is dark).
+        return false;
+      }
 
 status_led:
   pin:

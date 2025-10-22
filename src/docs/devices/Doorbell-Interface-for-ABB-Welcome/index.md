@@ -48,8 +48,8 @@ esphome:
 
 wifi:
   networks:
-  - ssid: !secret wifi_ssid
-    password: !secret wifi_password
+    - ssid: !secret wifi_ssid
+      password: !secret wifi_password
 
 logger:
 
@@ -80,12 +80,12 @@ remote_receiver:
   clock_divider: 160
   on_abbwelcome:
     then:
-      - lambda: 'id(doorbell_intercom).publish_state(x.to_string().c_str());'
+      - lambda: "id(doorbell_intercom).publish_state(x.to_string().c_str());"
       - if:
           condition:
             and:
-              - lambda: 'return (x.get_message_type() == 0x8d);' # unlock door response
-              - lambda: 'return (x.get_source_address() == 0x4001);' # door address
+              - lambda: "return (x.get_message_type() == 0x8d);" # unlock door response
+              - lambda: "return (x.get_source_address() == 0x4001);" # door address
           then:
             - lock.template.publish:
                 id: front_door
@@ -97,8 +97,8 @@ remote_receiver:
       - if:
           condition:
             and:
-              - lambda: 'return (x.get_message_type() == 0x11);' # doorbell indoor
-              - lambda: 'return (x.get_source_address() == 0x1001);' # your indoor station address
+              - lambda: "return (x.get_message_type() == 0x11);" # doorbell indoor
+              - lambda: "return (x.get_source_address() == 0x1001);" # your indoor station address
           then:
             - binary_sensor.template.publish:
                 id: doorbell_indoor
@@ -109,9 +109,9 @@ remote_receiver:
       - if:
           condition:
             and:
-              - lambda: 'return (x.get_message_type() == 0x01);' # doorbell outdoor
-              - lambda: 'return (x.get_source_address() == 0x2001);' # outdoor station address
-              - lambda: 'return (x.get_destination_address() == 0x1001);' # your indoor station address
+              - lambda: "return (x.get_message_type() == 0x01);" # doorbell outdoor
+              - lambda: "return (x.get_source_address() == 0x2001);" # outdoor station address
+              - lambda: "return (x.get_destination_address() == 0x1001);" # your indoor station address
           then:
             - binary_sensor.template.publish:
                 id: doorbell_outdoor
@@ -166,7 +166,7 @@ lock:
               destination_address: 0x4001 # door address
               three_byte_address: false # address length of your system
               message_type: 0x0d # unlock door
-              data: [0xab, 0xcd, 0xef]  # door opener secret code, see receiver dump
+              data: [0xab, 0xcd, 0xef] # door opener secret code, see receiver dump
 
 button:
   - platform: restart

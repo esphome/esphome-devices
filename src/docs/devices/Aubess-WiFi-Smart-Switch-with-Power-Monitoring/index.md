@@ -5,6 +5,7 @@ type: switch
 standard: global
 board: bk72xx
 ---
+
 ![Product Image](/Aubess-WiFi-Smart-Switch-with-Power-Monitoring.jpg "Product Image")
 
 Maker: <https://aubess.net/>
@@ -13,19 +14,18 @@ Also on Aliexpress.
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| RX1    | BL0942 Rx           |
-| TX1    | BL0942 Tx           |
-| P23    | Button              |
-| P24    | External Switch     |
-| P26    | Relay               |
-| P8     | Status Led          |
+| Pin | Function        |
+| --- | --------------- |
+| RX1 | BL0942 Rx       |
+| TX1 | BL0942 Tx       |
+| P23 | Button          |
+| P24 | External Switch |
+| P26 | Relay           |
+| P8  | Status Led      |
 
 ## Basic Configuration
 
 ```yaml
-
 esphome:
   name: aubesspm01
   friendly_name: AubessPM01

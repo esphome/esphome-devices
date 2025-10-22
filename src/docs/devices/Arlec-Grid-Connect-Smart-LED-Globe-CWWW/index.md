@@ -18,9 +18,9 @@ The `GLD112HA` uses a `BP5926 chip` to drive the LED's and this chip uses two PW
 
 ## GPIO Pinout
 
-| Pin    | Function                  |
-| ------ | ------------------------- |
-| GPIO5 | PWM `(brightness)` |
+| Pin    | Function           |
+| ------ | ------------------ |
+| GPIO5  | PWM `(brightness)` |
 | GPIO13 | PWM `(color_temp)` |
 
 ## Getting it up and running
@@ -70,10 +70,10 @@ output:
     inverted: true
 
 light:
-- platform: color_temperature
-  name: "Arlec GLD112HA"
-  color_temperature: color_temp
-  brightness: dimmer
-  cold_white_color_temperature: 5700 K
-  warm_white_color_temperature: 3000 K
+  - platform: color_temperature
+    name: "Arlec GLD112HA"
+    color_temperature: color_temp
+    brightness: dimmer
+    cold_white_color_temperature: 5700 K
+    warm_white_color_temperature: 3000 K
 ```

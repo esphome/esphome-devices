@@ -45,7 +45,7 @@ esp8266:
   restore_from_flash: true
 
 preferences:
-  flash_write_interval: 1min  # set to 5min to prevent wearing out the onboard flash module too quickly
+  flash_write_interval: 1min # set to 5min to prevent wearing out the onboard flash module too quickly
 
 # Reduce log level as otherwise logs would be flooded with analog sensor readings
 logger:
@@ -179,7 +179,6 @@ switch:
     pin:
       number: GPIO13
       inverted: true
-
 ```
 
 ## Alternative for newer devices

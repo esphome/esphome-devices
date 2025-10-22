@@ -22,20 +22,20 @@ Shelly UNI is the smallest universal module with two available digital inputs an
 
 ## GPIO Pinout
 
-|Pin| GPIO   | Function  | Wire   |
-| - | ------ | --------- | ------ |
-|   | GPIO00 | Red LED   |        |
-| 1 |        | VAC, VDC+ | red    |
-| 2 |        | VAC, VDC- | black  |
-| 3 | GPIO17 | ADC Input | white  |
-| 4 |        | 3.3V      | yellow |
-| 5 | GPIO05 | Sensor    | blue   |
-| 6 |        | GND       | green  |
-| 7 | GPIO12 | Input 1   | orange |
-| 8 | GPIO13 | Input 2   | brown  |
-|   | GPIO15 | Output 1  |        |
-|   | GPIO04 | Output 2  |        |
-|   | GPIO14 | ADC Range |        |
+| Pin | GPIO   | Function  | Wire   |
+| --- | ------ | --------- | ------ |
+|     | GPIO00 | Red LED   |        |
+| 1   |        | VAC, VDC+ | red    |
+| 2   |        | VAC, VDC- | black  |
+| 3   | GPIO17 | ADC Input | white  |
+| 4   |        | 3.3V      | yellow |
+| 5   | GPIO05 | Sensor    | blue   |
+| 6   |        | GND       | green  |
+| 7   | GPIO12 | Input 1   | orange |
+| 8   | GPIO13 | Input 2   | brown  |
+|     | GPIO15 | Output 1  |        |
+|     | GPIO04 | Output 2  |        |
+|     | GPIO14 | ADC Range |        |
 
 ## ADC range Selector
 
@@ -85,7 +85,7 @@ dallasng:
         pullup: True
     update_interval: '7s'
 
-sensor:  
+sensor:
   - platform: dallasng
     address: 0xaf00000001b25428
     name: "Temperature"

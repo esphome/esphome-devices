@@ -45,7 +45,7 @@ logger:
 api:
 
 ota:
-- platform: esphome
+  - platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid

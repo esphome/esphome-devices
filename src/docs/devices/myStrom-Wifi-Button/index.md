@@ -28,16 +28,16 @@ To open the case and do the initial ESPHome flash:
 
 1. Remove the outer silicone band
 1. Split the case apart with a flat screwdriver on the left side while looking at the lightbulb logo.
-    - WARNING - the tabs holding the halves together can break off. However, if they do it's ok - the silicone band will hold them together well enough on its own.
+   - WARNING - the tabs holding the halves together can break off. However, if they do it's ok - the silicone band will hold them together well enough on its own.
 1. Unplug the battery.
 1. Using a 3.3v FTDI programmer, connect the pins.
-    - Only connect GND, RX, TX. Power will come from the battery.
+   - Only connect GND, RX, TX. Power will come from the battery.
 1. Connect GPIO 0 to GND.
 1. Put a wire in RST but don't connect the other end yet.
 1. Connect the programmer USB to the ESPHome system
 1. Attach the battery.
 1. Momentarily touch the other end of the RST wire to one of the GND pins to reset the esp.
-    - Sometimes it works without resetting, but sometimes not. I've found it works every time if you do a reset.
+   - Sometimes it works without resetting, but sometimes not. I've found it works every time if you do a reset.
 1. Flash via USB
 
 ## Subsequent Installs
@@ -46,12 +46,12 @@ Flashing over wifi fails if the device is sleeping. To overcome this, press the 
 
 ## GPIO Pinout
 
-| Pin    | Function                                                |
-| ------ | ------------------------------------------------------- |
-| GPIO5  | White LED - Low on                                      |
-| GPIO13 | Green LED - Low on                                      |
-| GPIO14 | Red LED - Low on                                        |
-| GPIO4  | Must be set High if using button to wake from deep sleep|
+| Pin    | Function                                                 |
+| ------ | -------------------------------------------------------- |
+| GPIO5  | White LED - Low on                                       |
+| GPIO13 | Green LED - Low on                                       |
+| GPIO14 | Red LED - Low on                                         |
+| GPIO4  | Must be set High if using button to wake from deep sleep |
 
 ## Basic Configuration
 
@@ -64,38 +64,38 @@ esphome:
   name: button
   friendly_name: button
   on_boot:
-  - priority: 550
-    then:
-      - light.turn_on:
-          id: white_light
-          effect: "Connecting"
-  - priority: 225.0
-    then:
-      - output.turn_on: cap_charge
-      - http_request.get:
-          url: http://url.to.my.http/api/
-          on_response:
-            then:
-              - if:
-                  condition:
-                    lambda: 'return status_code == 200;'
-                  then:
-                    - light.turn_off:
-                        id: white_light
-                    - light.turn_on:
-                        id: green_light
-                    - delay: 2s
-                    - deep_sleep.enter:
-                        id: deep_sleep_forever
-                  else:
-                    - light.turn_off:
-                        id: white_light
-                    - light.turn_on:
-                        id: red_light
-                        effect: "Error"
-                    - delay: 2s
-                    - deep_sleep.enter:
-                        id: deep_sleep_forever
+    - priority: 550
+      then:
+        - light.turn_on:
+            id: white_light
+            effect: "Connecting"
+    - priority: 225.0
+      then:
+        - output.turn_on: cap_charge
+        - http_request.get:
+            url: http://url.to.my.http/api/
+            on_response:
+              then:
+                - if:
+                    condition:
+                      lambda: "return status_code == 200;"
+                    then:
+                      - light.turn_off:
+                          id: white_light
+                      - light.turn_on:
+                          id: green_light
+                      - delay: 2s
+                      - deep_sleep.enter:
+                          id: deep_sleep_forever
+                    else:
+                      - light.turn_off:
+                          id: white_light
+                      - light.turn_on:
+                          id: red_light
+                          effect: "Error"
+                      - delay: 2s
+                      - deep_sleep.enter:
+                          id: deep_sleep_forever
 
 deep_sleep:
   id: deep_sleep_forever

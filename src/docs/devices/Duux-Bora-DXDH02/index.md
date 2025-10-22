@@ -16,36 +16,35 @@ The esp32 is mounted in a small case behind the front of the unit (hidden). To d
 
 Use the pads on the back of the pcb to flash:
 
-| Pad       | Connect to                        |
-| --------- | --------------------------------- |
-| P10       | Serial adapter TXD                |
-| P11       | Serial adapter RXD                |
-| P13       | Short to GND for flashing (GPIO0) |
-| P3        | Can be used as GND for P13        |
+| Pad | Connect to                        |
+| --- | --------------------------------- |
+| P10 | Serial adapter TXD                |
+| P11 | Serial adapter RXD                |
+| P13 | Short to GND for flashing (GPIO0) |
+| P3  | Can be used as GND for P13        |
 
 ## GPIO Pinout
 
-| Pin    | Function   |
-| ------ | ---------- |
-| GPIO00 | None       |
-| GPIO01 | None       |
-| GPIO02 | None       |
-| GPIO03 | None       |
-| GPIO04 | None       |
-| GPIO05 | None       |
-| GPIO09 | None       |
-| GPIO10 | None       |
-| GPIO12 | None       |
-| GPIO16 | Tuya Rx    |
-| GPIO14 | None       |
-| GPIO17 | Tuya Tx    |
-| GPIO16 | None       |
-|  FLAG  | None       |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO00 | None     |
+| GPIO01 | None     |
+| GPIO02 | None     |
+| GPIO03 | None     |
+| GPIO04 | None     |
+| GPIO05 | None     |
+| GPIO09 | None     |
+| GPIO10 | None     |
+| GPIO12 | None     |
+| GPIO16 | Tuya Rx  |
+| GPIO14 | None     |
+| GPIO17 | Tuya Tx  |
+| GPIO16 | None     |
+| FLAG   | None     |
 
 ## Basic Configuration
 
 ```yaml
-
 esphome:
   name: $devicename
   friendly_name: "Duux Dehumidifier DXDH02"
@@ -88,14 +87,14 @@ uart:
 
 # Register the Tuya MCU connection
 tuya:
- on_datapoint_update:
-  - sensor_datapoint: 11
-    datapoint_type: bitmask
-    then:
-      - lambda: |-
-          ESP_LOGD("main", "on_datapoint_update %s", format_hex_pretty(x).c_str());
-          // only seen in the wild is decimal value 8, for Water Tank Full
-          id(water_tank_full).publish_state((x >> 3) & 1);
+  on_datapoint_update:
+    - sensor_datapoint: 11
+      datapoint_type: bitmask
+      then:
+        - lambda: |-
+            ESP_LOGD("main", "on_datapoint_update %s", format_hex_pretty(x).c_str());
+            // only seen in the wild is decimal value 8, for Water Tank Full
+            id(water_tank_full).publish_state((x >> 3) & 1);
 
 binary_sensor:
   - platform: template
@@ -154,5 +153,4 @@ select:
     options:
       0: High
       1: Low
-
 ```
