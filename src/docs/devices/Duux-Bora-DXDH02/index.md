@@ -10,7 +10,16 @@ difficulty: 3
 
 ## Disassembly
 
-The esp32 is mounted in a small case behind the front of the unit (hidden). To disassemble the unit remove all visible screws including those behind the water tank when removed. The 2 halves (front and back) are held together by 2 hidden screws behind the top control panel. To gain access to them remove the top carrying handle. This can be done by carefully aligning it slightly forward (there is a small notch in the handle carrier and once you find the spot you can easily pull the side of the handle and it will come right off). Dont use too much force. Once the carrying handle is removed you can see the screws but still wont be able to reach them. For this you have to remove the top control panel. The panel is hold in place by latches. To release these you have to slightly push against the panel to lift it up from the newly gained holes untill it comes off - best to start by the corners. Once the panel is out you will have access to the 2 screws, remove them. Now remove the front halve of the case. There is a small black case mounted just below the fan. Remove the 2 screws so you can unmount it. Inside the case is the esp32.
+The esp32 is mounted in a small case behind the front of the unit (hidden). To disassemble the unit remove all visible
+screws including those behind the water tank when removed. The 2 halves (front and back) are held together by 2 hidden
+screws behind the top control panel. To gain access to them remove the top carrying handle. This can be done by
+carefully aligning it slightly forward (there is a small notch in the handle carrier and once you find the spot you can
+easily pull the side of the handle and it will come right off). Dont use too much force. Once the carrying handle is
+removed you can see the screws but still wont be able to reach them. For this you have to remove the top control panel.
+The panel is hold in place by latches. To release these you have to slightly push against the panel to lift it up from
+the newly gained holes untill it comes off - best to start by the corners. Once the panel is out you will have access to
+the 2 screws, remove them. Now remove the front halve of the case. There is a small black case mounted just below the
+fan. Remove the 2 screws so you can unmount it. Inside the case is the esp32.
 
 ## Flashing
 

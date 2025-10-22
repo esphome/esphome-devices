@@ -126,7 +126,8 @@ This config is for ESP-IDF framework, as we use specific SDK Config options.
 - It sets a CPU frequency to 240 MHz
 - It allocates memory on `malloc` calls from both internal and PSRAM memory
 - It allows [Mbed TLS](https://github.com/Mbed-TLS/mbedtls) to allocate memory in PSRAM
-- It increases the `nvs` partition at the cost of reducing the `app0`/`app1` partitions. It gives more space to store persisted variables.
+- It increases the `nvs` partition at the cost of reducing the `app0`/`app1` partitions. It gives more space to store
+  persisted variables.
 
 ```yaml
 substitutions:

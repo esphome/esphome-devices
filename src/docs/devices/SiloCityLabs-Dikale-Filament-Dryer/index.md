@@ -11,9 +11,14 @@ difficulty: 1
 
 ## General Notes
 
-The **Dikale Filament Dryer PCB** by **SiloCityLabs** is a custom PCB designed to replace the original PCB of the Dikale Filament Dryer. The PCB is based on an **ESP32** and can be controlled via **Home Assistant** using the **ESPHome** firmware. The PCB features a **temperature sensor** and a **humidity sensor** to monitor the conditions inside the dryer. The PCB also features a **display** to show the current temperature and humidity, as well as a **button controll** to adjust the settings.
+The **Dikale Filament Dryer PCB** by **SiloCityLabs** is a custom PCB designed to replace the original PCB of the Dikale
+Filament Dryer. The PCB is based on an **ESP32** and can be controlled via **Home Assistant** using the **ESPHome**
+firmware. The PCB features a **temperature sensor** and a **humidity sensor** to monitor the conditions inside the
+dryer. The PCB also features a **display** to show the current temperature and humidity, as well as a **button
+controll** to adjust the settings.
 
-The PCB is designed to fit inside the Dikale Filament Dryer and can be powered by the original power supply. The PCB can be connected to the original heater and fan, and can be controlled via the original buttons.
+The PCB is designed to fit inside the Dikale Filament Dryer and can be powered by the original power supply. The PCB can
+be connected to the original heater and fan, and can be controlled via the original buttons.
 
 ## GPIO Pinout
 
@@ -32,7 +37,8 @@ The PCB is designed to fit inside the Dikale Filament Dryer and can be powered b
 
 ## Basic Config
 
-The latest state of the configuration is [available on GitHub](https://github.com/SiloCityLabs/esp32-dikale-dryer/blob/main/config.yaml).
+The latest state of the configuration is
+[available on GitHub](https://github.com/SiloCityLabs/esp32-dikale-dryer/blob/main/config.yaml).
 
 ## Pictures
 

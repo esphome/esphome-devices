@@ -34,7 +34,8 @@ project-url: https://docs.m5stack.com/en/core/m5stickc_plus
 
 [ESPHome AXP192 Component by martydingo]("https://github.com/martydingo/esphome-axp192")
 
-This custom component it to implement support for the AXP192 for both the M5Stick-C. It is required to turn on the backlight.
+This custom component it to implement support for the AXP192 for both the M5Stick-C. It is required to turn on the
+backlight.
 
 ## Example Configuration
 
@@ -166,7 +167,8 @@ microphone:
 
 ## Workaround for using devices powered with 5V on the HY2.0-4P port
 
-The 5V power on the HY2.0-4P is fed by the axp192. Therefore these devices must be initialized some time after the axp192 has started.
+The 5V power on the HY2.0-4P is fed by the axp192. Therefore these devices must be initialized some time after the
+axp192 has started.
 
 ```yml
 i2c:

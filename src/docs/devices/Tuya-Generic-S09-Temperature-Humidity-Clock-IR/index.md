@@ -23,9 +23,11 @@ There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum
 | P26 | IR Transmitter |
 
 An IR receiver on pin 8 is mentioned in a few places, but it's definitely connected to the LED.
-I tried other pins, but nothing receives and I don't see any mention of that being a capability in any seller descriptions.
+I tried other pins, but nothing receives and I don't see any mention of that being a capability in any seller
+descriptions.
 You can ignore the tuya component warning about the status pin.
-The wifi status works over the Tuya protocol, so I assume the setting just points to the LED because that's the stock use for it.
+The wifi status works over the Tuya protocol, so I assume the setting just points to the LED because that's the stock
+use for it.
 
 ## Flashing
 

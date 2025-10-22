@@ -167,7 +167,8 @@ status_led:
 
 ## Button
 
-- The setup will turn on plugs 1 to 4 with each short press, then once all plugs are on, turn off plugs 1 to 4 with each short press.
+- The setup will turn on plugs 1 to 4 with each short press, then once all plugs are on, turn off plugs 1 to 4 with each
+  short press.
 - A long press will toggle all plugs on or off.
 - A double press will toggle the state of the usb ports.
 

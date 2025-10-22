@@ -10,13 +10,16 @@ board: esp8266
 
 ## Product description
 
-This is an 8-relay board with an [ESP-12F](https://docs.ai-thinker.com/_media/esp8266/docs/esp-12f_product_specification_en.pdf).
+This is an 8-relay board with an
+[ESP-12F](https://docs.ai-thinker.com/_media/esp8266/docs/esp-12f_product_specification_en.pdf).
 
 Each relay has COM+NO+NC exposed. Product descriptions don't seem to specify maximum load.
 
-The board can be powered either via 7-30VDC or via 5VDC via the screw terminals. Power the board with the screw terminals for flashing.
+The board can be powered either via 7-30VDC or via 5VDC via the screw terminals. Power the board with the screw
+terminals for flashing.
 
-I bought it from: https://s.click.aliexpress.com/e/_DnEOi2r (affiliation link so i can make others like this, no guarantee it will continue to exist).
+I bought it from: https://s.click.aliexpress.com/e/_DnEOi2r (affiliation link so i can make others like this, no
+guarantee it will continue to exist).
 
 ## GPIO Header
 

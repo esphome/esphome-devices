@@ -32,7 +32,8 @@ The comon 5V rail feeds a 3.3V linear regulator.
 
 This board has headers for every GPIO pin on its ESP-12F.
 
-By default, the relay is connected to GPIO5. If you want to change that, remove R14 and connect the header "Relay" to the desired GPIO.
+By default, the relay is connected to GPIO5. If you want to change that, remove R14 and connect the header "Relay" to
+the desired GPIO.
 
 Programming header:
 

@@ -21,18 +21,23 @@ board: esp8266
 | A0     | NTC                         |
 
 HLWBL CF1 pin (GPIO14 according to Tasmota template) does not appear to connected in my test and returns junk data.
-A0 might be hooked up to a NTC, I do not have the values needed to calibrate it to return proper data so I am not including it in my configuration.
+A0 might be hooked up to a NTC, I do not have the values needed to calibrate it to return proper data so I am not
+including it in my configuration.
 
 ## Configuration as relay with overpower protection
 
-When integration with home assistant exists, it will appear as a switch, 6 sensors (button state, power, voltage, current, wifi strength and total daily energy)
-When the `max_power` is exceeded, the relay will be switched off and a persistent notification will be created in home-assistant
+When integration with home assistant exists, it will appear as a switch, 6 sensors (button state, power, voltage,
+current, wifi strength and total daily energy)
+When the `max_power` is exceeded, the relay will be switched off and a persistent notification will be created in
+home-assistant
 
 Credit and thanks to
 
 - https://templates.blakadder.com/shelly_plug_US.html for documenting the GPIO pins though I found some errors.
-- https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Shelly-Plug-S/index.md, much of this borrows from it.
-- https://www.reddit.com/r/homeautomation/comments/ps9iey/esphome_config_for_shelly_plug_us/, magic numbers for tuning sensors
+- https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Shelly-Plug-S/index.md, much of this borrows
+  from it.
+- https://www.reddit.com/r/homeautomation/comments/ps9iey/esphome_config_for_shelly_plug_us/, magic numbers for tuning
+  sensors
 - https://devices.esphome.io/devices/Aoycocr-X10S-Plug/, identical looking device from another manufacturer
 - https://fccid.io/2ALAY-SHELLY, FCC documentation including several pictures of the circuts.
 

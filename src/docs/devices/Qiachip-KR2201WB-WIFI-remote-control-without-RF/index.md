@@ -8,7 +8,8 @@ board: bk72xx
 
 ## Notice
 
-- This switch is flashable using the latest tuya-cloudcutter with a compiled ESPHome binary. I recommend following this [Youtube Video](https://youtu.be/sSj8f-HCHQ0).
+- This switch is flashable using the latest tuya-cloudcutter with a compiled ESPHome binary. I recommend following this
+  [Youtube Video](https://youtu.be/sSj8f-HCHQ0).
 - Version 1.1.4 in the App and with BK7231N (WB2S module)
 
 ## Product Images

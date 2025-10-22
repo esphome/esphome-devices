@@ -8,7 +8,8 @@ board: bk72xx
 
 ## General Notes
 
-There are various models of these generic USB Wifi switches. They come with 1, 2, or 3 individually switchable USB output ports, but only the first passes data.
+There are various models of these generic USB Wifi switches. They come with 1, 2, or 3 individually switchable USB
+output ports, but only the first passes data.
 
 ## GPIO Pinout
 

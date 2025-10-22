@@ -26,7 +26,8 @@ Can be programmed without removing from PCB.
 
 ## Status LED Not Implemented
 
-The user manual says that the power led on the panel will flash on initialisation (wifi status?). I have not been able to determine what pin this led is connected so this configuration does not support status_led.
+The user manual says that the power led on the panel will flash on initialisation (wifi status?). I have not been able
+to determine what pin this led is connected so this configuration does not support status_led.
 
 ## Configuration
 

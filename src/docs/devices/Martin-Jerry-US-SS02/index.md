@@ -16,7 +16,9 @@ These switches come preflashed with custom tasmota firmware, which leaves no spa
 
 If you would try to flash it with an ESPHome binary - update will fail.
 
-This can be worked around by flashing the device with a [Tasmota minimal binary](http://ota.tasmota.com/tasmota/tasmota-minimal.bin.gz) first, then re-flashing with your ESPHome binary.
+This can be worked around by flashing the device with a
+[Tasmota minimal binary](http://ota.tasmota.com/tasmota/tasmota-minimal.bin.gz) first, then re-flashing with your
+ESPHome binary.
 
 ## GPIO Pinout
 

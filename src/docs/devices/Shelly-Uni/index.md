@@ -9,7 +9,8 @@ difficulty: 2
 
 ## Notes
 
-Shelly UNI is the smallest universal module with two available digital inputs and potential-free outputs, providing endless functionalities.
+Shelly UNI is the smallest universal module with two available digital inputs and potential-free outputs, providing
+endless functionalities.
 
 - 2 digital inputs
 - 2 potential-free outputs

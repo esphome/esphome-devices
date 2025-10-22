@@ -10,7 +10,10 @@ difficulty: 4
 
 ## General Notes
 
-A smart air purifier with 3-stage filtration. The ESP32 talks to the Tuya MCU using standard 8N1 115200-baud UART. Code and configuration were obtained from [acvigue's 'esphome-levoit-air-purifier' repo](https://github.com/acvigue/esphome-levoit-air-purifier). It seems to be supporting the rest of the line-up, but the 300s is the only one tested by the author.
+A smart air purifier with 3-stage filtration. The ESP32 talks to the Tuya MCU using standard 8N1 115200-baud UART. Code
+and configuration were obtained from
+[acvigue's 'esphome-levoit-air-purifier' repo](https://github.com/acvigue/esphome-levoit-air-purifier). It seems to be
+supporting the rest of the line-up, but the 300s is the only one tested by the author.
 
 Manufacturer: [Levoit](http://www.levoit.com)
 
@@ -25,7 +28,8 @@ Manufacturer: [Levoit](http://www.levoit.com)
 
 ## Flashing
 
-Based on the procedure shared by [acvigue](https://github.com/acvigue/esphome-levoit-air-purifier) and [Aiden Vigue](https://vigue.me/posts/levoit-air-purifier-esphome-conversion)
+Based on the procedure shared by [acvigue](https://github.com/acvigue/esphome-levoit-air-purifier) and
+[Aiden Vigue](https://vigue.me/posts/levoit-air-purifier-esphome-conversion)
 
 ### Disassembly
 

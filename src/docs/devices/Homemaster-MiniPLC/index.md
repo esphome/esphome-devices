@@ -12,7 +12,8 @@ difficulty: 1
 
 ## Product description
 
-The HOMAMASTER MiniPLC is a powerful and compact automation controller designed for advanced smart home applications. Built around the ESP32-WROOM-32U
+The HOMAMASTER MiniPLC is a powerful and compact automation controller designed for advanced smart home applications.
+Built around the ESP32-WROOM-32U
 
 Maker: https://www.home-master.eu/
 

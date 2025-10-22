@@ -35,7 +35,8 @@ The board has headers for every GPIO pin on the ESP32. They are labeled on the r
 
 ## Programming
 
-Programming was done with a CP2102N USB-to-serial converter via the 6 pin header. The header is not a FTDI compatible pinout. ESPHome Web tools was able to flash the board after using the onboard buttons to enter programming mode.
+Programming was done with a CP2102N USB-to-serial converter via the 6 pin header. The header is not a FTDI compatible
+pinout. ESPHome Web tools was able to flash the board after using the onboard buttons to enter programming mode.
 
 ## Basic Config
 

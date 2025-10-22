@@ -19,7 +19,9 @@ difficulty: 3
 
 ## Initial Setup
 
-Remove the 4 screws at the back of the device and expose the board. The board is mounted to the front panel and can be un screwed also to install a permanent 4 pin header to attach jumper cables. Hold down the button while powering on the device to put it into bootloader mode.
+Remove the 4 screws at the back of the device and expose the board. The board is mounted to the front panel and can be
+un screwed also to install a permanent 4 pin header to attach jumper cables. Hold down the button while powering on the
+device to put it into bootloader mode.
 
 ## Product Images
 

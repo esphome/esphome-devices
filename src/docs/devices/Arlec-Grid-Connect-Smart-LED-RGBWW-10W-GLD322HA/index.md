@@ -7,9 +7,12 @@ board: esp8266
 difficulty: 5
 ---
 
-Sold at Bunnings in Australia as [Model number GLD322HA](https://www.bunnings.com.au/arlec-grid-connect-smart-e27-led-830lm-rgb-cct-colour-mode-10w-globe_p0321374).
+Sold at Bunnings in Australia as
+[Model number GLD322HA](https://www.bunnings.com.au/arlec-grid-connect-smart-e27-led-830lm-rgb-cct-colour-mode-10w-globe_p0321374).
 
-This device uses WB2L module which needs to be replaced with ESP-M3, DMP-L1, ESP8685-WROOM-05, DT-ESP-C05 or ESP8684-WROOM-05. Read more about module replacement in a [detailed guide](https://blakadder.com/replace-tuya-cb2l-wb2l-bw2l/).
+This device uses WB2L module which needs to be replaced with ESP-M3, DMP-L1, ESP8685-WROOM-05, DT-ESP-C05 or
+ESP8684-WROOM-05. Read more about module replacement in a
+[detailed guide](https://blakadder.com/replace-tuya-cb2l-wb2l-bw2l/).
 
 If replaced with ESP-M3, then the following is the pinout:
 

@@ -21,9 +21,12 @@ board: esp32
 
 ## Configuration as relay with overpower and overtemperature protection
 
-When integration with home assistant exists, it will appear as a switch, 3 sensors (power, total energy, temperature) and two RGB lights that can be configured as the color for the ring when on or off.
-When the `max_power` is exceeded, the relay will be switched off and a persistent notification will be created in home-assistant
-When the `max_temp` is exceeded, the relay will be switched off and a persistent notification will be created in home-assistant
+When integration with home assistant exists, it will appear as a switch, 3 sensors (power, total energy, temperature)
+and two RGB lights that can be configured as the color for the ring when on or off.
+When the `max_power` is exceeded, the relay will be switched off and a persistent notification will be created in
+home-assistant
+When the `max_temp` is exceeded, the relay will be switched off and a persistent notification will be created in
+home-assistant
 Thanks to all contributors in [this](https://community.home-assistant.io/t/shelly-plus-plug-s-esphome/544316) topic.
 Config tested by [bobkersten](https://github.com/bobkersten)
 

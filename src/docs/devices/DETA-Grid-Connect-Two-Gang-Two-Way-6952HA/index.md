@@ -10,13 +10,15 @@ difficulty: 3
 
 ## Overview
 
-The DETA [Smart Switch 2 Way 2 Gang (6952HA)](https://www.bunnings.com.au/deta-switch-smart-grid-2-way-2-gang_p0346911) is part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia.
+The DETA [Smart Switch 2 Way 2 Gang (6952HA)](https://www.bunnings.com.au/deta-switch-smart-grid-2-way-2-gang_p0346911)
+is part of the [Grid Connect ecosystem](https://grid-connect.com.au/), and is sold at Bunnings in Australia.
 
 ![6952HA packet](./6952HA-packet.jpg "DETA 6952HA packet, with 'Series 2' highlighted.")
 
 Also known as:
 
-- Smart Double Gang 2 Way Touch Light Switch ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-double-gang-2-way-touch-light-switch/))
+- Smart Double Gang 2 Way Touch Light Switch
+  ([Deta website](https://detaelectrical.com.au/product/deta-grid-connect-smart-double-gang-2-way-touch-light-switch/))
 - Twin Gang 2 Way Touch Light Switch ([Grid Connect website](https://grid-connect.com.au/download/6952ha/))
 
 ### Variations
@@ -40,13 +42,16 @@ You'll need a USB to serial adapter.
 
 ![6952HA manual flashing](./6952HA-manual-flashing.jpg "DETA 6952HA board connected to a USB to serial adapter.")
 
-Follow the [ltchiptool](https://github.com/libretiny-eu/ltchiptool) documentation to flash the microcontroller with [ESPHome Kickstart](https://github.com/libretiny-eu/esphome-kickstart/releases), or build an ESPHome package from the configuration below.
+Follow the [ltchiptool](https://github.com/libretiny-eu/ltchiptool) documentation to flash the microcontroller with
+[ESPHome Kickstart](https://github.com/libretiny-eu/esphome-kickstart/releases), or build an ESPHome package from the
+configuration below.
 
 ## GPIO Pinouts
 
 ### Series 2 (CB3S) GPIO Pinouts
 
-_See [Pinouts on CB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076#title-5-Pin%20definition) for more detail_
+_See
+[Pinouts on CB3S Module Datasheet](https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076#title-5-Pin%20definition) for more detail_
 
 | Pin | Function                                                                                                                                      |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------- |

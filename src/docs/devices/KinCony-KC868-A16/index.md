@@ -30,7 +30,9 @@ board: esp32
 
 ## Installation
 
-Remove the 433MHz modules from the board. Connect the board with a USB-C cable to your commputer. While pressing the `S2` switch, attach the external power supply (12V) to the board. Erase flash and then flash the board with the usual ESPHome installation methods.
+Remove the 433MHz modules from the board. Connect the board with a USB-C cable to your commputer. While pressing the
+`S2` switch, attach the external power supply (12V) to the board. Erase flash and then flash the board with the usual
+ESPHome installation methods.
 
 ## Basic Configuration
 

@@ -21,7 +21,8 @@ The LEDs are controlled by 2 PWM output (Cold and White channels).
 
 ### Tuya Convert
 
-As the LED bulb do not have any physical buttons, by turning the bulb on and off three times, you will enter pairing mode. This will cause the bulb to start flashing.
+As the LED bulb do not have any physical buttons, by turning the bulb on and off three times, you will enter pairing
+mode. This will cause the bulb to start flashing.
 
 Then follow the [tuya-convert](/guides/tuya-convert) guide.
 

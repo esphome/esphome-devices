@@ -8,7 +8,8 @@ board: bk72xx
 
 Tuya SmartLife app recognizes the device as `176582 / 176598`.
 
-Can be flashed with ESPHome Kickstart via `tuya-cloudcutter` using the profile `1.1.2 - BK7231T / oem_bk7231s_light_ty` or `hama-176586-e14-white-candle-smart-bulb`.
+Can be flashed with ESPHome Kickstart via `tuya-cloudcutter` using the profile `1.1.2 - BK7231T / oem_bk7231s_light_ty`
+or `hama-176586-e14-white-candle-smart-bulb`.
 
 ## Basic Configuration
 

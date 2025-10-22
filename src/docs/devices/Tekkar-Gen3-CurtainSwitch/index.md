@@ -30,13 +30,16 @@ The switch uses the CB3S BK7231N chip.
 
 ## Flashing/Soldering
 
-To flash the chip, the front cover needs to be removed. After removing it, the circuit board can be taken out by pulling it off. On the bottom side of the circuit board, you will find the CB3S chip. Connect `RX1` (`P10`), `TX1` (`P11`), `GND` and `3V3` to a USB to TTL serial adapter. For a stable connection, the easiest method is to solder the four pins.
+To flash the chip, the front cover needs to be removed. After removing it, the circuit board can be taken out by pulling
+it off. On the bottom side of the circuit board, you will find the CB3S chip. Connect `RX1` (`P10`), `TX1` (`P11`),
+`GND` and `3V3` to a USB to TTL serial adapter. For a stable connection, the easiest method is to solder the four pins.
 
 > Note: In my case, it was necessary to desolder the entire chip because the connection could not be established.
 
 ![CB3S Pinout](cb3s.png "CB3S Pinout")
 
-For flashing, you can use `ltchiptool`. Once you have soldered and connected, start `ltchiptool`. While it is actively trying to connect, briefly bridge either one of the `CEN` pins to ground and then release.
+For flashing, you can use `ltchiptool`. Once you have soldered and connected, start `ltchiptool`. While it is actively
+trying to connect, briefly bridge either one of the `CEN` pins to ground and then release.
 
 ## Basic Configuration
 

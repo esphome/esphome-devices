@@ -10,7 +10,8 @@ difficulty: 4
 
 ## Gernal Notes
 
-Wyze updated their original wyze bulb color which makes it slightly easier to flash esphome. The V2 features an esp32-c3 that controls a BP5758 LED driver. [Product Page](https://www.wyze.com/products/wyze-bulb-color)
+Wyze updated their original wyze bulb color which makes it slightly easier to flash esphome. The V2 features an esp32-c3
+that controls a BP5758 LED driver. [Product Page](https://www.wyze.com/products/wyze-bulb-color)
 
 ## Materials
 
@@ -22,12 +23,15 @@ Wyze updated their original wyze bulb color which makes it slightly easier to fl
 ## Instructions
 
 1. Remove the plastic globe. This is held in with adhesive and can be removed with a flat blade or metal spudger
-2. Remove the LED array. This is also only held in with adhesive so just pry it up by one of the sides. Be careful not to damage the 6 metal pins and the antenna that go through the led array plate.
-3. Remove the potting. The potting only needs to be removed on the side opposite of the 6 led pins. Be careful not to damage any components on the board while removing.
+2. Remove the LED array. This is also only held in with adhesive so just pry it up by one of the sides. Be careful not
+   to damage the 6 metal pins and the antenna that go through the led array plate.
+3. Remove the potting. The potting only needs to be removed on the side opposite of the 6 led pins. Be careful not to
+   damage any components on the board while removing.
 
    ![Remove Potting](potting.JPG "Remove Potting")
 
-4. Solder to pads on the bulb. The tight space can make this tricky but it's very doable. Make sure you aren't shorting anything.
+4. Solder to pads on the bulb. The tight space can make this tricky but it's very doable. Make sure you aren't shorting
+   anything.
 
    ![Back Pads](back.JPG "Back Pads")
 

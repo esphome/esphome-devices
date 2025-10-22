@@ -10,15 +10,20 @@ difficulty: 4
 
 ![Inkbird ITC-308-WIFI](Inkbird-ITC-308-WIFI.png "Inkbird ITC-308-WIFI")
 
-The Inkbird ITC-308-WIFI is a wireless temperature controller that comes in a variety of socket types for independant refridgeration and heating of wired devices.
+The Inkbird ITC-308-WIFI is a wireless temperature controller that comes in a variety of socket types for independant
+refridgeration and heating of wired devices.
 
 ## WiFi Modules
 
-Older models ship with a Tuya TYWE3S module, which is an Espressif ESP8266-based module. Later models have replaced the module with the Tuya WBR3S module, utilizing the Realtek RTL8720DN chip. It's important to note that as of late 2023, LibreTiny, and therefore ESPHome, do not offer support for this particular chipset.  It is possible to solder an ESP12-S which is pin compatible in place of the WBR3 module and everything works the same.
+Older models ship with a Tuya TYWE3S module, which is an Espressif ESP8266-based module. Later models have replaced the
+module with the Tuya WBR3S module, utilizing the Realtek RTL8720DN chip. It's important to note that as of late 2023,
+LibreTiny, and therefore ESPHome, do not offer support for this particular chipset.  It is possible to solder an ESP12-S
+which is pin compatible in place of the WBR3 module and everything works the same.
 
 ## Flashing
 
-The TYWE3S sits on a daughter board which needs to be desoldered before flashing.  The RST and EN pins to be held at 3.3V in order to programmable.
+The TYWE3S sits on a daughter board which needs to be desoldered before flashing.  The RST and EN pins to be held at
+3.3V in order to programmable.
 
 ## Board Configuration
 

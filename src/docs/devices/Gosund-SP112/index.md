@@ -8,11 +8,14 @@ board: esp8266
 
 ## Flashing
 
-The device can be flashed [using tuya-convert](/guides/tuya-convert). Fresh out of the factory it will be in autoconfig mode. When plugged in for the first time tuya-convert will pick it up directly.
+The device can be flashed [using tuya-convert](/guides/tuya-convert). Fresh out of the factory it will be in autoconfig
+mode. When plugged in for the first time tuya-convert will pick it up directly.
 
-If that doesn't work out for you, disassembly and wired flashing is explained [in this (German) video](https://www.youtube.com/watch?v=hfYFB1UENTQ).
+If that doesn't work out for you, disassembly and wired flashing is explained
+[in this (German) video](https://www.youtube.com/watch?v=hfYFB1UENTQ).
 
-**Attention**: As it turns out Tuya no longer builds them with esp chips. This means as of late 2021 you cannot flash esphome on new units.
+**Attention**: As it turns out Tuya no longer builds them with esp chips. This means as of late 2021 you cannot flash
+esphome on new units.
 
 **Alternative for newer devices:** [see below](#alternative-for-newer-devices)
 
@@ -183,7 +186,8 @@ switch:
 
 ## Alternative for newer devices
 
-WARNING: Soldering involved, warranty broken, electric hazard, make sure you know what you are doing at your own responsibility
+WARNING: Soldering involved, warranty broken, electric hazard, make sure you know what you are doing at your own
+responsibility
 
 - Replace Cuco-chip with ESP-M2: https://github.com/c-klinger/Gosund-ESPMod/tree/main (courtesy: Chris Klinger)
 

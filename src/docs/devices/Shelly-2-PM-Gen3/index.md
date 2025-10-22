@@ -10,7 +10,8 @@ difficulty: 2
 
 Generation 3 of Shelly 2. With Powermeter. \
 Generation 3 configurations are not compatible with earlier Shelly 2 generation hardware. \
-General hardware info, including serial pinout is on the [Shelly Knowledgebase](https://kb.shelly.cloud/knowledge-base/shelly-plus-2pm).
+General hardware info, including serial pinout is on the
+[Shelly Knowledgebase](https://kb.shelly.cloud/knowledge-base/shelly-plus-2pm).
 
 ## GPIO Pinout
 
@@ -30,13 +31,16 @@ General hardware info, including serial pinout is on the [Shelly Knowledgebase](
 
 ![Shelly 2 PM Gen3](../Shelly-2-PM-Gen3/shelly_2_pm_gen3_pcb.jpeg "Shelly 2 PM Gen3")
 
-These configurations may be flashable from the Shelly stock firmware OTA using mgos32-to-tasmota32, but was only tested via direct serial flash. OTA changes and upgrades after initial flash via ESPHome Web seem to work fine.
+These configurations may be flashable from the Shelly stock firmware OTA using mgos32-to-tasmota32, but was only tested
+via direct serial flash. OTA changes and upgrades after initial flash via ESPHome Web seem to work fine.
 
 ## Basic Configuration
 
-This will appear in Home Assistant as two relays linked to the switch inputs. This includes power and temperature monitoring of the I2C interfaces.
+This will appear in Home Assistant as two relays linked to the switch inputs. This includes power and temperature
+monitoring of the I2C interfaces.
 
-Most of this configuration was taken from [this Home Assistant Community thread](https://community.home-assistant.io/t/do-you-have-a-working-esphome-config-for-shelly-3gen-2pm/833575/3), and the work to figure out the GPIO pins is thanks to [the Tasmota community.](https://github.com/arendst/Tasmota/discussions/22526#discussioncomment-11407244)
+Most of this configuration was taken from
+[this Home Assistant Community thread](https://community.home-assistant.io/t/do-you-have-a-working-esphome-config-for-shelly-3gen-2pm/833575/3), and the work to figure out the GPIO pins is thanks to [the Tasmota community.](https://github.com/arendst/Tasmota/discussions/22526#discussioncomment-11407244)
 
 ```yaml
 substitutions:

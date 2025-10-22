@@ -62,7 +62,8 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 
 1. Open the switch, by removing the terminal covers and the 4 small screws on the cornors.
 1. The front part of hte switch should "pop off", with a small amount of pressure.
-1. Connect a USB level shifter to the pin header on the front panel, using the pinout below. Note, you must provide 5v power, while the Tx/Rx pins use a 3.3v level.
+1. Connect a USB level shifter to the pin header on the front panel, using the pinout below. Note, you must provide 5v
+   power, while the Tx/Rx pins use a 3.3v level.
 1. Connect the GPIO0 pin to ground to put the ESP32 into the flash boot mode.
 1. Once flashed, the screen should power up and display ESPHome, while powered via the 5v supply.
 
@@ -70,7 +71,8 @@ Note, programming the proximity sensor for different sensitivity, etc. is not ye
 
 ## Example Configuration
 
-Below is a hardware only configuration, that enables the display with the ESPHome test card, along with the power meter, relay, and proximity sensor.
+Below is a hardware only configuration, that enables the display with the ESPHome test card, along with the power meter,
+relay, and proximity sensor.
 
 ```yaml
 esphome:

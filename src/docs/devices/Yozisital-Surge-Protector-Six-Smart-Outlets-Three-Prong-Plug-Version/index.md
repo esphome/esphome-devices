@@ -11,16 +11,22 @@ difficulty: 4
 
 ## Description
 
-The Yozisital Surge Protector has a total of eight outlets, with six outlets individually software switchable. The extra two outlets and four USB ports are not software switchable.
-The on\off toggle button controls power to the whole board while the connect button (with default firmware) has the dual function of toggling power to all software switchable plugs and placing the integrated chip into pairing mode.
-The device is manufactured under the brand name _**Yozisital**_ and can be found on [Amazon](https://amzn.to/4qdj9yZ) as well as other various sites. (ASIN: B0DZWLRKGW)
+The Yozisital Surge Protector has a total of eight outlets, with six outlets individually software switchable. The extra
+two outlets and four USB ports are not software switchable.
+The on\off toggle button controls power to the whole board while the connect button (with default firmware) has the dual
+function of toggling power to all software switchable plugs and placing the integrated chip into pairing mode.
+The device is manufactured under the brand name _**Yozisital**_ and can be found on [Amazon](https://amzn.to/4qdj9yZ) as
+well as other various sites. (ASIN: B0DZWLRKGW)
 
 Internally the strip contains a CB2S module, which uses the BK7231N controller.
 There are two separate boards; one for the mains and one for the USB ports.
-I am no electronics engineer, but the strip has an advertised rating of 1,200 joules even though there is only one MOV present on the main board (marked as VDK 10D471K).
-There doesn't seem to be an exact datasheet available for this specific MOV, but similar MOVs are only rated for about 65-85 joules.
+I am no electronics engineer, but the strip has an advertised rating of 1,200 joules even though there is only one MOV
+present on the main board (marked as VDK 10D471K).
+There doesn't seem to be an exact datasheet available for this specific MOV, but similar MOVs are only rated for about
+65-85 joules.
 Additionally, each outlet has an inline diode (marked as A7).
-These diodes may or may not add to the joules rating, but I cannot identify if they are transient voltage suppression diodes or not.
+These diodes may or may not add to the joules rating, but I cannot identify if they are transient voltage suppression
+diodes or not.
 There is also an inline fuse for the overall mains.
 The USB board has a similar circuit with a MOV and diodes.
 
@@ -32,9 +38,11 @@ The device is fairly easy to disassemble.
 
 Start by removing the eight pads from the bottom side of the device.
 This will reveal eight pitted\tamper resistant torx screws.
-Once the screws are removed, you will be able to remove the back plate by slightly lifting the strain relief section of the power cord.
+Once the screws are removed, you will be able to remove the back plate by slightly lifting the strain relief section of
+the power cord.
 You will then see four more pitted\tamper resistant torx screws.
-These screws were a slightly smaller size for which I did not have a toolhead, but I was able to break off the center stub using a flathead screwdriver and then use the same toolhead at an angle to remove each screw.
+These screws were a slightly smaller size for which I did not have a toolhead, but I was able to break off the center
+stub using a flathead screwdriver and then use the same toolhead at an angle to remove each screw.
 After all screws have been removed, you will be able to lift the main board from the casing.
 The USB board should already be free to lift as it is not held by any screws.
 You will find the CB2S module at the end where the USB board resides.
@@ -43,7 +51,8 @@ You will need leads for the `TX`, `RX`, `3.3V`, `GND`, and `CEN` pins.
 
 When you are ready to reassemble the device, be sure the lead wires for the USB board do not get pinched by the casing.
 One of my wires already had the insulation compromised due to being pinched.
-So, I wrapped both leads in electrical tape to futher protect them and routed them away from the point of failure before reassembling the device.
+So, I wrapped both leads in electrical tape to futher protect them and routed them away from the point of failure before
+reassembling the device.
 
 ## Photos
 
@@ -66,12 +75,14 @@ So, I wrapped both leads in electrical tape to futher protect them and routed th
 ## Flashing
 
 I am unsure if this device is vulnerable to `tuya-cloudcutter` or `tuya-convert` as I did not attempt to use them.
-Instead, I flashed the device by desoldering the chip from the main board and using test leads with `ltchiptool` to overwrite its firmware after creating a dump of the original firmware.
+Instead, I flashed the device by desoldering the chip from the main board and using test leads with `ltchiptool` to
+overwrite its firmware after creating a dump of the original firmware.
 A pinout for the CB2S module is available on the [LibreTiny site](https://docs.libretiny.eu/boards/cb2s/#pinout).
 The chip operates at 3.3V so, be sure to set your voltage correctly.
 
 You will need to briefly short the `CEN` pin to ground during the flashing process.
-I was able to do so by tapping the pin with an additional test lead connected to ground at the exact moment `ltchiptool` was attempting to connect.
+I was able to do so by tapping the pin with an additional test lead connected to ground at the exact moment `ltchiptool`
+was attempting to connect.
 This will require patience and finesse as the timing must be exact to cause the chip to enter download mode.
 
 The following is an excellent video guide for this process:
@@ -95,7 +106,8 @@ The following is an excellent video guide for this process:
 
 Some sections containing required or default ESPHome configuration items have been removed.
 Please ensure you add them to the configuration before use.
-Also note that this configuration is almost untouched from what was generated by the binary firmware analyzer in `ltchiptool`.
+Also note that this configuration is almost untouched from what was generated by the binary firmware analyzer in
+`ltchiptool`.
 Many thanks to the author of this awesome tool!
 
 ```yaml

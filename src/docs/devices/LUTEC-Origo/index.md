@@ -14,7 +14,8 @@ The LED driver hums when the brightness gets too high and the PWM frequency is t
 
 ## Flashing Procedure
 
-On the LED's driver board, there is a small PCB with an ESP32-WROOM-32 module. It's glued in and connected with a 2 MM pitched header. On the backside of the PCB are pads with 2.54 MM header that can be used to flash.
+On the LED's driver board, there is a small PCB with an ESP32-WROOM-32 module. It's glued in and connected with a 2 MM
+pitched header. On the backside of the PCB are pads with 2.54 MM header that can be used to flash.
 
 ## Light Specifications
 

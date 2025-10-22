@@ -14,13 +14,16 @@ Each relay has COM+NO+NC exposed. Product descriptions don't seem to specify max
 
 The board can be powered either via 90-250VAC or via 7-30VDC, or via 5VDC (separate connectors).
 
-I bought it from: https://www.aliexpress.com/item/1005001906928377.html (no affiliation, no guarantee it will continue to exist).
+I bought it from: https://www.aliexpress.com/item/1005001906928377.html (no affiliation, no guarantee it will continue
+to exist).
 
 Search for more: https://www.aliexpress.com/wholesale?SearchText=esp-12f+ac90-250v+relay+4+channel
 
 A more detailed manual: https://templates.blakadder.com/assets/ESP12F_Relay_X4.pdf
 
-The board uses GPIO16 for RXD so it will always be briefly be powered on at boot, unforetunately this is also the pin the board is setup to use for relay1. If this brief power-on isn't an issue, you can continue to use GPIO16 or you can run a longer jumper over to a pin such as GPIO15.
+The board uses GPIO16 for RXD so it will always be briefly be powered on at boot, unforetunately this is also the pin
+the board is setup to use for relay1. If this brief power-on isn't an issue, you can continue to use GPIO16 or you can
+run a longer jumper over to a pin such as GPIO15.
 
 ## GPIO Pinout
 

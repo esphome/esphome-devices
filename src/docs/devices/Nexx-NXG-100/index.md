@@ -13,7 +13,8 @@ board: esp8266
 
 [https://getnexx.com/pages/support](https://getnexx.com/pages/support)
 
-Case has a close fit, but a knife edge near the corner can be used to open the case. Standard serial header pattern present on the board as shown:
+Case has a close fit, but a knife edge near the corner can be used to open the case. Standard serial header pattern
+present on the board as shown:
 
 ![alt text](/NXG-100_pcb.jpg "PCB Image")
 

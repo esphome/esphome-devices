@@ -33,13 +33,15 @@ Outputs provide current sinking up to 500ma
 
 More information:
 
-- Product page: [https://www.waveshare.com/esp32-s3-eth-8di-8do.htm](https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm)
+- Product page:
+  [https://www.waveshare.com/esp32-s3-eth-8di-8do.htm](https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm)
 - Wiki: [https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO](https://www.waveshare.com/wiki/ESP32-S3-POE-ETH-8DI-8DO)
 
 ## Basic Config
 
 This config has Wi-Fi enabled by default. You cannot use both WiFi and Ethernet at the same
-time ([ESPHome Ethernet documentation](https://esphome.io/components/ethernet.html#ethernet-component)). In order to use Ethernet,
+time ([ESPHome Ethernet documentation](https://esphome.io/components/ethernet.html#ethernet-component)). In order to use
+Ethernet,
 uncomment the Ethernet block and comment the Wi-Fi blocks.
 
 ```yaml

@@ -34,7 +34,8 @@ project-url: https://docs.m5stack.com/en/core/M5StickC%20PLUS2
 
 ## External Component
 
-Unlike the M5StickC Plus, the Plus2 has no power management chip. Therefore, AXP192 support is not required; TFT backlight  
+Unlike the M5StickC Plus, the Plus2 has no power management chip. Therefore, AXP192 support is not required; TFT
+backlight  
 and battery level are accessed through GPIO pins -- see below for details.
 
 ## Example Configuration

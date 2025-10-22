@@ -56,7 +56,9 @@ difficulty: 2
 
 ### How To Flash
 
-See BlackAdder's instruction on [how to flash custom firmware for the L8](https://blakadder.com/lanbon-L8-custom-firmware/), referring to the following diagram for the L9 connector pinout.
+See BlackAdder's instruction on
+[how to flash custom firmware for the L8](https://blakadder.com/lanbon-L8-custom-firmware/), referring to the following
+diagram for the L9 connector pinout.
 No soldering required.
 IMPORTANT: Both 5v and 3.3v must be supplied.
 

@@ -11,7 +11,9 @@ difficulty: 1
 
 ## General Notes
 
-The Airtap T Series Custom PCB by SiloCityLabs is a custom PCB designed to replace the OEM PCB in the AC Infinity Airtap T Series. The PCB is designed to fit in the OEM enclosure and provide additional functionality. The PCB is designed to work with ESPHome and is compatible with the ESP32. This board supports the 4 button configuration.
+The Airtap T Series Custom PCB by SiloCityLabs is a custom PCB designed to replace the OEM PCB in the AC Infinity Airtap
+T Series. The PCB is designed to fit in the OEM enclosure and provide additional functionality. The PCB is designed to
+work with ESPHome and is compatible with the ESP32. This board supports the 4 button configuration.
 
 ## GPIO Pinout
 
@@ -28,7 +30,8 @@ The Airtap T Series Custom PCB by SiloCityLabs is a custom PCB designed to repla
 
 ## Basic Config
 
-The latest state of the configuration is [available on GitHub](https://github.com/SiloCityLabs/ac-infinity-esp32/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml).
+The latest state of the configuration is
+[available on GitHub](https://github.com/SiloCityLabs/ac-infinity-esp32/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml).
 
 ## Pictures
 

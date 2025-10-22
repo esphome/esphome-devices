@@ -9,9 +9,12 @@ difficulty: 4
 
 ## General Notes
 
-The Knightsbridge CU9KW is a UK-format smart wall socket that lets you switch two outlets on/off remotely and monitors real-time power usage and cumulative energy consumption over Wi-Fi. It fits a standard 2-gang back box and supports OTA updates via ESPHome.
+The Knightsbridge CU9KW is a UK-format smart wall socket that lets you switch two outlets on/off remotely and monitors
+real-time power usage and cumulative energy consumption over Wi-Fi. It fits a standard 2-gang back box and supports OTA
+updates via ESPHome.
 
-The Knightsbridge OP9KW is the exact same product, with the outdoor case, so instructions will work exactly the same for both.
+The Knightsbridge OP9KW is the exact same product, with the outdoor case, so instructions will work exactly the same for
+both.
 
 Manufacturer: [Knightsbridge (ML Accessories)](http://www.mlaccessories.co.uk)
 
@@ -34,10 +37,13 @@ Manufacturer: [Knightsbridge (ML Accessories)](http://www.mlaccessories.co.uk)
 
 ## Flashing
 
-Based on the procedure shared by [maxwroc](https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/3) in the Home Assistant community forum:
+Based on the procedure shared by
+[maxwroc](https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/3) in the Home
+Assistant community forum:
 
 1. **Remove the metal bracket**  
-   Gently squeeze a screwdriver between the metal part and the plastic housing, then pry the metal bracket up around its ends to release it.  
+   Gently squeeze a screwdriver between the metal part and the plastic housing, then pry the metal bracket up around its
+ends to release it.  
    ![Disassembly](./knightsbridge-cu9kw-disassembly.jpg "Removing the metal bracket")
 
 2. **Extract the ESP8266 module**  
@@ -52,9 +58,12 @@ Based on the procedure shared by [maxwroc](https://community.home-assistant.io/t
 
 > **Note:**  
 > Disassembling the plug was easy but you need to be careful with the rivets, which must be pried open to do this mod.  
-> These rivets both electrically bond the screws to earth **and** hold the entire earth assembly in place—when reassembling, be sure to “crush” each rivet head firmly back against the inside of the socket, otherwise pushing a plug in later will force the earth assembly apart.
+> These rivets both electrically bond the screws to earth **and** hold the entire earth assembly in place—when
+reassembling, be sure to “crush” each rivet head firmly back against the inside of the socket, otherwise pushing a plug
+in later will force the earth assembly apart.
 >
-> Source: (DJBenson, Home Assistant Community Forum) https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/16
+> Source: (DJBenson, Home Assistant Community Forum)
+https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/16
 
 ## ESPHome Example Configuration
 
@@ -158,7 +167,9 @@ sensor:
 
 ## ESPHome Configuration with Power Monitoring
 
-Here is a YAML configuration which exposes power monitoring sensors to Home Assistant, including calibration coefficients. To perform the calibration, put a known load on the plug and in HA got to `Developer Tools` -> `Actions` -> `<device_name>_calibrate_current` and enter the correct amount for the known load. Repeat for voltage and power.
+Here is a YAML configuration which exposes power monitoring sensors to Home Assistant, including calibration
+coefficients. To perform the calibration, put a known load on the plug and in HA got to `Developer Tools` -> `Actions`
+-> `<device_name>_calibrate_current` and enter the correct amount for the known load. Repeat for voltage and power.
 
 ```yaml
 substitutions:

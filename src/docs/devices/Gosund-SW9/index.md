@@ -12,7 +12,8 @@ board: esp8266
 
 ## Flashing
 
-Use a USB to serial adapter, and solder wires onto the pads marked TX, RX, 3.3V and GND. Hold "K2" button when connecting 3.3V to enter flash mode. Tuya Convert may work as well.
+Use a USB to serial adapter, and solder wires onto the pads marked TX, RX, 3.3V and GND. Hold "K2" button when
+connecting 3.3V to enter flash mode. Tuya Convert may work as well.
 
 ## GPIO Pinout
 

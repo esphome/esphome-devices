@@ -158,7 +158,8 @@ sensor:
 
 ## Advanced config additions
 
-Starting with ESPHome v1.16.1 the `hlw8012` platform sensor now supports energy, so we can add the following to the `hlw8012` platform sensor and get rid of the `total_daily_energy` platform sensor and the `homeassistant` time sensor:
+Starting with ESPHome v1.16.1 the `hlw8012` platform sensor now supports energy, so we can add the following to the
+`hlw8012` platform sensor and get rid of the `total_daily_energy` platform sensor and the `homeassistant` time sensor:
 
 ```yaml
 sensor:
@@ -169,7 +170,8 @@ sensor:
       icon: mdi:flash-outline
 ```
 
-Under wifi this can be added, this will set up static IP, allow the device to connect to a hidden SSID (fast_connect) and create a backup AP
+Under wifi this can be added, this will set up static IP, allow the device to connect to a hidden SSID (fast_connect)
+and create a backup AP
 
 ```yaml
 wifi:

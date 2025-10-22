@@ -47,7 +47,8 @@ A shift register is controlling the status LEDs and the relay output, the pinout
 | QG         | nc        |
 | QH         | nc        |
 
-The Out 1 status LED and the relay are on the same output. From what I've seen the board looks like it's being used for the Shelly Pro 1, Pro 2, Pro 1PM, and Pro 2PM. But I can't comfirm it.
+The Out 1 status LED and the relay are on the same output. From what I've seen the board looks like it's being used for
+the Shelly Pro 1, Pro 2, Pro 1PM, and Pro 2PM. But I can't comfirm it.
 There are all the spaces needed for all device variants.
 
 ![Shelly Pro 1 2](https://user-images.githubusercontent.com/38843794/156607379-c914f5e8-fbc2-407e-b529-71da5f173b7a.png)

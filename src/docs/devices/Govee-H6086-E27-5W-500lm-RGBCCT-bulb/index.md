@@ -10,7 +10,8 @@ difficulty: 4
 Uses T103 module. CPU is RTL8710BN.
 ![alt text](pcb.jpg "PCB")
 
-First, desolder the vcc and gnd on the back of the pcb before connecting all the wires to the respective pins otherwise it won't go into download mode.
+First, desolder the vcc and gnd on the back of the pcb before connecting all the wires to the respective pins otherwise
+it won't go into download mode.
 ![alt text](pcb_back.jpg "Back")
 
 ## GPIO Pinout

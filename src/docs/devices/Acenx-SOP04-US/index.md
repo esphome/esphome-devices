@@ -18,7 +18,9 @@ board: esp8266
 | GPIO13 | Button1       |
 | GPIO14 | Relay2        |
 
-The physcal button operates both relays. Toggle `relay1` using a short press and `relay2` using a long press. Timing can be adjusted in configuration. The blue LED is for status and green will be on if either or both relays are on. The green LED will be off if both relays are off.
+The physcal button operates both relays. Toggle `relay1` using a short press and `relay2` using a long press. Timing can
+be adjusted in configuration. The blue LED is for status and green will be on if either or both relays are on. The green
+LED will be off if both relays are off.
 
 ## Basic Configuration
 

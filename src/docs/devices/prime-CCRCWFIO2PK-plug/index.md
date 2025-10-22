@@ -9,7 +9,8 @@ difficulty: 4
 
 ![alt text](CCRCWFIO2PK.jpg "PRIME CCRCWFIO2PK Plug")
 
-This smart plug has two outlets controlled by the same relay. The relay is toggled via a button. The blue LED indicates network connectivity, while the red LED shows the relay state.  
+This smart plug has two outlets controlled by the same relay. The relay is toggled via a button. The blue LED indicates
+network connectivity, while the red LED shows the relay state.  
 The device was purchased at Costco CA.
 
 Model: CCRCWFIO2PK
@@ -26,10 +27,13 @@ CHIP: EPS8285
 
 ### USB Serial Converter
 
-The device must be disassembled to access the UART contacts. There are three screws: two are visible, and the third is under the sticker in the middle on the opposite side. Once the screws are removed, the lid can be easily taken off.  
+The device must be disassembled to access the UART contacts. There are three screws: two are visible, and the third is
+under the sticker in the middle on the opposite side. Once the screws are removed, the lid can be easily taken off.  
 ![alt text](CCRCWFIO2PK-disassembled.jpg "PRIME CCRCWFIO2PK Plug disassembled")
 
-Connect IO0 to GND to enter boot mode. To restart the device before entering boot mode, either reconnect GND or momentarily connect RST to GND. It is possible to flash the device without soldering the pins, but it may be a bit tricky.
+Connect IO0 to GND to enter boot mode. To restart the device before entering boot mode, either reconnect GND or
+momentarily connect RST to GND. It is possible to flash the device without soldering the pins, but it may be a bit
+tricky.
 
 ## GPIO Pinout
 
@@ -87,7 +91,8 @@ binary_sensor:
 
 ## Basic Configuration
 
-The following configuration mimics the original behavior: pressing the `Button` toggles the `Relay`. The `Blue LED` indicates status, and the `Red LED` turns on when the `Relay` is on.
+The following configuration mimics the original behavior: pressing the `Button` toggles the `Relay`. The `Blue LED`
+indicates status, and the `Red LED` turns on when the `Relay` is on.
 
 ```yaml
 substitutions:

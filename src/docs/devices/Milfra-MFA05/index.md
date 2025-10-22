@@ -10,7 +10,8 @@ board: esp8266
 
 When taking the device apart, there are no headers for RX/TX. You must solder them on. They are labeled on the board.
 
-There are headers for ground and 5v. You can use these to power the device while flashing. Press and hold the button while powering on the device to put it into flash mode.
+There are headers for ground and 5v. You can use these to power the device while flashing. Press and hold the button
+while powering on the device to put it into flash mode.
 
 This device is also sold and marketed as the CloudFree SWM1.
 
@@ -27,7 +28,8 @@ This device is also sold and marketed as the CloudFree SWM1.
 
 ## Example Configuration
 
-Courtesy of rootnegativ1 on the Home Assistant forums: https://community.home-assistant.io/t/milfra-motion-sensor-light-switch-mfa05/439857/8
+Courtesy of rootnegativ1 on the Home Assistant forums:
+https://community.home-assistant.io/t/milfra-motion-sensor-light-switch-mfa05/439857/8
 
 ```yaml
 # https://templates.blakadder.com/cloudfree_SWM1.html

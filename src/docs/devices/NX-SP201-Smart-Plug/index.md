@@ -8,9 +8,14 @@ board: esp8266
 
 Dual outlet, dual relay socket with single channel power monitoring. Flashable via tuya-convert.
 
-Multiple versions of this socket exist. The module the 'blue ESP' pinout came from was [purchased from this Amazon link](https://amzn.to/3lYqj9A), but no guarantees that one purchased from that link is the same. Even more versions of the NX-SP201 outlet also exist, based on pinouts listed on other sites.
+Multiple versions of this socket exist. The module the 'blue ESP' pinout came from was
+[purchased from this Amazon link](https://amzn.to/3lYqj9A), but no guarantees that one purchased from that link is the
+same. Even more versions of the NX-SP201 outlet also exist, based on pinouts listed on other sites.
 
-Flashing the wrong pinout can brick the device! Enabling GPIO9 bricked the 'blue ESP' version of the plug (though GPIO10 also gave a warning, but did not brick the device). Though it is recoverable with UART/GPIO0 flashing, desoldering the module to access the ESP module's pins can damage it. Only enable pins that give the 'pin might already be used by the flash interface' warning (GPIO6-11) once you're sure that's the correct pin.
+Flashing the wrong pinout can brick the device! Enabling GPIO9 bricked the 'blue ESP' version of the plug (though GPIO10
+also gave a warning, but did not brick the device). Though it is recoverable with UART/GPIO0 flashing, desoldering the
+module to access the ESP module's pins can damage it. Only enable pins that give the 'pin might already be used by the
+flash interface' warning (GPIO6-11) once you're sure that's the correct pin.
 
 ## GPIO Pinout
 
@@ -147,7 +152,8 @@ sensor:
 
 ## Split Configuration
 
-If you have multiple of these sockets (some come in packs), you may want to keep the shared code in one file and only put device specific information in files for each relay.
+If you have multiple of these sockets (some come in packs), you may want to keep the shared code in one file and only
+put device specific information in files for each relay.
 
 nx-sp201-common.yaml:
 

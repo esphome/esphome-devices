@@ -36,13 +36,16 @@ The header CN is under the board, visible after removing the 4 screws.
 
 ## Light as fully-featured package
 
-[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this device,
+[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this
+device,
 which permits quick flashing with a pre-compiled binary as well as automatic adoption, deployment, and updates.
 
 [Github Project Link](https://github.com/joshuaboniface/martinjerry-esphome)
 
-The functionality has been modified quite significantly from the example below, to provide an experience more like a WeMo
-dimmer switch as well as provide more flexibility for control in HomeAssistant dashboards and automations. See the README
+The functionality has been modified quite significantly from the example below, to provide an experience more like a
+WeMo
+dimmer switch as well as provide more flexibility for control in HomeAssistant dashboards and automations. See the
+README
 in the repository for more information and examples.
 
 ## Light
@@ -357,7 +360,8 @@ ota:
 
 ## Timed Fan control
 
-The MJ-SD01 can control a low power (<400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds as feedback on how much time is left.
+The MJ-SD01 can control a low power (<400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds
+as feedback on how much time is left.
 
 ```yaml
 # Timed fan control

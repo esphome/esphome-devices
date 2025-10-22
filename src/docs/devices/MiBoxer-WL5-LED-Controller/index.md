@@ -10,9 +10,12 @@ difficulty: 4
 
 ![MiBoxer WL5](MiBoxer-WL5.jpg "MiBoxer WL5 WiFi 5 in 1 LED Strip Controller")
 
-The MiBoxer WL5 is an LED controller with support for single color, CCT, RGB, RGBW, and RGBWW LED strips. It also has support for 2.4 GHz RF remote controls.
+The MiBoxer WL5 is an LED controller with support for single color, CCT, RGB, RGBW, and RGBWW LED strips. It also has
+support for 2.4 GHz RF remote controls.
 
-Functionally, it closely resembles the [Tuya WB5 LED controller](/devices/Tuya-WB5-WiFi-5in1-LED-Controller), with the main difference being the microcontroller. The WL5 uses a Tuya WR3 module, which is based on the RTL8710BN microcontroller.
+Functionally, it closely resembles the [Tuya WB5 LED controller](/devices/Tuya-WB5-WiFi-5in1-LED-Controller), with the
+main difference being the microcontroller. The WL5 uses a Tuya WR3 module, which is based on the RTL8710BN
+microcontroller.
 
 ## Pinout
 
@@ -37,7 +40,8 @@ Functionally, it closely resembles the [Tuya WB5 LED controller](/devices/Tuya-W
   - **TX** → RX2  
     Refer to the image above for the pinout layout.
 
-- If you haven’t already, download [**ltchiptool**](https://github.com/libretiny-eu/ltchiptool), a command-line utility for flashing and dumping firmware.  
+- If you haven’t already, download [**ltchiptool**](https://github.com/libretiny-eu/ltchiptool), a command-line utility
+  for flashing and dumping firmware.  
   **Note**: The standard ESP flasher is not compatible with this device.
 
 ## Flashing
@@ -51,11 +55,13 @@ Before flashing or dumping firmware, the device must be placed in **download mod
 3. Connect the programming adapter to your PC.
    > _ltchiptool will prompt you later to disconnect TX2 from GND._
 
-**Note:** As an alternative to disconnecting and reconnecting power, you can also **power cycle** the device by shorting the **EN** pin to **GND**
+**Note:** As an alternative to disconnecting and reconnecting power, you can also **power cycle** the device by shorting
+the **EN** pin to **GND**
 
 ## Backing up the original firmware
 
-Before flashing ESPHome, it’s highly recommended to back up the original firmware in case you want to restore the stock functionality later. Run:
+Before flashing ESPHome, it’s highly recommended to back up the original firmware in case you want to restore the stock
+functionality later. Run:
 
 ```shell
 ltchiptool flash read realtek-ambz2 wl5_backup.uf2

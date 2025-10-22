@@ -10,7 +10,9 @@ board: esp8266
 
 ## General Notes
 
-There's two hardware iterations of this particular IR blaster: the older version documented here that uses an ESP01 module, and [a newer one that uses a CB3S module](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version) (a Beken BK7231N module in the same form factor as the older ESP01). Outwardly, both appear identical.
+There's two hardware iterations of this particular IR blaster: the older version documented here that uses an ESP01
+module, and [a newer one that uses a CB3S module](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version) (a
+Beken BK7231N module in the same form factor as the older ESP01). Outwardly, both appear identical.
 
 ## GPIO Pinout
 

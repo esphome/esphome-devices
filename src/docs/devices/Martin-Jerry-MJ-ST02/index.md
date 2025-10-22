@@ -10,7 +10,8 @@ board: esp8266
 
 Martin Jerry MJ-ST02 3-Way Switch
 
-I received mine when ordering Tasmota pre-flashed Martin Jerry 3-way switches from [Amazon](https://amzn.to/3GFjAMY), even though the listing shows them as MJ-ST01 switches.
+I received mine when ordering Tasmota pre-flashed Martin Jerry 3-way switches from [Amazon](https://amzn.to/3GFjAMY),
+even though the listing shows them as MJ-ST01 switches.
 
 ## Notes
 

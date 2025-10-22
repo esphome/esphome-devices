@@ -20,11 +20,15 @@ _NOTE_: Before flashing always make a backup of the original firmware.
 These units generally ship with a firmware which is no longer exploitable by tuya-fwcutter,
 so some disassembly and soldering will be required to flash using serial.
 
-First, you need to separate the motor unit from the RCBO, open the two plastics un top and botton that keep the unit together, there is also a tiny screw, on the motor unit, remove it before separating the two units.
+First, you need to separate the motor unit from the RCBO, open the two plastics un top and botton that keep the unit
+together, there is also a tiny screw, on the motor unit, remove it before separating the two units.
 Second, the 6 rivets need to be drilled out with a 2mm drill bit from the motor unit. You'll need something to replace
-these when you reassemble the unit; M1.6 nuts and 16mm bolts work well, also there are available some rivets on the internet marketplaces, in case you want to use rivets, you will need 2mm diameter, 18mm length.
+these when you reassemble the unit; M1.6 nuts and 16mm bolts work well, also there are available some rivets on the
+internet marketplaces, in case you want to use rivets, you will need 2mm diameter, 18mm length.
 
-Once open, try to not move the controlling wheels mechanism and keep some photo to remount everything in the right place in case something moves or is accidentally removed from it's place, you will need 4 points to solder and attach the serial connection:
+Once open, try to not move the controlling wheels mechanism and keep some photo to remount everything in the right place
+in case something moves or is accidentally removed from it's place, you will need 4 points to solder and attach the
+serial connection:
 
 ![Open unit](unit-disassembled.png "Open unit")
 
@@ -33,16 +37,19 @@ All the pins you need to flash the device are accessible:
 - VDD / +3.3v (red circled visible in the open unit)
 - GND (black one circled visible in the open unit)
 
-_NOTE_: to check if GND is correct use a multimeter and check who gives you short circuit against metal shell of CBU, that is GND access, other one is VDD
+_NOTE_: to check if GND is correct use a multimeter and check who gives you short circuit against metal shell of CBU,
+that is GND access, other one is VDD
 
 - RX (white circled visible in open unit)
 - TX (green circled visible in open unit)
 
 _NOTE_: TX and RX are referred as per CBU spec, so you have to use TX for RX and vice versa when connecting to serial
 
-You don't need to completely remove the board from the device, as shown in the picture above. But do not attempt to flash it while it's connected to the mains!
+You don't need to completely remove the board from the device, as shown in the picture above. But do not attempt to
+flash it while it's connected to the mains!
 
-When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power off/on)` disconnect and reconnect the GND line, and it should proceed.
+When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power off/on)` disconnect and reconnect the GND
+line, and it should proceed.
 
 ## Tuya Datapoints
 
@@ -53,7 +60,8 @@ When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power o
 | 103        | Remote Lock (switch)          |
 | 104        | Local Lock (binary sensor)    |
 
-_NOTE_: When remote lock is active you won't be able to activate the RCBO locally, also, if not remotely locked, with local lock you won't be able to do any action in the RCBO or other datapoints
+_NOTE_: When remote lock is active you won't be able to activate the RCBO locally, also, if not remotely locked, with
+local lock you won't be able to do any action in the RCBO or other datapoints
 
 ## Configuration
 
@@ -279,7 +287,8 @@ script:
                 (id(attempts) = 0);
 ```
 
-_NOTE_: this particular configuration will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or retries (so 3, 6 and 9 minutes).
+_NOTE_: this particular configuration will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or
+retries (so 3, 6 and 9 minutes).
 
 [Test Report EMC](5-Test-Report-EMC.pdf)
 [Test Report LVD](5-Test-Report-LVD.pdf)

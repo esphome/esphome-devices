@@ -6,7 +6,8 @@ standard: eu
 board: esp8266
 ---
 
-This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
+This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the
+sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
 
 More info:
 <https://templates.blakadder.com/XS-A12.html>

@@ -755,6 +755,7 @@ cards:
 
 ## Original firmware
 
-I have put a backup of the original firmware, and I also modified the AMA HOME APK but only for reconnect the original firmware to Wifi, ssg360 seems down.
+I have put a backup of the original firmware, and I also modified the AMA HOME APK but only for reconnect the original
+firmware to Wifi, ssg360 seems down.
 
 https://github.com/antibill51/Alfawise_SJ-7_HASSIO/tree/master/Original%20firmware

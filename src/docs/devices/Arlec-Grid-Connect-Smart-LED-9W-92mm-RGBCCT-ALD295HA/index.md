@@ -9,9 +9,12 @@ difficulty: 4
 
 ![Product Image](/ALD295HA.jpeg "Product Image")
 
-Sold at Bunnings in Australia as [Model number ALD295HA](https://www.bunnings.com.au/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight_p0549111).
+Sold at Bunnings in Australia as
+[Model number ALD295HA](https://www.bunnings.com.au/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight_p0549111).
 
-This device uses a CB2S module (BK7231N MCU) + BP5768 10 Pin LED Driver, and can be flashed with the `kickstart-bk7231n.uf2` [Kickstart](https://github.com/libretiny-eu/esphome-kickstart) firmware using [ltchiptool](https://github.com/libretiny-eu/ltchiptool).
+This device uses a CB2S module (BK7231N MCU) + BP5768 10 Pin LED Driver, and can be flashed with the
+`kickstart-bk7231n.uf2` [Kickstart](https://github.com/libretiny-eu/esphome-kickstart) firmware using
+[ltchiptool](https://github.com/libretiny-eu/ltchiptool).
 
 ## Tuya Cloudcutter / Tuya Convert
 
@@ -34,7 +37,8 @@ This device can be accessed easily enough with a suction cup and a Phillips head
 ## Flashing
 
 I have had best success flashing these Tuya chips with the ESP Test Rack Module Programmer.
-Solder connections to 3V3, GND, TX, RX and connect to module programmer of choice. additional GND required to touch CEN during start of flashing process.
+Solder connections to 3V3, GND, TX, RX and connect to module programmer of choice. additional GND required to touch CEN
+during start of flashing process.
 
 | CB2S | Programmer              |
 | ---- | ----------------------- |

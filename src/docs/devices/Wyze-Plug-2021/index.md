@@ -8,11 +8,13 @@ board: esp32
 
 ## Initial Install
 
-This device is glued together pretty tightly, but can be opened with the application of hot air and prying. It must be opened for the first upload.
+This device is glued together pretty tightly, but can be opened with the application of hot air and prying. It must be
+opened for the first upload.
 
 ## GPIO Pinout
 
-There are multiple versions of this device, all nominally using the WLPP1 base model number. An earlier version may use these GPIOs:
+There are multiple versions of this device, all nominally using the WLPP1 base model number. An earlier version may use
+these GPIOs:
 
 | Pin    | Function  |
 | ------ | --------- |

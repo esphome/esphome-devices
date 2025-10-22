@@ -7,7 +7,8 @@ board: esp32
 difficulty: 3
 ---
 
-Sonoff BASIC R4 is upgraded with esp32c3 and a new 'magic mode switch' feature that can be enabled with custom component by @ssieb.
+Sonoff BASIC R4 is upgraded with esp32c3 and a new 'magic mode switch' feature that can be enabled with custom component
+by @ssieb.
 
 Pinouts and pictures are taken from [digiblur's website](https://digiblur.com/wiki/devices/relays/sonoff-basic-r4/)
 

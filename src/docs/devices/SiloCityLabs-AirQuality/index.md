@@ -11,7 +11,9 @@ difficulty: 1
 
 ## General Notes
 
-The Air Quality Monitor Kit is designed to provide real-time data on air quality, utilizing the Seeed Xiao ESP32-C3 and the PMS7003 particulate matter sensor. This kit is ideal for environmental monitoring with high accuracy and low power consumption. Features:
+The Air Quality Monitor Kit is designed to provide real-time data on air quality, utilizing the Seeed Xiao ESP32-C3 and
+the PMS7003 particulate matter sensor. This kit is ideal for environmental monitoring with high accuracy and low power
+consumption. Features:
 
 - Utilizes Seeed Xiao ESP32-C3.
 - Measures PM1.0, PM2.5, and PM10.
@@ -32,7 +34,8 @@ The Air Quality Monitor Kit is designed to provide real-time data on air quality
 
 ## Basic Config
 
-The latest state of the configuration is [available on GitHub](https://github.com/SiloCityLabs/esp32-airquality/blob/main/esphome-v1.yaml).
+The latest state of the configuration is
+[available on GitHub](https://github.com/SiloCityLabs/esp32-airquality/blob/main/esphome-v1.yaml).
 
 ## Pictures
 

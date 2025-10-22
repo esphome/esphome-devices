@@ -17,7 +17,8 @@ M5Stack Dial features an M5StampS3, 8M Flash, 1.28 inch Touchscreen, NFC Reader,
 
 ## Pin Mapping
 
-When a pin can be used for multiple purposes (e.g. Port A or Port B), they are documented in the table below instead of the example configuration.
+When a pin can be used for multiple purposes (e.g. Port A or Port B), they are documented in the table below instead of
+the example configuration.
 
 | Pin    | Usage         |
 | ------ | ------------- |

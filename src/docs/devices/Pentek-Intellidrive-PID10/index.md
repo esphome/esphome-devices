@@ -8,14 +8,18 @@ board: esp32
 
 ![image](/pid10.jpg)
 
-Data can be gathered from your Pentair Pentek Intellidrive PID Variable Frequency Pump Controller over Modbus. Tested with a PID10 Device.
+Data can be gathered from your Pentair Pentek Intellidrive PID Variable Frequency Pump Controller over Modbus. Tested
+with a PID10 Device.
 
-The Intellidrive provides a 2-wire RS485 interface. Wire up a an RS485 transceiver like MAX485 to an ESP32 to interface with the device using Esphome's [Modbus Component](https://esphome.io/components/modbus.html)
+The Intellidrive provides a 2-wire RS485 interface. Wire up a an RS485 transceiver like MAX485 to an ESP32 to interface
+with the device using Esphome's [Modbus Component](https://esphome.io/components/modbus.html)
 
 ## Modbus Interface Notes
 
-The Intellidrive Modbus interface is poorly documented. Most interesting registers should be provided below, but there may be more to discover.
-See the [Unofficial Modbus Docs](https://github.com/ryan-lang/pentek-intellidrive-modbus-docs) for more information on known or suspected registers.
+The Intellidrive Modbus interface is poorly documented. Most interesting registers should be provided below, but there
+may be more to discover.
+See the [Unofficial Modbus Docs](https://github.com/ryan-lang/pentek-intellidrive-modbus-docs) for more information on
+known or suspected registers.
 
 ## Configuration example
 

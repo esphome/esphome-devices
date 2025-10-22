@@ -11,22 +11,30 @@ difficulty: 5
 
 These devices are sold under various brand names but typically share the same internal hardware and TuyaMCU protocol.
 
-The stock firmware relies on the Tuya cloud for weather data. This ESPHome configuration liberates the device by allowing it to connect directly to Home Assistant. It can then display weather data from any source you have configured in Home Assistant, such as the OpenWeatherMap integration, a personal weather station, or any other weather service.
+The stock firmware relies on the Tuya cloud for weather data. This ESPHome configuration liberates the device by
+allowing it to connect directly to Home Assistant. It can then display weather data from any source you have configured
+in Home Assistant, such as the OpenWeatherMap integration, a personal weather station, or any other weather service.
 
-The configuration is built on the rtl87xx platform using the LibreTiny framework, we use a custom branch for this since rtl8720c is not yet fully supported.
+The configuration is built on the rtl87xx platform using the LibreTiny framework, we use a custom branch for this since
+rtl8720c is not yet fully supported.
 We also use a custom tuya component in order to correctly handle the weather commands from TuyaMCU.
 
 ![Tuya Smart Weather Station](/device.jpg "Tuya Smart Weather Station")
 
 ## Flashing Instuctions
 
-This device is based on the WBR3 Tuya Module, you can check for flashing setup [on the Elektroda forum](https://www.elektroda.com/rtvforum/topic4097185.html). With the WBR3 removed and with the probe pins soldered you can use ltchiptool to flash it via UART. We strongly recommend using an external power source for the 3v3 power supply. Make sure to connect the GND of the supply and the serial converter together, so they share the same GND reference.
+This device is based on the WBR3 Tuya Module, you can check for flashing setup
+[on the Elektroda forum](https://www.elektroda.com/rtvforum/topic4097185.html). With the WBR3 removed and with the probe
+pins soldered you can use ltchiptool to flash it via UART. We strongly recommend using an external power source for the
+3v3 power supply. Make sure to connect the GND of the supply and the serial converter together, so they share the same
+GND reference.
 
 ## Features
 
 ### Home Assistant Integration
 
-Pulls and displays real-time weather data (temperature, humidity, pressure, wind speed, UV index, real feel, and weather condition) directly from your Home Assistant sensors.
+Pulls and displays real-time weather data (temperature, humidity, pressure, wind speed, UV index, real feel, and weather
+condition) directly from your Home Assistant sensors.
 
 ### Local and RF Sensor Support
 

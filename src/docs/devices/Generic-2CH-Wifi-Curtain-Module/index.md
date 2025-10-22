@@ -9,9 +9,11 @@ Difficulty: Soldering required
 
 ## General Notes
 
-This is a generic dual channel curtain module using a BK7231N chip. To flash it you need to solder 3.3V, GND these are easily accessible at the front of the module.
+This is a generic dual channel curtain module using a BK7231N chip. To flash it you need to solder 3.3V, GND these are
+easily accessible at the front of the module.
 Also RX, TX which are at the inner side of the module next to one of the relays.
-The whole wifi module is suspended on pins because there is a relay under it. So I just bent the wifi bord a bit just to make enough space for soldering the two wires.
+The whole wifi module is suspended on pins because there is a relay under it. So I just bent the wifi bord a bit just to
+make enough space for soldering the two wires.
 It uses a wifi board called CBU.
 
 ## Product Images

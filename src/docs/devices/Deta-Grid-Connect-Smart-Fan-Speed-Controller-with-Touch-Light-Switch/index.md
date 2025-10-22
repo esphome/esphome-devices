@@ -16,7 +16,8 @@ Original version uses ESP8266 controller.
 
 ### Series 2
 
-Newer revision uses BK7231T controller on the Tuya [WB3S module](https://developer.tuya.com/en/docs/iot/wb3s-module-datasheet?id=K9dx20n6hz5n4).
+Newer revision uses BK7231T controller on the Tuya
+[WB3S module](https://developer.tuya.com/en/docs/iot/wb3s-module-datasheet?id=K9dx20n6hz5n4).
 
 ### Series 3
 
@@ -73,14 +74,18 @@ revision uses BK7231N controller on the Tuya [CB3S module](https://developer.tuy
 
 ### Series 1 - Tuya Convert
 
-These switches are Tuya devices, so if you don't want to open them up to flash directly, you can attempt to [use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/) however recently purchased devices are no longer Tuya-Convert compatible.  There's a useful guide to disassemble and serial flash similar switches [on Mike McGuire's blog](https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/). After that, you can use ESPHome's OTA functionality to make any further changes.
+These switches are Tuya devices, so if you don't want to open them up to flash directly, you can attempt to
+[use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/) however recently purchased devices are no
+longer Tuya-Convert compatible.  There's a useful guide to disassemble and serial flash similar switches
+[on Mike McGuire's blog](https://blog.mikejmcguire.com/2020/05/22/deta-grid-connect-3-and-4-gang-light-switches-and-home-assistant/). After that, you can use ESPHome's OTA functionality to make any further changes.
 
 - Put the switch into "smartconfig" / "autoconfig" / pairing mode by holding any button for about 5 seconds.
 - The status LED (to the side of the button(s)) blinks rapidly to confirm that it has entered pairing mode.
 
 ### Series 2 - Cloudcutter
 
-[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the flashing process. Follow the [official guide](https://github.com/tuya-cloudcutter/tuya-cloudcutter) for instructions.
+[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool designed to simplify the flashing process.
+Follow the [official guide](https://github.com/tuya-cloudcutter/tuya-cloudcutter) for instructions.
 
 ### Manual Flashing
 

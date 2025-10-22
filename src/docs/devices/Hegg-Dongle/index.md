@@ -10,7 +10,8 @@ board: esp8266
 
 This is a dongle that plugs into the P1 port on DSMR meters.
 Hegg customers get the [Hegg Dongle](https://hegg.energy/slimme-app/) for free.
-PCB inspection reveals it is made by EARN-E, who presumably sell the same hardware branded as the [EARN-E Energiemonitor](https://earn-e.com/).
+PCB inspection reveals it is made by EARN-E, who presumably sell the same hardware branded as the
+[EARN-E Energiemonitor](https://earn-e.com/).
 
 ## Product Images
 
@@ -52,16 +53,22 @@ The text below assumes you removed the plastic wrap around the device.
 A (so far) untested alternative is to poke a few pins through the plastic at the bottom to reach the pads.
 If you try this, please update this document with your experiences!
 
-Using the pads, or just the pins on the ESP12F, flashing this device is a pretty "normal" procedure, except that GPIO3/RXD0 is also used to receive data from the smart meter.
-The DSMR/P1 smart meter protocol uses inverted logic levels for serial, and the dongle contains an inverter circuit to turn these back around to something the ESP can work with.
+Using the pads, or just the pins on the ESP12F, flashing this device is a pretty "normal" procedure, except that
+GPIO3/RXD0 is also used to receive data from the smart meter.
+The DSMR/P1 smart meter protocol uses inverted logic levels for serial, and the dongle contains an inverter circuit to
+turn these back around to something the ESP can work with.
 It turns out that this inverter circuit makes RXD0 unusable if the physical Data pin on the P1 port is left floating.
 
 To flash:
 
-- Make GPIO3/RXD0 idle by connecting `data_in` to GND, or tie the corresponding pins (5 and 6, the topmost two) on the P1 connector end together.
+- Make GPIO3/RXD0 idle by connecting `data_in` to GND, or tie the corresponding pins (5 and 6, the topmost two) on the
+  P1 connector end together.
 - Connect either the `txd` pad or the GPIO1/TXD0 pin to RX on your serial converter
-- Connect either the `rxd`, or `data_in` pad, or pin 5 of the P1 socket, or the GPIO3/RXD0 pin to TX on your serial converter. If you use `data_in` or the P1 pin, you likely need to invert your signal.
-- Power by connecting GND and VCC to your serial converter, or plugging in USB. Presumably you can also power the dongle via 5V+GND on the P1 connector. Have GND connected to GPIO0/FLASH during powerup, or briefly tie RST to GND with GPIO0/FLASH also tied to GND to reset into flashing mode.
+- Connect either the `rxd`, or `data_in` pad, or pin 5 of the P1 socket, or the GPIO3/RXD0 pin to TX on your serial
+  converter. If you use `data_in` or the P1 pin, you likely need to invert your signal.
+- Power by connecting GND and VCC to your serial converter, or plugging in USB. Presumably you can also power the dongle
+  via 5V+GND on the P1 connector. Have GND connected to GPIO0/FLASH during powerup, or briefly tie RST to GND with
+  GPIO0/FLASH also tied to GND to reset into flashing mode.
 - Flash as usual with something like `esptool`
 
 ## Flashing photos
@@ -281,4 +288,6 @@ output:
 
 ## Credits
 
-Documented by [Peter van Dijk](https://github.com/Habbie) with lots of input and help from [Joris Vandalon](https://github.com/vandalon), [Robert van der Meulen](https://github.com/rvdm), and [Bart Smit](https://github.com/bitkat).
+Documented by [Peter van Dijk](https://github.com/Habbie) with lots of input and help from
+[Joris Vandalon](https://github.com/vandalon), [Robert van der Meulen](https://github.com/rvdm), and
+[Bart Smit](https://github.com/bitkat).

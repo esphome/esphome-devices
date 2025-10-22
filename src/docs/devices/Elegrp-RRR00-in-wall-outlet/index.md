@@ -27,7 +27,8 @@ https://fccid.io/2ANDL-CBU/User-Manual/CBU-User-Manual-updated-5064101.pdf
 
 ## Pinout
 
-The PCB on my outlet had some wrong labels for pins. This confused me until I ohmed straight from the base PCB to the CBU module.
+The PCB on my outlet had some wrong labels for pins. This confused me until I ohmed straight from the base PCB to the
+CBU module.
 Below are the correct labels, in case it helps you.
 
 | CBU module Pin | Function       | Use on outlet                                             | Label on ELEGRP PCB (mostly incorrect) |

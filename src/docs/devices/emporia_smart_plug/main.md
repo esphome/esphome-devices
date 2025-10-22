@@ -9,7 +9,9 @@ difficulty: 4
 
 ## Initial Install
 
-You must dissasemble the case to access the VDD, GND, RX, and TX pins. They can be accessed on the ESP daughterboard or from under the main board at the board connection. Modifying the rear housing is required to access the daugherboard mounting pins.
+You must dissasemble the case to access the VDD, GND, RX, and TX pins. They can be accessed on the ESP daughterboard or
+from under the main board at the board connection. Modifying the rear housing is required to access the daugherboard
+mounting pins.
 
 ## GPIO Pinout
 

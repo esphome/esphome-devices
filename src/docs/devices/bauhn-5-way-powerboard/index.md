@@ -11,11 +11,14 @@ difficulty: 4
 
 ## Product description
 
-This is a Bauhn (Aldi) AP5W-0624 It is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets. Purchased in July 2024.
+This is a Bauhn (Aldi) AP5W-0624 It is a 5-outlet powerboard with separate "always on" 2xUSB-A and 2xUSB-C outlets.
+Purchased in July 2024.
 
 The powerboard incorporates a Tuya CBU module incorporating the BK7231N processor.
-To realign for ESPHome use I went straight for the "solder and reprogram" method rather than eploring other software only repogramming options.
-The unit is easy to open with "Triangle" socket screws on the back. The CBU module is fairly accessable to solder on the 5 required wires.
+To realign for ESPHome use I went straight for the "solder and reprogram" method rather than eploring other software
+only repogramming options.
+The unit is easy to open with "Triangle" socket screws on the back. The CBU module is fairly accessable to solder on the
+5 required wires.
 
 https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
@@ -68,7 +71,8 @@ https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u
 
 ## Button
 
-The setup will turn on plugs 1 to 4 with each short press, then once all plugs are on, turn off plugs 1 to 4 with each short press.
+The setup will turn on plugs 1 to 4 with each short press, then once all plugs are on, turn off plugs 1 to 4 with each
+short press.
 
 A long press will toggle all plugs on or off.
 

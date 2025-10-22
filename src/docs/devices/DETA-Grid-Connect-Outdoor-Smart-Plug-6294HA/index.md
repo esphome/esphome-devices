@@ -8,17 +8,23 @@ board: bk72xx
 
 ## Overview
 
-The [DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781) comes with a WB2S module.
+The
+[DETA Outdoor Double Powerpoint](https://www.bunnings.com.au/deta-grid-connect-smart-outdoor-double-powerpoint_p0172781)
+comes with a WB2S module.
 
 ### Using Cloudcutter
 
-[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool that simplifies flashing Tuya-based devices. It allows you to flash the firmware remotely, eliminating the need to physically open the device. [Follow these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Deta 6294HA device using Cloudcutter.
+[Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter) is a tool that simplifies flashing Tuya-based
+devices. It allows you to flash the firmware remotely, eliminating the need to physically open the device.
+[Follow these instructions](https://github.com/tuya-cloudcutter/tuya-cloudcutter) to flash your Deta 6294HA device using
+Cloudcutter.
 
 ---
 
 ### Note on Power Monitoring
 
-Power measurement uses the HLW8032 or CSE7766 protocol at 4800 baud. Program the device before installing the module as the RX pin is used.
+Power measurement uses the HLW8032 or CSE7766 protocol at 4800 baud. Program the device before installing the module as
+the RX pin is used.
 
 ---
 
@@ -50,7 +56,8 @@ Power measurement uses the HLW8032 or CSE7766 protocol at 4800 baud. Program the
 
 ### Calibration
 
-For calibration, check out Frenck's [comprehensive guide](https://frenck.dev/calibrating-an-esphome-flashed-power-plug/#7-applying-corrections-to-the-firmware).
+For calibration, check out Frenck's
+[comprehensive guide](https://frenck.dev/calibrating-an-esphome-flashed-power-plug/#7-applying-corrections-to-the-firmware).
 
 ---
 
