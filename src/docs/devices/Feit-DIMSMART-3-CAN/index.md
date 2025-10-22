@@ -27,7 +27,7 @@ I don't like to solder onto that pad because it can pull the pad off. This makes
 ltchiptool flash read beken-72xx ./dimmer1
 ```
 
-## Installing ESPhome
+## Installing ESPHome
 
 I used ltchiptool's UPK2ESPHome to parse the firmware. The result is the configuration below. Put that config into a .yml file and compile the firmware:
 
