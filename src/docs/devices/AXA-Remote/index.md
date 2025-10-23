@@ -5,7 +5,7 @@ type: misc
 standard: global
 board: esp32
 project-url: https://github.com/rrooggiieerr/esphome-axaremote
-made-for-esphome: False
+made-for-esphome: true
 difficulty: 1
 ---
 
