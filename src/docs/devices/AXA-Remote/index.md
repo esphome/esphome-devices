@@ -19,6 +19,7 @@ The [AXA Remote component for ESPHome](https://github.com/rrooggiieerr/esphome-a
 Remote window opener using these serial commands.
 
 The component features:
+
 - Open/Stop/Close the window
 - Move window to a given position
 - Calibrate the open/close timings
