@@ -10,7 +10,7 @@ difficulty: 1
 ---
 
 The AXA Remote is a [rigid chain actuator](https://en.wikipedia.org/wiki/Rigid_chain_actuator) driven electronic window
-opener that is mounted in the window frame. It comes with an infrared remote controll but can also be controlled using
+opener that is mounted in the window frame. It comes with an infrared remote control but can also be controlled using
 serial commands.
 
 <img src="AXA Remote.jpg"/>
@@ -26,7 +26,7 @@ The component features:
 
 ## PCB
 
-A custom PCB is developed that fits in the battery compartment of the AXA Remote and can controll up to two window
+A custom PCB is developed that fits in the battery compartment of the AXA Remote and can control up to two window
 openers. Only minor modifications to the battery compartment are needed.
 
 <img src="PCB in battery compartment.png"/>
