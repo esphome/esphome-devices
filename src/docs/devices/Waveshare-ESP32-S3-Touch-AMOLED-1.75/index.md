@@ -22,7 +22,8 @@ difficulty: 2
 ## Product description
 
 A circular 1.75in / 45mm AMOLED display with touchscreen, esp32s3 microcontroller, and dual microphones with AEC.
-Avalible on [Waveshare](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm?sku=31261) for ~$30. Case and GPS versions are available.
+Avalible on [Waveshare](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm?sku=31261) for ~$30.
+Case and GPS versions are also available.
 
 ## Basic Config
 
