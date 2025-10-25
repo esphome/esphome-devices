@@ -5,33 +5,33 @@ type: switch
 standard: global
 board: bk72xx
 ---
-![Product Image](/aubess_mini_smart_switch_photo.jpg "Product Image")
 
-Maker: <https://aubess.net/>
+![Product Image](./aubess_mini_smart_switch_photo.jpg "Product Image")
+
+Maker: [https://aubess.net/](https://aubess.net/)
 
 Also on Aliexpress.
 
 ## GPIO Pinout
 
-| Pin    | Function            |
-| ------ | ------------------- |
-| P8     | Button              |
-| P14    | External Switch     |
-| P15    | Relay               |
-| P6     | Status Led          |
+| Pin | Function        |
+| --- | --------------- |
+| P8  | Button          |
+| P14 | External Switch |
+| P15 | Relay           |
+| P6  | Status Led      |
 
 ## Internals
 
-![Internals Image](/aubess-mini-smart-switch-internals.jpg "Internals Image")
+![Internals Image](./aubess-mini-smart-switch-internals.jpg "Internals Image")
 
 ## UART Pinout
 
-![Uart Pinout](/aubess-mini-smart-switch-uart-pinout.jpg "UART PINOUT")
+![Uart Pinout](./aubess-mini-smart-switch-uart-pinout.jpg "UART PINOUT")
 
 ## Basic Configuration
 
 ```yaml
-
 esphome:
   name: aubessMini01
   friendly_name: Aubessm01

@@ -12,7 +12,7 @@ difficulty: 3
 
 This device contains an ESP32-C3 and ships with Tasmota firmware.
 To flash it, the device can easily be disassembled by unscrewing the screw at the plug side.
-Alternatively, this procedure by kadam12g works as well—start at step 21: https://github.com/kadam12g/ESPHome-Shelly-Plus-Plug-S?tab=readme-ov-file
+Alternatively, this procedure by kadam12g works as well—start at step 21: [https://github.com/kadam12g/ESPHome-Shelly-Plus-Plug-S?tab=readme-ov-file](https://github.com/kadam12g/ESPHome-Shelly-Plus-Plug-S?tab=readme-ov-file)
 
 ### Example Configuration
 

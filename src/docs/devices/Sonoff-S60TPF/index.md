@@ -12,12 +12,12 @@ difficulty: 4
 
 ## GPIO Pinout
 
-| Pin    | Function                           |
-| ------ | ---------------------------------- |
-| GPIO9  | Push Button (HIGH = off, LOW = on) |
-| GPIO4  | Relay and its status red LED       |
-| GPIO5  | Status LED                         |
-| GPIO7  | TX pin (CSE7759B meter)            |
+| Pin   | Function                           |
+| ----- | ---------------------------------- |
+| GPIO9 | Push Button (HIGH = off, LOW = on) |
+| GPIO4 | Relay and its status red LED       |
+| GPIO5 | Status LED                         |
+| GPIO7 | TX pin (CSE7759B meter)            |
 
 ## Links
 
@@ -53,9 +53,9 @@ wifi:
   ap:
 
 status_led:
-    pin:
-      number: GPIO5
-      inverted: true
+  pin:
+    number: GPIO5
+    inverted: true
 
 switch:
   - id: switch_1
@@ -92,5 +92,4 @@ uart:
   rx_pin: GPIO7
   baud_rate: 4800
   parity: EVEN
-
 ```

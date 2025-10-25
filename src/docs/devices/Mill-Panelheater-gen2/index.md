@@ -11,8 +11,11 @@ difficulty: 5
 
 ## General Notes
 
-Mill panel heaters are available in various versions. This component is specifically designed for **Generation 2 panel heaters** (not compatible with portable heater models). Have a look here to check which generation you have https://millheat.zendesk.com/hc/en-us/articles/360000252071-Which-generation-do-I-have.
-If you have a Generation 3 panel heater (which comes with a built-in ESP32), check out this component: https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater
+Mill panel heaters are available in various versions. This component is specifically designed for **Generation 2 panel
+heaters** (not compatible with portable heater models). Have a look here to check which generation you have
+[https://millheat.zendesk.com/hc/en-us/articles/360000252071-Which-generation-do-I-have](https://millheat.zendesk.com/hc/en-us/articles/360000252071-Which-generation-do-I-have).
+If you have a Generation 3 panel heater (which comes with a built-in ESP32), check out this component:
+[https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater](https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater)
 
 To use this component with a Generation 2 panel heater, you’ll need to replace the HF-LPT120A module with an ESP8266.
 ![Desolder](./desolder.jpg "Desolder the LPT120A chip")
@@ -83,4 +86,7 @@ climate:
 
 ## Credits
 
-This component is based on the work by https://github.com/JDolven/Replacing-HF_LPT120A-in-a-millheat-heater and https://github.com/trondsundt/MillHeat-ESPHome-NodeMCU
+This component builds on the work by:
+
+- [JDolven: Replacing HF LPT120A in a Millheat heater](https://github.com/JDolven/Replacing-HF_LPT120A-in-a-millheat-heater)
+- [trondsundt: MillHeat ESPHome NodeMCU](https://github.com/trondsundt/MillHeat-ESPHome-NodeMCU)

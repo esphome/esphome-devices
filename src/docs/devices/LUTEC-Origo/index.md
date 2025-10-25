@@ -14,7 +14,8 @@ The LED driver hums when the brightness gets too high and the PWM frequency is t
 
 ## Flashing Procedure
 
-On the LED's driver board, there is a small PCB with an ESP32-WROOM-32 module. It's glued in and connected with a 2 MM pitched header. On the backside of the PCB are pads with 2.54 MM header that can be used to flash.
+On the LED's driver board, there is a small PCB with an ESP32-WROOM-32 module. It's glued in and connected with a 2 MM
+pitched header. On the backside of the PCB are pads with 2.54 MM header that can be used to flash.
 
 ## Light Specifications
 
@@ -26,7 +27,7 @@ RGB LEDs: 6
 Brightness: 830 lumens  
 Voltage: 110V~250V  
 Power: 15W  
-IP54 ingress protection  
+IP54 ingress protection
 
 ## Product Images
 
@@ -34,13 +35,13 @@ IP54 ingress protection
 
 ## GPIO Pinout
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO13 | WW Output     |
-| GPIO5  | CW Output     |
-| GPIO25 | Red Output    |
-| GPIO26 | Green Output  |
-| GPIO27 | Blue Output   |
+| Pin    | Function     |
+| ------ | ------------ |
+| GPIO13 | WW Output    |
+| GPIO5  | CW Output    |
+| GPIO25 | Red Output   |
+| GPIO26 | Green Output |
+| GPIO27 | Blue Output  |
 
 ## Basic Configuration
 

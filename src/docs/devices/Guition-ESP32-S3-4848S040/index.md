@@ -21,7 +21,8 @@ difficulty: 2
 
 ## Product description
 
-Avalible on [AliExpress](https://www.aliexpress.com/item/3256806115962222.html) at various vendors. Can be purchased with or without the relay module, which does not fit into a standard EU round 60mm box.
+Avalible on [AliExpress](https://www.aliexpress.com/item/3256806115962222.html) at various vendors. Can be purchased
+with or without the relay module, which does not fit into a standard EU round 60mm box.
 
 ![Connector pinout](./guition-esp32-s3-4848s040-connector.jpg "Connector pinout")
 
@@ -50,7 +51,7 @@ api:
 ota:
   - platform: esphome
     password: !secret ota_password
-    on_begin:  # prevent screen flickering during OTA
+    on_begin: # prevent screen flickering during OTA
       - light.turn_off:
           id: display_backlight
           transition_length: 0s
@@ -111,7 +112,7 @@ display:
     dimensions:
       width: 480
       height: 480
-#    rotation: 270    #uncomment for placement with down-facing USB socket
+    #    rotation: 270    #uncomment for placement with down-facing USB socket
     spi_mode: MODE3
     data_rate: 2MHz
     color_order: RGB
