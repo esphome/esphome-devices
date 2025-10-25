@@ -17,9 +17,9 @@ endless functionalities.
 - ADC can measure any voltage from 0 to 30 VDC
 - supports DS18B20 temperature sensors or a DHT22 humidity and temperature sensor, ...
 
-![device](/shelly_uni_625x625.webp "Device picture")
-![wiring](/shelly_uni_scheme-1536x717.jpg "Wiring diagrams")
-![header](/shelly_uni_gpio.jpg "GPIO header pinout")
+![device](./shelly_uni_625x625.webp "Device picture")
+![wiring](./shelly_uni_scheme-1536x717.jpg "Wiring diagrams")
+![header](./shelly_uni_gpio.jpg "GPIO header pinout")
 
 ## GPIO Pinout
 

@@ -15,7 +15,7 @@ to be flashed over a UART serial connection if Tuya-Convert does not work.
 This template was built using ESPHome 2021.11.3 and does not expose the LEDs or the button to Home Assistant as that was
 not deemed to add any value to the automation.
 
-Inspired by the Tasmota template (<https://templates.blakadder.com/globe_50029.html>)
+Inspired by the Tasmota template ([https://templates.blakadder.com/globe_50029.html](https://templates.blakadder.com/globe_50029.html))
 
 ## GPIO Pinout
 
@@ -202,7 +202,7 @@ substitutions:
   device_description: Globe Electric 50029 Smart plug 1
   friendly_name: Plug 1
 
-<<: !include templates/ge50029.yaml
+&lt;&lt;: !include templates/ge50029.yaml
 ```
 
 If you do that you will need to create a symbolic list to the secrets.yaml file in the same folder or the !secret syntax

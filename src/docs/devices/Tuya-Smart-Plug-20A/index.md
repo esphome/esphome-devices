@@ -10,7 +10,7 @@ difficulty: 4
 
 ![Tuya Smart Plug 16/20A](tuya-smart-plug-20.jpg)
 
-Bought on Aliexpress, looking similar to [Athom Smart Plug](Athom-Smart-Plug-PG01V3-EU16A) but internals turned out much
+Bought on Aliexpress, looking similar to [Athom Smart Plug](../Athom-Smart-Plug-PG01V3-EU16A/) but internals turned out much
 different: this one is using
 [Tuya T34 Module](https://developer.tuya.com/en/docs/iot/t34-module-datasheet?id=Ka0l4h5zvg6j8) chip which was already
 discussed on [Elektroda Forum](https://www.elektroda.com/rtvforum/topic4036975.html).  

@@ -7,7 +7,7 @@ board: bk72xx
 difficulty: 4
 ---
 
-![Product Image](/ALD295HA.jpeg "Product Image")
+![Product Image](./ALD295HA.jpeg "Product Image")
 
 Sold at Bunnings in Australia as
 [Model number ALD295HA](https://www.bunnings.com.au/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight_p0549111).
@@ -30,9 +30,9 @@ This device can be accessed easily enough with a suction cup and a Phillips head
 - Carefully remove the Control PCB from the LED PCB (6 Pin Connector).
 - Once board has been removed, the TX/RX pins can be accessed for flashing.
 
-![Remove diffuser Image](/1.jpg "1")
-![Remove card and screws Image](/2.jpg "2")
-![Remove back cover and PCB Image](/3.jpg "3")
+![Remove diffuser Image](./1.jpg "1")
+![Remove card and screws Image](./2.jpg "2")
+![Remove back cover and PCB Image](./3.jpg "3")
 
 ## Flashing
 
@@ -48,11 +48,11 @@ during start of flashing process.
 | TX1  | RX (Maybe marked TX)    |
 | CEN  | Touch GND @ Flash Start |
 
-![Pin Connections Image](/A.jpg "Pin Connections")
-![3V3 GND TX RX soldered on Image](/B.jpg "3V3 GND TX RX soldered on")
-![ESP flash module connections with additional GND Image](/C.jpg "ESP flash module connections with additional GND")
-![Connections Image](/D.jpg "Connections")
-![Touching CEN pin to reset for flash Image](/E.jpg "Touching CEN pin to reset for flash")
+![Pin Connections Image](./A.jpg "Pin Connections")
+![3V3 GND TX RX soldered on Image](./B.jpg "3V3 GND TX RX soldered on")
+![ESP flash module connections with additional GND Image](./C.jpg "ESP flash module connections with additional GND")
+![Connections Image](./D.jpg "Connections")
+![Touching CEN pin to reset for flash Image](./E.jpg "Touching CEN pin to reset for flash")
 
 ## GPIO Pinout CB2S
 
@@ -61,7 +61,7 @@ during start of flashing process.
 | GPIO07/ P24 | BP5758 Data  |
 | GPIO09/ P26 | BP5758 Clock |
 
-![LED Driver](/4.jpg "BP5758")
+![LED Driver](./4.jpg "BP5758")
 
 ## Example Configuration
 

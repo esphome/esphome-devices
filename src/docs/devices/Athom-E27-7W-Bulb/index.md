@@ -23,7 +23,7 @@ Base: E27
 
 ## Product Images
 
-![Athom E27 7W Bulb](/Athom-E27-7W-Bulb.png "Athom E27 7W Bulb")
+![Athom E27 7W Bulb](./Athom-E27-7W-Bulb.png "Athom E27 7W Bulb")
 
 ## GPIO Pinout
 

@@ -95,5 +95,5 @@ switch:
     id: tv_on
 ```
 
-![alt text](/irhub1.jpg "Heart-Shaped SZMDX Infrared Hub")
-![alt text](/irhub2.jpg "Heart-Shaped SZMDX Infrared Hub")
+![alt text](./irhub1.jpg "Heart-Shaped SZMDX Infrared Hub")
+![alt text](./irhub2.jpg "Heart-Shaped SZMDX Infrared Hub")

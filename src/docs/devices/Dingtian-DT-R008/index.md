@@ -9,7 +9,7 @@ standard: global
 
 This is a 8-relay board with an ESP32.
 
-I bought it from: <https://pl.aliexpress.com/item/1005004281943758.html>
+I bought it from: [https://pl.aliexpress.com/item/1005004281943758.html](https://pl.aliexpress.com/item/1005004281943758.html)
 
 When ordering this board ask for relay board with test firmware, otherwise the ESP32 will be locked.
 

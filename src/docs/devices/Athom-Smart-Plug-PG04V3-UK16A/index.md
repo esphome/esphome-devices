@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](athom-plug-uk-v3.webp "Athom Smart Plug UK V3 - PG04V3-UK16A")
 
-Maker: <https://www.athom.tech/>
-Product page: <https://www.athom.tech/blank-1/esp32-c3-uk-plug-for-esphome>
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
+Product page: [https://www.athom.tech/blank-1/esp32-c3-uk-plug-for-esphome](https://www.athom.tech/blank-1/esp32-c3-uk-plug-for-esphome)
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

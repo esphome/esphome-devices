@@ -11,7 +11,7 @@ difficulty: 3
 
 Some people experience a boot loop after flashing esphome directly. The boot loop seems to appear on 3.3V DC power only
 (not on AC). Here's a workaround:
-<https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868>
+[https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868](https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868)
 
 ## GPIO Pinout
 

@@ -14,7 +14,7 @@ The Renke RS-FXJT-N01 Wind direction meter is sold in four versions:
 - 0-10V analog voltage output
 - 4-20mA analog current output
 
-![RS-FXJT-N01 Wind direction meter](/directionmeter.png "RS-FXJT-N01 Wind direction")
+![RS-FXJT-N01 Wind direction meter](./directionmeter.png "RS-FXJT-N01 Wind direction")
 
 Parameters:
 

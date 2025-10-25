@@ -6,7 +6,7 @@ standard: global
 board: esp8266
 ---
 
-![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
+![Product Image](./AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
 
 ## General Notes
 

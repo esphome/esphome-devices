@@ -16,7 +16,7 @@ Other versions of this controller are available that do RGB, RGBW, RGBCW.
 
 Flashed using the [Digiblur Clamp method](https://www.digiblur.com/2020/07/free-your-smart-devices-from-cloud.html)
 
-![alt text](/Tuya-AP-Future-CCT.png "Tuya AP Future CCT LED Controller")
+![alt text](./Tuya-AP-Future-CCT.png "Tuya AP Future CCT LED Controller")
 
 ## GPIO Pinout
 
