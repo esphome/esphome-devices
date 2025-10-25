@@ -7,17 +7,17 @@ board: esp8266
 ---
 
 ![alt text](athom_PG03-US16A.webp "Athom Smart Plug PG03-US16A")
-Manufacturer: <https://www.athom.tech/> (_discontinued_. New version:
+Manufacturer: [https://www.athom.tech/](https://www.athom.tech/) (_discontinued_. New version:
 [PG03V2-US16A](https://templates.blakadder.com/athom_PG03V2-US16A-TAS))
 Available with Tasmota pre-flashed.
 
 Pinout information thanks to
 
-- <https://templates.blakadder.com/athom_PG03-US16A.html>
+- [https://templates.blakadder.com/athom_PG03-US16A.html](https://templates.blakadder.com/athom_PG03-US16A.html)
 
 Sensor constants and reference ESPHome configuration from
 
-- <https://github.com/athom-tech/athom-configs/blob/main/athom-smart-plug.yaml>
+- [https://github.com/athom-tech/athom-configs/blob/main/athom-smart-plug.yaml](https://github.com/athom-tech/athom-configs/blob/main/athom-smart-plug.yaml)
 
 ## GPIO Pinout
 

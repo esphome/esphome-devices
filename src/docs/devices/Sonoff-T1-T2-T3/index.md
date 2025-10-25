@@ -9,7 +9,7 @@ board: esp8266
 An example of how to integrate a T1 T2 or T3 Sonoff light switch (R1) into Home Assistant
 using ESPHome.
 
-![Product Image](/sonoff_1t_t3.png "Product Image")
+![Product Image](./sonoff_1t_t3.png "Product Image")
 
 ## T1
 

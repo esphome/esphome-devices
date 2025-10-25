@@ -24,7 +24,7 @@ difficulty: 3
 
 ## Basic Configuration
 
-Based on Sonoff POW Elite 20a (POWR320D) (Source: <https://devices.esphome.io/devices/Sonoff-POW-Elite-20a>).
+Based on Sonoff POW Elite 20a (POWR320D) (Source: [https://devices.esphome.io/devices/Sonoff-POW-Elite-20a](https://devices.esphome.io/devices/Sonoff-POW-Elite-20a)).
 
 To get the correct current and power values, the measurement must be divided by the PI number.
 

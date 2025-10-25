@@ -10,7 +10,7 @@ board: esp8266
 
 ## General Notes
 
-This switch uses tuya so you can [use tuya-convert to flash ESPHome](/guides/tuya-convert/).
+This switch uses tuya so you can [use tuya-convert to flash ESPHome](/devices/tuya-convert).
 
 **Note**: Newer versions (2025+) of this switch seem to use a locked CB3S module and might not be flashable; replacement
 with an ESP8266 module may be required.

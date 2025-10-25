@@ -6,7 +6,7 @@ standard: us
 board: esp8266
 ---
 
-![Product Image](/Globe-34873.jpg "Product Image")
+![Product Image](./Globe-34873.jpg "Product Image")
 
 The LEDs are controlled by 2 PWM output (Cold and White channels).
 
@@ -24,7 +24,7 @@ The LEDs are controlled by 2 PWM output (Cold and White channels).
 As the LED bulb do not have any physical buttons, by turning the bulb on and off three times, you will enter pairing
 mode. This will cause the bulb to start flashing.
 
-Then follow the [tuya-convert](/guides/tuya-convert) guide.
+Then follow the [tuya-convert](/devices/tuya-convert) guide.
 
 ## Configuration
 

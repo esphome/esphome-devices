@@ -16,7 +16,7 @@ board: bk72xx
   * Some versions feature the BK7231S board (`WB3S` label on the chip)
   * Some versions feature the BK7231N board (`CB3S` label on the chip)
   * The LED pins are different for the two boards (see the configuration below)
-* Requires disassembly and soldering to flash, see instructions here: <https://youtu.be/-a5hV1y5aIU?t=85>
+* Requires disassembly and soldering to flash, see instructions here: [https://youtu.be/-a5hV1y5aIU?t=85](https://youtu.be/-a5hV1y5aIU?t=85)
 
 The 2 way switch does not have a power sense pin. To solve this issue, and allow the smart switch to be smart, this code
 turns the White LED on when the light is off and, led off when the light is on. This allows the LEDs pin state to be

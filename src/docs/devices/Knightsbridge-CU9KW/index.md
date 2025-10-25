@@ -63,7 +63,7 @@ reassembling, be sure to “crush” each rivet head firmly back against the ins
 in later will force the earth assembly apart.
 >
 > Source: (DJBenson, Home Assistant Community Forum)
-<https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/16>
+[https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/16](https://community.home-assistant.io/t/smartknight-ml-accessories-ltd-smart-plug/504892/16)
 
 ## ESPHome Example Configuration
 

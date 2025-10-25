@@ -9,9 +9,9 @@ difficulty: 3
 
 ## Product Images
 
-![device](/device.jpg "Device")
+![device](./device.jpg "Device")
 
-![board](/board.jpg "Board")
+![board](./board.jpg "Board")
 
 ## Programming
 
@@ -22,7 +22,7 @@ This device is powered by a [TYWE1S](https://developer.tuya.com/en/docs/iot/wifi
 (ESP8266EX with 2MB flash), you can boot it in flash mode by grounding IO0. Then you can use U0TX and U0RX. You can
 either power the device using the built-in USB, or power it through the 3.3V pin.
 
-![/programming-pins.png](/programming-pins.png "Programming pins")
+![/programming-pins.png](./programming-pins.png "Programming pins")
 
 ## GPIO Pinout
 
@@ -72,4 +72,4 @@ cover:
       switch.turn_off: mcu_cover
 ```
 
-Note that this device is affected by <https://github.com/esphome/issues/issues/6503>.
+Note that this device is affected by [https://github.com/esphome/issues/issues/6503](https://github.com/esphome/issues/issues/6503).

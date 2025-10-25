@@ -11,7 +11,7 @@ Tuya/Smart Life, works with Tuya-convert to flash to ESPHome.
 
 ## Product Images
 
-![alt text](/inside.jpg "inside")
+![alt text](./inside.jpg "inside")
 
 ## GPIO Pinout
 

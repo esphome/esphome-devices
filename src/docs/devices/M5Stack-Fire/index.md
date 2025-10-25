@@ -52,7 +52,7 @@ The bottom part is a charge table, which can be connected to the M5GO base via P
 ## IP5306 Power Management
 
 M5Stack Fire uses a customized version of the IP5306 Power Management circuit
-[Customized IP5306 Datasheet]("https://github.com/m5stack/M5-Schematic/blob/master/Core/IIC_IP5306_REG_V1.4.pdf")
+[Customized IP5306 Datasheet](https://github.com/m5stack/M5-Schematic/blob/master/Core/IIC_IP5306_REG_V1.4.pdf)
 
 | I2C Address | Function                |
 | ----------- | ----------------------- |
@@ -76,8 +76,8 @@ ip5306:
     id: full
 ```
 
-Using the [IP5306 ESPHome Component]("https://github.com/ssieb/custom_components/tree/master/components/ip5306") by
-[@ssieb]("https://github.com/ssieb")
+Using the [IP5306 ESPHome Component](https://github.com/ssieb/custom_components/tree/master/components/ip5306) by
+[@ssieb](https://github.com/ssieb)
 
 ## Wifi Issues due to GPIO15
 
