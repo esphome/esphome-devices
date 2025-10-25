@@ -13,8 +13,8 @@ button.
 
 ## Pictures
 
-![alt text](/zentec-outside.jpg "Outside of smart plug")
-![alt text](/zentec-inside.jpg "Inside view")
+![alt text](./zentec-outside.jpg "Outside of smart plug")
+![alt text](./zentec-inside.jpg "Inside view")
 
 ## GPIO Pinout
 

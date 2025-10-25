@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](athom_RS01C3.webp "Athom Mini Relay - RS01C3-ESP")
 
-Maker: <https://www.athom.tech/>
-Product page: <https://www.athom.tech/blank-1/esp32c3-3-way-relay-for-esphome>
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
+Product page: [https://www.athom.tech/blank-1/esp32c3-3-way-relay-for-esphome](https://www.athom.tech/blank-1/esp32c3-3-way-relay-for-esphome)
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

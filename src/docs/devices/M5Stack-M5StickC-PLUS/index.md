@@ -32,7 +32,7 @@ project-url: https://docs.m5stack.com/en/core/m5stickc_plus
 
 ## External Component
 
-[ESPHome AXP192 Component by martydingo]("https://github.com/martydingo/esphome-axp192")
+[ESPHome AXP192 Component by martydingo](https://github.com/martydingo/esphome-axp192)
 
 This custom component it to implement support for the AXP192 for both the M5Stick-C. It is required to turn on the
 backlight.

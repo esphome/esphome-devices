@@ -12,16 +12,18 @@ board: esp8266
 
 The PM1 board runs on an ESP12F WIFI module and is powered with 115-240V AC using an integrated isolation transformer.
 
-ESPHome Component Docs: <https://esphome.io/components/sensor/atm90e32>
+ESPHome Component Docs: [https://esphome.io/components/sensor/atm90e32](https://esphome.io/components/sensor/atm90e32)
 
 ## Voltage
 
 The PM1 integrates an ATM90E32 IC and is configured to measure single split phase AC lines and up to 2 AC voltages. The
 default configuration isolates one AC phase voltage to the ATM90E32 chip. An optional 6V AC isolation transfomer can be
 used to monitor both Split AC line voltages.
-<https://www.gelidus.ca/product/pm1-reference-voltage-transformer-120vac-to-6vac-kit/>
+[https://www.gelidus.ca/product/pm1-reference-voltage-transformer-120vac-to-6vac-kit/](https://www.gelidus.ca/product/pm1-reference-voltage-transformer-120vac-to-6vac-kit/)
 
-The Gelidus Split Single Phase Power Meter <https://www.gelidus.ca/product/esphome-power-meter-1> is ideal for most home
+The Gelidus Split Single Phase Power Meter
+[https://www.gelidus.ca/product/esphome-power-meter-1](https://www.gelidus.ca/product/esphome-power-meter-1) is ideal
+for most home
 power distributions in North America.
 
 This sensor is pre calibrated for the SCT013-100-50ma or SCT023-200-100ma current transformers and the integrated AC
@@ -30,7 +32,8 @@ mains isolation transformer.
 Note: The PM1 and two 100A/50ma SCT013's supports any 200A service, the SCT023 supports larger conductors and up to a
 400A service.
 
-Full Setup Guide: <https://github.com/GelidusResearch/device.docs/blob/main/pm1.guides/PM1-Setup-Basic-120V.md>
+Full Setup Guide:
+[https://github.com/GelidusResearch/device.docs/blob/main/pm1.guides/PM1-Setup-Basic-120V.md](https://github.com/GelidusResearch/device.docs/blob/main/pm1.guides/PM1-Setup-Basic-120V.md)
 
 ## Current
 

@@ -15,14 +15,14 @@ difficulty: 4
 
 ## Product Images
 
-![device](/device.png "Device")
+![device](./device.png "Device")
 
 ## Programming
 
 This device is powered by a [PSF-B01](https://templates.blakadder.com/PSF-B.html) board (ESP8285). You can flash it
 through the programming pins:
 
-![/programming-pins.png](/programming-pins.png "Programming pins")
+![/programming-pins.png](./programming-pins.png "Programming pins")
 
 The button which is aligned with the micro-USB port is connected to GPIO0. You can use it to boot the board into
 flashing mode.

@@ -25,7 +25,7 @@ They can be flashed without disassembly or soldering [using tuya-convert](#tuya-
 ### Tuya Convert
 
 These wall plugs are Tuya devices, and you can compile the below code in ESPHome, "manually install" to get the .bin
-file, then [use tuya-convert to initially get ESPHome onto the device](/guides/tuya-convert/). After that, you can use
+file, then [use tuya-convert to initially get ESPHome onto the device](/devices/tuya-convert). After that, you can use
 ESPHome's OTA functionality to make any further changes.
 
 - Put the switch into "smartconfig" / "autoconfig" / pairing mode by holding the button for about 5 seconds until it

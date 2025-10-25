@@ -6,7 +6,7 @@ standard: global
 board: esp32
 ---
 
-![image](/pid10.jpg)
+![image](./pid10.jpg)
 
 Data can be gathered from your Pentair Pentek Intellidrive PID Variable Frequency Pump Controller over Modbus. Tested
 with a PID10 Device.

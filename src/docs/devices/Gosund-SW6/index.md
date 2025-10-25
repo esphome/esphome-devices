@@ -24,7 +24,7 @@ In order for the switch to work correctly, it should be placed as the first swit
 put in place with an actual light for testing.
 
 This configuration is based directly on information from this post:
-<https://www.reddit.com/r/Esphome/comments/kn51r0/configuration_for_gosund_sw6/>
+[https://www.reddit.com/r/Esphome/comments/kn51r0/configuration_for_gosund_sw6/](https://www.reddit.com/r/Esphome/comments/kn51r0/configuration_for_gosund_sw6/)
 
 ## GPIO Pinout
 

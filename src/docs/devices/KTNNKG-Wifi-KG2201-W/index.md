@@ -17,9 +17,9 @@ control any device/functionality in your smart home system through the RF button
 
 ## Pictures
 
-![alt text](/top.jpg "Top of closed module")
-![alt text](/inside-top.jpg "Top of inside")
-![alt text](/inside-bottom.jpg "Top of outside")
+![alt text](./top.jpg "Top of closed module")
+![alt text](./inside-top.jpg "Top of inside")
+![alt text](./inside-bottom.jpg "Top of outside")
 
 ## GPIO Pinout
 
