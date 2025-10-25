@@ -18,7 +18,6 @@ interface DeviceMetadata {
   [key: string]: DeviceFrontmatter;
 }
 
-// Function to safely parse frontmatter from markdown content
 function parseFrontmatter(content: string): DeviceFrontmatter {
   try {
     const { data } = matter(content);
