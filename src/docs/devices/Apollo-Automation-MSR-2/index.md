@@ -13,7 +13,8 @@ made-for-esphome: true
 
 ## Description
 
-The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-1 design and shrunk down the size by 30%. It has the following features:
+The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-1 design and shrunk down the size by
+30%. It has the following features:
 
 - HLK-LD2410B+BLE 24GHz Human Presence mmWave Radar Sensor Module.
 - LTR-390UV LUX and UV Sensor.
@@ -36,7 +37,7 @@ The Apollo Automation MSR-2 is a mmWave CO2 multisensor. We improved on the MSR-
 - [Shop](https://apolloautomation.com/products/msr-2)
 - [GitHub](https://github.com/ApolloAutomation/MSR-2)
 - [Wiki](https://wiki.apolloautomation.com/)
-- [Discord](https://discord.gg/mMNgQPyF94)
+- [Discord](https://dsc.gg/ApolloAutomation)
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
 
 ## Product Images

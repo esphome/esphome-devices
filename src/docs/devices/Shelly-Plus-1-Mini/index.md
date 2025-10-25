@@ -10,12 +10,12 @@ board: esp32
 
 ## GPIO Pinout
 
-| Pin    | Function                    |
-| ------ | --------------------------- |
-| GPIO0  | LED (Inverted)              |
-| GPIO1  | Button (Inverted, Pull-up)  |
-| GPIO7  | Relay                       |
-| GPIO10 | Switch input                |
+| Pin    | Function                   |
+| ------ | -------------------------- |
+| GPIO0  | LED (Inverted)             |
+| GPIO1  | Button (Inverted, Pull-up) |
+| GPIO7  | Relay                      |
+| GPIO10 | Switch input               |
 
 The Shelly Plus 1 Mini is based on the ESP32-C3 (Single core, 160MHz, 4MB embedded flash)
 To enter bootloader mode, GPIO9 needs to be pulled down (connected to ground).

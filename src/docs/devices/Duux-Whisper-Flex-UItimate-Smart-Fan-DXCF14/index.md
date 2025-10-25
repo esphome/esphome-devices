@@ -8,26 +8,26 @@ made-for-esphome: False
 difficulty: 3
 ---
 
-![Duux Whisper Flex Ultimater Smart Fan](duux_DXCF14.png  "Duux Whisper Flex Ultimate Smart Fan")
+![Duux Whisper Flex Ultimater Smart Fan](duux_DXCF14.png "Duux Whisper Flex Ultimate Smart Fan")
 
 ## GPIO Pinout
 
-| Pin    | Function   |
-| ------ | ---------- |
-| GPIO00 | Nono       |
-| GPIO01 | None       |
-| GPIO02 | None       |
-| GPIO03 | None       |
-| GPIO04 | None       |
-| GPIO05 | None       |
-| GPIO09 | None       |
-| GPIO10 | None       |
-| GPIO12 | None       |
-| GPIO13 | Tuya Rx    |
-| GPIO14 | None       |
-| GPIO15 | Tuya Tx    |
-| GPIO16 | None       |
-|  FLAG  | None       |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO00 | Nono     |
+| GPIO01 | None     |
+| GPIO02 | None     |
+| GPIO03 | None     |
+| GPIO04 | None     |
+| GPIO05 | None     |
+| GPIO09 | None     |
+| GPIO10 | None     |
+| GPIO12 | None     |
+| GPIO13 | Tuya Rx  |
+| GPIO14 | None     |
+| GPIO15 | Tuya Tx  |
+| GPIO16 | None     |
+| FLAG   | None     |
 
 ## Basic Configuration
 
@@ -80,68 +80,6 @@ uart:
   tx_pin: GPIO15
   rx_pin: GPIO13
   baud_rate: 9600
-
-# Register the Tuya MCU connection
-tuya:
-
-fan:
-  - platform: "tuya"
-    name: None
-    switch_datapoint: 1
-    speed_datapoint: 3
-    speed_count: 26
-
-switch:
-  - platform: template
-    name: "Oscillate horizontally"
-    icon: mdi:arrow-left-right
-    turn_on_action:
-      then:
-        - select.set:
-            id: "horizontally"
-            option: "on"
-    turn_off_action:
-      then:
-        - select.set:
-            id: "horizontally"
-            option: "off"
-    lambda: |-
-      if (id(horizontally).state == "on") {
-        return true;
-      } else {
-        return false;
-      }
-
-  - platform: template
-    name: "Oscillate vertically"
-    icon: mdi:arrow-up-down
-    turn_on_action:
-      then:
-        - select.set:
-            id: "vertically"
-            option: "on"
-    turn_off_action:
-      then:
-        - select.set:
-            id: "vertically"
-            option: "off"
-    lambda: |-
-      if (id(vertically).state == "on") {
-        return true;
-      } else {
-        return false;
-      }
-
-select:
-  - platform: "tuya"
-    id: "horizontally"
-    internal: true
-    name: "Oscillate horizontally"
-    enum_datapoint: 4
-    optimistic: true
-    options:
-      0: "off"
-      1: "on"
 
 # Register the Tuya MCU connection
 tuya:

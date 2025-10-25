@@ -22,7 +22,8 @@ board: esp8266
 
 ## Alternate GPIO Pinout
 
-Unit from 2018/April (Amazon) had a diffent pinout. Visually, the QR code was on the "Live" plug side, and programming pins were slighlty different layout.
+Unit from 2018/April (Amazon) had a diffent pinout. Visually, the QR code was on the "Live" plug side, and programming
+pins were slighlty different layout.
 
 Worth a try if standard pin out isn't working properly (relay will constantly click due sel_pin difference)
 
@@ -50,13 +51,14 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
-  esp8266_restore_from_flash: true
+  restore_from_flash: true
 
 wifi:
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -64,7 +66,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
 
 web_server:
   port: 80
@@ -120,7 +122,7 @@ sensor:
 
 text_sensor:
   - platform: version
-    name: ${friendly_name} ESPhome Version
+    name: ${friendly_name} ESPHome Version
   - platform: wifi_info
     ip_address:
       name: ${friendly_name} IP

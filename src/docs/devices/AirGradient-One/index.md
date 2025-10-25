@@ -52,7 +52,7 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  fast_connect: true
+  ap:
 
 web_server:
   port: 9926
