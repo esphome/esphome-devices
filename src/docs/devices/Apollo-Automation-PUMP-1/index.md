@@ -13,7 +13,8 @@ made-for-esphome: true
 
 The Apollo Automation PUMP-1 is a food safe liquid pump controller with the following features:
 
-- Pump liquids a source to an output. Watering plants, filling coffee machine, draining robot vacuum or fill your dogs water bowl
+- Pump liquids a source to an output. Watering plants, filling coffee machine, draining robot vacuum or fill your dogs
+  water bowl
 - Detect when source liquid level is low
 - Pump until output container is full ( Topping off a fish tank or coffee machine )
 - RGB Pixels: Notify you of the status
