@@ -23,7 +23,7 @@ the daughterboard.
 
 For reflashing the RTL8710, the LibreTiny Chip Tool [ltchiptool](https://github.com/libretiny-eu/ltchiptool) can be used
 to reflash the board via its UART pins which are exposed via the pin header. Details on the reflashing procedure are
-available here: <https://docs.libretiny.eu/docs/platform/realtek-ambz/#flashing>
+available here: [https://docs.libretiny.eu/docs/platform/realtek-ambz/#flashing](https://docs.libretiny.eu/docs/platform/realtek-ambz/#flashing)
 
 We recommend peforming the following steps for reflashing:
 

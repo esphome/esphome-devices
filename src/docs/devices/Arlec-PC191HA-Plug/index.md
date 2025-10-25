@@ -479,8 +479,13 @@ sensor:
 
 ## References
 
-- <https://www.elektroda.com/rtvforum/topic3944452.html> - breakdown of PC191HA and discussion, including about series 2
-- <https://templates.blakadder.com/arlec_PC191HA.html> - TASMOTA definition, which advises to replace the WB2S module
-- <https://community.home-assistant.io/t/energy-consumption-and-arlec-grid-connect-tuya-smart-plug/335508/55>
-- <https://community.home-assistant.io/t/kickstart-bk7231t-to-esphome-add-on/701658> - Discussion about series 2
-  containing different modules
+- [Elektroda forum discussion][pc191ha-forum] - breakdown of PC191HA and discussion, including about series 2
+- [Blakadder template][pc191ha-blakadder] - TASMOTA definition, which advises replacing the WB2S module
+- [Home Assistant energy consumption thread][pc191ha-ha-energy]
+- [Home Assistant Kickstart discussion][pc191ha-ha-kickstart] - Discussion about series 2 containing different modules
+
+[pc191ha-forum]: https://www.elektroda.com/rtvforum/topic3944452.html
+[pc191ha-blakadder]: https://templates.blakadder.com/arlec_PC191HA.html
+[pc191ha-ha-energy]:
+https://community.home-assistant.io/t/energy-consumption-and-arlec-grid-connect-tuya-smart-plug/335508/55
+[pc191ha-ha-kickstart]: https://community.home-assistant.io/t/kickstart-bk7231t-to-esphome-add-on/701658

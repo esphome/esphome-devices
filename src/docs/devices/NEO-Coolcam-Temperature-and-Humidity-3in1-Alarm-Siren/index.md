@@ -11,9 +11,14 @@ with the device).
 Hardware Versions
 
 There are, so far, three known hardware versions. The console will show one of these MCU Product ID’s:
-{"p":"ymf4oruxqx0xlogp","v":"1.0.0","m":0}, {"p":"ymf4oruxqx0xlogp","v":"1.0.1","m":0} ,
-{"p":"ymf4oruxqx0xlogp","v":"1.0.2","m":0}, {“p”:”ymf4oruxqx0xlogp”,”v”:”1.0.3”,”m”:0} or
+
+```json
+{"p":"ymf4oruxqx0xlogp","v":"1.0.0","m":0}
+{"p":"ymf4oruxqx0xlogp","v":"1.0.1","m":0}
+{"p":"ymf4oruxqx0xlogp","v":"1.0.2","m":0}
+{"p":"ymf4oruxqx0xlogp","v":"1.0.3","m":0}
 {"p":"9fngbrgje6ljqhee","v":"1.0.2","m":0}
+```
 
 The ymf versions work with tuya-convert but the 9fn version requires flashing the device with serial.
 

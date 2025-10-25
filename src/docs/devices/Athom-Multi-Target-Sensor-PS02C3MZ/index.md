@@ -13,7 +13,7 @@ difficulty: 1
 ![PS02C3MZ-3](PS02C3MZ-3.webp "Athom Multi Target Radar Sensor - PS02C3MZ-3")
 ![PS02C3MZ-4](PS02C3MZ-4.webp "Athom Multi Target Radar Sensor - PS02C3MZ-4")
 
-Maker: <https://www.athom.tech>
+Maker: [https://www.athom.tech](https://www.athom.tech)
 
 ## Available from
 

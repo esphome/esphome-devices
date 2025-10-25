@@ -9,8 +9,8 @@ made-for-esphome: False
 difficulty: 5
 ---
 
-![alt text](/product.jpg "Product Image")
-![alt text](/ESP12F.jpg "ESP MCU Image")
+![alt text](./product.jpg "Product Image")
+![alt text](./ESP12F.jpg "ESP MCU Image")
 
 ## General Notes
 

@@ -6,7 +6,7 @@ standard: au
 board: esp8266
 ---
 
-![Product Image](/Arlec-Grid-Connect-Smart-9W-CCT-LED-Downlight.jpg "Product Image")
+![Product Image](./Arlec-Grid-Connect-Smart-9W-CCT-LED-Downlight.jpg "Product Image")
 
 Sold at Bunnings in Australia. Model number ALD092CHA.
 

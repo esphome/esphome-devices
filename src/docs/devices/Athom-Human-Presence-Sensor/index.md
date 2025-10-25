@@ -10,7 +10,7 @@ difficulty: 1
 
 ![alt text](Athom-Human-Presence-Sensor.webp "Athom Human Presence Sensor - PS01")
 
-Maker: <https://www.athom.tech/>
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
 
 ## Available from
 

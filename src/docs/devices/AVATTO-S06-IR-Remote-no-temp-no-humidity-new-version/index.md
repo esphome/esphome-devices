@@ -7,7 +7,7 @@ board: bk72xx
 difficulty: 2
 ---
 
-![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
+![Product Image](./AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
 
 ## General Notes
 

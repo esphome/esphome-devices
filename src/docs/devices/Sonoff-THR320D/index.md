@@ -11,11 +11,11 @@ difficulty: 3
 
 Some people experience a boot loop when trying to flash esphome directly.
 Here's a workaround:
-<https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868>
+[https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868](https://community.home-assistant.io/t/bootloop-workaround-for-flashing-sonoff-th-elite-thr316d-thr320d-and-maybe-others-with-esphome-for-the-first-time/498868)
 
 ## GPIO Pinout
 
-(Source: <https://templates.blakadder.com/sonoff_THR320D.html>)
+(Source: [https://templates.blakadder.com/sonoff_THR320D.html](https://templates.blakadder.com/sonoff_THR320D.html))
 Some GPIO are active-low, meaning they're "on" when they're pulled low. In ESPHome that's often called "inverted".
 The relays GPIO are active-high.
 

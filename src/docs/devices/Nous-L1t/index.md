@@ -12,7 +12,7 @@ using ESPHome.
 
 The device comes with Tasmota installed, but can be reflashed to ESPHome
 
-![Product Image](/nous_L1T.webp "Product Image")
+![Product Image](./nous_L1T.webp "Product Image")
 
 ## GPIO Pinout
 

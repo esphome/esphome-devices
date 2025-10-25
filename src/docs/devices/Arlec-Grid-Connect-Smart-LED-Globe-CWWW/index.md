@@ -6,7 +6,7 @@ standard: au
 board: esp8266
 ---
 
-![Product Image](/GLD112HA.jpg "Product Image")
+![Product Image](./GLD112HA.jpg "Product Image")
 
 The `Arlec GLD112HA Grid Connect Smart LED Globe CWWW` is part of the
 [Grid Connect ecosystem](https://grid-connect.com.au/) sold at Bunnings in Australia and can be converted using the

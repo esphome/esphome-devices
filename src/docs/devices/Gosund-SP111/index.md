@@ -18,10 +18,10 @@ opening of the plug is much harder due to a removed screw on the bottom of the d
 
 ## Flashing
 
-The older devices can be flashed [using tuya-convert](/guides/tuya-convert/). Fresh out of the factory it will be in
+The older devices can be flashed [using tuya-convert](/devices/tuya-convert). Fresh out of the factory it will be in
 autoconfig mode. When plugged in for the first time tuya-convert will pick it up directly.
 
-![Hardly visible screw on original SP111](/gosund-sp111.JPG "Hardly visible screw on original SP111")
+![Hardly visible screw on original SP111](./gosund-sp111.JPG "Hardly visible screw on original SP111")
 
 Make sure the plug has that screw on the bottom!
 

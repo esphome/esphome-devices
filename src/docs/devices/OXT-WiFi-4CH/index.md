@@ -14,16 +14,17 @@ Other device could be found as WSM16-4-WIFI
 
 ## Product Images
 
-![main view](/device_main.jpg "FRONT")
-![pcb](/pcb_front.jpg "PCB")
+![main view](./device_main.jpg "FRONT")
+![pcb](./pcb_front.jpg "PCB")
 
 ## Programming
 
 Solder USB TTL wires like below
 
-![soldering](/soldering.jpg "soldering")
+![soldering](./soldering.jpg "soldering")
 
-To enter bootloader mode, ground CEN pin and power device. I used <https://github.com/libretiny-eu/ltchiptool> to
+To enter bootloader mode, ground CEN pin and power device. I used
+[https://github.com/libretiny-eu/ltchiptool](https://github.com/libretiny-eu/ltchiptool) to
 program it
 
 ## GPIO Pinout

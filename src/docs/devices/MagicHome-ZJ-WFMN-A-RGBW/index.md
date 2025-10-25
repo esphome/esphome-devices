@@ -16,7 +16,7 @@ Strobe effects are implemented in this configuration
 :information_source: Please note that MagicHome began to produce devices with BL602 chip instead of ESP. ESPHome is not
 compatible with BL602. Before buying make sure a controller is using the right chip.
 
-![alt text](/MagicHome-ZJ-WFMN-A-RGBW.png "MagicHome RGBW LED strip controller")
+![alt text](./MagicHome-ZJ-WFMN-A-RGBW.png "MagicHome RGBW LED strip controller")
 
 ## GPIO Pinout
 

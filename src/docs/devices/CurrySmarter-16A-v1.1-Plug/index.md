@@ -9,7 +9,7 @@ difficulty: 2
 ---
 
 ![alt text](currysmarter.jpg "CurrySmarter 16A v1.1 Plug")
-Maker: <https://currysmarter.com/>
+Maker: [https://currysmarter.com/](https://currysmarter.com/)
 
 Available on Amazon (preflashed with Tasmota)
 

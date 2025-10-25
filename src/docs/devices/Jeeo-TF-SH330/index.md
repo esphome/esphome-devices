@@ -8,9 +8,9 @@ board: esp8266
 
 ## Product Images
 
-![alt text](/TF-SH330.jpg "Profile picture of device")
+![alt text](./TF-SH330.jpg "Profile picture of device")
 
-Inspired by the Tasmota template: <https://templates.blakadder.com/jeeo_TF-SH330.html>
+Inspired by the Tasmota template: [https://templates.blakadder.com/jeeo_TF-SH330.html](https://templates.blakadder.com/jeeo_TF-SH330.html)
 
 ## GPIO Pinout
 

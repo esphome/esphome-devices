@@ -16,7 +16,7 @@ can be powered either via 120-220VAC, 7-30VDC or 5VDC (separate connectors).
 
 Each relay has COM+NO+NC exposed. The board also exposes a plethora of free GPIOs to use on solder pads.
 
-Link: <https://www.aliexpress.com/item/1005008762604101.html>
+Link: [https://www.aliexpress.com/item/1005008762604101.html](https://www.aliexpress.com/item/1005008762604101.html)
 
 Note: v1.1 of this board is nearly identical except the chip is an ESP32-WROOOM-32E
 
