@@ -26,7 +26,7 @@ const config: Config = {
   organizationName: "esphome", // Usually your GitHub org/user name.
   projectName: "esphome-devices", // Usually your repo name.
 
-  onBrokenLinks: "warn",
+  onBrokenLinks: "throw",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -72,7 +72,7 @@ const config: Config = {
 
   markdown: {
     hooks: {
-      onBrokenMarkdownImages: "warn",
+      onBrokenMarkdownImages: "throw",
     },
   },
 

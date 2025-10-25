@@ -32,10 +32,10 @@ flash interface' warning (GPIO6-11) once you're sure that's the correct pin.
 
 ## Pictures
 
-![alt text](./IMG_0642.jpg "Closed Front View")
-![alt text](./IMG_0643.jpg "Opened Full View")
-![alt text](./IMG_0644.jpg "Opened Top 8266 Chip")
-![alt text](./IMG_0645.jpg "Opened Bottom 8266 Chip")
+![alt text](./IMG_0642.JPG "Closed Front View")
+![alt text](./IMG_0643.JPG "Opened Full View")
+![alt text](./IMG_0644.JPG "Opened Top 8266 Chip")
+![alt text](./IMG_0645.JPG "Opened Bottom 8266 Chip")
 ![alt text](./nx-sp201-blue.jpg "Opened, Blue ESP module")
 
 ## Basic Configuration
