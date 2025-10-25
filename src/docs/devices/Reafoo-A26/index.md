@@ -6,7 +6,9 @@ standard: us
 board: esp8266
 ---
 
-5-channel PWM RGBWW smart light bulb, A26 shape, E26 base, 2700k-6500k tunable white with RGB colors, 100-240V AC 50/60Hz, natively Tuya/Smart Life, works with Tuya-convert to flash to ESPHome. FCC-ID is [2AJK8-LZ803](https://fccid.io/2AJK8-LZ803).
+5-channel PWM RGBWW smart light bulb, A26 shape, E26 base, 2700k-6500k tunable white with RGB colors, 100-240V AC
+50/60Hz, natively Tuya/Smart Life, works with Tuya-convert to flash to ESPHome. FCC-ID is
+[2AJK8-LZ803](https://fccid.io/2AJK8-LZ803).
 
 ## GPIO Pinout
 
@@ -158,7 +160,8 @@ interval:
 
 ## Split Configuration
 
-If you have several of these bulbs, you may prefer to keep the shared code in one file and only put the device-specific code in the files for each bulb.
+If you have several of these bulbs, you may prefer to keep the shared code in one file and only put the device-specific
+code in the files for each bulb.
 
 In reafoo_common.yaml:
 

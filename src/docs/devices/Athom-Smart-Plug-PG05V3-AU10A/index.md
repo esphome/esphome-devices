@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](athom-plug-au-v3.webp "Athom Smart Plug AU V3 - PG05V3-AU10A")
 
-Maker: https://www.athom.tech/
-Product page: https://www.athom.tech/blank-1/esp32-c3-au-plug-for-esphome
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
+Product page: [https://www.athom.tech/blank-1/esp32-c3-au-plug-for-esphome](https://www.athom.tech/blank-1/esp32-c3-au-plug-for-esphome)
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

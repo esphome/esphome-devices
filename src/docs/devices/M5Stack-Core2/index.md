@@ -164,7 +164,6 @@ binary_sensor:
     y_min: 240
     y_max: 280
     use_raw: true
-
 # doesn't work:
 # i2s_audio:
 #   id: bus_i2s

@@ -19,16 +19,16 @@ but still note that you will need to write the RF codes into your ESPHome device
 
 ## GPIO Pinout
 
-| Pin | Function      |
-| --- | ------------- |
-| P7  | IR Transmitter|
-| P8  | IR Receiver   |
-| P9  | LED           |
-| P23 | Button        |
+| Pin | Function       |
+| --- | -------------- |
+| P7  | IR Transmitter |
+| P8  | IR Receiver    |
+| P9  | LED            |
+| P23 | Button         |
 
 ## Flashing
 
-I used ``tuya-cloudcutter``, allowing for disassembly-free flashing, to flash an ESPHome kickstart image.
+I used `tuya-cloudcutter`, allowing for disassembly-free flashing, to flash an ESPHome kickstart image.
 From there, you can just build your own image and upgrade to the latest version.
 
 ## Configuration
@@ -142,5 +142,84 @@ button:
             times: 2
             wait_time: 0s
           code:
-            [ 7997, -4311, 1811, -375, 718, -719, 343, -375, 719, -389, 711, -374, 712, -375, 687, -750, 344, -749, 312, -750, 344, -749, 344, -750, 343, -719, 375, -718, 375, -343, 719, -718, 375, -719, 374, -375, 687, -407, 687, -374, 719, -375, 687, -406, 687, -2905, 375, -344, 749, -344, 718, -375, 719, -374, 688, -406, 687, -749, 344, -375, 720, -717, 343, -375, 719, -749, 375, -344, 718, -719, 375, -343, 750, -687, 406, -344, 718, -719 ]
+            [
+              7997,
+              -4311,
+              1811,
+              -375,
+              718,
+              -719,
+              343,
+              -375,
+              719,
+              -389,
+              711,
+              -374,
+              712,
+              -375,
+              687,
+              -750,
+              344,
+              -749,
+              312,
+              -750,
+              344,
+              -749,
+              344,
+              -750,
+              343,
+              -719,
+              375,
+              -718,
+              375,
+              -343,
+              719,
+              -718,
+              375,
+              -719,
+              374,
+              -375,
+              687,
+              -407,
+              687,
+              -374,
+              719,
+              -375,
+              687,
+              -406,
+              687,
+              -2905,
+              375,
+              -344,
+              749,
+              -344,
+              718,
+              -375,
+              719,
+              -374,
+              688,
+              -406,
+              687,
+              -749,
+              344,
+              -375,
+              720,
+              -717,
+              343,
+              -375,
+              719,
+              -749,
+              375,
+              -344,
+              718,
+              -719,
+              375,
+              -343,
+              750,
+              -687,
+              406,
+              -344,
+              718,
+              -719,
+            ]
 ```

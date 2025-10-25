@@ -73,7 +73,7 @@ output:
     pin: GPIO25
     id: pwm_r
     frequency: 19531
-  
+
   - platform: ledc
     pin: GPIO26
     id: pwm_g
@@ -193,8 +193,7 @@ ota:
   platform: esphome
 
 web_server:
- port: 80
-
+  port: 80
 
 light:
   - platform: monochromatic
@@ -223,7 +222,6 @@ light:
     restore_mode: ALWAYS_ON
     default_transition_length: 0.5s
     id: ${device_name}_chw
-
 
 status_led:
   pin: GPIO14
