@@ -18,11 +18,13 @@ MOSFET rated for 106W max power), and can be used as a [RGB](https://esphome.io/
 [RGBW](https://esphome.io/components/light/rgbw.html) / [RGBWW](https://esphome.io/components/light/rgbww.html) /
 [RGBCT](https://esphome.io/components/light/rgbct.html)
 controller or configured with any combination of up to five
-[individual monochromatic PWM](/components/light/monochromatic.html) lights. See [A closer look at the H801 LED WiFi
+[individual monochromatic PWM](https://esphome.io/components/light/monochromatic.html) lights.
+
+See [A closer look at the H801 LED WiFi
 Controller](https://tinkerman.cat/post/closer-look-h801-led-wifi-controller)
 for more details on the hardware.
 
-![Product Image](/h801.jpg "Product Image")
+![Product Image](./h801.jpg "Product Image")
 
 ## Sample configuration
 
@@ -103,11 +105,11 @@ your serial adapter, the two other pins must be shorted throughout the
 flashing process by a jumper or a breadboard cable. (Remember to remove
 it after flashing)
 
-![Front](/h801-board-front.jpg "Front")
+![Front](./h801-board-front.jpg "Front")
 
 Front side of board with pins soldered on
 
-![Back](/h801-board-back.jpg "Back")
+![Back](./h801-board-back.jpg "Back")
 
 Back side of the board (don\'t melt the blue and red wire when
 soldering)
@@ -117,7 +119,7 @@ soldering)
 It\'s possible to use the header that was soldered on for flashing as an
 input. The example below uses the TX pin as a PIR motion sensor input:
 
-![PIR Sensor](/h801-pir_sensor.jpg "PIR Sensor")
+![PIR Sensor](./h801-pir_sensor.jpg "PIR Sensor")
 
 H801 shown with PIR connected to header pins
 
@@ -153,9 +155,9 @@ The H802 is a very similar device, with four channels (RGBW) instead of five.
 
 It looks like this:
 
-![H802 case photo](/H802WiFi-1.jpg "H802 case photo")
+![H802 case photo](./H802WiFi-1.jpg "H802 case photo")
 
-![H802 board photo with annotations](/h802-board-photo-annotated.jpg "H802 board photo with annotations")
+![H802 board photo with annotations](./h802-board-photo-annotated.jpg "H802 board photo with annotations")
 
 Pinout:
 

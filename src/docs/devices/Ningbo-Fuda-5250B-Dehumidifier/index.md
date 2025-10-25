@@ -30,7 +30,7 @@ control panel.
 
 ### Over-the-air
 
-It is often possible to use [tuya-convert](/guides/tuya-convert/) to flash the
+It is often possible to use [tuya-convert](/devices/tuya-convert) to flash the
 module over-the-air. Note that this applies to ESP8266-based modules; if your
 model shipped with a BK72xx-based module, other methods such as
 [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter/) can

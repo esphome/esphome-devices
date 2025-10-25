@@ -8,11 +8,11 @@ board: esp32
 
 ## Product Images
 
-![pcb](/Sonoff-DualR3-Lite-PCB.jpg "DualR3 Lite PCB v1.0")
+![pcb](./Sonoff-DualR3-Lite-PCB.jpg "DualR3 Lite PCB v1.0")
 
 ## GPIO Pinout
 
-based on <https://esphome.io/devices/sonoff.html#sonoff-dual-r3-v1-x-v2-x>
+based on [https://esphome.io/devices/sonoff.html#sonoff-dual-r3-v1-x-v2-x](https://esphome.io/devices/sonoff.html#sonoff-dual-r3-v1-x-v2-x)
 
 ### Sonoff Dual R3 Lite - PCB version 1.x
 

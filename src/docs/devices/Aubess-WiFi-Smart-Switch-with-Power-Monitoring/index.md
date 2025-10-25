@@ -6,9 +6,9 @@ standard: global
 board: bk72xx
 ---
 
-![Product Image](/Aubess-WiFi-Smart-Switch-with-Power-Monitoring.jpg "Product Image")
+![Product Image](./Aubess-WiFi-Smart-Switch-with-Power-Monitoring.jpg "Product Image")
 
-Maker: <https://aubess.net/>
+Maker: [https://aubess.net/](https://aubess.net/)
 
 Also on Aliexpress.
 

@@ -18,7 +18,7 @@ or choose to dismiss the alert by simply tapping the button within the notificat
 
 ![HA Notification](./notification.jpg "Notification on mobile phone")
 
-You can buy an assembled device from the official store <https://www.pricelesstoolkit.com>
+You can buy an assembled device from the official store [https://www.pricelesstoolkit.com](https://www.pricelesstoolkit.com)
 
 ## GPIO Pinout
 

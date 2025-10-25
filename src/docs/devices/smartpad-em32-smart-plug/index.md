@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](SPEM32.webp "SmartPad EM32 16A Smart Plug with Energy Metering")
 
-Maker: <https://smartpad.co.za/>
-Product page: <https://store.smartpad.co.za/index.php/product/tasmota-16a-smart-plugs-with-energy-monitoring/>
+Maker: [https://smartpad.co.za/](https://smartpad.co.za/)
+Product page: [https://store.smartpad.co.za/index.php/product/tasmota-16a-smart-plugs-with-energy-monitoring/](https://store.smartpad.co.za/index.php/product/tasmota-16a-smart-plugs-with-energy-monitoring/)
 
 Available pre-flashed with ESPHome or Tasmota.
 

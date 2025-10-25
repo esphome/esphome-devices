@@ -16,7 +16,7 @@ two unconnected pads labled 0/12.)
 Due to a bug [libretiny-eu/libretiny#227](https://github.com/libretiny-eu/libretiny/issues/227) the board w2 needs to be
 selected for the relay to work:
 Due to another bug you need to apply this fix to platforms\libretiny@1.4.1\cores\realtek-amb\arduino\src\wiring_irq.c
-<https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433>
+[https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433](https://github.com/libretiny-eu/libretiny/issues/155#issuecomment-1826470433)
 
 ## Chips used
 

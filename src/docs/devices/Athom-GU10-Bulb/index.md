@@ -23,7 +23,7 @@ Base: GU10
 
 ## Product Images
 
-![Athom GU10 Bulb](/Athom-GU10-Bulb.png "Athom GU10 Bulb")
+![Athom GU10 Bulb](./Athom-GU10-Bulb.png "Athom GU10 Bulb")
 
 ## GPIO Pinout
 

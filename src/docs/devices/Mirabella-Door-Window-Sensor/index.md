@@ -17,7 +17,7 @@ Assistant /config/esphome directory for a succesful compile.
 
 Credit to [Brandon D](https://github.com/brandond) for the file and esphome config
 
-![Mirabella Genio Door & Window Sensor](/Mirabella-Door-Window-Sensor.jpg "Mirabella Genio Door & Window Sensor")
+![Mirabella Genio Door & Window Sensor](./Mirabella-Door-Window-Sensor.jpg "Mirabella Genio Door & Window Sensor")
 
 ## Basic Configuration
 
