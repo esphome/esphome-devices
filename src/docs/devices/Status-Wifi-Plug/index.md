@@ -11,7 +11,7 @@ difficulty: 2
 
 These are Tuya manufactured devices branded by Status International (UK) LTD.
 
-<https://statussmart.com/>
+[https://statussmart.com/](https://statussmart.com/)
 
 There's no power monitoring, only relay control.
 
@@ -44,7 +44,8 @@ At time of writing, models 21D/G use 1.0.7 and 23A uses 1.1.8. If newer firmware
 it against using Cloudcutter. To determine the version you'll need to pair up with the Status Smart app (Tuya's own app
 may work, not tested). Edit/manage the device and follow Device Update to view the current version.
 
-- Check out the project <https://github.com/tuya-cloudcutter/tuya-cloudcutter>
+- Check out the project
+  [https://github.com/tuya-cloudcutter/tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter)
 - Put the plug into AP mode, by holding the button down for 5 seconds to enter EZ mode (fast flashing LED), then hold
   again to enter AP mode (slow flashing LED).
 - Run: `sudo ./tuya-cloudcutter.sh -f FIRMWARE` where FIRMWARE is either the ESPHome Kickstart file or your pre-compiled
@@ -66,8 +67,9 @@ may differ in the future.
   MCU to the one I disassembled.
 
 - After completion, if you used the Kickstart firmware, you should see a Kickstart AP appear (eg kickstart-bk7231n).
-  Connect, and configure your wireless network. Power cycle, then visit <http://kickstart-bk7231n.local> or
-  <http://kickstart-bk7231t.local> depending on the variant.
+  Connect, and configure your wireless network. Power cycle, then visit
+[http://kickstart-bk7231n.local](http://kickstart-bk7231n.local) or
+  [http://kickstart-bk7231t.local](http://kickstart-bk7231t.local) depending on the variant.
 
 ![alt text](term2.png "Terminal finish")
 

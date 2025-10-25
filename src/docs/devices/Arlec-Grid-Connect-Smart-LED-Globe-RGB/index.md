@@ -13,4 +13,4 @@ and New Zealand, can be flashed using tuya-convert.  Its configuration is identi
 
 The E27 model (GLD122HA) is most likely the same, but this has not been verified/tested.
 
-![Brilliant Smart Wi-Fi RGB Garden Light Kit](/Arlec-Grid-Connect-Smart-LED-Globe-RGB.jpg "Arlec Smart LED Globe RGB B22 (GLD120HA)")
+![Brilliant Smart Wi-Fi RGB Garden Light Kit](./Arlec-Grid-Connect-Smart-LED-Globe-RGB.jpg "Arlec Smart LED Globe RGB B22 (GLD120HA)")

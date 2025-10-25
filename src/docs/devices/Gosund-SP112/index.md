@@ -8,7 +8,7 @@ board: esp8266
 
 ## Flashing
 
-The device can be flashed [using tuya-convert](/guides/tuya-convert). Fresh out of the factory it will be in autoconfig
+The device can be flashed [using tuya-convert](/devices/tuya-convert). Fresh out of the factory it will be in autoconfig
 mode. When plugged in for the first time tuya-convert will pick it up directly.
 
 If that doesn't work out for you, disassembly and wired flashing is explained
@@ -189,7 +189,9 @@ switch:
 WARNING: Soldering involved, warranty broken, electric hazard, make sure you know what you are doing at your own
 responsibility
 
-- Replace Cuco-chip with ESP-M2: <https://github.com/c-klinger/Gosund-ESPMod/tree/main> (courtesy: Chris Klinger)
+- Replace Cuco-chip with ESP-M2:
+  [https://github.com/c-klinger/Gosund-ESPMod/tree/main](https://github.com/c-klinger/Gosund-ESPMod/tree/main)
+  (courtesy: Chris Klinger)
 
 - ESPHome basic configuration:
 

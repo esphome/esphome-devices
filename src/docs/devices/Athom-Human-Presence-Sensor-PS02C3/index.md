@@ -12,7 +12,7 @@ difficulty: 1
 ![PS02C3-2](PS02C3-2.webp "Athom Human Presence Sensor - PS02C3-2")
 ![PS02C3-3](PS02C3-3.webp "Athom Human Presence Sensor - PS02C3-3")
 
-Maker: <https://www.athom.tech>
+Maker: [https://www.athom.tech](https://www.athom.tech)
 
 ## Available from
 

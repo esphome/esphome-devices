@@ -24,7 +24,7 @@ has no special LED drivers built in and uses the ESP's pulse width modulation fo
 ### Tuya Convert
 
 This bulb is a Tuya device, so you'll need to
-[use tuya-convert to initially get ESPHome onto it](/guides/tuya-convert/).  After that, you can use ESPHome's OTA
+[use tuya-convert to initially get ESPHome onto it](/devices/tuya-convert).  After that, you can use ESPHome's OTA
 functionality to make any changes.
 
 - Put the bulb into "smartconfig" / "autoconfig" / pairing mode by switching the bulb off and on 4 or 5 times in a row
@@ -153,4 +153,4 @@ light:
     restore_mode: RESTORE_DEFAULT_ON
 ```
 
-   [aliexpress.com]: <https://www.aliexpress.com/item/33006613923.html>
+   [aliexpress.com]: [https://www.aliexpress.com/item/33006613923.html](https://www.aliexpress.com/item/33006613923.html)

@@ -27,7 +27,7 @@ stock, newer stock with updated Tuya firmware require dissassembly, soldering an
 ### Tuya Convert
 
 These switches are Tuya devices, so if you don't want to open them up to flash directly, you can
-[use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/). After that, you can use ESPHome's OTA
+[use tuya-convert to initially get ESPHome onto them](/devices/tuya-convert). After that, you can use ESPHome's OTA
 functionality to make any further changes.
 
 - Put the switch into "smartconfig" / "autoconfig" / pairing mode by holding any button for about 5 seconds.

@@ -12,7 +12,7 @@ complete support for all the stuff used by the Multisensor.
 
 [Learn more video](https://www.youtube.com/embed/jpjfVc-9IrQ)
 
-![image](/bruh.png)
+![image](./bruh.png)
 
 ## Configuration example
 

@@ -6,9 +6,9 @@ standard: global
 board: bk72xx
 ---
 
-![Product Image](/aubess_mini_smart_switch_photo.jpg "Product Image")
+![Product Image](./aubess_mini_smart_switch_photo.jpg "Product Image")
 
-Maker: <https://aubess.net/>
+Maker: [https://aubess.net/](https://aubess.net/)
 
 Also on Aliexpress.
 
@@ -23,11 +23,11 @@ Also on Aliexpress.
 
 ## Internals
 
-![Internals Image](/aubess-mini-smart-switch-internals.jpg "Internals Image")
+![Internals Image](./aubess-mini-smart-switch-internals.jpg "Internals Image")
 
 ## UART Pinout
 
-![Uart Pinout](/aubess-mini-smart-switch-uart-pinout.jpg "UART PINOUT")
+![Uart Pinout](./aubess-mini-smart-switch-uart-pinout.jpg "UART PINOUT")
 
 ## Basic Configuration
 

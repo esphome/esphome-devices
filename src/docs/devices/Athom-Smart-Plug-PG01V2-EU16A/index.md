@@ -7,7 +7,7 @@ board: esp8266
 ---
 
 ![alt text](athom_PG01V2-EU16A.webp "Athom Smart Plug PG01V2 EU16A")
-Maker: <https://www.athom.tech/>
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
 
 Also on Aliexpress, with preflashed Tasmota or Homekit.
 

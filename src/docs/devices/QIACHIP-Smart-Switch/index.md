@@ -25,9 +25,9 @@ be changed.
 
 ## Pictures
 
-![alt text](/top.jpg "Top of closed module")
-![alt text](/inside-1.jpg "Inside view 1")
-![alt text](/inside-2.jpg "Inside view 2")
+![alt text](./top.jpg "Top of closed module")
+![alt text](./inside-1.jpg "Inside view 1")
+![alt text](./inside-2.jpg "Inside view 2")
 
 ## GPIO Pinout
 

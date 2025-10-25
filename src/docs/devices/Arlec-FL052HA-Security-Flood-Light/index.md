@@ -6,7 +6,7 @@ standard: au
 board: esp8266
 ---
 
-![Product Image](/Arlec-FL052HA-Security-Flood-Light.png "Product Image")
+![Product Image](./Arlec-FL052HA-Security-Flood-Light.png "Product Image")
 
 The Arlec FL052HA security flood light is part of the [Grid Connect ecosystem](https://grid-connect.com.au/) and is sold
 at Bunnings in Australia.
@@ -16,7 +16,7 @@ OTA flashing **will not work**.
 
 You can check these versions by looking at the bottom left of the Arlec product plaque. See below examples;
 
-![1019](/1019.jpg) ![0320](/0320.jpg) ![0520](/0520.jpg)
+![1019](./1019.jpg) ![0320](./0320.jpg) ![0520](./0520.jpg)
 
 ## GPIO Pinout
 

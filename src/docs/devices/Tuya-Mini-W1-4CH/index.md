@@ -9,17 +9,18 @@ difficulty: 4
 
 ## Product Images
 
-![front](/front.jpg "FRONT")
+![front](./front.jpg "FRONT")
 
-![back](/back.jpg "BACK")
+![back](./back.jpg "BACK")
 
 ## Programming
 
 Solder USB TTL wires like below
 
-![soldering](/soldering.jpg "soldering")
+![soldering](./soldering.jpg "soldering")
 
-To enter bootloader mode, ground CEN pin and power device. I used <https://github.com/libretiny-eu/ltchiptool> to
+To enter bootloader mode, ground CEN pin and power device. I used
+[https://github.com/libretiny-eu/ltchiptool](https://github.com/libretiny-eu/ltchiptool) to
 program it
 
 ## GPIO Pinout
