@@ -20,7 +20,7 @@ This device uses the WB2S module that comes with Tuya firmware which can be flas
 following instructions
 [in this DigiBlur guide](https://digiblur.com/2023/04/10/tuya-cloudcutter-with-esphome-how-to-guide/)
 
-Support for WB2S modules is available in ESPHome 2023.9.0 (<https://github.com/esphome/esphome/pull/3509>).
+Support for WB2S modules is available in ESPHome 2023.9.0 ([https://github.com/esphome/esphome/pull/3509](https://github.com/esphome/esphome/pull/3509)).
 
 ## GPIO Pinout
 

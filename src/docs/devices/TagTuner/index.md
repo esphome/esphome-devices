@@ -31,4 +31,4 @@ All of this is housed in a sleek, custom design case.
 Here is an exploded view of the TagTuner 3D model with a round tag card \
 ![3d model](2410tagtuner3dmodel.png)
 
-For code and build instructions, please visit project page at <https://luka6000.github.io/TagTuner>
+For code and build instructions, please visit project page at [https://luka6000.github.io/TagTuner](https://luka6000.github.io/TagTuner)

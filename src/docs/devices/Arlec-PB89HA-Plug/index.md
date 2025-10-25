@@ -27,7 +27,7 @@ It has five sockets: four individually controllable, plus one which is permanent
 ### Tuya Convert
 
 This power strip is a Tuya device, so if you don't want to open it up and flash it directly, you can
-[use tuya-convert to initially get ESPHome onto it](/guides/tuya-convert/). After that, you can use ESPHome's OTA
+[use tuya-convert to initially get ESPHome onto it](/devices/tuya-convert). After that, you can use ESPHome's OTA
 functionality to make any further changes.
 
 - Put the power strip into "smartconfig" / "autoconfig" / pairing mode by holding the button for about 5 seconds.

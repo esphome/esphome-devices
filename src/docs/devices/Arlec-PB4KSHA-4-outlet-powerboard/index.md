@@ -27,10 +27,10 @@ The controller board is a Tuya WB2S which ues a BK7231T chip.
 
 ### LibreTiny Chip Tool
 
-As Tuya has closed most vulnerabilities, Tuya-Convert cannot be used to flash ESPHome onto these devices.  The LibreTiny
-Chip Tool ([ltchiptool](https://github.com/libretiny-eu/ltchiptool)<https://github.com/libretiny-eu/ltchiptool>) can be
-used to reflash the board via its UART pins.  You may completely remove the chip from the board to do this or solder
-wires to the relevant pins in-place. Reflashing via UART using ltchiptool is covered in this guide on YouTube for
+As Tuya has closed most vulnerabilities, Tuya-Convert cannot be used to flash ESPHome onto these devices.
+The LibreTiny Chip Tool ([ltchiptool](https://github.com/libretiny-eu/ltchiptool)) can be used to reflash the board via
+its UART pins. You may completely remove the chip from the board to do this or solder wires to the relevant pins
+in-place. Reflashing via UART using ltchiptool is covered in this guide on YouTube for
 [installing ESPHome on a Tuya Beken BK7231 w/ltchiptool](https://www.youtube.com/watch?v=t0o8nMbqOSA), however we
 recommend peforming the following steps:
 

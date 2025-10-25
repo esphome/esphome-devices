@@ -22,7 +22,7 @@ GGreg20_v3 is compatible with the ESP8266/ESP32 logic signal levels (3V3 ACTIVE-
 and will work even with the 5V logic input.
 Sensor compatibility: any ESP8266- or ESP32- powered device
 
-Vendor site: <https://allmylinks.com/iot-devices>
+Vendor site: [https://allmylinks.com/iot-devices](https://allmylinks.com/iot-devices)
 
 ## Connection
 

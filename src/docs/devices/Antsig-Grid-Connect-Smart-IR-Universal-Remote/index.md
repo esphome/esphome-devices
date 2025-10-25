@@ -32,9 +32,9 @@ tuya-cloudcutter.
 - Solder wires to the pads for 3V3, RST, TX, RX, and GND
 - Connect 3V3, TX, RX, and GND to your USB UART adapter, and RST to GND (temporarily)
   - Note that if you have trouble flashing you may need to source a reliable 3.3V supply from some other place
-- Generate a UF2 firmware file with ESPHome and flash using <https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/> -
-  once you've clicked Start, disconnect RST from GND
-  - This can take a few goes sometimes
+- Generate a UF2 firmware file with ESPHome and flash using
+  [https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/](https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/)
+  once you've clicked Start, disconnect RST from GND. This can take a few goes sometimes.
 - Once flashed, disconnect the wires and power from USB - any further updates you need to make can be done OTA (which is
   usually much faster)
 - Take care when replacing the top - the clips aren't evenly spaced so you'll need to line them up right for it to go

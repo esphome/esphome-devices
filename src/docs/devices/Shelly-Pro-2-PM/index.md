@@ -8,7 +8,7 @@ board: esp32
 
 Information about the pinout and internals of the Shelly Pro 2 PM.
 
-It's the same board as the [Shelly Pro 2](Shelly-Pro-2). The only
+It's the same board as the [Shelly Pro 2](../Shelly-Pro-2/). The only
 difference is the addition of two
 [ADE7953](https://esphome.io/components/sensor/ade7953.html) chips (one on each
 relay board).

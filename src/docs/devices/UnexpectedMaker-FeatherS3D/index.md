@@ -26,7 +26,7 @@ This is an ESP32-S3 based Feather board with multiple components:
 
 More information:
 
-- Product page: <https://esp32s3.com/feathers3d.html>
+- Product page: [https://esp32s3.com/feathers3d.html](https://esp32s3.com/feathers3d.html)
 
 ## GPIO Pinout
 

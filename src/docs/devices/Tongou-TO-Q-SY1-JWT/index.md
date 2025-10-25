@@ -9,7 +9,7 @@ difficulty: 3
 
 ![Product Image](TO-Q-SY1-JWT.jpeg "Product Image")
 
-Maker: <https://www.tongou.net/>
+Maker: [https://www.tongou.net/](https://www.tongou.net/)
 
 Also on Aliexpress.
 

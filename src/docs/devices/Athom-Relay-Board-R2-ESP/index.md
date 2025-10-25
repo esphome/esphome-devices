@@ -11,8 +11,8 @@ made-for-esphome: true
 
 ![alt text](athom-2ch-relay.webp "Athom 2CH Relay Board - R2-ESP")
 
-Maker: <https://www.athom.tech/>
-Product page: <https://www.athom.tech/blank-1/2ch-inching-self-lock-relay-for-esphome>
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
+Product page: [https://www.athom.tech/blank-1/2ch-inching-self-lock-relay-for-esphome](https://www.athom.tech/blank-1/2ch-inching-self-lock-relay-for-esphome)
 
 Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 

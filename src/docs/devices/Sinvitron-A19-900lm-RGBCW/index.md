@@ -13,8 +13,8 @@ Generally don't power on both a white channel and the color channel at full brig
 
 ## Pictures
 
-![alt text](/sinvitron-outside.jpg "Outside of bulb")
-![alt text](/sinvitron-inside.jpg "Inside view")
+![alt text](./sinvitron-outside.jpg "Outside of bulb")
+![alt text](./sinvitron-inside.jpg "Inside view")
 
 ## GPIO Pinout
 

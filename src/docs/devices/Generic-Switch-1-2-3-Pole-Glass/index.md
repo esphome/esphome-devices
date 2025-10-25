@@ -19,13 +19,13 @@ top, L1 on bottom)._
 ## Product Images
 
 Front of 3 pole switch
-![alt text](/front.png "Front of 3 pole switch")
+![alt text](./front.png "Front of 3 pole switch")
 
 Rear of 3 pole switch
-![alt text](/rear.jpg "Rear of 3 pole switch")
+![alt text](./rear.jpg "Rear of 3 pole switch")
 
 Wiring of switch
-![alt text](/wiring.jpg "Wiring of switch")
+![alt text](./wiring.jpg "Wiring of switch")
 
 ## GPIO Pinout (Per top to bottom when installed)
 

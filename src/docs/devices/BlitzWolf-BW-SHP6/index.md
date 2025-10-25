@@ -18,7 +18,7 @@ There are two versions of this plug, a 10A version and a 15A version. The pinout
 
 ## GPIO Pinout
 
-| Pin    | Function (<2020)    | Function (>2020)    |
+| Pin    | Function (&lt;2020)    | Function (&gt;2020)    |
 | ------ | ------------------- | ------------------- |
 | GPIO0  | Red LED (inverted)  | Red LED (inverted)  |
 | GPIO2  | Blue LED (inverted) | Blue LED (inverted) |
@@ -31,7 +31,7 @@ There are two versions of this plug, a 10A version and a 15A version. The pinout
 
 ## HLW8012 Calibration Values
 
-| Value   | <2020   | >2020   |
+| Value   | &lt;2020   | &gt;2020   |
 | ------- | ------- | ------- |
 | Current | 0.00290 | 0.00117 |
 | Voltage | 940     | 755     |

@@ -9,7 +9,7 @@ difficulty: 4
 
 ![Product Image](ESR3532.png "Product Image")
 
-Maker: <https://ettroit.com/>
+Maker: [https://ettroit.com/](https://ettroit.com/)
 
 Also available on Aliexpress with other namings, but without certifications.
 
