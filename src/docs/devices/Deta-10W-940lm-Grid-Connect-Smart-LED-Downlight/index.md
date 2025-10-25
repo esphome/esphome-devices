@@ -6,7 +6,7 @@ standard: au
 board: esp8266
 ---
 
-![Product Image](/Deta-10W-940lm-Grid-Connect-Smart-LED-Downlight.jpg "Product Image")
+![Product Image](./Deta-10W-940lm-Grid-Connect-Smart-LED-Downlight.jpg "Product Image")
 
 Sold at Bunnings in Australia. Model number DET902HA.
 

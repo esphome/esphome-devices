@@ -17,9 +17,9 @@ difficulty: 3
 
 ## Product images
 
-![device](/device.jpg "Device")
+![device](./device.jpg "Device")
 
-![board](/board.jpg "Board")
+![board](./board.jpg "Board")
 
 ## Programming
 
@@ -31,7 +31,7 @@ This device is powered by a [CBU](https://docs.libretiny.eu/boards/cbu) board (B
 
 Disassembling this device is simple, provided you find a way to remove the golden tubes. Here is one way:
 
-![disassembling](/disassembling.jpg "Disassembling")
+![disassembling](./disassembling.jpg "Disassembling")
 
 ## GPIO Pinout
 

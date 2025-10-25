@@ -9,7 +9,7 @@ difficulty: 2
 ---
 
 ![alt text](LocalBytes-Bulb.png "LocalBytes Bulb")
-Maker: <https://mylocalbytes.com/>
+Maker: [https://mylocalbytes.com/](https://mylocalbytes.com/)
 
 Preflashed with Tasmota, OTA flash to ESPHome
 

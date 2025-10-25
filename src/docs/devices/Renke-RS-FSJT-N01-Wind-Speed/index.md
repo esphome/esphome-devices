@@ -14,7 +14,7 @@ The Renke RS-FSJT-N01 Wind speed anemometer is sold in four versions:
 - 0-10V analog voltage output
 - 4-20mA analog current output
 
-![RS-FSJT-N01 Wind speed anemometer](/anemometer.png "RS-FSJT-N01 Wind speed")
+![RS-FSJT-N01 Wind speed anemometer](./anemometer.png "RS-FSJT-N01 Wind speed")
 
 Parameters:
 

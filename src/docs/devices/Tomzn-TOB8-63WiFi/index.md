@@ -18,9 +18,9 @@ difficulty: 3
 - Energy measurement starts from 0 on every power-up
 - Not provide Power Apparent & Factor data
 
-![Front View](/TOB8-63iFi_front.jpg "TOB8 Front View")
-![Inside View](/TOB8-63WiFi_inside.jpg "TOB8 Inside View")
-![Module View](/TOB8-63WiFi_module.jpg "TOB8 ESP Module")
+![Front View](./TOB8-63WiFi_front.jpg "TOB8 Front View")
+![Inside View](./TOB8-63WiFi_inside.jpg "TOB8 Inside View")
+![Module View](./TOB8-63WiFi_module.jpg "TOB8 ESP Module")
 
 ## GPIO Pinout
 

@@ -77,7 +77,7 @@ revision uses BK7231N controller on the Tuya [CB3S module](https://developer.tuy
 ### Series 1 - Tuya Convert
 
 These switches are Tuya devices, so if you don't want to open them up to flash directly, you can attempt to
-[use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/) however recently purchased devices are no
+[use tuya-convert to initially get ESPHome onto them](/devices/tuya-convert) however recently purchased devices are no
 longer Tuya-Convert compatible.  There's a useful guide to disassemble and serial flash similar switches
 [on Mike McGuire's blog][2]. After that, you can use ESPHome's OTA functionality to make any further changes.
 

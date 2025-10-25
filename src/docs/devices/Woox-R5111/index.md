@@ -11,7 +11,7 @@ difficulty: 4
 
 ![Woox R5111](./woox-r5111-smart-ceiling-light.png "Woox R5111")
 
-Initial flashing instructions can be found here: <https://www.elektroda.com/rtvforum/topic4027381.html>
+Initial flashing instructions can be found here: [https://www.elektroda.com/rtvforum/topic4027381.html](https://www.elektroda.com/rtvforum/topic4027381.html)
 
 ## GPIO Pinout
 

@@ -7,9 +7,9 @@ board: bk72xx
 pcb: CB2S
 ---
 
-![Product Image](/Aubess-WiFi-Smart-Switch.jpg "Product Image")
+![Product Image](./Aubess-WiFi-Smart-Switch.jpg "Product Image")
 
-Maker: <https://aubess.net/>
+Maker: [https://aubess.net/](https://aubess.net/)
 
 Also on Aliexpress.
 

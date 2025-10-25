@@ -360,7 +360,7 @@ ota:
 
 ## Timed Fan control
 
-The MJ-SD01 can control a low power (<400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds
+The MJ-SD01 can control a low power (&lt;400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds
 as feedback on how much time is left.
 
 ```yaml

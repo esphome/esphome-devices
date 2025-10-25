@@ -177,4 +177,4 @@ status_led:
 | Location                                                                                           | Price |
 | -------------------------------------------------------------------------------------------------- | ----- |
 | [Kmart](https://www.kmart.com.au/product/mirabella-genio-wi-fi-powerboard-with-usb-ports/2736803I) | $49   |
-| [Costco](costco.com.au)                                                                            | $39   |
+| [Costco](https://costco.com.au)                                                                            | $39   |

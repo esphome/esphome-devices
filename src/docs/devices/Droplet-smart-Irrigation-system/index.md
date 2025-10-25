@@ -17,7 +17,7 @@ The Droplet Smart Irrigation System is a practical solution for efficient water 
 spaces. It provides precise control over watering schedules, ensuring plants get the right amount of water while
 conserving resources. Additionally, it can measure soil moisture, air humidity, control lights, and much more.
 
-You can buy an assembled PCB from the official store <https://www.pricelesstoolkit.com>
+You can buy an assembled PCB from the official store [https://www.pricelesstoolkit.com](https://www.pricelesstoolkit.com)
 
 ## Main Board
 

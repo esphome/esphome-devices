@@ -13,16 +13,17 @@ This is Polish brand based on a other Chinese product. Based on Tuya CB3S Board.
 
 ## Product Images
 
-![main view](/device.jpg "DEVICE")
-![pcb](/pcb.jpg "PCB")
+![main view](./device.jpg "DEVICE")
+![pcb](./pcb.jpg "PCB")
 
 ## Programming
 
 Solder USB TTL wires like below
 
-![soldering](/soldering.jpg "soldering")
+![soldering](./soldering.jpg "soldering")
 
-To enter bootloader mode, ground CEN pin and power device. I used <https://github.com/libretiny-eu/ltchiptool> to
+To enter bootloader mode, ground CEN pin and power device. I used
+[https://github.com/libretiny-eu/ltchiptool](https://github.com/libretiny-eu/ltchiptool) to
 program it
 
 ## GPIO Pinout

@@ -7,7 +7,7 @@ board: esp8266
 ---
 
 ![alt text](Athom-EU-Plug.png "Athom Smart Plug TP29 EU")
-Maker: <https://www.athom.tech/>
+Maker: [https://www.athom.tech/](https://www.athom.tech/)
 
 Also on Aliexpress, with preflashed Tasmota or Homekit.
 
