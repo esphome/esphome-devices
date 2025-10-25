@@ -1,7 +1,13 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 
-import { splitValues, slugify } from "../../utils/deviceUtils";
+import { splitValues } from "../../utils/deviceUtils";
+import {
+  VALID_TYPE_SLUGS,
+  VALID_BOARD_SLUGS,
+  VALID_STANDARD_SLUGS,
+  getSlugIfValid,
+} from "../../utils/validSlugs";
 
 import styles from "./styles.module.css";
 
@@ -129,35 +135,75 @@ function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayProps) {
                       const values = splitValues(frontmatter[field.key]);
 
                       if (values.length === 0) {
-                        return (
-                          <Link to={`/${field.linkType}/${frontmatter[field.key]}`}>
+                        const slug = getSlugIfValid(
+                          frontmatter[field.key],
+                          field.key === "standard"
+                            ? VALID_STANDARD_SLUGS
+                            : VALID_BOARD_SLUGS
+                        );
+
+                        return slug ? (
+                          <Link to={`/${field.linkType}/${slug}`}>
                             {frontmatter[field.key]}
                           </Link>
+                        ) : (
+                          <span>{frontmatter[field.key]}</span>
                         );
                       }
 
                       return (
                         <span className={styles.frontmatterTagList}>
                           {values.map((value, index) => (
-                            <Link
-                              key={`${field.key}-${value}-${index}`}
-                              to={`/${field.linkType}/${slugify(value)}`}
-                              className={styles.frontmatterTag}
-                            >
-                              {value}
-                            </Link>
+                            (() => {
+                              const slug = getSlugIfValid(
+                                value,
+                                field.key === "standard"
+                                  ? VALID_STANDARD_SLUGS
+                                  : VALID_BOARD_SLUGS
+                              );
+
+                              return slug ? (
+                                <Link
+                                  key={`${field.key}-${value}-${index}`}
+                                  to={`/${field.linkType}/${slug}`}
+                                  className={styles.frontmatterTag}
+                                >
+                                  {value}
+                                </Link>
+                              ) : (
+                                <span
+                                  key={`${field.key}-${value}-${index}`}
+                                  className={styles.frontmatterTag}
+                                >
+                                  {value}
+                                </span>
+                              );
+                            })()
                           ))}
                         </span>
                       );
                     })()
                   ) : field.key === "type" ? (
                     <span className={styles.frontmatterTagList}>
-                      <Link
-                        to={`/${field.linkType}/${slugify(frontmatter[field.key])}`}
-                        className={styles.frontmatterTag}
-                      >
-                        {frontmatter[field.key]}
-                      </Link>
+                      {(() => {
+                        const slug = getSlugIfValid(
+                          frontmatter[field.key],
+                          VALID_TYPE_SLUGS
+                        );
+
+                        return slug ? (
+                          <Link
+                            to={`/${field.linkType}/${slug}`}
+                            className={styles.frontmatterTag}
+                          >
+                            {frontmatter[field.key]}
+                          </Link>
+                        ) : (
+                          <span className={styles.frontmatterTag}>
+                            {frontmatter[field.key]}
+                          </span>
+                        );
+                      })()}
                     </span>
                   ) : (
                     <Link to={`/${field.linkType}/${frontmatter[field.key]}`}>
