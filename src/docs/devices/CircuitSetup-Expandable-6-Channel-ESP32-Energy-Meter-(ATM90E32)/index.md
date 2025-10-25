@@ -52,12 +52,13 @@ substitutions:
 
 esphome:
   name: 6chan_energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+  password: !secret wifi_password
   manual_ip:
     static_ip: !secret ip_eh_nrgnode
     gateway: !secret ip_gateway
@@ -234,12 +235,13 @@ substitutions:
 
 esphome:
   name: 6chan_energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+  password: !secret wifi_password
   manual_ip:
     static_ip: !secret ip_eh_nrgnode
     gateway: !secret ip_gateway
@@ -517,12 +519,13 @@ substitutions:
 
 esphome:
   name: energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+  password: !secret wifi_password
 
 # Enable logging
 logger:

@@ -5,8 +5,8 @@ type: plug
 standard: eu
 board: esp8266
 ---
-  ![alt text](/cloudfree_P1EU.jpg "Product Image")
-  ![alt text](/cloudfree_P1EU_Reference.jpg "Product Reference Image")
+  ![alt text](./cloudfree_P1EU.jpg "Product Image")
+  ![alt text](./cloudfree_P1EU_Reference.jpg "Product Reference Image")
 
 Model reference: P1EU  
 Equivalent devices:
@@ -42,7 +42,8 @@ substitutions:
 esphome:
   name: ${devicename}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

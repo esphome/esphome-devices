@@ -35,12 +35,13 @@ substitutions:
 
 esphome:
   name: energy_meter
-  platform: ESP32
+
+esp32:
   board: nodemcu-32s
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pass
+  password: !secret wifi_password
   manual_ip:
     static_ip: !secret ip_eh_nrgnode_2chan32
     gateway: !secret ip_gateway

@@ -25,7 +25,8 @@ board: esp8286
 ---
 esphome:
   name: outdoor_ss42
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:

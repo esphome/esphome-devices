@@ -14,7 +14,7 @@ Use an RS485 transceiver like MAX485 to the device via ModBUS. Some devices come
 pre-installed with a cloud controller already plugged in to the ModBUS port, this
 has to be be disconnected (ESPHome will go instead).
 
-![Product Image](/ECO-375-mark2-lukket.jpg)
+![Product Image](./ECO-375-mark2-lukket.jpg)
 
 ## Basic configuration
 
@@ -32,7 +32,8 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: "${device_description}"
-  platform: ESP32
+
+esp32:
   board: esp32-evb
 
 ethernet:

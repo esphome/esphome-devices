@@ -4,6 +4,7 @@ date-published: 2024-06-24
 type: relay
 standard: global
 board: esp32
+difficulty: 3
 ---
 
 ## GPIO Pinout
@@ -23,7 +24,7 @@ board: esp32
 
 ## Basic Configuration
 
-Based on Sonoff POW Elite 20a (POWR320D) (Source: <https://devices.esphome.io/devices/Sonoff-POW-Elite-20a>).
+Based on Sonoff POW Elite 20a (POWR320D) (Source: [https://devices.esphome.io/devices/Sonoff-POW-Elite-20a](https://devices.esphome.io/devices/Sonoff-POW-Elite-20a)).
 
 To get the correct current and power values, the measurement must be divided by the PI number.
 
@@ -37,7 +38,7 @@ esphome:
     then:
       - if:
           condition:
-            lambda: 'return id(v_sensor).state > 10;'
+            lambda: "return id(v_sensor).state > 10;"
           then:
             - switch.turn_on: relay_1
           else:
@@ -78,7 +79,7 @@ sensor:
     current_1:
       name: Current
       id: a_sensor
-      unit_of_measurement: 'A'
+      unit_of_measurement: "A"
       accuracy_decimals: 3
       icon: mdi:current-ac
       filters:
@@ -87,7 +88,7 @@ sensor:
     voltage:
       name: Voltage
       id: v_sensor
-      unit_of_measurement: 'V'
+      unit_of_measurement: "V"
       icon: mdi:sine-wave
     active_power_1:
       name: Power
@@ -108,7 +109,7 @@ sensor:
     name: Total Daily Energy
     power_id: w_sensor
     id: kw_sensor
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: "kWh"
     state_class: total_increasing
     device_class: energy
     accuracy_decimals: 3

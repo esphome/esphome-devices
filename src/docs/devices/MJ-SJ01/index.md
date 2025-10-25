@@ -8,31 +8,45 @@ board: esp8266
 
 ## GPIO Pinout
 
-| Pin    | Function                                           |
-| ------ | -------------------------------------------------- |
-| GPIO0  | up button (inverted, input_pullup)                 |
-| GPIO1  | down button (inverted, input_pullup)               |
-| GPIO3  | led5 (inverted)                                    |
-| GPIO4  | red led (inverted)                                 |
-| GPIO5  | led4 (inverted)                                    |
-| GPIO12 | led3 (inverted)                                    |
-| GPIO13 | pwm                                                |
-| GPIO14 | led2 (inverted)                                    |
-| GPIO15 | main button (input_pullup)                         |
-| GPIO16 | led1 + relay (inverted) + blue led + reset button  |
+| Pin    | Function                                          |
+| ------ | ------------------------------------------------- |
+| GPIO0  | up button (inverted, input_pullup)                |
+| GPIO1  | down button (inverted, input_pullup)              |
+| GPIO3  | led5 (inverted)                                   |
+| GPIO4  | red led (inverted)                                |
+| GPIO5  | led4 (inverted)                                   |
+| GPIO12 | led3 (inverted)                                   |
+| GPIO13 | pwm                                               |
+| GPIO14 | led2 (inverted)                                   |
+| GPIO15 | main button (input_pullup)                        |
+| GPIO16 | led1 + relay (inverted) + blue led + reset button |
 
 ## Flashing
 
 The header CN is under the board, visible after removing the 4 screws.
 
-| Pin    | Function                 |
-| ------ | ------------------------ |
+| Pin   | Function                  |
+| ----- | ------------------------- |
 | CN1-1 | TXD                       |
 | CN1-2 | RXD                       |
 | CN1-3 | GPIO2 (don't use)         |
 | CN1-4 | GPIO0 (connect to ground) |
 | CN1-5 | GROUND                    |
 | CN1-6 | VCC                       |
+
+## Light as fully-featured package
+
+[@joshuaboniface](https://github.com/joshuaboniface) has created a fully-featured, packaged configuration for this
+device,
+which permits quick flashing with a pre-compiled binary as well as automatic adoption, deployment, and updates.
+
+[Github Project Link](https://github.com/joshuaboniface/martinjerry-esphome)
+
+The functionality has been modified quite significantly from the example below, to provide an experience more like a
+WeMo
+dimmer switch as well as provide more flexibility for control in HomeAssistant dashboards and automations. See the
+README
+in the repository for more information and examples.
 
 ## Light
 
@@ -297,10 +311,11 @@ power_supply:
 esphome:
   # https://esphome.io/components/esphome
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   # esp8266_restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
+
+esp8266:
+  board: esp01_1m
 
 sensor:
   - platform: wifi_signal
@@ -309,8 +324,8 @@ sensor:
 
 wifi:
   # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -318,7 +333,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
     manual_ip:
       static_ip: 192.168.1.1
@@ -326,9 +341,9 @@ wifi:
       subnet: 255.255.255.0
 
 # web_server:
-  # port: 80
-  # https://esphome.io/components/web_server.html
-  # Can cause high memory usage on ESP8266, enable as needed
+# port: 80
+# https://esphome.io/components/web_server.html
+# Can cause high memory usage on ESP8266, enable as needed
 
 logger:
   # https://esphome.io/components/logger
@@ -345,7 +360,8 @@ ota:
 
 ## Timed Fan control
 
-The MJ-SD01 can control a low power (<400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds as feedback on how much time is left.
+The MJ-SD01 can control a low power (&lt;400W?) fan. Ignore the dimmer feature and use it as a timer, using the green leds
+as feedback on how much time is left.
 
 ```yaml
 # Timed fan control
@@ -357,7 +373,6 @@ substitutions:
   ip_address: !secret martin_jerry_mj_sd01_ip # use /config/esphome/secrets.yaml
   max_time: "30" # number of minutes
   increment: "5" # number of minutes to add or remove with up/down buttons
-
 
 binary_sensor:
   - platform: gpio
@@ -554,11 +569,11 @@ power_supply:
 esphome:
   # https://esphome.io/components/esphome
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   # esp8266_restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
-  
+
+esp8266:
+  board: esp01_1m
 sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi Signal"
@@ -566,8 +581,8 @@ sensor:
 
 wifi:
   # https://esphome.io/components/wifi
-  ssid: !secret wifissid
-  password: !secret wifipass
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   manual_ip:
     static_ip: ${ip_address}
     gateway: !secret wifigateway
@@ -575,7 +590,7 @@ wifi:
     dns1: !secret wifidns
   ap:
     ssid: ${friendly_name}_AP
-    password: !secret wifipass
+    password: !secret wifi_password
     channel: 1
     manual_ip:
       static_ip: 192.168.1.1
@@ -583,9 +598,9 @@ wifi:
       subnet: 255.255.255.0
 
 # web_server:
-  # port: 80
-  # https://esphome.io/components/web_server.html
-  # Can cause high memory usage on ESP8266, enable as needed
+# port: 80
+# https://esphome.io/components/web_server.html
+# Can cause high memory usage on ESP8266, enable as needed
 
 logger:
   # https://esphome.io/components/logger

@@ -14,7 +14,8 @@ All information provided is from [Iprak](https://github.com/iprak) documentation
 
 The device has 2 indicator LEDs under the button and 2 indiviually controllable outlets.
 [FCC filing](https://fccid.io/2AKBP-X13/)
-[Tasmato](https://templates.blakadder.com/aoycocr_X13.html) wiki mentioned that it might not be able to use Tuya-Convert.
+[Tasmato](https://templates.blakadder.com/aoycocr_X13.html) wiki mentioned that it might not be able to use
+Tuya-Convert.
 
 ## Product Image
 
@@ -22,8 +23,10 @@ The device has 2 indicator LEDs under the button and 2 indiviually controllable 
 
 ## GPIO Pinout
 
-The GPIO pinout was learned from [Iprak](https://github.com/iprak/esphome/blob/master/Instructions/Aoycocr-x13.md) documentation.
-The ESP module is ESP8266-S3 and the [FCC filing](https://fccid.io/2AKBPESP8266-S3/Users-Manual/User-Manual-3594791) provided the pins
+The GPIO pinout was learned from [Iprak](https://github.com/iprak/esphome/blob/master/Instructions/Aoycocr-x13.md)
+documentation.
+The ESP module is ESP8266-S3 and the [FCC filing](https://fccid.io/2AKBPESP8266-S3/Users-Manual/User-Manual-3594791)
+provided the pins
 
 1. EN
 2. TOUT
@@ -69,19 +72,15 @@ substitutions:
 
 esphome:
   name: $devicename
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
   arduino_version: espressif8266@2.6.2
 
 wifi:
-  ssid: !secret ssid
-  password: !secret ssid_password
-  use_address: "$devicename.home"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
-    ssid: "$proper_devicename Hotspot"
-    password: !secret ap_password
 
 
 captive_portal:

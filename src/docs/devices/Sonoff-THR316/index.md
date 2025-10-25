@@ -12,7 +12,7 @@ difficulty: 3
 ## GPIO Pinout
 
 | Pin    | Function                           |
-| ------ | -----------------------------------|
+| ------ | ---------------------------------- |
 | GPIO00 | Push Button (HIGH = off, LOW = on) |
 | GPIO13 | Right LED (Green/Auto)             |
 | GPIO15 | Middle LED (Blue/WiFi)             |
@@ -20,6 +20,17 @@ difficulty: 3
 | GPIO21 | Relay                              |
 | GPIO25 | Dallas Sensor Bus Data In/Out      |
 | GPIO27 | Dallas Sensor 3.3V Power           |
+
+## RJ9 Pinout
+
+RJ9 pins, when the connector is viewed from the contacts side, cables exiting at the bottom, and pin 1 is farthest left.
+
+| Pin | Function               |
+| --- | ---------------------- |
+| 1   | Sensor 3.3V Power      |
+| 2   | Sensor Bus Data In/Out |
+| 3   | Not Connected          |
+| 4   | Sensor Ground          |
 
 ## Configuration using DS18B20 temperature sensor
 
@@ -48,12 +59,12 @@ esphome:
   on_boot:
     - priority: 90
       then:
-      # Make sure the relay is in a known state at startup
-      - switch.turn_off: relay
-      # Default to running the climate control in Home mode
-      - climate.control:
-          id: climate_control
-          preset: "Home"
+        # Make sure the relay is in a known state at startup
+        - switch.turn_off: relay
+        # Default to running the climate control in Home mode
+        - climate.control:
+            id: climate_control
+            preset: "Home"
 
 esp32:
   board: nodemcu-32s
@@ -253,16 +264,16 @@ climate:
       - name: Home
         default_target_temperature_low: 20 °C
     on_state:
-    - if:
-        condition:
-          lambda: |-
-            return id(climate_control).mode == CLIMATE_MODE_OFF;
-        then:
-          - light.turn_off: auto_led
-    - if:
-        condition:
-          lambda: |-
-            return id(climate_control).mode == CLIMATE_MODE_HEAT;
-        then:
-          - light.turn_on: auto_led
+      - if:
+          condition:
+            lambda: |-
+              return id(climate_control).mode == CLIMATE_MODE_OFF;
+          then:
+            - light.turn_off: auto_led
+      - if:
+          condition:
+            lambda: |-
+              return id(climate_control).mode == CLIMATE_MODE_HEAT;
+          then:
+            - light.turn_on: auto_led
 ```

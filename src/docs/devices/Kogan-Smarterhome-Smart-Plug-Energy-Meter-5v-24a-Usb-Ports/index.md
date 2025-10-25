@@ -37,16 +37,13 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp8285
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  manual_ip:
-    static_ip: ${device_ip}
-    gateway: 192.168.x.x
-    subnet: 255.255.255.0
 
 logger:
   
@@ -159,7 +156,9 @@ time:
 
 ## Appendix
 
-If you are seeing incorrect power/current readings at higher power draws (i.e. current of 5A@240V while power is showing ~2000W), your unit most likely has a `BL0937` chip. You can verify this by looking at underside of the PCB, in the general area of the ESP chip. To get correct sensor results, make the following config changes:
+If you are seeing incorrect power/current readings at higher power draws (i.e. current of 5A@240V while power is showing
+~2000W), your unit most likely has a `BL0937` chip. You can verify this by looking at underside of the PCB, in the
+general area of the ESP chip. To get correct sensor results, make the following config changes:
 
 ```yaml
 (...)
