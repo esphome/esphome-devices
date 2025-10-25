@@ -18,7 +18,9 @@ MOSFET rated for 106W max power), and can be used as a [RGB](https://esphome.io/
 [RGBW](https://esphome.io/components/light/rgbw.html) / [RGBWW](https://esphome.io/components/light/rgbww.html) /
 [RGBCT](https://esphome.io/components/light/rgbct.html)
 controller or configured with any combination of up to five
-[individual monochromatic PWM](/components/light/monochromatic.html) lights. See [A closer look at the H801 LED WiFi
+[individual monochromatic PWM](https://esphome.io/components/light/monochromatic.html) lights.
+
+See [A closer look at the H801 LED WiFi
 Controller](https://tinkerman.cat/post/closer-look-h801-led-wifi-controller)
 for more details on the hardware.
 

@@ -153,4 +153,4 @@ light:
     restore_mode: RESTORE_DEFAULT_ON
 ```
 
-   [aliexpress.com]: [https://www.aliexpress.com/item/33006613923.html](https://www.aliexpress.com/item/33006613923.html)
+   [aliexpress.com]: https://www.aliexpress.com/item/33006613923.html
