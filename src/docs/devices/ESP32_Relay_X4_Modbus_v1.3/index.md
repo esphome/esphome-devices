@@ -11,9 +11,11 @@ difficulty: 2
 
 ## Product description
 
-This is a 4-relay board, having 4 binary inputs and an RS485 interface based on ESP32. The inputs are optoisolated (mine came with TLP785GB with 4.7k resistors on inputs, making it safe to operate them around max 24V), with a common ground, independent from the board's main gound. The RS485 transceiver is a SP3485E. Connectors are detacheable.
+This is a 4-relay board, having 4 binary inputs and an RS485 interface based on ESP32. The inputs are optoisolated (mine
+came with TLP785GB with 4.7k resistors on inputs, making it safe to operate them around max 24V), with a common ground,
+independent from the board's main gound. The RS485 transceiver is a SP3485E. Connectors are detacheable.
 
-I bought it from: https://www.aliexpress.com/item/1005008876629425.html
+I bought it from: [https://www.aliexpress.com/item/1005008876629425.html](https://www.aliexpress.com/item/1005008876629425.html)
 
 ## GPIO Pinout
 
@@ -70,14 +72,14 @@ wifi:
   reboot_timeout: 30min
 
 sensor:
-- platform: uptime
-  name: Uptime
+  - platform: uptime
+    name: Uptime
 
 button:
-- platform: restart
-  name: Reboot
-- platform: safe_mode
-  name: Reboot in safe mode
+  - platform: restart
+    name: Reboot
+  - platform: safe_mode
+    name: Reboot in safe mode
 
 # ==========================
 # RELAYS (OUTPUTS)
@@ -136,9 +138,9 @@ binary_sensor:
       inverted: true
     name: "Input 4"
 
-# ==========================
-# EXTRA PADS (RX2/TX2)
-# ==========================
+  # ==========================
+  # EXTRA PADS (RX2/TX2)
+  # ==========================
   - platform: gpio
     pin:
       number: 16
@@ -157,8 +159,8 @@ binary_sensor:
 # MODBUS UART
 # ==========================
 uart:
-  rx_pin: 18   # Modbus RX
-  tx_pin: 19   # Modbus TX
+  rx_pin: 18 # Modbus RX
+  tx_pin: 19 # Modbus TX
   baud_rate: 9600
 
 # ==========================

@@ -26,7 +26,7 @@ This is an ESP32-S3 based Feather board with multiple components:
 
 More information:
 
-- Product page: https://esp32s3.com/feathers3d.html
+- Product page: [https://esp32s3.com/feathers3d.html](https://esp32s3.com/feathers3d.html)
 
 ## GPIO Pinout
 
@@ -126,7 +126,8 @@ This config is for ESP-IDF framework, as we use specific SDK Config options.
 - It sets a CPU frequency to 240 MHz
 - It allocates memory on `malloc` calls from both internal and PSRAM memory
 - It allows [Mbed TLS](https://github.com/Mbed-TLS/mbedtls) to allocate memory in PSRAM
-- It increases the `nvs` partition at the cost of reducing the `app0`/`app1` partitions. It gives more space to store persisted variables.
+- It increases the `nvs` partition at the cost of reducing the `app0`/`app1` partitions. It gives more space to store
+  persisted variables.
 
 ```yaml
 substitutions:
@@ -231,7 +232,7 @@ sensor:
 
 ### Partition file
 
-Into a file named `partitions-16MB-nvs-extended.csv` next to your ESPhome YAML config, write this content:
+Into a file named `partitions-16MB-nvs-extended.csv` next to your ESPHome YAML config, write this content:
 
 ```csv
 otadata,  data,   ota, ,   0x2000,

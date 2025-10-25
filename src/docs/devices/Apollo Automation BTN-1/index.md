@@ -13,9 +13,11 @@ made-for-esphome: true
 
 ## Description
 
-Meet the Apollo BTN-1 Macro Deck! A versatile, customizable control device that's perfect for creators, streamers, and smart home enthusiasts.
+Meet the Apollo BTN-1 Macro Deck! A versatile, customizable control device that's perfect for creators, streamers, and
+smart home enthusiasts.
 
-This compact powerhouse features four mechanical Cherry MX-compatible hot-swappable buttons with LEDs both under and in front of each key for clear visual feedback. Want to change the feel? Just swap the switches - no soldering required!
+This compact powerhouse features four mechanical Cherry MX-compatible hot-swappable buttons with LEDs both under and in
+front of each key for clear visual feedback. Want to change the feel? Just swap the switches - no soldering required!
 
 **The modular magic:**
 
@@ -33,9 +35,11 @@ This compact powerhouse features four mechanical Cherry MX-compatible hot-swappa
 - Industrial automation and IoT projects
 - Anyone who wants tactile control over their digital world
 
-The BTN-1's modular design means it grows with your needs. Start simple with four buttons, then add an e-ink display to show system stats, or attach an NFC reader for contactless controls. The possibilities are endless!
+The BTN-1's modular design means it grows with your needs. Start simple with four buttons, then add an e-ink display to
+show system stats, or attach an NFC reader for contactless controls. The possibilities are endless!
 
-Want to trigger your "going live" scene with one button? Done. Need a physical volume knob that actually feels premium? Add a rotary dial. Want to monitor your room's CO2 levels while streaming? Pop in a sensor mezzanine.
+Want to trigger your "going live" scene with one button? Done. Need a physical volume knob that actually feels premium?
+Add a rotary dial. Want to monitor your room's CO2 levels while streaming? Pop in a sensor mezzanine.
 
 It's like having a Swiss Army knife for your digital workspace, but way cooler and infinitely more customizable.
 
