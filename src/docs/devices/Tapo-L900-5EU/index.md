@@ -12,7 +12,7 @@ difficulty: 4
 This configuration is for the [TP-Link Tapo L900](https://www.tp-link.com/au/home-networking/smart-bulb/tapo-l900-5/)
 which comes as a colour changing LED strip with controller and power supply.
 
-![TP-Link Tapo L900 Strip Lights](/Tapo-L900-Box.jpg "TP-Link Tapo L900 Strip Lights")
+![TP-Link Tapo L900 Strip Lights](./Tapo-L900-Box.jpg "TP-Link Tapo L900 Strip Lights")
 
 ## Flashing Instuctions
 
@@ -129,5 +129,5 @@ binary_sensor:
 
 ## Internal Pictures
 
-![PCB Front](/Tapo-L900-PCB-Front.jpg "PCB Front")
-![PCB Back](/Tapo-L900-PCB-Back.jpg "PCB Back")
+![PCB Front](./Tapo-L900-PCB-Front.jpg "PCB Front")
+![PCB Back](./Tapo-L900-PCB-Back.jpg "PCB Back")

@@ -9,9 +9,9 @@ difficulty: 2
 
 ## Product Images
 
-![Product Image](/sonoff_RE5V1C.webp "Product Image")
-![PCB Top](/sonoff_RE5V1C_top.jpg "PCB Top")
-![PCB Bottom](/sonoff_RE5V1C_bottom.jpg "PCB Bottom")
+![Product Image](./sonoff_RE5V1C.webp "Product Image")
+![PCB Top](./sonoff_RE5V1C_top.jpg "PCB Top")
+![PCB Bottom](./sonoff_RE5V1C_bottom.jpg "PCB Bottom")
 
 ## Specification
 

@@ -19,7 +19,7 @@ The configuration is built on the rtl87xx platform using the LibreTiny framework
 rtl8720c is not yet fully supported.
 We also use a custom tuya component in order to correctly handle the weather commands from TuyaMCU.
 
-![Tuya Smart Weather Station](/device.jpg "Tuya Smart Weather Station")
+![Tuya Smart Weather Station](./device.jpg "Tuya Smart Weather Station")
 
 ## Flashing Instuctions
 

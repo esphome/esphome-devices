@@ -26,12 +26,12 @@ Available at:
 
 ## Flashing (Older Devices)
 
-On older models of this device, [tuya-convert](https://devices.esphome.io/guides/tuya-convert/) should be able to flash
+On older models of this device, [tuya-convert](https://devices.esphome.io/devices/tuya-convert) should be able to flash
 this device, but I am unsure how old the device needs to be for this method to still work.
 
 ## Flashing (Newer Devices)
 
-On newer patched devices (likely yours), [tuya-convert](https://devices.esphome.io/guides/tuya-convert/) will not work.
+On newer patched devices (likely yours), [tuya-convert](https://devices.esphome.io/devices/tuya-convert) will not work.
 In order to flash, gain access to the [TYWE3S](https://tasmota.github.io/docs/devices/TYWE3S/) board by prying off the
 top of the device.
 

@@ -22,7 +22,7 @@ using cloudcutter following instructions
 [in the LibreTiny documentation](https://docs.libretiny.eu/docs/projects/esphome/).
 
 This requires a custom fork of ESPHome to complie the firmware for the Beken MCU as it is not natively support by
-ESPHome yet (<https://github.com/esphome/esphome/pull/3509>).
+ESPHome yet ([https://github.com/esphome/esphome/pull/3509](https://github.com/esphome/esphome/pull/3509)).
 
 Cloudcutter relies on a vulnerability in the original Tuya firmware to work, so before attempting to use cloudcutter,
 pair the light using Tuya app on your phone (you can use a guest account), and check the firmware version (under

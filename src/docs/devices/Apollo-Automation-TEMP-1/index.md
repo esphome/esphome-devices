@@ -43,5 +43,5 @@ The Apollo Automation TEMP-1 ( battery and non battery version ) is a temperatur
 
 ## Product Images
 
-![Apollo TEMP-1](Apollo-TEMP-1_2.jpg "Apollo TEMP-1")
-![Apollo TEMP-1](Apollo-TEMP-1_1.jpg "Apollo TEMP-1")
+![Apollo TEMP-1](Apollo-Temp-1_2.JPG "Apollo TEMP-1")
+![Apollo TEMP-1](Apollo-TEMP-1_1.JPG "Apollo TEMP-1")

@@ -23,7 +23,7 @@ Base: E27
 
 ## Product Images
 
-![Athom BR30 Bulb](/Athom-BR30-Bulb.png "Athom BR30 Bulb")
+![Athom BR30 Bulb](./Athom-BR30-Bulb.png "Athom BR30 Bulb")
 
 ## GPIO Pinout
 

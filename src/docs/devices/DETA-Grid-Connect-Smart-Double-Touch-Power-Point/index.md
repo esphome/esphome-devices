@@ -16,7 +16,7 @@ this is a AU/NZ standard wall outlet/powerpoint based on the TYWE3S module.
 ### tuya-convert
 
 These outlets are Tuya devices, so if you don't want to open them up to flash directly, you can attempt to
-[use tuya-convert to initially get ESPHome onto them](/guides/tuya-convert/) however recently purchased devices are no
+[use tuya-convert to initially get ESPHome onto them](/devices/tuya-convert) however recently purchased devices are no
 longer Tuya-Convert compatible.  There's a useful guide to disassemble and serial flash similar switches
 [on Mike McGuire's blog][1]. After that, you can use ESPHome's OTA functionality to make any further changes.
 

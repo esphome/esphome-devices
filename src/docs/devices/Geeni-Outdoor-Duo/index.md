@@ -20,7 +20,7 @@ This device has two plugs, a green LED, a blue LED, and a button. The LEDs and b
 rubber cap.
 
 The plug is based on the Tuya WB3S module which is pin compatable with the ESP12 series of ESP8266 modules.
-The factory WB3S can be converted using [tuya convert](https://devices.esphome.io/guides/tuya-convert) (untested on this
+The factory WB3S can be converted using [tuya convert](https://devices.esphome.io/devices/tuya-convert) (untested on this
 model), but it is equally possible to replace the WB3S with an ESP12 with some basic hot air rework.
 
 The control board is completely seperate from the relay board and can be removed easily for soldering.

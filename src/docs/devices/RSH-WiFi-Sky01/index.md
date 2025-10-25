@@ -8,7 +8,7 @@ board: esp8266
 
 Manufacturer: [tuya](https://expo.tuya.com/smart/lighting/ambient-lighting/star-projector/CT9cn91vklm6mj-CT9cn98zo9cbv5-CTatr28ahrby2u)
 
-![Product Image](/Sky01.jpg "Product Image")
+![Product Image](./Sky01.jpg "Product Image")
 
 - Original hardware mod: [3ATIVE VFX Studio](https://www.youtube.com/watch?v=YwHWbcuztuY&ab_channel=3ATIVEVFXStudio)
   - [Github](https://github.com/3ative/nebula-Light)
