@@ -22,10 +22,14 @@ difficulty: 3
 ![connection to pads](connection.jpg "Connection to Serial Pads and GND Pin Header")
 
 1. Open the device by removing the back cover. Remember the orientation of the PCB stack for reassembly.
-2. Remove the PCB from the front panel. This is held by clips, so gently spread the panel sides to release the PCB Stack.
+2. Remove the PCB from the front panel. This is held by clips, so gently spread the panel sides to release the
+    PCB Stack.
 3. The serial pads are located on the back of the PCB. with easy access to the pads.
-4. Connect RX and TX correctly (RX to TX, TX to RX) to the serial adapter. I did not solder wires directly to the pads, instead I used tiny clip test leads to make contact with the pads as seen in the image above.
-5. There is a 5v line on the PCB clearly marked (A long pin header connecting multiple PCBs). Use a 5V serial adapter to power the device during flashing as a stable power source is required for successful flashing and using 3.3V may lead to instability as reported by some users.
+4. Connect RX and TX correctly (RX to TX, TX to RX) to the serial adapter. I did not solder wires directly to
+    the pads, instead I used tiny clip test leads to make contact with the pads as seen in the image above.
+5. There is a 5v line on the PCB clearly marked (A long pin header connecting multiple PCBs). Use a 5V serial
+    adapter to power the device during flashing as a stable power source is required for successful flashing
+    and using 3.3V may lead to instability as reported by some users.
 6. Connect GND to GND, I did not use pads here since a pin header was available on the PCB.
 7. Start flashing software on your computer. I used `ltchiptool` with the following command:
 
@@ -33,11 +37,15 @@ difficulty: 3
    ltchiptool flash write -d /dev/ttyUSB0 HomeMate-4-Gang-Touch-Switch-bk7231n.uf2
    ```
 
-8. Put the device into flashing mode by shorting the CEN pin (on the chip itself) to GND once your tool says so. You will hear a relay click when it enters flashing mode. To short CEN to GND, I used a male jumper wire to touch the CEN pad and GND pad simultaneously. refer to the [image on lbretiny's docs](https://docs.libretiny.eu/boards/cb3s) to locate the CEN pin.
+8. Put the device into flashing mode by shorting the CEN pin (on the chip itself) to GND once your tool says so.
+    You will hear a relay click when it enters flashing mode. To short CEN to GND, I used a male jumper wire to
+    touch the CEN pad and GND pad simultaneously.
+    Refer to the [image on lbretiny's docs](https://docs.libretiny.eu/boards/cb3s) to locate the CEN pin.
 
 ## ESPHome Configuration
 
-You can use the following ESPHome configuration for the HomeMate 4 Gang Touch Switch. This configuration includes support for controlling the relays, touch buttons, status LEDs, and a power-on state selection.
+You can use the following ESPHome configuration for the HomeMate 4 Gang Touch Switch. This configuration includes
+support for controlling the relays, touch buttons, status LEDs, and a power-on state selection.
 
 Compile and flash the uf2 file as per the instructions above.
 
