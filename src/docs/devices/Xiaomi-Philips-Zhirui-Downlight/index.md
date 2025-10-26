@@ -9,6 +9,10 @@ board: esp8266
 
 ![Product Image](xiaomi-philips-smart-2.jpg "Product Image")
 
+### Pinout
+
+![Pinout Xiaomi Philips Zhirui Downlight](pinout.png)
+
 ## Basic Configuration
 
 ```yaml
