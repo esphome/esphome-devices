@@ -67,3 +67,17 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Production
+/build
+
+# Generated files
+.docusaurus
+.cache-loader
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+src/data/device-metadata.json

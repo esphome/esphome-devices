@@ -18,11 +18,11 @@ Contains CB2S BK7231n module.
 
 ## GPIO Pinout
 
-| Pin    | Function                   |
-| ------ | -------------------------- |
-| P6     | Red Status LED (H)         |
-| P8     | Button INPUT_PULLUP        |
-| P24    | Relay (H)                  |
+| Pin | Function            |
+| --- | ------------------- |
+| P6  | Red Status LED (H)  |
+| P8  | Button INPUT_PULLUP |
+| P24 | Relay (H)           |
 
 ## Configuration
 
