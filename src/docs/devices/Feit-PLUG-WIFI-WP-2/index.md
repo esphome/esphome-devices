@@ -7,19 +7,38 @@ board: bk72xx
 difficulty: 4
 ---
 
-This is a variant of the plug that has 2 outlets, instead of the 3 outlets in the PLUG3 variant. It is marked FCC ID: `SYW-PLUGWFWP` and the IC is labeled: `SYCZB-MW-AK` This was heavily based on the great work alread done on other variants here: [IC 2046-PLUG3WIFIN](/devices/Feit-PLUG3-WIFI-WP-2-N/) and here [IC: 20416-PLUG3WIFI](/devices/Feit-PLUG3-WIFI-WP-2/)
+This is a variant of the plug that has 2 outlets, instead of the 3 outlets in the PLUG3 variant.
+It is marked FCC ID: `SYW-PLUGWFWP` and the IC is labeled: `SYCZB-MW-AK`. 
+This was heavily based on the great work alread done on other variants here: [IC 2046-PLUG3WIFIN](/devices/Feit-PLUG3-WIFI-WP-2-N/) and here [IC: 20416-PLUG3WIFI](/devices/Feit-PLUG3-WIFI-WP-2/).
 
+Some versions of this 2 outlet versions shipped with ESP8266 boards, but this one had a bk72xx, 
+as discussed [here](https://community.home-assistant.io/t/costco-feit-dual-outlet-outdoor-smart-plug/167786).
 
-Some versions of this 2 outlet versions shipped with ESP8266 boards, but this one had a bk72xx, as discussed here: https://community.home-assistant.io/t/costco-feit-dual-outlet-outdoor-smart-plug/167786
+Follow the steps in the great PLUG3 variant docs [here](/devices/Feit-PLUG3-WIFI-WP-2/) 
+to flash your board via UART (the TX, RX, GND, and 3v3 pins are all clearly silk screened on the board in this variant) using ltchiptool.
+I lightly tack soldered to the pads,
+but don't be like me and break a pad and have to dig up a trace to solder to :)
 
-Follow the steps in the great PLUG3 variant docs [here](/devices/Feit-PLUG3-WIFI-WP-2/) to flash your board via UART (the TX, RX, GND, and 3v3 pins are all clearly silk screened on the board in this variant) using ltchiptool.  I lightly tack soldered to the pads, but don't be like me and break a pad and have to dig up a trace to solder to :)
-
-After building the device in ESPHOME and downloading the uf2 file, the command to flash will be similar to this:
+After building the device in ESPHOME and downloading the uf2 file,
+the command to flash will be similar to this:
 `ltchiptool flash write -d /dev/cu.usbserial-210 -b 115200 ./outdoor-switch1.uf2`
 
-After flashing with ESPHome build, I found the pins in the PLUG3 variant were not working and by trial and error found the following ESPHome config / GPIO pins to work for this variant:
+After flashing with ESPHome build, I found the pins in the
+PLUG3 variant were not working and by trial and error found
+the following ESPHome config / GPIO pins to work for this variant:
 
-```
+## GPIO Pinout
+
+| Pin | Function          |
+| --- | ----------------- |
+| P15 | Relay             |
+| P17 | Blue LED          |
+| P23 | WiFi Power - why you might want this I don't know - maybe just to avoid it so you don't have to reflash thru UART!?! |
+| P24 | Red LED           |
+| P26 | Button            |
+
+
+``` yaml
 substitutions:
   project_name: outdoor-plug-1
   friendly_name: "Outdoor Plug 1"
@@ -62,12 +81,7 @@ captive_portal:
 #   tx_pin: P11 #TX1
 #   baud_rate: 115200
 
-# Pins known
-# Red LED: P24
-# Relay: P15
-# Button: P26
-# Blue LED: P17
-# wifi power: P23 (why you might want this IDK - maybe just to avoid it so you don't have to reflash thru UART!?!)
+
 
 # Other pins tried with unknown function: p6, p7, p8, p9, p14, p16, p20, p24
 
