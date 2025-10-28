@@ -210,12 +210,12 @@ status_led:
 
 ## 📥 Example: OpenTherm Boiler Configuration in ESPHome
 
-To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler, 
+To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler,
 add the following to your ESPHome configuration:
 
 > ⚠️ **Note:**  
 > This is a **configuration example**. The exact list of available values depends on your **boiler model**
->  and which OpenTherm parameters it supports.
+> and which OpenTherm parameters it supports.
 
 ### 🔧 OpenTherm Sensors (`sensor:`)
 
@@ -293,7 +293,7 @@ Once uploaded, the above entities will automatically appear in Home Assistant if
 
 ## 🧷 Connection Diagrams – Homemaster OpenTherm Gateway
 
-Below are reference diagrams and safety notes for connecting **power**, **OpenTherm bus**, 
+Below are reference diagrams and safety notes for connecting **power**, **OpenTherm bus**,
 **1-Wire sensors**, and **relay outputs** to your Homemaster OpenTherm Gateway.
 
 ---
@@ -333,7 +333,8 @@ If using mains voltage, connect **L** (Live) and **N** (Neutral) to the terminal
 
 ### 🔁 Relay Output (Dry Contact)
 
-The relay output is **optically isolated** (via PC817 and S8050 driver stage) and capable of switching **AC or DC loads** up to 6A.  
+The relay output is **optically isolated** (via PC817 and S8050 driver stage) and capable 
+of switching **AC or DC loads** up to 6A.  
 Use it to control zone valves, pumps, or backup heating.
 
 ![Relay Connection](./OpenTherm_RelayConnection.png)
