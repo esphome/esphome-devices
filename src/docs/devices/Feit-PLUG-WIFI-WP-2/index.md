@@ -17,7 +17,7 @@ Some versions of this 2 outlet versions shipped with ESP8266 boards, but this on
 bk72xx, as discussed
 [here](https://community.home-assistant.io/t/costco-feit-dual-outlet-outdoor-smart-plug/167786).
 
-Follow the steps in the great PLUG3 variant docs [here](/devices/Feit-PLUG3-WIFI-WP-2/) 
+Follow the steps in the great PLUG3 variant docs [here](/devices/Feit-PLUG3-WIFI-WP-2/)
 to flash your board via UART (the TX, RX, GND, and 3v3 pins are
 all clearly silk screened on the board in this variant) using ltchiptool.
 I lightly tack soldered to the pads,
