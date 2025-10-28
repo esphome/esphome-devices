@@ -333,7 +333,7 @@ If using mains voltage, connect **L** (Live) and **N** (Neutral) to the terminal
 
 ### 🔁 Relay Output (Dry Contact)
 
-The relay output is **optically isolated** (via PC817 and S8050 driver stage) and capable 
+The relay output is **optically isolated** (via PC817 and S8050 driver stage) and capable
 of switching **AC or DC loads** up to 6A.  
 Use it to control zone valves, pumps, or backup heating.
 
