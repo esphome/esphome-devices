@@ -1,39 +1,57 @@
 {
   "name": "devices.esphome.io",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "This website is a repository of device configuration templates and setup guides for devices running ESPHome firmware.",
   "author": "",
   "license": "GPL-3.0",
-  "dependencies": {
-    "@rocketseat/gatsby-theme-docs": "^3.2.0",
-    "algoliasearch": "^4.14.2",
-    "gatsby": "^4.25.9",
-    "gatsby-plugin-algolia": "^0.26.0",
-    "gatsby-plugin-canonical-urls": "^4.25.0",
-    "gatsby-plugin-google-analytics": "^4.25.0",
-    "gatsby-plugin-google-gtag": "^4.25.0",
-    "gatsby-plugin-manifest": "^4.25.0",
-    "gatsby-plugin-netlify": "^5.0.1",
-    "gatsby-plugin-offline": "^5.25.0",
-    "gatsby-plugin-sitemap": "^5.24.0",
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-instantsearch-dom": "^6.35.0"
-  },
-  "keywords": [
-    "gatsby",
-    "rocketseat",
-    "gatsby-starter"
-  ],
   "scripts": {
-    "build": "gatsby build",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+"docusaurus": "docusaurus",
+    "start": "pnpm extract-metadata && docusaurus start",
+    "build": "pnpm extract-metadata && docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "typecheck": "tsc",
+    "extract-metadata": "tsx scripts/extract-device-metadata.ts"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/plugin-ideal-image": "^3.9.2",
+    "@docusaurus/plugin-sitemap": "^3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@getcanary/docusaurus-theme-search-pagefind": "^1.0.2",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "gray-matter": "^4.0.3",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsx": "^4.20.6"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "@types/node": "^24.9.1",
+    "typescript": "~5.6.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
   },
   "engines": {
-    "node": "18"
+    "node": ">=20.0"
   }
 }

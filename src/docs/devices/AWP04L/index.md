@@ -6,7 +6,8 @@ standard: us
 board: esp8266
 ---
 
-These devices come with different brands, but all have AWP04L serial number on the back sticker. FCC-ID is [2ANOO-SM800](https://fccid.io/2ANOO-SM800).
+These devices come with different brands, but all have AWP04L serial number on the back sticker. FCC-ID is
+[2ANOO-SM800](https://fccid.io/2ANOO-SM800).
 
 This template has been updated with "comment:" and "captive_portal:" feautures added in ESPHome v. 1.14
 
@@ -256,11 +257,13 @@ interval:
                 transition_length: 250ms
 ```
 
-Note: You will want to exclude the red_led and blue_led lights from your recorder componant, especially if you use the included Throb custom animation, since that would fill your database with the on/off blinking status updates.
+Note: You will want to exclude the red_led and blue_led lights from your recorder componant, especially if you use the
+included Throb custom animation, since that would fill your database with the on/off blinking status updates.
 
 ## Split Configuration
 
-If you have several of these plugs, you may prefer to keep the shared code in one file and only put the device-specific code in the files for each plug.
+If you have several of these plugs, you may prefer to keep the shared code in one file and only put the device-specific
+code in the files for each plug.
 
 In plug_common.yaml:
 

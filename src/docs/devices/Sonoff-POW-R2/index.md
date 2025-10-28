@@ -9,7 +9,7 @@ difficulty: 3
 
 ## Product Images
 
-![A picture of the PCB inside of the Sonoff POWR2](/inside.jpg "inside")
+![A picture of the PCB inside of the Sonoff POWR2](./inside.jpg "inside")
 
 ## GPIO Pinout
 
@@ -115,6 +115,6 @@ light:
     name: Sonoff POW Blue LED
     id: pow_blue_led
     pin:
-        number: GPIO13
-        inverted: True
+      number: GPIO13
+      inverted: True
 ```

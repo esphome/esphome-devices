@@ -15,9 +15,12 @@ difficulty: 1
 
 ## 🌡️ Description
 
-The Opentherm Gateway enables full bidirectional OpenTherm communication for intelligent climate control. It supports monitoring and control of key heating parameters such as burner status, flame modulation, setpoint temperatures, and system diagnostics.
+The Opentherm Gateway enables full bidirectional OpenTherm communication for intelligent climate control. It supports
+monitoring and control of key heating parameters such as burner status, flame modulation, setpoint temperatures, and
+system diagnostics.
 
-A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
+A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire
+interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
 
 ## ⚙️ Key Features
 
@@ -90,7 +93,8 @@ Once connected to Wi-Fi, the OpenTherm Gateway will appear in your **ESPHome Das
 2. Download the YAML configuration file from our GitHub repository.
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
-5. The OpenTherm Gateway supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
+5. The OpenTherm Gateway supports automatic reset and boot control — there is no need to press reset or boot buttons
+   during programming.
 6. After flashing, the device will reboot automatically and run the updated firmware.
 
 ## Specifications

@@ -18,7 +18,9 @@ board: esp8266
 
 ## Configuration for 2-Phase Whole-Home Energy Monitor
 
-Configuration to use a Shelly EM as per its native design. Requries 2x CT clamps, which can be purchased from the shelly.cloud store. Set the scales of the ST clamps according to your model (50A or 120A or other model you may want to use).
+Configuration to use a Shelly EM as per its native design. Requries 2x CT clamps, which can be purchased from the
+shelly.cloud store. Set the scales of the ST clamps according to your model (50A or 120A or other model you may want to
+use).
 
 Be sure to set GPIO13 to the ADE7953 IRQ pin to prevent overheating!
 
