@@ -71,8 +71,10 @@ Once provisioned, you’ll see confirmation:
 You can now manage it from the **ESPHome Dashboard** or directly in **Home Assistant**, where it will appear automatically.
 
 > ⚠️ **Note:**  
-> The device does **not** host a web server by default, so accessing it via `http://opentherm.local` will **not work** unless `web_server:` is added to the YAML.  
-> Also, because `name_add_mac_suffix: true` is set, the actual hostname includes a unique suffix, like `http://homemaster-opentherm-3f9a7c.local`. Use ESPHome or Home Assistant for discovery.
+> The device does **not** host a web server by default, so accessing it via `http://opentherm.local`
+> will **not work** unless `web_server:` is added to the YAML.  
+> Also, because `name_add_mac_suffix: true` is set, the actual hostname includes a unique suffix,
+> like `http://homemaster-opentherm-3f9a7c.local`. Use ESPHome or Home Assistant for discovery.
 
 ---
 
@@ -208,10 +210,12 @@ status_led:
 
 ## 📥 Example: OpenTherm Boiler Configuration in ESPHome
 
-To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler, add the following to your ESPHome configuration:
+To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler, 
+add the following to your ESPHome configuration:
 
 > ⚠️ **Note:**  
-> This is a **configuration example**. The exact list of available values depends on your **boiler model** and which OpenTherm parameters it supports.
+> This is a **configuration example**. The exact list of available values depends on your **boiler model**
+>  and which OpenTherm parameters it supports.
 
 ### 🔧 OpenTherm Sensors (`sensor:`)
 
@@ -289,7 +293,8 @@ Once uploaded, the above entities will automatically appear in Home Assistant if
 
 ## 🧷 Connection Diagrams – Homemaster OpenTherm Gateway
 
-Below are reference diagrams and safety notes for connecting **power**, **OpenTherm bus**, **1-Wire sensors**, and **relay outputs** to your Homemaster OpenTherm Gateway.
+Below are reference diagrams and safety notes for connecting **power**, **OpenTherm bus**, 
+**1-Wire sensors**, and **relay outputs** to your Homemaster OpenTherm Gateway.
 
 ---
 
