@@ -8,14 +8,18 @@ difficulty: 4
 ---
 
 This is a variant of the plug that has 2 outlets, instead of the 3 outlets in the PLUG3 variant.
-It is marked FCC ID: `SYW-PLUGWFWP` and the IC is labeled: `SYCZB-MW-AK`. 
-This was heavily based on the great work alread done on other variants here: [IC 2046-PLUG3WIFIN](/devices/Feit-PLUG3-WIFI-WP-2-N/) and here [IC: 20416-PLUG3WIFI](/devices/Feit-PLUG3-WIFI-WP-2/).
+It is marked FCC ID: `SYW-PLUGWFWP` and the IC is labeled: `SYCZB-MW-AK`.
+This was heavily based on the great work alread done on other variants here:
+[IC 2046-PLUG3WIFIN](/devices/Feit-PLUG3-WIFI-WP-2-N/)
+and here [IC: 20416-PLUG3WIFI](/devices/Feit-PLUG3-WIFI-WP-2/).
 
-Some versions of this 2 outlet versions shipped with ESP8266 boards, but this one had a bk72xx, 
-as discussed [here](https://community.home-assistant.io/t/costco-feit-dual-outlet-outdoor-smart-plug/167786).
+Some versions of this 2 outlet versions shipped with ESP8266 boards, but this one had a
+bk72xx, as discussed
+[here](https://community.home-assistant.io/t/costco-feit-dual-outlet-outdoor-smart-plug/167786).
 
 Follow the steps in the great PLUG3 variant docs [here](/devices/Feit-PLUG3-WIFI-WP-2/) 
-to flash your board via UART (the TX, RX, GND, and 3v3 pins are all clearly silk screened on the board in this variant) using ltchiptool.
+to flash your board via UART (the TX, RX, GND, and 3v3 pins are
+all clearly silk screened on the board in this variant) using ltchiptool.
 I lightly tack soldered to the pads,
 but don't be like me and break a pad and have to dig up a trace to solder to :)
 
@@ -36,7 +40,6 @@ the following ESPHome config / GPIO pins to work for this variant:
 | P23 | WiFi Power - why you might want this I don't know - maybe just to avoid it so you don't have to reflash thru UART!?! |
 | P24 | Red LED           |
 | P26 | Button            |
-
 
 ``` yaml
 substitutions:
