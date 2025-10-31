@@ -4,7 +4,7 @@ date-published: 2025-08-28
 type: sensor
 standard: global
 board: esp32
-project-url: https://github.com/ApolloAutomation/H-1/
+project-url: https://github.com/ApolloAutomation/H-2/
 difficulty: 1
 made-for-esphome: true
 ---
@@ -19,7 +19,7 @@ This isn't your grandma's tree decoration. We packed 24 individually addressable
 
 **The fun stuff:**
 
-- 24 RGB LEDs that dance to your command
+- 58 RGB LEDs that dance to your command
 - 4 buttons = 4 different light shows + songs
 - Built-in piezo buzzer for holiday jams
 - Rechargeable battery (16340/RC CR123A)
@@ -32,7 +32,7 @@ This is our second annual charity ornament, so you're not just decorating your t
 
 - **CASA of Lexington** - These amazing volunteers advocate for children in the family court system who've experienced abuse or neglect, making sure their voices are heard and their best interests come first.
 
-- **Open Home Foundation** - Supporting Home Assistant and the open source mission that keeps our smart home dreams alive and accessible to everyone.
+- **Open Home Foundation** - Apollo Automation is proud to back the Open Home Foundation. A portion of profits from every H-2 sold helps protect the values of privacy, choice, and sustainability in the smart home by supporting open source projects like Home Assistant and open connectivity standards.
 
 Every ornament you buy helps fund real change while adding some tech-savvy sparkle to your holidays. Win-win!
 
@@ -50,7 +50,7 @@ It's techy enough for the smart home enthusiasts but simple enough that anyone c
 ## Links
 
 - [Shop](https://apolloautomation.com/products/apollo-h-2-annual-holiday-ornament)
-- [GitHub](https://github.com/ApolloAutomation/H-1)
+- [GitHub](https://github.com/ApolloAutomation/H-2)
 - [Wiki](https://wiki.apolloautomation.com/)
 - [Discord](https://dsc.gg/ApolloAutomation)
 - [YouTube](https://www.youtube.com/@ApolloAutomation)
