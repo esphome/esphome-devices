@@ -1,6 +1,6 @@
 ---
 title: SmartHomeShopIO Ceiling-mounted All-in-One Sensor (CeilSense)
-date-published: 2025-10-22
+date-published: 2025-11-03
 type: sensor
 standard: uk,us,eu,au,global
 board: esp32
