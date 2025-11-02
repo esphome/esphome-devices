@@ -22,6 +22,8 @@ Generation 3 of Shelly Mini. With Powermeter, and Relay
 
 The UART Pinout is the same as other Shelly Plus Mini.
 
+![Shelly 1 Mini Gen3](../Shelly-1-Mini-Gen3/shelly_1_mini_gen3_pcb_a.png "Shelly 1 Mini Gen3")
+
 ## GPIO Pinout
 
 | Pin    | Function  |

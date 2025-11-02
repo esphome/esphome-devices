@@ -98,10 +98,10 @@ i2c:
 output:
   - platform: gpio
     id: "relay_output_1"
-    pin: GPIO12
+    pin: GPIO13
   - platform: gpio
     id: "relay_output_2"
-    pin: GPIO13
+    pin: GPIO12
 
 switch:
   - platform: output
