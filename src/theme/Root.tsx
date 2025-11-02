@@ -66,7 +66,6 @@ export default function Root({ children }: RootProps): JSX.Element {
     if (typeof window === 'undefined') {
       return;
     }
-    console.log('unregistering legacy service workers');
     void unregisterLegacyServiceWorkers();
   }, []);
 
