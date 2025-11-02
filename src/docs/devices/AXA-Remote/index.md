@@ -1,5 +1,5 @@
 ---
-title: 
+title: AXA Remote
 date-published: 2025-10-23
 type: misc
 standard: global
