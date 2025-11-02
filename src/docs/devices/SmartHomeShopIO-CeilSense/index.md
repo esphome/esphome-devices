@@ -52,7 +52,7 @@ visible trim ring ≈ Ø 82 mm.
    - **Ethernet** builds: plug UTP → gets DHCP → appears as **Discovered** in Home Assistant.
 3. **Adopt** in ESPHome / Home Assistant and tune (radar thresholds, LED effects).
 
-> Please check our full documentation and Quick Start Guide: <https://smarthomeshop.io/quick-start-ceilsense>
+Please check our [full documentation and Quick Start Guide](https://smarthomeshop.io/quick-start-ceilsense)
 
 ## Support & Links
 
