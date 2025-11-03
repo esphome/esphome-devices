@@ -9,12 +9,16 @@ difficulty: 3
 
 ![HBN-CP-A86WT](HBN-CP-A86WT.jpg "HBN-CP-A86WT")
 
-The HBN-CP-A86WT is an outdoor (IP54) dual outlet plug. It switches both active (line) and neutral of both outlets (four relays).
+The HBN-CP-A86WT is an outdoor (IP54) dual outlet plug. It switches both active (line) and neutral
+of both outlets (four relays).
 
-It uses a CB2S module (Beken BK7231N). Disassembly is required to flash ESPHome, seven tri-wing screws, and the Tuya module's readily accessible to tack on wires to the UART connection. The device's front panel cable should be unplugged to temporarily free up RX1 which is normally used to drive the state LED (GPIO P10).
+It uses a CB2S module (Beken BK7231N). Disassembly is required to flash ESPHome, seven tri-wing
+screws, and the Tuya module's readily accessible to tack on wires to the UART connection. The
+device's front panel cable should be unplugged to temporarily free up RX1 which is normally used to
+drive the state LED (GPIO P10).
 
-Both `ltchiptool` and `esphome` can program the device without needing to ground CEN ([auto-download-reboot](https://docs.libretiny.eu/docs/flashing/tools/adr/)).
-
+Both `ltchiptool` and `esphome` can program the device without needing to ground CEN
+([auto-download-reboot](https://docs.libretiny.eu/docs/flashing/tools/adr/)).
 
 ## GPIO Pinout
 
