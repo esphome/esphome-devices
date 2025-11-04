@@ -64,13 +64,16 @@ binary_sensor:
 switch:
   - platform: gpio
     id: relay
+    name: Relay
     pin: GPIO12
 
+
 # the device has two LEDs: a red LED wired to the relay state and a blue 'wifi status' LED
+# status LED is active-low so will be lit when status is a-ok; invert to darken
 status_led:
   pin:
     number: GPIO13
-    inverted: true
+    #inverted: true
 
 # the CSE7766 voltage/current and power sensor is connected to the ESP via the ESP's UART (the
 # ESP8266 has only one)
@@ -79,7 +82,6 @@ status_led:
 #    esphome); use a filter to slow down updates
 
 logger:
-  level: DEBUG
   baud_rate: 0
 
 uart:
