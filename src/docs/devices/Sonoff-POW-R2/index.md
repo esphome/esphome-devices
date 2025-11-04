@@ -1,6 +1,6 @@
 ---
 title: Sonoff POWR2
-date-published: 2024-06-18
+date-published: 2025-11-04
 type: relay
 standard: global
 board: esp8266
@@ -40,10 +40,6 @@ esphome:
 esp8266:
   board: esp01_1m
 
-logger:
-  baud_rate: 0
-
-# Enable Home Assistant API
 api:
 
 ota:
@@ -55,66 +51,66 @@ wifi:
     - ssid: !secret wifi_ssid
       password: !secret wifi_password
 
-uart:
-  rx_pin: RX
-  baud_rate: 4800
-  parity: EVEN
-
 binary_sensor:
   - platform: gpio
     pin:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: Sonoff POW Button
+    name: Button
     on_press:
-      - switch.toggle: dummybutton
-
-sensor:
-  - platform: cse7766
-    current:
-      name: "Sonoff Pow R2 Current"
-      filters:
-        - throttle_average: ${update_interval}
-    voltage:
-      name: "Sonoff Pow R2 Voltage"
-      filters:
-        - throttle_average: ${update_interval}
-    power:
-      name: "Sonoff Pow R2 Power"
-      filters:
-        - throttle_average: ${update_interval}
-    energy:
-      name: "Sonoff Pow R2 Energy"
-      filters:
-        - throttle: ${update_interval}
-    apparent_power:
-      name: "Sonoff Pow R2 Apparent Power"
-      filters:
-        - throttle_average: ${update_interval}
-    power_factor:
-      name: "Sonoff Pow R2 Power Factor"
-      filters:
-        - throttle_average: ${update_interval}
+      - switch.toggle: relay
 
 switch:
-  - platform: template
-    name: Sonoff POW Relay
-    optimistic: true
-    id: dummybutton
-    turn_on_action:
-      - switch.turn_on: relay
-    turn_off_action:
-      - switch.turn_off: relay
   - platform: gpio
     id: relay
     pin: GPIO12
 
-light:
-  - platform: status_led
-    name: Sonoff POW Blue LED
-    id: pow_blue_led
-    pin:
-      number: GPIO13
-      inverted: True
+# the device has two LEDs: a red LED wired to the relay state and a blue 'wifi status' LED
+status_led:
+  pin:
+    number: GPIO13
+    inverted: true
+
+# the CSE7766 voltage/current and power sensor is connected to the ESP via the ESP's UART (the
+# ESP8266 has only one)
+#  - this precludes logging via serial, so disable that
+#  - the CSE7766 emits data more frequently than desired (which in turn would be passed on by
+#    esphome); use a filter to slow down updates
+
+logger:
+  level: DEBUG
+  baud_rate: 0
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+  parity: EVEN
+
+sensor:
+  - platform: cse7766
+    current:
+      name: "Current"
+      filters:
+        - throttle_average: ${update_interval}
+    voltage:
+      name: "Voltage"
+      filters:
+        - throttle_average: ${update_interval}
+    power:
+      name: "Power"
+      filters:
+        - throttle_average: ${update_interval}
+    energy:
+      name: "Energy"
+      filters:
+        - throttle: ${update_interval}
+    apparent_power:
+      name: "Apparent Power"
+      filters:
+        - throttle_average: ${update_interval}
+    power_factor:
+      name: "Power Factor"
+      filters:
+        - throttle_average: ${update_interval}
 ```
