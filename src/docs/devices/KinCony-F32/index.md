@@ -29,7 +29,6 @@ esp32:
 
 # Enable logging
 logger:
-  level: DEBUG
   hardware_uart: USB_CDC
 
 # Enable Home Assistant API
