@@ -36,14 +36,14 @@ Use the ltchiptool to take a backup and flash the board with a new firmware
 The tool should automatically detect what port the flasher is on
 #### To take a backup
 If you are not using the GUI tool take a backup using
-```
+```bash
 ltchiptool flash <command> <boardfamily> <backupname>
 ```
 #### To flash the chip 
 Create an empty configuration with the yaml below
 Download the compiled firmware file
 If you are not using the GUI tool flash the chip using
-```
+```bash
 ltchiptool flash <command> <firmwarefile>
 ```
 ## GPIO Pinout
