@@ -20,7 +20,7 @@ To check what version you have open up the controller and look at the back of th
 
 | Old | New |
 | --- | -------------- |
-| Insert old board pic | insert newboard pic |
+| ![Picture of the old board](oldboard.png "Picture of the old board") | insert newboard pic |
 
 ![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](LSC-Smart-Connect-XXL-LED-Stripe-3202086.png "LSC Smart Connect 10 meter XXL-LED-Stripe 3202086")
 ## How to flash
