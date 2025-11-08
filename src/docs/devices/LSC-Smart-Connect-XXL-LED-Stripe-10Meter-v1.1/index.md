@@ -14,6 +14,7 @@ which comes as a colour changing LED strip with controller and transformer.
 ![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](Led-strip-photo.webp "LSC Smart Connect 10 meter XXL-LED-Strip 3202086")
 
 ## This is for the new version of the LED strip!
+
 The original version is here (insert original)
 
 The main diffrences between the two versions are diffrent board layout and diffrent pins for the LEDs
@@ -26,26 +27,33 @@ To check what version you have open up the controller and look at the back of th
 
 
 ## How to flash
+
 To flash the controller, open up the controller and take the board out.
 On the back of the board there are 4 pins you need to solder
 | GND | 3.3V | 1TX | 1RX |
+
 ### Warning: It is important to connect the board to a stable 3.3V supply, unstable supplies may cause the flash to fail!
 
 Connect the 1TX pin to the RX pin on your flasher and connect the 1RX pin to the TX pin on your flasher.
 Use the ltchiptool to take a backup and flash the board with a new firmware
 The tool should automatically detect what port the flasher is on
+
 #### To take a backup
+
 If you are not using the GUI tool take a backup using
 ```bash
 ltchiptool flash <command> <boardfamily> <backupname>
 ```
+
 #### To flash the chip 
+
 Create an empty configuration with the yaml below
 Download the compiled firmware file
 If you are not using the GUI tool flash the chip using
 ```bash
 ltchiptool flash <command> <firmwarefile>
 ```
+
 ## GPIO Pinout
 
 | Pin | Function       |
