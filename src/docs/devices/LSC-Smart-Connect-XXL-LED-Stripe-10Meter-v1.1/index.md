@@ -8,7 +8,7 @@ standard: eu
 
 ## General Notes
 
-This configuration is for the second version of the [LSC Smart Connect XXL-LED-Stripe 3202086](https://www.action.com/de-at/p/3202086/lsc-smart-connect-xxl-led-streifen/)
+This configuration is for the second version of the [LSC Smart Connect XXL-LED-Strip 3202086](https://www.action.com/pl-pl/p/3202086/tasma-xxl-led-lsc-smart-connect/)
 which comes as a colour changing LED strip with controller and transformer.
 
 ## This is for the new version of the LED strip!
