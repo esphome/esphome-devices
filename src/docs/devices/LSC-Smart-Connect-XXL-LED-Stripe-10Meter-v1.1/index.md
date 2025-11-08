@@ -79,9 +79,11 @@ wifi:
   password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
-#  ap:
-#    ssid: "Lsc-10M-Leds Fallback Hotspot"
-#    password: "6lBTcJ4cgtv4FH"
+ap:
+  ssid: "Lsc-10M-Led Fallback Hotspot"
+  password: ""
+
+captive_portal:
 
 # Enable logging
 logger:
