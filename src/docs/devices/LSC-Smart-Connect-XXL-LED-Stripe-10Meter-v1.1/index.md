@@ -45,7 +45,7 @@ If you are not using the GUI tool take a backup using
 ltchiptool flash <command> <boardfamily> <backupname>
 ```
 
-#### To flash the chip 
+#### To flash the chip
 
 Create an empty configuration with the yaml below
 Download the compiled firmware file
