@@ -11,6 +11,8 @@ standard: eu
 This configuration is for the second version of the [LSC Smart Connect XXL-LED-Strip 3202086](https://www.action.com/pl-pl/p/3202086/tasma-xxl-led-lsc-smart-connect/)
 which comes as a colour changing LED strip with controller and transformer.
 
+![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](Led-strip-photo.webp "LSC Smart Connect 10 meter XXL-LED-Strip 3202086")
+
 ## This is for the new version of the LED strip!
 The original version is here (insert original)
 
@@ -22,7 +24,7 @@ To check what version you have open up the controller and look at the back of th
 | --- | -------------- |
 | ![Picture of the old board](oldboard.png "Picture of the old board") | ![Picture of the new board](newboard.jpg "Picture of the new board") |
 
-![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](:ed-strip-photo.webp "LSC Smart Connect 10 meter XXL-LED-Strip 3202086")
+
 ## How to flash
 To flash the controller, open up the controller and take the board out.
 On the back of the board there are 4 pins you need to solder
@@ -42,7 +44,7 @@ Create an empty configuration with the yaml below
 Download the compiled firmware file
 If you are not using the GUI tool flash the chip using
 ```
-ltchiptool flash <command> <boardfamily> <backupname>
+ltchiptool flash <command> <firmwarefile>
 ```
 ## GPIO Pinout
 
