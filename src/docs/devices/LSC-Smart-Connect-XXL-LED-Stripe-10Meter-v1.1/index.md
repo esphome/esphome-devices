@@ -22,7 +22,7 @@ To check what version you have open up the controller and look at the back of th
 | --- | -------------- |
 | ![Picture of the old board](oldboard.png "Picture of the old board") | ![Picture of the new board](newboard.jpg "Picture of the new board") |
 
-![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](LSC-Smart-Connect-XXL-LED-Stripe-3202086.png "LSC Smart Connect 10 meter XXL-LED-Stripe 3202086")
+![LSC Smart Connect 10 meter XXL-LED-Stripe 3202086](:ed-strip-photo.webp "LSC Smart Connect 10 meter XXL-LED-Strip 3202086")
 ## How to flash
 To flash the controller, open up the controller and take the board out.
 On the back of the board there are 4 pins you need to solder
