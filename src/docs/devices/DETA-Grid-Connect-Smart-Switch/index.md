@@ -222,6 +222,7 @@ binary_sensor:
         - light.toggle: light_right
     internal: True
 ```
+
 ### 2 Gang Configuration for ESP
 
 ```yaml
