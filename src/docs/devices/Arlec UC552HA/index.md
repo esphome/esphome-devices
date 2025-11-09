@@ -8,7 +8,8 @@ difficulty: 5
 ---
 
 The `Arlec Grid Connect Smart 87cm Linkable CCT Bar Light` is part of the
-[Grid Connect ecosystem](https://grid-connect.com.au/) sold at Bunnings in Australia and uses the Tuya [CBLC9](https://developer.tuya.com/en/docs/iot/cblc9-module-datasheet) module. This module is a variant of the BK7231 family and must be re-flashed or replaced with an ESP8266 series module which fits inside the housing.
+[Grid Connect ecosystem](https://grid-connect.com.au/) sold at Bunnings in Australia and uses the Tuya [CBLC9](https://developer.tuya.com/en/docs/iot/cblc9-module-datasheet) module. 
+This module is a variant of the BK7231 family and must be re-flashed or replaced with an ESP8266 series module which fits inside the housing.
 
 The light is simply a CCT LED light strip mounted inside a plastic diffuser tube, but does come with useful mounting hardware.
 
@@ -17,13 +18,14 @@ This installation replaces the CBLC9 with an ESP8285, using soldered fly leads b
 ## GPIO Pinout for ESP8285
 
 | CBLC9 Pin | ESP8285 Pin | Function           |
-| --------- | ----------- |
+| --------- | ----------- | ------------------ |
 | P8        | GPIO13      | PWM `(brightness)` |
 | P7        | GPIO5       | PWM `(color_temp)` |
 
 ## Conversion
 
-The light assembly is glued together at either end using white silicone glue. The end where the power plug is connected must be slightly ground down around the edges so that a long slim spudger tool can be inserted between the end cap and the housing about 5cm depth so that the silicone glue bond can be broken. The control module can be slid out far enough to de-solder the CBLC9 module and the ESP8285 then soldered to the 3.3V, GND, P8 and P7 pads.
+The light assembly is glued together at either end using white silicone glue. The end where the power plug is connected must be slightly ground down around the edges so that a long slim spudger tool can be inserted between the end cap and the housing about 5cm depth.
+This allows the silicone glue bond to be broken. The control module can be slid out far enough to de-solder the CBLC9 module and the ESP8285 then soldered to the 3.3V, GND, P8 and P7 pads.
 
 ## Configuration
 
