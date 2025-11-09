@@ -23,7 +23,7 @@ This installation replaces the CBLC9 with an ESP8285, using soldered fly leads b
 
 ## Conversion
 
-The light assembly is glued together at either end using white silicone glue. The end where the power plug is connected must be slightly ground down around the edges so that a long slim spudger tool can be inserted between the end cap and the housing about 5cm depth so that the silicone glue bond can be broken. The control module can be slid out far enough to de-solder the CBLC9 module and the ESP8285 soldered to the 3.3V, GND, P8 and P7 pads.
+The light assembly is glued together at either end using white silicone glue. The end where the power plug is connected must be slightly ground down around the edges so that a long slim spudger tool can be inserted between the end cap and the housing about 5cm depth so that the silicone glue bond can be broken. The control module can be slid out far enough to de-solder the CBLC9 module and the ESP8285 then soldered to the 3.3V, GND, P8 and P7 pads.
 
 ## Configuration
 
@@ -74,4 +74,3 @@ light:
     warm_white_color_temperature: 3000 K
     restore_mode: RESTORE_DEFAULT_OFF
 ```
-
