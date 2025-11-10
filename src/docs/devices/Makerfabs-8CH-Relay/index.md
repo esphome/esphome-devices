@@ -10,7 +10,7 @@ board: esp32
 
 ## Product description
 
-This is a 8-relay board with an ESP32-S3 (N8):
+This is an 8-relay board with an ESP32-S3 (N8):
 
 - Supports 10A current with AC 220V
 - Wifi/Ethernet support
