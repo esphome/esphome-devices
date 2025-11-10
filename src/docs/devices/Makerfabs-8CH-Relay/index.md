@@ -10,11 +10,12 @@ board: esp32
 
 ## Product description
 
-This is a 8-relay board with an ESP32-S3 (N8).
-- Supports 10A current with AC 220V.
-- Wifi/Ethernet support.
-- 2 kinds of connector for each wire connection.
-- 12V Power supply.
+This is a 8-relay board with an ESP32-S3 (N8):
+
+- Supports 10A current with AC 220V
+- Wifi/Ethernet support
+- 2 kinds of connector for each wire connection
+- 12V Power supply
 - PLC Case for easy installation.
 
 It can bought from: [https://www.makerfabs.com/8-channel-relay-for-home-assistant.html](https://www.makerfabs.com/8-channel-relay-for-home-assistant.html)
