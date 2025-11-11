@@ -377,6 +377,7 @@ esphome:
       rx8130.read_time:
 time:
   - platform: rx8130
+    i2c_id: bsp_bus
     # repeated synchronization is not necessary unless the external RTC
     # is much more accurate than the internal clock
     update_interval: never
