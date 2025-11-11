@@ -381,7 +381,7 @@ time:
     # repeated synchronization is not necessary unless the external RTC
     # is much more accurate than the internal clock
     update_interval: never
-    timezone: Europe/Paris
+    timezone: UTC
   - platform: homeassistant
     # instead try to synchronize via network repeatedly ...
     on_time_sync:
