@@ -1,6 +1,6 @@
 ---
 title: AXA Remote
-date-published: 2025-10-23
+date-published: 2025-11-11
 type: misc
 standard: global
 board: esp32
