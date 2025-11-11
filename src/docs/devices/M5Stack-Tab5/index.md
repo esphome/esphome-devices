@@ -384,6 +384,7 @@ time:
     update_interval: never
     timezone: UTC
   - platform: homeassistant
+    id: ha_time
     # instead try to synchronize via network repeatedly ...
     on_time_sync:
       then:
