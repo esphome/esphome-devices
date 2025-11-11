@@ -364,3 +364,27 @@ voice_assistant:
   on_client_disconnected:
     - micro_wake_word.stop:
 ```
+
+## RTC
+
+RX8130 Time Source
+
+```yaml
+esphome:
+  on_boot:
+    then:
+      # read the RTC time once when the system boots
+      rx8130.read_time:
+time:
+  - platform: rx8130
+    # repeated synchronization is not necessary unless the external RTC
+    # is much more accurate than the internal clock
+    update_interval: never
+    timezone: Europe/Paris
+  - platform: homeassistant
+    # instead try to synchronize via network repeatedly ...
+    on_time_sync:
+      then:
+        # ... and update the RTC when the synchronization was successful
+        rx8130.write_time:
+```
