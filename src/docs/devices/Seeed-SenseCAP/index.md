@@ -48,6 +48,11 @@ difficulty: 0
 | ------ | --------- |
 | GPIO45 | backlight |
 
+### Top Button
+| Pin    | Function  |
+| ------ | --------- |
+| GPIO38 | Button    |
+
 ## Hardware Configuration
 
 ```yaml
@@ -218,4 +223,117 @@ lvgl:
                 indicator:
                   arc_color: 0x18bcf2
                   arc_width: 8
+```
+
+## Using CO2 and TVOC Sensors (D1S, D1Pro only)
+The air quality sensors in the D1S and D1Pro are unfortunately connected to the RP2040. These can be accessed, however, by flashing ESPHome to the RP2040 as well and using the Packet Transport feature. 
+
+This config exposes the data from the CO2 and TVOC sensors:
+```yaml
+esphome:
+  name: d1-rp2040
+  friendly_name: d1-rp2040
+
+rp2040:
+  board: rpipico
+
+# Enable logging
+logger:
+
+uart:
+  - id: esp32s3_serial
+    tx_pin: GPIO17
+    rx_pin: GPIO16
+    baud_rate: 115200
+
+i2c:
+  - sda: GPIO20
+    scl: GPIO21
+
+sensor:
+  - platform: sgp4x
+    voc:
+      id: voc
+      name: "VOC Index"
+  - platform: scd4x
+    co2:
+      id: co2
+      name: "CO2"
+    temperature:
+      id: temp
+      name: "Temperature"
+    humidity:
+      id: humid
+      name: "Humidity"
+
+power_supply:
+  - id: 'sensor_supply1'
+    pin: GPIO18
+    enable_on_boot: True
+
+packet_transport:
+  - platform: uart
+    uart_id: esp32s3_serial
+    sensors: 
+      - id: voc
+      - id: co2
+      - id: temp
+      - id: humid
+```
+
+To flash the RP2040, press the pinhole button on the bottom of the Indicator whilst plugging in a USB cable to reveal the RPI-BOOT drive.
+
+The configuration running on the ESP32-S3 should then also be updated to retrieve data from the RP2040:
+
+> [!NOTE]
+> This configuration includes the temperature and humidity values from the SCD41 sensor for completeness; however, the accuracy of these values is compromised as it is placed directly next to the heat-generating SGP40 inside the Indicator and probably should not be used. This could be fixed by only switching on the sensors intermittently (since IO18 on the RP2040 controls power to the sensors), but this hasn't been tried. 
+
+```yaml
+uart:
+  - id: rp2040_serial
+    tx_pin: GPIO20
+    rx_pin: GPIO19
+    baud_rate: 115200
+
+packet_transport:
+  - platform: uart
+    uart_id: rp2040_serial
+    providers:
+      - name: d1-rp2040    
+sensor:
+  - platform: packet_transport
+    provider: d1-rp2040
+    id: voc
+    name: VOC Index
+    internal: False
+    accuracy_decimals: 0
+    icon: "mdi:weather-dust"
+    device_class: aqi
+  - platform: packet_transport
+    provider: d1-rp2040
+    id: co2
+    name: CO2
+    internal: False
+    accuracy_decimals: 0
+    icon: "mdi:molecule-co2"
+    unit_of_measurement: "ppm"
+    device_class: volatile_organic_compounds_parts
+  - platform: packet_transport
+    provider: d1-rp2040
+    id: temp
+    name: Temperature
+    internal: False
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    unit_of_measurement: "°C"
+    device_class: temperature
+  - platform: packet_transport
+    provider: d1-rp2040
+    id: humid
+    name: Humidity
+    internal: False
+    accuracy_decimals: 1
+    icon: "mdi:water-percent"
+    unit_of_measurement: "%"
+    device_class: humidity
 ```
