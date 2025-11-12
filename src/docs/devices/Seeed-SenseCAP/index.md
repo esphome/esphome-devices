@@ -228,7 +228,7 @@ lvgl:
 
 ## Using CO2 and TVOC Sensors (D1S, D1Pro only)
 
-The air quality sensors in the D1S and D1Pro are unfortunately connected to the RP2040. 
+The air quality sensors in the D1S and D1Pro are unfortunately connected to the RP2040.
 These can be accessed, however, by flashing ESPHome to the RP2040 as well and using the Packet Transport feature.
 
 This config exposes the data from the CO2 and TVOC sensors:
