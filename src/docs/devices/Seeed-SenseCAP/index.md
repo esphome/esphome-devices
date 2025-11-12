@@ -285,8 +285,7 @@ To flash the RP2040, press the pinhole button on the bottom of the Indicator whi
 
 The configuration running on the ESP32-S3 should then also be updated to retrieve data from the RP2040:
 
-> [!NOTE]
-> This configuration includes the temperature and humidity values from the SCD41 sensor for completeness; however, the accuracy of these values is compromised as it is placed directly next to the heat-generating SGP40 inside the Indicator and probably should not be used. This could be fixed by only switching on the sensors intermittently (since IO18 on the RP2040 controls power to the sensors), but this hasn't been tried. 
+> **NOTE:** This configuration includes the temperature and humidity values from the SCD41 sensor for completeness; however, the accuracy of these values is compromised as it is placed directly next to the heat-generating SGP40 inside the Indicator and probably should not be used. This could be fixed by only switching on the sensors intermittently (since IO18 on the RP2040 controls power to the sensors), but this hasn't been tried. 
 
 ```yaml
 uart:
