@@ -49,6 +49,7 @@ difficulty: 0
 | GPIO45 | backlight |
 
 ### Top Button
+
 | Pin    | Function  |
 | ------ | --------- |
 | GPIO38 | Button    |
@@ -226,9 +227,12 @@ lvgl:
 ```
 
 ## Using CO2 and TVOC Sensors (D1S, D1Pro only)
-The air quality sensors in the D1S and D1Pro are unfortunately connected to the RP2040. These can be accessed, however, by flashing ESPHome to the RP2040 as well and using the Packet Transport feature. 
+
+The air quality sensors in the D1S and D1Pro are unfortunately connected to the RP2040. 
+These can be accessed, however, by flashing ESPHome to the RP2040 as well and using the Packet Transport feature.
 
 This config exposes the data from the CO2 and TVOC sensors:
+
 ```yaml
 esphome:
   name: d1-rp2040
@@ -281,11 +285,15 @@ packet_transport:
       - id: humid
 ```
 
-To flash the RP2040, press the pinhole button on the bottom of the Indicator whilst plugging in a USB cable to reveal the RPI-BOOT drive.
+To flash the RP2040, press the pinhole button on the bottom of the Indicator whilst plugging in a USB cable to reveal
+the RPI-BOOT drive.
 
 The configuration running on the ESP32-S3 should then also be updated to retrieve data from the RP2040:
 
-> **NOTE:** This configuration includes the temperature and humidity values from the SCD41 sensor for completeness; however, the accuracy of these values is compromised as it is placed directly next to the heat-generating SGP40 inside the Indicator and probably should not be used. This could be fixed by only switching on the sensors intermittently (since IO18 on the RP2040 controls power to the sensors), but this hasn't been tried. 
+> **NOTE:** This configuration includes the temperature and humidity values from the SCD41 sensor for completeness;
+> however, the accuracy of these values is compromised as it is placed directly next to the heat-generating SGP40
+> inside the Indicator and probably should not be used. This could be fixed by only switching on the sensors
+> intermittently (since IO18 on the RP2040 controls power to the sensors), but this hasn't been tried.
 
 ```yaml
 uart:
