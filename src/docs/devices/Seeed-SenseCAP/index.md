@@ -51,6 +51,7 @@ Button whole before applying USB power.)
 ## ESP32-S3 - Pin Allocation
 
 ### SPI Bus
+
 | Pin    | Function        |
 | ------ | --------------- |
 | GPIO41 | SPI CLK         |
@@ -63,19 +64,24 @@ configured without it (the HW Version of the LoRa radio will not be able to be
 read).
 
 Example
+
 ``` yaml
 spi:
   - id: lcd_spi
     clk_pin: GPIO41
     mosi_pin: GPIO48
     miso_pin: GPIO47
+```
+
 ### I2C Bus
+
 | Pin    | Function        |
 | ------ | --------------- |
 | GPIO39 | I2C SDA         |
 | GPIO40 | I2C SCL         |
 
 Example
+
 ```yaml
 i2c:
   - id: bus_a
@@ -85,6 +91,7 @@ i2c:
 ```
 
 ### IO Expander, 16 bits (I2C)
+
 I2C Address: 0x20
 
 | Pin    | Function        |
@@ -96,6 +103,7 @@ I2C Address: 0x20
 Note: The IO_INT pin is connected to the ESP32-S3 but is not directly used.
 
 Example
+
 ```yaml
 pca9554:
   - id: pca9554a_device
@@ -104,11 +112,13 @@ pca9554:
 ```
 
 ### LCD Display, RGB8565 (I2C + SPI + PCA9535)
+
 The 'mipi_rgb' platform for the display is the newest method to configure the
 RGB display. It is pre-configured with the hardware details of the Seeed
 Indicator which simplifies the required configuration to the example below.
 
 Example
+
 ```yaml
 display:
   - platform: mipi_rgb
@@ -136,6 +146,7 @@ Hardware Details
 | GPIO15, GPIO14, GPIO13, GPIO12, GPIO11    | Blue      |
 
 Example, using older platform (st7701s):
+
 ```yaml
 display:
   - platform: st7701s
@@ -190,6 +201,7 @@ display:
 ```
 
 ### Touch Panel (I2C)
+
 I2C Address: Implied
 
 | Pin         | Function         |
@@ -200,6 +212,7 @@ I2C Address: Implied
 | Expander/7  | TP_REST (unused) |
 
 Example
+
 ```yaml
 touchscreen:
   platform: ft5x06
@@ -219,6 +232,7 @@ touchscreen:
 | GPIO45 | Backlight PWM |
 
 Example
+
 ```yaml
 output:
   - platform: ledc
@@ -235,6 +249,7 @@ output:
 | GPIO38 | Button - Normally High |
 
 Example
+
 ```yaml
 binary_sensor:
   - platform: gpio
@@ -254,6 +269,7 @@ binary_sensor:
 ### UART0
 
 ### External Flash, W25Q64JVSSIQ (SPI)
+
 - Mode: Octal
 - Speed: 80MHz
 - Size: 8MB
@@ -273,6 +289,7 @@ See example below.
 | Expander/3 | LoRa DIO1      |
 
 Example, requires I2C,SPI and PCA9554 (IO Expander)
+
 ```yaml
 sx126x:
   id: sx126x_id
@@ -351,14 +368,16 @@ sx126x:
 | GPIO19 | Buzzer PWM    |
 
 ### VOC Sensor, SGP40 (I2C) - Models D1S, D1Pro
+
 (I2C Address: 0x59)
 
-See: https://esphome.io/components/sensor/sgp4x/
+See: ![sgp4x](https://esphome.io/components/sensor/sgp4x/) component
 
 ### CO2 Sensor, SCD41 (I2C) - Models D1S, D1Pro
+
 (I2C Address: 0x62)
 
-See: https://esphome.io/components/sensor/scd4x/
+See: ![sxd4x](https://esphome.io/components/sensor/scd4x) component
 
 ## Example Configuration
 
@@ -490,9 +509,10 @@ lvgl:
                 indicator:
                   arc_color: 0x18bcf2
                   arc_width: 8
-
 ```
+
 ### Configuration for model D1L, for ESP32-S3
+
 Add the following to the configuration above to enable the LoRa SX1262 chip.
 Received data packets will be shown in the log.
 
