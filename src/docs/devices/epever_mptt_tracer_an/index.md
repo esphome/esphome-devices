@@ -1244,4 +1244,4 @@ sensor:
 
 ## See Also
 
-- [EPEVER Tracer Modbus Registers (PDF, Internet Archive link)](https://www.solarpoweredhome.co.uk/1733_modbus_protocol.pdf)
+- [EPEVER Tracer Modbus Registers](https://www.solarpoweredhome.co.uk/1733_modbus_protocol.pdf)
