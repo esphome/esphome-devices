@@ -242,6 +242,7 @@ output:
     id: ledc_gpio45
     frequency: 100Hz
 ```
+
 ### Button
 
 | Pin    | Function               |
