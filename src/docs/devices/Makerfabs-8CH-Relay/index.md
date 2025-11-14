@@ -16,7 +16,7 @@ This is an 8-relay board with an ESP32-S3 (N8):
 - Wifi/Ethernet support
 - 2 kinds of connector for each wire connection
 - 12V Power supply
-- PLC Case for easy installation.
+- PLC Case for easy installation
 
 It can bought from: [https://www.makerfabs.com/8-channel-relay-for-home-assistant.html](https://www.makerfabs.com/8-channel-relay-for-home-assistant.html)
 
