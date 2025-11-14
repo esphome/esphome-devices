@@ -10,7 +10,9 @@ board: esp32
 
 ## Product description
 
-Makerfabs Home assistant AC Dimmer chopper circuit is based on Triac BT139, and zero-cross checking circuit, it detects the zero-cross points and then the Triac controlled to chop the AC.Besides, to avoid the problem of AC can not be totally shunted off with Triac, a relay is implemented to make the AC totally On/Off.
+Makerfabs Home assistant AC Dimmer chopper circuit is based on Triac BT139, and zero-cross checking circuit,
+it detects the zero-cross points and then the Triac controlled to chop the AC.Besides, to avoid the problem of AC
+can not be totally shunted off with Triac, a relay is implemented to make the AC totally On/Off.
 
 - On board AC-DC, No external power supply needed;
 
