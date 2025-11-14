@@ -24,7 +24,8 @@ looks after the various sensors, buzzer control and the SDCard, as well as any
 additional sensors attached to the Grove connectors.
 
 Communication between the two processors is via a dedicated UART serial link. As
-supplied, this link uses a 'pcode' format for passing packet data.
+supplied, this link uses ![COBS](https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing)
+format for passing packet data.
 
 Both processors can be programmed using ESPHome YAML code over USB, but the
 RP2040 also supports mounting its flash as a USB storage device, and can also be
