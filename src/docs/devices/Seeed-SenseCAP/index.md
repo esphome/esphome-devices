@@ -24,7 +24,7 @@ looks after the various sensors, buzzer control and the SDCard, as well as any
 additional sensors attached to the Grove connectors.
 
 Communication between the two processors is via a dedicated UART serial link. As
-supplied, this link uses ![COBS](https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing)
+supplied, this link uses [COBS](https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing)
 format for passing packet data.
 
 Both processors can be programmed using ESPHome YAML code over USB, but the
@@ -268,8 +268,6 @@ binary_sensor:
 | GPIO20 | RX RP_16      |
 | GPIO19 | TX RP_17      |
 
-### UART0
-
 ### External Flash, W25Q64JVSSIQ (SPI)
 
 - Mode: Octal
@@ -373,13 +371,13 @@ sx126x:
 
 (I2C Address: 0x59)
 
-See: ![sgp4x](https://esphome.io/components/sensor/sgp4x/) component
+See: [sgp4x](https://esphome.io/components/sensor/sgp4x/) component
 
 ### CO2 Sensor, SCD41 (I2C) - Models D1S, D1Pro
 
 (I2C Address: 0x62)
 
-See: ![sxd4x](https://esphome.io/components/sensor/scd4x) component
+See: [sxd4x](https://esphome.io/components/sensor/scd4x) component
 
 ## Example Configuration
 
@@ -518,13 +516,25 @@ lvgl:
 Add the following to the configuration above to enable the LoRa SX1262 chip.
 Received data packets will be shown in the log.
 
+Note: Other boards with LoRa SX126X radio have a setting like "tcxo_voltage:
+2_4V". The LoRa Radio on the Seeed Indicator will not operate if this is set,
+other than NONE.
+
 ```yaml
 sx126x:
   id: sx126x_id
-  cs_pin:   {pca9554: pca9554a_device, number: 0}
-  rst_pin:  {pca9554: pca9554a_device, number: 1}
-  busy_pin: {pca9554: pca9554a_device, number: 2}
-  dio1_pin: {pca9554: pca9554a_device, number: 3}
+  cs_pin:
+    pca9554: pca9554a_device
+    number: 0
+  rst_pin:
+    pca9554: pca9554a_device
+    number: 1
+  busy_pin:
+    pca9554: pca9554a_device
+    number: 2
+  dio1_pin:
+    pca9554: pca9554a_device
+    number: 3
   pa_power:   3
   bandwidth:  125_0kHz
   crc_enable: true
