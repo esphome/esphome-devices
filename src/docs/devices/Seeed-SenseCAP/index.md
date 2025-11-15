@@ -516,9 +516,13 @@ lvgl:
 Add the following to the configuration above to enable the LoRa SX1262 chip.
 Received data packets will be shown in the log.
 
-Note: Other boards with LoRa SX126X radio have a setting like "tcxo_voltage:
-2_4V". The LoRa Radio on the Seeed Indicator will not operate if this is set,
-other than NONE.
+Note: Other boards with LoRa SX126X radio (eg. Wio-SX1262 LoRa Module) require
+setting "tcxo_voltage: 2_4V" as they have a Temperature Controlled Crystal
+Oscillator (TCXO). The LoRa Radio on the Seeed Indicator will not operate if
+this is set, other than NONE.
+
+SeeedStudio have two versions of LoRa boards - v1 (eg. Seeed Indicator D1) do not
+need this setting, and v2 (eg. Wio-SX1262 LoRa Module) which do.
 
 ```yaml
 sx126x:
@@ -547,7 +551,7 @@ sx126x:
   preamble_size:    8
   spreading_factor: 7
   coding_rate:      CR_4_5
-  tcxo_voltage:     NONE
+  tcxo_voltage:     NONE    # v1, V2_4 for v2 boards.
   tcxo_delay:       5ms
   on_packet:
     then:
