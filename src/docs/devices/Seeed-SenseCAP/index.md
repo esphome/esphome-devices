@@ -127,7 +127,7 @@ display:
     id: sensecap_display
 ```
 
-If you want to configure any of the other display paramters, you may need to use
+If you want to configure any of the other display parameters, you may need to use
 the older 'st7701s' platform. Use only one of these platforms.
 
 Hardware Details
@@ -274,7 +274,7 @@ binary_sensor:
 - Speed: 80MHz
 - Size: 8MB
 
-See example below.
+This is set in the main example below.
 
 ### LoRa Radio, SX1262IMLTRT (SPI + I2C) - Models D1L, D1Pro
 
@@ -288,15 +288,23 @@ See example below.
 | Expander/2 | LoRa BUSY      |
 | Expander/3 | LoRa DIO1      |
 
-Example, requires I2C,SPI and PCA9554 (IO Expander)
+Example, requires I2C,SPI and PCA9554 (IO Expander).
 
 ```yaml
 sx126x:
   id: sx126x_id
-  cs_pin:   {pca9554: pca9554a_device, number: 0}
-  rst_pin:  {pca9554: pca9554a_device, number: 1}
-  busy_pin: {pca9554: pca9554a_device, number: 2}
-  dio1_pin: {pca9554: pca9554a_device, number: 3}
+  cs_pin:
+    pca9554: pca9554a_device
+    number: 0
+  rst_pin:
+    pca9554: pca9554a_device
+    number: 1
+  busy_pin:
+    pca9554: pca9554a_device
+    number: 2
+  dio1_pin:
+    pca9554: pca9554a_device
+    number: 3
   pa_power:   3
   bandwidth:  125_0kHz
   crc_enable: true
@@ -309,7 +317,7 @@ sx126x:
   preamble_size:    8
   spreading_factor: 7
   coding_rate:      CR_4_5
-  tcxo_voltage:     NONE
+  tcxo_voltage:     NONE    # v1, V2_4 for v2 boards.
   tcxo_delay:       5ms
   on_packet:
     then:
@@ -318,7 +326,6 @@ sx126x:
                              format_hex(x).c_str(),
                              rssi,
                              snr);
-
 ```
 
 ## RP2040 - Pin Allocation
@@ -377,7 +384,7 @@ See: [sgp4x](https://esphome.io/components/sensor/sgp4x/) component
 
 (I2C Address: 0x62)
 
-See: [sxd4x](https://esphome.io/components/sensor/scd4x) component
+See: [scd4x](https://esphome.io/components/sensor/scd4x) component
 
 ## Example Configuration
 
