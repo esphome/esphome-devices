@@ -1,11 +1,10 @@
 ---
-title: GIRIER Switch 4 Gang 
-model name: ZS-TYT1-SM-41W-W
+title: GIRIER Switch 4 Gang ZS-TYT1-SM-41W-W
 date-published: 2025-10-01
 type: switch
 standard: eu
-board: CB3S
-difficulty: 3 (easy)
+board: bk72xx
+difficulty: 3
 ---
 
 ![alt text](front.jpg "4g_front")
