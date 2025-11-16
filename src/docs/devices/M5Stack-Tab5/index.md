@@ -180,11 +180,29 @@ sensor:
     max_current: 8.192A
     shunt_resistance: 0.005ohm
     bus_voltage:
-      name: Battery Voltage
+      id: battery_voltage
+      name: "Battery Voltage"
     current:
-      name: Battery Current
+      id: battery_current
+      name: "Battery Current"
       # Positive means discharging
       # Negative means charging
+
+    # Tab5 built-in battery discharges from full (8.23 V) to shutdown threshold (6.0 V)
+  - platform: template
+    name: "Battery Percentage"
+    lambda: |-
+      float voltage = id(battery_voltage).state;
+      // Adjust these values based on your battery's actual min/max voltage
+      float min_voltage = 6.0;  // Discharged voltage
+      float max_voltage = 8.23;  // Fully charged voltage
+      float percentage = (voltage - min_voltage) / (max_voltage - min_voltage) * 100.0;
+      if (percentage > 100.0) return 100.0;
+      if (percentage < 0.0) return 0.0;
+      return percentage;
+    update_interval: 60s
+    unit_of_measurement: "%"
+    accuracy_decimals: 1
 ```
 
 ## Display
@@ -345,4 +363,31 @@ voice_assistant:
     - micro_wake_word.start:
   on_client_disconnected:
     - micro_wake_word.stop:
+```
+
+## RTC
+
+RX8130 Time Source
+
+```yaml
+esphome:
+  on_boot:
+    then:
+      # read the RTC time once when the system boots
+      rx8130.read_time:
+time:
+  - platform: rx8130
+    id: rtc_time
+    i2c_id: bsp_bus
+    # repeated synchronization is not necessary unless the external RTC
+    # is much more accurate than the internal clock
+    update_interval: never
+    timezone: UTC
+  - platform: homeassistant
+    id: ha_time
+    # instead try to synchronize via network repeatedly ...
+    on_time_sync:
+      then:
+        # ... and update the RTC when the synchronization was successful
+        rx8130.write_time:
 ```

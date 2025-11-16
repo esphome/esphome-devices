@@ -75,7 +75,8 @@ sensor:
 
 ### OLED Support
 
-If you are using the 64x48 OLED shield that's included in the kit, you can use this config. Note that you will need to place `fonts/helvetica.ttf` (or another font of your choosing) in the ESPHome config directory.
+If you are using the 64x48 OLED shield that's included in the kit, you can use this config. Note that you will need to
+place `fonts/helvetica.ttf` (or another font of your choosing) in the ESPHome config directory.
 
 This config will print all four sensor states to the display.
 

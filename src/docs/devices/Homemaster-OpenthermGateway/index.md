@@ -16,15 +16,20 @@ difficulty: 1
 
 ## 🌡️ Description
 
-The Opentherm Gateway enables full bidirectional OpenTherm communication for intelligent climate control. It supports monitoring and control of key heating parameters such as burner status, flame modulation, setpoint temperatures, and system diagnostics.
+The Opentherm Gateway enables full bidirectional OpenTherm communication for intelligent climate control. It supports
+monitoring and control of key heating parameters such as burner status, flame modulation, setpoint temperatures, and
+system diagnostics.
 
-A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
+A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire
+interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
 
-Maker: https://www.home-master.eu/
+Maker: [https://www.home-master.eu/](https://www.home-master.eu/)
 
-Product page: https://www.home-master.eu/shop/esp32-opentherm-gateway-59
+Product page:
+[https://www.home-master.eu/shop/esp32-opentherm-gateway-59](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
 
-Schematics: https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic
+Schematics:
+[https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic)
 
 ## Features
 
@@ -67,7 +72,8 @@ Wi-Fi Configuration with Improv
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-You can then access it via its local address (e.g., http://opentherm.local) or directly in Home Assistant.
+You can then access it via its local address (e.g., [http://opentherm.local](http://opentherm.local)) or directly in
+Home Assistant.
 
 ### One-Click Import (ESPHome Dashboard Import)
 
@@ -81,7 +87,8 @@ The OpenTherm Gateway supports dashboard import, automatically pulling its offic
 2. Download the YAML configuration file from our GitHub repository.
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
-5. The OpenTherm Gateway supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
+5. The OpenTherm Gateway supports automatic reset and boot control — there is no need to press reset or boot buttons
+   during programming.
 6. After flashing, the device will reboot automatically and run the updated firmware.
 
 ## Specifications
