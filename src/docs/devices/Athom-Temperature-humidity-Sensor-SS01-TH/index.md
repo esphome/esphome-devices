@@ -3,7 +3,7 @@ title: Athom Temperature humidity Sensor (SS01-TH)
 date-published: 2025-08-25
 type: sensor
 standard: global
-board: esp32c3
+board: esp32
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-sht40-sensor.yaml
 difficulty: 1
 ---

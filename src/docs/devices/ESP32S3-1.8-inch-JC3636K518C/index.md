@@ -3,7 +3,7 @@ title: ESP32S3-1.8-inch JC3636K518C
 date-published: 2025-08-22
 type: misc
 standard: global
-board: esp32-s3, esp32
+board: esp32
 difficulty: 2
 ---
 

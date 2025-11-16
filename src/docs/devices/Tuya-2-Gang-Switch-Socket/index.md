@@ -1,7 +1,7 @@
 ---
 title: Tuya 2 Gang Switch Socket
 date-published: 2024-07-10
-type: switch, plug
+type: switch
 standard: au
 board: bk72xx
 ---

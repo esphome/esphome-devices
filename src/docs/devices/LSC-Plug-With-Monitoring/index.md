@@ -3,7 +3,7 @@ title: LSC smart plug with monitoring 3202087
 date-published: 2025-02-09
 type: plug
 standard: eu
-board: BK7231N
+board: bk72xx
 difficulty: 3
 ---
 
