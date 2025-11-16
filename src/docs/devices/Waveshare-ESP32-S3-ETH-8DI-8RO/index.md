@@ -201,6 +201,87 @@ binary_sensor:
       then:
         - button.press: restart_button
 
+# Digital Inputs
+  - platform: gpio
+    id: di1
+    name: "DI1"
+    pin:
+      number: GPIO4
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di2
+    name: "DI2"
+    pin:
+      number: GPIO5
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di3
+    name: "DI3"
+    pin:
+      number: GPIO6
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di4
+    name: "DI4"
+    pin:
+      number: GPIO7
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di5
+    name: "DI5"
+    pin:
+      number: GPIO8
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di6
+    name: "DI6"
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di7
+    name: "DI7"
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
+  - platform: gpio
+    id: di8
+    name: "DI8"
+    pin:
+      number: GPIO11
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on_off: 10ms
+
 # buzzer
 output:
   - platform: ledc
