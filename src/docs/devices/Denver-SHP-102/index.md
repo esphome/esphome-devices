@@ -23,7 +23,7 @@ board: bk72xx
 
 | Pin | Function                     |
 | --- | ---------------------------- |
-| P6  | CCF1 pin / Status LED        |
+| P6  | CF1 pin / Status LED         |
 | P7  | CF pin                       |
 | P8  | Blue LED / CF1 pin (variant) |
 | P10 | Red LED                      |
