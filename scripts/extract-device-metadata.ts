@@ -11,6 +11,8 @@ interface DeviceFrontmatter {
   manufacturer?: string;
   model?: string;
   standards?: string[];
+  'last-published'?: string;
+  difficulty?: string | number;
   [key: string]: any; // Allow additional unknown fields
 }
 
@@ -77,7 +79,14 @@ function extractDeviceMetadata(): void {
 
     console.log(`Found ${deviceDirs.length} device directories`);
 
+    let validationPassed = true;
     for (const deviceDir of deviceDirs) {
+      // Validate device folder name
+      if (!/^[a-zA-Z0-9_.+\-]+$/.test(deviceDir)) {
+        console.error(`Invalid device folder name: ${deviceDirPath}. Only a-z, A-Z, 0-9, _, ., -, + are allowed.`);
+        process.exit(1);
+      }
+
       const deviceDirPath = path.join(devicesDir, deviceDir);
       let targetFile: string | null = null;
 
@@ -121,6 +130,49 @@ function extractDeviceMetadata(): void {
 
       const frontmatter = parseFrontmatter(content);
 
+      // Validate frontmatter
+      if (frontmatter['last-published']) {
+        const lastPublished = new Date(frontmatter['last-published']);
+        if (isNaN(lastPublished.getTime())) {
+          console.error(`Invalid last-published date format in ${targetFile}: ${frontmatter['last-published']}`);
+          process.exit(1);
+        }
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (lastPublished > today) {
+          console.error(`last-published date in ${targetFile} is in the future: ${frontmatter['last-published']}`);
+          process.exit(1);
+        }
+      }
+
+      if (frontmatter.type) {
+        const validTypes = ['plug', 'light', 'switch', 'dimmer', 'relay', 'sensor', 'misc'];
+        if (!validTypes.includes(frontmatter.type.toLowerCase())) {
+          console.error(`Invalid type in ${targetFile}: ${frontmatter.type}. Must be one of: ${validTypes.join(', ')}`);
+          process.exit(1);
+        }
+      }
+
+      if (frontmatter.board) {
+        const validBoards = ['esp8266', 'esp32', 'rp2040', 'bk72xx', 'rtl87xx'];
+        const boards = frontmatter.board.split(',').map(b => b.trim().toLowerCase());
+        for (const board of boards) {
+          if (!validBoards.includes(board)) {
+            console.error(`Invalid board in ${targetFile}: ${frontmatter.board}. Must be one of: ${validBoards.join(', ')}`);
+            process.exit(1);
+          }
+        }
+      }
+
+      if (frontmatter.difficulty !== undefined) {
+        const difficulty = frontmatter.difficulty;
+        const numDifficulty = typeof difficulty === 'string' ? parseInt(difficulty, 10) : difficulty;
+        if (isNaN(numDifficulty) || numDifficulty < 1 || numDifficulty > 5) {
+          console.error(`Invalid difficulty in ${targetFile}: ${difficulty}. Must be 1-5.`);
+          process.exit(1);
+        }
+      }
+
       // Only add if we have some frontmatter data
       if (Object.keys(frontmatter).length > 0) {
         deviceMetadata[deviceDir] = frontmatter;
@@ -128,6 +180,8 @@ function extractDeviceMetadata(): void {
         console.warn(`No frontmatter found in ${targetFile}`);
       }
     }
+
+    console.log(`Validated ${deviceDirs.length} devices successfully.`);
 
     // Write metadata to JSON file
     try {

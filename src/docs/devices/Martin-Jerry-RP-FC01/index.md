@@ -1,9 +1,9 @@
 ---
 title: MJ-RP-FC01 Ceiling Fan Controller
 date-published: 2025-10-04
-type: fan
+type: misc
 standard: us
-board: esp32-c3
+board: esp32
 difficulty: 3
 project-url: https://github.com/esphome/esphome-devices
 ---

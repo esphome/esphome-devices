@@ -4,7 +4,7 @@ date-published: 2025-08-01
 type: misc
 standard: global
 board: esp32, RP2040
-difficulty: 0
+difficulty: 1
 ---
 
 ![Product Image](seeed-sensecap.png "US Version")
