@@ -10,7 +10,9 @@ board: esp32
 
 ## Product description
 
-This is an 8-button controller board with an ESP32, This button controller provides 8 inputs to Home Assistant device, so it possible to create remote controlling without taking a phone/computer. You can use it in combination with an [8-channel relay](https://www.makerfabs.com/8-channel-relay-for-home-assistant.html).
+This is an 8-button controller board with an ESP32, This button controller provides 8 inputs to Home Assistant
+device, so it possible to create remote controlling without taking a phone/computer. You can use it in
+combination with an [8-channel relay](https://www.makerfabs.com/8-channel-relay-for-home-assistant.html).
 
 It can bought from: [https://www.makerfabs.com/8-channel-button-controller-for-home-assistant-html.html](https://www.makerfabs.com/8-channel-button-controller-for-home-assistant-html.html).
 
