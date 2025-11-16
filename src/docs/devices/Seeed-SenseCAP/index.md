@@ -637,7 +637,7 @@ sensor:
     device_class: humidity
 ```
 
-### Configuration for model D1L, for ESP32-S3
+## Configuration for model D1L, for ESP32-S3
 
 Add the following to the configuration above to enable the LoRa SX1262 chip.
 Received data packets will be shown in the log.
