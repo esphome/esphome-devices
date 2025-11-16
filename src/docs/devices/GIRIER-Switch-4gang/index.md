@@ -12,7 +12,8 @@ difficulty: 3
 ![alt text](box.jpg "4g_box")
 
 - Has a BK7231N chip (CB3S)
-- Push button wall switch with button on each sides. 2 buttons one each gang which can toggled top or bottom with both wired to the same GPIO pin.
+- Push button wall switch with button on each sides. 2 buttons one each gang which can toggled top or bottom with both
+wired to the same GPIO pin.
 
 ## GPIO Pinout
 
