@@ -53,7 +53,7 @@ captive_portal:
 mdns:
 
 api:
-    
+
 ota:
   platform: esphome
 
@@ -153,5 +153,3 @@ status_led:
     inverted: true
 
 ```
-
-
