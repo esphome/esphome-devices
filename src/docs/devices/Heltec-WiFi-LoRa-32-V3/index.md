@@ -114,7 +114,7 @@ sx126x:
   pa_power: 3
   bandwidth: 125_0kHz
   crc_enable: true
-  frequency: 433920000  # 433MHz variant (use 868000000 or 915000000 for other variants)
+  frequency: 433920000
   modulation: LORA
   rx_start: true
   hw_version: sx1262
