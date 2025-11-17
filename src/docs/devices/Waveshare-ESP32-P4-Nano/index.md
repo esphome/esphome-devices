@@ -163,4 +163,4 @@ the embedded version. If they differ, an update becomes available in Home Assist
 
 - [Product Page](https://www.waveshare.com/esp32-p4-nano.htm)
 - [Wiki Documentation](https://www.waveshare.com/wiki/ESP32-P4-NANO)
-- [Schematic](https://files.waveshare.com/wiki/ESP32-P4-NANO/ESP32-P4-NANO-Schematic.pdf)
+- [Schematic](https://files.waveshare.com/wiki/ESP32-P4-NANO/ESP32-P4-NANO-schematic.pdf)
