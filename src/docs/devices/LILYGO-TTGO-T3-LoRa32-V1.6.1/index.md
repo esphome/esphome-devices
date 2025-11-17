@@ -146,7 +146,7 @@ sx127x:
   cs_pin: GPIO18
   rst_pin: GPIO23
   pa_pin: BOOST
-  pa_power: 17
+  pa_power: 10
   bitrate: 4800
   bitsync: true
   crc_enable: true
