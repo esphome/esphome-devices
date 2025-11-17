@@ -277,7 +277,7 @@ sensor:
   - platform: adc
     pin: GPIO35
     name: "Battery Voltage"
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 2.0  # Voltage divider correction
     update_interval: 60s
