@@ -64,6 +64,7 @@ api:
 
 ota:
   password: !secret ota_password
+  - platform: esphome
 
 output:
   - platform: gpio
