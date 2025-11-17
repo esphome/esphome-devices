@@ -109,7 +109,7 @@ sx127x:
   cs_pin: GPIO18
   rst_pin: GPIO23
   pa_pin: BOOST
-  pa_power: 2
+  pa_power: 10
   bandwidth: 125_0kHz
   crc_enable: true
   frequency: 433920000
@@ -150,13 +150,12 @@ sx127x:
   bitsync: false
   rx_start: true
   bandwidth: 50_0kHz
-  rx_floor: -70
+  rx_floor: -85
   pa_pin: BOOST
-  pa_power: 17
+  pa_power: 10
 
 # Remote receiver on DIO2
 remote_receiver:
-  id: rx_id
   pin:
     number: GPIO32
     allow_other_uses: true
@@ -172,7 +171,6 @@ remote_receiver:
 
 # Remote transmitter on DIO2 (shared with receiver)
 remote_transmitter:
-  id: tx_id
   pin:
     number: GPIO32
     allow_other_uses: true
