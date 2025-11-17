@@ -1,10 +1,9 @@
 ---
 title: Heltec WiFi LoRa 32 V3
-date-published: 2025-01-17
+date-published: 2025-11-17
 type: misc
 standard: Global
 board: esp32
-difficulty: 3
 ---
 
 ![Heltec WiFi LoRa 32 V3](heltec-wifi-lora-32-v3.webp "Heltec WiFi LoRa 32 V3")
@@ -69,7 +68,6 @@ esphome:
   name: "heltec"
 
 esp32:
-  board: esp32-s3-devkitc-1
   variant: esp32s3
   flash_size: 8MB
   cpu_frequency: 240MHZ
@@ -140,7 +138,6 @@ esphome:
   name: "heltec"
 
 esp32:
-  board: esp32-s3-devkitc-1
   variant: esp32s3
   flash_size: 8MB
   cpu_frequency: 240MHZ
