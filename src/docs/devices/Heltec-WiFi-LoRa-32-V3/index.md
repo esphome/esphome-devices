@@ -61,7 +61,7 @@ The Heltec WiFi LoRa 32 V3 is a development board featuring an ESP32-S3 microcon
 
 ## Basic Configuration
 
-Basic configuration for WiFi LoRa 32 V3 with LoRa radio support.
+Minimum configuration required for the Heltec WiFi LoRa 32 V3:
 
 ```yaml
 esphome:
@@ -76,7 +76,6 @@ esp32:
 
 logger:
   hardware_uart: UART0
-  level: DEBUG
 
 api:
 
@@ -93,6 +92,15 @@ spi:
   mosi_pin: GPIO10
   miso_pin: GPIO11
 
+# I2C for OLED display
+i2c:
+  sda: GPIO17
+  scl: GPIO18
+```
+
+## LoRa Radio Configuration
+
+```yaml
 # LoRa Radio Configuration (SX1262)
 sx126x:
   id: sx126x_id
@@ -131,37 +139,8 @@ button:
 
 ## FSK Modulation Configuration
 
-Configuration for FSK (Frequency Shift Keying) modulation mode:
-
 ```yaml
-esphome:
-  name: "heltec"
-
-esp32:
-  variant: esp32s3
-  flash_size: 8MB
-  cpu_frequency: 240MHZ
-  framework:
-    type: esp-idf
-
-logger:
-  hardware_uart: UART0
-  level: DEBUG
-
-api:
-
-ota:
-  platform: esphome
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-spi:
-  clk_pin: GPIO9
-  mosi_pin: GPIO10
-  miso_pin: GPIO11
-
+# FSK Radio Configuration (SX1262)
 sx126x:
   id: sx126x_id
   dio1_pin: GPIO14
@@ -207,7 +186,7 @@ button:
 Configuration to use the onboard 0.96" OLED display:
 
 ```yaml
-# Add I2C for OLED display
+# I2C for OLED display
 i2c:
   sda: GPIO17
   scl: GPIO18
@@ -225,7 +204,7 @@ display:
       it.printf(0, 32, id(font), "%.1f dBm", id(wifi_signal_db).state);
 
 font:
-  - file: "fonts/Arial.ttf"
+  - file: "gfonts://Roboto"
     id: font
     size: 14
 
