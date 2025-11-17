@@ -135,6 +135,44 @@ button:
             data: [0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE]
 ```
 
+## FSK Modulation
+
+Configuration for FSK modulation in packet mode:
+
+```yaml
+# FSK Radio Configuration (SX1276/SX1278)
+sx127x:
+  dio0_pin: GPIO26
+  cs_pin: GPIO18
+  rst_pin: GPIO23
+  pa_pin: BOOST
+  pa_power: 17
+  bitrate: 4800
+  bitsync: true
+  crc_enable: true
+  frequency: 433920000
+  modulation: FSK
+  packet_mode: true
+  payload_length: 8
+  rx_start: true
+  sync_value: [0x33, 0x33]
+  preamble_size: 4
+  preamble_detect: 2
+  on_packet:
+    then:
+      - lambda: |-
+          ESP_LOGD("fsk", "Received packet: %s", format_hex(x).c_str());
+
+# Example button to send FSK packet
+button:
+  - platform: template
+    name: "Send FSK Packet"
+    on_press:
+      then:
+        - sx127x.send_packet:
+            data: [0xC5, 0x51, 0x78, 0x82, 0xB7, 0xF9, 0x9C, 0x5C]
+```
+
 ## OOK Modulation with Remote Transmitter/Receiver
 
 Configuration for OOK modulation in continuous mode using the remote transmitter and receiver components:
