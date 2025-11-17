@@ -245,12 +245,6 @@ button:
 Configuration to use the onboard 0.96" OLED display:
 
 ```yaml
-# I2C for OLED display
-i2c:
-  sda: GPIO21
-  scl: GPIO22
-  frequency: 400kHz
-
 # OLED Display
 display:
   - platform: ssd1306_i2c
