@@ -106,7 +106,6 @@ i2c:
 ```yaml
 # LoRa Radio Configuration (SX1262)
 sx126x:
-  id: sx126x_id
   dio1_pin: GPIO14
   cs_pin: GPIO8
   busy_pin: GPIO13
@@ -145,7 +144,6 @@ button:
 ```yaml
 # FSK Radio Configuration (SX1262)
 sx126x:
-  id: sx126x_id
   dio1_pin: GPIO14
   cs_pin: GPIO8
   busy_pin: GPIO13
@@ -153,10 +151,6 @@ sx126x:
   pa_power: 3
   bandwidth: 78_2kHz
   crc_enable: true
-  crc_initial: 0xFFFF
-  crc_polynomial: 0x8005
-  crc_size: 2
-  crc_inverted: false
   frequency: 433920000
   modulation: FSK
   rx_start: true
