@@ -41,9 +41,6 @@ substitutions:
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
-  project:
-    name: "${project_name}"
-    version: "${project_version}"
   platformio_options:
     board_build.flash_mode: dio
     board_build.f_flash: 80000000L
@@ -158,7 +155,7 @@ display:
     bus_mode: quad
     reset_pin: GPIO39
     cs_pin: GPIO12
-    dimenions:
+    dimensions:
       height: 466
       width: 466
 
