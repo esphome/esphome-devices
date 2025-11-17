@@ -10,7 +10,7 @@ board: esp32
 
 Model reference: T3 LoRa32 V1.6.1
 
-Manufacturer: [LILYGO](http://www.lilygo.cn/)
+Manufacturer: [LILYGO](https://lilygo.cc/)
 
 ## Product Description
 
@@ -264,6 +264,6 @@ The board includes an SD card slot on the following pins:
 
 ## Links
 
-- [Product Page](http://www.lilygo.cn/prod_view.aspx?TypeId=50060&Id=1326)
-- [GitHub Repository](https://github.com/Xinyuan-LilyGO/TTGO-LoRa-Series)
-- [Schematic](https://github.com/Xinyuan-LilyGO/TTGO-LoRa-Series/blob/master/schematic/T3_V1.6.1.pdf)
+- [Product Page](https://lilygo.cc/products/lora3)
+- [GitHub Repository](https://github.com/Xinyuan-LilyGO/LilyGo-LoRa-Series)
+- [Schematic](https://github.com/Xinyuan-LilyGO/LilyGo-LoRa-Series/blob/master/schematic/T3_V1.6.1.pdf)
