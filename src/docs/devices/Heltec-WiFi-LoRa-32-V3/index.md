@@ -98,6 +98,7 @@ spi:
 i2c:
   sda: GPIO17
   scl: GPIO18
+  frequency: 400kHz
 ```
 
 ## LoRa Radio Configuration
@@ -188,12 +189,6 @@ button:
 Configuration to use the onboard 0.96" OLED display:
 
 ```yaml
-# I2C for OLED display
-i2c:
-  sda: GPIO17
-  scl: GPIO18
-  frequency: 400kHz
-
 # OLED Display
 display:
   - platform: ssd1306_i2c
