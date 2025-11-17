@@ -1,12 +1,12 @@
 ---
-title: LILYGO TTGO T3 LoRa32 V1.6.1
+title: LILYGO T3 LoRa32 V1.6.1
 date-published: 2025-11-17
 type: misc
 standard: Global
 board: esp32
 ---
 
-![LILYGO TTGO T3 LoRa32 V1.6.1](lilygo-t3-lora32-v1-6-1.webp "LILYGO TTGO T3 LoRa32 V1.6.1")
+![LILYGO T3 LoRa32 V1.6.1](lilygo-t3-lora32-v1-6-1.webp "LILYGO T3 LoRa32 V1.6.1")
 
 Model reference: T3 LoRa32 V1.6.1
 
@@ -14,7 +14,7 @@ Manufacturer: [LILYGO](https://lilygo.cc/)
 
 ## Product Description
 
-The LILYGO TTGO T3 LoRa32 V1.6.1 is a development board featuring an ESP32 microcontroller with integrated
+The LILYGO T3 LoRa32 V1.6.1 is a development board featuring an ESP32 microcontroller with integrated
 WiFi, Bluetooth, and a Semtech SX1276/SX1278 LoRa radio transceiver. It includes a 0.96" OLED display and is
 designed for IoT applications requiring long-range wireless communication.
 
