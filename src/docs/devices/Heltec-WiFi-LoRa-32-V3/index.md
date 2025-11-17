@@ -14,7 +14,9 @@ Manufacturer: [Heltec Automation](https://heltec.org/project/wifi-lora-32-v3/)
 
 ## Product Description
 
-The Heltec WiFi LoRa 32 V3 is a development board featuring an ESP32-S3 microcontroller with integrated WiFi, Bluetooth, and a Semtech SX1262 LoRa radio transceiver. It includes a 0.96" OLED display and is designed for IoT applications requiring long-range wireless communication.
+The Heltec WiFi LoRa 32 V3 is a development board featuring an ESP32-S3 microcontroller with integrated WiFi,
+Bluetooth, and a Semtech SX1262 LoRa radio transceiver. It includes a 0.96" OLED display and is designed for
+IoT applications requiring long-range wireless communication.
 
 ### Key Features
 
