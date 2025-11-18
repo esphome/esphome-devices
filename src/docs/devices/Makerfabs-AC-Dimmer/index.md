@@ -10,7 +10,7 @@ board: esp32
 
 ## Product description
 
-Makerfabs Home assistant AC Dimmer chopper circuit is based on Triac BT139, and zero-cross checking circuit, it detects the zero-cross points and then the Triac controlled to chop the AC.Besides, to avoid the problem of AC can not be totally shunted off with Triac, a relay is implemented to make the AC totally On/Off.
+The Makerfabs Home Assistant AC Dimmer uses a chopper circuit built around a BT139 TRIAC and a zero-cross detection circuit. It detects each zero-crossing and then controls the TRIAC to chop the AC waveform for dimming. In addition, because a TRIAC cannot fully disconnect the AC on its own, a relay is included to provide complete on/off isolation.
 
 - On board AC-DC, No external power supply needed;
 
@@ -24,7 +24,7 @@ Makerfabs Home assistant AC Dimmer chopper circuit is based on Triac BT139, and 
 
 - Max Load: 2KW;
 
-It can bought from: [https://www.makerfabs.com/ac-dimmer-for-home-assistant.html](https://www.makerfabs.com/ac-dimmer-for-home-assistant.html).
+It can be purchased from [https://www.makerfabs.com/ac-dimmer-for-home-assistant.html](https://www.makerfabs.com/ac-dimmer-for-home-assistant.html).
 
 ## Basic Config
 
@@ -36,9 +36,12 @@ esphome:
   friendly_name:  dimmer
   
 external_components:
-  - source: 
-      type: local
-      path: common_components
+  - source:
+      type: git
+      url: https://github.com/Makerfabs/Home-Assistant-AC-Dimmer
+      ref: main
+      path: firmware/common_components
+    components: [ arduino_dimmer ]
 
 esp32:
   board: esp32dev
@@ -52,11 +55,9 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "YOUR_KEY"
 
 ota:
   - platform: esphome
-    password: "YOUR_PASSWORD"
 
 wifi:
   ssid: !secret wifi_ssid
