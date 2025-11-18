@@ -32,3 +32,31 @@ jobs:
         uses: "docker://pipelinecomponents/yamllint:latest"
         with:
           args: yamllint -c .yamllintrc .
+  line_endings:
+    name: Line Endings Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Check for CRLF line endings
+        run: |
+          echo "Checking for files with CRLF line endings..."
+
+          # Find all text files (excluding .git directory and node_modules)
+          files_with_crlf=$(find . -type f \
+            -not -path "./.git/*" \
+            -not -path "./node_modules/*" \
+            \( -name "*.md" -o -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.py" -o -name "*.sh" -o -name "*.js" -o -name "*.ts" \) \
+            -exec file {} \; | grep "CRLF" || true)
+
+          if [ -n "$files_with_crlf" ]; then
+            echo "❌ ERROR: Found files with CRLF line endings:"
+            echo "$files_with_crlf"
+            echo ""
+            echo "Please convert these files to use LF line endings."
+            echo "You can use: sed -i 's/\r$//' <file>"
+            echo "Or configure your editor to use LF line endings (see .editorconfig)"
+            exit 1
+          else
+            echo "✅ All files have correct LF line endings"
+          fi
