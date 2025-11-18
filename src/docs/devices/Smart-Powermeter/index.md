@@ -49,7 +49,7 @@ esphome:
     version: "${project_version}"
 
 esp32:
-  board: esp32-s2-saola-1
+  variant: ESP32S2
   framework:
     type: arduino
 

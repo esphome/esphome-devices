@@ -80,7 +80,7 @@ esphome:
   friendly_name: Lanbon L9
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: ESP32S3
   framework:
     type: esp-idf
 
@@ -221,7 +221,7 @@ esphome:
   friendly_name: Lanbon L9
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: ESP32S3
   framework:
     type: esp-idf
 

@@ -36,7 +36,7 @@ esphome:
   friendly_name: "Shelly i4 Gen3"
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: ESP32C3
   flash_size: 8MB
   framework:
     type: esp-idf

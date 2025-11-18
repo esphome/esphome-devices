@@ -49,7 +49,7 @@ esphome:
     upload_speed: 460800
 
 esp32:
-  board: m5stack-core2
+  variant: ESP32
 
 psram:
   mode: quad

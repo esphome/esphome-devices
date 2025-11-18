@@ -71,7 +71,7 @@ esphome:
   name: Sonoff M5 2gang
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 
@@ -244,7 +244,7 @@ substitutions:
 
 # Define the board for the compiler
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

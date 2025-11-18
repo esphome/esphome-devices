@@ -55,7 +55,7 @@ esphome:
   friendly_name: Levoit Air Purifier Core 300s
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: esp-idf
     sdkconfig_options:

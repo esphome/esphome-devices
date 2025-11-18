@@ -45,7 +45,7 @@ esphome:
             - light.turn_off: led
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: esp-idf
 

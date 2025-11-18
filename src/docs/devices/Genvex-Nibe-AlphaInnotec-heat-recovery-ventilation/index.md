@@ -34,7 +34,7 @@ esphome:
   comment: "${device_description}"
 
 esp32:
-  board: esp32-evb
+  variant: ESP32
 
 ethernet:
   type: LAN8720

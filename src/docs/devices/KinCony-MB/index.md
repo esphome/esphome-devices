@@ -23,7 +23,7 @@ esphome:
   name: mb
 
 esp32:
-  board: esp32dev
+  variant: ESP32
 
  # Example configuration entry
 i2c:

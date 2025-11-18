@@ -30,7 +30,7 @@ esphome:
   friendly_name: KinCony KC868-A2
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

@@ -31,7 +31,7 @@ esphome:
   name: kc868-a8
 
 esp32:
-  board: esp32dev
+  variant: ESP32
 
 i2c:
   sda: 4

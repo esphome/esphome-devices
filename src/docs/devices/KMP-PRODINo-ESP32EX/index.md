@@ -28,7 +28,7 @@ esphome:
   name: prodino1
 
 esp32:
-  board: esp-wrover-kit
+  variant: ESP32
 
 wifi:
   ssid: "ssid"

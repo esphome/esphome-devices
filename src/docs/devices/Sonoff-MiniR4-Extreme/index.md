@@ -70,7 +70,7 @@ esphome:
   comment: "Sonoff MiniR4 Extreme"
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

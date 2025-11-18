@@ -84,7 +84,7 @@ esphome:
   name: shelly-pro-2
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

@@ -38,7 +38,7 @@ esphome:
   name: KC868-A32
 
 esp32:
-  board: esp32dev
+  variant: ESP32
 
 # Enable logging
 logger:

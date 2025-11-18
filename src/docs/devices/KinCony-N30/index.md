@@ -23,7 +23,7 @@ esphome:
   friendly_name: n30
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: ESP32S3
   framework:
     type: arduino
 

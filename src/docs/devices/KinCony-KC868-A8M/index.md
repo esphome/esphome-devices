@@ -35,7 +35,7 @@ esphome:
   name: KC868-A8M
 
 esp32:
-  board: esp32dev
+  variant: ESP32
 
 remote_receiver:
   pin: 16

@@ -65,7 +65,7 @@ esphome:
   name: bedford
 
 esp32:
-  board: esp32dev
+  variant: ESP32
 
 wifi:
   ssid: 'home'

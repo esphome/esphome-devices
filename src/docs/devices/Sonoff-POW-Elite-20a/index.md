@@ -51,7 +51,7 @@ esphome:
             - switch.turn_off: relay_1
 
 esp32:
-  board: nodemcu-32s
+  variant: ESP32
   framework:
     type: esp-idf
 

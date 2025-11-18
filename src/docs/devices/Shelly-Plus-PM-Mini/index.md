@@ -34,7 +34,7 @@ esphome:
   friendly_name: "Shelly Plus PM Mini"
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: ESP32C3
   framework:
     type: esp-idf
     version: recommended

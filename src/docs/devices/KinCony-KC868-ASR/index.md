@@ -32,7 +32,7 @@ esphome:
   name: KC868-ASR
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

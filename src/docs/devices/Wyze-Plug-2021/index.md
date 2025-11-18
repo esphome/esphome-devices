@@ -41,7 +41,7 @@ esphome:
   name: wyzeplug
 
 esp32:
-  board: esp-wrover-kit
+  variant: ESP32
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password

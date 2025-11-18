@@ -33,7 +33,7 @@ esphome:
   name: kc868-e16p
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: esp-idf
 

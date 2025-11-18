@@ -75,7 +75,7 @@ esphome:
   name: esp32-mq7
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

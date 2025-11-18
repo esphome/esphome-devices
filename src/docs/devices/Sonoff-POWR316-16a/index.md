@@ -45,7 +45,7 @@ esphome:
       - switch.turn_on: relay
 
 esp32:
-  board: nodemcu-32s
+  variant: ESP32
 
 wifi:
   ssid: !secret wifi_ssid

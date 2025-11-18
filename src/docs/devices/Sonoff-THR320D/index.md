@@ -70,7 +70,7 @@ esphome:
         - switch.turn_on: ${name}_sensor_power
 
 esp32:
-  board: nodemcu-32s
+  variant: ESP32
 
 api:
   encryption:
@@ -267,7 +267,7 @@ esphome:
             preset: "Home"
 
 esp32:
-  board: nodemcu-32s
+  variant: ESP32
 
 logger:
   # It's in the ceiling, nobody is listening to the UART

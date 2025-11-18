@@ -35,7 +35,7 @@ esphome:
   name: KC868-AIO
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: arduino
 

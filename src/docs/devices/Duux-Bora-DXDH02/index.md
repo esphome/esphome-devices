@@ -59,7 +59,7 @@ esphome:
   friendly_name: "Duux Dehumidifier DXDH02"
 
 esp32:
-  board: esp32dev
+  variant: ESP32
   framework:
     type: esp-idf
 

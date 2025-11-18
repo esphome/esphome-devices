@@ -32,7 +32,7 @@ esphome:
       - switch.turn_on: zigbee_reset
 
 esp32:
-  board: esp-wrover-kit
+  variant: ESP32
   framework:
     type: esp-idf
 

@@ -32,7 +32,7 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: ESP32C3
   framework:
     type: esp-idf
 

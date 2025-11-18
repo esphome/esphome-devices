@@ -56,7 +56,7 @@ esphome:
           data: [0xA5, 0x39, 0x00, 0x00, 0x00, 0x21]
 
 esp32:
-  board: esp32dev
+  variant: ESP32
 uart:
   - id: uart_1
     tx_pin: GPIO12
