@@ -9,9 +9,9 @@ pcb: CB2S
 difficulty: 4
 ---
 
-![Device Front](./topeler-ysw102-front.jpg "Device Front")
-![Device Back](./topeler-ysw102-back.jpg "Device Back")
-![Device CB2S](./topeler-ysw102-cb2s.jpg "Device CB2S")
+![Device Front](./topeler-ysw102-front.png "Device Front")
+![Device Back](./topeler-ysw102-back.png "Device Back")
+![Device CB2S](./topeler-ysw102-cb2s.png "Device CB2S")
 
 Each socket may be controlled individually.  When a socket is on, the
 blue LED next to it is activated.
