@@ -21,6 +21,12 @@ Manufacturer: [Geeni](https://mygeeni.com/)
 
 MCU: [Tuya 2BSC](https://developer.tuya.com/en/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq)
 
+The toggle switch shuts off everything. It can not be controlled or monitored by esphome.
+
+The USB ports are controlled by the toggle switch only. They can not be controlled or monitored by esphome.
+
+Each outlet's relay is rated at 15A.
+
 ## Access
 
 You must disassemble the unit and solder on a serial flasher. See also the flashing guide in (https://docs.libretiny.eu/docs/platform/beken-72xx/).
