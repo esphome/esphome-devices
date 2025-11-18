@@ -56,7 +56,7 @@ esphome:
       - script.execute: consider_deep_sleep
 
 esp32:
-  variant: ESP32S2
+  variant: esp32s2
   framework:
     type: arduino
 

@@ -62,7 +62,7 @@ esphome:
 
 esp32:
   variant: esp32c3
-  variant: ESP32C3
+  variant: esp32c3
 
 api:
 
@@ -320,7 +320,7 @@ esphome:
 
 esp32:
   variant: esp32c3
-  variant: ESP32C3
+  variant: esp32c3
 
 api:
 

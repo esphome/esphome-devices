@@ -29,7 +29,7 @@ esphome:
   friendly_name: presence-1
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 
@@ -257,7 +257,7 @@ esphome:
   friendly_name: presence-1
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

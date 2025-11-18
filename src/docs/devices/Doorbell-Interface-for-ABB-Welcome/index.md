@@ -28,7 +28,7 @@ order, flash and customize the device on the [project page](https://github.com/M
 
 ```yaml
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:

@@ -49,7 +49,7 @@ esphome:
     upload_speed: 460800
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 psram:
   mode: quad

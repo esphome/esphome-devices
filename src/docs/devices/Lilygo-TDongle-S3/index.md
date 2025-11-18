@@ -19,7 +19,7 @@ esphome:
   friendly_name: tdongle
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: esp-idf
   flash_size: 16MB

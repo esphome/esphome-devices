@@ -38,7 +38,7 @@ esphome:
   friendly_name: Norvi IIOT AE02-I Demo
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

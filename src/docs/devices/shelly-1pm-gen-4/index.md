@@ -34,7 +34,7 @@ esphome:
   name: shelly1pm-gen-4
 
 esp32:
-  variant: ESP32C6
+  variant: esp32c6
   flash_size: 8MB
   framework:
     type: esp-idf
@@ -173,7 +173,7 @@ esphome:
   name: shelly-1pm-gen-4
 
 esp32:
-  variant: ESP32C6
+  variant: esp32c6
   flash_size: 8MB
   framework:
     type: esp-idf

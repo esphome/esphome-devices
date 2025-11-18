@@ -67,7 +67,7 @@ esphome:
             preset: "Home"
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 wifi:
   ssid: !secret wifi_ssid

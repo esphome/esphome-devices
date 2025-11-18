@@ -47,7 +47,7 @@ external_components:
     components: [ arduino_dimmer ]
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

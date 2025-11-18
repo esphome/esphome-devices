@@ -24,7 +24,7 @@ esphome:
   name: a8v3
   friendly_name: a8v3
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: arduino
 

@@ -34,7 +34,7 @@ esphome:
   friendly_name: "4848s040"
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: esp-idf
 

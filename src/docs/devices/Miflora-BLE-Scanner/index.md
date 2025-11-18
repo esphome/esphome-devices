@@ -21,7 +21,7 @@ esphome:
   name: esp32_2
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 wifi:
   ssid: "ssid"

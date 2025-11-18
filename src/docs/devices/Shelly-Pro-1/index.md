@@ -64,7 +64,7 @@ esphome:
   name: shelly-pro-1
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

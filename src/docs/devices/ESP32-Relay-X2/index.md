@@ -45,7 +45,7 @@ esphome:
   name: esp32-relay-x2
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 # LED exposed as binary light
 output:

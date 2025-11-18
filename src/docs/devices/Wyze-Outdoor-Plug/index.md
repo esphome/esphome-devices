@@ -50,7 +50,7 @@ esphome:
   name: wyzeoutdoor
 
 esp32:
-  variant: ESP32
+  variant: esp32
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password

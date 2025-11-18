@@ -80,7 +80,7 @@ esphome:
   friendly_name: Lanbon L9
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: esp-idf
 
@@ -221,7 +221,7 @@ esphome:
   friendly_name: Lanbon L9
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: esp-idf
 

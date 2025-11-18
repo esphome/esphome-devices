@@ -128,7 +128,7 @@ esphome:
       - output.turn_on: power_led
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 
@@ -224,7 +224,7 @@ esphome:
       - output.turn_on: power_led
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
 

@@ -43,7 +43,7 @@ esphome:
   name: relay-x16
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 sn74hc595:
   - id: sn74hc595_hub

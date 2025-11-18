@@ -50,7 +50,7 @@ esphome:
     upload_speed: 115200
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 wifi:
   ssid: !secret wifi_ssid

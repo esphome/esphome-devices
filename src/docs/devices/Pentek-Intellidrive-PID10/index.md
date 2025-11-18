@@ -30,7 +30,7 @@ esphome:
   comment: "Pentek Intellidrive PID10"
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 wifi:
   ssid: YOUR_SSID

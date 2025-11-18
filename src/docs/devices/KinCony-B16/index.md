@@ -24,7 +24,7 @@ esphome:
   friendly_name: b16
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: arduino
 

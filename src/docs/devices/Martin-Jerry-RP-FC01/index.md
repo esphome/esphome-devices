@@ -93,7 +93,7 @@ esphome:
   comment: MJ-RP-FC01 Ceiling Fan Controller (ESP32-C3)
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   variant: esp32c3
   framework:
     type: esp-idf

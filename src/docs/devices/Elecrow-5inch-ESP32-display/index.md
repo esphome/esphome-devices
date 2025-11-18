@@ -73,7 +73,7 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -178,7 +178,7 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   framework:
     type: esp-idf
     sdkconfig_options:

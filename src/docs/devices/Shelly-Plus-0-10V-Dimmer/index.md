@@ -51,7 +51,7 @@ esphome:
   min_version: 2024.4.0 #just to be sure that everything works
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:

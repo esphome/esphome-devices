@@ -59,7 +59,7 @@ esphome:
   comment: ${friendly_name}
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:

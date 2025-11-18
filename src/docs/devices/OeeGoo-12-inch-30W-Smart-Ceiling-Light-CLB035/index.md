@@ -43,7 +43,7 @@ esphome:
   friendly_name: ${friendly_name}
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
 
 # Enable logging
 logger:

@@ -89,7 +89,7 @@ esphome:
     version: "${project_version}"
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   framework:
     type: esp-idf
 
@@ -230,7 +230,7 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   framework:
     type: arduino
     version: 2.0.5

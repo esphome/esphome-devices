@@ -38,7 +38,7 @@ esphome:
     version: "2025.6.0"
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
 

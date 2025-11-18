@@ -138,7 +138,7 @@ esphome:
   name: shelly-pro-2-pm
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 
@@ -386,7 +386,7 @@ esphome:
   name: garage-door
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

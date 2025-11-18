@@ -48,7 +48,7 @@ esphome:
     board_build.f_cpu: 240000000L
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   flash_size: 16MB
   framework:
     type: esp-idf

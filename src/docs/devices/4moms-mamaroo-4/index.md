@@ -36,7 +36,7 @@ esphome:
   comment: ${device_description}
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   framework:
     type: arduino
 

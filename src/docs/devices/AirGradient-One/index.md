@@ -32,7 +32,7 @@ esphome:
   name: "${devicename}"
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
 
 # Disable logging
 # https://esphome.io/components/logger.html

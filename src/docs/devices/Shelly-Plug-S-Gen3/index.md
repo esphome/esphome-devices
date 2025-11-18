@@ -58,7 +58,7 @@ esphome:
     - script.execute: set_rgb
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   framework:
     type: esp-idf
 

@@ -46,7 +46,7 @@ esphome:
   friendly_name: Sprinkler
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

@@ -88,7 +88,7 @@ esphome:
   name_add_mac_suffix: true
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   variant: esp32c3
   framework:
     type: esp-idf
@@ -182,7 +182,7 @@ esphome:
       - script.execute: update_led_bar
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   variant: esp32c3
   framework:
     type: esp-idf

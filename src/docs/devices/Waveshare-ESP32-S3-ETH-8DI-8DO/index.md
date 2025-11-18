@@ -66,7 +66,7 @@ esphome:
 # ==========================================================
 # Module is ESP32-S3-WROOM-1U-N16R8 (16MB flash, 8MB PSRAM)
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   flash_size: 16MB
   framework:
     type: esp-idf

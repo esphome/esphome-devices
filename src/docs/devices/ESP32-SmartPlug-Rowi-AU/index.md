@@ -43,7 +43,7 @@ esphome:
     version: "1.0"
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 wifi:
   ap: {}

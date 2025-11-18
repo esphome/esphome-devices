@@ -22,7 +22,7 @@ esphome:
   name: m1
 
 esp32:
-  variant: ESP32
+  variant: esp32
 uart:
   - id: uart_bus
     tx_pin: GPIO13

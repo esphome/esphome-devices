@@ -65,7 +65,7 @@ substitutions:
   garage_sync_name: Synced
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
     version: recommended
@@ -359,7 +359,7 @@ esphome:
   friendly_name: grgdo1
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

@@ -35,7 +35,7 @@ esphome:
   name: KC868-M16
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

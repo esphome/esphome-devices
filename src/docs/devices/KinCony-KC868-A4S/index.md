@@ -34,7 +34,7 @@ esphome:
   name: a4s
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 # Example configuration entry for ESP32
 i2c:

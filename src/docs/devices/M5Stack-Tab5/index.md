@@ -30,7 +30,7 @@ esphome:
   friendly_name: M5Stack Tab5
 
 esp32:
-  variant: ESP32P4
+  variant: esp32p4
   flash_size: 16MB
   framework:
     type: esp-idf

@@ -50,7 +50,7 @@ esphome:
   friendly_name: "GREC1"
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

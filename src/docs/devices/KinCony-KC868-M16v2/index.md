@@ -26,7 +26,7 @@ esphome:
     - zmpt101b/zmpt101b_custom_sensor.h
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
 

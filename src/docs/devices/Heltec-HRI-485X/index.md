@@ -27,7 +27,7 @@ esphome:
   friendly_name: Heltec-Modbus
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: arduino
   

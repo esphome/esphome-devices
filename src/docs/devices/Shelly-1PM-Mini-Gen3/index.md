@@ -44,7 +44,7 @@ esphome:
   friendly_name: "Shelly 1PM Mini Gen3"
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   flash_size: 8MB
   framework:
     type: esp-idf

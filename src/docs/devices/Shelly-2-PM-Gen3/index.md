@@ -62,7 +62,7 @@ esphome:
   friendly_name: ${friendly_name}
 
 esp32:
-  variant: ESP32C3
+  variant: esp32c3
   flash_size: 8MB
   framework:
     type: esp-idf

@@ -28,7 +28,7 @@ esphome:
   name: energy_meter
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 api:
 

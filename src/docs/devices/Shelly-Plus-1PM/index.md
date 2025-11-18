@@ -47,7 +47,7 @@ esphome:
     board_build.f_cpu: 160000000L
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:

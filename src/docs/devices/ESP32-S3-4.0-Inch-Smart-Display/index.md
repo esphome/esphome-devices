@@ -38,7 +38,7 @@ psram:
   speed: 80MHz
 
 esp32:
-  variant: ESP32S3
+  variant: esp32s3
   flash_size: 16MB
   framework:
     type: esp-idf

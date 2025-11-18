@@ -70,7 +70,7 @@ esphome:
         - switch.turn_on: ${name}_sensor_power
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 api:
   encryption:
@@ -267,7 +267,7 @@ esphome:
             preset: "Home"
 
 esp32:
-  variant: ESP32
+  variant: esp32
 
 logger:
   # It's in the ceiling, nobody is listening to the UART

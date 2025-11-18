@@ -30,7 +30,7 @@ esphome:
   friendly_name: HA-Realy-8-Channel
 
 esp32:
-  variant: ESP32
+  variant: esp32
   framework:
     type: esp-idf
     # version: 5.4.2
