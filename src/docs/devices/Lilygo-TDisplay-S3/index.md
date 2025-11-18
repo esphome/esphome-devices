@@ -3,7 +3,7 @@ title: Lilygo TDisplay S3
 date-published: 2024-04-08
 type: misc
 standard: global
-board: esp32s3
+board: esp32
 project-url: https://www.lilygo.cc/en-ca/products/t-display-s3
 ---
 

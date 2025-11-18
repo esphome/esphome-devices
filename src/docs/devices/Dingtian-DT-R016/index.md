@@ -3,7 +3,7 @@ title: Dingtian DT-R016
 date-published: 2024-10-31
 type: relay
 standard: global
-board: esp32dev
+board: esp32
 ---
 
 ## Product description

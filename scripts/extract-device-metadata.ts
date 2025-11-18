@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
+import { VALID_TYPES, VALID_BOARDS, VALID_STANDARDS } from '../src/utils/validFrontmatter';
 
 interface DeviceFrontmatter {
   title?: string;
@@ -11,6 +12,8 @@ interface DeviceFrontmatter {
   manufacturer?: string;
   model?: string;
   standards?: string[];
+  'last-published'?: string;
+  difficulty?: string | number;
   [key: string]: any; // Allow additional unknown fields
 }
 
@@ -56,6 +59,9 @@ function extractDeviceMetadata(): void {
   const __dirname = path.dirname(__filename);
   const devicesDir = path.join(__dirname, '..', 'src', 'docs', 'devices');
   const outputFile = path.join(__dirname, '..', 'src', 'data', 'device-metadata.json');
+  
+  const HELP_MESSAGE_FOLDER_NAME = 'See https://devices.esphome.io/devices/adding-devices#create-device-folder-and-markdown-file for help.';
+  const HELP_MESSAGE_FRONTMATTER = 'See https://devices.esphome.io/devices/adding-devices#yaml-front-matter for help.';
 
   // Ensure output directory exists
   const outputDir = path.dirname(outputFile);
@@ -77,7 +83,15 @@ function extractDeviceMetadata(): void {
 
     console.log(`Found ${deviceDirs.length} device directories`);
 
+    let validationPassed = true;
     for (const deviceDir of deviceDirs) {
+      // Validate device folder name
+      if (!/^[a-zA-Z0-9_.+\-]+$/.test(deviceDir)) {
+        console.error(`Invalid device folder name: ${deviceDir}. Only a-z, A-Z, 0-9, _, ., -, + are allowed.`);
+        console.error(HELP_MESSAGE_FOLDER_NAME);
+        process.exit(1);
+      }
+
       const deviceDirPath = path.join(devicesDir, deviceDir);
       let targetFile: string | null = null;
 
@@ -121,6 +135,66 @@ function extractDeviceMetadata(): void {
 
       const frontmatter = parseFrontmatter(content);
 
+      // Validate frontmatter
+      if (frontmatter['last-published']) {
+        const lastPublished = new Date(frontmatter['last-published']);
+        if (isNaN(lastPublished.getTime())) {
+          console.error(`Invalid last-published date format in ${targetFile}: ${frontmatter['last-published']}`);
+          console.error(HELP_MESSAGE_FRONTMATTER);
+          process.exit(1);
+        }
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (lastPublished > today) {
+          console.error(`last-published date in ${targetFile} is in the future: ${frontmatter['last-published']}`);
+          console.error(HELP_MESSAGE_FRONTMATTER);
+          process.exit(1);
+        }
+      }
+
+      if (frontmatter.type) {
+        const type = frontmatter.type.toLowerCase();
+        if (!VALID_TYPES.has(type)) {
+          console.error(`Invalid type in ${targetFile}: ${frontmatter.type}. Must be one of: ${Array.from(VALID_TYPES).join(', ')}`);
+          console.error(HELP_MESSAGE_FRONTMATTER);
+          process.exit(1);
+        }
+      }
+
+      if (frontmatter.board) {
+        const boards = frontmatter.board.split(',').map(b => b.trim().toLowerCase());
+        for (const board of boards) {
+          if (!VALID_BOARDS.has(board)) {
+            console.error(`Invalid board in ${targetFile}: ${frontmatter.board}. Must be one of: ${Array.from(VALID_BOARDS).join(', ')}`);
+            console.error(HELP_MESSAGE_FRONTMATTER);
+            process.exit(1);
+          }
+        }
+      }
+
+      if (frontmatter.standards) {
+        const standards = Array.isArray(frontmatter.standards)
+          ? frontmatter.standards
+          : frontmatter.standards.split(',').map(s => s.trim().toLowerCase());
+        for (const standard of standards) {
+          if (!VALID_STANDARDS.has(standard)) {
+            console.error(`Invalid standard in ${targetFile}: ${standard}. Must be one of: ${Array.from(VALID_STANDARDS).join(', ')}`);
+            console.error(HELP_MESSAGE_FRONTMATTER);
+            process.exit(1);
+          }
+        }
+      }
+
+      if (frontmatter.difficulty !== undefined) {
+        const difficulty = frontmatter.difficulty;
+        const numDifficulty = typeof difficulty === 'string' ? parseInt(difficulty, 10) : difficulty;
+        if (isNaN(numDifficulty) || numDifficulty < 1 || numDifficulty > 5) {
+          console.error(`Invalid difficulty in ${targetFile}: ${difficulty}. Must be 1-5.`);
+          console.error(HELP_MESSAGE_FRONTMATTER);
+          process.exit(1);
+        }
+      }
+
       // Only add if we have some frontmatter data
       if (Object.keys(frontmatter).length > 0) {
         deviceMetadata[deviceDir] = frontmatter;
@@ -128,6 +202,8 @@ function extractDeviceMetadata(): void {
         console.warn(`No frontmatter found in ${targetFile}`);
       }
     }
+
+    console.log(`Validated ${deviceDirs.length} devices successfully.`);
 
     // Write metadata to JSON file
     try {

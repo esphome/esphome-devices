@@ -3,7 +3,7 @@ title: WAVESHARE ESP32-S3-ETH-8DI-8RO
 date-published: 2025-07-31
 type: relay
 standard: global
-board: esp32-s3
+board: esp32
 ---
 
 ![Product](./image1.jpg "Product Image")

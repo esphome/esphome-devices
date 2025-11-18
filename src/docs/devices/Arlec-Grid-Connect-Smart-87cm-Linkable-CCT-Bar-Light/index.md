@@ -3,7 +3,7 @@ title: Arlec Grid Connect Smart 87cm Linkable CCT Bar Light
 date-published: 2025-11-09
 type: light
 standard: au
-board: CBLC9
+board: esp8266
 difficulty: 5
 ---
 

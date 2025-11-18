@@ -5,7 +5,7 @@ type: light
 standard: us
 made-for-esphome: false
 difficulty: 2
-board: BK7231N
+board: bk72xx
 ---
 
 ![Box](box.jpg "Box")

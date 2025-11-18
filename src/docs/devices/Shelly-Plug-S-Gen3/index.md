@@ -3,7 +3,7 @@ title: Shelly Plug S Gen3
 date-published: 2024-12-05
 type: plug
 standard: eu
-board: esp32c3
+board: esp32
 difficulty: 4
 ---
 

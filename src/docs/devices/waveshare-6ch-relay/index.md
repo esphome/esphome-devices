@@ -3,7 +3,7 @@ title: WAVESHARE-6CH-RELAY
 date-published: 2024-12-21
 type: relay
 standard: global
-board: esp32-s3
+board: esp32
 ---
 
 ![Product](./image1.jpg "Product Image")

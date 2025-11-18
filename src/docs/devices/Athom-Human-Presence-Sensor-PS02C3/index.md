@@ -3,7 +3,7 @@ title: Athom Human Presence Sensor (PS02C3)
 date-published: 2025-08-25
 type: sensor
 standard: global
-board: esp32c3
+board: esp32
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-presence-sensor-v3.yaml
 difficulty: 1
 ---
