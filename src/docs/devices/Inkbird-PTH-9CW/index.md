@@ -39,54 +39,44 @@ filtered out. The alarm settings and display backlight cannot be changed remotel
 esphome:
   name: pth-9cw
   friendly_name: PTH-9CW
-
 bk72xx:
   board: cb3s
-
 wifi:
-  ap:
-
-logger:
-
-api:
-
-captive_portal:
-
+  ap: null
+logger: null
+api: null
 uart:
   rx_pin: P10
   tx_pin: P11
   baud_rate: 115200
-
-tuya:
-
+tuya: null
 sensor:
-  - platform: "tuya"
-    name: "Temperature"
-    device_class: temperature
-    state_class: "measurement"
-    sensor_datapoint: 18
-  - platform: "tuya"
-    name: "Humidity"
-    device_class: humidity
-    state_class: "measurement"
-    unit_of_measurement: "%"
-    sensor_datapoint: 19
-  - platform: "tuya"
-    name: "CO2"
-    device_class: carbon_dioxide
-    state_class: "measurement"
-    unit_of_measurement: "ppm"
-    sensor_datapoint: 2
-    filters:
-      - skip_initial: 3
-      - filter_out: 500
-
+- platform: tuya
+  name: Temperature
+  device_class: temperature
+  state_class: measurement
+  sensor_datapoint: 18
+- platform: tuya
+  name: Humidity
+  device_class: humidity
+  state_class: measurement
+  unit_of_measurement: '%'
+  sensor_datapoint: 19
+- platform: tuya
+  name: CO2
+  device_class: carbon_dioxide
+  state_class: measurement
+  unit_of_measurement: ppm
+  sensor_datapoint: 2
+  filters:
+  - skip_initial: 3
+  - filter_out: 500
 select:
-  - platform: "tuya"
-    name: "Display Unit"
-    enum_datapoint: 101
-    optimistic: true
-    options:
-      0: Fahrenheit
-      1: Celsius
+- platform: tuya
+  name: Display Unit
+  enum_datapoint: 101
+  optimistic: true
+  options:
+    0: Fahrenheit
+    1: Celsius
 ```

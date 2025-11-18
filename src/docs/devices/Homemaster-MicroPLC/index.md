@@ -118,106 +118,84 @@ repository.([https://github.com/isystemsautomation/HOMEMASTER/blob/main/MicroPLC
 
 ```yaml
 substitutions:
-  name: "homemaster-microplc" # Internal device name (used by ESPHome & hostname)
-  friendly_name: "Homemaster MicroPLC" # Friendly name (shown in Home Assistant UI)
-  room: "" # Optional: assign device to a room in HA
-  device_description: "Homemaster MicroPLC" # Description for documentation
-  project_name: "Homemaster.MicroPLC" # Project identifier
-  project_version: "v1.0.0" # Firmware version
-  update_interval: 60s # Default sensor update interval
-  dns_domain: ".local" # mDNS domain suffix for network discovery
-  timezone: "" # Timezone (can be set if device runs in different region)
-  wifi_fast_connect: "false" # If true, reconnects faster (skips Wi-Fi scans)
-  log_level: "DEBUG" # Logging level (NONE, ERROR, WARN, INFO, DEBUG, VERBOSE)
-  ipv6_enable: "false" # Enable IPv6 if supported
-
+  name: homemaster-microplc
+  friendly_name: Homemaster MicroPLC
+  room: ''
+  device_description: Homemaster MicroPLC
+  project_name: Homemaster.MicroPLC
+  project_version: v1.0.0
+  update_interval: 60s
+  dns_domain: .local
+  timezone: ''
+  wifi_fast_connect: 'false'
+  log_level: DEBUG
+  ipv6_enable: 'false'
 esphome:
-  name: "${name}" # Uses substitution for device name
-  friendly_name: "${friendly_name}" # Uses substitution for friendly name
-  comment: "${device_description}" # Metadata comment
-  area: "${room}" # Assign device to a room
-  name_add_mac_suffix: true # Appends MAC suffix to avoid duplicate hostnames
-  min_version: 2025.7.0 # Minimum ESPHome version required
+  name: ${name}
+  friendly_name: ${friendly_name}
+  comment: ${device_description}
+  area: ${room}
+  name_add_mac_suffix: true
+  min_version: 2025.7.0
   project:
-    name: "${project_name}" # Project name
-    version: "${project_version}" # Project version
-
+    name: ${project_name}
+    version: ${project_version}
 esp32:
-  board: esp32dev # Target board type (generic ESP32 DevKit)
+  board: esp32dev
   framework:
-    type: esp-idf # Use ESP-IDF (official Espressif framework)
-    version: recommended # Recommended stable version
-
+    type: esp-idf
+    version: recommended
 logger:
-  baud_rate: 115200 # Serial logging baud rate
-  level: ${log_level} # Logging level from substitutions
-
+  baud_rate: 115200
+  level: ${log_level}
 mdns:
-  disabled: false # Enable mDNS for auto-discovery on the network
-
-api: # Enable ESPHome API for Home Assistant integration
-
+  disabled: false
+api: null
 ota:
-  - platform: esphome
-
+- platform: esphome
 network:
   enable_ipv6: ${ipv6_enable}
-
 wifi:
   ap: {}
-  fast_connect: "${wifi_fast_connect}"
-  domain: "${dns_domain}"
-
-captive_portal: # Captive portal for fallback hotspot
-
-improv_serial: # Allows setup via Improv over Serial
-
+  fast_connect: ${wifi_fast_connect}
+  domain: ${dns_domain}
+improv_serial: null
 esp32_improv:
-  authorizer: none # No additional authorization required for Improv
-
+  authorizer: none
 dashboard_import:
   package_import_url: github://isystemsautomation/HOMEMASTER/MicroPLC/Firmware/microplc.yaml@main
   import_full_config: true
-  # Allows importing this YAML from GitHub into ESPHome Dashboard
-
 uart:
-  tx_pin: 17 # UART TX pin
-  rx_pin: 16 # UART RX pin
-  baud_rate: 115200 # UART baud rate
-  id: mod_uart # Identifier for UART bus
-
+  tx_pin: 17
+  rx_pin: 16
+  baud_rate: 115200
+  id: mod_uart
 time:
-  - platform: pcf8563 # Real-time clock (RTC) module via I2C
-    id: pcf8563_time
-    address: 0x51 # I2C address of PCF8563
-  - platform: homeassistant
-    id: ha_time
-    # instead try to synchronize via network repeatedly ...
-    on_time_sync:
-      then:
-        # ... and update the RTC when the synchronization was successful
-        - pcf8563.write_time
-
+- platform: pcf8563
+  id: pcf8563_time
+  address: 81
+- platform: homeassistant
+  id: ha_time
+  on_time_sync:
+    then:
+    - pcf8563.write_time
 i2c:
-  - id: bus_a
-    sda: 32 # I2C SDA pin
-    scl: 33 # I2C SCL pin
-    scan: true # Scan for devices at startup
-
+- id: bus_a
+  sda: 32
+  scl: 33
+  scan: true
 one_wire:
-  - platform: gpio
-    pin: GPIO04 # Pin for 1-Wire devices (e.g., DS18B20 sensors)
-    id: hub_1
-
+- platform: gpio
+  pin: GPIO04
+  id: hub_1
 switch:
-  - platform: gpio
-    name: "Relay" # Relay switch exposed to Home Assistant
-    pin: 26
-    id: relay1
-
+- platform: gpio
+  name: Relay
+  pin: 26
+  id: relay1
 status_led:
   pin:
-    number: GPIO25 # Pin for status LED
-    inverted: true # Inverted logic (LED ON when pin LOW)
+    number: GPIO25
+    inverted: true
     id: st_led
 ```

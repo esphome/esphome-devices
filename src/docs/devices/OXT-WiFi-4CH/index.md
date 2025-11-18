@@ -45,100 +45,91 @@ program it
 ```yaml
 substitutions:
   device_name: oxt-4ch
-
 esphome:
   name: oxt-4ch
   friendly_name: oxt-4ch
-
 bk72xx:
   board: cbu
-
-logger:
-
-captive_portal:
-
+logger: null
 status_led:
   pin:
     number: GPIO9
     inverted: true
-
 output:
-  - platform: gpio
-    pin: GPIO20
-    id: relay1
-  - platform: gpio
-    pin: GPIO28
-    id: relay2
-  - platform: gpio
-    pin: GPIO17
-    id: relay3
-  - platform: gpio
-    pin: GPIO16
-    id: relay4
-
+- platform: gpio
+  pin: GPIO20
+  id: relay1
+- platform: gpio
+  pin: GPIO28
+  id: relay2
+- platform: gpio
+  pin: GPIO17
+  id: relay3
+- platform: gpio
+  pin: GPIO16
+  id: relay4
 light:
-  - platform: binary
-    name: ${device_name} relay 1
-    output: relay1
-    id: sw1
-  - platform: binary
-    name: ${device_name} relay 2
-    output: relay2
-    id: sw2
-  - platform: binary
-    name: ${device_name} relay 3
-    output: relay3
-    id: sw3
-  - platform: binary
-    name: ${device_name} relay 4
-    output: relay4
-    id: sw4
-
+- platform: binary
+  name: ${device_name} relay 1
+  output: relay1
+  id: sw1
+- platform: binary
+  name: ${device_name} relay 2
+  output: relay2
+  id: sw2
+- platform: binary
+  name: ${device_name} relay 3
+  output: relay3
+  id: sw3
+- platform: binary
+  name: ${device_name} relay 4
+  output: relay4
+  id: sw4
 binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO24
-      mode: INPUT_PULLUP
-      inverted: True
-    name: ${device_name} button
-  - platform: gpio
-    pin:
-      number: GPIO8
-      mode: INPUT_PULLUP
-      inverted: True
-    name: ${device_name} switch 1
-    on_press:
-      - light.toggle: sw1
-    on_release:
-      - light.toggle: sw1
-  - platform: gpio
-    pin:
-      number: GPIO7
-      mode: INPUT_PULLUP
-      inverted: True
-    name: ${device_name} switch 2
-    on_press:
-      - light.toggle: sw2
-    on_release:
-      - light.toggle: sw2
-  - platform: gpio
-    pin:
-      number: GPIO6
-      mode: INPUT_PULLUP
-      inverted: True
-    name: ${device_name} switch 3
-    on_press:
-      - light.toggle: sw3
-    on_release:
-      - light.toggle: sw3
-  - platform: gpio
-    pin:
-      number: GPIO26
-      mode: INPUT_PULLUP
-      inverted: True
-    name: ${device_name} switch 4
-    on_press:
-      - light.toggle: sw4
-    on_release:
-      - light.toggle: sw4
+- platform: gpio
+  pin:
+    number: GPIO24
+    mode: INPUT_PULLUP
+    inverted: true
+  name: ${device_name} button
+- platform: gpio
+  pin:
+    number: GPIO8
+    mode: INPUT_PULLUP
+    inverted: true
+  name: ${device_name} switch 1
+  on_press:
+  - light.toggle: sw1
+  on_release:
+  - light.toggle: sw1
+- platform: gpio
+  pin:
+    number: GPIO7
+    mode: INPUT_PULLUP
+    inverted: true
+  name: ${device_name} switch 2
+  on_press:
+  - light.toggle: sw2
+  on_release:
+  - light.toggle: sw2
+- platform: gpio
+  pin:
+    number: GPIO6
+    mode: INPUT_PULLUP
+    inverted: true
+  name: ${device_name} switch 3
+  on_press:
+  - light.toggle: sw3
+  on_release:
+  - light.toggle: sw3
+- platform: gpio
+  pin:
+    number: GPIO26
+    mode: INPUT_PULLUP
+    inverted: true
+  name: ${device_name} switch 4
+  on_press:
+  - light.toggle: sw4
+  on_release:
+  - light.toggle: sw4
 ```

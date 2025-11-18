@@ -36,40 +36,31 @@ either power the device using the built-in USB, or power it through the 3.3V pin
 ```yaml
 esphome:
   name: tuya-DY-CK400A-garage-door-opener
-
 esp8266:
   board: esp_wroom_02
-
-logger:
-
-captive_portal:
-
+logger: null
 uart:
   rx_pin: GPIO13
   tx_pin: GPIO15
   baud_rate: 9600
-
-tuya:
-
+tuya: null
 binary_sensor:
-  - platform: tuya
-    id: contact
-    sensor_datapoint: 101
-
+- platform: tuya
+  id: contact
+  sensor_datapoint: 101
 switch:
-  - platform: tuya
-    id: mcu_cover
-    switch_datapoint: 1
-
+- platform: tuya
+  id: mcu_cover
+  switch_datapoint: 1
 cover:
-  - platform: template
-    device_class: garage
-    name: Garage Door
-    lambda: 'return id(contact).state ? COVER_OPEN : COVER_CLOSED;'
-    open_action:
-      switch.turn_on: mcu_cover
-    close_action:
-      switch.turn_off: mcu_cover
+- platform: template
+  device_class: garage
+  name: Garage Door
+  lambda: 'return id(contact).state ? COVER_OPEN : COVER_CLOSED;'
+  open_action:
+    switch.turn_on: mcu_cover
+  close_action:
+    switch.turn_off: mcu_cover
 ```
 
 Note that this device is affected by [https://github.com/esphome/issues/issues/6503](https://github.com/esphome/issues/issues/6503).

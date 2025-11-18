@@ -29,154 +29,123 @@ Based on Sonoff POW Elite 20a (POWR320D) (Source: [https://devices.esphome.io/de
 To get the correct current and power values, the measurement must be divided by the PI number.
 
 ```yaml
-# Basic Config
 esphome:
   name: sonoff-powct
   friendly_name: Sonoff POW Ring
-  on_boot: # Set the initial state of the template switch to the actual relay state. This will NOT change the state.
-    priority: 250.0 # Wait until WiFi is connected to allow the sensor some time to settle
+  on_boot:
+    priority: 250.0
     then:
-      - if:
-          condition:
-            lambda: "return id(v_sensor).state > 10;"
-          then:
-            - switch.turn_on: relay_1
-          else:
-            - switch.turn_off: relay_1
-
+    - if:
+        condition:
+          lambda: return id(v_sensor).state > 10;
+        then:
+        - switch.turn_on: relay_1
+        else:
+        - switch.turn_off: relay_1
 esp32:
   board: nodemcu-32s
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-
+logger: null
+api: null
 ota:
-  - platform: esphome
-
+- platform: esphome
 wifi:
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-
-captive_portal:
-
+  ap: null
 time:
-  - platform: homeassistant
-    id: homeassistant_time
-
+- platform: homeassistant
+  id: homeassistant_time
 uart:
   tx_pin: GPIO26
   rx_pin: GPIO25
   baud_rate: 38400
   parity: EVEN
   stop_bits: 1
-
 sensor:
-  - platform: cse7761
-    update_interval: 2s
-    current_1:
-      name: Current
-      id: a_sensor
-      unit_of_measurement: "A"
-      accuracy_decimals: 3
-      icon: mdi:current-ac
-      filters:
-        # Measurement divided by the PI number
-        - lambda: return x / PI;
-    voltage:
-      name: Voltage
-      id: v_sensor
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    active_power_1:
-      name: Power
-      id: w_sensor
-      filters:
-        # Measurement divided by the PI number
-        - lambda: return x / PI;
-      icon: mdi:flash
-      on_value_range:
-        - above: 4.0
-          then:
-            - light.turn_on: switch_led
-        - below: 3.0
-          then:
-            - light.turn_off: switch_led
-
-  - platform: total_daily_energy
-    name: Total Daily Energy
-    power_id: w_sensor
-    id: kw_sensor
-    unit_of_measurement: "kWh"
-    state_class: total_increasing
-    device_class: energy
+- platform: cse7761
+  update_interval: 2s
+  current_1:
+    name: Current
+    id: a_sensor
+    unit_of_measurement: A
     accuracy_decimals: 3
-    icon: mdi:lightning-bolt
+    icon: mdi:current-ac
     filters:
-      # Multiplication factor from W to kW is 0.001
-      - multiply: 0.001
-
-  - platform: template
-    name: ESP32 Internal Temp
-    device_class: temperature
-    unit_of_measurement: °C
-    id: esp32_temp
-    icon: mdi:thermometer
-    lambda: return temperatureRead();
-
-  - platform: template
-    name: Power Factor
-    device_class: power_factor
-    id: power_factor
-    icon: mdi:angle-acute
-    lambda: return id(w_sensor).state / id(v_sensor).state / id(a_sensor).state;
-
+    - lambda: return x / PI;
+  voltage:
+    name: Voltage
+    id: v_sensor
+    unit_of_measurement: V
+    icon: mdi:sine-wave
+  active_power_1:
+    name: Power
+    id: w_sensor
+    filters:
+    - lambda: return x / PI;
+    icon: mdi:flash
+    on_value_range:
+    - above: 4.0
+      then:
+      - light.turn_on: switch_led
+    - below: 3.0
+      then:
+      - light.turn_off: switch_led
+- platform: total_daily_energy
+  name: Total Daily Energy
+  power_id: w_sensor
+  id: kw_sensor
+  unit_of_measurement: kWh
+  state_class: total_increasing
+  device_class: energy
+  accuracy_decimals: 3
+  icon: mdi:lightning-bolt
+  filters:
+  - multiply: 0.001
+- platform: template
+  name: ESP32 Internal Temp
+  device_class: temperature
+  unit_of_measurement: °C
+  id: esp32_temp
+  icon: mdi:thermometer
+  lambda: return temperatureRead();
+- platform: template
+  name: Power Factor
+  device_class: power_factor
+  id: power_factor
+  icon: mdi:angle-acute
+  lambda: return id(w_sensor).state / id(v_sensor).state / id(a_sensor).state;
 binary_sensor:
-  - platform: gpio
-    pin: GPIO00
-    id: reset
-    internal: true
-    filters:
-      - invert:
-      - delayed_off: 10ms
-    on_click:
-      - max_length: 350ms # short press to toggle the relay
+- platform: gpio
+  pin: GPIO00
+  id: reset
+  internal: true
+  filters:
+  - invert: null
+  - delayed_off: 10ms
+  on_click:
+  - max_length: 350ms
+    then:
+      switch.toggle: relay_1
+  - min_length: 360ms
+    max_length: 3s
+    then:
+    - if:
+        condition:
+          binary_sensor.is_on: page
         then:
-          switch.toggle: relay_1
-      - min_length: 360ms # long press to cycle display info
-        max_length: 3s
-        then:
-          - if:
-              condition:
-                binary_sensor.is_on: page
-              then:
-                binary_sensor.template.publish:
-                  id: page
-                  state: OFF
-              else:
-                binary_sensor.template.publish:
-                  id: page
-                  state: ON
-  - platform: template # this is a fake sensor to tell the screen which info to show on display
-    id: page
-    publish_initial_state: true
-    internal: true
-  - platform: template
-    name: Subordinate Device
-    id: subordinate_device_on
-    lambda: |-
-      if (isnan(id(w_sensor).state)) {
-        return {};
-      } else if (id(w_sensor).state > 4) {
-        // Running
-        return true;
-      } else {
-        // Not running
-        return false;
-      }
-
+          binary_sensor.template.publish:
+            id: page
+            state: false
+        else:
+          binary_sensor.template.publish:
+            id: page
+            state: true
+- platform: template
+  id: page
+  publish_initial_state: true
+  internal: true
+- platform: template
+  name: Subordinate Device
+  id: subordinate_device_on
+  lambda: "if (isnan(id(w_sensor).state)) {\n  return {};\n} else if (id(w_sensor).state > 4) {\n  // Running\n  return true;\n} else {\n  // Not running\n  return false;\n}"
 display:
   platform: tm1621
   id: tm1621_display
@@ -184,48 +153,34 @@ display:
   data_pin: GPIO05
   read_pin: GPIO23
   write_pin: GPIO18
-  lambda: |-
-    if (id(page).state) {
-      it.display_voltage(true);
-      it.display_kwh(false);
-      it.printf(0, "%.1f", id(v_sensor).state);
-      it.printf(1, "%.1f", id(a_sensor).state);
-    } else {  
-      it.display_voltage(false);
-      it.display_kwh(true);
-      it.printf(0, "%.1f", id(kw_sensor).state);
-      it.printf(1, "%.1f", id(w_sensor).state);
-    }
-
+  lambda: "if (id(page).state) {\n  it.display_voltage(true);\n  it.display_kwh(false);\n  it.printf(0, \"%.1f\", id(v_sensor).state);\n  it.printf(1, \"%.1f\", id(a_sensor).state);\n} else {  \n  it.display_voltage(false);\n  it.display_kwh(true);\n  it.printf(0, \"%.1f\", id(kw_sensor).state);\n  it.printf(1, \"%.1f\", id(w_sensor).state);\n}"
 output:
-  - platform: ledc
-    id: led
-    pin:
-      number: GPIO13
-      inverted: True
-
+- platform: ledc
+  id: led
+  pin:
+    number: GPIO13
+    inverted: true
 switch:
-  - platform: gpio
-    name: Relay
-    pin: GPIO21
-    id: relay_1
-    restore_mode: RESTORE_DEFAULT_OFF
-    on_turn_on:
-      - delay: 500ms
-      - light.turn_on: switch_led
-    on_turn_off:
-      - delay: 500ms
-      - light.turn_off: switch_led
-
+- platform: gpio
+  name: Relay
+  pin: GPIO21
+  id: relay_1
+  restore_mode: RESTORE_DEFAULT_OFF
+  on_turn_on:
+  - delay: 500ms
+  - light.turn_on: switch_led
+  on_turn_off:
+  - delay: 500ms
+  - light.turn_off: switch_led
 light:
-  - platform: monochromatic
-    id: switch_led
-    output: led
-    internal: True
-  - platform: status_led
-    id: wifi_status_led
-    internal: True
-    pin:
-      number: GPIO15
-      inverted: True
+- platform: monochromatic
+  id: switch_led
+  output: led
+  internal: true
+- platform: status_led
+  id: wifi_status_led
+  internal: true
+  pin:
+    number: GPIO15
+    inverted: true
 ```

@@ -70,168 +70,99 @@ For calibration, check out Frenck's
 
 ```yaml
 substitutions:
-  devicename: "patio-power-point-1"
+  devicename: patio-power-point-1
   deviceid: patio_power_point_1
-  friendlyname: "Patio Power Point 1"
+  friendlyname: Patio Power Point 1
   devicemodel: Deta Grid Connect 6294HA Series 2
-
-  # Left Socket
   friendlyname_left: Socket 1
-  # Right Socket
   friendlyname_right: Socket 2
-
   update_interval: 1s
-
-#################################
-
 wifi:
   ap:
     ssid: DETA Outdoor Double Power Point
-    password: ""
+    password: ''
   reboot_timeout: 0s
-
 api:
   reboot_timeout: 0s
-
-captive_portal:
-
 ota:
   platform: esphome
-
 esphome:
   name: ${devicename}
-
 bk72xx:
   board: cb2s
-
-#################################
-
-## ---------------- ##
-##    Status LED    ##
-## ---------------- ##
 status_led:
   pin:
     number: P6
     inverted: true
-
-## ----------------- ##
-##      Buttons      ##
-## ----------------- ##
 binary_sensor:
-  # Left Button
-  - platform: gpio
-    pin:
-      number: P7
-      mode: INPUT
-      inverted: True
-    id: left_button
-    on_press:
-      then:
-        - switch.toggle: left_outlet
-    # on_click:
-    #   - min_length: 300ms
-    #     max_length: 1000ms
-    #     then:
-    #       - switch.toggle: left_outlet
-    internal: True
-
-  # Right Button
-  - platform: gpio
-    pin:
-      number: P24
-      mode: INPUT
-      inverted: True
-    id: right_button
-    on_press:
-      then:
-        - switch.toggle: right_outlet
-    # on_click:
-    #   - min_length: 300ms
-    #     max_length: 1000ms
-    #     then:
-    #       - switch.toggle: left_outlet
-    internal: True
-
-## -------------------------------------------
-## Switch & template for switch
-
+- platform: gpio
+  pin:
+    number: P7
+    mode: INPUT
+    inverted: true
+  id: left_button
+  on_press:
+    then:
+    - switch.toggle: left_outlet
+  internal: true
+- platform: gpio
+  pin:
+    number: P24
+    mode: INPUT
+    inverted: true
+  id: right_button
+  on_press:
+    then:
+    - switch.toggle: right_outlet
+  internal: true
 switch:
-  ## ---------------- ##
-  ##      Relays      ##
-  ## ---------------- ##
-  # Left Relay
-  - platform: gpio
-    pin: P8
-    id: relay_1
-
-  # Right Relay
-  - platform: gpio
-    pin: P26
-    id: relay_2
-
-  ## ---------------- ##
-  ##     Switches     ##
-  ## ---------------- ##
-  # Left Switch (Templated)
-  - platform: template
-    name: ${friendlyname_left}
-    id: left_outlet
-    lambda: |-
-      if (id(relay_1).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-      - switch.turn_on: relay_1
-    turn_off_action:
-      - switch.turn_off: relay_1
-
-    # Right Switch (Templated)
-  - platform: template
-    name: ${friendlyname_right}
-    id: right_outlet
-    lambda: |-
-      if (id(relay_2).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-      - switch.turn_on: relay_2
-    turn_off_action:
-      - switch.turn_off: relay_2
-
-## ------------------ ##
-##  Power Monitoring  ##
-## ------------------ ##
+- platform: gpio
+  pin: P8
+  id: relay_1
+- platform: gpio
+  pin: P26
+  id: relay_2
+- platform: template
+  name: ${friendlyname_left}
+  id: left_outlet
+  lambda: "if (id(relay_1).state) {\n  return true;\n} else {\n  return false;\n}"
+  turn_on_action:
+  - switch.turn_on: relay_1
+  turn_off_action:
+  - switch.turn_off: relay_1
+- platform: template
+  name: ${friendlyname_right}
+  id: right_outlet
+  lambda: "if (id(relay_2).state) {\n  return true;\n} else {\n  return false;\n}"
+  turn_on_action:
+  - switch.turn_on: relay_2
+  turn_off_action:
+  - switch.turn_off: relay_2
 logger:
   baud_rate: 0
-
 uart:
   rx_pin: RX1
   baud_rate: 4800
   parity: EVEN
-
 sensor:
-  - platform: cse7766
-    current:
-      name: "${friendlyname} Current"
-      filters:
-        - throttle_average: ${update_interval}
-    voltage:
-      name: "${friendlyname} Voltage"
-      filters:
-        - throttle_average: ${update_interval}
-        - calibrate_linear:
-            - 0.0 -> 0.0
-            - 120.0 -> 230.0
-    power:
-      name: "${friendlyname} Power"
-      filters:
-        - throttle_average: ${update_interval}
-    energy:
-      name: "${friendlyname} Energy"
-      filters:
-        - throttle_average: ${update_interval}
+- platform: cse7766
+  current:
+    name: ${friendlyname} Current
+    filters:
+    - throttle_average: ${update_interval}
+  voltage:
+    name: ${friendlyname} Voltage
+    filters:
+    - throttle_average: ${update_interval}
+    - calibrate_linear:
+      - 0.0 -> 0.0
+      - 120.0 -> 230.0
+  power:
+    name: ${friendlyname} Power
+    filters:
+    - throttle_average: ${update_interval}
+  energy:
+    name: ${friendlyname} Energy
+    filters:
+    - throttle_average: ${update_interval}
 ```

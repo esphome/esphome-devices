@@ -43,39 +43,29 @@ config.
 esphome:
   name: s06_ir_blaster
   friendly_name: S06 IR Blaster
-
 bk72xx:
   board: cb3s
-
-logger:
-
-api:
-
+logger: null
+api: null
 ota:
-
-wifi:
-
-captive_portal:
-
+  platform: esphome
+wifi: null
 light:
-  - platform: status_led
-    name: "Status LED"
-    pin: GPIO8
-
+- platform: status_led
+  name: Status LED
+  pin: GPIO8
 binary_sensor:
-  - platform: gpio
-    pin:
-      number: 6
-      inverted: true
-      mode:
-        input: true
-        pullup: true
-    name: "Button"
-
+- platform: gpio
+  pin:
+    number: 6
+    inverted: true
+    mode:
+      input: true
+      pullup: true
+  name: Button
 remote_transmitter:
   pin: GPIO26
   carrier_duty_percent: 50%
-
 remote_receiver:
   pin:
     number: GPIO7

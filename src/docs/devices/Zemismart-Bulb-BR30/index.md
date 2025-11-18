@@ -23,71 +23,58 @@ Tuya/Smart Life, works with Tuya-convert to flash to ESPHome.
 ## Basic Configuration
 
 ```yaml
-#https://www.zemismart.com/br30-wifi-rgbw-led-light-work-with-alexa-echo-google-home-assistance-ifttt-support-tuya-app-voice-timer-control-e27-lamp-p0053-p0053.html
 substitutions:
   dev_name: zemismart_bulb_br30_001
-
 esphome:
   name: ${dev_name}
-
 esp8266:
   board: esp01_1m
-
-wifi:
-
-# Enable logging
-logger:
-
-api:
-
+wifi: null
+logger: null
+api: null
 ota:
-
+  platform: esphome
 switch:
-  - platform: shutdown
-    name: "${dev_name}_shutdown"
-  - platform: restart
-    name: "${dev_name}_restart"
-
+- platform: shutdown
+  name: ${dev_name}_shutdown
+- platform: restart
+  name: ${dev_name}_restart
 my9231:
   data_pin: GPIO13
   clock_pin: GPIO15
   num_channels: 4
   num_chips: 1
-
 output:
-  - platform: my9231
-    id: output_white
-    channel: 0
-  - platform: my9231
-    id: output_blue
-    channel: 1
-  - platform: my9231
-    id: output_green
-    channel: 2
-  - platform: my9231
-    id: output_red
-    channel: 3
-
+- platform: my9231
+  id: output_white
+  channel: 0
+- platform: my9231
+  id: output_blue
+  channel: 1
+- platform: my9231
+  id: output_green
+  channel: 2
+- platform: my9231
+  id: output_red
+  channel: 3
 light:
-  - platform: rgbw
-    id: light_01
-    name: "${dev_name}_light"
-    default_transition_length: 0s
-    restore_mode: ALWAYS_ON #Start with light on after reboot/power-loss event, so that it works from a dumb lightswitch
-    red: output_red
-    green: output_green
-    blue: output_blue
-    white: output_white
-
+- platform: rgbw
+  id: light_01
+  name: ${dev_name}_light
+  default_transition_length: 0s
+  restore_mode: ALWAYS_ON
+  red: output_red
+  green: output_green
+  blue: output_blue
+  white: output_white
 sensor:
-  - platform: wifi_signal
-    name: "${dev_name}_wifi_signal"
-    update_interval: 30s
-  - platform: uptime
-    name: "${dev_name}_uptime"
-    update_interval: 120s
-
+- platform: wifi_signal
+  name: ${dev_name}_wifi_signal
+  update_interval: 30s
+- platform: uptime
+  name: ${dev_name}_uptime
+  update_interval: 120s
 text_sensor:
-  - platform: version
-    name: "${dev_name}_version"
+- platform: version
+  name: ${dev_name}_version
 ```
