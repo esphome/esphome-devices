@@ -17,7 +17,8 @@ made-for-esphome: False
 
 ## General Notes
 
-Manufacturer: [Geeni](https://mygeeni.com/)
+Manufacturer: [Geeni](https://mygeeni.com/) 
+MCU: Tuya 2BSC] (https://developer.tuya.com/en/docs/iot/cb2s-module-datasheet)
 
 ## Access
 
