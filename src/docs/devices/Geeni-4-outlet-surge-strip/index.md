@@ -18,18 +18,23 @@ made-for-esphome: False
 ## General Notes
 
 Manufacturer: [Geeni](https://mygeeni.com/) 
-MCU: Tuya 2BSC] (https://developer.tuya.com/en/docs/iot/cb2s-module-datasheet)
+
+MCU: [Tuya 2BSC](https://developer.tuya.com/en/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq)
 
 ## Access
+
+You must disassemble the unit and solder on a serial flasher. See also the flashing guide in (https://docs.libretiny.eu/docs/platform/beken-72xx/).
 
 ## GPIO Pinout
 
 | Pin | Function                       |
 | --- | ------------------------------ |
-| P6  | Outlet 1 (nearest to the plug)  |
+| P6  | Outlet 1 (nearest to the plug) |
 | P7  | Outlet 2                       |
-| P24 | Button                         |
-| P26 | Blue LED (inverted)            |
+| P26 | Outlet 3                       |
+| P24 | Outlet 4                       |
+| P10 | Button  (inverted)             |
+| P11 | Blue LED (inverted)            |
 
 ## Disassembly Guide
 
@@ -39,6 +44,7 @@ MCU: Tuya 2BSC] (https://developer.tuya.com/en/docs/iot/cb2s-module-datasheet)
 4. Gently pull out the copper strips for the neutral and groun pins of the outlets
 5. Pull out the PCB and flip it over
 6. Solder your serial adaptor wires to the GND, VCC, RX and TX pads.
+![image](20251115_163733.jpg)
 
 ## Configuration
 
