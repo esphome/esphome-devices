@@ -1,151 +1,131 @@
 ---
 title: Geeni 4-Outlet Surge Strip
-date-published: 2024-05-18
+date-published: 2025-11-17
 type: plug
 standard: us
 board: bk72xx
-difficulty: 3
+difficulty: 4
+made-for-esphome: False
+
 ---
 
-[Amazon Link](https://amzn.to/4bL2H0S)
+[Amazon Link](https://www.amazon.com/dp/B0D4R98V5F)
 
 ## Product Image
 
-![image](geeni-6w8007-product-image.jpg)
+![image](geeni4.jpg)
 
 ## General Notes
 
-Model Reference: 6W8007
-
 Manufacturer: [Geeni](https://mygeeni.com/)
 
-The Geeni Smart Wi-Fi Outlet is available at Amazon and is also available as a 2-pack.
-
-This plug is not able to be converted with tuya-convert as of May 2024. You will need to disassemble and flash with a
-USB to Serial adapter. The pins are easily accessible once the device is disassembled.
+## Access
 
 ## GPIO Pinout
 
-| Pin | Function            |
-| --- | ------------------- |
-| P6  | Relay 1             |
-| P7  | Relay 2             |
-| P24 | Button              |
-| P26 | Blue LED (inverted) |
+| Pin | Function                       |
+| --- | ------------------------------ |
+| P6  | Outlet 1 (nearest to the plug)  |
+| P7  | Outlet 2                       |
+| P24 | Button                         |
+| P26 | Blue LED (inverted)            |
 
 ## Disassembly Guide
 
-1. Unscrew back cover with Qty. 4 - Phillips #1 screws - note: loosen the 2 terminal screws for hot/neutral but don't
-   remove. They'll stay in place for reassembly. Don't take them all the way out like I did
-   ![image](geeni-6w8007-1-back.jpg)
-2. Separate outlet into 2 parts
-   ![image](geeni-6w8007-2-cover-off.jpg)
-   ![image](geeni-6w8007-3-cover-off-front.jpg)
-3. Separate back half (black plastic) by prying the insert holding the chips
-   ![image](geeni-6w8007-4-prying-out.jpg)
-4. Access CB2S for flashing. I placed it in a small vise to hold vertical and used needle probes to flash the chip, then
-   reassembled in reverse order.
-   ![image](geeni-6w8007-5-CB2S.jpg)
-   ![image](geeni-6w8007-6-CB2S-pins.jpg)
+1. Remove all the back screws
+2. Snap apart the halves
+3. Remove 2 screws holding the PCB where the power cord attaches
+4. Gently pull out the copper strips for the neutral and groun pins of the outlets
+5. Pull out the PCB and flip it over
+6. Solder your serial adaptor wires to the GND, VCC, RX and TX pads.
 
 ## Configuration
 
 ```yaml
-substitutions:
-  device_description: Geeni 6W8007 Smart Wi-Fi Outlet
-  device_name: geeni-wifi-outlet-${device_location}
-  device_friendly_name: Geeni Smart Wifi Outlet ${device_friendly_location}
-  device_make: Geeni
-  device_model: 6W8007
-  device_chipset: Beken BK7231N
-  device_friendly_location: ADD LOCATION
-  device_location: ADD-LOCATION
 
 esphome:
-  name: $device_name
-  friendly_name: $device_friendly_name
+  name: strip4
+  friendly_name: strip4
 
 bk72xx:
   board: cb2s
 
 logger:
-  baud_rate: 0
-
-web_server:
-  port: 80
-
-captive_portal:
-
-mdns:
-
-# Add your own api encryption key if you use it or use a secrets file one, your choice
 api:
-  encryption:
-    key: !secret api_key
-
+captive_portal:
 ota:
-  password: ""
+  - platform: esphome
+    # Optional: Add your password if you have one configured
+    # password: "your_ota_password" 
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: $device_name
-    password: !secret wifi_ap_password
 
-text_sensor:
-  - platform: libretiny
-    version:
-      name: LibreTiny Version
+#Pinout: https://docs.libretiny.eu/boards/cb2s/#pinout
+#PCB CB2S
 
-sensor:
-  - platform: uptime
-    name: ${device_friendly_name} Uptime
-    unit_of_measurement: minutes
-    filters:
-      - lambda: return x / 60.0;
-
-  - platform: wifi_signal
-    name: ${device_friendly_name} Signal
-    update_interval: 60s
+## ---------------- ##
+##    Status LED    ##
+## ---------------- ##
 
 light:
   - platform: status_led
-    name: "led"
-    internal: true
+    name: "Status LED"
     id: led
     pin:
-      number: P26
+      number: P11
       inverted: true
-
+## ---------------- ##
+##  Binary Sensors  ##
+## ---------------- ##
+binary_sensor:
+  # Button 1
+  - platform: gpio
+    id: bP10
+    pin:
+      number: P10
+      inverted: true
+    name: "Button"
+    on_press:
+      - switch.toggle: switch_1
+## ---------------- ##
+##      Switches    ##
+## ---------------- ##
 switch:
   - platform: gpio
     id: switch_1
-    name: Relay 1
+    name: Outlet 1
     pin: P6
+    restore_mode: ALWAYS_ON
   - platform: gpio
     id: switch_2
-    name: Relay 2
+    name: Outlet 2
     pin: P7
-
-binary_sensor:
+    restore_mode: ALWAYS_ON
   - platform: gpio
-    id: binary_switch_all
-    pin:
-      number: P24
-      inverted: true
-      mode: INPUT_PULLUP
-    on_multi_click:
-      - timing:
-          - ON for at most 1s
-          - OFF for at least 0.5s
-        then:
-          - switch.toggle: switch_1
-      - timing:
-          - ON for at most 1s
-          - OFF for at most 1s
-          - ON for at most 1s
-          - OFF for at least 0.2s
-        then:
-          - switch.toggle: switch_2
+    id: switch_3
+    name: Outlet 3
+    pin: P26
+    restore_mode: ALWAYS_ON
+  - platform: gpio
+    id: switch_4
+    name: Outlet 4
+    pin: P24
+    restore_mode: ALWAYS_ON
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP Address"
+    ssid:
+      name: "Connected SSID"
+  - platform: libretiny
+    version:
+      name: LibreTiny Version
 ```
