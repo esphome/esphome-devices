@@ -19,19 +19,31 @@ board: bk72xx
 
 ![plug with box](denver-shp-102-box.jpg)
 
-## GPIO Pinout
+## GPIO Pinout For Variant With V1.1.8 Firmware
 
 | Pin | Function                     |
 | --- | ---------------------------- |
-| P6  | CF1 pin / Status LED         |
+| P6  | CF1 pin                      |
 | P7  | CF pin                       |
-| P8  | Blue LED / CF1 pin (variant) |
+| P8  | Blue LED                     |
 | P10 | Red LED                      |
 | P11 | Switch button                |
 | P24 | SEL pin                      |
 | P26 | Relay                        |
 
-## Basic configuration for v1.1.8
+## GPIO Pinout For Variant With V1.3.5 Firmware
+
+| Pin | Function                     |
+| --- | ---------------------------- |
+| P6  | Blue LED                     |
+| P7  | CF pin                       |
+| P8  | CF1 pin                      |
+| P10 | Red LED                      |
+| P11 | Switch button                |
+| P24 | SEL pin                      |
+| P26 | Relay                        |
+
+## Basic Configuration For Variant With V1.1.8 Firmware
 
 ```yml
 esphome:
