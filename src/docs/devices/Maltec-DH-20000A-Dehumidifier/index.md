@@ -57,7 +57,6 @@ esphome:
   
 esp32:
   variant: esp32s3
-  variant: esp32s3
   framework:
     type: esp-idf
     sdkconfig_options:

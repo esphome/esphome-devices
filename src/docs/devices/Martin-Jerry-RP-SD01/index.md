@@ -89,7 +89,6 @@ esphome:
 
 esp32:
   variant: esp32c3
-  variant: esp32c3
   framework:
     type: esp-idf
 
@@ -182,7 +181,6 @@ esphome:
       - script.execute: update_led_bar
 
 esp32:
-  variant: esp32c3
   variant: esp32c3
   framework:
     type: esp-idf

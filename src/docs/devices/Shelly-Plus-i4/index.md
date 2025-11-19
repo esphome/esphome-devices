@@ -398,7 +398,6 @@ esphome:
 
 esp32:
   variant: esp32
-  variant: esp32
   framework:
     type: arduino
     platform_version: 5.2.0

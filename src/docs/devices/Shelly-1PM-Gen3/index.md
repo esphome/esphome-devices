@@ -62,7 +62,6 @@ esphome:
 
 esp32:
   variant: esp32c3
-  variant: esp32c3
 
 api:
 
@@ -319,7 +318,6 @@ esphome:
     board_build.flash_size: 8MB
 
 esp32:
-  variant: esp32c3
   variant: esp32c3
 
 api:
