@@ -21,7 +21,7 @@ esphome:
   friendly_name: ESP32-S3 T-Display
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   framework:
     type: esp-idf
   flash_size: 16MB

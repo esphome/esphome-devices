@@ -37,7 +37,7 @@ esphome:
   comment: "Luxury Spa"
 
 esp32:
-  board: m5stack-atom
+  variant: esp32
 
 external_components:
   - source: github://ylianst/esp-iq2020

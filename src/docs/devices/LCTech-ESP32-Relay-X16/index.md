@@ -126,7 +126,7 @@ esphome:
   name: ESP32 relayboard
 
 esp32:
-  board: esp32dev
+  variant: esp32
 
 # IO0 button can be configured as a binary_sensor
 binary_sensor:

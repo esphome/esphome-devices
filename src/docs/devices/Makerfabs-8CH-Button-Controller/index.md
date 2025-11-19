@@ -26,7 +26,7 @@ esphome:
   friendly_name:  HA-Controller-8-Channel
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf
     # version: 5.4.2

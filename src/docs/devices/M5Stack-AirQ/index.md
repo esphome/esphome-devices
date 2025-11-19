@@ -94,7 +94,6 @@ esphome:
         - script.execute: warmup_refresh
 
 esp32:
-  board: esp32-s3-devkitc-1 #m5stack-stamps3
   variant: esp32s3
 
 logger:

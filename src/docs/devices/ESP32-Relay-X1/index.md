@@ -42,7 +42,7 @@ esphome:
   name: ESP32 relayboard
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf
 

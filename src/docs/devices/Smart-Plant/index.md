@@ -56,7 +56,7 @@ esphome:
       - script.execute: consider_deep_sleep
 
 esp32:
-  board: esp32-s2-saola-1
+  variant: esp32s2
   framework:
     type: arduino
 

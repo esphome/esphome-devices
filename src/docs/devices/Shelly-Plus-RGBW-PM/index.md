@@ -39,7 +39,7 @@ esphome:
   name: shelly-plus-rgbw-pm
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf
 
@@ -175,7 +175,7 @@ esphome:
   name: shelly-plus-rgbw-pm-monochrome
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf
 

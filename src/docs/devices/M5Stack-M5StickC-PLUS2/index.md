@@ -51,7 +51,7 @@ esphome:
     upload_speed: 115200
 
 esp32:
-  board: m5stick-c
+  variant: esp32
 
 wifi:
   ssid: !secret wifi_ssid
