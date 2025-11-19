@@ -39,7 +39,7 @@ esphome:
   name: ${devicename}
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
     version: recommended

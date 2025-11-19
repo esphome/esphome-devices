@@ -84,7 +84,7 @@ esphome:
         - 0
         - 33
 esp32:
-  board: esp32dev
+  variant: esp32
 uart:
 - id: uart_1
   tx_pin: GPIO12

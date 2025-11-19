@@ -57,7 +57,7 @@ esphome:
   friendly_name: ac-dc-relay-x4
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf
 

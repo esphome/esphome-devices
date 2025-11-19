@@ -41,57 +41,76 @@ board: esp32
 ## Basic Configuration
 
 ```yaml
+# Basic Config
 esphome:
   name: kc868-a4
+
 esp32:
-  board: esp32dev
-logger: null
-api: null
+  variant: esp32
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
 ota:
-  platform: esphome
-  password: 4d5a388de4f759bf88e71cde7a31af6f
+  password: "4d5a388de4f759bf88e71cde7a31af6f"
+
 wifi:
-  ssid: KinCony
-  password: a12345678
+  ssid: "KinCony"
+  password: "a12345678"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: Kc868-A4 Fallback Hotspot
-    password: QOU4hbAjJ5Wb
+    ssid: "Kc868-A4 Fallback Hotspot"
+    password: "QOU4hbAjJ5Wb"
+
+captive_portal:
+
 switch:
-- platform: gpio
-  name: light1
-  pin: 2
-  inverted: false
-- platform: gpio
-  name: light2
-  pin: 15
-  inverted: false
-- platform: gpio
-  name: light3
-  pin: 5
-  inverted: false
-- platform: gpio
-  name: light4
-  pin: 4
-  inverted: false
+  - platform: gpio
+    name: "light1"
+    pin: 2
+    inverted: false
+
+  - platform: gpio
+    name: "light2"
+    pin: 15
+    inverted: false
+
+  - platform: gpio
+    name: "light3"
+    pin: 5
+    inverted: false
+
+  - platform: gpio
+    name: "light4"
+    pin: 4
+    inverted: false
+
 binary_sensor:
-- platform: gpio
-  name: input1
-  pin:
-    number: 36
-    inverted: true
-- platform: gpio
-  name: input2
-  pin:
-    number: 39
-    inverted: true
-- platform: gpio
-  name: input3
-  pin:
-    number: 27
-    inverted: true
-- platform: gpio
-  name: input4
-  pin:
-    number: 14
-    inverted: true
+  - platform: gpio
+    name: "input1"
+    pin:
+      number: 36
+      inverted: true
+
+  - platform: gpio
+    name: "input2"
+    pin:
+      number: 39
+      inverted: true
+
+  - platform: gpio
+    name: "input3"
+    pin:
+      number: 27
+      inverted: true
+
+  - platform: gpio
+    name: "input4"
+    pin:
+      number: 14
+      inverted: true
 ```

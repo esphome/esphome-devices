@@ -77,7 +77,7 @@ esphome:
   name: ${devicename}
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: arduino
 
@@ -213,7 +213,7 @@ esphome:
     board_build.f_cpu: 160000000L
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -250,7 +250,7 @@ esphome:
   name: "${devicename}"
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: arduino
 
@@ -536,7 +536,7 @@ esphome:
   comment: "Shelly Plus 2PM configured for a current-based blind, with on-connection-loss-opening failsafe with durations open:${open_duration}, close:${close_duration}, max:${max_duration} and current thresholds moving:${moving_current_threshold}, obstacle:${obstacle_current_threshold}"
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: arduino
 

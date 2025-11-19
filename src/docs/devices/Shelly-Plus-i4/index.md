@@ -43,7 +43,7 @@ esphome:
     version: "${project_version}"
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -285,7 +285,7 @@ esphome:
     version: "${project_version}"
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -397,7 +397,6 @@ esphome:
     version: "${project_version}"
 
 esp32:
-  board: esp32doit-devkit-v1
   variant: esp32
   framework:
     type: arduino

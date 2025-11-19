@@ -33,7 +33,7 @@ board: esp32
 esphome:
   name: KC868-M16
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 logger: null

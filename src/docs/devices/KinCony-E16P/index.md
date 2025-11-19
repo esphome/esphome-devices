@@ -31,7 +31,7 @@ esphome:
   name: kc868-e16p
 
 esp32:
-  board: esp32dev
+  variant: esp32
 
 # Example configuration entry for ESP32
 i2c:

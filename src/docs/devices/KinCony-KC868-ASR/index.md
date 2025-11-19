@@ -30,7 +30,7 @@ board: esp32
 esphome:
   name: KC868-ASR
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 logger: null

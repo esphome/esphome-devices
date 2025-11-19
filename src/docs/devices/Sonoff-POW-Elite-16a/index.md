@@ -40,7 +40,7 @@ esphome:
   name: $device_name
 
 esp32:
-  board: nodemcu-32s
+  variant: esp32
 
 wifi:
   ssid: !secret wifi_ssid

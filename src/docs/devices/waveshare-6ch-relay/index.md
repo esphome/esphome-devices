@@ -35,7 +35,7 @@ esphome:
   name: waveshare-6ch-relay
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   flash_size: 8MB
   framework:
     type: arduino
