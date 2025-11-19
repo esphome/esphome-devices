@@ -46,6 +46,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -137,7 +138,7 @@ sensor:
   - id: temperature_sensor_voltage
     platform: adc
     pin: GPIO4
-    attenuation: 11db
+    attenuation: 12db
 
 status_led:
   pin:
@@ -166,6 +167,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -388,7 +390,7 @@ sensor:
   - id: temperature_sensor_voltage
     platform: adc
     pin: GPIO4
-    attenuation: 11db
+    attenuation: 12db
 
 status_led:
   pin:

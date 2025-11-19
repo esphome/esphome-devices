@@ -23,8 +23,8 @@ esp8266:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: ""
 
 wifi:
   ssid: ""
@@ -100,8 +100,8 @@ esp8266:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: ""
 
 wifi:
   ssid: ""

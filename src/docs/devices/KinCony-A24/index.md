@@ -468,7 +468,7 @@ sensor:
     pin: 35
     name: "A24 A1 Voltage"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - lambda:
           if (x >= 3.11) {
@@ -482,7 +482,7 @@ sensor:
     pin: 34
     name: "A24 A2 Voltage"
     update_interval: 10s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       # - multiply: 1.51515
       - lambda:
@@ -498,7 +498,7 @@ sensor:
     name: "A24 A3 Current"
     update_interval: 10s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
   - platform: adc
@@ -506,7 +506,7 @@ sensor:
     name: "A24 A4 Current"
     update_interval: 10s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
 

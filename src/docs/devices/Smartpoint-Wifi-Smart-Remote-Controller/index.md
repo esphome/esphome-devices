@@ -95,12 +95,11 @@ web_server:
 
 # Enable HomeAssistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 # Enable OTA updates
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
   safe_mode: True
 
 # Enable logging without UART support as there would be no way to read it

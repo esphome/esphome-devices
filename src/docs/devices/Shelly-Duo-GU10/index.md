@@ -31,7 +31,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
 
 wifi:

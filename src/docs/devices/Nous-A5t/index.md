@@ -65,8 +65,6 @@ uart:
   baud_rate: 4800
 
 api:
-  encryption:
-    key: !secret encryption
 
 wifi:
   ssid: !secret wifi_ssid
@@ -80,6 +78,8 @@ wifi:
 captive_portal:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # see: https://esphome.io/components/time.html
 time:

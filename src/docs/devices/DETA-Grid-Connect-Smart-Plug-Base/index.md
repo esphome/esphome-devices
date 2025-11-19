@@ -57,6 +57,7 @@ wifi:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 web_server:
   port: 80

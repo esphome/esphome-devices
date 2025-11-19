@@ -54,6 +54,7 @@ logger:
 
 # Connectivity configuration
 ota:
+  id: esphome_ota
   - platform: esphome
 wifi:
   ssid: !secret wifi_ssid
@@ -129,6 +130,7 @@ api:
 network:
   # enable_ipv6: True # Uncomment if you're using IPv6
 ota:
+  id: esphome_ota
   - platform: esphome
 update:
 wifi:

@@ -55,6 +55,8 @@ api:
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -129,6 +131,8 @@ api:
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: True
 
 # Enable web server

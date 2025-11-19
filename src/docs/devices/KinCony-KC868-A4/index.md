@@ -55,7 +55,8 @@ logger:
 api:
 
 ota:
-  password: "4d5a388de4f759bf88e71cde7a31af6f"
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: "KinCony"

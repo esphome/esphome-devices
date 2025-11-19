@@ -72,11 +72,10 @@ wifi:
 captive_portal:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ha_api_password
+  platform: esphome
+  id: esphome_ota
 
 script:
   - id: send_event

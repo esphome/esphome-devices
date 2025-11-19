@@ -47,6 +47,7 @@ wifi:
 web_server:
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 logger:

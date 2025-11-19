@@ -39,12 +39,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: $key
-  reboot_timeout: 172800s
 
 ota:
-  password: $ota
+  platform: esphome
+  id: esphome_ota
 
 wifi:
 #ethernet:
@@ -57,7 +55,6 @@ wifi:
 
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  reboot_timeout: 172800s
   use_address: $IP
 #  use_address: 192.168.0.8
 #  manual_ip:

@@ -30,11 +30,10 @@ wifi:
 logger:
   #level: INFO
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 esp32_ble_tracker:
   scan_interval: 360s

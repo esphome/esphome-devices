@@ -58,6 +58,7 @@ esp32:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 dashboard_import:
   package_import_url: github://JGAguado/Smart_Plant/docs/source/files/configuration.yaml@V2R1

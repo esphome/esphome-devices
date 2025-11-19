@@ -85,6 +85,8 @@ substitutions:
 logger:
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 web_server:
 time:
   - platform: sntp

@@ -43,11 +43,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 binary_sensor:
   - platform: gpio

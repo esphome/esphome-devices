@@ -49,11 +49,10 @@ wifi:
 captive_portal:
 
 ota:
-  password: !secret ota_pass
+  platform: esphome
+  id: esphome_ota
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 # disable serial logging by setting baud_rate to 0 because baud_rate/serial connection is used by tuyamcu
 logger:

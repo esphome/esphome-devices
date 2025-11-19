@@ -101,8 +101,8 @@ uart:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
-  password: d83d604e4f0ae287fb041dbaf31524d9
 ethernet:
   type: LAN8720
   mdc_pin: GPIO23

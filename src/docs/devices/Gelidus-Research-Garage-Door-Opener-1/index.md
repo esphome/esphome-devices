@@ -97,10 +97,9 @@ captive_portal:
 logger:
 
 api:
-  encryption:
-    key: "YOUR API KEY GOES HERE"
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 web_server:
@@ -368,12 +367,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "<your key>"
 
 ota:
+  id: esphome_ota
   #  - platform: esphome # post 2024.5.x
-  password: "<your password>"
 
 wifi:
   ssid: !secret wifi_ssid

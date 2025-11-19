@@ -62,11 +62,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret esphome_ota_password
+  platform: esphome
+  id: esphome_ota
 
 output:
   - platform: gpio
@@ -133,11 +132,10 @@ wifi:
 captive_portal:
 logger:
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret esphome_ota_password
+  platform: esphome
+  id: esphome_ota
 status_led:
   pin:
     number: GPIO5   # Red LED

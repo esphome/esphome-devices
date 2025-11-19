@@ -31,6 +31,7 @@ esp32:
 api:
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 ethernet:
@@ -245,7 +246,7 @@ sensor:
     pin: 7
     name: "A8v3 A1 Voltage"
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - lambda: |-
           if (x >= 3.11) {
@@ -259,7 +260,7 @@ sensor:
     pin: 6
     name: "A8v3 A2 Voltage"
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       # - multiply: 1.51515
       - lambda: |-

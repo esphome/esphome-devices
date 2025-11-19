@@ -61,13 +61,12 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key:
       !secret encryption_key
       # Or copy the encription key from the "Add Device" menu of ESPHome
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 #web_server:
 #  port: 80

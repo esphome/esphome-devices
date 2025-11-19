@@ -46,11 +46,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 output:
   # Specify the two pins of the h-bridge as PWM pins

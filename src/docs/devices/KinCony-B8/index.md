@@ -35,6 +35,7 @@ esp32:
 api:
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 ethernet:

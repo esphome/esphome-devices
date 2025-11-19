@@ -31,11 +31,10 @@ rtl87xx:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret esp_ota_pass
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

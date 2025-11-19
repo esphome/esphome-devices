@@ -64,9 +64,6 @@ wifi:
     ap_timeout: 3min
 
 api:
-  encryption:
-    key: !secret esphome_encryption_key
-  reboot_timeout: 0s
 
 captive_portal:
 
@@ -75,6 +72,8 @@ improv_serial:
 logger:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 button:
   - platform: restart

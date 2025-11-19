@@ -77,6 +77,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80
@@ -260,6 +262,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80
@@ -534,6 +538,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 spi:
   clk_pin: 18

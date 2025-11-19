@@ -56,13 +56,11 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 # Enable OTA updates
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret esphomeotapwd
 
 remote_receiver:
   pin: GPIO4

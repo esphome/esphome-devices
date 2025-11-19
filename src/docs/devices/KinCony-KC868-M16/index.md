@@ -38,11 +38,9 @@ esp32:
     type: arduino
 logger: null
 api:
-  encryption:
-    key: D69bY/GXlmjYkovak6WIhgmbOH8vwyqvMxIHBriYoaY=
 ota:
+  id: esphome_ota
   platform: esphome
-  password: 9984b688b9646975bfd1b760a9c2df8b
 ethernet:
   type: LAN8720
   mdc_pin: GPIO23

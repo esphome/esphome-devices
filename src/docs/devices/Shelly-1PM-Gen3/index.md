@@ -66,6 +66,8 @@ esp32:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 wifi:
 
@@ -116,7 +118,7 @@ sensor:
   - id: temperature_sensor_voltage
     platform: adc
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
   - platform: bl0942
     uart_id: bl0942_uart
     line_frequency: 60Hz
@@ -262,7 +264,7 @@ sensor:
   - id: temperature_sensor_voltage
     platform: adc
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: bl0942
     uart_id: bl0942_uart
@@ -323,6 +325,8 @@ esp32:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 wifi:
 
@@ -455,7 +459,7 @@ sensor:
   - id: ${device_id}_temperature_sensor_voltage
     platform: adc
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
 
   # Belling BL0942 Energy Monitor
   - platform: bl0942

@@ -59,11 +59,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret esphome_ota_password
+  platform: esphome
+  id: esphome_ota
 
 switch:
   - platform: gpio

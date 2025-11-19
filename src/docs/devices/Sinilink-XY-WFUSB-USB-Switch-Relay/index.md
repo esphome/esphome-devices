@@ -79,6 +79,8 @@ captive_portal:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 time:
   - platform: homeassistant

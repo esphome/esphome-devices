@@ -69,12 +69,11 @@ logger:
   # https://esphome.io/components/logger
 
 api:
-  encryption:
-    key: !secret encryption_key
   # https://esphome.io/components/api
 
 ota:
-  password: !secret esphome_ota_password
+  platform: esphome
+  id: esphome_ota
   # https://esphome.io/components/ota
 
 switch:

@@ -41,11 +41,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret outdoor_ss33_ota
+  platform: esphome
+  id: esphome_ota
 
 sensor:
   - platform: wifi_signal

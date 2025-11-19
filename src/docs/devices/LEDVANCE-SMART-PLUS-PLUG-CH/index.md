@@ -43,9 +43,9 @@ logger: null
 web_server:
   port: 80
 api:
-  encryption:
-    key: <set here>
 ota:
+  platform: esphome
+  id: esphome_ota
 - platform: esphome
   password: <set here>
 wifi:

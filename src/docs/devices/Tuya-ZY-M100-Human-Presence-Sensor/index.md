@@ -96,15 +96,14 @@ esp32:
 # Enable Home Assistant API
 api:
   password: !secret api_password
-  encryption:
-    key: !secret api_encryption_key
 
 # Enable logging
 logger:
 
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
-  password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -302,15 +301,14 @@ esp32:
 # Enable Home Assistant API
 api:
   password: !secret api_password
-  encryption:
-    key: !secret api_encryption_key
 
 # Enable logging
 logger:
 
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
-  password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid

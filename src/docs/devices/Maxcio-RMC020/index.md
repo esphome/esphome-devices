@@ -73,6 +73,8 @@ api:
 #    key: !secret encryption_key
 
 ota:
+  platform: esphome
+  id: esphome_ota
 #  password: !secret OTA_Password
 
 # Enable time component for use by daily power sensor

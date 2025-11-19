@@ -119,11 +119,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: "api_encryption_key"
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 #
 # PC191HA basic switch operation - button, relay and LED
@@ -265,11 +264,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: "api_encryption_key"
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 #
 # PC191HA basic switch operation - button, relay and LED
@@ -416,12 +414,10 @@ logger:
   baud_rate: 0
 
 api:
-  encryption:
-    key: "api_key"
 
 ota:
+  id: esphome_ota
   platform: esphome
-  password: "ota_password"
 
 binary_sensor:
   - platform: gpio

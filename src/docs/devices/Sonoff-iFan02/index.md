@@ -39,6 +39,8 @@ esp8266:
 logger:
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   networks:

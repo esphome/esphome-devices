@@ -105,11 +105,10 @@ tuya:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "GET-A-KEY-HERE-https://esphome.io/components/api.html#configuration-variables"
 
 ota:
-  password: "CHANGE-THIS-PASSWORD-OR-REMOVE-OTA"
+  platform: esphome
+  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -177,11 +176,10 @@ tuya:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "GET-A-KEY-HERE-https://esphome.io/components/api.html#configuration-variables"
 
 ota:
-  password: "CHANGE-THIS-PASSWORD-OR-REMOVE-OTA"
+  platform: esphome
+  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -249,11 +247,10 @@ tuya:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "GET-A-KEY-HERE-https://esphome.io/components/api.html#configuration-variables"
 
 ota:
-  password: "CHANGE-THIS-PASSWORD-OR-REMOVE-OTA"
+  platform: esphome
+  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -320,11 +317,10 @@ tuya:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "GET-A-KEY-HERE-https://esphome.io/components/api.html#configuration-variables"
 
 ota:
-  password: "CHANGE-THIS-PASSWORD-OR-REMOVE-OTA"
+  platform: esphome
+  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -391,11 +387,10 @@ tuya:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "GET-A-KEY-HERE-https://esphome.io/components/api.html#configuration-variables"
 
 ota:
-  password: "CHANGE-THIS-PASSWORD-OR-REMOVE-OTA"
+  platform: esphome
+  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid

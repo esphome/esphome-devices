@@ -48,11 +48,10 @@ esp8266:
   board: esp01_1m
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: "PASSWORD"
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: "WIFI_SSID"

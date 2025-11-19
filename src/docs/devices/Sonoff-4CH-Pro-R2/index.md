@@ -38,6 +38,7 @@ wifi:
 logger:
 api:
 ota:
+  id: esphome_ota
   - platform: esphome
 
 # Device Specific Config

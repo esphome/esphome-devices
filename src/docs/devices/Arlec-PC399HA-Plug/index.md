@@ -60,11 +60,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "api_password"
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

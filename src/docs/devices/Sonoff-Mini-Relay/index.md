@@ -51,12 +51,10 @@ wifi:
 logger:
   
 api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
@@ -159,12 +157,10 @@ wifi:
 logger:
   
 api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 

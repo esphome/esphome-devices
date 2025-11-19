@@ -90,12 +90,10 @@ logger:
   hardware_uart: UART0
 
 api:
-  encryption:
-    key: !secret api_key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -233,9 +231,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_key
-  reboot_timeout: 0s
   on_client_connected:
     - lvgl.label.update:
         id: label_apistatus
@@ -246,8 +241,8 @@ api:
         text_color: 0xFF0000
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid

@@ -45,12 +45,9 @@ psram:
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
   - platform: esphome
-    password: !secret ota_password
     on_begin: # prevent screen flickering during OTA
       - light.turn_off:
           id: display_backlight

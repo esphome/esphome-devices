@@ -29,12 +29,11 @@ esp8266:
   board: esp8285
 
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: True
-  password: OTA_PASSWORD
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 wifi:
   ssid: !secret wifi_ssid

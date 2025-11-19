@@ -44,7 +44,8 @@ logger:
 api:
 
 ota:
-  password: !secret gosund_1_ota
+  platform: esphome
+  id: esphome_ota
 
 binary_sensor:
   - platform: gpio

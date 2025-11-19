@@ -93,18 +93,14 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api
-  reboot_timeout: 30min
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  reboot_timeout: 20min
 
 button:
   - platform: restart
@@ -172,18 +168,14 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api
-  reboot_timeout: 30min
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  reboot_timeout: 20min
 
 button:
   - platform: restart

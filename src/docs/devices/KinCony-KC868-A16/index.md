@@ -52,12 +52,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 ethernet:
   type: LAN8720

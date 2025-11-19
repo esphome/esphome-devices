@@ -33,7 +33,8 @@ logger:
 api:
 
 ota:
-  password: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

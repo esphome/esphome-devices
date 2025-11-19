@@ -59,7 +59,8 @@ api:
     key: !secret api_encryption_key
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 binary_sensor:
   - platform: gpio

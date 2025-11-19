@@ -53,12 +53,11 @@ captive_portal:
 # Enable Home Assistant API
 api:
   # https://esphome.io/components/api
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
+  platform: esphome
+  id: esphome_ota
   # https://esphome.io/components/ota
-  password: !secret ota_password
 
 # Enable Web server.
 web_server:

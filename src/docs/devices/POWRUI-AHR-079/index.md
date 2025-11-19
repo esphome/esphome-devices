@@ -54,7 +54,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_pw
+  platform: esphome
+  id: esphome_ota
 
 # Buttons (not exposed in HA)
 binary_sensor:

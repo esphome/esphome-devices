@@ -67,7 +67,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+  id: esphome_ota
 
 #optional
 web_server:

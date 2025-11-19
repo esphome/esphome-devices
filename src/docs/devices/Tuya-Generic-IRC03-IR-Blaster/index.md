@@ -83,8 +83,6 @@ the NEC protocol, using a frequency of 38 kHz.
 
 ```yaml
 api:
-  encryption:
-    key: "xxxxxxx"
   services:
     - service: send_raw_command
       variables:

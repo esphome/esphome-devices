@@ -38,14 +38,13 @@ esp8266:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 web_server:
   port: 80
 
 ota:
-  password: !secret esp_ota_pass
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

@@ -154,7 +154,7 @@ api:
   password: ""
 
 ota:
-  password: ""
+  id: esphome_ota
   platform: esphome
 
 wifi:

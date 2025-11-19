@@ -50,6 +50,7 @@ logger:
   level: DEBUG
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 binary_sensor:
 - platform: gpio

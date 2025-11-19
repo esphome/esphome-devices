@@ -81,10 +81,9 @@ wifi:
   ap:
     ssid: DETA Outdoor Double Power Point
     password: ''
-  reboot_timeout: 0s
 api:
-  reboot_timeout: 0s
 ota:
+  id: esphome_ota
   platform: esphome
 esphome:
   name: ${devicename}

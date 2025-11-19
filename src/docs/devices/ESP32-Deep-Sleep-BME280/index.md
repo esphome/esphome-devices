@@ -109,7 +109,8 @@ logger:
   level: INFO
 
 ota:
-  password: *redacted*
+  platform: esphome
+  id: esphome_ota
 
 i2c:
   sda: 16

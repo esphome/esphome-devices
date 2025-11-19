@@ -259,7 +259,7 @@ sensor:
     pin: 5
     name: "f8 A1 Voltage"
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - lambda: |-
           if (x >= 3.11) {
@@ -273,7 +273,7 @@ sensor:
     pin: 7
     name: "f8 A2 Voltage"
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       # - multiply: 1.51515
       - lambda: |-
@@ -289,7 +289,7 @@ sensor:
     name: "f8 A3 Current"
     update_interval: 5s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
   - platform: adc
@@ -297,7 +297,7 @@ sensor:
     name: "f8 A4 Current"
     update_interval: 5s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
 

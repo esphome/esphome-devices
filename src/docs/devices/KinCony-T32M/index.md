@@ -671,7 +671,7 @@ sensor:
     pin: 7
     name: "t32m A1 Voltage"
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - lambda:
           if (x >= 3.11) {
@@ -685,7 +685,7 @@ sensor:
     pin: 6
     name: "t32m A2 Voltage"
     update_interval: 5s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       # - multiply: 1.51515
       - lambda:
@@ -701,7 +701,7 @@ sensor:
     name: "t32m A3 Current"
     update_interval: 5s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
   - platform: adc
@@ -709,7 +709,7 @@ sensor:
     name: "t32m A4 Current"
     update_interval: 5s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
 ```

@@ -59,11 +59,10 @@ logger:
   hardware_uart: UART1
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 status_led:
   pin:

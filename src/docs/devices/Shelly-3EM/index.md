@@ -122,12 +122,11 @@ logger:
 
 # Enable HA API
 api:
-  encryption:
-    key: !secret api_key
 
 # Enable OTAs
 ota:
-  password: !secret api_password
+  platform: esphome
+  id: esphome_ota
 
 # Sync RTC with HA
 time:

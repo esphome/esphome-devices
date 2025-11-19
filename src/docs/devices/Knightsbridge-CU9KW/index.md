@@ -85,6 +85,7 @@ logger:
 improv_serial:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -231,6 +232,7 @@ api:
 improv_serial:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:

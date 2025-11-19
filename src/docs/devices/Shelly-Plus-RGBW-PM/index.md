@@ -51,6 +51,7 @@ captive_portal:
 logger:
 api:
 ota:
+  id: esphome_ota
   platform: esphome
 
 light:
@@ -190,6 +191,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 web_server:

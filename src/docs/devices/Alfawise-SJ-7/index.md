@@ -92,8 +92,8 @@ logger:
   esp8266_store_log_strings_in_flash: False
 
 ota:
+  id: esphome_ota
   - platform: esphome  
-    password: ${ota_password}
 
 uart:
   id: uart_bus

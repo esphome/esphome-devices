@@ -61,12 +61,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: $key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: $ota
 
 #wifi:
 ethernet:

@@ -28,11 +28,9 @@ esp8266:
   board: esp01_1m
 logger: null
 api:
-  encryption:
-    key: ''
 ota:
+  id: esphome_ota
   platform: esphome
-  password: ''
 wifi:
   ssid: ''
   password: ''

@@ -59,11 +59,10 @@ captive_portal:
 logger:
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: "OTApassword"
+  platform: esphome
+  id: esphome_ota
 # Just embedded test D3 (GPIO0) button on every ESP8266 Devboard
 # You can press D3 button several times to simulate incoming GGreg pulses
 binary_sensor:

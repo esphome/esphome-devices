@@ -148,6 +148,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 wifi:
@@ -394,6 +395,7 @@ logger:
   level: INFO
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 web_server:

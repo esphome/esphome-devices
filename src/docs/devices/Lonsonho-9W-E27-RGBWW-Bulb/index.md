@@ -55,7 +55,6 @@ Enjoy your hard work and impress some people with the magic 8-]
 substitutions:
   name: Fancy Device
   device: fancy_device
-  reboot_timeout: 1h
   update_interval: 1min
   static_ip: 10.10.10.88
 esphome:
@@ -66,7 +65,6 @@ wifi:
   ssid: Name of you homes WiFi
   password: your supersecret wifi password
   fast_connect: true
-  reboot_timeout: ${reboot_timeout}
   manual_ip:
     static_ip: ${static_ip}
     gateway: 10.10.10.1
@@ -78,6 +76,7 @@ wifi:
     password: 1234abcd
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 time:
 - platform: homeassistant

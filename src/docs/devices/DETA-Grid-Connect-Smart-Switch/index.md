@@ -240,12 +240,10 @@ logger:
 captive_portal:
   
 api:
-  encryption:
-    key: !secret api_key
   
 ota:
+  id: esphome_ota
   platform: esphome
-  password: !secret ota_password
   
 wifi:
  ssid: !secret wifi_ssid
@@ -339,6 +337,8 @@ captive_portal:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -479,11 +479,10 @@ wifi:
     password: "12345678"
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 logger:
 
@@ -619,6 +618,8 @@ captive_portal:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -784,11 +785,10 @@ wifi:
     password: "12345678"
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 logger:
 

@@ -43,8 +43,8 @@ esp8266:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: "${ota_password}"
 
 wifi:
   networks:

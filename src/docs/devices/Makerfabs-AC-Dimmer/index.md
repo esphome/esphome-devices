@@ -60,6 +60,7 @@ api:
   encryption:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:

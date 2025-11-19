@@ -50,7 +50,6 @@ wifi:
     password: ""
     ap_timeout: 1min
   domain: .local
-  reboot_timeout: 5min
   power_save_mode: NONE
   fast_connect: false
   output_power: 20.0
@@ -64,12 +63,10 @@ captive_portal:
 
 api:
   port: 6053
-  reboot_timeout: 15min
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
   port: 8266
 

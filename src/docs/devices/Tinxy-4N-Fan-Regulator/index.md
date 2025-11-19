@@ -75,10 +75,9 @@ logger:
   level: verbose
 # Enable Home Assistant API
 api:
-  encryption:
-    key: ""
 ota:
-  password: ""
+  platform: esphome
+  id: esphome_ota
 wifi:
   ssid: ""
   password: !secret wifi_password

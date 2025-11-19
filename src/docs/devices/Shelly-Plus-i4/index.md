@@ -56,12 +56,11 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
-  password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -298,12 +297,11 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
-  password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid

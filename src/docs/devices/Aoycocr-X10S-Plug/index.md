@@ -62,6 +62,8 @@ api:
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -295,12 +297,11 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 # Enable OTA updates
 ota:
-  password: !secret esphomeotapwd
+  platform: esphome
+  id: esphome_ota
 
 # Enable web server
 web_server:

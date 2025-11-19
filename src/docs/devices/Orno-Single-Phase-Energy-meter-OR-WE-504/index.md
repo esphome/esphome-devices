@@ -33,7 +33,8 @@ esp32:
 api:
 
 ota:
-  password: "CHANGE_ME"
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: "your ssid"

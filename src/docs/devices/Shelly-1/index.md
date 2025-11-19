@@ -32,6 +32,8 @@ wifi:
 logger:
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Device Specific Config
 output:
@@ -102,6 +104,8 @@ api:
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Enable Web server (optional).
 web_server:
@@ -254,6 +258,8 @@ api:
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Enable Web server (optional).
 web_server:

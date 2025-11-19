@@ -95,9 +95,10 @@ esp32:
 logger:
 
 api:
-  reboot_timeout: 0s
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -189,9 +190,9 @@ esp32:
 logger:
 
 api:
-  reboot_timeout: 0s
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:

@@ -81,11 +81,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 # https://esphome.io/components/status_led.html
 status_led:

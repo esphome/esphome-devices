@@ -70,11 +70,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret esphome_ota_pw
+  platform: esphome
+  id: esphome_ota
 
 # Example configuration entry
 web_server:

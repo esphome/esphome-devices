@@ -53,6 +53,7 @@ wifi:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 time:
 - platform: homeassistant

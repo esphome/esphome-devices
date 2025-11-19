@@ -33,6 +33,8 @@ logger:
   baud_rate: 0
 api: null
 ota:
+  platform: esphome
+  id: esphome_ota
 - platform: esphome
 wifi:
   ap: null

@@ -86,6 +86,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -261,7 +263,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -545,14 +548,13 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_key
   on_client_disconnected: # failsafe
     then:
       - script.execute: blinds_open_if_no_manual_override
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

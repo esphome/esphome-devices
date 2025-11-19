@@ -68,11 +68,10 @@ logger:
   level: INFO
 
 api:
-  encryption:
-    key: !secret api_enc
 
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+  id: esphome_ota
 
 esp32_ble_tracker:
   scan_parameters:

@@ -77,7 +77,8 @@ logger:
 api:
 
 ota:
-  password: !secret otapw
+  platform: esphome
+  id: esphome_ota
 
 # Button configuration
 binary_sensor:
@@ -175,7 +176,6 @@ and create a backup AP
 
 ```yaml
 wifi:
-  reboot_timeout: 60min
   manual_ip:
     static_ip: 192.168.1.100
     gateway: 192.168.1.1

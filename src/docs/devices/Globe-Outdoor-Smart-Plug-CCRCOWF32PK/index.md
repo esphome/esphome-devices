@@ -53,6 +53,7 @@ mdns:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 captive_portal:

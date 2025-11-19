@@ -47,6 +47,7 @@ web_server:
 
 # Enable over-the-air updates
 ota:
+  id: esphome_ota
   platform: esphome
 
 # Wifi Setup

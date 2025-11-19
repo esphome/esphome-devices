@@ -39,6 +39,8 @@ captive_portal:
 logger:
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 
 light:
   - platform: rgbw
@@ -89,6 +91,8 @@ esp8266:
 logger:
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -259,8 +263,9 @@ wifi:
     password: !secret ap_pass
 
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: True
-  password: !secret ota_pass
 
 captive_portal:
 

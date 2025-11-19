@@ -56,6 +56,8 @@ api:
   #  key: !secret encryption_key
 
 ota:
+  platform: esphome
+  id: esphome_ota
   #password: !secret esphome_ota_pwd
 
 switch:

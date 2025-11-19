@@ -64,13 +64,12 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret esphome_encryption_key
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
-  password: !secret esphome_wifi_pass
 
 esp8266:
   board: esp01_1m
@@ -260,13 +259,12 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret esphome_encryption_key
 
 # Enable OTA updates
 ota:
+  platform: esphome
+  id: esphome_ota
   safe_mode: true
-  password: !secret esphome_wifi_pass
 
 esp8266:
   board: esp01_1m

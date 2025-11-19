@@ -65,7 +65,6 @@ esp8266:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  reboot_timeout: 60min
   manual_ip:
     static_ip: 1.2.3.4
     gateway: 10.2.3.1
@@ -83,7 +82,8 @@ logger:
 api:
 
 ota:
-  password: !secret otapw
+  platform: esphome
+  id: esphome_ota
 
 output:
   - platform: esp8266_pwm

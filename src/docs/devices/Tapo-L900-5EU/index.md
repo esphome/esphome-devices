@@ -66,12 +66,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "api_encryption_key"
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: "ota_password"
 
 web_server:
   port: 80

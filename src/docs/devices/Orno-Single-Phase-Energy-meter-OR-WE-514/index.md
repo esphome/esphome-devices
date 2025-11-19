@@ -28,8 +28,8 @@ logger:
   baud_rate: 0
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
-  password: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 wifi:
   ssid: your ssid
   password: your-wlan-password

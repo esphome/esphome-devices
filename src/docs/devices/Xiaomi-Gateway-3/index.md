@@ -44,6 +44,7 @@ mqtt:
   broker: !secret mqtt_broker
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 logger:

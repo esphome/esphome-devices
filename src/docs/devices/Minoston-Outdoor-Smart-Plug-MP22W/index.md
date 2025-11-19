@@ -39,13 +39,13 @@ wifi:
     password: !secret wifi_fallback_password
 
 api:
-  encryption:
-    key: !secret api_key
 
 web_server:
   port: 80
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 logger:
 

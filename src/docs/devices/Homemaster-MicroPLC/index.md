@@ -152,6 +152,8 @@ mdns:
   disabled: false
 api: null
 ota:
+  platform: esphome
+  id: esphome_ota
 - platform: esphome
 network:
   enable_ipv6: ${ipv6_enable}

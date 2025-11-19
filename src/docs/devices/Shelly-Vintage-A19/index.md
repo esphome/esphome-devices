@@ -54,11 +54,10 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_enc
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 logger:
   baud_rate: 0

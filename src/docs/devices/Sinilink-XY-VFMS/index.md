@@ -54,9 +54,10 @@ logger:
 
 # Enable Home Assistant API (if available i.e. reboot_timeout=0s)
 api:
-  reboot_timeout: 0s
 
 ota:
+  platform: esphome
+  id: esphome_ota
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password

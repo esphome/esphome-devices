@@ -49,11 +49,10 @@ wifi:
   fast_connect: true
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_secret
+  platform: esphome
+  id: esphome_ota
 
 logger:
   esp8266_store_log_strings_in_flash: false

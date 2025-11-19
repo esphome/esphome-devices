@@ -72,8 +72,8 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: ota
 
 external_components:
   - source: github://martydingo/esphome-axp192

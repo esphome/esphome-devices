@@ -64,12 +64,10 @@ api:
       then:
         - button.press:
             id: button_reset_total
-  encryption:
-    key: "<YOUR_API_KEY>"
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: "<YOUR_OTA_PASSWORD>"
 
 substitutions:
   device_name: grec1

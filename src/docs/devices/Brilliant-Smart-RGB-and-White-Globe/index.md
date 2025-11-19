@@ -32,6 +32,7 @@ wifi:
 api: null
 logger: null
 ota:
+  id: esphome_ota
   platform: esphome
 sm16716:
   data_pin: GPIO4

@@ -51,11 +51,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret p11smartplug1_api_key
 
 ota:
-  password: !secret p11smartplug1_ota_password
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

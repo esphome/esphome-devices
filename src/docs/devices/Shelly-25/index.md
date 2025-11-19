@@ -56,6 +56,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 i2c:
   sda: GPIO12
@@ -200,11 +202,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: ${password}
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80
@@ -381,6 +382,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 i2c:
   sda: GPIO12
@@ -533,11 +536,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: ${password}
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80

@@ -46,6 +46,7 @@ wifi:
   ap: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 logger: null
 i2c:

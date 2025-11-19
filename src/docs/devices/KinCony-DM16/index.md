@@ -33,6 +33,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   platform: esphome
 
 ethernet:

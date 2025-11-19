@@ -80,8 +80,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
   actions:
     # Ability to command the buzzer from Home Assistant
     - action: rtttl_play
@@ -93,6 +91,8 @@ api:
 
 # Allow Over-The-Air updates
 ota:
+  platform: esphome
+  id: esphome_ota
 - platform: esphome
   password: !secret ota_password
 

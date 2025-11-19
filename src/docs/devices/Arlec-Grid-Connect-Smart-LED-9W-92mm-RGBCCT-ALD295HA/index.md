@@ -91,6 +91,7 @@ captive_portal:
 mdns:
 api:
 ota:
+  id: esphome_ota
   platform: esphome
 
 wifi:

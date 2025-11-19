@@ -55,13 +55,10 @@ logger:
   baud_rate: 0
 
 api:
-  reboot_timeout: 30min
-  encryption:
-    key: !secret encryption_key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 web_server:
   port: 80
@@ -69,7 +66,6 @@ web_server:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  reboot_timeout: 30min
 
 sensor:
   - platform: uptime

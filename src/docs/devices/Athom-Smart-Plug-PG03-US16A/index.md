@@ -53,6 +53,8 @@ preferences:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Enable logging
 logger:

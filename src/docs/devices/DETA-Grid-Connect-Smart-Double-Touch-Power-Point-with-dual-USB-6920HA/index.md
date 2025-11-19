@@ -78,6 +78,8 @@ captive_portal:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 sensor:
   - platform: wifi_signal

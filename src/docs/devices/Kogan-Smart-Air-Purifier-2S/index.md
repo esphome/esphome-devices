@@ -38,6 +38,7 @@ logger:
   baud_rate: 0
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 uart:
 - id: uart_0

@@ -46,11 +46,10 @@ wifi:
 logger:
   #level: INFO
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: "ota_password"
+  platform: esphome
+  id: esphome_ota
 
 esp32_camera:
   external_clock:

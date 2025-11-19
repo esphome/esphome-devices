@@ -80,11 +80,10 @@ mdns:
 
 # Add your own api encryption key if you use it or use a secrets file one, your choice
 api:
-  encryption:
-    key: !secret api_key
 
 ota:
-  password: ""
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

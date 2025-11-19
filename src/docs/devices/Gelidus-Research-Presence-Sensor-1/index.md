@@ -41,12 +41,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "<your_key>"
 
 ota:
+  id: esphome_ota
   - platform: esphome # Required for 2024.5.0 and up
-    password: "<your_password>"
 
 wifi:
   ssid: !secret iot_ssid
@@ -269,12 +267,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "<your_key>"
 
 ota:
+  id: esphome_ota
   - platform: esphome # Required for 2024.5.0 and up
-    password: "<your_password>"
 
 wifi:
   ssid: !secret iot_ssid

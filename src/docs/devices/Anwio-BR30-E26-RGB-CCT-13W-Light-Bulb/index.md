@@ -32,12 +32,10 @@ board: bk72xx
 
 ```yaml
 api:
-  encryption:
-    key: !secret api_key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid

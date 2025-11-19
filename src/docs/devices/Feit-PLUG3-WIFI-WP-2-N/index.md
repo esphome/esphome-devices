@@ -121,6 +121,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Note: UART config is optional
 uart:

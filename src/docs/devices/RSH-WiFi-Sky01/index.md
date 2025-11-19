@@ -56,6 +56,7 @@ globals:
   initial_value: 'false'
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 web_server: null
 wifi:

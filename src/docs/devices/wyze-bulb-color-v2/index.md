@@ -87,6 +87,7 @@ captive_portal:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 web_server:

@@ -46,14 +46,11 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-  reboot_timeout: 0s
-  encryption:
-    key: !secret encryption_key
 
 # Enable over-the-air updates
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 # Enable Web server
 web_server:

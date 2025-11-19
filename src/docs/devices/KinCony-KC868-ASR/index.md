@@ -35,11 +35,9 @@ esp32:
     type: arduino
 logger: null
 api:
-  encryption:
-    key: Xqy9f8iJ49cr7o8IWE1sFnG9EAEnxHVYlGUQBdnKE6Q=
 ota:
+  id: esphome_ota
   platform: esphome
-  password: d13799179d079d89758ad1a0fd1c4560
 wifi:
   ssid: KinCony
   password: a12345678

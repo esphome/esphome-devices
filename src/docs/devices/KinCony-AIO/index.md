@@ -335,7 +335,7 @@ sensor:
     pin: 5
     name: "AIO_hybrid A1 Voltage"
     update_interval: 55s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - lambda:
           if (x >= 3.11) {
@@ -349,7 +349,7 @@ sensor:
     pin: 7
     name: "AIO_hybrid A2 Voltage"
     update_interval: 55s
-    attenuation: 11db
+    attenuation: 12db
     filters:
       # - multiply: 1.51515
       - lambda:
@@ -365,7 +365,7 @@ sensor:
     name: "AIO_hybrid A3 Current"
     update_interval: 55s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
   - platform: adc
@@ -373,7 +373,7 @@ sensor:
     name: "AIO_hybrid A4 Current"
     update_interval: 55s
     unit_of_measurement: mA
-    attenuation: 11db
+    attenuation: 12db
     filters:
       - multiply: 6.66666666
 

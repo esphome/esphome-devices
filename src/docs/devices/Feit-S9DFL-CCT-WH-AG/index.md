@@ -21,7 +21,8 @@ logger:
 api:
   password: ""
 ota:
-  password: ""
+  platform: esphome
+  id: esphome_ota
 wifi:
   networks:
   ap:

@@ -39,8 +39,6 @@ substitutions:
    password: !secret ota_pass
 
  api:
-   encryption:
-    key: !secret encryption_key
 
 sm16716:
   data_pin: GPIO14

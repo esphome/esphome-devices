@@ -69,11 +69,10 @@ wifi:
   password: !secret wifi_password
 
 api:
-  encryption:
-    key: !secret esp_api_key
 
 ota:
-  password: !secret ota_secret
+  platform: esphome
+  id: esphome_ota
 
 external_components:
   - source: github://nrandell/dallasng

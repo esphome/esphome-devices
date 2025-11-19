@@ -48,6 +48,7 @@ bk72xx:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 wifi: null
 light:
@@ -82,8 +83,6 @@ the NEC protocol, using a frequency of 38 kHz.
 
 ```yaml
 api:
-  encryption:
-    key: "xxxxxxx"
   services:
     - service: send_raw_command
       variables:

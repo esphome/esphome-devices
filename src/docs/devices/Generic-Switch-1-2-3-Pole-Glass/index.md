@@ -67,16 +67,16 @@ wifi:
   ssid: !secret wifi_iot_ssid
   password: !secret wifi_iot_pwd
   fast_connect: on
-  reboot_timeout: ${reboot_timeout_wifi}
   output_power: ${output_power}
   ap:
     ssid: "AP_${friendly_name}"
     password: !secret wifi_backup_pwd
 
 api:
-  reboot_timeout: ${reboot_timeout_api}
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80
@@ -199,16 +199,16 @@ wifi:
   ssid: !secret wifi_iot_ssid
   password: !secret wifi_iot_pwd
   fast_connect: on
-  reboot_timeout: ${reboot_timeout_wifi}
   output_power: ${output_power}
   ap:
     ssid: "AP_${friendly_name}"
     password: !secret wifi_backup_pwd
 
 api:
-  reboot_timeout: ${reboot_timeout_api}
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80

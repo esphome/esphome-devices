@@ -91,12 +91,10 @@ wifi:
     password: "12345678"
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 
 # The web_server & sensor components can be removed without affecting core functionaility.
 web_server:

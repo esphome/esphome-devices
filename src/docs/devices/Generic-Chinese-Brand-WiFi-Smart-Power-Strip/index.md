@@ -52,8 +52,8 @@ esp8266:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
-  password: '***'
 wifi:
   ssid: '***'
   password: '***'

@@ -82,11 +82,10 @@ logger:
   baud_rate: 0
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: ""
+  platform: esphome
+  id: esphome_ota
 
 #optional
 web_server:

@@ -57,7 +57,6 @@ api:
 
 ota:
   - platform: esphome
-    password: !secret ota_password
     id: zone_controller_ota
 
 wifi:

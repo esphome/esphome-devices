@@ -46,6 +46,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -93,7 +94,7 @@ sensor:
   - id: temperature_sensor_voltage
     platform: adc
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: bl0942
     uart_id: bl0942_uart
@@ -185,6 +186,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -271,7 +273,7 @@ sensor:
   - id: temperature_sensor_voltage
     platform: adc
     pin: GPIO3
-    attenuation: 11db
+    attenuation: 12db
 
   - platform: bl0942
     uart_id: bl0942_uart

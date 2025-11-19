@@ -45,6 +45,8 @@ wifi:
 logger:
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -194,6 +196,8 @@ logger:
   hardware_uart: UART1
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 
 output:
   - platform: esp8266_pwm

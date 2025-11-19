@@ -42,6 +42,8 @@ bk72xx:
 logger: null
 api: null
 ota:
+  platform: esphome
+  id: esphome_ota
 - platform: esphome
 wifi:
   ap: null

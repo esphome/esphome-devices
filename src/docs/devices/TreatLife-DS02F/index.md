@@ -73,6 +73,7 @@ bk72xx:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 wifi:
   ssid: ssid

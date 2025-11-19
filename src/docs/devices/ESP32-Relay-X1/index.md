@@ -46,11 +46,9 @@ esp32:
     type: esp-idf
 logger: null
 api:
-  encryption:
-    key: xxxx
 ota:
+  id: esphome_ota
   platform: esphome
-  password: xxxx
 wifi:
   ssid: wifi_ssid
   password: wifi_password

@@ -56,6 +56,8 @@ logger:
 api:
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 # Enable web server
 web_server:

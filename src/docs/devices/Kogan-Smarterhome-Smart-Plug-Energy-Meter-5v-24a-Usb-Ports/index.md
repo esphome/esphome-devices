@@ -48,12 +48,10 @@ wifi:
 logger:
   
 api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 binary_sensor:
   - platform: gpio

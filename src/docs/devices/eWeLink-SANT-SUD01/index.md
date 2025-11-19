@@ -217,10 +217,10 @@ output:
 
 # Enable Home Assistant API
 api:
-  reboot_timeout: 0s
 
 # Allow Over-The-Air updates
 ota:
+  id: esphome_ota
   - platform: esphome
 # Allow provisioning Wi-Fi via serial
 improv_serial:
@@ -231,7 +231,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   fast_connect: true
-  reboot_timeout: 0s
 
 # In combination with the `ap` this allows the user
 # to provision wifi credentials to the device via WiFi AP.

@@ -58,11 +58,10 @@ captive_portal:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: "password"
+  platform: esphome
+  id: esphome_ota
 
 output:
   - platform: esp8266_pwm

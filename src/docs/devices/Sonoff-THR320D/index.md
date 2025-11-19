@@ -73,11 +73,10 @@ esp32:
   variant: esp32
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: "ota-password"
+  platform: esphome
+  id: esphome_ota
 
 logger:
   baud_rate: 0

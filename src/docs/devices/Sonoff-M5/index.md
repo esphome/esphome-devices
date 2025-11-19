@@ -83,12 +83,10 @@ wifi:
   password: !secret wifi_password
 
 api:
-  encryption:
-    key: !secret esp_api_key
 
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_secret
 
 sensor:
   - platform: wifi_signal
@@ -270,14 +268,12 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "${apikey}"
 
 # Enable OTA
 ota:
+  id: esphome_ota
   - platform: esphome
     safe_mode: true
-    password: !secret ota_password
 
 # Enable WiFi and AP for captive portal
 wifi:

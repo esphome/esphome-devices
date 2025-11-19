@@ -56,8 +56,8 @@ esp8266:
   board: esp8285
 logger: null
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 wifi:
   ssid: wifi_ssid
   password: !secret wifi_password
@@ -104,8 +104,8 @@ esp8266:
   board: esp8285
 logger: null
 ota:
+  id: esphome_ota
   - platform: esphome
-    password: !secret ota_password
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password

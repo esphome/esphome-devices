@@ -94,6 +94,8 @@ logger:
 
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 web_server:
 debug:
 

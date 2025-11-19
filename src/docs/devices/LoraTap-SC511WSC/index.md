@@ -74,12 +74,10 @@ wifi:
 
 # Enable Home Assistant API
 api:
-  reboot_timeout: 15min
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 # Example configuration entry
 web_server:

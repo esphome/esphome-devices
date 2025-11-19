@@ -47,11 +47,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret otapw
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80
@@ -118,11 +117,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret otapw
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80
@@ -187,11 +185,10 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret otapw
+  platform: esphome
+  id: esphome_ota
 
 web_server:
   port: 80

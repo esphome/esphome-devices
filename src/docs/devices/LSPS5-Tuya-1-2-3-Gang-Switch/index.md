@@ -73,6 +73,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -142,6 +143,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -225,6 +227,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -358,6 +361,7 @@ logger:
 api:
 
 ota:
+  id: esphome_ota
   - platform: esphome
 
 wifi:

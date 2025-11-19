@@ -39,7 +39,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -145,7 +146,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -247,7 +249,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

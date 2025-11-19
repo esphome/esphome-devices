@@ -36,11 +36,10 @@ esp8266:
 logger:
 
 api:
-  encryption:
-    key: !secret encryption_key
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid

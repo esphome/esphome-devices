@@ -66,6 +66,8 @@ esp8266:
 
 api:
 ota:
+  platform: esphome
+  id: esphome_ota
 captive_portal:
 web_server:
 logger:

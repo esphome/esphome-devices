@@ -54,6 +54,8 @@ uart:
     id: uart0
 
 ota:
+  platform: esphome
+  id: esphome_ota
 
 logger:
   level: INFO

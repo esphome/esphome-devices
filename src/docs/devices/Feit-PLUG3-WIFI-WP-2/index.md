@@ -160,10 +160,9 @@ switch:
 
 logger:
 api:
-  encryption:
-    key: ""
 ota:
-  password: ""
+  platform: esphome
+  id: esphome_ota
 wifi:
   networks:
   ap:

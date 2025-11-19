@@ -49,11 +49,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: ""
 
 ota:
-  password: ""
+  platform: esphome
+  id: esphome_ota
 
 # Enable Web server
 web_server:

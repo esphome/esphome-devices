@@ -49,11 +49,10 @@ status_led:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
 
 ota:
-  password: "OTA_password"
+  platform: esphome
+  id: esphome_ota
 
 web_server:
 

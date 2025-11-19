@@ -44,6 +44,7 @@ wifi:
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 web_server: null
 my9231:

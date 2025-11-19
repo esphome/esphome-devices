@@ -48,12 +48,11 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
 
 # Enable over-the-air updates
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 # Enable Web server
 web_server:

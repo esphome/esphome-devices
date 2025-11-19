@@ -29,6 +29,7 @@ wifi: null
 logger: null
 api: null
 ota:
+  id: esphome_ota
   platform: esphome
 switch:
 - platform: shutdown

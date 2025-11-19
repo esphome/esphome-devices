@@ -41,6 +41,7 @@ esphome:
 esp8266:
   board: esp01_1m
 ota:
+  id: esphome_ota
   platform: esphome
 wifi:
   ssid: <SSID>
@@ -144,6 +145,7 @@ esphome:
 esp8266:
   board: esp01_1m
 ota:
+  id: esphome_ota
   platform: esphome
 wifi:
   ssid: <SSID>

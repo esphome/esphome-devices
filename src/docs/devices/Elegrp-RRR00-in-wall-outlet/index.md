@@ -104,8 +104,8 @@ api:
   password: ""
 # Use OTA in future so we don't have to re-solder to re-flash
 ota:
+  id: esphome_ota
   platform: esphome
-  password: ""
 
 # Device Specific Config
 

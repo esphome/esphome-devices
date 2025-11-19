@@ -50,9 +50,6 @@ logger:
 
 # Enable Home Assistant API
 api:
-  reboot_timeout: 0s
-  encryption:
-    key: !secret api_encryption_key
 
 text_sensor:
   - platform: wifi_info
@@ -60,7 +57,8 @@ text_sensor:
       name: "${displayname} IP Address"
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+  id: esphome_ota
 
 switch:
   - platform: gpio
