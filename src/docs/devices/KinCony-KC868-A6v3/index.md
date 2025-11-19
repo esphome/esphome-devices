@@ -295,4 +295,5 @@ light:
 
 web_server:
   port: 80
+
 ```

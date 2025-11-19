@@ -54,7 +54,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 ethernet:
@@ -392,4 +391,5 @@ switch:
       number: 7
       mode: OUTPUT
       inverted: true
+
 ```

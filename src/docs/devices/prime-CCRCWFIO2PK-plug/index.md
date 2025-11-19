@@ -56,7 +56,7 @@ esp8266:
   board: esp8285
 logger: null
 ota:
-  id: esphome_ota
+  - platform: esphome
   - platform: esphome
 wifi:
   ssid: wifi_ssid
@@ -87,6 +87,8 @@ binary_sensor:
       number: GPIO13
       mode: INPUT_PULLUP
       inverted: true
+
+
 ```
 
 ## Basic Configuration
@@ -104,7 +106,7 @@ esp8266:
   board: esp8285
 logger: null
 ota:
-  id: esphome_ota
+  - platform: esphome
   - platform: esphome
 wifi:
   ssid: !secret wifi_ssid
@@ -145,4 +147,6 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: relay
+
+
 ```

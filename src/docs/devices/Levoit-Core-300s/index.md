@@ -72,7 +72,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -127,4 +126,5 @@ select:
       name: "Fan Mode"
     auto_mode:
       name: "Auto Mode"
+
 ```

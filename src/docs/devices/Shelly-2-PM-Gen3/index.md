@@ -77,7 +77,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -252,4 +251,5 @@ binary_sensor:
       mode:
         input: true
         pullup: true
+
 ```

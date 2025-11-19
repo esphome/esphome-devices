@@ -42,8 +42,6 @@ captive_portal:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 light:
@@ -109,4 +107,5 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+
 ```

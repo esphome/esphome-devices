@@ -21,8 +21,6 @@ logger:
 api:
   password: ""
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   networks:
   ap:
@@ -53,4 +51,5 @@ light:
     color_temperature: ct_pwm
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
+
 ```

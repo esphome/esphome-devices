@@ -90,8 +90,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -221,4 +219,5 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
+
 ```

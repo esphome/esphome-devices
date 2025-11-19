@@ -87,6 +87,7 @@ light:
     num_leds: 36
     rgb_order: GRB
     power_supply: led_power
+
 ```
 
 ## Complete hardware configuration
@@ -112,7 +113,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -438,6 +438,7 @@ light:
 sensor:
   - platform: uptime
     name: "Uptime"
+
 ```
 
 [1]: lsc-battlestron-desk-led-strip-3m-3206528.jpg "LSC Battletron Desk Strip 3 meter - 3206528"

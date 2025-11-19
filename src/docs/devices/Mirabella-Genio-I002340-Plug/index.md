@@ -46,8 +46,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -162,6 +160,7 @@ status_led:
   pin:
     number: GPIO0
     inverted: yes
+
 ```
 
 ## Button

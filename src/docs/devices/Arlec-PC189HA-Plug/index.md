@@ -59,8 +59,6 @@ api:
     key: !secret api_encryption_key
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 binary_sensor:
   - platform: gpio
@@ -95,4 +93,5 @@ output:
     pin:
       number: GPIO4
       inverted: yes
+
 ```

@@ -37,8 +37,6 @@ api:
 
 # Over-The-Air updates
 ota:
-  platform: esphome
-  id: esphome_ota
 - platform: esphome
 
 # Wi-Fi settings with secrets
@@ -388,4 +386,5 @@ sensor:
     unit_of_measurement: "kVArh"
     filters:
       - multiply: 0.01
+
 ```

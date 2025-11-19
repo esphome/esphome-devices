@@ -76,8 +76,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Example configuration entry
 web_server:
@@ -207,4 +205,5 @@ cover:
     stop_action:
       - switch.turn_off: relay2
       - switch.turn_off: relay1
+
 ```

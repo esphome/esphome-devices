@@ -89,8 +89,6 @@ api:
   ...
 
 ota:
-  platform: esphome
-  id: esphome_ota
   ...
 
 output:
@@ -190,6 +188,7 @@ sensor:
       auto ratio_ln = log(id(${mq7_id}_ratio).state / 100.0);
       return exp(-0.685204 - 2.67936 * ratio_ln - 0.488075 * ratio_ln * ratio_ln - 0.07818 * ratio_ln * ratio_ln * ratio_ln);
     update_interval: never
+
 ```
 
 ## Calibration

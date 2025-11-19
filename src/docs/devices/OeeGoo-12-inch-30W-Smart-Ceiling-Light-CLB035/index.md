@@ -52,8 +52,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   networks:
@@ -142,4 +140,5 @@ output:
     id: output_pwm5
     pin: GPIO5
     zero_means_zero: True
+
 ```

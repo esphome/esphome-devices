@@ -51,8 +51,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -79,4 +77,5 @@ light:
     switch_datapoint: 1
     min_value: 10
     max_value: 255
+
 ```

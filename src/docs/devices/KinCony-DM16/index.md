@@ -33,8 +33,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 ethernet:
   type: W5500
@@ -491,4 +489,5 @@ sensor:
     gain: 6.144
     name: "ADS1115 Channel A3-GND"
     update_interval: 5s
+
 ```

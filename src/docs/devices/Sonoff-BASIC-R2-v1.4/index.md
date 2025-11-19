@@ -60,7 +60,6 @@ wifi:
 logger:
 api:
 ota:
-  id: esphome_ota
   - platform: esphome
 
 # Device Specific Config
@@ -103,4 +102,5 @@ switch:
           - light.is_on: blue_led
         then:
           - light.turn_off: blue_led
+
 ```

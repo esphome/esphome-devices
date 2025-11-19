@@ -40,7 +40,6 @@ bk72xx:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -96,4 +95,5 @@ light:
     cold_white: output_cold
     warm_white: output_warm
     default_transition_length: 0.1s
+
 ```

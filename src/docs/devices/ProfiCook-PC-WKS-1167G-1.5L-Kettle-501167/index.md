@@ -81,8 +81,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 # Device Specific Config
 uart:
   rx_pin: GPIO3
@@ -221,4 +219,5 @@ sensor:
                       case 4: return {"Overheated"};
                       default: return {"other error"};
                     }
+
 ```

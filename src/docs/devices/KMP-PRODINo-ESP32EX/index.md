@@ -48,8 +48,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #optional onewire
 #one_wire:
@@ -196,4 +194,5 @@ light:
     num_leds: 1
     rgb_order: GRB
     name: "LED WS2812B"
+
 ```

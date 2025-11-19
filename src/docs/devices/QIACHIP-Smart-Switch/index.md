@@ -147,8 +147,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -191,6 +189,7 @@ switch:
       - uart.write: [0xAC, 0x28, 0x00, 0x21]
     on_turn_off:
       - uart.write: [0xAC, 0x20, 0x00, 0x29]
+
 ```
 
 The UART module checks the UART buffer every 100ms, expecting the 4 byte long messages sent by the RF module, and
@@ -334,8 +333,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -378,6 +375,7 @@ switch:
       - uart.write: [0xAC, 0x28, 0x00, 0x21]
     on_turn_off:
       - uart.write: [0xAC, 0x20, 0x00, 0x29]
+
 ```
 
 And for each device's yaml:
@@ -388,4 +386,5 @@ substitutions:
   friendly_name: QIACHIP Relay
 
 <<: !include qiachip-common.yaml
+
 ```

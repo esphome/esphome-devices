@@ -45,8 +45,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -77,6 +75,7 @@ light:
     blue: pwm_b
     cold_white: pwm_w1
     warm_white: pwm_w2
+
 ```
 
 For [RGBW](https://esphome.io/components/light/rgbw.html)
@@ -90,6 +89,7 @@ light:
     green: pwm_g
     blue: pwm_b
     white: pwm_w1
+
 ```
 
 ## Flashing
@@ -134,6 +134,7 @@ binary_sensor:
     pin: GPIO3
     name: "GPIO3-TX Motion"
     device_class: motion
+
 ```
 
 ## Pinout
@@ -196,8 +197,6 @@ logger:
   hardware_uart: UART1
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -223,4 +222,5 @@ light:
     green: pwm_g
     blue: pwm_b
     white: pwm_w1
+
 ```

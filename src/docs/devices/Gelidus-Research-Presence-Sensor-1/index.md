@@ -43,7 +43,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome # Required for 2024.5.0 and up
 
 wifi:
@@ -245,6 +244,7 @@ button:
 
 status_led:
   pin: GPIO23
+
 ```
 
 ## Example LD2410C YAML Configuration
@@ -269,7 +269,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome # Required for 2024.5.0 and up
 
 wifi:
@@ -454,6 +453,7 @@ select:
 
 status_led:
   pin: GPIO23
+
 
 ```
 

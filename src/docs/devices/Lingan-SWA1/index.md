@@ -39,8 +39,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -119,6 +117,7 @@ interval:
             - output.turn_off: status_led # Wifi connected, LED off.
           else:
             - script.execute: flash_wifi_error
+
 ```
 
 ## Basic Configuration - as a switch entity
@@ -146,8 +145,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -222,6 +219,7 @@ interval:
             - output.turn_off: status_led # Wifi connected, LED off.
           else:
             - script.execute: flash_wifi_error
+
 ```
 
 ## Basic Configuration - as a fan entity
@@ -249,8 +247,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -329,4 +325,5 @@ interval:
             - output.turn_off: status_led # Wifi connected, LED off.
           else:
             - script.execute: flash_wifi_error
+
 ```

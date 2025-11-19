@@ -61,8 +61,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -171,4 +169,5 @@ time:
 switch:
   - platform: restart
     name: ${disp_name} Restart
+
 ```

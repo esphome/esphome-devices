@@ -71,8 +71,6 @@ api:
 
 # Enable over-the-air updates.
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable WEB server for status and updates.
 web_server:
@@ -150,6 +148,7 @@ sensor:
       unit_of_measurement: W
       id: "${device_name}_wattage"
       accuracy_decimals: 0
+
 ```
 
 ## Split Configuration
@@ -180,8 +179,6 @@ api:
 
 # Enable over-the-air updates.
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable WEB server for status and updates.
 web_server:
@@ -259,6 +256,7 @@ sensor:
       unit_of_measurement: W
       id: "${device_name}_wattage"
       accuracy_decimals: 0
+
 ```
 
 And for each device's yaml:
@@ -275,4 +273,5 @@ substitutions:
   relay2_name: Outlet 2
 
 <<: !include nx-sp201-common.yaml
+
 ```

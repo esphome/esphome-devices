@@ -87,8 +87,6 @@ captive_portal:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # https://tasmota.github.io/docs/Components/
 # https://templates.blakadder.com/aoycocr_X13.html
@@ -133,5 +131,6 @@ status_led:
   pin:
     number: GPIO2
     inverted: yes
+
 
 ```

@@ -38,8 +38,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 binary_sensor:
   - platform: gpio
@@ -78,4 +76,5 @@ switch:
       # Turns on the blue LED once the plug is turned off
       - switch.turn_off: blue_led
       - switch.turn_on: red_led
+
 ```

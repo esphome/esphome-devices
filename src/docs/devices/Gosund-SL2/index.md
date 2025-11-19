@@ -41,8 +41,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -102,4 +100,5 @@ sensor:
     name: "${upper_devicename} - Uptime"
     update_interval: 60s
     icon: mdi:clock-outline
+
 ```

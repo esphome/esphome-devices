@@ -164,4 +164,5 @@ button:
     name: "Safe Mode"
     internal: false
     entity_category: config
+
 ```

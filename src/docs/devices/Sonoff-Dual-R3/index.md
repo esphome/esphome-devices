@@ -59,8 +59,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -146,6 +144,7 @@ binary_sensor:
       - switch.turn_on: relay_2
     on_release:
       - switch.turn_off: relay_2
+
 ```
 
 Dual R3 v1.x power meter configuration
@@ -173,6 +172,7 @@ sensor:
       name: "Power 1"
     active_power_2:
       name: "Power 2"
+
 ```
 
 Dual R3 v2.x power meter configuration
@@ -206,4 +206,5 @@ sensor:
       name: "Energy 2"
     energy_total:
       name: "Energy Total"
+
 ```

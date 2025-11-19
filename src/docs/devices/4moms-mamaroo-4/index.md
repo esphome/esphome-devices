@@ -47,8 +47,6 @@ wifi:
 web_server:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 logger:
   level: WARN
@@ -299,4 +297,5 @@ number:
       - script.execute:
           id: set_is_playing
           value: !lambda 'return x > 0;'
+
 ```

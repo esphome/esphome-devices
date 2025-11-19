@@ -91,8 +91,6 @@ api:
 
 # Allow Over-The-Air updates
 ota:
-  platform: esphome
-  id: esphome_ota
 - platform: esphome
   password: !secret ota_password
 
@@ -403,6 +401,7 @@ button:
     name: "Safe Mode"
     internal: false
     entity_category: config
+
 ```
 
 ## Buzzer control through ESPHome

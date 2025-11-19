@@ -56,8 +56,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -140,6 +138,7 @@ light:
             state++;
             if (state == 12)
               state = 0;
+
 ```
 
 ## Split Configuration
@@ -173,8 +172,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -257,6 +254,7 @@ light:
             state++;
             if (state == 12)
               state = 0;
+
 ```
 
 And for each device's yaml:
@@ -267,4 +265,5 @@ substitutions:
   friendly_name: Sinvitron Bulb
 
 <<: !include sinvitron-common.yaml
+
 ```

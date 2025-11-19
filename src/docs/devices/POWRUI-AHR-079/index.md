@@ -54,8 +54,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Buttons (not exposed in HA)
 binary_sensor:
@@ -136,4 +134,5 @@ switch:
     pin:
       number: GPIO15
     restore_mode: RESTORE_DEFAULT_ON
+
 ```

@@ -46,7 +46,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -96,4 +95,5 @@ switch:
       number: GPIO13
       inverted: true
     id: blue_led
+
 ```

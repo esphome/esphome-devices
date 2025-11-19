@@ -83,8 +83,6 @@ wifi:
     password: ''
 api:
 ota:
-  id: esphome_ota
-  platform: esphome
 esphome:
   name: ${devicename}
 bk72xx:
@@ -164,4 +162,5 @@ sensor:
     name: ${friendlyname} Energy
     filters:
     - throttle_average: ${update_interval}
+
 ```

@@ -45,7 +45,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -101,4 +100,5 @@ light:
     warm_white_color_temperature: 2000 K
     color_interlock: true
     restore_mode: RESTORE_DEFAULT_ON
+
 ```

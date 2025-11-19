@@ -41,8 +41,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
 #ethernet:
@@ -296,4 +294,5 @@ switch:
       number: 0
       inverted: false
       allow_other_uses: true
+
 ```

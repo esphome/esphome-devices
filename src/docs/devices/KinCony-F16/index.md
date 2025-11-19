@@ -456,4 +456,5 @@ display:
     address: 0x3C
     lambda: |-
       it.printf(0, 0, id(roboto), "KinCony F16");
+
 ```

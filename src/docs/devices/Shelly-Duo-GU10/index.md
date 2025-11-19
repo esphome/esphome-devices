@@ -31,8 +31,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -61,4 +59,5 @@ light:
     cold_white: brightness
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
+
 ```

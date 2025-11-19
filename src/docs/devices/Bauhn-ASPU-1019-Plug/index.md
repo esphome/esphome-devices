@@ -59,8 +59,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 captive_portal:
 
@@ -103,4 +101,5 @@ output:
     id: relay2
     pin:
       number: GPIO05
+
 ```

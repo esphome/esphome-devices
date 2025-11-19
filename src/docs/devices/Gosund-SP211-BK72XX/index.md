@@ -41,8 +41,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -179,4 +177,5 @@ switch:
       - output.turn_on: led2
     on_turn_off:
       - output.turn_off: led2
+
 ```

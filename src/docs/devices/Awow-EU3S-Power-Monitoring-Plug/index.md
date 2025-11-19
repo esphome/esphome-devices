@@ -68,8 +68,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable time component for use by daily power sensor
 time:
@@ -208,5 +206,6 @@ script:
       - light.turn_on:
           id: ${devicename}_blue_led
           brightness: 80%
+
 
 ```

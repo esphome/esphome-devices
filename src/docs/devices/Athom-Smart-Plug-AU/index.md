@@ -42,8 +42,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 captive_portal:
 
@@ -146,4 +144,5 @@ switch:
 time:
   - platform: sntp
     id: my_time
+
 ```

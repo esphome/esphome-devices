@@ -85,7 +85,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 # ==========================================================
@@ -365,4 +364,5 @@ switch:
       mode:
         output: true
     inverted: true
+
 ```

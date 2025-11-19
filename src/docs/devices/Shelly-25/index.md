@@ -56,8 +56,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 i2c:
   sda: GPIO12
@@ -141,6 +139,7 @@ switch:
     icon: "mdi:electric-switch"
     restore_mode: RESTORE_DEFAULT_OFF
     interlock: *interlock_group
+
 ```
 
 ## Configuration as relay with overpower and overtemperature protection
@@ -204,8 +203,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -347,6 +344,7 @@ binary_sensor:
     on_state:
       then:
         - switch.toggle: shelly_relay_2
+
 ```
 
 ## Basic Configuration As Lights
@@ -382,8 +380,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 i2c:
   sda: GPIO12
@@ -475,6 +471,7 @@ binary_sensor:
         - light.toggle: lightid2
     internal: true
     id: switchid2
+
 ```
 
 ## Configuration as light with overpower and overtemperature protection
@@ -538,8 +535,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -681,4 +676,5 @@ binary_sensor:
     on_state:
       then:
         - light.toggle: lightid2
+
 ```

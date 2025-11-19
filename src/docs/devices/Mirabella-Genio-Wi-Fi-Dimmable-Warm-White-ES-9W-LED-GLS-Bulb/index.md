@@ -40,8 +40,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -65,4 +63,5 @@ light:
     name: "genio22 Light"
     output: pwm_output
     id: genio22
+
 ```

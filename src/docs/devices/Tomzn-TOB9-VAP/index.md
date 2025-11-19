@@ -51,76 +51,90 @@ Disassembling this device is simple, provided you find a way to remove the golde
 esphome:
   name: TomZN.TOB9-VAP
   min_version: 2024.12.0
+
 bk72xx:
   board: cbu
-logger: null
+
+logger:
+
+captive_portal:
+
 uart:
   tx_pin: TX1
   rx_pin: RX1
   baud_rate: 4800
   stop_bits: 1
+
 binary_sensor:
-- platform: gpio
-  id: power_button
-  pin:
-    number: 17
-    inverted: true
-    mode: INPUT_PULLUP
-  on_multi_click:
-  - timing:
-    - ON for at most 1s
-    - OFF for at least 0.2s
-    then:
-      switch.toggle: main_switch
-  - timing:
-    - ON for at least 4s
-    then:
-      button.press: reset
+  - platform: gpio
+    id: power_button
+    pin:
+      number: 17
+      inverted: true
+      mode: INPUT_PULLUP
+    on_multi_click:
+      - timing:
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          switch.toggle: main_switch
+      - timing:
+          - ON for at least 4s
+        then:
+          button.press: reset
+
 output:
-- platform: libretiny_pwm
-  id: red_led_output
-  pin:
-    number: P9
-    inverted: true
+  - platform: libretiny_pwm
+    id: red_led_output
+    pin:
+      number: P9
+      inverted: true
+
 light:
-- platform: status_led
-  id: blue_led
-  pin:
-    number: P15
-    inverted: true
-- platform: monochromatic
-  id: red_led
-  output: red_led_output
+  - platform: status_led
+    id: blue_led
+    pin:
+      number: P15
+      inverted: true
+  - platform: monochromatic
+    id: red_led
+    output: red_led_output
+
 switch:
-- platform: hbridge
-  name: Switch
-  id: main_switch
-  on_pin: GPIO24
-  off_pin: GPIO26
-  pulse_length: 60ms
-  wait_time: 30ms
-  on_turn_on:
-    light.turn_on: red_led
-  on_turn_off:
-    light.turn_off: red_led
+  - platform: hbridge
+    name: Switch
+    id: main_switch
+    on_pin: GPIO24
+    off_pin: GPIO26
+    pulse_length: 60ms
+    wait_time: 30ms
+    on_turn_on:
+      light.turn_on: red_led
+    on_turn_off:
+      light.turn_off: red_led
+
 sensor:
-- platform: bl0942
-  line_frequency: 50Hz
-  update_interval: 10s
-  current:
-    name: Current
-    filters:
-    - lambda: if (x < 0.02) return 0.0; else return x;
-  voltage:
-    name: Voltage
-  power:
-    name: Power
-    filters:
-    - lambda: if (x < 0.5) return 0.0; else return x;
-  energy:
-    name: Energy
-    unit_of_measurement: kWh
-  frequency:
-    name: Frequency
-    accuracy_decimals: 2
+  - platform: bl0942
+    line_frequency: 50Hz
+    update_interval: 10s
+    current:
+      name: Current
+      filters:
+        # The chip reports some current even when there is no load
+        - lambda: if (x < 0.02) return 0.0; else return x;
+    voltage:
+      name: Voltage
+    power:
+      name: Power
+      filters:
+        # The chip reports some power even when there is no load
+        - lambda: if (x < 0.5) return 0.0; else return x;
+    energy:
+      name: Energy
+      unit_of_measurement: kWh
+    frequency:
+      name: Frequency
+      accuracy_decimals: 2
+
+
 ```

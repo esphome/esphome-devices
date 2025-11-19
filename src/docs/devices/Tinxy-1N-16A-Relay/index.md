@@ -113,7 +113,6 @@ logger:
 # Home Assistant
 api:
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -184,4 +183,5 @@ binary_sensor:
             else:
               # If the switch is now OFF, turn the relay off.
               - switch.turn_off: relay_1
+
 ```

@@ -47,8 +47,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 status_led:
   pin: GPIO4
@@ -92,6 +90,7 @@ switch:
             times: 5
             wait_time: 45ms
     id: tv_on
+
 ```
 
 ![alt text](./irhub1.jpg "Heart-Shaped SZMDX Infrared Hub")

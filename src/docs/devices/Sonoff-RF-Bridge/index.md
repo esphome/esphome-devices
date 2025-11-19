@@ -33,8 +33,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 
@@ -96,4 +94,5 @@ status_led:
   pin:
     number: GPIO13
     inverted: yes
+
 ```

@@ -33,8 +33,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 binary_sensor:
@@ -64,4 +62,5 @@ status_led:
   pin:
     number: GPIO13
     inverted: true
+
 ```

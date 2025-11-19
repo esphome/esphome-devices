@@ -48,8 +48,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   # Specify the two pins of the h-bridge as PWM pins
@@ -102,4 +100,5 @@ binary_sensor:
       inverted: true
     name: "Button"
     #internal: true
+
 ```

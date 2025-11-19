@@ -55,8 +55,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -98,6 +96,7 @@ switch:
     inverted: true
     restore_mode: ALWAYS_ON
     internal: true
+
 ```
 
 ## Split Configuration
@@ -131,8 +130,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -174,6 +171,7 @@ switch:
     inverted: true
     restore_mode: ALWAYS_ON
     internal: true
+
 ```
 
 And for each device's yaml:
@@ -184,4 +182,5 @@ substitutions:
   friendly_name: Zentec Plug
 
 <<: !include zentec-common.yaml
+
 ```

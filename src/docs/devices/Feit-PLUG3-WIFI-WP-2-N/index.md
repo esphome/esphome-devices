@@ -121,8 +121,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Note: UART config is optional
 uart:
@@ -155,6 +153,7 @@ switch:
       - light.turn_on: led_status
     on_turn_off:
       - light.turn_off: led_status
+
 ```
 
 ## References

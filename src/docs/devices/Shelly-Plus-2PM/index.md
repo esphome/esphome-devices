@@ -86,8 +86,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -198,6 +196,7 @@ sensor:
     pin: GPIO35
     attenuation: 12db
     update_interval: 10s
+
 ```
 
 ## Example snippet for Single Core
@@ -222,6 +221,7 @@ esp32:
       CONFIG_FREERTOS_UNICORE: y
       CONFIG_ESP32_DEFAULT_CPU_FREQ_160: y
       CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: "160"
+
 ```
 
 ## Advanced Configuration Example for PCB v0.1.9 and Dual Core
@@ -263,8 +263,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -502,7 +500,8 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
- ```
+ 
+```
 
 ## Current Based Cover Configuration Example for PCB v0.1.9 and Dual Core
 
@@ -553,8 +552,6 @@ api:
       - script.execute: blinds_open_if_no_manual_override
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -877,4 +874,5 @@ text_sensor:
   - platform: version
     name: "${devicename} - ESPHome Version"
     hide_timestamp: true
- ```
+ 
+```

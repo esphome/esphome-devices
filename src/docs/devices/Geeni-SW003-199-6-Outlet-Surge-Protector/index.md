@@ -91,8 +91,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 switch:
   - platform: gpio
@@ -140,4 +138,5 @@ status_led:
   pin:
     number: P14
     inverted: true
+
 ```

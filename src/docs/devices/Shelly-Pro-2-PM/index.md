@@ -126,6 +126,7 @@ current_pga_gain_a: 2x
 current_pga_gain_b: 2x
 active_power_gain_a: 0x200000
 active_power_gain_b: 0x200000
+
 ```
 
 `0x100000` will actually end up in the `active_power_gain_*` registers but
@@ -148,8 +149,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -361,6 +360,7 @@ switch:
       sn74hc595: sn74hc595_hub
       number: 4
       inverted: true
+
 ```
 
 ## Configuration as a garage door (or shutter)
@@ -395,8 +395,6 @@ logger:
   level: INFO
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 web_server:
   port: 80
@@ -684,4 +682,5 @@ cover:
     command_topic: ${command_topic}
     position_state_topic: ${position_state_topic}
     position_command_topic: ${position_command_topic}
+
 ```

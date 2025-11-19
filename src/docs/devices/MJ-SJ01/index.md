@@ -352,9 +352,8 @@ api:
   # https://esphome.io/components/api
 
 ota:
-  platform: esphome
-  id: esphome_ota
   # https://esphome.io/components/ota
+
 ```
 
 ## Timed Fan control
@@ -608,7 +607,6 @@ api:
   # https://esphome.io/components/api
 
 ota:
-  platform: esphome
-  id: esphome_ota
   # https://esphome.io/components/ota
+
 ```

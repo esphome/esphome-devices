@@ -56,8 +56,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -130,4 +128,5 @@ binary_sensor:
       inverted: True
     on_press:
       - switch.toggle: "${devicename}_relay"
+
 ```

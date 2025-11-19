@@ -58,8 +58,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #optional
 web_server:
@@ -276,4 +274,5 @@ interval:
           - light.turn_on: wifi_status_led
         else:
           - light.turn_off: wifi_status_led
+
 ```

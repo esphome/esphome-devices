@@ -39,7 +39,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -74,4 +73,5 @@ light:
     cold_white: output_cold
     warm_white: output_warm
     constant_brightness: false
+
 ```

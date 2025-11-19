@@ -81,8 +81,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
 
@@ -173,4 +171,5 @@ switch:
       - switch.turn_on: relay2
     turn_off_action:
       - switch.turn_off: relay2
+
 ```

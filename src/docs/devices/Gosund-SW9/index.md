@@ -50,8 +50,6 @@ esp8266:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: "WIFI_SSID"
@@ -151,4 +149,5 @@ sensor:
     update_interval: 60s
   - platform: uptime
     name: "$name uptime"
+
 ```

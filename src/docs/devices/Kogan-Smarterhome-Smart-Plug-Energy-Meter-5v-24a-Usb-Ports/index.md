@@ -50,8 +50,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 binary_sensor:
   - platform: gpio
@@ -150,6 +148,7 @@ text_sensor:
 time:
   - platform: homeassistant
     id: homeassistant_time
+
 ```
 
 ## Appendix
@@ -169,6 +168,7 @@ sensor:
     (...)
     model: BL0937
 (...)
+
 ```
 
 The readings should be correct from now on.

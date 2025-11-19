@@ -59,8 +59,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -105,6 +103,7 @@ light:
     color_temperature_invert: false
     cold_white_color_temperature: 6493 K
     warm_white_color_temperature: 4065 K
+
 ```
 
 ### If WR4 is replaced with ESP8266
@@ -127,8 +126,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -172,4 +169,5 @@ light:
     color_temperature_invert: false
     cold_white_color_temperature: 6493 K
     warm_white_color_temperature: 4065 K
+
 ```

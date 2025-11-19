@@ -101,8 +101,6 @@ api:
 logger:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -204,6 +202,7 @@ number:
     min_value: 0
     max_value: 255
     step: 1
+
 ```
 
 ## Configuration for Arduino (not recommended, but has been working fine for ages)
@@ -243,8 +242,6 @@ api:
 logger:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -358,4 +355,5 @@ number:
     min_value: 0
     max_value: 255
     step: 1
+
 ```

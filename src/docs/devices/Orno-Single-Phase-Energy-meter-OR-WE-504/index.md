@@ -33,8 +33,6 @@ esp32:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: "your ssid"
@@ -185,4 +183,5 @@ sensor:
     accuracy_decimals: 2
     filters:
       - multiply: 0.001
+
 ```

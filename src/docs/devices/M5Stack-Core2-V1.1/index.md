@@ -74,7 +74,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 external_components:
@@ -172,6 +171,7 @@ font:
   - file: "gfonts://Roboto"
     id: roboto
     size: 24
+
 ```
 
 ## Notes

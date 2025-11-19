@@ -38,7 +38,6 @@ wifi:
 logger:
 api:
 ota:
-  id: esphome_ota
   - platform: esphome
 
 # Device Specific Config
@@ -96,6 +95,7 @@ switch:
     name: "Relay 4"
     pin: GPIO15
     id: "relay_4"
+
 ```
 
 ## LED Configuration
@@ -110,6 +110,7 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+
 ```
 
 ### Always-on led (plugged in == led on)
@@ -127,6 +128,7 @@ light:
     output: blue_led
     restore_mode: ALWAYS_ON
     internal: true
+
 ```
 
 ### Normal light, toggleable via Home Assistant
@@ -142,4 +144,5 @@ light:
   - platform: monochromatic
     name: "Blue LED"
     output: blue_led
+
 ```

@@ -47,8 +47,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -108,4 +106,5 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO00
+
 ```

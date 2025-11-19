@@ -39,8 +39,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -66,4 +64,5 @@ fan:
     switch_datapoint: 1
     speed_datapoint: 3
     speed_count: 4
+
 ```

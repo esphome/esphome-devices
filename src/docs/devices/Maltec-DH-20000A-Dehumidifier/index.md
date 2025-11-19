@@ -94,8 +94,6 @@ logger:
 
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 web_server:
 debug:
 
@@ -211,4 +209,5 @@ button:
     name: "Restart"
     icon: "mdi:restart"
     internal: False
+
 ```

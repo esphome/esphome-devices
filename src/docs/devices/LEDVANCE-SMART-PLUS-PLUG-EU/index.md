@@ -51,8 +51,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable Web server
 web_server:
@@ -193,4 +191,5 @@ sensor:
   - platform: wifi_signal
     name: ${friendly_name} Signal
     update_interval: 60s
+
 ```

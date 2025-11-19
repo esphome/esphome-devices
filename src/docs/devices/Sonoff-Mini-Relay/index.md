@@ -53,8 +53,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
@@ -125,6 +123,7 @@ light:
     name: ${device_name}_blueled
     output: blue_led
     internal: true # hides the Blue LED from HomeAssistant
+
 ```
 
 ## Alternative Config for Lights
@@ -159,8 +158,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
@@ -240,4 +237,5 @@ light:
     name: ${device_name}_blueled
     output: blue_led
     internal: true # hides the Blue LED from Homeassistant
- ```
+ 
+```

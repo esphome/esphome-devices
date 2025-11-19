@@ -220,7 +220,6 @@ api:
 
 # Allow Over-The-Air updates
 ota:
-  id: esphome_ota
   - platform: esphome
 # Allow provisioning Wi-Fi via serial
 improv_serial:
@@ -243,6 +242,7 @@ dashboard_import:
 # To have a "next url" for improv serial
 web_server:
 #be SURE to use the esp web flasher or a USB flasher. The built-in OTA service only worked for me when I had the device fully powered (not on the USB 3.3V).
+
 ```
 
 ## Home Assistant Integration and Setup
@@ -258,6 +258,7 @@ network's WiFi settings.
 # Your Wi-Fi SSID and password
 wifi_ssid: "WiFi_Name_Here"
 wifi_password: "password_here"
+
 ```
 
 And click on "Save" (upper right corner).

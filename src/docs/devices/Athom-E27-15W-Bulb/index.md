@@ -57,8 +57,6 @@ esp8266:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
 
@@ -121,4 +119,5 @@ text_sensor:
     ip_address:
       name: "${friendly_name} IP Address"
       disabled_by_default: true
+
 ```

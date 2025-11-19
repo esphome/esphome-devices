@@ -58,8 +58,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 remote_transmitter:
   pin: GPIO26
@@ -186,4 +184,5 @@ button:
 
 status_led:
   pin: GPIO2
+
 ```

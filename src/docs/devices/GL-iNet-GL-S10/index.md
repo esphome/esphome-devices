@@ -115,73 +115,95 @@ I chose to make the Reset button not reset the device but just serve as a normal
 ```yaml
 substitutions:
   name: gl-s10-bt-proxy
+
 esphome:
   name: ${name}
   name_add_mac_suffix: true
   project:
     name: gl-s10.bluetooth-proxy
-    version: '1.1'
+    version: "1.1"
+# turn on Power LED when esphome boots
   on_boot:
     then:
-    - output.turn_on: power_led
+      - output.turn_on: power_led
+
 esp32:
   variant: esp32
   framework:
     type: arduino
+
+## Configuration fo V1.x hardware revision
 ethernet:
   type: LAN8720
   mdc_pin: GPIO23
   mdio_pin: GPIO18
   clk_mode: GPIO17_OUT
   phy_addr: 1
-api: null
-logger: null
+
+api:
+logger:
 ota:
-  id: esphome_ota
-  platform: esphome
+
 dashboard_import:
   package_import_url: github://blakadder/bluetooth-proxies/gl-s10.yaml@main
+
 esp32_ble_tracker:
   scan_parameters:
     interval: 1100ms
     window: 1100ms
     active: true
+
 bluetooth_proxy:
-  active: true
+    active: true
+
 button:
 - platform: safe_mode
   name: Safe Mode Boot
   entity_category: diagnostic
+
+## DEVICE SPECIFIC CONFIGURATION
+# network LED (white one) configured as status led
 status_led:
   pin:
     number: GPIO32
     inverted: true
+
+# button on the side labeled RESET
 binary_sensor:
-- platform: gpio
-  pin:
-    number: GPIO33
-    inverted: true
-  name: Reset Button
-- platform: status
-  name: ${name} Status
-  internal: true
-  on_press:
-  - output.turn_on: bluetooth_led
-  on_release:
-  - output.turn_off: bluetooth_led
+  - platform: gpio
+    pin:
+      number: GPIO33
+      inverted: true
+    name: "Reset Button"
+# Bluetooth LED on when connected to Home Assistant
+  - platform: status
+    name: "${name} Status"
+    internal: true
+    on_press:
+      - output.turn_on: bluetooth_led
+    on_release:
+      - output.turn_off: bluetooth_led
+
+# output settings for LED's marked Power and Bluetooth
+# power LED use: see code line 12
+# bluetooth LED use: see code line 63
 output:
-- platform: gpio
-  pin: GPIO14
-  inverted: true
-  id: power_led
-- platform: gpio
-  pin: GPIO12
-  inverted: true
-  id: bluetooth_led
+  - platform: gpio
+    pin: GPIO14
+    inverted: true
+    id: power_led
+  - platform: gpio
+    pin: GPIO12
+    inverted: true
+    id: bluetooth_led
+
+# since these pins are broken out inside and labeled as I2C pins they're configured here
 i2c:
   sda: 15
   scl: 13
   scan: true
+
+
 ```
 
 ### V2.1
@@ -190,20 +212,25 @@ i2c:
 substitutions:
   name: gl-s10-bt-proxy
   friendly_name: Bluetooth Proxy
+
 esphome:
   name: ${name}
   friendly_name: ${friendly_name}
   name_add_mac_suffix: true
   project:
     name: gl-s10.bluetooth-proxy
-    version: '2.1'
+    version: "2.1"
+  # turn on Power LED when esphome boots
   on_boot:
     then:
-    - output.turn_on: power_led
+      - output.turn_on: power_led
+
 esp32:
   variant: esp32
   framework:
     type: esp-idf
+
+# Configuration fo V2.3 hardware revision
 ethernet:
   type: IP101
   mdc_pin: GPIO23
@@ -211,47 +238,75 @@ ethernet:
   clk_mode: GPIO0_IN
   phy_addr: 1
   power_pin: GPIO5
-api: null
-logger: null
+
+api:
+logger:
 ota:
-  id: esphome_ota
-  platform: esphome
+
 dashboard_import:
   package_import_url: github://blakadder/bluetooth-proxies/gl-s10_v2.yaml@main
+
 esp32_ble_tracker:
   scan_parameters:
     interval: 1100ms
     window: 1100ms
     active: true
+#
+# The LED is disabled for ESPHome 2023.6.0+ since we do not
+# decode the advertising packets on device anymore, and adding
+# the LED blink would force the device to decode the packets
+# just to blink the LED.
+#
+# Bluetooth LED blinks when receiving Bluetooth advertising
+#  on_ble_advertise:
+#    then:
+#      - output.turn_on: bluetooth_led
+#      - delay: 0.5s
+#      - output.turn_off: bluetooth_led
+
 bluetooth_proxy:
   active: true
+
 button:
-- platform: safe_mode
-  name: Safe Mode Boot
-  entity_category: diagnostic
+  - platform: safe_mode
+    name: Safe Mode Boot
+    entity_category: diagnostic
+
+## DEVICE SPECIFIC CONFIGURATION
+# network LED (white one) configured as status led
 status_led:
   pin:
     number: GPIO32
     inverted: true
+
+# button on the side labeled RESET
 binary_sensor:
-- platform: gpio
-  pin:
-    number: GPIO33
-    inverted: true
-  name: Reset Button
+  - platform: gpio
+    pin:
+      number: GPIO33
+      inverted: true
+    name: "Reset Button"
+
+# output settings for LED's marked Power and Bluetooth
+# power LED use: see code line 15
+# bluetooth LED use: see code line 60
 output:
-- platform: gpio
-  pin: GPIO14
-  inverted: true
-  id: power_led
-- platform: gpio
-  pin: GPIO12
-  inverted: true
-  id: bluetooth_led
+  - platform: gpio
+    pin: GPIO14
+    inverted: true
+    id: power_led
+  - platform: gpio
+    pin: GPIO12
+    inverted: true
+    id: bluetooth_led
+
+# since these pins are broken out inside and labeled as I2C pins they're configured here
 i2c:
   sda: 15
   scl: 13
   scan: true
+
+
 ```
 
 ## Credits

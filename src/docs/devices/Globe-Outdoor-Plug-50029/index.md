@@ -50,8 +50,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -189,6 +187,7 @@ switch:
     on_turn_off:
       - light.turn_off:
           id: led_right
+
 ```
 
 ## Split Configuration
@@ -204,6 +203,7 @@ substitutions:
   friendly_name: Plug 1
 
 &lt;&lt;: !include templates/ge50029.yaml
+
 ```
 
 If you do that you will need to create a symbolic list to the secrets.yaml file in the same folder or the !secret syntax

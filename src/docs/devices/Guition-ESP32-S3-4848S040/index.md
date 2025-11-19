@@ -147,4 +147,5 @@ touchscreen:
 #      mirror_x: true
 
 lvgl:
+
 ```

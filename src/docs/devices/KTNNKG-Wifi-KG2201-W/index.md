@@ -61,8 +61,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -102,6 +100,7 @@ binary_sensor:
     on_press:
       - switch.toggle: "relay"
     internal: true
+
 ```
 
 ## Remote Pairing
@@ -147,6 +146,7 @@ binary_sensor:
     on_release:
       then:
         - switch.turn_off: "redLED"
+
 ```
 
 Momentary, interlocking or any other behavior (including only forwarding the button to HA) can be set with
@@ -198,6 +198,7 @@ binary_sensor:
       code: "001100110011001100110011"
     filters:
       delayed_off: 500ms
+
 ```
 
 Some other notes:
@@ -237,8 +238,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable web server
@@ -293,6 +292,7 @@ remote_receiver:
     inverted: false
   dump:
     - rc_switch
+
 ```
 
 And for each device's yaml. Note that the whole binary_sensor section including the on-device button goes here, this
@@ -336,4 +336,5 @@ binary_sensor:
         - switch.turn_off: "redLED"
 
 <<: !include ktnnkg-common.yaml
+
 ```

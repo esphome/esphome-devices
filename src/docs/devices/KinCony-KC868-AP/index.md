@@ -358,4 +358,5 @@ switch:
     name: "ap-light2"
     pin: 2
     inverted: false
+
 ```

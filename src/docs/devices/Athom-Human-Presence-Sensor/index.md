@@ -65,8 +65,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 mdns:
   disabled: false
@@ -386,4 +384,5 @@ text_sensor:
 time:
   - platform: sntp
     id: my_time
+
 ```

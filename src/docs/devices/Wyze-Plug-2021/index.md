@@ -48,8 +48,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 switch:
@@ -89,4 +87,5 @@ binary_sensor:
     name: ${display_name} Button
     on_press:
       - switch.toggle: relay
+
 ```

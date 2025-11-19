@@ -55,8 +55,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -136,4 +134,5 @@ light:
     restore_mode: RESTORE_AND_ON
     color_interlock: True
     gamma_correct: 1.0 # this is handled by custom lookup table
+
 ```

@@ -124,7 +124,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -179,6 +178,7 @@ switch:
       - light.turn_off: led  # Turn off the red LED when relay is on
     on_turn_off:
       - light.turn_on: led  # Turn on the red LED when relay is off
+
 ```
 
 ## Notes/Issues/Troubleshooting

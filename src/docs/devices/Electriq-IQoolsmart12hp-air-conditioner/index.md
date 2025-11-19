@@ -45,8 +45,6 @@ esp8266:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 mdns:
   disabled: false
@@ -140,4 +138,5 @@ select:
     options:
       0: C
       1: F
+
 ```

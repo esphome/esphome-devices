@@ -43,7 +43,6 @@ esp8266:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -115,4 +114,5 @@ sensor:
       name: "Power Factor"
       filters:
         - throttle_average: ${update_interval}
+
 ```

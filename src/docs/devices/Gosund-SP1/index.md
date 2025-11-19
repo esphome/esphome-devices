@@ -51,8 +51,6 @@ api:
 
 # Enable over-the-air updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable Web server
 web_server:
@@ -160,4 +158,5 @@ status_led:
   pin:
     number: ${red_led_pin}
     inverted: true
+
 ```

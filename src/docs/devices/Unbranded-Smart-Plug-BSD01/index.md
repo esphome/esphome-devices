@@ -65,8 +65,6 @@ api:
   port: 6053
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
   port: 8266
 
@@ -162,4 +160,5 @@ text_sensor:
     mac_address:
       name: ${upper_short_devicename} Mac Address
       icon: mdi:network
+
 ```

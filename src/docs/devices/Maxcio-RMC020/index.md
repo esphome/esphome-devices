@@ -73,8 +73,6 @@ api:
 #    key: !secret encryption_key
 
 ota:
-  platform: esphome
-  id: esphome_ota
 #  password: !secret OTA_Password
 
 # Enable time component for use by daily power sensor
@@ -202,4 +200,5 @@ script:
           id: ${devicename}_red_led
           brightness: 80%
           transition_length: 200ms
+
 ```

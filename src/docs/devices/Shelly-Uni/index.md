@@ -71,8 +71,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 external_components:
   - source: github://nrandell/dallasng
@@ -182,4 +180,5 @@ light:
       inverted: True
     internal: True
     restore_mode: ALWAYS_OFF
+
 ```

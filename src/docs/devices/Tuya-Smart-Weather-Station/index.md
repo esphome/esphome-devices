@@ -119,8 +119,6 @@ api:
       - script.execute: retry_initial_weather_sync
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -603,4 +601,5 @@ script:
           }
       - delay: 10s
       - script.execute: retry_initial_weather_sync
+
 ```

@@ -74,8 +74,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -317,6 +315,7 @@ sensor:
       icon: mdi:cosine-wave
       device_class: frequency
     update_interval: ${update_bl0942}
+
 ```
 
 ## Open the device

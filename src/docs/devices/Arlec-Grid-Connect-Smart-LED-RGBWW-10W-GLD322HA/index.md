@@ -44,8 +44,6 @@ api:
   password: !secret ota_password
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -95,4 +93,5 @@ light:
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 3000 K
     color_interlock: true
+
 ```

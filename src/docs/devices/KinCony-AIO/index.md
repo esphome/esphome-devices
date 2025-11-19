@@ -385,4 +385,5 @@ remote_transmitter:
   - id: ir1
     pin: 14
     carrier_duty_percent: 50%
+
 ```

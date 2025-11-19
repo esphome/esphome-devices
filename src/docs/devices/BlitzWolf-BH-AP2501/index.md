@@ -60,8 +60,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Configure WiFi
 wifi:
@@ -206,4 +204,5 @@ button:
         - switch.turn_on: filter_reset
         - delay: 1s
         - switch.turn_off: filter_reset
+
 ```

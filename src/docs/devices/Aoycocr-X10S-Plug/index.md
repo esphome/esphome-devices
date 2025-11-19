@@ -62,8 +62,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -262,6 +260,7 @@ interval:
             - light.turn_off:
                 id: red_led
                 transition_length: 250ms
+
 ```
 
 Note: You will want to exclude the red_led and blue_led lights from your recorder component, especially if you use the
@@ -300,8 +299,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -500,6 +497,7 @@ interval:
             - light.turn_off:
                 id: red_led
                 transition_length: 250ms
+
 ```
 
 Then in each plug's yaml:
@@ -516,4 +514,5 @@ substitutions:
   voltage_calibration2: 322.4 -> 118.3
 
 <<: !include aoycocr_x10s_common.yaml
+
 ```

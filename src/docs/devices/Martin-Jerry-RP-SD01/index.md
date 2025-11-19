@@ -97,8 +97,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -156,6 +154,7 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: true
 
+
 ```
 
 ### Advanced Example which includes
@@ -192,7 +191,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -416,4 +414,5 @@ output:
     pin:
       number: GPIO20
       inverted: true
+
 ```

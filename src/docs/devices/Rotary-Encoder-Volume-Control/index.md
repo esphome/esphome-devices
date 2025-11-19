@@ -45,8 +45,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 binary_sensor:
   - platform: gpio
@@ -68,6 +66,7 @@ sensor:
     max_value: 100
     min_value: 0
     resolution: 4
+
 ```
 
 ## Home Assistant automations.yaml
@@ -83,4 +82,5 @@ sensor:
       entity_id: media_player.kitchen
       data_template:
         volume_level: "{{ states.sensor.rotary_encoder.state | float / 100 }}"
+
 ```

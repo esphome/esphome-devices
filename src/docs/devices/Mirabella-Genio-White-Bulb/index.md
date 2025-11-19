@@ -41,8 +41,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -65,4 +63,5 @@ light:
     name: "Mirabella_1 Light"
     output: output1
     id: light
+
 ```

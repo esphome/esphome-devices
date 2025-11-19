@@ -60,8 +60,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -182,6 +180,7 @@ switch:
     pin:
       number: GPIO13
       inverted: true
+
 ```
 
 ## Alternative for newer devices
@@ -292,4 +291,5 @@ switch:
     pin:
       number: GPIO13
       inverted: true
+
 ```

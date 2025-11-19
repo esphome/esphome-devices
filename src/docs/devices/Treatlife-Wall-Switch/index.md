@@ -64,8 +64,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: gpio
@@ -105,6 +103,7 @@ status_led:
   pin:
     number: GPIO5
     inverted: yes
+
 ```
 
 ## Basic Configuration (3-Way)
@@ -134,8 +133,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 status_led:
   pin:
     number: GPIO5   # Red LED
@@ -210,6 +207,7 @@ switch:
           - binary_sensor.is_on: power_sensor
         then:
           - switch.toggle: relay
+
 ```
 
 ## Button manipulation (Adds Double Click and Long Press event triggers)
@@ -264,6 +262,7 @@ switch:
             data:
               title: hold
     internal: True
+
 ```
 
 ## Home Assistant light entity (Converts it from a switch to a Light Entity)
@@ -273,6 +272,7 @@ light:
   - platform: switch
     name: Light Switch
     entity_id: switch.light_switch
+
 ```
 
 ## Home Assistant example automation that uses the event triggers stated above
@@ -306,4 +306,5 @@ automation:
     target:
       entity_id: light.all_lights
   mode: single
+
 ```

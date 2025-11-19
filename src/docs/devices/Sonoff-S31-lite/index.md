@@ -39,8 +39,6 @@ esp8266:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -92,4 +90,5 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+
 ```

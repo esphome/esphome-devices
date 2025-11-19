@@ -59,7 +59,6 @@ api:
 
 # Enable OTA updates
 ota:
-  id: esphome_ota
   - platform: esphome
 
 remote_receiver:
@@ -294,6 +293,7 @@ light:
               duration: 150ms
             - state: False
               duration: 100ms
+
 ```
 
 Then in each led strip's yaml:
@@ -305,4 +305,5 @@ substitutions:
   device_name: led_strip
   device_description: RGBW LED Strip with IR remote behind television.
   friendly_name: LED strip behind television
+
 ```

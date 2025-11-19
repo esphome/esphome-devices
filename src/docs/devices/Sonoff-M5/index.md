@@ -85,7 +85,6 @@ wifi:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 sensor:
@@ -184,6 +183,7 @@ light:
     restore_mode: RESTORE_DEFAULT_OFF
     icon: "mdi:led-outline"
     entity_category: "config"
+
 ```
 
 ## Advanced Configuration (3-Gang, US Version)
@@ -271,7 +271,6 @@ api:
 
 # Enable OTA
 ota:
-  id: esphome_ota
   - platform: esphome
     safe_mode: true
 
@@ -606,4 +605,5 @@ light:
     restore_mode: RESTORE_DEFAULT_OFF
     icon: "mdi:led-outline"
     entity_category: "config"
+
 ```

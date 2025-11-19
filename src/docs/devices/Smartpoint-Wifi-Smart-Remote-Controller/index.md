@@ -98,8 +98,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 # Enable logging without UART support as there would be no way to read it
@@ -145,4 +143,5 @@ switch:
       # Data would be the IR command captured in the log by the remote receiver
       - remote_transmitter.transmit_samsung:
           data: 0xE0E019E6
+
 ```

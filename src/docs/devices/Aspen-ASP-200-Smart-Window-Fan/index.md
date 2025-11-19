@@ -55,8 +55,6 @@ api:
   # https://esphome.io/components/api
 
 ota:
-  platform: esphome
-  id: esphome_ota
   # https://esphome.io/components/ota
 
 # Enable Web server.
@@ -112,6 +110,7 @@ sensor:
     id: "${device_name_u}_temp"
     sensor_datapoint: 19
     unit_of_measurement: "°F"
+
 ```
 
 ## Tuya Datapoints

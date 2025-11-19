@@ -43,8 +43,6 @@ api:
 
 # Allow OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 uart:
   rx_pin: GPIO3
@@ -60,4 +58,5 @@ fan:
     speed_datapoint: 2
     speed_count: 9
     oscillation_datapoint: 8
+
 ```

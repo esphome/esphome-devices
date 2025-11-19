@@ -58,8 +58,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -260,6 +258,7 @@ binary_sensor:
     id: button4
     filters:
       - delayed_on_off: 50ms
+
 ```
 
 ## Basic Configuration - 4 single click buttons
@@ -299,8 +298,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -377,6 +374,7 @@ binary_sensor:
     id: button4
     filters:
       - delayed_on_off: 50ms
+
 ```
 
 If you want to use the Arduino framework you can use the Tasmota Arduino Core 2.0.5 for ESP32 Solo

@@ -99,8 +99,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 web_server:
   include_internal: true
@@ -342,6 +340,7 @@ button:
       - button.press:
           id: restart_button
 
+
 ```
 
 ## RATGDO YAML Example
@@ -369,7 +368,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   #  - platform: esphome # post 2024.5.x
 
 wifi:
@@ -586,6 +584,7 @@ button:
 
 status_led:
   pin: GPIO4
+
 
 ```
 

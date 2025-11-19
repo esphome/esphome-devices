@@ -25,8 +25,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -126,6 +124,7 @@ light:
     cold_white_color_temperature: 6500K
     warm_white_color_temperature: 2650K
     gamma_correct: 0
+
 ```
 
 ![alt text](pcb-labeled.jpg "Mi Desk Lamp Pinout ESP8266")

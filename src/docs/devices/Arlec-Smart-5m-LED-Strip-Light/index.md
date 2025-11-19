@@ -44,8 +44,6 @@ web_server:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 light:
   - platform: rgbw
@@ -69,4 +67,5 @@ output:
   - platform: esp8266_pwm
     id: output_white
     pin: GPIO5
+
 ```

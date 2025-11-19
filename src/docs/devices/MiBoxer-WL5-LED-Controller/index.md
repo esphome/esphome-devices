@@ -103,7 +103,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -147,6 +146,7 @@ select:
       2: Scene
     icon: mdi:menu-open
     entity_category: config
+
 ```
 
 ## Configuring output modes
@@ -165,6 +165,7 @@ light:
     dimmer_datapoint: 22
     min_value: 0
     max_value: 1000
+
 ```
 
 ### CCT mode
@@ -185,6 +186,7 @@ light:
     color_temperature_max_value: 1000
     cold_white_color_temperature: 6000 K
     warm_white_color_temperature: 2700 K
+
 ```
 
 ### RGB mode
@@ -198,6 +200,7 @@ light:
 
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 ### RGBW mode
@@ -215,6 +218,7 @@ light:
 
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 ### RGBWW mode
@@ -238,4 +242,5 @@ light:
 
     color_datapoint: 24
     color_type: hsv
+
 ```

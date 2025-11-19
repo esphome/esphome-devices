@@ -51,8 +51,6 @@ captive_portal:
 logger:
 api:
 ota:
-  id: esphome_ota
-  platform: esphome
 
 light:
   - platform: rgbw
@@ -167,6 +165,7 @@ sensor:
       - offset: -0.794
       - multiply: 16.13
     unit_of_measurement: A
+
 ```
 
 ## Configuration for 4 monochromatic channel
@@ -191,8 +190,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 web_server:
   port: 80
@@ -319,4 +316,5 @@ sensor:
       - offset: -0.794
       - multiply: 16.13
     unit_of_measurement: A
+
 ```

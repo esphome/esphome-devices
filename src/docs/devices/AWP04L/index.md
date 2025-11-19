@@ -57,8 +57,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -257,6 +255,7 @@ interval:
             - light.turn_off:
                 id: red_led
                 transition_length: 250ms
+
 ```
 
 Note: You will want to exclude the red_led and blue_led lights from your recorder componant, especially if you use the
@@ -296,8 +295,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -496,6 +493,7 @@ interval:
             - light.turn_off:
                 id: red_led
                 transition_length: 250ms
+
 ```
 
 Then in each plug's yaml:
@@ -511,4 +509,5 @@ substitutions:
   voltage_calibration2: "321.7 -> 121.6" #value while connected toaster was off
 
 <<: !include plug_common.yaml
+
 ```

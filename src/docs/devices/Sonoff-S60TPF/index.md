@@ -46,8 +46,6 @@ logger:
 api:
 captive_portal:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -94,4 +92,5 @@ uart:
   rx_pin: GPIO7
   baud_rate: 4800
   parity: EVEN
+
 ```

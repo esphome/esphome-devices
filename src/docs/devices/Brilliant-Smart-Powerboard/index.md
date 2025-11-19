@@ -69,8 +69,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: uptime
@@ -210,4 +208,5 @@ output:
       number: GPIO3
       inverted: yes
     id: output_component1
+
 ```

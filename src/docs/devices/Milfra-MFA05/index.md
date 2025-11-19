@@ -72,8 +72,6 @@ improv_serial:
 logger:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 button:
   - platform: restart
@@ -306,4 +304,5 @@ script:
     mode: restart
     then:
       - delay: !lambda "return id(button_delay).state * 1000;"
+
 ```

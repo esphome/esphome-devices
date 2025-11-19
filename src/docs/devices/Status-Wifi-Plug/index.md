@@ -112,7 +112,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -179,4 +178,5 @@ status_led:
   pin:
     number: P8
     inverted: true
+
 ```

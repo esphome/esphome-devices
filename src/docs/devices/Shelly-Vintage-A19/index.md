@@ -56,8 +56,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   baud_rate: 0
@@ -86,4 +84,5 @@ light:
   - platform: monochromatic
     name: "${friendly_name} Light"
     output: brightness
+
 ```

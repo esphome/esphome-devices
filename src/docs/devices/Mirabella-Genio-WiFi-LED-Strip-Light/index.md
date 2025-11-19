@@ -58,8 +58,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -95,6 +93,7 @@ binary_sensor:
     on_press:
       then:
         - light.toggle: strip_light
+
 ```
 
 [1]: /Mirabella-Genio-WiFi-LED-Strip-Light_Teardown.jpg "Genio Wi-Fi LED Strip Light Teardown"

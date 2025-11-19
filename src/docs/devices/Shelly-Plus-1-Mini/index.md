@@ -45,8 +45,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: gpio
@@ -107,4 +105,5 @@ status_led:
   pin:
     number: 0
     inverted: true
+
 ```

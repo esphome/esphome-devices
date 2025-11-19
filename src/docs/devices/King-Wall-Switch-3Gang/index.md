@@ -61,8 +61,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 switch:
   - platform: gpio
@@ -116,6 +114,7 @@ status_led:
   pin:
     number: GPIO28
     inverted: True
+
 
 ```
 
@@ -171,6 +170,7 @@ status_led:
             data:
               title: hold
     internal: True
+
 ```
 
 ## Home Assistant light entity (Converts it from a switch to a Light Entity)
@@ -180,6 +180,7 @@ light:
   - platform: switch
     name: Light Switch
     entity_id: switch.light_switch
+
 ```
 
 ## Home Assistant example automation that uses the event triggers stated above
@@ -213,4 +214,5 @@ automation:
     target:
       entity_id: light.all_lights
   mode: single
+
 ```

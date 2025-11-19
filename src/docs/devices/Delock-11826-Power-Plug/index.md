@@ -44,8 +44,6 @@ esp8266:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -87,4 +85,5 @@ switch:
       - switch.turn_on: led
     on_turn_off:
       - switch.turn_off: led
+
 ```

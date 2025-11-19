@@ -62,8 +62,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -127,4 +125,5 @@ sensor:
     energy:
       name: "${name} Energy"
     update_interval: 10s
+
 ```

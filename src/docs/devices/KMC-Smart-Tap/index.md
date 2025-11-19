@@ -40,8 +40,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -150,4 +148,5 @@ status_led:
   pin:
     number: GPIO1
     inverted: yes # yes for off/no for on
+
 ```

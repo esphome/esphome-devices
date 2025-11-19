@@ -31,7 +31,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -88,5 +87,6 @@ display:
     model: t-display-s3
     rotation: 270
     show_test_card: true # display basic hello-world
+
 
 ```

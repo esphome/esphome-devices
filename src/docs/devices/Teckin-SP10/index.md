@@ -40,8 +40,6 @@ logger:
 
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 web_server:
   port: 80
   # https://esphomelib.com/esphomeyaml/components/web_server.html
@@ -123,4 +121,5 @@ switch:
     turn_off_action:
       - light.turn_off: blue_led
       - switch.turn_off: relay
+
 ```

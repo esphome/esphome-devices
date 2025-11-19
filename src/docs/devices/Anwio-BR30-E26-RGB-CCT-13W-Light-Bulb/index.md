@@ -34,7 +34,6 @@ board: bk72xx
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -120,4 +119,5 @@ light:
     white_brightness: output_white_brightness
     cold_white_color_temperature: 6200K
     warm_white_color_temperature: 2000K
+
 ```

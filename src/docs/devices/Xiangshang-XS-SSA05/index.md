@@ -66,8 +66,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -145,6 +143,7 @@ output:
       number: GPIO0
       inverted: True
     id: relay_led
+
 ```
 
 ## Notes

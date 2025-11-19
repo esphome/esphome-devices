@@ -267,4 +267,5 @@ sensor:
       accuracy_decimals: 2
 
     update_interval: 10s
+
 ```

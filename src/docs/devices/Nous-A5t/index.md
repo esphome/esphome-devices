@@ -78,8 +78,6 @@ wifi:
 captive_portal:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # see: https://esphome.io/components/time.html
 time:
@@ -221,4 +219,5 @@ switch:
     inverted: True
     id: relay4
     restore_mode: ${relay_restore_mode}
+
 ```

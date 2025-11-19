@@ -45,8 +45,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -391,4 +389,5 @@ interval:
             # Change page on display
             - display.page.show_next: oled_display
             - component.update: oled_display
+
 ```

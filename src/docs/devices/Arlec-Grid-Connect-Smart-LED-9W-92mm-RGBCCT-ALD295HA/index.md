@@ -91,8 +91,6 @@ captive_portal:
 mdns:
 api:
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -147,4 +145,5 @@ light:
     default_transition_length: 0.5s
     #max_brightness: 100%
     #min_brightness: 10%
+
 ```

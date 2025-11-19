@@ -43,8 +43,6 @@ web_server:
   port: 80
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
 
@@ -330,4 +328,5 @@ select:
             - fan.turn_on:
                 id: motor
                 speed: 10
+
 ```

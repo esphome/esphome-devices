@@ -40,8 +40,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -94,4 +92,5 @@ button:
     id: restart_button
     name: Restart
     entity_category: diagnostic
+
 ```

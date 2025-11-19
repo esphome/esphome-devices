@@ -35,8 +35,6 @@ logger:
 api:
 captive_portal:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -120,4 +118,5 @@ text_sensor:
   - platform: libretiny
     version:
       name: LibreTiny Version
+
 ```

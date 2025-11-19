@@ -88,7 +88,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -117,4 +116,5 @@ remote_receiver:
       input: true
       pullup: true
   tolerance: 55%
+
 ```

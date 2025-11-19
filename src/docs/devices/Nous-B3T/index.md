@@ -49,7 +49,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -162,6 +161,7 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: relay_2
+
 ```
 
 ## Configuration as light switch
@@ -346,6 +346,7 @@ binary_sensor:
           - event.trigger:
               id: switch_event
               event_type: failsafe
+
 ```
 
 ## Pinout

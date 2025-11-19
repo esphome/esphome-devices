@@ -60,8 +60,6 @@ api:
   password: !secret api_password
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -115,4 +113,5 @@ status_led:
   pin:
     number: GPIO6
     inverted: yes
+
 ```

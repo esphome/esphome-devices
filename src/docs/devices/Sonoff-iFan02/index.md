@@ -39,8 +39,6 @@ esp8266:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   networks:
@@ -152,4 +150,5 @@ text_sensor:
       name: IP Address
     ssid:
       name: Connected SSID
+
 ```

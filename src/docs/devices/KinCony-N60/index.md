@@ -35,8 +35,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 ethernet:
   type: W5500
@@ -2298,4 +2296,5 @@ sensor:
     device_class: temperature
     accuracy_decimals: 1
     value_type: FP32_R
+
 ```

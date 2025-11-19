@@ -61,8 +61,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 web_server:
 
 sensor:
@@ -294,4 +292,5 @@ light:
     name: "esphome_ir1 Red LED"
     output: esphome_ir1_red_led
     id: light_red_led
+
 ```

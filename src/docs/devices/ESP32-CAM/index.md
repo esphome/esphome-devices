@@ -48,8 +48,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 esp32_camera:
   external_clock:
@@ -79,4 +77,5 @@ light:
   - platform: monochromatic
     output: led
     name: espcam_02 light
+
 ```

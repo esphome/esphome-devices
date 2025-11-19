@@ -65,8 +65,6 @@ api:
       # Or copy the encription key from the "Add Device" menu of ESPHome
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #web_server:
 #  port: 80
@@ -131,4 +129,5 @@ light:
     name: "Blue LED"
     id: blue_led
     output: blue_led_gpio
+
 ```

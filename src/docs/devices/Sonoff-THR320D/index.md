@@ -75,8 +75,6 @@ esp32:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   baud_rate: 0
@@ -232,6 +230,7 @@ text_sensor:
     ip_address:
       name: "${friendly_name} IP Address"
       disabled_by_default: true
+
 ```
 
 Here is an alternative configuration, set up to control a geyser, with an
@@ -473,4 +472,5 @@ climate:
 one_wire:
   pin: GPIO25
   update_interval: 10s
+
 ```

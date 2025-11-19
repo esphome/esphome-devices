@@ -46,7 +46,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -120,4 +119,5 @@ text_sensor:
     name: Uptime Human Readable
     id: uptime_human
     icon: mdi:clock-start
+
 ```

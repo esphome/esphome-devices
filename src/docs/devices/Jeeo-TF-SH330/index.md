@@ -36,8 +36,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -99,4 +97,5 @@ light:
     internal: true
     output: led
     restore_mode: RESTORE_DEFAULT_OFF
+
 ```

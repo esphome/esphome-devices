@@ -54,7 +54,6 @@ logger:
 
 # Connectivity configuration
 ota:
-  id: esphome_ota
   - platform: esphome
 wifi:
   ssid: !secret wifi_ssid
@@ -93,6 +92,7 @@ light:
     color_interlock: True
     # Attempt to restore state and default to OFF if not possible to restore.
     restore_mode: RESTORE_DEFAULT_OFF
+
 ```
 
 ### Full configuration
@@ -130,7 +130,6 @@ api:
 network:
   # enable_ipv6: True # Uncomment if you're using IPv6
 ota:
-  id: esphome_ota
   - platform: esphome
 update:
 wifi:
@@ -290,4 +289,5 @@ light:
             call.perform();
     # Attempt to restore state and default to OFF if not possible to restore.
     restore_mode: RESTORE_DEFAULT_OFF
+
 ```

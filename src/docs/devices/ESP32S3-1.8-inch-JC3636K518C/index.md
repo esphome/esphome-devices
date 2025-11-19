@@ -69,7 +69,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -476,4 +475,5 @@ lvgl:
       - logger.log: "LVGL is idle"
       - light.turn_off: display_backlight
       - lvgl.pause:
+
 ```

@@ -43,8 +43,6 @@ web_server:
   port: 80
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -114,4 +112,5 @@ sensor:
       name: "HLW8012 Energy"
     update_interval: 10s
     change_mode_every: 3
+
 ```

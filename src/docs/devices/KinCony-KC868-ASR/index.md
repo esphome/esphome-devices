@@ -27,55 +27,76 @@ board: esp32
 ## Basic Configuration
 
 ```yaml
+# Basic Config
 esphome:
   name: KC868-ASR
+
 esp32:
   variant: esp32
   framework:
     type: arduino
-logger: null
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
 api:
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 wifi:
   ssid: KinCony
   password: a12345678
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: Asr Fallback Hotspot
-    password: KqbpeFnrzcWf
+    ssid: "Asr Fallback Hotspot"
+    password: "KqbpeFnrzcWf"
+
+captive_portal:
+
 i2c:
   sda: 26
   scl: 27
   scan: true
   id: bus_a
+
 switch:
-- platform: gpio
-  pin: GPIO19
-  name: asr-relay1
-- platform: gpio
-  pin: GPIO5
-  name: asr-relay2
-- platform: gpio
-  pin: GPIO23
-  name: asr-led1
-- platform: gpio
-  pin: GPIO22
-  name: asr-led2
-- platform: gpio
-  pin: GPIO18
-  name: asr-beep
+  - platform: gpio
+    pin: GPIO19
+    name: "asr-relay1"
+
+  - platform: gpio
+    pin: GPIO5
+    name: "asr-relay2"
+
+  - platform: gpio
+    pin: GPIO23
+    name: "asr-led1"
+
+  - platform: gpio
+    pin: GPIO22
+    name: "asr-led2"
+
+  - platform: gpio
+    pin: GPIO18
+    name: "asr-beep"
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: 0
-    inverted: true
-  name: asr-button
+  - platform: gpio
+    pin:
+      number: 0
+      inverted: true
+    name: "asr-button"
+
 one_wire:
-- pin: 32
-  update_interval: 5s
+  - pin: 32
+    update_interval: 5s
+
 sensor:
-- platform: dallas_temp
-  address: 8864809624804098344
-  name: asr-t2
+  - platform: dallas_temp
+    address: 0x7b062162cfe98128
+    name: "asr-t2"
+
+
 ```

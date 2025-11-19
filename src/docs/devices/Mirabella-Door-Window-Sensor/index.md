@@ -54,8 +54,6 @@ uart:
     id: uart0
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   level: INFO
@@ -93,4 +91,5 @@ custom_component:
     lambda: |-
       auto component = new SB1UARTComponent(id(uart0), id(door));
       return {component};
+
 ```

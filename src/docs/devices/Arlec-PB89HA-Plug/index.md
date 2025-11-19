@@ -61,8 +61,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 status_led:
   pin:
@@ -112,6 +110,7 @@ switch:
     id: relay_d
     restore_mode: always off
     icon: mdi:power-socket-au
+
 ```
 
 ## Advanced config: on-device button automations
@@ -150,6 +149,7 @@ binary_sensor:
             - switch.turn_on: relay_b
             - switch.turn_on: relay_c
             - switch.turn_on: relay_d
+
 ```
 
 ### Toggle sockets with single or double click
@@ -181,6 +181,7 @@ binary_sensor:
           - OFF for at least 0.2s
         then:
           - switch.toggle: relay_b
+
 ```
 
 ### Advanced (cycle + toggle all)
@@ -261,4 +262,5 @@ binary_sensor:
               id(relay_c).turn_on();
               id(relay_d).turn_on();
             }
+
 ```

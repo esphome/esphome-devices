@@ -49,7 +49,6 @@ api:
 
 # Enable over-the-air updates
 ota:
-  id: esphome_ota
   - platform: esphome
 
 # Enable Web server
@@ -166,4 +165,5 @@ light:
     warm_white_color_temperature: 2500 K
     restore_mode: RESTORE_DEFAULT_OFF
     gamma_correct: 0
+
 ```

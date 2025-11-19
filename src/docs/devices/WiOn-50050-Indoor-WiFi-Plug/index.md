@@ -55,8 +55,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -86,4 +84,5 @@ switch:
     icon: "mdi:power-socket-us"
 
 captive_portal:
+
 ```

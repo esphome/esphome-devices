@@ -92,7 +92,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -197,6 +196,7 @@ switch:
     id: relay
     pin:
       number: GPIO36
+
 ```
 
 ## Detailed Configuration with LVGL
@@ -241,7 +241,6 @@ api:
         text_color: 0xFF0000
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -543,4 +542,5 @@ lvgl:
                   text: "\U000F0336"
                   text_align: CENTER
                   text_font: mdi_icons
+
 ```

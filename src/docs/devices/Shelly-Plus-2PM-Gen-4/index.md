@@ -46,7 +46,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -144,6 +143,7 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+
 ```
 
 ## Configuration with protections
@@ -167,7 +167,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -396,4 +395,5 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+
 ```

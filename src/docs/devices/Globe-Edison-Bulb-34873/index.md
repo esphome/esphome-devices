@@ -49,8 +49,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -69,4 +67,5 @@ light:
     warm_white_color_temperature: 2000 K
     restore_mode: RESTORE_DEFAULT_ON
     constant_brightness: true
+
 ```

@@ -66,8 +66,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -85,4 +83,5 @@ light:
     brightness: dimmer
     cold_white_color_temperature: 5700 K
     warm_white_color_temperature: 3000 K
+
 ```

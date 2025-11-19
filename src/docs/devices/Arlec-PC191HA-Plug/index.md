@@ -121,8 +121,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #
 # PC191HA basic switch operation - button, relay and LED
@@ -237,6 +235,7 @@ sensor:
     name: $name Uptime
     id: ${device_name}_uptime
     update_interval: "30s"
+
 ```
 
 ## Series 3 Configuration
@@ -266,8 +265,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #
 # PC191HA basic switch operation - button, relay and LED
@@ -382,6 +379,7 @@ sensor:
     name: $name Uptime
     id: ${device_name}_uptime
     update_interval: "30s"
+
 ```
 
 ## ESP8266 configuration
@@ -416,8 +414,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 binary_sensor:
   - platform: gpio
@@ -471,6 +467,7 @@ sensor:
     energy:
       name: "Energy"
     update_interval: 5s
+
 ```
 
 ## References

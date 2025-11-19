@@ -38,100 +38,125 @@ On each transition of the door sensor, the green LED will blink.
 ```yaml
 esphome:
   name: nxg100
+
 esp8266:
   board: esp01_1m
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 wifi:
   ssid: <SSID>
   password: <Password>
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: Nxg100 Fallback Hotspot
+    ssid: "Nxg100 Fallback Hotspot"
     password: <FB Password>
-logger: null
-api: null
-web_server: null
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+web_server:
+
 status_led:
   pin:
     number: GPIO4
     inverted: false
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: GPIO0
-    mode: INPUT_PULLUP
-    inverted: true
-  internal: true
-  name: Reset Button
-  on_click:
-    min_length: 500ms
-    max_length: 2000ms
-    then:
-    - switch.turn_on: greenLED
-    - if:
-        condition:
-          switch.is_on: relay
-        then:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    internal: true
+    name: "Reset Button"
+    on_click:
+      min_length: 500ms
+      max_length: 2000ms
+      then:
+        - switch.turn_on: greenLED
+        - if:
+            condition:
+              switch.is_on: relay
+            then:
+              # just in case someone manually changed it
+              - switch.turn_off: relay
+              - delay: 0.5s
+        # Turn the OPEN switch on briefly
+        - switch.turn_on: relay
+        - delay: 0.2s
         - switch.turn_off: relay
-        - delay: 0.5s
-    - switch.turn_on: relay
-    - delay: 0.2s
-    - switch.turn_off: relay
-    - switch.turn_off: greenLED
-- platform: gpio
-  pin:
-    number: GPIO14
-    mode: INPUT_PULLUP
-    inverted: true
-  name: Door Closed
-  id: doorclosed
-  on_press:
-  - switch.turn_on: greenLED
-  - delay: 0.1s
-  - switch.turn_off: greenLED
-  on_release:
-  - switch.turn_on: greenLED
-  - delay: 0.1s
-  - switch.turn_off: greenLED
-- platform: status
-  name: Status
-  internal: true
+        - switch.turn_off: greenLED
+
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Door Closed"
+    id: "doorclosed"
+    on_press:
+      - switch.turn_on: greenLED
+      - delay: 0.1s
+      - switch.turn_off: greenLED
+    on_release:
+      - switch.turn_on: greenLED
+      - delay: 0.1s
+      - switch.turn_off: greenLED
+
+  - platform: status
+    name: "Status"
+    internal: true
+
 sensor:
-- platform: wifi_signal
-  name: WiFi Signal
-  update_interval: 60s
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    update_interval: 60s
+
 switch:
-- platform: gpio
-  name: Door Relay
-  pin: GPIO12
-  id: relay
-  internal: true
-- platform: gpio
-  name: Green LED
-  pin: GPIO13
-  id: greenLED
-  inverted: true
-  internal: true
-- platform: restart
-  name: Restart
+  - platform: gpio
+    name: "Door Relay"
+    pin: GPIO12
+    id: "relay"
+    internal: true
+
+  - platform: gpio
+    name: "Green LED"
+    pin: GPIO13
+    id: "greenLED"
+    inverted: true
+    internal: true
+
+  - platform: restart
+    name: "Restart"
+
 cover:
-- platform: template
-  name: Garage Door
-  open_action:
-  - switch.turn_on: greenLED
-  - switch.turn_on: relay
-  - delay: 0.2s
-  - switch.turn_off: relay
-  - switch.turn_off: greenLED
-  close_action:
-  - switch.turn_on: greenLED
-  - switch.turn_on: relay
-  - delay: 0.2s
-  - switch.turn_off: relay
-  - switch.turn_off: greenLED
-  optimistic: true
-  assumed_state: true
+  - platform: template
+    name: "Garage Door"
+    open_action:
+      - switch.turn_on: greenLED
+      # Turn the OPEN switch on briefly
+      - switch.turn_on: relay
+      - delay: 0.2s
+      - switch.turn_off: relay
+      - switch.turn_off: greenLED
+    close_action:
+      - switch.turn_on: greenLED
+      # Turn the OPEN switch on briefly
+      - switch.turn_on: relay
+      - delay: 0.2s
+      - switch.turn_off: relay
+      - switch.turn_off: greenLED
+    optimistic: true
+    assumed_state: true
+
+
 ```
 
 ## Delux Config
@@ -142,122 +167,149 @@ Similarly if the door is open, the open button does nothing.
 ```yaml
 esphome:
   name: nxg100
+
 esp8266:
   board: esp01_1m
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 wifi:
   ssid: <SSID>
   password: <Password>
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: Nxg100 Fallback Hotspot
+    ssid: "Nxg100 Fallback Hotspot"
     password: <FB Password>
-logger: null
-api: null
-web_server: null
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+web_server:
+
 status_led:
   pin:
     number: GPIO4
     inverted: false
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: GPIO0
-    mode: INPUT_PULLUP
-    inverted: true
-  internal: true
-  name: Reset Button
-  on_click:
-    min_length: 500ms
-    max_length: 2000ms
-    then:
-    - switch.turn_on: greenLED
-    - if:
-        condition:
-          switch.is_on: relay
-        then:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    internal: true
+    name: "Reset Button"
+    on_click:
+      min_length: 500ms
+      max_length: 2000ms
+      then:
+        - switch.turn_on: greenLED
+        - if:
+            condition:
+              switch.is_on: relay
+            then:
+              # just in case someone manually changed it
+              - switch.turn_off: relay
+              - delay: 0.5s
+        # Turn the OPEN switch on briefly
+        - switch.turn_on: relay
+        - delay: 0.2s
         - switch.turn_off: relay
-        - delay: 0.5s
-    - switch.turn_on: relay
-    - delay: 0.2s
-    - switch.turn_off: relay
-    - switch.turn_off: greenLED
-- platform: gpio
-  pin:
-    number: GPIO14
-    mode: INPUT_PULLUP
-    inverted: true
-  name: Door Closed
-  id: doorclosed
-  on_press:
-  - switch.turn_on: greenLED
-  - delay: 0.1s
-  - switch.turn_off: greenLED
-  on_release:
-  - switch.turn_on: greenLED
-  - delay: 0.1s
-  - switch.turn_off: greenLED
-- platform: status
-  name: Status
-  internal: true
+        - switch.turn_off: greenLED
+
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Door Closed"
+    id: "doorclosed"
+    on_press:
+      - switch.turn_on: greenLED
+      - delay: 0.1s
+      - switch.turn_off: greenLED
+    on_release:
+      - switch.turn_on: greenLED
+      - delay: 0.1s
+      - switch.turn_off: greenLED
+
+  - platform: status
+    name: "Status"
+    internal: true
+
 sensor:
-- platform: wifi_signal
-  name: WiFi Signal
-  update_interval: 60s
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    update_interval: 60s
+
 switch:
-- platform: gpio
-  name: Door Relay
-  pin: GPIO12
-  id: relay
-  internal: true
-- platform: gpio
-  name: Green LED
-  pin: GPIO13
-  id: greenLED
-  inverted: true
-  internal: true
-- platform: restart
-  name: Restart
+  - platform: gpio
+    name: "Door Relay"
+    pin: GPIO12
+    id: "relay"
+    internal: true
+
+  - platform: gpio
+    name: "Green LED"
+    pin: GPIO13
+    id: "greenLED"
+    inverted: true
+    internal: true
+
+  - platform: restart
+    name: "Restart"
+
 cover:
-- platform: template
-  name: Garage Door
-  open_action:
-  - if:
-      condition:
-        binary_sensor.is_off: doorclosed
-      then:
-      - logger.log: Door is already open
-      else:
-      - switch.turn_on: greenLED
+  - platform: template
+    name: "Garage Door"
+    open_action:
       - if:
           condition:
-            switch.is_on: relay
+            binary_sensor.is_off: doorclosed
           then:
-          - switch.turn_off: relay
-          - delay: 0.5s
-      - switch.turn_on: relay
-      - delay: 0.2s
-      - switch.turn_off: relay
-      - switch.turn_off: greenLED
-  close_action:
-  - if:
-      condition:
-        binary_sensor.is_on: doorclosed
-      then:
-      - logger.log: Door is already closed
-      else:
-      - switch.turn_on: greenLED
+            - logger.log: "Door is already open"
+          else:
+            - switch.turn_on: greenLED
+            - if:
+                condition:
+                  switch.is_on: relay
+                then:
+                  # just in case someone manually changed it
+                  - switch.turn_off: relay
+                  - delay: 0.5s
+            # Turn the OPEN switch on briefly
+            - switch.turn_on: relay
+            - delay: 0.2s
+            - switch.turn_off: relay
+            - switch.turn_off: greenLED
+    close_action:
       - if:
           condition:
-            switch.is_on: relay
+            binary_sensor.is_on: doorclosed
           then:
-          - switch.turn_off: relay
-          - delay: 0.5s
-      - switch.turn_on: relay
-      - delay: 0.2s
-      - switch.turn_off: relay
-      - switch.turn_off: greenLED
-  optimistic: true
-  assumed_state: true
+            - logger.log: "Door is already closed"
+          else:
+            - switch.turn_on: greenLED
+            - if:
+                condition:
+                  switch.is_on: relay
+                then:
+                  # just in case someone manually changed it
+                  - switch.turn_off: relay
+                  - delay: 0.5s
+            # Turn the OPEN switch on briefly
+            - switch.turn_on: relay
+            - delay: 0.2s
+            - switch.turn_off: relay
+            - switch.turn_off: greenLED
+    optimistic: true
+    assumed_state: true
+
+
 ```

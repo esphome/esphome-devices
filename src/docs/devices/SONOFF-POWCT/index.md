@@ -54,7 +54,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -229,4 +228,5 @@ light:
     pin:
       number: GPIO15
       inverted: True
+
 ```

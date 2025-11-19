@@ -72,8 +72,6 @@ api:
   # https://esphome.io/components/api
 
 ota:
-  platform: esphome
-  id: esphome_ota
   # https://esphome.io/components/ota
 
 switch:
@@ -140,6 +138,7 @@ sensor:
     name: $friendly_name Uptime Sensor
   - platform: wifi_signal
     name: $friendly_name wifi signal
+
 ```
 
 ## Fully-featured package ("SS01")

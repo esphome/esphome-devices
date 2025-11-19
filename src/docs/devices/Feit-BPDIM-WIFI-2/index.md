@@ -49,8 +49,6 @@ wifi:
 captive_portal:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 api:
 
@@ -72,4 +70,5 @@ light:
     switch_datapoint: 1
     min_value: $min_brightness
     max_value: $max_brightness
+
 ```

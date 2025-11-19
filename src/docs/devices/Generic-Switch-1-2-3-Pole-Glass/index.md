@@ -75,8 +75,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -173,6 +171,7 @@ light:
   - platform: monochromatic
     name: "${friendly_name} Status LED"
     output: status_led
+
 ```
 
 ## Config for alternative variant
@@ -207,8 +206,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -293,4 +290,5 @@ light:
     name: "${friendly_name} Bottom"
     id: lightsw_3
     output: relay_3
+
 ```

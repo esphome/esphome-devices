@@ -73,7 +73,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -118,6 +117,7 @@ status_led:
   pin:
     number: GPIO6
     inverted: False
+
 ```
 
 ## Basic Configuration (2 gang)
@@ -143,7 +143,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -202,6 +201,7 @@ status_led:
   pin:
     number: GPIO6
     inverted: False
+
 ```
 
 ## Basic Configuration (3 gang)
@@ -227,7 +227,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -301,6 +300,7 @@ status_led:
   pin:
     number: GPIO6
     inverted: False
+
 ```
 
 ## Decoupled mode & toggle/dimming lights using device group
@@ -334,6 +334,7 @@ light:
     warm_white_color_temperature: 2700 K
     default_transition_length: 0.5s
     restore_mode: RESTORE_DEFAULT_ON
+
 ```
 
 ### For switch
@@ -361,7 +362,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -554,4 +554,5 @@ status_led:
   pin:
     number: GPIO6
     inverted: False
+
 ```

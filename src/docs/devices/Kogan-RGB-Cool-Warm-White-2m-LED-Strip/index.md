@@ -46,8 +46,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 binary_sensor:
   - platform: gpio
@@ -95,4 +93,5 @@ light:
 time:
   - platform: homeassistant
     id: homeassistant_time
+
 ```

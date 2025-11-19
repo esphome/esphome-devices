@@ -47,7 +47,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -154,6 +153,7 @@ cover:
   stop_action:
     - switch.turn_off: output_cover_open
     - switch.turn_off: output_cover_close
+
 ```
 
 ## Installation

@@ -58,7 +58,6 @@ bk72xx:
 api:
 
 ota:
-  platform: esphome
   id: my_ota
 
 wifi:
@@ -107,4 +106,5 @@ output:
 sensor:
   - platform: internal_temperature
     name: "Internal Temperature"
+
 ```

@@ -34,8 +34,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 ethernet:
   type: W5500
@@ -2413,4 +2411,5 @@ sensor:
     attenuation: 12db
     filters:
       - multiply: 6.66666666
+
 ```

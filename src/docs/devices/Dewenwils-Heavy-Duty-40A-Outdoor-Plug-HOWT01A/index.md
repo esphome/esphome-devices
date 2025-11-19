@@ -57,8 +57,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -122,4 +120,5 @@ captive_portal:
 web_server:
   port: 80
   version: 1
+
 ```

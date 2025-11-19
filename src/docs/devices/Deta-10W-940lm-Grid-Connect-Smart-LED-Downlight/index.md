@@ -43,50 +43,60 @@ Colour temperature advertised on the box as 3000K for warm white, and 5700K for 
 
 ```yaml
 substitutions:
-  device_name: master_br_light_1
-  friendly_name: Master Bedroom Light 1
+  device_name: "master_br_light_1"
+  friendly_name: "Master Bedroom Light 1"
+
 esphome:
   name: ${device_name}
+
 esp8266:
   board: esp01_1m
+
 wifi:
-  ssid: ssid
-  password: password
-logger: null
-api: null
+  ssid: "ssid"
+  password: "password"
+
+logger:
+
+api:
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 sensor:
-- platform: uptime
-  name: ${friendly_name} Uptime
-- platform: wifi_signal
-  name: ${friendly_name} Signal Strength
+  - platform: uptime
+    name: ${friendly_name} Uptime
+
+  - platform: wifi_signal
+    name: ${friendly_name} Signal Strength
+
 output:
-- platform: esp8266_pwm
-  pin: GPIO4
-  id: output_g
-- platform: esp8266_pwm
-  pin: GPIO5
-  id: output_r
-- platform: esp8266_pwm
-  pin: GPIO12
-  id: output_ww
-- platform: esp8266_pwm
-  pin: GPIO13
-  id: output_b
-- platform: esp8266_pwm
-  pin: GPIO14
-  id: output_cw
+  - platform: esp8266_pwm
+    pin: GPIO4
+    id: output_g
+  - platform: esp8266_pwm
+    pin: GPIO5
+    id: output_r
+  - platform: esp8266_pwm
+    pin: GPIO12
+    id: output_ww
+  - platform: esp8266_pwm
+    pin: GPIO13
+    id: output_b
+  - platform: esp8266_pwm
+    pin: GPIO14
+    id: output_cw
+
 light:
-- platform: rgbww
-  color_interlock: true
-  name: ${friendly_name}
-  red: output_r
-  green: output_g
-  blue: output_b
-  warm_white: output_ww
-  cold_white: output_cw
-  cold_white_color_temperature: 5700 K
-  warm_white_color_temperature: 3000 K
+  - platform: rgbww
+    color_interlock: true
+    name: ${friendly_name}
+    red: output_r
+    green: output_g
+    blue: output_b
+    warm_white: output_ww
+    cold_white: output_cw
+    cold_white_color_temperature: 5700 K
+    warm_white_color_temperature: 3000 K
+
+
 ```

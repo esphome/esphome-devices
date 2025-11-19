@@ -42,8 +42,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -146,4 +144,5 @@ light:
     pin:
       number: GPIO13
       inverted: True
+
 ```

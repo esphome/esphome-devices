@@ -56,8 +56,6 @@ libretiny:
     version: latest
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -99,4 +97,5 @@ light:
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
     color_interlock: true
+
 ```

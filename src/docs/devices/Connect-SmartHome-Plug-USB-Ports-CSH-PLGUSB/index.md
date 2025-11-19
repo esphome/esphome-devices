@@ -40,8 +40,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Platform
 bk72xx:
@@ -64,4 +62,5 @@ switch:
   - platform: gpio
     pin: P26
     name: 'Switch'
+
 ```

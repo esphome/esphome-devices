@@ -43,8 +43,6 @@ wifi:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 # Device Specific Config
 
@@ -126,6 +124,7 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+
 ```
 
 ## Warnings

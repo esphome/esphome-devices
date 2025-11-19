@@ -40,8 +40,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -74,4 +72,5 @@ light:
       inverted: true
     id: status_light
     internal: true
+
 ```

@@ -52,6 +52,7 @@ firmware.
 substitutions:
   name: si-smartplug-model-70011
   friendly_name: si-smartplug-model-70011
+
 ```
 
 ```yaml
@@ -66,8 +67,6 @@ esp8266:
 
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 captive_portal:
 web_server:
 logger:
@@ -100,4 +99,5 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+
 ```

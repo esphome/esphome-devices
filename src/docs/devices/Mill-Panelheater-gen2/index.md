@@ -72,8 +72,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 uart:
   id: uart_bus
@@ -84,6 +82,7 @@ uart:
 climate:
   - platform: mill_panelheater_gen2
     name: Mill heater
+
 ```
 
 ## Credits

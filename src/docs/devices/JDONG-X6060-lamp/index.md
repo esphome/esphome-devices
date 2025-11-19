@@ -54,8 +54,6 @@ api:
   password: ""
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -114,4 +112,5 @@ remote_receiver:
     number: P1
     inverted: true
     mode: INPUT_PULLUP
+
 ```

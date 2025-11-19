@@ -66,8 +66,6 @@ esp32:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
 
@@ -131,6 +129,7 @@ sensor:
     frequency:
       name: Frequency
       accuracy_decimals: 2
+
 ```
 
 ## Additional Considerations
@@ -293,6 +292,7 @@ sensor:
       device_class: energy
       state_class: total_increasing
       accuracy_decimals: 3
+
 ```
 
 ## Application-specific Configuration
@@ -325,8 +325,6 @@ esp32:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
 
@@ -486,4 +484,5 @@ sensor:
       name: Washer AC Frequency
       accuracy_decimals: 2
     update_interval: 5s
+
 ```

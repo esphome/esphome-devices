@@ -60,8 +60,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -84,4 +82,5 @@ output:
   - platform: esp8266_pwm
     id: cold_white_channel
     pin: GPIO5
+
 ```

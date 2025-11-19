@@ -104,8 +104,6 @@ api:
   password: ""
 # Use OTA in future so we don't have to re-solder to re-flash
 ota:
-  id: esphome_ota
-  platform: esphome
 
 # Device Specific Config
 
@@ -217,4 +215,5 @@ switch:
     pin: P28 # Incorrectly labeled P26 on PCB
     id: lowerLED
 # YAML config end
+
 ```

@@ -76,8 +76,6 @@ logger:
 # Enable Home Assistant API
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   ssid: ""
   password: !secret wifi_password
@@ -223,6 +221,7 @@ number:
             uartValue += String(multiplexer, DEC) + ")";
             std::vector<unsigned char> uartBytes(uartValue.begin(), uartValue.end());  
             return uartBytes;
+
 ```
 
 ## UART reading library

@@ -64,8 +64,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 uart:
   rx_pin: GPIO3
@@ -133,4 +131,5 @@ sensor:
     icon: "mdi:flash"
     filters:
       - multiply: 0.01
+
 ```

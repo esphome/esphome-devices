@@ -51,8 +51,6 @@ api:
 
 # Enable OTAs
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Sync RTC with HA
 time:
@@ -220,4 +218,5 @@ switch:
     name: Shelly EM Switch
     pin: GPIO15
     id: relay
+
 ```

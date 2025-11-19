@@ -32,8 +32,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 esp32_ble_tracker:
   scan_interval: 360s
@@ -84,4 +82,5 @@ sensor:
       name: "Tomato Plant Illuminance"
     conductivity:
       name: "Tomato Plant Soil Conductivity"
+
 ```

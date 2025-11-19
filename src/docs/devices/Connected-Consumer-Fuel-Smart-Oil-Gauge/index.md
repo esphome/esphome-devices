@@ -166,7 +166,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -699,4 +698,5 @@ script:
           }
 
           id(Tank_Radius) = id(Tank_Width)/2;
+
 ```

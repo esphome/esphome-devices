@@ -51,8 +51,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   esp8266_store_log_strings_in_flash: false
@@ -105,4 +103,5 @@ status_led:
   pin:
     number: GPIO13
     inverted: True
+
 ```

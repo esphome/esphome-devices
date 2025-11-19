@@ -124,8 +124,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -182,4 +180,5 @@ light:
           update_interval: 0.2s
           min_brightness: 0%
           max_brightness: 100%
+
 ```

@@ -83,8 +83,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   
 sensor:
   - platform: wifi_signal
@@ -257,4 +255,5 @@ output:
       number: GPIO3
       inverted: yes
     id: state_led
+
 ```

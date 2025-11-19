@@ -61,7 +61,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 uart:
@@ -189,4 +188,5 @@ switch:
       number: 5
       mode: OUTPUT
       inverted: true
+
 ```

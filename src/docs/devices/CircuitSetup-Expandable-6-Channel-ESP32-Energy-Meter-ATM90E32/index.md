@@ -77,8 +77,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -210,6 +208,7 @@ switch:
 time:
   - platform: sntp
     id: sntp_time
+
 ```
 
 ## Main Board + 1 Add-on Board Configuration
@@ -262,8 +261,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -492,6 +489,7 @@ switch:
 time:
   - platform: sntp
     id: sntp_time
+
 ```
 
 ## Main Board + 5 Add-on Boards Configuration
@@ -538,8 +536,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 spi:
   clk_pin: 18
@@ -932,4 +928,5 @@ sensor:
 time:
   - platform: sntp
     id: sntp_time
+
 ```

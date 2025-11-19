@@ -60,7 +60,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -128,6 +127,7 @@ button:
   - platform: restart
     name: "Restart"
     id: restart_button
+
 ```
 
 You can add RF buttons for the codes you learn later:
@@ -223,4 +223,5 @@ button:
               718,
               -719,
             ]
+
 ```

@@ -45,8 +45,6 @@ api:
 
 # Enable OTAs
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Sync RTC with HA
 time:
@@ -79,4 +77,5 @@ light:
   - platform: tuya
     name: mj-st02 Switch
     switch_datapoint: 1
+
 ```

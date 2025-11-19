@@ -85,8 +85,6 @@ substitutions:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 web_server:
 time:
   - platform: sntp
@@ -193,4 +191,5 @@ sensor:
           // Right outlet button is being pushed.
           id(relay_right_outlet).toggle();
         }
+
 ```

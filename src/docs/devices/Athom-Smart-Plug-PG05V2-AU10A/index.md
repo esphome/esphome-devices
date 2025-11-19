@@ -50,8 +50,6 @@ preferences:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   baud_rate: 0
@@ -194,4 +192,5 @@ text_sensor:
 time:
   - platform: sntp
     id: sntp_time
+
 ```

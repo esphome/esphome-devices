@@ -43,30 +43,39 @@ config.
 esphome:
   name: s06_ir_blaster
   friendly_name: S06 IR Blaster
+
 bk72xx:
   board: cb3s
-logger: null
-api: null
+
+logger:
+
+api:
+
 ota:
-  id: esphome_ota
-  platform: esphome
-wifi: null
+
+wifi:
+
+captive_portal:
+
 light:
-- platform: status_led
-  name: Status LED
-  pin: GPIO8
+  - platform: status_led
+    name: "Status LED"
+    pin: GPIO8
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: 6
-    inverted: true
-    mode:
-      input: true
-      pullup: true
-  name: Button
+  - platform: gpio
+    pin:
+      number: 6
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: "Button"
+
 remote_transmitter:
   pin: GPIO26
   carrier_duty_percent: 50%
+
 remote_receiver:
   pin:
     number: GPIO7
@@ -74,6 +83,7 @@ remote_receiver:
     mode:
       input: true
       pullup: true
+
 ```
 
 If you're attempting to use this with raw IR commands with an integration such as SmartIR, make sure that you set the
@@ -91,6 +101,7 @@ api:
         - remote_transmitter.transmit_raw:
             code: !lambda "return command;"
             carrier_frequency: !lambda "return 38000.0;"
+
 ```
 
 If you don't know the carrier frequency, and the NEC default of 38 kHz doesn't work, you can find out what your device's
@@ -106,6 +117,7 @@ remote_receiver:
       input: true
       pullup: true
   dump: pronto
+
 ```
 
 Once you flash the firmware, keep the device logs open within ESPHome Device Builder. Take the remote for your device,

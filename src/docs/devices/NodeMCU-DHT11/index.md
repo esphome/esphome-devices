@@ -28,6 +28,7 @@ substitutions:
   friendly_name_temp: Livingroom Temperature
   friendly_name_humidity: Livingroom Humidity
 <<: !include common_nodemcu_dht11.yaml
+
 ```
 
 ## Common Configuration File (common_nodemcu_dht11.yaml)
@@ -56,8 +57,6 @@ api:
   #  key: !secret encryption_key
 
 ota:
-  platform: esphome
-  id: esphome_ota
   #password: !secret esphome_ota_pwd
 
 switch:
@@ -98,4 +97,5 @@ sensor:
 text_sensor:
   - platform: version
     name: ${friendly_name} ESPHome Version
+
 ```

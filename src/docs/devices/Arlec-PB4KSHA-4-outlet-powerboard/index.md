@@ -64,8 +64,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -107,4 +105,5 @@ light:
   - platform: binary
     output: relay_status_led_output
     id: relay_status_led
+
 ```

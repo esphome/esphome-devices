@@ -92,7 +92,6 @@ captive_portal:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 web_server:
@@ -142,4 +141,5 @@ light:
     green: output_green
     blue: output_blue
     white: output_white
+
 ```

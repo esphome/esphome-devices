@@ -92,7 +92,6 @@ logger:
   esp8266_store_log_strings_in_flash: False
 
 ota:
-  id: esphome_ota
   - platform: esphome  
 
 uart:
@@ -641,6 +640,7 @@ fan:
                     - delay: 500ms
                     - switch.turn_on: timer1h
 captive_portal:
+
 ```
 
 ## Home Assistant integration
@@ -747,6 +747,7 @@ cards:
         border: none;
         margin-top: -2%;
       }
+
 ```
 
 ### Lovelace card screenshot

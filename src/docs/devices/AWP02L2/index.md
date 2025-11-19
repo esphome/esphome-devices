@@ -56,8 +56,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 binary_sensor:
   - platform: gpio
@@ -103,4 +101,5 @@ text_sensor:
   - platform: version
     name: "${friendly_name} ESPHome Version"
     id: "${device_name}_esphome_version"
+
 ```

@@ -84,8 +84,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #optional
 web_server:
@@ -275,4 +273,5 @@ climate:
               return id(climate_control).mode == CLIMATE_MODE_HEAT;
           then:
             - light.turn_on: auto_led
+
 ```

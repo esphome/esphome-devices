@@ -145,7 +145,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 uart:
@@ -277,4 +276,5 @@ sensor:
     accuracy_decimals: 3
     filters:
       - multiply: 0.001
+
 ```

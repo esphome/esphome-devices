@@ -55,8 +55,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -103,4 +101,5 @@ uart:
   rx_pin: GPIO7
   baud_rate: 9600
   stop_bits: 1
+
 ```

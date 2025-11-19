@@ -51,8 +51,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: sntp
@@ -180,4 +178,5 @@ light:
   - platform: monochromatic
     output: state_led
     id: led
+
 ```

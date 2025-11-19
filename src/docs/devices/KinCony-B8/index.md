@@ -35,8 +35,6 @@ esp32:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 ethernet:
   type: W5500
@@ -306,4 +304,5 @@ display:
     address: 0x3C
     lambda: |-
       it.printf(0, 0, id(roboto), "KinCony b8");
+
 ```

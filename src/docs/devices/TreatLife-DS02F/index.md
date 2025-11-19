@@ -68,42 +68,68 @@ Like the Treatlife DS03, the Tuya MCU UART runs at a baud rate of 115200. You ma
 ```yaml
 esphome:
   name: ds02f
+
+# ESP-Based Board
+#esp8266:
+#  board: esp01_1m
+
+# BK72XX-Based Board
 bk72xx:
   board: wb3s
-logger: null
-api: null
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 wifi:
-  ssid: ssid
-  password: PASSWORD
+  ssid: "ssid"
+  password: "PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: DS02F Fallback Hotspot
-    password: ul57sDUAqbcl
+    ssid: "DS02F Fallback Hotspot"
+    password: "ul57sDUAqbcl"
+
+captive_portal:
+
 uart:
   rx_pin: RX1
   tx_pin: TX1
   baud_rate: 115200
+
 tuya:
   id: tuyamcu
   on_datapoint_update:
-  - sensor_datapoint: 101
-    datapoint_type: int
-    then:
-    - lambda: id(inverted_light_mode).publish_state(x == 1);
+    - sensor_datapoint: 101
+      datapoint_type: int
+      then:
+        - lambda: |-
+            id(inverted_light_mode).publish_state(x == 1);
+
 fan:
-- platform: tuya
-  name: Treatlife DS02F Speed
-  switch_datapoint: 1
-  speed_datapoint: 3
-  speed_count: 4
+  - platform: "tuya"
+    name: Treatlife DS02F Speed
+    switch_datapoint: 1
+    speed_datapoint: 3
+    speed_count: 4
+
+# The "Light Mode" controls the white status led ring on the button.
+# Normal Mode (0): Led ON when fan power OFF, Led OFF when fan power ON
+# Inverted Mode (1): Led OFF when fan power OFF, Led ON when fan power ON
 switch:
-- platform: template
-  id: inverted_light_mode
-  name: Inverted Light Mode
-  turn_on_action:
-  - lambda: id(tuyamcu).set_integer_datapoint_value(101,1);
-  turn_off_action:
-  - lambda: id(tuyamcu).set_integer_datapoint_value(101,0);
+  - platform: template
+    id: inverted_light_mode
+    name: Inverted Light Mode
+    turn_on_action:
+      - lambda: |-
+          id(tuyamcu).set_integer_datapoint_value(101,1);
+    turn_off_action:
+      - lambda: |-
+          id(tuyamcu).set_integer_datapoint_value(101,0);
+
+
 ```

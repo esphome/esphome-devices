@@ -39,8 +39,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #==============================================================
 output:
@@ -97,6 +95,7 @@ sensor:
 status_led:
   pin: GPIO0
 #==============================================================
+
 ```
 
 In this configuration switch 1 is connected to the relay and toggles the light.

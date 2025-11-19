@@ -50,8 +50,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 output:
   - platform: esp8266_pwm
@@ -70,4 +68,5 @@ light:
     warm_white: out_ww
     cold_white_color_temperature: 5700 K
     warm_white_color_temperature: 3000 K
+
 ```

@@ -75,8 +75,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -198,4 +196,5 @@ switch:
   - platform: gpio
     pin: GPIO15
     id: relay
+
 ```

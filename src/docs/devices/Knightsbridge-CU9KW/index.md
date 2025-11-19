@@ -85,7 +85,6 @@ logger:
 improv_serial:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -164,6 +163,7 @@ sensor:
     cf_pin: GPIO5
     cf1_pin: GPIO14
     update_interval: 10s
+
 ```
 
 ## ESPHome Configuration with Power Monitoring
@@ -232,7 +232,6 @@ api:
 improv_serial:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -464,4 +463,5 @@ number:
     set_action:
       lambda: |-
         id(current_multiply) = x;
+
 ```

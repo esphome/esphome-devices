@@ -66,7 +66,6 @@ api:
             id: button_reset_total
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 substitutions:
@@ -275,6 +274,7 @@ time:
 
 status_led:
   pin: GPIO23
+
 ```
 
 ## GREC1 Connections

@@ -64,7 +64,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -222,4 +221,5 @@ cover:
       - switch.turn_off: "L4_close"
       - switch.turn_off: "L3_open"
     assumed_state: True
+
 ```

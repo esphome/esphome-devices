@@ -56,8 +56,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -82,4 +80,5 @@ light:
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
     constant_brightness: true
+
 ```

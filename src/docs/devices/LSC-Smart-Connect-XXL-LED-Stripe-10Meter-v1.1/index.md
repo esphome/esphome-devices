@@ -80,7 +80,6 @@ bk72xx:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -178,4 +177,5 @@ binary_sensor:
       
   - platform: status #For diagnostic purpouses
     name: "Status"
+
 ```

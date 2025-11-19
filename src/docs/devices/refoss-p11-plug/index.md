@@ -53,8 +53,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -193,4 +191,5 @@ sensor:
 #      - calibrate_linear:
 #        - 0.15 -> 18.6
 #        - 0.16 -> 19.8
+
 ```

@@ -73,8 +73,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -185,4 +183,5 @@ switch:
       sn74hc595: sn74hc595_hub
       number: 4
       inverted: false
+
 ```

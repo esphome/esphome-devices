@@ -47,8 +47,6 @@ web_server:
 
 # Enable over-the-air updates
 ota:
-  id: esphome_ota
-  platform: esphome
 
 # Wifi Setup
 wifi:
@@ -106,4 +104,5 @@ light:
     name: "Relay"
     id: th1x_relay
     output: relay
+
 ```

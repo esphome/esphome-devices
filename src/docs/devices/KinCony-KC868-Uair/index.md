@@ -111,4 +111,5 @@ light:
       - addressable_random_twinkle:
       - addressable_fireworks:
       - addressable_flicker:
+
 ```

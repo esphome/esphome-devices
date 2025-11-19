@@ -44,8 +44,6 @@ mqtt:
   broker: !secret mqtt_broker
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 logger:
   level: DEBUG
@@ -149,6 +147,7 @@ binary_sensor:
       - switch.turn_on: download_mode
       - delay: 5s
       - switch.turn_off: download_mode
+
 ```
 
 ## References

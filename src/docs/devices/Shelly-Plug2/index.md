@@ -35,8 +35,6 @@ logger:
 # Enable Home Assistant API
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -123,4 +121,5 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
+
 ```

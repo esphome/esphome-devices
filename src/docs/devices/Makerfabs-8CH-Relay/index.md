@@ -42,7 +42,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -101,4 +100,5 @@ switch:
     pin: 5
     name: "Relay #8"
     inverted: true
+
 ```

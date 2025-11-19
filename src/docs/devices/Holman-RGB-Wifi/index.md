@@ -56,8 +56,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -197,4 +195,5 @@ text_sensor:
     id: uptime_human
     icon: mdi:clock-start
     entity_category: diagnostic
+
 ```

@@ -72,7 +72,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 external_components:
@@ -184,6 +183,7 @@ binary_sensor:
 #     - speaker.volume_set: 50%
 #     - speaker.play:
 #         data: !lambda return startup_raw;
+
 ```
 
 ## Notes

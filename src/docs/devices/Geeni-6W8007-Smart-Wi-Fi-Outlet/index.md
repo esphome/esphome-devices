@@ -82,8 +82,6 @@ mdns:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -147,4 +145,5 @@ binary_sensor:
           - OFF for at least 0.2s
         then:
           - switch.toggle: switch_2
+
 ```

@@ -34,8 +34,6 @@ esp8266:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -221,4 +219,5 @@ binary_sensor:
           - switch.turn_on: powerstrip_switch_3
           - switch.turn_on: powerstrip_switch_4
           - switch.turn_on: powerstrip_switch_5
+
 ```

@@ -37,8 +37,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   networks:
@@ -89,4 +87,5 @@ output:
   - platform: sm2135
     id: output_coldwhite
     channel: 3
+
 ```

@@ -59,8 +59,6 @@ psram:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -204,6 +202,7 @@ sensor:
     update_interval: 60s
     unit_of_measurement: "%"
     accuracy_decimals: 1
+
 ```
 
 ## Display
@@ -251,6 +250,7 @@ light:
     id: backlight
     restore_mode: RESTORE_DEFAULT_ON
     default_transition_length: 250ms
+
 ```
 
 ## LVGL
@@ -258,6 +258,7 @@ light:
 ```yaml
 lvgl:
   byte_order: little_endian
+
 ```
 
 ## Audio / Wake word voice assistant
@@ -364,6 +365,7 @@ voice_assistant:
     - micro_wake_word.start:
   on_client_disconnected:
     - micro_wake_word.stop:
+
 ```
 
 ## RTC
@@ -391,4 +393,5 @@ time:
       then:
         # ... and update the RTC when the synchronization was successful
         rx8130.write_time:
+
 ```

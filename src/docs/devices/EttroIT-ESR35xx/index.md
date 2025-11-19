@@ -95,7 +95,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -138,6 +137,7 @@ switch:
     switch_datapoint: 103
     name: Remote Lock
     restore_mode: RESTORE_DEFAULT_OFF
+
 ```
 
 A more complex configuration can allow the switch to be reset automatically, like the one shown below:
@@ -170,7 +170,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -277,6 +276,7 @@ script:
           then:
             - lambda: |-
                 (id(attempts) = 0);
+
 ```
 
 _NOTE_: this particular configuration will rearm the RCBO for 3 times, with a 3 minute timer multiplied per number or

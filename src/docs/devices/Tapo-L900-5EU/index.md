@@ -68,7 +68,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 web_server:
@@ -123,6 +122,7 @@ binary_sensor:
       max_length: 400ms # Single click
       then:
         - light.toggle: strip_light
+
 ```
 
 ## Internal Pictures

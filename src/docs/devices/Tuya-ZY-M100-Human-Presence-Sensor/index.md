@@ -101,8 +101,6 @@ api:
 logger:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -268,6 +266,7 @@ binary_sensor:
     name: "${friendly_name} Presence State"
     sensor_datapoint: 1
     device_class: occupancy
+
 ```
 
 ## Configuration for Arduino (not recommended, but has been working fine for ages)
@@ -306,8 +305,6 @@ api:
 logger:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 wifi:
@@ -486,4 +483,5 @@ binary_sensor:
     name: "${friendly_name} Presence State"
     sensor_datapoint: 1
     device_class: occupancy
+
 ```

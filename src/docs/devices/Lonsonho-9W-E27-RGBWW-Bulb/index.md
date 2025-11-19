@@ -52,18 +52,27 @@ Enjoy your hard work and impress some people with the magic 8-]
 ## Basic Configuration
 
 ```yaml
+# device declaration: Lonsonho-9W-E27-RGBWW-bulb
+# buying from: https://www.aliexpress.com/item/33006613923.html
+
+# variables
 substitutions:
-  name: Fancy Device
-  device: fancy_device
+  name: 'Fancy Device'
+  device: 'fancy_device'
   update_interval: 1min
   static_ip: 10.10.10.88
+
+# core configuration
 esphome:
   name: ${device}
+
 esp8266:
   board: esp01_1m
+
+# WiFi + network settings
 wifi:
-  ssid: Name of you homes WiFi
-  password: your supersecret wifi password
+  ssid: 'Name of you homes WiFi'
+  password: 'your supersecret wifi password'
   fast_connect: true
   manual_ip:
     static_ip: ${static_ip}
@@ -72,52 +81,76 @@ wifi:
     dns1: 10.10.10.1
     dns2: 1.1.1.1
   ap:
-    ssid: ${name} AP (192.168.4.1)
-    password: 1234abcd
-api: null
+    ssid: '${name} AP (192.168.4.1)'
+    password: '1234abcd'         #  wifi password when in access point mode. Leave '' for no password.
+
+# captive portal for access point mode
+captive_portal:
+
+# enabling home assistant legacy api
+api:
+  # uncomment below if needed
+  # encryption:
+  #  key: !secret encryption_key
+
+# enabling over the air updates
 ota:
-  id: esphome_ota
-  platform: esphome
+  # uncomment below if needed
+  # password: 'your secret ota password'
+
+# synchronizing time with home assistant
 time:
-- platform: homeassistant
-  id: homeassistant_time
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Logging
 logger:
   level: DEBUG
+  # Disable logging to serial
   baud_rate: 0
+
+# Defining the output pins
 output:
-- platform: esp8266_pwm
-  id: output_red
-  pin: GPIO4
-- platform: esp8266_pwm
-  id: output_green
-  pin: GPIO12
-- platform: esp8266_pwm
-  id: output_blue
-  pin: GPIO14
-- platform: esp8266_pwm
-  id: output_warm_white
-  pin: GPIO13
-- platform: esp8266_pwm
-  id: output_cold_white
-  pin: GPIO5
+  - platform: esp8266_pwm
+    id: output_red
+    pin: GPIO4
+  - platform: esp8266_pwm
+    id: output_green
+    pin: GPIO12
+  - platform: esp8266_pwm
+    id: output_blue
+    pin: GPIO14
+  - platform: esp8266_pwm
+    id: output_warm_white
+    pin: GPIO13
+  - platform: esp8266_pwm
+    id: output_cold_white
+    pin: GPIO5
+
+# here go the light definitions, effects and restore mode
 light:
-- platform: rgbww
-  name: ${name}
-  id: ${device}
-  red: output_red
-  green: output_green
-  blue: output_blue
-  warm_white: output_warm_white
-  cold_white: output_cold_white
-  warm_white_color_temperature: 2800 K
-  cold_white_color_temperature: 6200 K
-  effects:
-  - random: null
-  - random:
-      name: random slow
-      update_interval: 30s
-      transition_length: 7.5s
-  restore_mode: RESTORE_DEFAULT_ON
+  - platform: rgbww
+    name: '${name}'
+    id: '${device}'
+    red: output_red
+    green: output_green
+    blue: output_blue
+    warm_white: output_warm_white
+    cold_white: output_cold_white
+    warm_white_color_temperature: 2800 K
+    cold_white_color_temperature: 6200 K
+
+    effects:
+      - random:
+      - random:
+          name: 'random slow'
+          update_interval: 30s
+          transition_length: 7.5s
+
+    # Attempt to restore state and default to ON if the physical switch is actuated.
+    restore_mode: RESTORE_DEFAULT_ON
+
+
 ```
 
    [aliexpress.com]: https://www.aliexpress.com/item/33006613923.html

@@ -70,7 +70,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 ethernet:
@@ -1887,4 +1886,5 @@ light:
     num_leds: 30
     rmt_channel: 0
     chipset: ws2812
+
 ```

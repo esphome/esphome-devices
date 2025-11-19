@@ -38,7 +38,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -82,4 +81,5 @@ binary_sensor:
   - platform: gpio
     pin: 4
     name: "BUTTON8"
+
 ```

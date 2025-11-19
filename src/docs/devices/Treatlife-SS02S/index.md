@@ -90,8 +90,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: gpio
@@ -133,6 +131,7 @@ status_led:
     number: P8 # WB3S board
     # number: P7 # CB3S board
     inverted: yes
+
 ```
 
 ## Home Assistant light entity (Converts it from a switch to a Light Entity)
@@ -142,4 +141,5 @@ light:
   - platform: switch
     name: "Treatlife Light Switch"
     entity_id: switch.treatlifeswitch # Change
+
 ```

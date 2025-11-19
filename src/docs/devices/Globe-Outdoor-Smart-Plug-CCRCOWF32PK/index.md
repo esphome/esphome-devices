@@ -53,7 +53,6 @@ mdns:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 captive_portal:
@@ -94,6 +93,7 @@ text_sensor:
   - platform: libretiny
     version:
       name: LibreTiny Version
+
 
 
 ```

@@ -70,8 +70,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: uptime
@@ -121,4 +119,5 @@ light:
       number: GPIO2
       inverted: true
     internal: true
+
 ```

@@ -48,8 +48,6 @@ web_server:
   port: 80
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -103,4 +101,5 @@ light:
       - pulse:
       - strobe:
       - flicker:
+
 ```

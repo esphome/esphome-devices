@@ -42,8 +42,6 @@ substitutions:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -147,4 +145,5 @@ sensor:
       accuracy_decimals: 0
       device_class: energy
       state_class: total_increasing
+
 ```

@@ -62,8 +62,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 uart:
   rx_pin: GPIO3
@@ -91,4 +89,5 @@ light:
     switch_datapoint: 1
     min_value: 20
     max_value: 255
+
 ```

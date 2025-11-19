@@ -57,8 +57,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -85,6 +83,7 @@ light:
     switch_datapoint: 1
     min_value: 100
     max_value: 1000
+
 ```
 
 ## Advanced Configuration
@@ -104,6 +103,7 @@ select:
       0: Mode 1 # Index 0
       1: Mode 2 # Index 1
       2: Mode 3 # Index 2
+
 ```
 
 Here is a script that will set the dimming mode in a more static fashion when ESPHome Reboots. This will select based on
@@ -118,4 +118,5 @@ esphome:
       - select.set_index:
           id: "dimmer_mode"
           index: 2
+
 ```

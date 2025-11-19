@@ -32,8 +32,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 
@@ -77,4 +75,5 @@ output:
   - id: activity_led
     platform: gpio
     pin: GPIO04
+
 ```

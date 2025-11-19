@@ -29,8 +29,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 captive_portal:
 
@@ -70,6 +68,7 @@ sensor:
       id: co2
       name: "SenseAir CO2 Value"
     update_interval: 60s
+
 ```
 
 ### OLED Support
@@ -99,4 +98,5 @@ display:
       it.printf(0, 12, id(helvetica), "%.1f%% RH", id(humidity).state);
       it.printf(0, 24, id(helvetica), "%.0fppm", id(co2).state);
       it.printf(0, 36, id(helvetica), "%.0f µg/m³", id(pm25).state);
+
 ```

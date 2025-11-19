@@ -39,8 +39,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -85,4 +83,5 @@ switch:
       - light.turn_on: led
     on_turn_off:
       - light.turn_off: led
+
 ```

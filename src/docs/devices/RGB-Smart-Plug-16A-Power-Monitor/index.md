@@ -65,8 +65,6 @@ web_server:
   port: 80
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable Home Assistant API
 api:
@@ -243,4 +241,5 @@ script:
           red: 0%
           green: 100%
           blue: 50%
+
 ```

@@ -55,8 +55,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: "KinCony"
@@ -114,4 +112,5 @@ binary_sensor:
     pin:
       number: 14
       inverted: true
+
 ```

@@ -82,4 +82,5 @@ light:
 power_supply:
   - id: rgb_power
     pin: GPIO13
+
 ```

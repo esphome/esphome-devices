@@ -161,13 +161,12 @@ switch:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   networks:
   ap:
     password: !secret captive_portal_ap_password
 captive_portal:
+
 
 ```
 

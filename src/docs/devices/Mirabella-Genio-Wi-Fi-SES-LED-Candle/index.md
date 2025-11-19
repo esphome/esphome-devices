@@ -48,8 +48,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -81,4 +79,5 @@ light:
 
     # Ensure the light turns on by default if the physical switch is actuated.
     restore_mode: ALWAYS_ON
+
 ```

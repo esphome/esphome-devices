@@ -60,8 +60,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -83,4 +81,5 @@ light:
       - pulse:
       - strobe:
       - flicker:
+
 ```

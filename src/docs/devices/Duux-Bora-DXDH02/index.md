@@ -70,8 +70,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -161,4 +159,5 @@ select:
     options:
       0: High
       1: Low
+
 ```

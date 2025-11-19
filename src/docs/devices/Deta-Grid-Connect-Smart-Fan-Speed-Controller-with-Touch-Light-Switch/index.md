@@ -147,8 +147,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -331,6 +329,7 @@ switch:
                   id: fan_1
                   speed: 3
 
+
 ```
 
 ### Series 2 (BK72xx)
@@ -364,8 +363,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -563,4 +560,5 @@ switch:
               - fan.turn_on:
                   id: fan_1
                   speed: 3
+
 ```

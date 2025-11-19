@@ -72,8 +72,6 @@ api:
   password: !secret api_password
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -117,6 +115,7 @@ light:
     blue: output_blue
     white_brightness: output_brightness
     color_temperature: output_temperature
+
 ```
 
 ## Doing it the hard way

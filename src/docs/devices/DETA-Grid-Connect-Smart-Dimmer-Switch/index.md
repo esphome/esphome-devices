@@ -93,7 +93,6 @@ wifi:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 # The web_server & sensor components can be removed without affecting core functionaility.
@@ -139,4 +138,5 @@ light:
 switch:
   - platform: restart
     name: "${friendly_name} REBOOT"
+
 ```

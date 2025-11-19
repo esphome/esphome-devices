@@ -40,45 +40,59 @@ was unable to flash with a USB cable.
 ```yaml
 esphome:
   name: ESP32 relayboard
+
 esp32:
   variant: esp32
   framework:
     type: esp-idf
-logger: null
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
 api:
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 wifi:
-  ssid: wifi_ssid
-  password: wifi_password
+  ssid: "wifi_ssid"
+  password: "wifi_password"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ESP32 Fallback Hotspot
-    password: xxxx
+    ssid: "ESP32 Fallback Hotspot"
+    password: "xxxx"
+
+captive_portal:
+
 light:
-- platform: status_led
-  name: ESP32 Led
-  restore_mode: ALWAYS_OFF
-  pin:
-    number: GPIO23
-    inverted: false
+  - platform: status_led
+    name: "ESP32 Led"
+    restore_mode: ALWAYS_OFF
+    pin:
+      number: GPIO23
+      inverted: False
+
 switch:
-- platform: gpio
-  pin: GPIO16
-  name: ESP32 Relay
-  id: ESP32_relay
+  - platform: gpio
+    pin: GPIO16
+    name: "ESP32 Relay"
+    id: ESP32_relay
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: GPIO0
-    mode: INPUT_PULLUP
-  name: Button
-  filters:
-  - invert
-  - delayed_on_off: 50ms
-  on_press:
-    then:
-    - switch.turn_on: ESP32_relay
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+    name: Button
+    filters:
+      - invert
+      - delayed_on_off: 50ms
+    on_press:
+      then:
+        - switch.turn_on: ESP32_relay
+
+
 ```
 
 ## Enclosure

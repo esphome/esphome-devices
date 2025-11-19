@@ -109,8 +109,6 @@ wifi:
 
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 uart:
   id: uart_bus
@@ -138,6 +136,7 @@ select:
       0: Normal
       1: Natural
       2: Sleep
+
 ````
 
 ---

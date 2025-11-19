@@ -61,8 +61,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 # Just embedded test D3 (GPIO0) button on every ESP8266 Devboard
 # You can press D3 button several times to simulate incoming GGreg pulses
 binary_sensor:
@@ -98,4 +96,5 @@ sensor:
     time_unit: min # integrate values every next minute
     filters:
       - multiply: 0.00009 # obtained doze (from mkSv/hour into mkSv/minute) conversion factor: 0.0054 / 60 minutes = 0.00009; so pulses * 0.00009 = doze every next minute, mkSv.
+
 ```

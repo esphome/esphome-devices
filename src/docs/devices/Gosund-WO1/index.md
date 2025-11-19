@@ -53,8 +53,6 @@ wifi:
 
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 web_server:
   port: 80
 time:
@@ -183,4 +181,5 @@ sensor:
           // Add custom action for both buttons being pressed at the same time
           // here if needed.
         }
+
 ```

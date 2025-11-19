@@ -60,7 +60,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -114,6 +113,7 @@ switch:
 
   - platform: restart
     name: ${name} restart
+
 ```
 
 ![home assistant entities](./ha.jpg "Ha entities")

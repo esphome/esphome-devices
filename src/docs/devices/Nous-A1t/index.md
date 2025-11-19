@@ -59,8 +59,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -192,4 +190,5 @@ text_sensor:
   - platform: version
     name: "${devicename} - ESPHome Version"
     hide_timestamp: true
+
 ```

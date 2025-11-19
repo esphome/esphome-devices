@@ -33,8 +33,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -68,4 +66,5 @@ sensor:
   - platform: total_daily_energy
     name: "Daily Energy"
     power_id: orno_we_520_active_power
+
 ```

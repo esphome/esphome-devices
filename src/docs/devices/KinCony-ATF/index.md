@@ -34,8 +34,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -136,4 +134,5 @@ binary_sensor:
       inverted: true
 web_server:
   port: 80
+
 ```

@@ -53,8 +53,6 @@ captive_portal:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -81,4 +79,5 @@ light:
     cold_white_color_temperature: 6600 K
     warm_white_color_temperature: 3000 K
     restore_mode: RESTORE_DEFAULT_OFF
+
 ```

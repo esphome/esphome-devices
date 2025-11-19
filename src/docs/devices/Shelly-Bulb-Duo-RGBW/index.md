@@ -44,8 +44,6 @@ web_server:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -85,4 +83,5 @@ output:
     pin: GPIO5
     frequency: 1000 Hz
     id: pwm_w
+
 ```

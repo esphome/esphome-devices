@@ -74,8 +74,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 script:
   - id: send_event
@@ -126,4 +124,5 @@ output:
   - platform: esp8266_pwm
     pin: GPIO14
     id: led_green_pin
+
 ```

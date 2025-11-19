@@ -154,8 +154,6 @@ api:
   password: ""
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -258,4 +256,5 @@ select:
       2: Melody 3
       3: Melody 4
       4: Melody 5
+
 ```

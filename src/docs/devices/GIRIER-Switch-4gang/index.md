@@ -55,8 +55,6 @@ mdns:
 api:
 
 ota:
-  id: esphome_ota
-  platform: esphome
 
 wifi:
   networks:
@@ -152,5 +150,6 @@ status_led:
   pin:
     number: P10
     inverted: true
+
 
 ```

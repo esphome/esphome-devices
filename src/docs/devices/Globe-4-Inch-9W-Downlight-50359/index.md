@@ -182,4 +182,5 @@ output:
     pin: GPIO4
     frequency: ${ledc_frequency}
     id: output_pwm5_white_cold
+
 ```

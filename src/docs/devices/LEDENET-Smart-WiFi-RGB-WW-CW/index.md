@@ -49,8 +49,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -96,6 +94,7 @@ output:
   - platform: esp8266_pwm
     id: warm_white_channel
     pin: GPIO15
+
 ```
 
 ## RGBW Config
@@ -119,8 +118,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -164,6 +161,7 @@ output:
   - platform: esp8266_pwm
     id: warm_white_channel
     pin: GPIO15
+
 ```
 
 ## RGB Config
@@ -187,8 +185,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -230,4 +226,5 @@ output:
   - platform: esp8266_pwm
     id: warm_white_channel
     pin: GPIO15
+
 ```

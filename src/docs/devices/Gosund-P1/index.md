@@ -44,8 +44,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -190,4 +188,5 @@ switch:
         - switch.turn_off: relay3
         - delay: 60s
         - switch.turn_on: relay3
+
 ```

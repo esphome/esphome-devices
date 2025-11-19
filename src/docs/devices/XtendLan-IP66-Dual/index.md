@@ -55,8 +55,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -123,4 +121,5 @@ text_sensor:
     ip_address:
       name: ${friendly_name} IP address
       id: ip_address
+
 ```

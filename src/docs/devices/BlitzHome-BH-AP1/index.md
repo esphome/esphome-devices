@@ -67,8 +67,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 esp8266:
@@ -238,6 +236,7 @@ number:
     min_value: 0
     max_value: 1
     step: 1
+
 ```
 
 ### Configuration as fan entity
@@ -262,8 +261,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: true
 
 esp8266:
@@ -387,4 +384,5 @@ output:
   - platform: esp8266_pwm
     pin: GPIO4
     id: dummy_pwm
+
 ```

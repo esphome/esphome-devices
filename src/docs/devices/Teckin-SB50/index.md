@@ -41,8 +41,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Define output pins
 output:
@@ -68,4 +66,5 @@ light:
     green: output_green
     blue: output_blue
     white: output_white
+
 ```

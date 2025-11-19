@@ -44,100 +44,123 @@ already on to prevent unwanted loss of power to connected device(s).)
 
 ```yaml
 substitutions:
-  device_name: '***'
+  device_name: "***"
+
 esphome:
-  name: ${device_name}
+  name: "${device_name}"
+
 esp8266:
   board: esp01_1m
-logger: null
-api: null
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
 ota:
-  id: esphome_ota
-  platform: esphome
+
 wifi:
-  ssid: '***'
-  password: '***'
+  ssid: "***"
+  password: "***"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: '***'
-    password: '***'
+    ssid: "***"
+    password: "***"
+
+captive_portal:
+
 switch:
-- platform: gpio
-  name: ${device_name} socket 1
-  pin:
-    number: 4
-    inverted: true
-  id: relay_socket_1
-- platform: gpio
-  name: ${device_name} socket 2
-  pin:
-    number: 13
-    inverted: true
-  id: relay_socket_2
-- platform: gpio
-  name: ${device_name} socket 3
-  pin:
-    number: 12
-    inverted: true
-  id: relay_socket_3
-- platform: gpio
-  name: ${device_name} socket 4
-  pin:
-    number: 14
-    inverted: true
-  id: relay_socket_4
-- platform: gpio
-  name: ${device_name} USB
-  pin:
-    number: 16
-    inverted: false
-  id: relay_usb
+  # Relay - Socket 1
+  - platform: gpio
+    name: "${device_name} socket 1"
+    pin:
+      number: 4
+      inverted: true
+    id: relay_socket_1
+  # Relay - Socket 2
+  - platform: gpio
+    name: "${device_name} socket 2"
+    pin:
+      number: 13
+      inverted: true
+    id: relay_socket_2
+  # Relay - Socket 3
+  - platform: gpio
+    name: "${device_name} socket 3"
+    pin:
+      number: 12
+      inverted: true
+    id: relay_socket_3
+  # Relay - Socket 4
+  - platform: gpio
+    name: "${device_name} socket 4"
+    pin:
+      number: 14
+      inverted: true
+    id: relay_socket_4
+  # Relay - USB
+  - platform: gpio
+    name: "${device_name} USB"
+    pin:
+      number: 16
+      inverted: false
+    id: relay_usb
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: 5
-    inverted: true
-  name: ${device_name} Button
-  on_click:
-    if:
-      condition:
-        and:
-        - switch.is_on: relay_socket_1
-        - switch.is_on: relay_socket_2
-        - switch.is_on: relay_socket_3
-        - switch.is_on: relay_socket_4
-        - switch.is_on: relay_usb
-      then:
-      - switch.turn_off: relay_socket_1
-      - switch.turn_off: relay_socket_2
-      - switch.turn_off: relay_socket_3
-      - switch.turn_off: relay_socket_4
-      - switch.turn_off: relay_usb
-      else:
-      - switch.turn_on: relay_socket_1
-      - switch.turn_on: relay_socket_2
-      - switch.turn_on: relay_socket_3
-      - switch.turn_on: relay_socket_4
-      - switch.turn_on: relay_usb
+  - platform: gpio
+    pin:
+      number: 5
+      inverted: true
+    name: "${device_name} Button"
+    on_click:
+      if:
+        condition:
+          and:
+            - switch.is_on: relay_socket_1
+            - switch.is_on: relay_socket_2
+            - switch.is_on: relay_socket_3
+            - switch.is_on: relay_socket_4
+            - switch.is_on: relay_usb
+        then:
+          - switch.turn_off: relay_socket_1
+          - switch.turn_off: relay_socket_2
+          - switch.turn_off: relay_socket_3
+          - switch.turn_off: relay_socket_4
+          - switch.turn_off: relay_usb
+        else:
+          - switch.turn_on: relay_socket_1
+          - switch.turn_on: relay_socket_2
+          - switch.turn_on: relay_socket_3
+          - switch.turn_on: relay_socket_4
+          - switch.turn_on: relay_usb
+
 sensor:
-- platform: wifi_signal
-  name: ${device_name} WiFi Signal Strength
-  update_interval: 60s
+  # WiFi Signal Sensor
+  - platform: wifi_signal
+    name: "${device_name} WiFi Signal Strength"
+    update_interval: 60s
+
 light:
-- platform: binary
-  name: ${device_name} LED 1
-  output: light_1_output
-- platform: binary
-  name: ${device_name} LED 2
-  output: light_2_output
+  - platform: binary
+    name: "${device_name} LED 1"
+    output: light_1_output
+  - platform: binary
+    name: "${device_name} LED 2"
+    output: light_2_output
+
 output:
-- id: light_1_output
-  platform: gpio
-  pin:
-    number: 0
-    inverted: true
-- id: light_2_output
-  platform: gpio
-  pin:
-    number: 3
-    inverted: true
+  - id: light_1_output
+    platform: gpio
+    pin:
+      number: 0
+      inverted: true
+  - id: light_2_output
+    platform: gpio
+    pin:
+      number: 3
+      inverted: true
+
+
 ```

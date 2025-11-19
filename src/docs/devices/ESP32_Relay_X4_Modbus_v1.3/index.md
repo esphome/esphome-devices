@@ -57,7 +57,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 web_server:
@@ -167,4 +166,5 @@ status_led:
     number: 15
     inverted: true
     ignore_strapping_warning: true
+
 ```

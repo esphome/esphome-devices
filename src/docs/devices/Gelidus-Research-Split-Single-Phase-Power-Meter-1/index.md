@@ -75,6 +75,7 @@ The counters are reset every time a given active energy value is read from the A
           name: ${disp_name} ct1 RAWattHours
           id: ct1RAWattHours
           state_topic: ${disp_name}/ct1/reverse_active_energy
+
 ```
 
 ## Default config
@@ -231,6 +232,7 @@ time:
 switch:
   - platform: restart
     name: ${disp_name} Restart
+
 ```
 
 ## PM1 Features Example

@@ -79,8 +79,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 time:
   - platform: homeassistant
@@ -145,6 +143,7 @@ sensor:
 button:
   - platform: restart
     name: "Restart"
+
 ```
 
 If the USB Relay controls a light, it can also be implemented like this:
@@ -194,6 +193,7 @@ light:
     name: "${friendly_name}"
     id: "${name}"
     output: relay
+
 ```
 
 ## Useful links

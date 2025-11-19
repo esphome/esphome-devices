@@ -44,8 +44,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Platform
 bk72xx:
@@ -91,4 +89,5 @@ light:
     warm_white_color_temperature: 2700 K
     cold_white_color_temperature: 6500 K
     color_interlock: true
+
 ```

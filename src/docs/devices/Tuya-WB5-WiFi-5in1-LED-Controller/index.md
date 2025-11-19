@@ -107,8 +107,6 @@ tuya:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -149,6 +147,7 @@ light:
     # for RGB channels
     #color_datapoint: 24
     #color_type: hsv
+
 ```
 
 ### CCT
@@ -178,8 +177,6 @@ tuya:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -220,6 +217,7 @@ light:
     # for RGB channels
     #color_datapoint: 24
     #color_type: hsv
+
 ```
 
 ### RGB
@@ -249,8 +247,6 @@ tuya:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -290,6 +286,7 @@ light:
     # for RGB channels
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 ### RGBW
@@ -319,8 +316,6 @@ tuya:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -360,6 +355,7 @@ light:
     # for RGB channels
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 ### RGBWW
@@ -389,8 +385,6 @@ tuya:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi: #if you dont have secrets setup change the values with your wifi name and password
   ssid: !secret wifi_ssid
@@ -430,6 +424,7 @@ light:
     # for RGB channels
     color_datapoint: 24
     color_type: hsv
+
 ```
 
 [1]: https://www.aliexpress.com/item/1005003081976104.html

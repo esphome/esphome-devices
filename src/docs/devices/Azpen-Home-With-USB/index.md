@@ -51,8 +51,6 @@ api:
 
 # Enable over-the-air updates.
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable WEB server for status and updates.
 web_server:
@@ -87,4 +85,5 @@ switch:
     name: "USB Relay"
     pin: GPIO4
     id: usbrelay
+
 ```

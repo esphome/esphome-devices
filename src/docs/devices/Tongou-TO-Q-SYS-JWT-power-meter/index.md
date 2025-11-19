@@ -154,7 +154,6 @@ mdns:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -526,4 +525,5 @@ button:
       - delay: 1s
       # The flag isn't cleared automatically by the MCU so it's done manually.
       - switch.turn_off: clear_electricity_switch
+
 ```

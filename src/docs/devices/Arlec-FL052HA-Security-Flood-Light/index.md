@@ -59,8 +59,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 output:
   - platform: esp8266_pwm
@@ -72,4 +70,5 @@ light:
   - platform: monochromatic
     output: pwm_output
     name: "fl052ha_flood_light"
+
 ```

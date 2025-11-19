@@ -63,7 +63,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 #wifi:
@@ -472,5 +471,6 @@ switch:
       number: 8
       inverted: false
       allow_other_uses: true
+
 
 ```

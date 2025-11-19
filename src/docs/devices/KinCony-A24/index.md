@@ -563,4 +563,5 @@ light:
   - platform: monochromatic
     name: "A24-DAC-2"
     output: gp8403_output_2
+
 ```

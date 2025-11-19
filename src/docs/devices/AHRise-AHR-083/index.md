@@ -57,8 +57,6 @@ text_sensor:
       name: "${displayname} IP Address"
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 switch:
   - platform: gpio
@@ -116,4 +114,5 @@ binary_sensor:
   # Binary sensor to display the connected status
   - platform: status
     name: "${displayname} Status"
+
 ```

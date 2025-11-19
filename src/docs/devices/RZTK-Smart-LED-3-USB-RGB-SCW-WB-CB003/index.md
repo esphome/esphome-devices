@@ -54,7 +54,6 @@ logger:
 # Enable Home Assistant API
 api:
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -180,4 +179,5 @@ light:
               duration: 500ms
     # Ensure the light turns on by default if the physical switch is actuated.
     restore_mode: ALWAYS_OFF
+
 ```

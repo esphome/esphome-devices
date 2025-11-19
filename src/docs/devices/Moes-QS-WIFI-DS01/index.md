@@ -38,8 +38,6 @@ api:
 
 # Enable Over The Air updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Disable logging
 logger:
@@ -264,4 +262,5 @@ interval:
                 call.set_brightness(curr_bright - (2.0/255.0));
                 call.perform();
               }
+
 ```

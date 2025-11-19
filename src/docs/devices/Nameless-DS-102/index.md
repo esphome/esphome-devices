@@ -62,8 +62,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   esp8266_store_log_strings_in_flash: false
@@ -143,6 +141,7 @@ light:
     output: led2
     internal: true
     id: led_light2
+
 ```
 
 ## Basic Configuration (3-Gang)
@@ -162,8 +161,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
   esp8266_store_log_strings_in_flash: false
@@ -268,4 +265,5 @@ light:
     output: led3
     internal: true
     id: led_light3
+
 ```

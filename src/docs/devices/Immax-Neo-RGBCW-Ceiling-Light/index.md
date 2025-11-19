@@ -31,7 +31,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -42,4 +41,5 @@ wifi:
   ap:
     ssid: "Immax Fallback Hotspot"
     password: "xxxxxxxxxxxxxxxxxxxxxxxx"
+
 ```

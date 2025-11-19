@@ -87,8 +87,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
   #password: !secret ota_password
 
 wifi:
@@ -179,4 +177,5 @@ sensor:
     unit_of_measurement: kWh
     state_class: total_increasing
     device_class: energy
+
 ```

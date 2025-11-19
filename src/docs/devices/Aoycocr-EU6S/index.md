@@ -51,8 +51,6 @@ api:
 
 # Enable over-the-air updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 web_server:
   port: 80
@@ -151,4 +149,5 @@ switch:
     pin: GPIO2
     id: led
     inverted: True
+
 ```

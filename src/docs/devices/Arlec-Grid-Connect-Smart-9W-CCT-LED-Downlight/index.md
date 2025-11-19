@@ -59,8 +59,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: uptime
@@ -85,4 +83,5 @@ light:
     cold_white_color_temperature: 5700 K
     warm_white_color_temperature: 3000 K
     constant_brightness: true
+
 ```

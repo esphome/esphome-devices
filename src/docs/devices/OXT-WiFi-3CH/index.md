@@ -42,55 +42,65 @@ program it
 ```yaml
 substitutions:
   device_name: oxt-3ch
+
 esphome:
   name: ${device_name}
   friendly_name: ${device_name}
+
 bk72xx:
   board: cb3s
-logger: null
+
+logger:
+
+captive_portal:
+
 status_led:
   pin:
     number: GPIO9
     inverted: true
+
 switch:
-- platform: gpio
-  pin: P7
-  id: relay1
-- platform: gpio
-  pin: P8
-  id: relay2
-- platform: gpio
-  pin: P9
-  id: relay3
+  - platform: gpio
+    pin: P7
+    id: relay1
+  - platform: gpio
+    pin: P8
+    id: relay2
+  - platform: gpio
+    pin: P9
+    id: relay3
+
 binary_sensor:
-- platform: gpio
-  pin:
-    number: P6
-    mode: INPUT_PULLUP
-    inverted: true
-  name: ${device_name} switch 1
-  on_press:
-  - light.toggle: relay1
-  on_release:
-  - light.toggle: relay1
-- platform: gpio
-  pin:
-    number: P24
-    mode: INPUT_PULLUP
-    inverted: true
-  name: ${device_name} switch 2
-  on_press:
-  - light.toggle: relay2
-  on_release:
-  - light.toggle: relay2
-- platform: gpio
-  pin:
-    number: P26
-    mode: INPUT_PULLUP
-    inverted: true
-  name: ${device_name} switch 3
-  on_press:
-  - light.toggle: relay3
-  on_release:
-  - light.toggle: relay3
+  - platform: gpio
+    pin:
+      number: P6
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${device_name} switch 1
+    on_press:
+      - light.toggle: relay1
+    on_release:
+      - light.toggle: relay1
+  - platform: gpio
+    pin:
+      number: P24
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${device_name} switch 2
+    on_press:
+      - light.toggle: relay2
+    on_release:
+      - light.toggle: relay2
+  - platform: gpio
+    pin:
+      number: P26
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${device_name} switch 3
+    on_press:
+      - light.toggle: relay3
+    on_release:
+      - light.toggle: relay3
+
+
 ```

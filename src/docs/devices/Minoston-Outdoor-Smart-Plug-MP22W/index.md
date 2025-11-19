@@ -44,8 +44,6 @@ web_server:
   port: 80
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
 
@@ -101,4 +99,5 @@ sensor:
   - platform: wifi_signal
     name: Signal
     update_interval: 60s
+
 ```

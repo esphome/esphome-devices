@@ -78,8 +78,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Button configuration
 binary_sensor:
@@ -125,6 +123,7 @@ light:
 status_led:
   pin:
     number: GPIO0
+
 ```
 
 ## Advanced config additions
@@ -138,6 +137,7 @@ In the esphome section, you can perform actions when the device boots:
       - switch.turn_on: relay2
       - switch.turn_on: relay3
       - switch.turn_on: relay4
+
 ```
 
 Under wifi this can be added, this will set up static IP, allow the device to connect to a hidden SSID (fast_connect)
@@ -155,6 +155,7 @@ wifi:
   ap:
     ssid: "${device_name} Hotspot"
     password: !secret appw
+
 ```
 
 This wll activate the internal webserver with password protection
@@ -165,6 +166,7 @@ web_server:
   auth:
     username: !secret webuser
     password: !secret webpw
+
 ```
 
 To set time locally to the same as on the HomeAssistant (better logging)
@@ -174,6 +176,7 @@ To set time locally to the same as on the HomeAssistant (better logging)
 time:
   - platform: homeassistant
     id: homeassistant_time
+
 ```
 
 To have different data shown for the device (ESPHome version) and the wifi. Will appear as sensors in HA.
@@ -188,6 +191,7 @@ text_sensor:
       name: "${device_name} ip"
     ssid:
       name: "${device_name} ssid"
+
 ```
 
 This will create sensors so that you can track wifi coverage for the devices, and also note the uptime for the devices.
@@ -205,4 +209,5 @@ sensors:
     accuracy_decimals: 1
     filters:
       - multiply: 0.000011574
+
 ```

@@ -54,8 +54,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # the web_server & sensor components can be removed without affecting core functionaility.
 
@@ -139,4 +137,5 @@ status_led:
   pin:
     number: GPIO3
     inverted: true
+
 ```

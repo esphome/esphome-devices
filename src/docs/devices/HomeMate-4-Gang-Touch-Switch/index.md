@@ -124,8 +124,6 @@ esphome:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -284,4 +282,5 @@ switch:
           condition: { lambda: 'return id(status_led_when_off);' }
           then: { lambda: 'pinMode(7, OUTPUT); digitalWrite(7, LOW);' }
           else: { lambda: 'pinMode(7, INPUT);' }
+
 ```

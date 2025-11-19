@@ -50,8 +50,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable Web server
 web_server:
@@ -105,6 +103,7 @@ light:
     # Ensure the light turns on by default if the physical switch is actuated.
     restore_mode: ALWAYS_ON
     default_transition_length: 0.2s
+
 ```
 
 ## Disassembly

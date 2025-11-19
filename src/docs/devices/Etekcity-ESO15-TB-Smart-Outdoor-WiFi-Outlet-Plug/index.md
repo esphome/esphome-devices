@@ -66,8 +66,6 @@ captive_portal:
 api:
   
 ota:
-    platform: esphome
-    id: esphome_ota
 
 # Enable logging
 logger:
@@ -141,4 +139,5 @@ output:
 status_led:
   pin:
     number: GPIO16
+
 ```

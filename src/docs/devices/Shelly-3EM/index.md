@@ -125,8 +125,6 @@ api:
 
 # Enable OTAs
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Sync RTC with HA
 time:
@@ -264,4 +262,5 @@ sensor:
     filters:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
+
 ```

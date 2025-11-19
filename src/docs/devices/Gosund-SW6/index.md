@@ -57,8 +57,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -125,4 +123,5 @@ switch:
       mode: INPUT_PULLDOWN_16
     id: dummy_relay
     internal: True
+
 ```

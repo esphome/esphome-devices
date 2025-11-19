@@ -60,7 +60,6 @@ api:
   encryption:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -81,4 +80,5 @@ fan:
     name: "Kitchen Lights"
     output: arduino_dimmer_1
     icon: "mdi:lightbulb"
+
 ```

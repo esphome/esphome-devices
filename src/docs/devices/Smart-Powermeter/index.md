@@ -61,8 +61,6 @@ api:
 
 # Enable Over The Air updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 #Public location of this yaml file
 dashboard_import:
@@ -210,4 +208,5 @@ display:
     rotation: 270
     update_interval: 1min
     full_update_every: 1
+
 ```

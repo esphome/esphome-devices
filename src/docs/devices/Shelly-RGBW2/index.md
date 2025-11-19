@@ -39,8 +39,6 @@ captive_portal:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 light:
   - platform: rgbw
@@ -74,6 +72,7 @@ output:
     pin: GPIO4
     frequency: 1000 Hz
     id: pwm_w
+
 ```
 
 ## Configuration for 4 monochromatic channels
@@ -91,8 +90,6 @@ esp8266:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   ssid: !secret wifi_ssid
@@ -223,6 +220,7 @@ binary_sensor:
                         relative_brightness: -5%
                         transition_length: 0.1s
                     - delay: 0.1s
+
 ```
 
 ## Configuration for 2x CWWW (dual color Cold White Warm White) lights
@@ -263,8 +261,6 @@ wifi:
     password: !secret ap_pass
 
 ota:
-  platform: esphome
-  id: esphome_ota
   safe_mode: True
 
 captive_portal:
@@ -316,4 +312,5 @@ binary_sensor:
   - platform: gpio
     pin: GPIO5
     id: light_0_touch
+
 ```

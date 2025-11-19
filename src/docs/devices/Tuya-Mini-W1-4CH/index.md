@@ -43,98 +43,109 @@ program it
 ```yaml
 substitutions:
   device_name: tuya-wifi-4ch
+
 esphome:
   name: tuya-wifi-4ch
   friendly_name: tuya-wifi-4ch
+
 bk72xx:
   board: cbu
-logger: null
+
+logger:
+
+captive_portal:
+
 status_led:
   pin:
     number: GPIO11
-    inverted: true
+    inverted: yes
+
 output:
-- platform: gpio
-  pin: GPIO10
-  id: relay1
-- platform: gpio
-  pin: GPIO24
-  id: relay2
-- platform: gpio
-  pin: GPIO26
-  id: relay3
-- platform: gpio
-  pin: GPIO28
-  id: relay4
+  - platform: gpio
+    pin: GPIO10
+    id: relay1
+  - platform: gpio
+    pin: GPIO24
+    id: relay2
+  - platform: gpio
+    pin: GPIO26
+    id: relay3
+  - platform: gpio
+    pin: GPIO28
+    id: relay4
+
 light:
-- platform: binary
-  name: Relay 1
-  output: relay1
-  id: sw1
-- platform: binary
-  name: Relay 2
-  output: relay2
-  id: sw2
-- platform: binary
-  name: Relay 3
-  output: relay3
-  id: sw3
-- platform: binary
-  name: Relay 4
-  output: relay4
-  id: sw4
+  - platform: binary
+    name: "Relay 1"
+    output: relay1
+    id: sw1
+  - platform: binary
+    name: "Relay 2"
+    output: relay2
+    id: sw2
+  - platform: binary
+    name: "Relay 3"
+    output: relay3
+    id: sw3
+  - platform: binary
+    name: "Relay 4"
+    output: relay4
+    id: sw4
+
 binary_sensor:
-- platform: gpio
-  internal: true
-  pin:
-    number: GPIO6
-    mode:
-      input: true
-      pullup: true
-    inverted: true
-  name: S1
-  on_press:
-  - light.toggle: sw1
-- platform: gpio
-  internal: true
-  pin:
-    number: GPIO7
-    mode:
-      input: true
-      pullup: true
-    inverted: true
-  name: S2
-  on_press:
-  - light.toggle: sw2
-- platform: gpio
-  internal: true
-  pin:
-    number: GPIO8
-    mode:
-      input: true
-      pullup: true
-    inverted: true
-  name: S3
-  on_press:
-  - light.toggle: sw3
-- platform: gpio
-  internal: true
-  pin:
-    number: GPIO9
-    mode:
-      input: true
-      pullup: true
-    inverted: true
-  name: S4
-  on_press:
-  - light.toggle: sw4
-- platform: gpio
-  internal: true
-  pin:
-    number: GPIO23
-    mode:
-      input: true
-      pullup: true
-    inverted: true
-  name: Push Button
+  - platform: gpio
+    internal: true
+    pin:
+      number: GPIO6
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "S1"
+    on_press:
+      - light.toggle: sw1
+  - platform: gpio
+    internal: true
+    pin:
+      number: GPIO7
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "S2"
+    on_press:
+      - light.toggle: sw2
+  - platform: gpio
+    internal: true
+    pin:
+      number: GPIO8
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "S3"
+    on_press:
+      - light.toggle: sw3
+  - platform: gpio
+    internal: true
+    pin:
+      number: GPIO9
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "S4"
+    on_press:
+      - light.toggle: sw4
+  - platform: gpio
+    internal: true
+    pin:
+      number: GPIO23
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Push Button"
+
+
 ```

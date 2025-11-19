@@ -45,8 +45,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 binary_sensor:
@@ -105,4 +103,5 @@ light:
     pin: GPIO15
     id: status_light
     internal: true
+
 ```

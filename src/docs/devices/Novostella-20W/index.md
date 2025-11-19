@@ -59,8 +59,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -165,6 +163,7 @@ interval:
             - light.turn_off:
                 id: thelight
                 transition_length: 250ms
+
 ```
 
 ## Split Configuration
@@ -207,8 +206,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable web server
 web_server:
@@ -313,6 +310,7 @@ interval:
             - light.turn_off:
                 id: thelight
                 transition_length: 250ms
+
 ```
 
 Then in each bulb's yaml:
@@ -324,4 +322,5 @@ substitutions:
   friendly_name: Novostella Flood Light 1
 
 <<: !include novoflood_common.yaml
+
 ```

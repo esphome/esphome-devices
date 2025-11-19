@@ -57,7 +57,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -577,4 +576,5 @@ sensor:
 #    update_interval: 1s
 
 captive_portal:
+
 ```

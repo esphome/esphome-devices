@@ -38,7 +38,6 @@ logger:
 api:
 
 ota:
-  id: esphome_ota
   - platform: esphome
 
 wifi:
@@ -102,4 +101,5 @@ output:
   - platform: gpio
     id: relayoutput
     pin: P20
+
 ```

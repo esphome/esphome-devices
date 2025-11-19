@@ -78,8 +78,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -191,4 +189,5 @@ switch:
       - output.turn_on: led
     on_turn_off:
       - output.turn_off: led
+
 ```

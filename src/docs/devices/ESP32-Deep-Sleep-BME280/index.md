@@ -109,8 +109,6 @@ logger:
   level: INFO
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 i2c:
   sda: 16
@@ -133,5 +131,6 @@ deep_sleep:
   id: deep_sleep_1
 # run_duration: 10s
   sleep_duration: 60min
+
 
 ```

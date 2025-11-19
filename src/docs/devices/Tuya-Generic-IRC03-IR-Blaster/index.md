@@ -74,6 +74,7 @@ remote_receiver:
       input: true
       pullup: true
   tolerance: 55%
+
 ```
 
 If you're attempting to use this with raw IR commands with an integration such as SmartIR, make sure that you set the
@@ -91,6 +92,7 @@ api:
         - remote_transmitter.transmit_raw:
             code: !lambda "return command;"
             carrier_frequency: !lambda "return 38000.0;"
+
 ```
 
 If you don't know the carrier frequency, and the NEC default of 38 kHz doesn't work, you can find out what your device's
@@ -107,6 +109,7 @@ remote_receiver:
       pullup: true
   tolerance: 55%
   dump: pronto
+
 ```
 
 Once you flash the firmware, keep the device logs open within ESPHome Device Builder. Take the remote for your device,

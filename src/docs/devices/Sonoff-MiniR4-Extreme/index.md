@@ -82,8 +82,6 @@ api:
   password: ""
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 wifi:
   networks:
@@ -171,4 +169,5 @@ binary_sensor:
       then:
         - light.turn_off:
             id: light_1
+
 ```

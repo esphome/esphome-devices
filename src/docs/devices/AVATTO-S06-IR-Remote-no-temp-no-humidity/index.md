@@ -83,8 +83,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # https://esphome.io/components/status_led.html
 status_led:
@@ -129,4 +127,5 @@ switch:
   - platform: shutdown
     name: "IR Remote Shutdown"
     id: ir_remote_shutdown
+
 ```

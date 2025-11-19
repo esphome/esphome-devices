@@ -221,6 +221,7 @@ binary_sensor:
       then:
         - light.toggle: light_right
     internal: True
+
 ```
 
 ### 2 Gang Configuration for ESP
@@ -242,8 +243,6 @@ captive_portal:
 api:
   
 ota:
-  id: esphome_ota
-  platform: esphome
   
 wifi:
  ssid: !secret wifi_ssid
@@ -297,6 +296,7 @@ binary_sensor:
 switch:
   - platform: restart
     name: "Restart"
+
 ```
 
 ### 3 Gang Configuration for BK72XX (Series 2)
@@ -337,8 +337,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -447,6 +445,7 @@ binary_sensor:
       then:
         - light.toggle: light_3
     internal: True
+
 ```
 
 ### 3 Gang Configuration for ESP
@@ -481,8 +480,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
 
@@ -577,6 +574,7 @@ binary_sensor:
 switch:
   - platform: restart
     name: "${friendly_name} REBOOT"
+
 ```
 
 ### 4 Gang Configuration for BK72XX (Series 2)
@@ -618,8 +616,6 @@ captive_portal:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 sensor:
   - platform: wifi_signal
@@ -751,6 +747,7 @@ binary_sensor:
       then:
         - light.toggle: light_4
     internal: True
+
 ```
 
 ### 4 Gang Configuration for ESP
@@ -787,8 +784,6 @@ wifi:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 logger:
 
@@ -905,4 +900,5 @@ binary_sensor:
 switch:
   - platform: restart
     name: "${friendly_name} REBOOT"
+
 ```

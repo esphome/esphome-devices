@@ -32,8 +32,6 @@ wifi:
 logger:
 api:
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Device Specific Config
 output:
@@ -59,6 +57,7 @@ binary_sensor:
         - light.toggle: lightid
     internal: true
     id: switchid
+
 ```
 
 ## Detached switch mode for push button light switch
@@ -104,8 +103,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable Web server (optional).
 web_server:
@@ -212,6 +209,7 @@ binary_sensor:
                 - switch.toggle: shelly_relay
     internal: true
     id: button
+
 ```
 
 ## Detached switch mode for toggle light switch
@@ -258,8 +256,6 @@ api:
 
 # Enable OTA updates
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Enable Web server (optional).
 web_server:
@@ -319,4 +315,5 @@ binary_sensor:
             else:
               - switch.toggle: shelly_relay
     id: button
+
 ```

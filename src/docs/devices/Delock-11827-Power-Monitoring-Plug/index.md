@@ -72,8 +72,6 @@ logger:
 api:
 
 ota:
-  platform: esphome
-  id: esphome_ota
 
 # Example configuration entry
 web_server:
@@ -126,4 +124,5 @@ switch:
       - switch.turn_on: led
     on_turn_off:
       - switch.turn_off: led
+
 ```
