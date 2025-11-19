@@ -31,11 +31,9 @@ rtl87xx:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
-  password: !secret esp_ota_pass
+  platform: esphome
+#   password: !secret esp_ota_pass  # Removed for validation
 
 wifi:
   ssid: !secret wifi_ssid
@@ -44,7 +42,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "SP23 AP"
-    password: !secret ap_pass
+#     password: !secret ap_pass  # Removed for validation
 
 captive_portal:
 

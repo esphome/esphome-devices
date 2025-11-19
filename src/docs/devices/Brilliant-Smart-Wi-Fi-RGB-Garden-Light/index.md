@@ -39,10 +39,8 @@ logger:
 web_server:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
+  platform: esphome
   password: "ota_password"
 
 light:

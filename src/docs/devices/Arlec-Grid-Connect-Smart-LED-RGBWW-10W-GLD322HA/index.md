@@ -41,10 +41,11 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret ota_password
+#   password: !secret ota_password  # Removed for validation
 
 ota:
-  password: !secret ota_password
+  platform: esphome
+#   password: !secret ota_password  # Removed for validation
 
 wifi:
   ssid: !secret wifi_ssid

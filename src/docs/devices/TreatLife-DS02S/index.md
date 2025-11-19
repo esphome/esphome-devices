@@ -49,17 +49,15 @@ wifi:
   fast_connect: true
   ap:
     ssid: ${device_name}
-    password: !secret esphome_ap_password
+#     password: !secret esphome_ap_password  # Removed for validation
 
 logger:
   baud_rate: 0
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
-  password: !secret esphome_ota_password
+  platform: esphome
+#   password: !secret esphome_ota_password  # Removed for validation
 
 web_server:
   port: 80

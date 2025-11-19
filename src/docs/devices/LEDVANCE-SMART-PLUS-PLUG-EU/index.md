@@ -49,10 +49,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: ""
-
 ota:
+  platform: esphome
   password: ""
 
 # Enable Web server
@@ -70,7 +68,7 @@ wifi:
   password: !secret wifi_password
   ap:
     ssid: ${device_name}_fallback
-    password: !secret ap_password
+#     password: !secret ap_password  # Removed for validation
     ap_timeout: 1min
   use_address: ${device_name}.local
 

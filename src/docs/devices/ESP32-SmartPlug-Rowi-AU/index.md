@@ -55,7 +55,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 web_server:
 
 dashboard_import:

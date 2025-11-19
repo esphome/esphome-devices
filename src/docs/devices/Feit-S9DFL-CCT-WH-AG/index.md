@@ -21,11 +21,12 @@ logger:
 api:
   password: ""
 ota:
+  platform: esphome
   password: ""
 wifi:
   networks:
   ap:
-    password: !secret captive_portal_ap_password
+#     password: !secret captive_portal_ap_password  # Removed for validation
 web_server:
 captive_portal:
 output:

@@ -39,7 +39,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 binary_sensor:
   - platform: gpio
     pin:

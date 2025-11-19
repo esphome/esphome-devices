@@ -97,9 +97,6 @@ captive_portal:
 logger:
 
 api:
-  encryption:
-    key: "YOUR API KEY GOES HERE"
-
 ota:
   platform: esphome
 

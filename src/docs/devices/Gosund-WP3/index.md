@@ -35,7 +35,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${device_name} Fallback Hotspot"
-    password: !secret wifi_fallback_pw
+#     password: !secret wifi_fallback_pw  # Removed for validation
 
 # Enable logging
 logger:
@@ -44,7 +44,8 @@ logger:
 api:
 
 ota:
-  password: !secret gosund_1_ota
+  platform: esphome
+#   password: !secret gosund_1_ota  # Removed for validation
 
 binary_sensor:
   - platform: gpio

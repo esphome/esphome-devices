@@ -45,7 +45,7 @@ esp8266:
 api:
 
 ota:
-
+  platform: esphome
 mdns:
   disabled: false
 

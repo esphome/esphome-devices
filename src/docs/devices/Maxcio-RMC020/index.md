@@ -51,7 +51,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: ${friendly_name}
-    password: !secret ap_password
+#     password: !secret ap_password  # Removed for validation
 
   manual_ip:
     static_ip: 192.168.1.131
@@ -70,10 +70,11 @@ web_server:
 # Enable Home Assistant API
 api:
 #  encryption:
-#    key: !secret encryption_key
+# #    key: !secret encryption_key  # Removed for validation
 
 ota:
-#  password: !secret OTA_Password
+  platform: esphome
+# #  password: !secret OTA_Password  # Removed for validation
 
 # Enable time component for use by daily power sensor
 time:

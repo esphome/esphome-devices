@@ -44,11 +44,9 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
-
 ota:
-  password: !secret api_pass
+  platform: esphome
+#   password: !secret api_pass  # Removed for validation
 
 web_server:
   port: 80

@@ -23,7 +23,7 @@ esp8266:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifi_pw
+#   password: !secret wifi_pw  # Removed for validation
   power_save_mode: none
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
@@ -35,12 +35,9 @@ captive_portal:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption
-
 # Enable Over The Air updates
 ota:
-
+  platform: esphome
 # Disable logging
 logger:
   baud_rate: 0

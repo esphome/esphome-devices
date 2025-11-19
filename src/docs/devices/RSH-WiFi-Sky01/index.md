@@ -63,7 +63,7 @@ globals:
 api:
 
 ota:
-
+  platform: esphome
 web_server:
 
 wifi:

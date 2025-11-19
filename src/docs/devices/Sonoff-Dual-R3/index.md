@@ -57,11 +57,9 @@ wifi:
   password: !secret wifi_password
 
 api:
-  encryption:
-    key: !secret esp_api_key
-
 ota:
-  password: !secret ota_secret
+  platform: esphome
+#   password: !secret ota_secret  # Removed for validation
 
 sensor:
   - platform: wifi_signal

@@ -43,7 +43,7 @@ esp8266:
   board: esp01_1m
 
 ota:
-
+  platform: esphome
 wifi:
   ssid: <SSID>
   password: <Password>

@@ -143,7 +143,7 @@ ethernet:
 api:
 logger:
 ota:
-
+  platform: esphome
 dashboard_import:
   package_import_url: github://blakadder/bluetooth-proxies/gl-s10.yaml@main
 

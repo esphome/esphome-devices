@@ -65,7 +65,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 mdns:
   disabled: false
 
@@ -103,7 +103,8 @@ uart:
   #   direction: BOTH
   #   dummy_receiver: true
   #   after:
-  #     delimiter: "\n"
+  #     delimiter: "
+"
   #   sequence:
   #     - lambda: UARTDebug::log_string(direction, bytes);
 
@@ -192,9 +193,11 @@ switch:
     optimistic: true
     restore_mode: DISABLED
     turn_on_action:
-      - uart.write: "sensorStart\r\n"
+      - uart.write: "sensorStart
+"
     turn_off_action:
-      - uart.write: "sensorStop\r\n"
+      - uart.write: "sensorStop
+"
 
 number:
   - platform: template
@@ -213,10 +216,12 @@ number:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
       - uart.write:
-          !lambda std::string ranges = "setRange 1.8 " + str_sprintf("%.1f",id(Farthest_Detection).state) + "\r\n";
+          !lambda std::string ranges = "setRange 1.8 " + str_sprintf("%.1f",id(Farthest_Detection).state) + "
+";
           return std::vector<uint8_t>(ranges.begin(), ranges.end());
       - delay: 500ms
-      - uart.write: "saveConfig\r\n"
+      - uart.write: "saveConfig
+"
       - delay: 500ms
       - switch.turn_on: mmwave_sensor
 
@@ -235,10 +240,12 @@ number:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
       - uart.write:
-          !lambda std::string sensitivitys = "setSensitivity " + str_sprintf("%.0f",id(Maintain_Sensitivity).state) + " " + str_sprintf("%.0f",id(Trigger_Sensitivity).state) + "\r\n";
+          !lambda std::string sensitivitys = "setSensitivity " + str_sprintf("%.0f",id(Maintain_Sensitivity).state) + " " + str_sprintf("%.0f",id(Trigger_Sensitivity).state) + "
+";
           return std::vector<uint8_t>(sensitivitys.begin(), sensitivitys.end());
       - delay: 500ms
-      - uart.write: "saveConfig\r\n"
+      - uart.write: "saveConfig
+"
       - delay: 500ms
       - switch.turn_on: mmwave_sensor
 
@@ -257,10 +264,12 @@ number:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
       - uart.write:
-          !lambda std::string sensitivityss = "setSensitivity " + str_sprintf("%.0f",id(Maintain_Sensitivity).state) + " " + str_sprintf("%.0f",id(Trigger_Sensitivity).state) + "\r\n";
+          !lambda std::string sensitivityss = "setSensitivity " + str_sprintf("%.0f",id(Maintain_Sensitivity).state) + " " + str_sprintf("%.0f",id(Trigger_Sensitivity).state) + "
+";
           return std::vector<uint8_t>(sensitivityss.begin(), sensitivityss.end());
       - delay: 500ms
-      - uart.write: "saveConfig\r\n"
+      - uart.write: "saveConfig
+"
       - delay: 500ms
       - switch.turn_on: mmwave_sensor
 
@@ -280,10 +289,12 @@ number:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
       - uart.write: !lambda |-
-          std::string detections = "setLatency " + str_sprintf("%.1f",id(Detection_Delay).state) + " " + str_sprintf("%.0f",id(Fading_Time).state) + "\r\n";
+          std::string detections = "setLatency " + str_sprintf("%.1f",id(Detection_Delay).state) + " " + str_sprintf("%.0f",id(Fading_Time).state) + "
+";
           return std::vector<uint8_t>(detections.begin(),detections.end());
       - delay: 500ms
-      - uart.write: "saveConfig\r\n"
+      - uart.write: "saveConfig
+"
       - delay: 500ms
       - switch.turn_on: mmwave_sensor
 
@@ -303,10 +314,12 @@ number:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
       - uart.write: !lambda |-
-          std::string fadings = "setLatency " + str_sprintf("%.1f",id(Detection_Delay).state) + " " + str_sprintf("%.0f",id(Fading_Time).state) + "\r\n";
+          std::string fadings = "setLatency " + str_sprintf("%.1f",id(Detection_Delay).state) + " " + str_sprintf("%.0f",id(Fading_Time).state) + "
+";
           return std::vector<uint8_t>(fadings.begin(), fadings.end());
       - delay: 500ms
-      - uart.write: "saveConfig\r\n"
+      - uart.write: "saveConfig
+"
       - delay: 500ms
       - switch.turn_on: mmwave_sensor
 
@@ -326,10 +339,12 @@ number:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
       - uart.write:
-          !lambda std::string blockades = "setInhibit " + str_sprintf("%.0f",x) + "\r\n";
+          !lambda std::string blockades = "setInhibit " + str_sprintf("%.0f",x) + "
+";
           return std::vector<uint8_t>(blockades.begin(), blockades.end());
       - delay: 500ms
-      - uart.write: "saveConfig\r\n"
+      - uart.write: "saveConfig
+"
       - delay: 500ms
       - switch.turn_on: mmwave_sensor
 
@@ -346,7 +361,8 @@ button:
     on_press:
       - switch.turn_off: mmwave_sensor
       - delay: 500ms
-      - uart.write: "resetCfg\r\n"
+      - uart.write: "resetCfg
+"
       - delay: 1s
       - switch.turn_on: mmwave_sensor
       - button.press: Reset
@@ -362,7 +378,8 @@ button:
     entity_category: config
     internal: true
     on_press:
-      - uart.write: "resetSystem\r\n"
+      - uart.write: "resetSystem
+"
 
   - platform: template
     name: Restart device

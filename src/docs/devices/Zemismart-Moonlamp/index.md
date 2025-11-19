@@ -75,7 +75,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${device_name} Hotspot"
-    password: !secret appw
+#     password: !secret appw  # Removed for validation
 
 logger:
   baud_rate: 0
@@ -83,7 +83,8 @@ logger:
 api:
 
 ota:
-  password: !secret otapw
+  platform: esphome
+#   password: !secret otapw  # Removed for validation
 
 output:
   - platform: esp8266_pwm

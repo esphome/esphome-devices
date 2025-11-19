@@ -41,7 +41,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 time:
   - platform: sntp
     timezone: Europe/Madrid

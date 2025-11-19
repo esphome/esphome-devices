@@ -69,18 +69,18 @@ captive_portal:
 mdns:
 
 api:
-  password: !secret api_password
+#   password: !secret api_password  # Removed for validation
 
 ota:
   platform: esphome
-  password: !secret ota_password
+#   password: !secret ota_password  # Removed for validation
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
     ssid: "Avita Fallback Hotspot"
-    password: !secret hotspot_password
+#     password: !secret hotspot_password  # Removed for validation
 
 text_sensor:
   - platform: libretiny

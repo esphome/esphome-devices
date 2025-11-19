@@ -78,7 +78,8 @@ logger:
 api:
 
 ota:
-  password: !secret otapw
+  platform: esphome
+#   password: !secret otapw  # Removed for validation
 
 # Button configuration
 binary_sensor:

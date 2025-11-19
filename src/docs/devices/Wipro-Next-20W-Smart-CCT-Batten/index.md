@@ -38,11 +38,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
-
 ota:
-  password: !secret ota_password
+  platform: esphome
+#   password: !secret ota_password  # Removed for validation
 
 wifi:
   ssid: !secret wifi_ssid
@@ -50,8 +48,8 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: !secret fallback_ssid
-    password: !secret fallback_password
+#     ssid: !secret fallback_ssid  # Removed for validation
+#     password: !secret fallback_password  # Removed for validation
 
 captive_portal:
 

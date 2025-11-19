@@ -16,6 +16,9 @@ When ordering this board ask for relay board with test firmware, otherwise the E
 ## Basic Config
 
 ```yaml
+substitutions:
+  friendly_name: "test_device"
+
 
 esphome:
   name: dt-r008
@@ -39,11 +42,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: $key
-  reboot_timeout: 172800s
 
 ota:
+  platform: esphome
   password: $ota
 
 wifi:

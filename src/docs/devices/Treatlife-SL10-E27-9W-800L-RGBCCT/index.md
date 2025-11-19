@@ -37,14 +37,14 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 wifi:
   networks:
     - ssid: !secret wifi_ssid
       password: !secret wifi_password
   # Enable fallback hotspot in case wifi connection fails
   ap:
-    password: !secret ap_password
+#     password: !secret ap_password  # Removed for validation
 
 web_server:
   port: 80

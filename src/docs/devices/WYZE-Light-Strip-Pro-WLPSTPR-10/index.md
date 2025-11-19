@@ -35,6 +35,10 @@ not test this.
 ## Basic Configuration
 
 ```yaml
+substitutions:
+  devicename: "test_device"
+  friendly_name: "test_device"
+
 esphome:
   name: ${devicename}
 

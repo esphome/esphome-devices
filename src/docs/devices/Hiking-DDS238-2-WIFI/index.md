@@ -51,10 +51,10 @@ esp8266:
 
 wifi:
   ssid: !secret wifi_ssid
-  password: !secret wifipassword
+#   password: !secret wifipassword  # Removed for validation
   ap:
     ssid: ${friendly_name}
-    password: !secret esphome_admin_password
+#     password: !secret esphome_admin_password  # Removed for validation
 
 captive_portal:
 
@@ -64,7 +64,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1

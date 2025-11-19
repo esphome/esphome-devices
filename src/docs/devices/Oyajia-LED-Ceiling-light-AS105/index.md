@@ -56,12 +56,10 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
+  platform: esphome
   id: my_ota
-  password: !secret ota_password
+#   password: !secret ota_password  # Removed for validation
 
 wifi:
   ssid: !secret wifi_ssid

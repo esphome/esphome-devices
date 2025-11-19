@@ -59,7 +59,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 sensor:
   - platform: uptime
     name: ${friendly_name} Uptime

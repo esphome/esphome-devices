@@ -22,6 +22,7 @@ board: esp8266
 substitutions:
   plug_name: shelly_1l
 
+  device_name: "test_device"
 # Basic Config
 esphome:
   name: ${plug_name}
@@ -39,7 +40,7 @@ wifi:
 logger:
 api:
 ota:
-
+  platform: esphome
 #==============================================================
 output:
   - platform: gpio

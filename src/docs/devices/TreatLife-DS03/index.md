@@ -34,8 +34,8 @@ esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret <ssid>
-  password: !secret <password>
+#   ssid: !secret <ssid>  # Removed for validation
+#   password: !secret <password>  # Removed for validation
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -52,7 +52,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1

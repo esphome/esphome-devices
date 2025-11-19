@@ -56,7 +56,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 i2c:
   sda: GPIO12
   scl: GPIO14

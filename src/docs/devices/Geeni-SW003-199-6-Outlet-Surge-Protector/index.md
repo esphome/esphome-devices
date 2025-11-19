@@ -91,7 +91,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 switch:
   - platform: gpio
     id: switch_1

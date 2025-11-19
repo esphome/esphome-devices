@@ -39,11 +39,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret encryption_key
-
 ota:
-  password: !secret esphome_api
+  platform: esphome
+#   password: !secret esphome_api  # Removed for validation
 
 web_server:
   port: 80

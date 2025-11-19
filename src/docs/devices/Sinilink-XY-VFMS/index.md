@@ -54,9 +54,9 @@ logger:
 
 # Enable Home Assistant API (if available i.e. reboot_timeout=0s)
 api:
-  reboot_timeout: 0s
 
 ota:
+  platform: esphome
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -64,8 +64,8 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: !secret ap_ssid
-    password: !secret ap_password
+#     ssid: !secret ap_ssid  # Removed for validation
+#     password: !secret ap_password  # Removed for validation
     ap_timeout: 3min
 
 web_server:

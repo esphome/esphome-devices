@@ -25,12 +25,12 @@ bk72xx:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  # domain: !secret domain
+#   # domain: !secret domain  # Removed for validation
   # use_address: 192.168.6.52
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${plug_name} Fallback Hotspot"
-    password: !secret fallback_password
+#     password: !secret fallback_password  # Removed for validation
 
 captive_portal:
 
@@ -41,7 +41,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 time:
   - platform: homeassistant
     id: homeassistant_time

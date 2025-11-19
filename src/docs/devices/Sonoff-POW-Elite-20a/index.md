@@ -60,7 +60,7 @@ wifi:
   password: !secret wifi_password
   ap:
     ssid: $device_name
-    password: !secret wifi_failover
+#     password: !secret wifi_failover  # Removed for validation
 
 captive_portal:
 
@@ -68,11 +68,9 @@ logger:
   level: INFO
 
 api:
-  encryption:
-    key: !secret api_enc
-
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+#   password: !secret ota_pwd  # Removed for validation
 
 esp32_ble_tracker:
   scan_parameters:

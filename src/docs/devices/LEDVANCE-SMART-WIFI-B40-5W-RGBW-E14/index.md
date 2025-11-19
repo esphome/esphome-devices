@@ -46,6 +46,7 @@ api:
   password: ""
 
 ota:
+  platform: esphome
   password: ""
 
 wifi:

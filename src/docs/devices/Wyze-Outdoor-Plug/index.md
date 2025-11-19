@@ -57,7 +57,7 @@ wifi:
 logger:
 api:
 ota:
-
+  platform: esphome
 # Device Specific Config
 switch:
   - platform: gpio

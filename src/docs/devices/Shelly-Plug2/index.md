@@ -35,7 +35,7 @@ logger:
 # Enable Home Assistant API
 api:
 ota:
-
+  platform: esphome
 time:
   - platform: homeassistant
     id: my_time

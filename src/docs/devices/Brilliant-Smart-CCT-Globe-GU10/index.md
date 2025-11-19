@@ -54,11 +54,9 @@ esp8266:
 
 logger:
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
-  password: !secret ota_password
+  platform: esphome
+#   password: !secret ota_password  # Removed for validation
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password

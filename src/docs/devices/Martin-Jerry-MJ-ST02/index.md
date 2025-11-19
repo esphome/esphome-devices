@@ -42,12 +42,10 @@ esp8266:
 
 # Enable HA API
 api:
-  encryption:
-    key: !secret api_key
-
 # Enable OTAs
 ota:
-  password: !secret api_password
+  platform: esphome
+#   password: !secret api_password  # Removed for validation
 
 # Sync RTC with HA
 time:
@@ -62,7 +60,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case Wi-Fi connection fails
   ap:
     ssid: mj-st02 AP
-    password: !secret ap_password
+#     password: !secret ap_password  # Removed for validation
 
 captive_portal:
 

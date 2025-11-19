@@ -35,7 +35,7 @@ logger:
 api:
 captive_portal:
 ota:
-
+  platform: esphome
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password

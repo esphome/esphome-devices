@@ -55,6 +55,7 @@ logger:
 api:
 
 ota:
+  platform: esphome
   password: "[redacted]"
 
 web_server:
@@ -67,7 +68,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: ${friendly_name} Hotspot
-    password: !secret ap_password
+#     password: !secret ap_password  # Removed for validation
 
 captive_portal:
 

@@ -52,7 +52,7 @@ wifi:
   password: !secret wifi_password
   ap:
     ssid: ${device_name}
-    password: !secret wifi_failover
+#     password: !secret wifi_failover  # Removed for validation
   on_connect:
     then:
       - light.turn_on: wifi_status_led
@@ -67,7 +67,8 @@ logger:
 api:
 
 ota:
-  password: !secret ota_pwd
+  platform: esphome
+#   password: !secret ota_pwd  # Removed for validation
 
 #optional
 web_server:

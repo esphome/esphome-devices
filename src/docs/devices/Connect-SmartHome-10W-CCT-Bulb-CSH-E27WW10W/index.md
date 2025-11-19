@@ -58,10 +58,8 @@ captive_portal:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
+  platform: esphome
   password: "password"
 
 output:

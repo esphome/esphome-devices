@@ -57,7 +57,7 @@ api:
 
 # Allow Over-The-Air updates
 ota:
-
+  platform: esphome
 # Allow provisioning Wi-Fi via serial
 improv_serial:
 

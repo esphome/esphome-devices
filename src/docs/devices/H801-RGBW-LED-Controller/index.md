@@ -45,7 +45,7 @@ wifi:
 logger:
 api:
 ota:
-
+  platform: esphome
 output:
   - platform: esp8266_pwm
     pin: 12

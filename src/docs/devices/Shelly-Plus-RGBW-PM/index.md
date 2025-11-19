@@ -35,6 +35,9 @@ Use it for flashing. Connect EN pin to the RESET pin of your USB-UART converter.
 ## Configuration for RGBW
 
 ```yaml
+substitutions:
+  device_name: "test_device"
+
 esphome:
   name: shelly-plus-rgbw-pm
 

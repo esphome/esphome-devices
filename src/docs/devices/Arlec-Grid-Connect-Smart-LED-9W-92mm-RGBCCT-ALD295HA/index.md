@@ -74,7 +74,8 @@ substitutions:
   device_name: arlec-rgb-cct-ald295ha
   friendly_name: Arlec ALD295HA
   id_name: arlec_rgb_cct
-#  light_name: Downlight  # Uncomment this line and change name under light entity to specifically name the light.
+
+  light_name: "test_device"#  light_name: Downlight  # Uncomment this line and change name under light entity to specifically name the light.
 
 esphome:
   name: ${device_name}

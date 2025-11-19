@@ -57,10 +57,8 @@ wifi:
 logger:
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
+  platform: esphome
   password: "ota_password"
 
 captive_portal:

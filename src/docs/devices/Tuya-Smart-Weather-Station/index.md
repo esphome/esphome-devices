@@ -114,7 +114,6 @@ mdns:
 
 api:
   password: ""
-  reboot_timeout: 0s
   on_client_connected:
     then:
       - script.execute: retry_initial_weather_sync

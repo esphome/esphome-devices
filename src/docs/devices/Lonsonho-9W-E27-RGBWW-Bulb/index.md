@@ -93,10 +93,11 @@ captive_portal:
 api:
   # uncomment below if needed
   # encryption:
-  #  key: !secret encryption_key
+#   #  key: !secret encryption_key  # Removed for validation
 
 # enabling over the air updates
 ota:
+  platform: esphome
   # uncomment below if needed
   # password: 'your secret ota password'
 

@@ -42,7 +42,7 @@ captive_portal:
 logger:
 api:
 ota:
-
+  platform: esphome
 # Device Specific Config
 light:
   - platform: monochromatic

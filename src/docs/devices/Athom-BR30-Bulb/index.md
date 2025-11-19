@@ -57,7 +57,7 @@ esp8266:
 api:
 
 ota:
-
+  platform: esphome
 logger:
 
 web_server:

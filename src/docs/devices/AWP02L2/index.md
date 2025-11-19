@@ -56,7 +56,8 @@ logger:
 api:
 
 ota:
-  password: !secret avatar_1_ota
+  platform: esphome
+#   password: !secret avatar_1_ota  # Removed for validation
 
 binary_sensor:
   - platform: gpio

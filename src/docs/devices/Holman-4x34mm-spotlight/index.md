@@ -38,6 +38,7 @@ substitutions:
   device_name: holman_led_spotlight
   friendly_name: "Holman LED Spotlight"
 
+  devicename: "test_device"
 #################################
 
 esphome:

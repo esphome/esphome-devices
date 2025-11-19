@@ -31,21 +31,18 @@ bk72xx:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  domain: !secret domain
+#   domain: !secret domain  # Removed for validation
   power_save_mode: none
   ap:
     ssid: "ESPHome SSP"
-    password: !secret wifi_fallback_password
+#     password: !secret wifi_fallback_password  # Removed for validation
 
 api:
-  encryption:
-    key: !secret api_key
-
 web_server:
   port: 80
 
 ota:
-
+  platform: esphome
 logger:
 
 captive_portal:

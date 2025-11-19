@@ -79,11 +79,9 @@ logger:
   baud_rate: 0
 
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
-  password: !secret ota_password
+  platform: esphome
+#   password: !secret ota_password  # Removed for validation
 # Device Specific Config
 uart:
   rx_pin: GPIO3

@@ -34,7 +34,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 time:
   - platform: homeassistant
     id: homeassistant_time

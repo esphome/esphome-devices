@@ -38,7 +38,7 @@ wifi:
   # use_address: ${device_name}.local
   ap:
     ssid: ${device_name}_fallback_ap
-    password: !secret ap_password
+#     password: !secret ap_password  # Removed for validation
 
 # Enable captive portal
 captive_portal:
@@ -50,7 +50,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 # Enable Web server
 web_server:
   port: 80

@@ -62,7 +62,7 @@ api:
 
 # Enable OTA updates
 ota:
-
+  platform: esphome
 # Enable web server
 web_server:
   port: 80

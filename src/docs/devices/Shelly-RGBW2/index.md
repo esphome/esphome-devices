@@ -39,7 +39,7 @@ captive_portal:
 logger:
 api:
 ota:
-
+  platform: esphome
 light:
   - platform: rgbw
     name: ledstrip_shelly_rgbw2

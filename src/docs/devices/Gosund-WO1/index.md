@@ -53,6 +53,7 @@ wifi:
 
 api:
 ota:
+  platform: esphome
 web_server:
   port: 80
 time:

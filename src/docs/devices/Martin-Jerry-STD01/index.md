@@ -62,7 +62,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 uart:
   rx_pin: GPIO3
   tx_pin: GPIO1

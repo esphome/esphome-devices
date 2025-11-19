@@ -51,11 +51,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
-
 ota:
-  password: !secret OTA_Password
+  platform: esphome
+#   password: !secret OTA_Password  # Removed for validation
 
 # Enable time component for use by daily power sensor
 time:

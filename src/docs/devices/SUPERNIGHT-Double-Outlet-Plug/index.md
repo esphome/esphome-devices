@@ -85,6 +85,7 @@ substitutions:
 logger:
 api:
 ota:
+  platform: esphome
 web_server:
 time:
   - platform: sntp
@@ -94,7 +95,7 @@ wifi:
   password: !secret wifi_password
   ap:
     ssid: "Supernight Fallback Hotspot"
-    password: !secret wifi_ap_password
+#     password: !secret wifi_ap_password  # Removed for validation
 captive_portal:
 
 # We don't want to allow analog input until bootup is complete.

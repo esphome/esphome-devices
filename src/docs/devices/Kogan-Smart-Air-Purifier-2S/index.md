@@ -47,7 +47,7 @@ api:
 
 # Allow OTA updates
 ota:
-
+  platform: esphome
 uart:
   #Serial connection between the TYWE1S and the Tuya MCU
   - id: uart_0

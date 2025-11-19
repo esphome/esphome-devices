@@ -51,7 +51,7 @@ wifi:
 logger:
 api:
 ota:
-
+  platform: esphome
 time:
   - platform: sntp
     id: sntp_time

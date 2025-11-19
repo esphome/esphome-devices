@@ -60,7 +60,7 @@ logger:
 api:
 
 ota:
-
+  platform: esphome
 time:
   - platform: homeassistant
 
