@@ -4,7 +4,7 @@ date-published: 2025-11-20
 type: misc
 standard: global
 board: esp32
-project-url: https://github.com/glowswitch/glowswitch-esphome
+project-url: https://github.com/glowswitch/glowswitch-esphome  
 made-for-esphome: true
 difficulty: 1
 ---
@@ -18,6 +18,6 @@ Features:
 - Servo position adjustable through `number` entity
 - Powered by USB-C port
 
-The YAML configuration file can be found at https://github.com/glowswitch/glowswitch-esphome. 
+The YAML configuration file can be found at [glowswitch-esphome](https://github.com/glowswitch/glowswitch-esphome).
 
-<img width="4000" height="3000" alt="image" src="https://github.com/user-attachments/assets/333948db-ffb1-4703-b86c-60c6d182976b" />
+![image](https://github.com/user-attachments/assets/333948db-ffb1-4703-b86c-60c6d182976b){ width=4000 height=3000 }
