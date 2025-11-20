@@ -9,7 +9,8 @@ made-for-esphome: true
 difficulty: 1
 ---
 
-The [glowswitch WiFi](https://glowswitch.net) is a small device that attaches to a light switch and uses a servo to turn it on and off.
+The [glowswitch WiFi](https://glowswitch.net) is a small device that attaches to a light switch
+and uses a servo to turn it on and off.
 
 Features:
 
@@ -20,4 +21,4 @@ Features:
 
 The YAML configuration file can be found at [glowswitch-esphome](https://github.com/glowswitch/glowswitch-esphome).
 
-![image](https://github.com/user-attachments/assets/333948db-ffb1-4703-b86c-60c6d182976b){ width=4000 height=3000 }
+![image](https://github.com/user-attachments/assets/333948db-ffb1-4703-b86c-60c6d182976b)
