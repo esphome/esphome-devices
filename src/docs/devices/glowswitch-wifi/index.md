@@ -3,7 +3,7 @@ title: glowswitch WiFi
 date-published: 2025-11-20
 type: misc
 standard: global
-board: esp32-c3
+board: esp32
 project-url: https://github.com/glowswitch/glowswitch-esphome
 made-for-esphome: true
 difficulty: 1
