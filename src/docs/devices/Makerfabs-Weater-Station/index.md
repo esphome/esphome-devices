@@ -60,6 +60,15 @@ captive_portal:
 
 web_server:
   port: 80
+  
+uart:
+  - id: ssap10_uart
+    rx_pin: GPIO21
+    tx_pin: GPIO22
+    baud_rate: 9600
+    data_bits: 8
+    stop_bits: 1
+    parity: NONE
 
 i2c:
   - id: i2c_bus
