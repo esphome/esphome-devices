@@ -12,6 +12,7 @@ difficulty: 1
 The [glowswitch WiFi](https://glowswitch.net) is a small device that attaches to a light switch and uses a servo to turn it on and off.
 
 Features:
+
 - SG90 Servo to press light switch
 - Manual override button
 - Servo position adjustable through `number` entity
