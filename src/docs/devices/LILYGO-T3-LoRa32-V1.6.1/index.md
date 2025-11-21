@@ -70,7 +70,7 @@ esphome:
   name: "t3-lora32"
 
 esp32:
-  board: esp32dev
+  variant: esp32
   cpu_frequency: 240MHZ
   framework:
     type: esp-idf
@@ -205,7 +205,6 @@ remote_receiver:
   filter: 50us
   dump: raw
   idle: 1ms
-  tolerance: 100us
 
 # Remote transmitter on DIO2 (shared with receiver)
 remote_transmitter:
@@ -249,16 +248,15 @@ Configuration to use the onboard 0.96" OLED display:
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
-    reset_pin: GPIO16
     address: 0x3C
     lambda: |-
-      it.printf(0, 0, id(font), "T3 LoRa32");
-      it.printf(0, 16, id(font), "V1.6.1");
-      it.printf(0, 32, id(font), "%.1f dBm", id(wifi_signal_db).state);
+      it.printf(0, 0, id(display_font), "T3 LoRa32");
+      it.printf(0, 16, id(display_font), "V1.6.1");
+      it.printf(0, 32, id(display_font), "%.1f dBm", id(wifi_signal_db).state);
 
 font:
   - file: "gfonts://Roboto"
-    id: font
+    id: display_font
     size: 14
 
 sensor:
