@@ -96,6 +96,7 @@ spi:
 i2c:
   sda: GPIO21
   scl: GPIO22
+  frequency: 400kHz
 ```
 
 ## LoRa Radio Configuration
