@@ -33,7 +33,8 @@ difficulty: 2
 
 [ESPHome AXP2101 Component by stefanthoss](https://github.com/stefanthoss/esphome-axp2101)
 
-This component is essential for powering the internal display and enabling power control for other peripherals on the M5Core2 V1.1.
+This component is essential for powering the internal display and enabling power control for other peripherals on the
+M5Core2 V1.1.
 
 ## Example Configuration
 
@@ -48,7 +49,7 @@ esphome:
     upload_speed: 460800
 
 esp32:
-  board: m5stack-core2
+  variant: esp32
 
 psram:
   mode: quad
@@ -78,7 +79,7 @@ ota:
 
 external_components:
   - source: github://stefanthoss/esphome-axp2101
-    components: [ axp2101 ]
+    components: [axp2101]
 
 sensor:
   - platform: axp2101
@@ -177,7 +178,8 @@ font:
 
 - **Display**: works reliably with `ili9342`
 - **Touchscreen**: works well with `ft63x6`, including virtual button regions (A/B/C)
-- **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and inaccurate
+- **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and
+  inaccurate
 - **Speaker**: didn't work, but some config is provided
 - **Microphone**: untested
 - **BM8563 RTC**: not configured, no ESPHome component exists for it

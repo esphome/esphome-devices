@@ -3,7 +3,7 @@ title: WAVESHARE-6CH-RELAY
 date-published: 2024-12-21
 type: relay
 standard: global
-board: esp32-s3
+board: esp32
 ---
 
 ![Product](./image1.jpg "Product Image")
@@ -20,7 +20,7 @@ Rail-mounted ABS case, easy to install, safe to use
 
 Each relay has COM+NO+NC exposed. Rating ≤10A 250VAC/30VDC.
 The board can be powered either via 7-36DC or via 5VDC (USB-C).
-It can bought from: https://www.waveshare.com/esp32-s3-relay-6ch.htm
+It can bought from: [https://www.waveshare.com/esp32-s3-relay-6ch.htm](https://www.waveshare.com/esp32-s3-relay-6ch.htm)
 
 ## GPIO Pinout
 
@@ -35,7 +35,7 @@ esphome:
   name: waveshare-6ch-relay
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   flash_size: 8MB
   framework:
     type: arduino
@@ -46,6 +46,14 @@ logger:
 # Enable Home Assistant API
 api:
     password: !secret api_password
+  # RTTTL play can be called from Dev Tools or from Scritps.
+  actions:
+  - action: rtttl_play
+    variables:
+      song_str: string
+    then:
+      - rtttl.play:
+          rtttl: !lambda 'return song_str;'
 
 ota:
   - platform: esphome
@@ -60,6 +68,9 @@ captive_portal:
 
 web_server:
   port: 80
+
+bluetooth_proxy:
+  active: true
 
 time:
   - platform: homeassistant

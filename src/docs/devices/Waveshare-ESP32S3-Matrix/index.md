@@ -41,7 +41,9 @@ Vendor documentation:
 
 ## Device Specific Config
 
-> **NOTE**: While enabeling debug-logging works it recommended to disable it once everyhing works a expected if using interrupt updates. This because every update renders a lot of logging and have caused the online logging and even entire Home Assistant to become unresponsive until timeout and refresh.
+> **NOTE**: While enabeling debug-logging works it recommended to disable it once everyhing works a expected if using
+interrupt updates. This because every update renders a lot of logging and have caused the online logging and even entire
+Home Assistant to become unresponsive until timeout and refresh.
 
 ```yaml
 esphome:
@@ -56,7 +58,7 @@ esphome:
     - "SensorLib"
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   framework:
     type: arduino
 

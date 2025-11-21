@@ -11,52 +11,54 @@ difficulty: 2
 
 ## Drivers
 
-* Processor: ESP32-S3-Wroom-1U
-* Touchscreen: `6336`
-* Display: ST7789V2 (using `ili9xxxx` plaform)
+- Processor: ESP32-S3-Wroom-1U
+- Touchscreen: `6336`
+- Display: ST7789V2 (using `ili9xxxx` plaform)
 
 ## GPIO Pinout
 
 ### i80 (used for display)
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO13 | WR   |
-| GPIO18 | RD   |
-| GPIO6 | data[0]    |
-| GPIO7 | data[1]    |
-| GPIO15 | data[2]    |
-| GPIO16 | data[3]    |
-| GPIO10 | data[4]    |
-| GPIO9 | data[5]    |
-| GPIO46 | data[6]    |
-| GPIO3 | data[7]    |
-| GPIO21 | cs      |
-| GPIO17 | dc      |
-| GPIO4 | reset   |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO13 | WR       |
+| GPIO18 | RD       |
+| GPIO6  | data[0]  |
+| GPIO7  | data[1]  |
+| GPIO15 | data[2]  |
+| GPIO16 | data[3]  |
+| GPIO10 | data[4]  |
+| GPIO9  | data[5]  |
+| GPIO46 | data[6]  |
+| GPIO3  | data[7]  |
+| GPIO21 | cs       |
+| GPIO17 | dc       |
+| GPIO4  | reset    |
 
 ### I²C (used for touchscreen)
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPI035 | i2c SDA     |
-| GPIO0 | i2c SCL     |
+| Pin    | Function |
+| ------ | -------- |
+| GPI035 | i2c SDA  |
+| GPIO0  | i2c SCL  |
 
 ### Backlight
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPI42  | backlight   |
+| Pin   | Function  |
+| ----- | --------- |
+| GPI42 | backlight |
 
 ### Relay
 
-| Pin    | Function      |
-| ------ | ------------- |
-| GPIO36 | relay   |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO36 | relay    |
 
 ### How To Flash
 
-See BlackAdder's instruction on [how to flash custom firmware for the L8](https://blakadder.com/lanbon-L8-custom-firmware/), referring to the following diagram for the L9 connector pinout.
+See BlackAdder's instruction on
+[how to flash custom firmware for the L8](https://blakadder.com/lanbon-L8-custom-firmware/), referring to the following
+diagram for the L9 connector pinout.
 No soldering required.
 IMPORTANT: Both 5v and 3.3v must be supplied.
 
@@ -88,14 +90,14 @@ light:
     output: relay
 
 power_supply:
-  - id: 'i80_rd_pin'
+  - id: "i80_rd_pin"
     pin:
       number: 18
       inverted: true
 
 spi:
   type: octal
-  clk_pin: GPIO13  # WR pin
+  clk_pin: GPIO13 # WR pin
   data_pins:
     - GPIO6
     - GPIO7
@@ -152,6 +154,5 @@ lvgl:
     then:
       - light.turn_off: backlight
       - lvgl.pause:
-  pages:
-     ...
+  pages: ...
 ```

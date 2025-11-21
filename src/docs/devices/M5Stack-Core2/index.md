@@ -47,7 +47,7 @@ esphome:
     upload_speed: 460800
 
 esp32:
-  board: m5stack-core2
+  variant: esp32
 
 psram:
   mode: quad
@@ -164,7 +164,6 @@ binary_sensor:
     y_min: 240
     y_max: 280
     use_raw: true
-
 # doesn't work:
 # i2s_audio:
 #   id: bus_i2s

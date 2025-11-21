@@ -62,7 +62,6 @@ esphome:
 
 esp32:
   variant: esp32c3
-  board: esp32-c3-devkitm-1
 
 api:
 
@@ -320,7 +319,6 @@ esphome:
 
 esp32:
   variant: esp32c3
-  board: esp32-c3-devkitm-1
 
 api:
 
