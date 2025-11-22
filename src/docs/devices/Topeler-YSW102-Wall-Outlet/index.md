@@ -5,7 +5,6 @@ type: plug
 standard: us
 board: bk72xx
 made-for-esphome: False
-pcb: CB2S
 difficulty: 4
 ---
 
