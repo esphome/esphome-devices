@@ -6,10 +6,9 @@ standard: us
 board: bk72xx
 difficulty: 4
 made-for-esphome: False
-
 ---
 
-[Amazon Link](https://www.amazon.com/dp/B0D4R98V5F)
+[Amazon Link](https://amzn.to/3XcOB2Y)
 
 ## Product Image
 
@@ -17,7 +16,7 @@ made-for-esphome: False
 
 ## General Notes
 
-Manufacturer: [Geeni](https://mygeeni.com/) 
+Manufacturer: [Geeni](https://mygeeni.com/)
 
 MCU: [Tuya 2BSC](https://developer.tuya.com/en/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq)
 
@@ -29,7 +28,7 @@ Each outlet's relay is rated at 15A.
 
 ## Access
 
-You must disassemble the unit and solder on a serial flasher. See also the flashing guide in (https://docs.libretiny.eu/docs/platform/beken-72xx/).
+You must disassemble the unit and solder on a serial flasher. See also the flashing guide in [https://docs.libretiny.eu/docs/platform/beken-72xx/](https://docs.libretiny.eu/docs/platform/beken-72xx/).
 
 ## GPIO Pinout
 
