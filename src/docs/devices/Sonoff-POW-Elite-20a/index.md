@@ -44,7 +44,7 @@ esphome:
     then:
       - if:
           condition:
-            lambda: "return id(v_sensor).state > 10;"
+            lambda: 'return id(v_sensor).state > 90 || (id(v_sensor).state > 10 && id(a_sensor).state > 0.1);'
           then:
             - switch.turn_on: relay_1
           else:
@@ -241,7 +241,7 @@ output:
 switch:
   - platform: template
     name: $friendly_name
-    optimistic: true
+    lambda: 'return id(v_sensor).state > 90 || (id(v_sensor).state > 10 && id(a_sensor).state > 0.1);'
     id: relay_1
     turn_off_action:
       - switch.turn_on: relay_off
