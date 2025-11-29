@@ -186,6 +186,30 @@ binary_sensor:
 #         data: !lambda return startup_raw;
 ```
 
+## RTC
+
+[BM8563 Time Source](https://next.esphome.io/components/time/bm8563/)
+
+```yaml
+esphome:
+  on_boot:
+    then:
+      # read the RTC time once when the system boots
+      bm8563.read_time:
+
+time:
+  - platform: bm8563
+    # repeated synchronization is not necessary unless the external RTC
+    # is much more accurate than the internal clock
+    update_interval: never
+  - platform: homeassistant
+    # instead try to synchronize via network repeatedly ...
+    on_time_sync:
+      then:
+        # ... and update the RTC when the synchronization was successful
+        bm8563.write_time:
+```
+
 ## Notes
 
 - **Display**: works reliably with `ili9342`
@@ -193,4 +217,4 @@ binary_sensor:
 - **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and inaccurate
 - **Speaker**: didn't work, but some config is provided
 - **Microphone**: untested
-- **BM8563 RTC**: not configured, no ESPHome component exists for it
+- **BM8563 RTC**: ESPHome component exists for version >=2025.12.
