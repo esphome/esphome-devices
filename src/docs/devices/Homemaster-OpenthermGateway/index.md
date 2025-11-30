@@ -5,14 +5,13 @@ type: relay
 standard: global
 board: esp32
 project-url: https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway
+made-for-esphome: True
 difficulty: 1
 ---
 
 ## 🔥 Opentherm Gateway – DIN-Rail Smart Heating Interface for Home Assistant
 
-![alt text](./opentherm.png "HOMAMASTER MicroPLC")
-
-## Product description
+![alt text](./opentherm.png "HOMAMASTER Opentherm Gateway")
 
 ## 🌡️ Description
 
@@ -22,16 +21,6 @@ system diagnostics.
 
 A built-in high-voltage relay allows local control of zone valves or backup heaters, while two independent **1-Wire
 interfaces** support digital temperature sensors (e.g., DS18B20) for detailed room or system temperature monitoring.
-
-Maker: [https://www.home-master.eu/](https://www.home-master.eu/)
-
-Product page:
-[https://www.home-master.eu/shop/esp32-opentherm-gateway-59](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
-
-Schematics:
-[https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic)
-
-## Features
 
 ## ⚙️ Key Features
 
@@ -62,26 +51,45 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via:
 
-### Improv
+### 🚀 Improv – Wi-Fi Configuration (Zero Configuration Setup)
 
-Wi-Fi Configuration with Improv
+To connect your **Homemaster OpenTherm Gateway** to your Wi-Fi without flashing, use **Improv**:
 
-1. Power on your HomeMaster OpenTherm Gateway.
-2. Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
-3. Connect via USB (Serial) or Bluetooth LE.
-4. Enter your Wi-Fi SSID and password, then press Connect.
-5. The device joins your Wi-Fi and is now ready.
+Power on your device.
+Open [improv-wifi.com](https://www.improv-wifi.com) in **Chrome** or **Edge** (desktop or mobile).
+Connect to the device using **USB (Serial)** or **Bluetooth LE**.
+Enter your Wi-Fi credentials and click **Connect**.
 
-You can then access it via its local address (e.g., [http://opentherm.local](http://opentherm.local)) or directly in
-Home Assistant.
+![Wi-Fi Setup](./improv.png)
 
-### One-Click Import (ESPHome Dashboard Import)
+Once provisioned, you’ll see confirmation:
 
-Once connected to Wi-Fi, the OpenTherm Gateway will be automatically discovered in ESPHome Dashboard.
-When the device appears in ESPHome Dashboard, click “Take Control”.
-The OpenTherm Gateway supports dashboard import, automatically pulling its official configuration from GitHub
+![Provisioned](./improv_connected.png)
 
-### USB Type-C: Use the ESPHome Dashboard to upload the configuration
+✅ The device is now on your network.
+
+You can now manage it from the **ESPHome Dashboard** or directly in **Home Assistant**, where it will appear automatically.
+
+> ⚠️ **Note:**  
+> The device does **not** host a web server by default, so accessing it via `http://opentherm.local`
+> will **not work** unless `web_server:` is added to the YAML.  
+> Also, because `name_add_mac_suffix: true` is set, the actual hostname includes a unique suffix,
+> like `http://homemaster-opentherm-3f9a7c.local`. Use ESPHome or Home Assistant for discovery.
+
+---
+
+### 🧩 One-Click Import (ESPHome Dashboard)
+
+Once connected to Wi-Fi, the OpenTherm Gateway will appear in your **ESPHome Dashboard** as a discovered device:
+
+![Improv Discovered](./take_control.png)
+
+- Click **Take Control** to claim the device.
+- ESPHome will automatically pull the official config from GitHub.
+
+> ℹ️ No manual flashing is needed if the device is provisioned via Improv.
+
+### 💻 USB Type-C Flashing (Manual Configuration)
 
 1. Connect the OpenTherm Gateway to your computer with a USB Type-C cable.
 2. Download the YAML configuration file from our GitHub repository.
@@ -97,32 +105,18 @@ The OpenTherm Gateway supports dashboard import, automatically pulling its offic
 |----------------------|--------------------------------------|
 | Microcontroller      | ESP32-WROOM-32U                      |
 | Power Supply         | 5V via USB-C for programming, 24V via terminal or 220VAC/DC via terminal      |
-| Relay Output         | 1x 16A (optically isolated)     |
+| Relay Output         | 1x 6A (optically isolated)     |
 | Communication        | RS-485, Wi-Fi, Bluetooth, USB-C      |
 | 1-Wire               | 2 channels (ESD/OVP protected)        |
 | Mounting             | DIN-rail                             |
 | Firmware             | ESPHome (pre-installed), Arduino |
-
-## 🏠 Integration with Home Assistant
-
-When flashed with ESPHome, the Opentherm Gateway exposes the following entities in Home Assistant:
-
-- Boiler on/off
-- Burner status
-- Flame modulation level (%)
-- CH/DHW setpoint temperatures
-- Boiler water temperature
-- System pressure (if supported)
-- Relay output status
-- Temperature readings from connected 1-Wire sensors
-- etc.
 
 ## Basic Config
 
 ```yaml
 substitutions:
   # General metadata and variables for reuse in the config
-  name: "homemaster-opentherm"                # Device hostname in ESPHome / network
+  name: "opentherm"                # Device hostname in ESPHome / network
   friendly_name: "Homemaster Opentherm Gateway"  # Friendly name in Home Assistant UI
   room: ""                                   # Optional: assign to a room in HA
   device_description: "Homemaster Opentherm Gateway" # Description for metadata
@@ -189,25 +183,13 @@ dashboard_import:
   package_import_url: github://isystemsautomation/HOMEMASTER/OpenthermGateway/Firmware/opentherm.yaml@main
   import_full_config: true
 
-time:
-  - platform: homeassistant                  # Sync time from Home Assistant
-    id: homeassistant_time
-    on_time_sync:                            # On first sync, publish "last restart"
-      then:
-        - if:
-            condition:
-              lambda: 'return id(device_last_restart).state == "";'
-            then:
-              - text_sensor.template.publish:
-                  id: device_last_restart
-                  state: !lambda 'return id(homeassistant_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
-
 opentherm:
   id: ot_bus                                 # OpenTherm bus definition
   in_pin: 21                                 # GPIO for receiving OpenTherm signal
   out_pin: 26                                # GPIO for sending OpenTherm signal
 
 # Local button on GPIO35
+binary_sensor:
   - platform: gpio
     id: bs_button_1
     name: "Button #1"
@@ -225,3 +207,189 @@ status_led:
     number: GPIO33                          # Status LED pin
     inverted: true                          # LED is active-low
 ```
+
+## 📥 Example: OpenTherm Boiler Configuration in ESPHome
+
+To receive telemetry, diagnostics, and control capability from your OpenTherm-compatible boiler,
+add the following to your ESPHome configuration:
+
+> ⚠️ **Note:**  
+> This is a **configuration example**. The exact list of available values depends on your **boiler model**
+> and which OpenTherm parameters it supports.
+
+### 🔧 OpenTherm Sensors (`sensor:`)
+
+```yaml
+sensor:
+  # OpenTherm boiler sensors (read-only values)
+  - platform: opentherm
+    t_dhw:           { id: s_t_dhw,         name: "DHW temperature (°C)" }
+    rel_mod_level:   { id: s_rel_mod_level, name: "Relative modulation level (%)" }
+    ch_pressure:     { id: s_ch_pressure,   name: "Water pressure in CH circuit (bar)" }
+    dhw_flow_rate:   { id: s_dhw_flow_rate, name: "Water flow rate in DHW circuit (l/min)" }
+    t_boiler:        { id: s_t_boiler,      name: "Boiler water temperature (°C)" }
+    t_exhaust:       { id: s_t_exhaust,     name: "Boiler exhaust temperature (°C)" }
+    t_dhw_set_ub:    { id: s_t_dhw_set_ub,  name: "Upper bound for DHW setpoint (°C)" }
+    t_dhw_set_lb:    { id: s_t_dhw_set_lb,  name: "Lower bound for DHW setpoint (°C)" }
+    max_t_set_ub:    { id: s_max_t_set_ub,  name: "Upper bound for max CH setpoint (°C)" }
+    max_t_set_lb:    { id: s_max_t_set_lb,  name: "Lower bound for max CH setpoint (°C)" }
+    t_dhw_set:       { id: s_t_dhw_set,     name: "DHW temperature setpoint (°C)" }
+    max_t_set:       { id: s_max_t_set,     name: "Max CH water setpoint (°C)" }
+```
+
+### 🔧 OpenTherm State Sensors (`binary_sensor:`)
+
+```yaml
+binary_sensor:
+  # OpenTherm boiler state sensors
+  - platform: opentherm
+    ch_active:             { id: bs_ch_active,  name: "Boiler Central Heating active" }
+    dhw_active:            { id: bs_dhw_active, name: "Boiler Domestic Hot Water active" }
+    flame_on:              { id: bs_flame_on,   name: "Boiler Flame on" }
+    fault_indication:      { id: bs_fault,      name: "Boiler Fault indication", entity_category: diagnostic }
+    diagnostic_indication: { id: bs_diag,       name: "Boiler Diagnostic event",  entity_category: diagnostic }
+```
+
+### 🔧 Writable OpenTherm Parameters (`number:` and `switch:`)
+
+```yaml
+number:
+  # Control setpoints (writable values)
+  - platform: opentherm
+    t_set: { id: n_t_set, name: "Boiler Control setpoint", min_value: 20, max_value: 65, step: 0.5 }
+
+switch:
+  # Enable/disable boiler central heating via OpenTherm
+  - platform: opentherm
+    ch_enable: { id: sw_ch_enable, name: "Boiler Central Heating enabled", restore_mode: RESTORE_DEFAULT_ON }
+```
+
+### 💡 Tip
+
+Ensure the `opentherm:` component is defined in your configuration like this:
+
+```yaml
+opentherm:
+  id: ot_bus
+  in_pin: 21
+  out_pin: 26
+```
+
+## 🏠 Integration with Home Assistant
+
+When flashed with ESPHome, the Opentherm Gateway exposes the following entities in Home Assistant:
+
+- Boiler on/off
+- Burner status
+- Flame modulation level (%)
+- CH/DHW setpoint temperatures
+- Boiler water temperature
+- System pressure (if supported)
+- Relay output status
+- Temperature readings from connected 1-Wire sensors
+- etc.
+  
+Once uploaded, the above entities will automatically appear in Home Assistant if OpenTherm communication is working correctly.
+
+## 🧷 Connection Diagrams – Homemaster OpenTherm Gateway
+
+Below are reference diagrams and safety notes for connecting **power**, **OpenTherm bus**,
+**1-Wire sensors**, and **relay outputs** to your Homemaster OpenTherm Gateway.
+
+---
+
+### ⚠️ Safety First
+
+> ⚠️ **IMPORTANT SAFETY INFORMATION**
+>
+> - Disconnect all power before installation or wiring changes.
+> - Use proper insulation and terminals when working with **230 VAC** mains voltage.
+> - Use appropriately rated **fuses or circuit breakers** (e.g., 1A slow-blow) as shown in schematics.
+> - The device contains opto-isolated and ESD-protected interfaces for safe signal connections.
+> - Always refer to your **boiler's OpenTherm specification** before wiring the OT bus.
+
+---
+
+### 🔌 Power Supply Options
+
+You can power the device using either:
+
+#### 🔋 1. 24 VDC Low Voltage Power
+
+Connect a **24 VDC power supply** to the `+V` and `0V` terminals..
+
+![24VDC Connection](./OpenTherm_24Vdc.png)
+
+---
+
+#### ⚡ 2. 230 VAC Mains Power
+
+If using mains voltage, connect **L** (Live) and **N** (Neutral) to the terminal block.
+
+![230VAC Connection](./OpenTherm_230Vac.png)
+*Figure: AC mains power input connection*
+
+---
+
+### 🔁 Relay Output (Dry Contact)
+
+The relay output is **optically isolated** (via PC817 and S8050 driver stage) and capable
+of switching **AC or DC loads** up to 6A.  
+Use it to control zone valves, pumps, or backup heating.
+
+![Relay Connection](./OpenTherm_RelayConnection.png)
+
+---
+
+### 🌡️ 1-Wire Sensor Connections
+
+Two independent **1-Wire buses** are available, each with:
+
+- ESD protection (DS9503)
+- Series resistor + clamping diodes
+- Separate power lines (`1-WIRE1`, `1-WIRE2`) and +5V rail
+
+You can connect **DS18B20** sensors using parasitic or powered mode.
+
+![1-Wire Connection](./OpenTherm_1WireConnection.png)
+
+---
+
+### 🔄 OpenTherm Bus Wiring
+
+Connect the boiler’s **OpenTherm interface** to the OT+ and OT− terminals.
+
+**Note:** These lines are optically isolated and buffered using:
+
+- BAV99S protection diodes
+- OpenTherm transceivers and opto-isolators (e.g., PC817)
+- Pull-ups and current-limiting resistors
+
+![OpenTherm Bus](./OpenTherm_OTConnection.png)
+
+---
+
+### ✅ Recommended Wire Sizes
+
+| Function       | Recommended Wire Gauge |
+|----------------|-------------------------|
+| Power (24 VDC) | 0.5–1.0 mm²             |
+| Power (230 VAC) | 1.0–1.5 mm²             |
+| Relay Output   | 1.0–1.5 mm²             |
+| 1-Wire Sensors | 0.22–0.5 mm² (shielded if long) |
+| OpenTherm Bus  | 0.22–0.5 mm² twisted pair |
+
+---
+
+> 📘 **Tip**: Always follow **local electrical code** and **boiler manufacturer guidelines** when wiring heating systems.
+
+**Notes**:
+
+- Verify polarity and follow **electrical safety standards** at all times.
+- Telemetry and control features depend on your **boiler’s OpenTherm support**. Check the boiler manual for details.
+
+## 📚 Resources
+
+- 💾 [GitHub Repository](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway)
+- 🛒 [Product Page](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+- 📘 [Schematics & Datasheets](https://github.com/isystemsautomation/HOMEMASTER/tree/main/OpenthermGateway/Schematic)
