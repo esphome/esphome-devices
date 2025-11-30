@@ -15,6 +15,10 @@ I suggest to flash the device based on this video.
 
 [Flash tutorial](https://www.youtube.com/watch?v=t0o8nMbqOSA)
 
+Here you can find the pinout of the CBU Module.
+
+[CBU Module](https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u)
+
 
 ![Disassembled](disassembled.jpg "Disassembled")
 
