@@ -51,29 +51,6 @@ esphome:
 bk72xx:
   board: cbu
 
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "Mob5eHf0m1nXNY/9erDUW0wQsncc4IeKnwMcXEq8h2s="
-
-ota:
-  - platform: esphome
-    password: "59a91c2546d464d6531496dce347870b"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Sprinkler Fallback Hotspot"
-    password: "XN2ab9SsxRuW"
-
-captive_portal:
-    
 
 status_led:
   pin:
