@@ -19,7 +19,6 @@ Here you can find the pinout of the CBU Module.
 
 [CBU Module](https://developer.tuya.com/en/docs/iot/cbu-module-datasheet?id=Ka07pykl5dk4u)
 
-
 ![Disassembled](disassembled.jpg "Disassembled")
 
 ![Assembled](assembled.jpg "Assembled")
