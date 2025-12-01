@@ -14,10 +14,10 @@ Top of WSM-1A
 ![alt text](./WSM-1A_cover.jpg "Top Cover (MAC Address blurred)")
 
 Port side of WSM-1A
-![alt text](./WSM-1A_side.jpg "Port side of WSM-1A")
+![alt text](./WSM-1A_ports.jpg "Port side of WSM-1A")
 
 PCB
-![alt text](./WSM-1A_board.jpg "PCB")
+![alt text](./WSM-1A_Board.jpg "PCB")
 
 ## GPIO Pinout
 
