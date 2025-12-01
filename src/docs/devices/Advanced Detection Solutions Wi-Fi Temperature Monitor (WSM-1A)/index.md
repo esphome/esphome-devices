@@ -6,8 +6,6 @@ standard: global
 board: esp8266
 ---
 
-
-
 ## Product description
 
 The Advanced Detection Solutions Wi-Fi Temperature Monitor (WSM-1A) is a two zone Wi-Fi temperature monitor. It is designed for use with a proprietary cloud backend but can be repurposed as a generic ESPHome device. The board uses an ESP8266MOD (ESP-12F chip). After removing the bottom housing, it runs on an ESP8266MOD (ESP-12F). The board has two 3.5mm stereo jack inputs for DS18B20 one wire thermometers, a microUSB port (which is only used for 5V power and has no data function) and 5V barrel power connector either of which can be used to power the device, a reset button, a green status LED to indicate power on and a GPIO controlable orange LED. 
@@ -16,7 +14,7 @@ If using factory software, holding reset puts it into Wi-Fi hotspot mode. Connec
 
 ESPHome is flashed intially using a USB to Serial TTL converter and connecting the ESP8266 TxD/GPIO1 to RxD, RxD/GPIO3 to TxD, GND to GND and short FLASH/GPIO0 to GND.
 
-The DS18B20 one wire thermometers are connected to GPIO2 and the orange LED is connected to GPIO15. The green LED is always on as long as the board is powered. Reset button function has not been decoded at time of writing. Fill in correct Wi-Fi credentials before uploading YAML code.
+The DS18B20 one wire thermometers are connected to GPIO2 and the orange LED is connected to GPIO15. The green LED is always on as long as the board is powered. Reset button function has not been decoded at time of writing. Fill in correct Wi-Fi credentials, encryption keys, etc. from !secret before uploading YAML code.
 
 After uploading the YAML code, check the debug logs for the addresses of the DS18B20 thermometers and further update YAML code as necessary.
 
@@ -72,7 +70,8 @@ sensor:
     unit_of_measurement: "dBm"
     accuracy_decimals: 0
     update_interval: 30s
-  - platform: uptime
+# Uptime
+- platform: uptime
     type: seconds
     name: Uptime
 
@@ -80,36 +79,41 @@ switch:
 #Orange LED switch
   - platform: gpio
     pin: GPIO15
-    id: "GPIO15"
+    id: "Orange_LED"
     restore_mode: ALWAYS_OFF
 
 ota:
   - platform: esphome
-    password: "58d6f40326f03218f5391d5a7b50ed8d"
+    password: "ota_password"
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_encryption_key    
 
 wifi:
-  ssid: "Wi-Fi_SSID"
-  password: "Password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   reboot_timeout: 0s  # Disable automatic reboot
   power_save_mode: none
-  fast_connect: true # Trigger when WiFi disconnects
+  fast_connect: true # Trigger when Wi-Fi disconnects
   on_disconnect:
-    - logger.log: "WiFi Disconnected! Attempting reconnection..."
+    - logger.log: "Wi-Fi Disconnected! Attempting reconnection..."
     - while:
         condition:
           not:
             wifi.connected:
         then:
-          - switch.turn_on: GPIO15
+          - switch.turn_on: Orange_LED
           - delay: 500ms
-          - switch.turn_off: GPIO15
+          - switch.turn_off: Orange_LED
           - delay: 500ms
 
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "WSM-1A Fallback Hotspot"
-    password: "fallback-password"
+    password: !secret captive_portal_password
 
 captive_portal:
 
