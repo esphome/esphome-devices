@@ -11,19 +11,22 @@ board: esp8266
 The Advanced Detection Solutions Wi-Fi Temperature Monitor (WSM-1A) is a two zone Wi-Fi temperature monitor. It is designed for use with a proprietary cloud backend but can be repurposed as a generic ESPHome device. The board uses an ESP8266MOD (ESP-12F chip). After removing the bottom housing, it runs on an ESP8266MOD (ESP-12F). The board has two 3.5mm stereo jack inputs for DS18B20 one wire thermometers, a microUSB port (which is only used for 5V power and has no data function) and 5V barrel power connector either of which can be used to power the device, a reset button, a green status LED to indicate power on and a GPIO controlable orange LED. 
 
 Top of WSM-1A
-![alt text](./WSM-1A cover.jpg "Top Cover (MAC Address blurred)")
+![alt text](./WSM-1A_cover.jpg "Top Cover (MAC Address blurred)")
 
-## GPIO Pinout
+Port side of WSM-1A
+![alt text](./WSM-1A_side.jpg "Port side of WSM-1A")
 
 PCB
-![alt text](./WSM-1A board.jpg "PCB")
+![alt text](./WSM-1A_board.jpg "PCB")
+
+## GPIO Pinout
 
 | Pin    | Function                        |
 | ------ | ------------------------------- |
 | GPIO2  | One-Wire Bus for two DS18B20 Thermometers |
 | GPIO15 | Orange LED (HIGH = off, LOW = on) |
 
-
+## Factory Settings and ESPHome Flashing
 
 If using factory software, holding reset puts it into Wi-Fi hotspot mode. Connecting to the hotspot only allows for connection to another Wi-Fi network. Once it joins Wi-Fi, status LED goes solid green with orange flashes every 5 seconds, port 80 is opened to give a basic HTML page that reports Wi-Fi connection information (SSID, channel, signal strength) only and provides input to change Wi-Fi network credentials only; it does not report temperature data on this page. If Wi-Fi credentials are wrong, status LED turns solid orange. All other features require a cloud subscription to use on factory firmware.
 
