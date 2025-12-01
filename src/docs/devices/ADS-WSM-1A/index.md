@@ -12,10 +12,8 @@ difficulty: 3
 ## Product description
 
 The Advanced Detection Solutions Wi-Fi Temperature Monitor (WSM-1A) is a two zone Wi-Fi temperature monitor. 
-
 It is designed for use with a proprietary cloud backend but can be repurposed as a generic ESPHome device. The board uses an ESP8266MOD (ESP-12F chip). 
-
-| Input    | Function                        |
+| Input    | Function   |
 | ------ | ------------------------------- |
 | 2x 3.5mm stereo jack input | DS18B20 one wire thermometer input |
 | microUSB port | 5V power input (no data functions) |
@@ -23,21 +21,14 @@ It is designed for use with a proprietary cloud backend but can be repurposed as
 | green status LED | Power on status |
 | orange LED | GPIO controlable LED |
 | reset button | currently unmapped |
-
 The DS18B20 one wire thermometers are connected in series to GPIO2.
-
 The orange LED is connected to GPIO15. 
-
 The green LED is always on as long as the board is powered. 
-
 Reset button function has not been decoded at time of writing.
-
 Top of WSM-1A
 ![alt text](./WSM-1A_cover.jpg "Top Cover (MAC Address blurred)")
-
 Port side of WSM-1A
 ![alt text](./WSM-1A_ports.jpg "Port side of WSM-1A")
-
 PCB
 ![alt text](./WSM-1A_Board.jpg "PCB")
 
@@ -48,26 +39,16 @@ PCB
 | GPIO2  | One-Wire Bus for two DS18B20 Thermometers |
 | GPIO15 | Orange LED (HIGH = off, LOW = on) |
 
-
-
 ## Factory Settings and ESPHome Flashing
 
 If on factory software, holding reset for 5 seconds puts the device into Wi-Fi hotspot mode. 
-
 Connecting to the hotspot only allows for connection to another Wi-Fi network.
-
 Once it joins Wi-Fi, status LED goes solid green with orange flashes every 5 seconds, port 80 is opened to give a basic HTML page that reports Wi-Fi connection information (SSID, channel, signal strength) only and provides input fields to change Wi-Fi network credentials; it does not report temperature data on this page. 
-
 If Wi-Fi credentials are wrong, status LED turns solid orange. All other features require a cloud subscription to use on factory firmware.
-
 Two Philips screws on the base of the device release the bottom cover and expose the PCB. Two more Philips screws on the board hold the PCB to the case. 
-
 ESPHome is flashed intially using a USB to Serial TTL converter and connecting the ESP8266 TxD/GPIO1 to RxD, RxD/GPIO3 to TxD, GND to GND and shorting FLASH/GPIO0 to GND when powering on. 
-
 Fill in correct Wi-Fi credentials, encryption keys, etc. from !secret before uploading YAML code.
-
 After uploading the YAML code, check the debug logs for the addresses of the DS18B20 thermometers and further update YAML code as necessary.
-
 This code also programs the orange LED to flash if disconnected from Wi-Fi.
 
 ## Config
