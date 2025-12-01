@@ -4,6 +4,9 @@ date-published: 2025-12-01
 type: sensor
 standard: global
 board: esp8266
+project-url: https://detection-solutions.com/technical-overview
+made-for-esphome: False
+difficulty: 3
 ---
 
 ## Product description
