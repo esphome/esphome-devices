@@ -150,7 +150,7 @@ ethernet:
 ## Coprocessor Firmware Update
 
 The ESP32-C6 coprocessor firmware can be updated over-the-air using the esp32_hosted update platform:
-(see https://esphome.io/components/esp32_hosted for information on how to update the C6 coprocessor firmware)
+(see [esphome]https://esphome.io/components/esp32_hosted for information on how to update the C6 coprocessor firmware)
 
 ```yaml
 update:
