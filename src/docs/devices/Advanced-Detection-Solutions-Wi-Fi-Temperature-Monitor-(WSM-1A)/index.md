@@ -26,15 +26,15 @@ PCB
 | GPIO2  | One-Wire Bus for two DS18B20 Thermometers |
 | GPIO15 | Orange LED (HIGH = off, LOW = on) |
 
+The DS18B20 one wire thermometers are connected in series to GPIO2 and the orange LED is connected to GPIO15. The green LED is always on as long as the board is powered. Reset button function has not been decoded at time of writing.
+
 ## Factory Settings and ESPHome Flashing
 
-If using factory software, holding reset puts it into Wi-Fi hotspot mode. Connecting to the hotspot only allows for connection to another Wi-Fi network. Once it joins Wi-Fi, status LED goes solid green with orange flashes every 5 seconds, port 80 is opened to give a basic HTML page that reports Wi-Fi connection information (SSID, channel, signal strength) only and provides input to change Wi-Fi network credentials only; it does not report temperature data on this page. If Wi-Fi credentials are wrong, status LED turns solid orange. All other features require a cloud subscription to use on factory firmware.
+If on factory software, holding reset for 5 seconds puts the device into Wi-Fi hotspot mode. Connecting to the hotspot only allows for connection to another Wi-Fi network. Once it joins Wi-Fi, status LED goes solid green with orange flashes every 5 seconds, port 80 is opened to give a basic HTML page that reports Wi-Fi connection information (SSID, channel, signal strength) only and provides input fields to change Wi-Fi network credentials; it does not report temperature data on this page. If Wi-Fi credentials are wrong, status LED turns solid orange. All other features require a cloud subscription to use on factory firmware.
 
 Two Philips screws on the base of the device release the bottom cover and expose the PCB. Two more Philips screws on the board hold the PCB to the case. 
 
-ESPHome is flashed intially using a USB to Serial TTL converter and connecting the ESP8266 TxD/GPIO1 to RxD, RxD/GPIO3 to TxD, GND to GND and short FLASH/GPIO0 to GND.
-
-The DS18B20 one wire thermometers are connected to GPIO2 and the orange LED is connected to GPIO15. The green LED is always on as long as the board is powered. Reset button function has not been decoded at time of writing. Fill in correct Wi-Fi credentials, encryption keys, etc. from !secret before uploading YAML code.
+ESPHome is flashed intially using a USB to Serial TTL converter and connecting the ESP8266 TxD/GPIO1 to RxD, RxD/GPIO3 to TxD, GND to GND and shorting FLASH/GPIO0 to GND when powering on. Fill in correct Wi-Fi credentials, encryption keys, etc. from !secret before uploading YAML code.
 
 After uploading the YAML code, check the debug logs for the addresses of the DS18B20 thermometers and further update YAML code as necessary.
 
@@ -58,7 +58,7 @@ logger:
 web_server:
   port: 80
 
-#enable one wire bus for thermometers
+# Enable one wire bus for thermometers
 one_wire:
   - platform: gpio
     pin: GPIO2
@@ -84,7 +84,7 @@ sensor:
     accuracy_decimals: 1
     state_class: "measurement"
     icon: "mdi:thermometer"
-#Wifi signal strength
+# Wifi signal strength
   - platform: wifi_signal
     name: "WiFi Signal Strength"
     unit_of_measurement: "dBm"
@@ -96,7 +96,7 @@ sensor:
     name: Uptime
 
 switch:
-#Orange LED switch
+# Orange LED switch
   - platform: gpio
     pin: GPIO15
     id: "Orange_LED"
