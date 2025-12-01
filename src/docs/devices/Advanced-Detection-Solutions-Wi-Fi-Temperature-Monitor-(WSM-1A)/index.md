@@ -104,7 +104,7 @@ switch:
 
 ota:
   - platform: esphome
-    password: "ota_password"
+    password: !secret ota_password
 
 # Enable Home Assistant API
 api:
