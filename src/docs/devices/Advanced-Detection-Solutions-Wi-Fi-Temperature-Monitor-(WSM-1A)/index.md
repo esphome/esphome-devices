@@ -71,7 +71,7 @@ sensor:
     accuracy_decimals: 0
     update_interval: 30s
 # Uptime
-- platform: uptime
+  - platform: uptime
     type: seconds
     name: Uptime
 
