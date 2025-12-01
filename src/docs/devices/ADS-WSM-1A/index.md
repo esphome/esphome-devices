@@ -21,6 +21,7 @@ It is designed for use with a proprietary cloud backend but can be repurposed as
 | green status LED | Power on status |
 | orange LED | GPIO controlable LED |
 | reset button | currently unmapped |
+
 The DS18B20 one wire thermometers are connected in series to GPIO2.
 The orange LED is connected to GPIO15. 
 The green LED is always on as long as the board is powered. 
