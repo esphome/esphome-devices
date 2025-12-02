@@ -3,14 +3,14 @@ title: Guition ESP32-P4-M3-Dev
 date-published: 2025-12-01
 type: misc
 standard: Global
-board: esp32
+board: esp32p4
 ---
 
 ![Guition ESP32-P4-M3-Dev](guition_jc_esp32_p4_m3_dev.webp "Guition ESP32-P4-M3-Dev")
 
 Model reference: ESP32-P4-M3-Dev
 
-Available on  [AliExpress](http://aliexpress.com/item/1005009511796128.html)
+Available on [AliExpress](https://www.aliexpress.com/item/1005009511796128.html)
 
 ## Product Description
 
@@ -117,7 +117,7 @@ wifi:
 
 ## Bluetooth Proxy Configuration
 
-The ESP32-C6 coprocessor enables Bluetooth proxy functionality - could require c6 firmware version to work:
+The ESP32-C6 coprocessor enables Bluetooth proxy functionality - could require a C6 firmware update to work:
 
 ```yaml
 esp32_ble_tracker:
@@ -166,6 +166,6 @@ the embedded version. If they differ, an update becomes available in Home Assist
 
 ## Links
 
-- [Product Page](http://aliexpress.com/item/1005009511796128.html)
+- [Product Page](https://www.aliexpress.com/item/1005009511796128.html)
 - [Unofficial repo for device](https://github.com/p1ngb4ck/unofficial_guition_esp32p4_repo/tree/main/JC-ESP32P4-M3-Dev)
 - [Schematic](https://github.com/p1ngb4ck/unofficial_guition_esp32p4_repo/tree/main/JC-ESP32P4-M3-Dev/schematics)
