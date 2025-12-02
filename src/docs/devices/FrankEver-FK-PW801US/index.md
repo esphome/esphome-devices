@@ -1,17 +1,17 @@
 ---
-title: FrankEver Smart Plug
+title: FrankEver FK-PW801US
 date-published: 2025-12-01
 type: plug
 standard: us
 board: esp8266
 ---
-  ![alt text](./fk-pw801us.jpg "Product Image")
+  ![alt text](./frankever-fk-pw801us.jpg "Product Image")
 
 Model reference: FK-PW801US
 
 Equivalent devices:
 
-- [CloudFree Smart Plug](https://devices.esphome.io/devices/cloudfree-smart-plug/)
+- [CloudFree CF-P1](https://devices.esphome.io/devices/cloudfree-cf-p1/)
 
 Manufacturer: [FrankEver](https://frankever.com/product/)
 
@@ -27,9 +27,9 @@ Manufacturer: [FrankEver](https://frankever.com/product/)
 
 ```yaml
 substitutions:
-  devicename: frankever_smart_plug
-  friendly_name: FrankEver Smart Plug
-  device_description: FrankEver Smart Plug with button and blue led.
+  devicename: frankever_fk_pw801us
+  friendly_name: FrankEver FK-PW801US
+  device_description: FrankEver smart plug with button and blue led.
 
 esphome:
   name: ${devicename}
