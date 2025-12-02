@@ -3,7 +3,7 @@ title: Guition ESP32-P4-M3-Dev
 date-published: 2025-12-01
 type: misc
 standard: Global
-board: esp32p4
+board: esp32
 ---
 
 ![Guition ESP32-P4-M3-Dev](guition_jc_esp32_p4_m3_dev.webp "Guition ESP32-P4-M3-Dev")
