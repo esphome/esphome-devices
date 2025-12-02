@@ -13,6 +13,7 @@ difficulty: 3
 
 The Advanced Detection Solutions Wi-Fi Temperature Monitor (WSM-1A) is a two zone Wi-Fi temperature monitor. 
 It is designed for use with a proprietary cloud backend but can be repurposed as a generic ESPHome device. The board uses an ESP8266MOD (ESP-12F chip). 
+
 | Input    | Function   |
 | ------ | ------------------------------- |
 | 2x 3.5mm stereo jack input | DS18B20 one wire thermometer input |
