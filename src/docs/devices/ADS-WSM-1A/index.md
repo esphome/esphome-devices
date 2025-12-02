@@ -56,7 +56,6 @@ Accesing the device over HTTP reveals a basic HTML page that reports Wi-Fi statu
 If Wi-Fi credentials are wrong, status LED turns solid orange.
 All other features require a cloud subscription to use on factory firmware.
 
-
 ## ESPHome Flashing
 
 ESPHome is flashed intially using a USB to Serial TTL converter.
