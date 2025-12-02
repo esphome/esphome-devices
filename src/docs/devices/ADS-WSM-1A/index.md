@@ -50,9 +50,9 @@ Two more Philips screws on the board hold the PCB to the case.
 ## Factory Firmware Notes
 
 If on factory software, holding reset for 5 seconds puts the device into Wi-Fi hotspot mode.
-Connecting to the hotspot only allows for connection to another Wi-Fi network.
+Connecting to the hotspot only allows for providing credentials for a Wi-Fi network.
 Once it joins Wi-Fi, orange LED flashes every 5 seconds.
-Accesing the device over HTTP reveals a basic HTML page that reports Wi-Fi status only
+Accesing the device over HTTP reveals a basic HTML page that reports Wi-Fi status only.
 If Wi-Fi credentials are wrong, status LED turns solid orange.
 All other features require a cloud subscription to use on factory firmware.
 
@@ -96,6 +96,7 @@ sensor:
     unit_of_measurement: "°C"
     device_class: "temperature"
     accuracy_decimals: 1
+    update_interval: 30s
     state_class: "measurement"
     icon: "mdi:thermometer"
 # Temperature sensor 2
@@ -106,6 +107,7 @@ sensor:
     unit_of_measurement: "°C"
     device_class: "temperature"
     accuracy_decimals: 1
+    update_interval: 30s
     state_class: "measurement"
     icon: "mdi:thermometer"
 # Wifi signal strength
@@ -154,7 +156,7 @@ wifi:
           - delay: 500ms
 
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  # Enable fallback hotspot (captive portal) in case Wi-Fi connection fails
   ap:
     ssid: "WSM-1A Fallback Hotspot"
     password: !secret captive_portal_password
