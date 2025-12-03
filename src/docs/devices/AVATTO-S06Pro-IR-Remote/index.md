@@ -33,7 +33,7 @@ To enter a BOOT mode short-circuit the CEN and GND outputs
 | ------ | ----------- |
 | RX     | TX1         |
 | TX     | RX1         |
-| RTS    | CEN         |
+| RST    | CEN         |
 | 3.3V   | 3.3V        |
 | GND    | GND         |
 
