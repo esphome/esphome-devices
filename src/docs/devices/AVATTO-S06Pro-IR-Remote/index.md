@@ -37,7 +37,7 @@ To enter a BOOT mode short-circuit the CEN and GND outputs
 | 3.3V   | 3.3V        |
 | GND    | GND         |
 
-![Schema CB3S](./schema-CB3S.jpg "Schema CB3S")
+![Schema CB3S](./schema-CB3S.png "Schema CB3S")
 
 
 ### Flashing
