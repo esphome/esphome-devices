@@ -11,7 +11,9 @@ difficulty: 2
 
 ## General Notes
 
-There's two hardware iterations of this particular IR blaster: with and without AHT20 Sensor, and [a simple one one that don't have temperture/humidity sensor](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version). Outwardly, both appear identical.
+There's two hardware iterations of this particular IR blaster: with and without AHT20 Sensor, 
+and [a simple one one that don't have temperture/humidity sensor](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version). 
+Outwardly, both appear identical.
 
 ## GPIO Pinout
 
@@ -39,7 +41,6 @@ To enter a BOOT mode short-circuit the CEN and GND outputs
 
 ![Schema CB3S](./schema-CB3S.png "Schema CB3S")
 
-
 ### Flashing
 
 ```bash
@@ -52,7 +53,6 @@ esptool.py -p /dev/ttyUSB0 erase_flash
 # Upload the esphome firmware
 esptool.py -p /dev/ttyUSB0 write_flash -fs 1MB 0x0 ir_remote.bin
 ```
-
 
 ## Configuration
 
