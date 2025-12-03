@@ -12,7 +12,7 @@ difficulty: 2
 ## General Notes
 
 There's two hardware iterations of this particular IR blaster: with and without AHT20 Sensor,
-and [a simple one one that don't have temperture/humidity sensor](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version).
+and [a simple one that doesn't have additional sensors](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version).
 Outwardly, both appear identical.
 
 ## GPIO Pinout
