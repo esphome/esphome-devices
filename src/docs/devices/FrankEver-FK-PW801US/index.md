@@ -71,9 +71,9 @@ switch:
     pin: GPIO15
     id: relay
     on_turn_on:
-      - light.turn_on: led
+      - output.turn_on: led
     on_turn_off:
-      - light.turn_off: led
+      - output.turn_off: led
 
 output:
   - platform: gpio
