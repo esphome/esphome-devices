@@ -28,7 +28,7 @@
     "clsx": "^2.0.0",
     "gray-matter": "^4.0.3",
     "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
+    "react": "^19.2.1",
     "react-dom": "^19.0.0",
     "tsx": "^4.20.6"
   },
