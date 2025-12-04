@@ -45,6 +45,9 @@ wifi:
 
 captive_portal:
 
+# Enable logging
+logger:
+
 # Enable Home Assistant API
 api:
 
@@ -67,16 +70,14 @@ switch:
     name: Relay
     pin: GPIO15
     id: relay
-    restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
       - light.turn_on: led
     on_turn_off:
       - light.turn_off: led
 
-light:
-  - platform: status_led
+output:
+  - platform: gpio
     id: led
-    restore_mode: RESTORE_DEFAULT_OFF
     pin:
       number: GPIO02
       inverted: true
