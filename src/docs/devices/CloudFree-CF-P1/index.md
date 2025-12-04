@@ -46,10 +46,7 @@ wifi:
 
 captive_portal:
 
-# Enable logging
-logger:
-
-# Enable Home Assistant API
+# Enable API
 api:
 
 # Enable OTA
@@ -65,8 +62,6 @@ binary_sensor:
       mode: INPUT_PULLUP
     on_press:
       - switch.toggle: relay
-  - platform: status
-    name: "Connection Status"
 
 switch:
   - platform: gpio
@@ -86,21 +81,4 @@ light:
     pin:
       number: GPIO02
       inverted: true
-
-sensor:
-  - platform: uptime
-    name: Uptime
-    filters:
-      - lambda: return x / 60.0;
-    unit_of_measurement: minutes
-  - platform: wifi_signal
-    name: Wifi Signal
-    update_interval: 60s
-
-text_sensor:
-  - platform: version
-    name: ESPHome Version
-  - platform: wifi_info
-    ip_address:
-      name: IP Address
 ```
