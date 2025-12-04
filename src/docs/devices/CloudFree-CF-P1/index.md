@@ -43,24 +43,17 @@ wifi:
   # Enable fallback hotspot (captive portal) for WiFi configuration
   ap:
     ssid: ${friendly_name}
-    password: !secret AP_Password
 
 captive_portal:
 
 # Enable logging
 logger:
 
-# Web server can be removed after enabling HA API
-#web_server:
-#  port: 80
-
 # Enable Home Assistant API
 api:
-  encryption:
-    key: !secret api_encryption_key
 
+# Enable OTA
 ota:
-  password: !secret OTA_Password
 
 binary_sensor:
   - platform: gpio
