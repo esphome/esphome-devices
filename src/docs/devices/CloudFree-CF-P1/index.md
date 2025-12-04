@@ -28,22 +28,19 @@ Manufacturer: [CloudFree](https://cloudfree.shop/)
 
 ```yaml
 substitutions:
-  devicename: cloudfree_cf_p1
+  device_name: cloudfree-cf-p1
   friendly_name: CloudFree CF-P1
   device_description: CloudFree smart plug with button and blue led.
 
 esphome:
-  name: ${devicename}
+  name: ${device_name}
   comment: ${device_description}
 
 esp8266:
   board: esp01_1m
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  # Enable fallback hotspot (captive portal) for WiFi configuration
   ap:
     ssid: ${friendly_name}
     password: !secret AP_Password
@@ -65,63 +62,52 @@ api:
 ota:
   password: !secret OTA_Password
 
-sensor:
-  # Reports how long the device has been powered (in minutes)
-  - platform: uptime
-    name: ${friendly_name} Uptime
-    filters:
-      - lambda: return x / 60.0;
-    unit_of_measurement: minutes
-
-  # Reports the WiFi signal strength
-  - platform: wifi_signal
-    name: ${friendly_name} Wifi Signal
-    update_interval: 60s
-
 binary_sensor:
-  # Button on the front is pressed and then toggle relay
   - platform: gpio
     device_class: power
+    id: button
     pin:
       number: GPIO13
+      inverted: true
       mode: INPUT_PULLUP
-    # Name to make button visible in HA
-    name: ${friendly_name} Button
     on_press:
       - switch.toggle: relay
-  # Reports On/Off Status
   - platform: status
-    name: "${friendly_name} Status"
-    id: "${device_name}_status"
-
-text_sensor:
-  # Reports the ESPHome Version with compile date
-  - platform: version
-    name: ${friendly_name} ESPHome Version
-
-  # Reports detailed wifi info
-  - platform: wifi_info
-    ip_address:
-      name: ${friendly_name} IP Address
+    name: "Connection Status"
 
 switch:
-  # Relay itself
   - platform: gpio
-    name: ${friendly_name}
+    name: Relay
     pin: GPIO15
     id: relay
-    # Try to restore relay state after reboot/power-loss event
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
-      - output.turn_on: ${devicename}_led
+      - light.turn_on: led
     on_turn_off:
-      - output.turn_off: ${devicename}_led
+      - light.turn_off: led
 
-output:
-  # Output GPIOs for blue led
-  - platform: gpio
-    id: ${devicename}_led
+light:
+  - platform: status_led
+    id: led
+    restore_mode: RESTORE_DEFAULT_OFF
     pin:
       number: GPIO02
       inverted: true
+
+sensor:
+  - platform: uptime
+    name: Uptime
+    filters:
+      - lambda: return x / 60.0;
+    unit_of_measurement: minutes
+  - platform: wifi_signal
+    name: Wifi Signal
+    update_interval: 60s
+
+text_sensor:
+  - platform: version
+    name: ESPHome Version
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
 ```
