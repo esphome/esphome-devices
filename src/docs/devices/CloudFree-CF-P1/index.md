@@ -6,6 +6,7 @@ standard: us
 board: esp8266
 ---
   ![alt text](./cloudfree-cf-p1.jpg "Product Image")
+  ![alt text](./cloudfree-cf-p1-back.jpg "Product Model Info")
 
 Model reference: CF-P1
 
