@@ -85,7 +85,7 @@ psram:
   speed: 80MHz
 
 logger:
-  baud_rate: 0
+  level: DEBUG
 
 wifi:
   ssid: !secret wifi_ssid
@@ -102,26 +102,20 @@ api:
 ota:
   - platform: esphome
 
-
 external_components:
   - source: github://m5stack/esphome-yaml/components
     components: [axp2101, aw88298, aw9523b ]
-    refresh: 0s
+#    refresh: 0s
+
+i2c:
+  - id: bus_internal
+    sda: GPIO12
+    scl: GPIO11
 
 spi:
   - id: spi_bus
     clk_pin: GPIO36
     mosi_pin: GPIO37
-i2c:
-  - id: bus_internal
-    sda: GPIO12
-    scl: GPIO11
-    scan: true
-
-  - id: bus_grove
-    sda: GPIO2
-    scl: GPIO1
-    scan: false
 
 axp2101:
   id: axp2101_pmu
@@ -129,8 +123,8 @@ axp2101:
 
 # IO Expander
 aw9523b:
-  id: aw9523b_hub
-  i2c_id: bus_internal
+  - id: aw9523b_hub
+    i2c_id: bus_internal
 
 output:
   - platform: axp2101
@@ -147,14 +141,24 @@ output:
   - platform: axp2101
     channel: ALDO2
     voltage: 3300
-  
+
   - platform: axp2101
     channel: BLDO1
     voltage: 2800
-  
+
   - platform: axp2101
     channel: BLDO2
     voltage: 1500
+
+light:
+  - platform: monochromatic
+    id: lcd_backlight
+    name: "LCD Backlight"
+    icon: "mdi:television"
+    entity_category: config
+    output: lcd_backlight_output
+    restore_mode: RESTORE_DEFAULT_ON
+    default_transition_length: 250ms
 
 display:
   - platform: mipi_spi
