@@ -183,7 +183,7 @@ font:
 
 ## Notes
 
-- **Display**: works reliably with `ili9342`
+- **Display**: works reliably with `mipi_spi` (ILI9341)
 - **Touchscreen**: works well with `ft63x6`, including virtual button regions (A/B/C)
 - **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and
   inaccurate
