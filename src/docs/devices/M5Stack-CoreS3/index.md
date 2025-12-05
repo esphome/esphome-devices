@@ -102,22 +102,17 @@ api:
 ota:
   - platform: esphome
 
-spi:
-  - id: spi_bus
-    clk_pin: GPIO36
-    mosi_pin: GPIO37
 
 external_components:
   - source: github://m5stack/esphome-yaml/components
     components: [axp2101, aw88298, aw9523b ]
     refresh: 0s
 
-spi:
-  id: spi_lcd
-  clk_pin: GPIO36
-  mosi_pin: GPIO37
-  miso_pin: GPIO35
 
+spi:
+  - id: spi_bus
+    clk_pin: GPIO36
+    mosi_pin: GPIO37
 i2c:
   - id: bus_internal
     sda: GPIO12
