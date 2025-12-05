@@ -138,6 +138,11 @@ display:
     dimensions:
       height: 240
       width: 320
+    transform: # must be explicitly set until bug is fixed
+      swap_xy: false
+      mirror_x: false
+      mirror_y: false
+    show_test_card: true
     lambda: |-
       it.print(0, 0, id(roboto), "Hello World");
 
