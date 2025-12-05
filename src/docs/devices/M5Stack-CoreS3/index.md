@@ -103,6 +103,16 @@ ota:
   - platform: esphome
 
 spi:
+  - id: spi_bus
+    clk_pin: GPIO36
+    mosi_pin: GPIO37
+
+external_components:
+  - source: github://m5stack/esphome-yaml/components
+    components: [axp2101, aw88298, aw9523b ]
+    refresh: 0s
+
+spi:
   id: spi_lcd
   clk_pin: GPIO36
   mosi_pin: GPIO37
@@ -119,18 +129,49 @@ i2c:
     scl: GPIO1
     scan: false
 
+axp2101:
+  id: axp2101_pmu
+
+# IO Expander
+aw9523b:
+  id: aw9523b_hub
+
+output:
+  - platform: axp2101
+    type: range
+    channel: DLDO1
+    id: lcd_backlight_output
+    min_voltage: 2600
+    max_voltage: 3300
+
+  - platform: axp2101
+    channel: ALDO1
+    voltage: 1800
+
+  - platform: axp2101
+    channel: ALDO2
+    voltage: 3300
+  
+  - platform: axp2101
+    channel: BLDO1
+    voltage: 2800
+  
+  - platform: axp2101
+    channel: BLDO2
+    voltage: 1500
+
 display:
   - platform: mipi_spi
-    model: ILI9341 # ILI9342-compatible panel
-    spi_id: spi_lcd
-    cs_pin: GPIO3
+    model: M5CORE
     dc_pin: GPIO35
-    reset_pin: -1
-    backlight_pin: -1
+    reset_pin:
+      aw9523b: aw9523b_hub
+      number: 9
+    cs_pin: GPIO3
     data_rate: 40MHz
-    dimensions:
-      width: 320
-      height: 240
+    update_interval: never
+    invert_colors: true
+    id: m5cores3_lcd
     show_test_card: true
 
 touchscreen:
@@ -148,3 +189,4 @@ touchscreen:
   `i2s_audio` components.
 - **Storage**: The microSD slot shares the LCD SPI bus with CS on GPIO4.
 - **Expansion**: Grove Port A exposes I2C on GPIO2/1; Ports B (GPIO9/8) and C (GPIO18/17) are free GPIOs on the M-Bus.
+- **Touchscreen**: The FT5x06 capacitive touch controller works reliably with the configuration above. The interrupt pin (GPIO21) is optional but recommended for better responsiveness.
