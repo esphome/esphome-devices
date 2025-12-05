@@ -14,7 +14,7 @@ expander, internal BMI270 IMU, ES7210 microphone codec, speaker amp, microSD slo
 
 ## Product Images
 
-![M5Stack CoreS3](./5Stack-CoreS3.webp "M5Stack CoreS3")
+![M5Stack CoreS3](./M5Stack-CoreS3.webp "M5Stack CoreS3")
 
 ## GPIO Pinout
 
