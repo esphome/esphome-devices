@@ -1,6 +1,6 @@
 ---
 title: M5Stack M5Core2
-date-published: 2025-05-29
+date-published: 2025-12-05
 type: misc
 standard: global
 board: esp32
@@ -119,17 +119,22 @@ i2c:
     scan: true
 
 display:
-  - platform: ili9xxx
-    model: ili9342
+  - platform: mipi_spi
+    model: ILI9341
+    id: main_display
     cs_pin: GPIO5
     dc_pin: GPIO15
+    data_rate: 40MHz
     invert_colors: true
-    show_test_card: true
+    pixel_mode: 18bit
     dimensions:
-      width: 320
       height: 240
-    transform:
-      mirror_x: false # must be explicitly included, otherwise it defaults to true with the ili9342
+      width: 320
+    show_test_card: true
+    transform: # must be explicitly set until bug is fixed
+      swap_xy: false
+      mirror_x: false
+      mirror_y: false
 
 touchscreen:
   - platform: ft63x6
@@ -188,7 +193,7 @@ binary_sensor:
 
 ## Notes
 
-- **Display**: works reliably with `ili9342`
+- **Display**: works reliably with `mipi_spi` (ILI9341)
 - **Touchscreen**: works well with `ft63x6`, including virtual button regions (A/B/C)
 - **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and inaccurate
 - **Speaker**: didn't work, but some config is provided
