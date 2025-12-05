@@ -135,8 +135,6 @@ display:
     data_rate: 40MHz
     invert_colors: true
     pixel_mode: 18bit
-    auto_clear_enabled: false
-    update_interval: never
     dimensions:
       height: 240
       width: 320
