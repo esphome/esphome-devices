@@ -197,5 +197,7 @@ light:
   `i2s_audio` components.
 - **Storage**: The microSD slot shares the LCD SPI bus with CS on GPIO4.
 - **Expansion**: Grove Port A exposes I2C on GPIO2/1; Ports B (GPIO9/8) and C (GPIO18/17) are free GPIOs on the M-Bus.
-- **Touchscreen**: The FT63X6 capacitive touch controller requires a reset pin driven by the AW9523B expander (pin 0). The calibration values ensure proper coordinate mapping for the 320x240 display.
-- **IO Expander (AW9523B)**: This component manages LCD reset (pin 9), touchscreen reset (pin 0), and other peripheral power switches. It must be properly configured for the display and touch to work.
+- **Touchscreen**: The FT63X6 capacitive touch controller requires a reset pin driven by the AW9523B expander (pin 0).
+  The calibration values ensure proper coordinate mapping for the 320x240 display.
+- **IO Expander (AW9523B)**: This component manages LCD reset (pin 9), touchscreen reset (pin 0),
+  and other peripheral power switches. It must be properly configured for the display and touch to function.
