@@ -50,6 +50,7 @@ esphome:
 
 esp32:
   variant: esp32
+  # Arduino framework is required for the axp2101 component
   framework:
     type: arduino
 
