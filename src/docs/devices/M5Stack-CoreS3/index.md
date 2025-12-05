@@ -149,16 +149,22 @@ output:
   - platform: axp2101
     channel: BLDO2
     voltage: 1500
+```
 
-light:
-  - platform: monochromatic
-    id: lcd_backlight
-    name: "LCD Backlight"
-    icon: "mdi:television"
-    entity_category: config
-    output: lcd_backlight_output
-    restore_mode: RESTORE_DEFAULT_ON
-    default_transition_length: 250ms
+## Display
+
+```yaml
+touchscreen:
+  - platform: ft63x6
+    id: touch
+    reset_pin:
+      aw9523b: aw9523b_hub
+      number: 0
+    calibration:
+      x_min: 0
+      x_max: 320
+      y_min: 0
+      y_max: 240
 
 display:
   - platform: mipi_spi
@@ -173,17 +179,15 @@ display:
     id: m5cores3_lcd
     show_test_card: true
 
-touchscreen:
-  - platform: ft63x6
-    id: touch
-    reset_pin:
-      aw9523b: aw9523b_hub
-      number: 0
-    calibration:
-      x_min: 0
-      x_max: 320
-      y_min: 0
-      y_max: 240
+light:
+  - platform: monochromatic
+    id: lcd_backlight
+    name: "LCD Backlight"
+    icon: "mdi:television"
+    entity_category: config
+    output: lcd_backlight_output
+    restore_mode: RESTORE_DEFAULT_ON
+    default_transition_length: 250ms
 ```
 
 ## Notes
