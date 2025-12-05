@@ -48,6 +48,9 @@ esphome:
 
 esp32:
   variant: esp32
+  # Arduino framework is required for the axp192 component
+  framework:
+    type: arduino
 
 psram:
   mode: quad
