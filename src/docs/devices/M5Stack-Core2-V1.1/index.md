@@ -136,8 +136,8 @@ display:
     invert_colors: true
     pixel_mode: 18bit
     dimensions:
-      height: 240
       width: 320
+      height: 240
     transform: # must be explicitly set until bug is fixed
       swap_xy: false
       mirror_x: false
