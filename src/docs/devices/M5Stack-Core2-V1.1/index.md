@@ -138,7 +138,7 @@ display:
     dimensions:
       width: 320
       height: 240
-    transform: # must be explicitly set until bug is fixed
+    transform: # must be explicitly set
       swap_xy: false
       mirror_x: false
       mirror_y: false
