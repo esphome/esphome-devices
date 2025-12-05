@@ -1,6 +1,6 @@
 ---
 title: M5Stack Core2 V1.1
-date-published: 2025-06-22
+date-published: 2025-12-05
 type: misc
 standard: global
 board: esp32
@@ -125,12 +125,22 @@ i2c:
     scan: True
 
 display:
-  - platform: ili9xxx
-    model: M5STACK
-    dimensions: 320x240
-    invert_colors: False
+  - platform: mipi_spi
+    model: ILI9341
     cs_pin: GPIO5
     dc_pin: GPIO15
+    data_rate: 40MHz
+    invert_colors: true
+    pixel_mode: 18bit
+    auto_clear_enabled: false
+    update_interval: never
+    transform:
+      swap_xy: false
+      mirror_x: true
+      mirror_y: false
+    dimensions:
+      height: 240
+      width: 320
     lambda: |-
       it.print(0, 0, id(roboto), "Hello World");
 
