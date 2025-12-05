@@ -50,6 +50,8 @@ esphome:
 
 esp32:
   variant: esp32
+  framework:
+    type: arduino
 
 psram:
   mode: quad
