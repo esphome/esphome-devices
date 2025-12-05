@@ -143,8 +143,6 @@ display:
       mirror_x: false
       mirror_y: false
     show_test_card: true
-    lambda: |-
-      it.print(0, 0, id(roboto), "Hello World");
 
 touchscreen:
   - platform: ft63x6
