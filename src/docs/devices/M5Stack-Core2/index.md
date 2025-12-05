@@ -130,11 +130,11 @@ display:
     dimensions:
       height: 240
       width: 320
-    show_test_card: true
     transform: # must be explicitly set until bug is fixed
       swap_xy: false
       mirror_x: false
       mirror_y: false
+    show_test_card: true
 
 touchscreen:
   - platform: ft63x6
