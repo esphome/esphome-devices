@@ -14,7 +14,7 @@ expander, internal BMI270 IMU, ES7210 microphone codec, speaker amp, microSD slo
 
 ## Product Images
 
-![M5Stack CoreS3](./M5Stack-CoreS3.webp "M5Stack CoreS3")
+![M5Stack CoreS3](./M5Stack-CoreS3.png "M5Stack CoreS3")
 
 ## GPIO Pinout
 
@@ -105,7 +105,6 @@ ota:
 external_components:
   - source: github://m5stack/esphome-yaml/components
     components: [axp2101, aw88298, aw9523b ]
-#    refresh: 0s
 
 i2c:
   - id: bus_internal
