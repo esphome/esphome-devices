@@ -1,6 +1,6 @@
 ---
 title: M5Stack Core2 V1.1
-date-published: 2025-06-22
+date-published: 2025-12-05
 type: misc
 standard: global
 board: esp32
@@ -50,6 +50,9 @@ esphome:
 
 esp32:
   variant: esp32
+  # Arduino framework is required for the axp2101 component
+  framework:
+    type: arduino
 
 psram:
   mode: quad
@@ -125,14 +128,21 @@ i2c:
     scan: True
 
 display:
-  - platform: ili9xxx
-    model: M5STACK
-    dimensions: 320x240
-    invert_colors: False
+  - platform: mipi_spi
+    model: ILI9341
     cs_pin: GPIO5
     dc_pin: GPIO15
-    lambda: |-
-      it.print(0, 0, id(roboto), "Hello World");
+    data_rate: 40MHz
+    invert_colors: true
+    pixel_mode: 18bit
+    dimensions:
+      width: 320
+      height: 240
+    transform: # must be explicitly set
+      swap_xy: false
+      mirror_x: false
+      mirror_y: false
+    show_test_card: true
 
 touchscreen:
   - platform: ft63x6
@@ -176,7 +186,7 @@ font:
 
 ## Notes
 
-- **Display**: works reliably with `ili9342`
+- **Display**: works reliably with `mipi_spi` (ILI9341)
 - **Touchscreen**: works well with `ft63x6`, including virtual button regions (A/B/C)
 - **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and
   inaccurate
