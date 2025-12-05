@@ -201,3 +201,4 @@ light:
   The calibration values ensure proper coordinate mapping for the 320x240 display.
 - **IO Expander (AW9523B)**: This component manages LCD reset (pin 9), touchscreen reset (pin 0),
   and other peripheral power switches. It must be properly configured for the display and touch to function.
+- **IMU (BMI270)**: The built-in BMI270 6-axis IMU is not yet supported in ESPHome. It's available on the internal I2C bus at address 0x68.
