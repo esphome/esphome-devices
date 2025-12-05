@@ -108,7 +108,6 @@ external_components:
     components: [axp2101, aw88298, aw9523b ]
     refresh: 0s
 
-
 spi:
   - id: spi_bus
     clk_pin: GPIO36
@@ -126,10 +125,12 @@ i2c:
 
 axp2101:
   id: axp2101_pmu
+  i2c_id: bus_internal
 
 # IO Expander
 aw9523b:
   id: aw9523b_hub
+  i2c_id: bus_internal
 
 output:
   - platform: axp2101
@@ -164,16 +165,21 @@ display:
       number: 9
     cs_pin: GPIO3
     data_rate: 40MHz
-    update_interval: never
     invert_colors: true
     id: m5cores3_lcd
     show_test_card: true
 
 touchscreen:
-  - platform: ft5x06
-    i2c_id: bus_internal
-    interrupt_pin: GPIO21
-    address: 0x38
+  - platform: ft63x6
+    id: touch
+    reset_pin:
+      aw9523b: aw9523b_hub
+      number: 0
+    calibration:
+      x_min: 0
+      x_max: 320
+      y_min: 0
+      y_max: 240
 ```
 
 ## Notes
@@ -184,4 +190,5 @@ touchscreen:
   `i2s_audio` components.
 - **Storage**: The microSD slot shares the LCD SPI bus with CS on GPIO4.
 - **Expansion**: Grove Port A exposes I2C on GPIO2/1; Ports B (GPIO9/8) and C (GPIO18/17) are free GPIOs on the M-Bus.
-- **Touchscreen**: The FT5x06 capacitive touch controller works reliably with the configuration above. The interrupt pin (GPIO21) is optional but recommended for better responsiveness.
+- **Touchscreen**: The FT63X6 capacitive touch controller requires a reset pin driven by the AW9523B expander (pin 0). The calibration values ensure proper coordinate mapping for the 320x240 display.
+- **IO Expander (AW9523B)**: This component manages LCD reset (pin 9), touchscreen reset (pin 0), and other peripheral power switches. It must be properly configured for the display and touch to work.
