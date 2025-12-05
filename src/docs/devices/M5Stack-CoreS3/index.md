@@ -66,9 +66,23 @@ esphome:
 
 esp32:
   board: esp32-s3-devkitc-1
-  variant: ESP32S3
+  flash_size: 16MB
   framework:
-    type: arduino
+    type: esp-idf
+    ## Note: Disable these configurations if you face the boot loop issue.
+    sdkconfig_options:
+        CONFIG_ESP32S3_DATA_CACHE_64KB: "y"
+        CONFIG_ESP32S3_DATA_CACHE_LINE_64B: "y"
+        CONFIG_ESP32S3_INSTRUCTION_CACHE_32KB: "y"
+        # Moves instructions and read only data from flash into PSRAM on boot.
+        # Both enabled allows instructions to execute while a flash operation is in progress without needing to be placed in IRAM.
+        # Considerably speeds up mWW at the cost of using more PSRAM.
+        CONFIG_SPIRAM_RODATA: "y"
+        CONFIG_SPIRAM_FETCH_INSTRUCTIONS: "y"
+
+psram:
+  mode: quad
+  speed: 80MHz
 
 logger:
   baud_rate: 0
