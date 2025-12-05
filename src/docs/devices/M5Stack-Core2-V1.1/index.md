@@ -137,10 +137,6 @@ display:
     pixel_mode: 18bit
     auto_clear_enabled: false
     update_interval: never
-    transform:
-      swap_xy: false
-      mirror_x: true
-      mirror_y: false
     dimensions:
       height: 240
       width: 320
