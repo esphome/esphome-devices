@@ -11,7 +11,7 @@ Model reference: FK-PW801US
 
 Equivalent devices:
 
-- [CloudFree CF-P1](https://devices.esphome.io/devices/cloudfree-cf-p1/)
+- [CloudFree CF-P1](../CloudFree-CF-P1/)
 
 Manufacturer: [FrankEver](https://frankever.com/product/)
 
