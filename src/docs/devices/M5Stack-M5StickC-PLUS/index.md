@@ -51,6 +51,9 @@ esphome:
 
 esp32:
   variant: esp32
+  # Arduino framework is required for the axp192 component
+  framework:
+    type: arduino
 
 wifi:
   ssid: !secret wifi_ssid
@@ -153,8 +156,8 @@ display:
 
 i2s_audio:
   id: bus_i2s
-  i2s_lrclk_pin: G26
-  i2s_bclk_pin: G0
+  i2s_lrclk_pin: GPIO26
+  i2s_bclk_pin: GPIO0
 
 microphone:
   - platform: i2s_audio
