@@ -219,3 +219,8 @@ time:
         # ... and update the RTC when the synchronization was successful
         bm8563.write_time:
 ```
+
+## Notes
+- **Display**: works reliably with `st7789v`
+- **Microphone**: untested
+- **BM8563 RTC**: ESPHome component exists for version >=2025.12.0.
