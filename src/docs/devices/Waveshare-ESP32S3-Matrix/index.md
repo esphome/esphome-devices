@@ -63,7 +63,7 @@ esp32:
     type: arduino
 
 external_components:
-- source: https://github.com/dala318/esphome-qmi8658
+- source: github://dala318/esphome-qmi8658
 
 i2c:
   sda: GPIO11
