@@ -205,22 +205,25 @@ RTC
 [BM8563 Time Source](https://esphome.io/components/time/bm8563/)
 
 ```yaml
+# First block - hardware definition only
 time:
   - platform: bm8563
     # repeated synchronization is not necessary unless the external RTC
     # is much more accurate than the internal clock
     update_interval: never
+
+# Second block - more complex example with integration
+time:
+  - platform: bm8563
+    update_interval: never
   - platform: homeassistant
-    # instead try to synchronize via network repeatedly ...
     on_time_sync:
       then:
-        # ... and update the RTC when the synchronization was successful
         bm8563.write_time:
 
 esphome:
   on_boot:
     then:
-      # read the RTC time once when the system boots
       bm8563.read_time:
 ```
 
