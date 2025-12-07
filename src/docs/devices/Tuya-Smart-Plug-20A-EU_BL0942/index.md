@@ -1,11 +1,11 @@
 ---
-title: Tuya Smart Plug 20A with Power Monitoring
+title: Tuya Smart Plug 20A with BL0942 Power Monitoring IC
 date-published: 2025-12-07
 type: plug
 standard: eu
 board: bk72xx
 made-for-esphome: False
-difficulty: 4
+difficulty: 3
 ---
 
 ![Tuya Smart Plug 20A](Tuya_plug_EU.png)
@@ -13,7 +13,7 @@ difficulty: 4
 The smart plug is using the Tuya T34 module design incorporating a BK7231N chip
 [T34 Datasheet](https://developer.tuya.com/en/docs/iot/t34-module-datasheet?id=Ka0l4h5zvg6j8)
 
-The power monitoring chip is the BL0942, which is not so often seen in Tuya producta. It is connected using the UART feature to UART1.
+The power monitoring chip is the BL0942, which is not so often seen in Tuya products. It is connected using the UART feature to UART1.
 
 [BL0942 Datasheet](https://www.belling.com.cn/media/file_object/bel_product/BL0942/datasheet/BL0942_V1.06_en.pdf)
 
@@ -44,9 +44,9 @@ Based on available documentation (links above) the T34 chip can be programmed us
 
 It is easier to use the corresponding BL0942 pins to connect the programmers RX & TX pins.
 Programmer TX must be connected to pin 10 and RX must beconnected to pin 9.
-Connect a 5V DC source to the voltage regulator. Start programming and then cycle power of the 5V source to enter the bootlöoader.
+Connect a 5V DC source to the voltage regulator. Start programming and then cycle power of the 5V source to enter the bootloader.
 
-It is important to limit the download speed to 19200 baud (--upload_speed 19200) otherwise the programming terminates.
+It is important to **limit the download speed to 19200 baud** (--upload_speed 19200) otherwise the programming terminates.
 
 ## ESPHome example config
 
