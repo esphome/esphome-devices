@@ -1,5 +1,4 @@
 # M5Stack M5Core2
-
 ---
 title: M5Stack M5Core2
 date-published: 2025-12-05
