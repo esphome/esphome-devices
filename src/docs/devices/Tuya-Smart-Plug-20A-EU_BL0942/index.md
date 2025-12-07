@@ -48,4 +48,110 @@ Connect a 5V DC source to the voltage regulator. Start programming and then cycl
 
 It is important to limit the download speed to 19200 baud (--upload_speed 19200) otherwise the programming terminates.
 
+## ESPHome example config
 
+```yaml
+# Programming speed must be reduced otherwise the
+# switch will will exit the flashing routine
+# Use:
+# esphome run tuya_plug.yaml --upload_speed 19200
+
+esphome:
+  comment: "Tuya Smart Socket EU 20A with Power Monitor"
+  name: tuya-smartplug
+  name_add_mac_suffix: true
+
+bk72xx:
+  board: generic-bk7231n-qfn32-tuya # actually a T34 Tuya module
+
+logger:
+    level: NONE
+
+wifi:
+  # In case a secrets.yaml file is available in the root folder
+  # with the following content:
+  # secrets.yaml
+  # wifi_ssid: "SSID"
+  # wifi_password: "PASSWORD"
+  
+  #ssid: !secret wifi_ssid
+  #password: !secret wifi_password
+  
+  ap:
+    ssid: "TuyaPlug"
+  
+captive_portal:
+
+api: 
+
+ota:
+  platform: esphome
+  
+web_server:
+  version: 3
+  port: 80  
+  
+# Make LED controllable as a light
+output:
+  - platform: gpio
+    pin: P14
+    id: relay_1
+  - platform: gpio
+    pin:
+      number: P24
+      inverted: false
+    id: led_output
+
+light:
+  - platform: binary
+    name: "Status LED"  # blue LED
+    id: status_light
+    output: led_output
+
+# Local button on PCB
+binary_sensor:
+  - platform: gpio
+    id: button_1        # illuminated button
+    pin:
+      number: P26
+      mode: INPUT_PULLUP
+      inverted: true  
+    filters:
+      - delayed_on: 50ms
+    on_press:
+      - switch.toggle: relay_switch  # manual control for relay
+      
+# Switch to control the relay from the UI
+switch:
+  - platform: output
+    name: "Relay"
+    id: relay_switch
+    output: relay_1
+    
+uart:
+  id: bl0942_uart  # UART1 is used to read the data from the BL0942
+  tx_pin: TX1
+  rx_pin: RX1
+  baud_rate: 4800    
+
+# Belling BL0942 Energy Monitor
+sensor:
+  - platform: bl0942
+    uart_id: bl0942_uart
+    line_frequency: 50Hz
+    voltage:
+      name: 'Voltage'
+    current:
+      name: 'Current'
+    power:
+      name: 'Power'
+    energy:
+      name: 'Energy'
+    frequency:
+      name: "Frequency"
+      
+  - platform: wifi_signal
+    name: "TuyaPlug WiFi Signal"
+    id: wifi_signal_sensor
+    update_interval: 60s        
+```    
