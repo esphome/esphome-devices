@@ -27,7 +27,7 @@ The BL0942 is a sophisticated, calibration-free integrated circuit (IC) for ener
 from Shanghai Belling Corp.
 It is used in single-phase electricity meters, smart plugs and smart home devices to enable accurate
 measurements of voltage, current and power via a UART/SPI interface, offering a cost-effective solution
-for energy monitoring. 
+for energy monitoring.
 
 ![Tuya Smart Plug PCB view](Tuya_PCB.png)
 
