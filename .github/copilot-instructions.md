@@ -2,7 +2,60 @@
 
 ## Overview
 
-This repository contains device documentation for ESPHome-compatible devices. When reviewing pull requests, you should pay special attention to devices marked with `made-for-esphome: true` in their frontmatter, as these require additional validation against specific standards.
+This repository is a Docusaurus-based static site that documents ESPHome-compatible IoT devices. It uses a metadata extraction pipeline to generate dynamic device listings from Markdown files with YAML frontmatter.
+
+**Key Architecture:**
+- **Content**: Device pages in `src/docs/devices/{DeviceName}/index.md` with YAML frontmatter
+- **Build Pipeline**: `extract-device-metadata.ts` scans device folders → generates `src/data/device-metadata.json` → powers React components
+- **Listing Pages**: Type-based (`/type/sensor`), standard-based (`/standards/us`), and "Made for ESPHome" (`/made-for-esphome`) views filter the metadata JSON
+- **Tech Stack**: Docusaurus 3.9, React 19, TypeScript, pnpm workspace
+
+## Development Workflow
+
+**Essential Commands:**
+```bash
+pnpm install              # Install dependencies (requires Node 20+)
+pnpm start               # Extract metadata + dev server at localhost:3000
+pnpm build               # Extract metadata + production build
+pnpm extract-metadata    # Run metadata extraction manually
+```
+
+**Critical Build Step:** All `start` and `build` commands automatically run `extract-device-metadata.ts` first. This script:
+1. Scans `src/docs/devices/*/index.md` (or single `.md` if `index.md` missing)
+2. Parses YAML frontmatter with `gray-matter`
+3. Outputs to `src/data/device-metadata.json` (gitignored, generated at build time)
+4. Device components import this JSON for filtering/sorting
+
+**Why this matters:** If you edit device frontmatter, metadata won't update until you restart the dev server or rebuild.
+
+## React Component Patterns
+
+**State Management Philosophy:** Prefer React's native hooks (`useMemo`, `useCallback`, `React.memo`) over external state libraries. See `.cursor/rules/docusaurus-app-rules.mdc` for details.
+
+**Key Components:**
+- `DeviceListingPage.tsx`: Generic listing component using `filterType`/`filterValue` props. Filters and sorts devices from `device-metadata.json`
+- `DeviceListItem.tsx`: Individual device card renderer
+- `DeviceUtils.ts`: Shared utilities - `splitValues()` handles comma-separated frontmatter values, `slugify()` normalizes URLs
+
+**Performance Pattern Example (from `DeviceListingPage.tsx`):**
+```typescript
+const devices = useMemo(() => {
+  return Object.entries(deviceMetadata)
+    .filter(([, device]) => matchesFilter(device, filterType, filterValue))
+    .sort((a, b) => /* sorting logic */);
+}, [filterType, filterValue, sortBy]);
+
+const handleSortByTitle = useCallback(() => setSortBy('title'), []);
+```
+
+**Docusaurus Quirks:**
+- Device pages use `docs` plugin with custom `routeBasePath: "/devices"` and `path: "src/docs/devices"`
+- Listing pages (e.g., `/type/sensor`) are React pages in `src/pages/type/` that dynamically filter metadata
+- Sidebar config in `sidebars.ts` uses manual links to custom pages, not auto-generated from docs structure
+
+## Device Documentation Standards
+
+When reviewing pull requests, pay special attention to devices marked with `made-for-esphome: true` in their frontmatter, as these require additional validation against specific standards.
 
 ## Pull Request Review Guidelines
 
