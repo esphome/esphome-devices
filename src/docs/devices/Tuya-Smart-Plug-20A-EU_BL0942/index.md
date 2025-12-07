@@ -156,4 +156,5 @@ sensor:
     name: "TuyaPlug WiFi Signal"
     id: wifi_signal_sensor
     update_interval: 60s        
-```    
+```  
+  
