@@ -9,6 +9,8 @@ difficulty: 3
 ---
 
 ![Tuya Smart Plug 20A](Tuya_plug_EU.png)
+![Tuya Smart Plug Aliexpress](Tuya_plug_aliexpress.png)
+
 
 The smart plug is using the Tuya T34 module design incorporating a BK7231N chip
 [T34 Datasheet](https://developer.tuya.com/en/docs/iot/t34-module-datasheet?id=Ka0l4h5zvg6j8)
