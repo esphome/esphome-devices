@@ -196,7 +196,7 @@ binary_sensor:
 
 ## RTC
 
-[BM8563 Time Source](https://next.esphome.io/components/time/bm8563/)
+[BM8563 Time Source](https://esphome.io/components/time/bm8563/)
 
 ```yaml
 esphome:
