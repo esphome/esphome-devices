@@ -11,11 +11,11 @@ difficulty: 3
 ![Tuya Smart Plug 20A](Tuya_plug_EU.png)
 ![Tuya Smart Plug Aliexpress](Tuya_plug_aliexpress.png)
 
-
 The smart plug is using the Tuya T34 module design incorporating a BK7231N chip
 [T34 Datasheet](https://developer.tuya.com/en/docs/iot/t34-module-datasheet?id=Ka0l4h5zvg6j8)
 
-The power monitoring chip is the BL0942, which is not so often seen in Tuya products. It is connected using the UART feature to UART1.
+The power monitoring chip is the BL0942, which is not so often seen in Tuya products.
+It is connected using the UART feature to UART1.
 
 [BL0942 Datasheet](https://www.belling.com.cn/media/file_object/bel_product/BL0942/datasheet/BL0942_V1.06_en.pdf)
 
@@ -23,8 +23,11 @@ The power monitoring chip is the BL0942, which is not so often seen in Tuya prod
 
 [BL0942 ESPHome](https://esphome.io/components/sensor/bl0942/)
 
-The BL0942 is a sophisticated, calibration-free integrated circuit (IC) for energy measurement from Shanghai Belling Corp.
-It is used in single-phase electricity meters, smart plugs and smart home devices to enable accurate measurements of voltage, current and power via a UART/SPI interface, offering a cost-effective solution for energy monitoring. 
+The BL0942 is a sophisticated, calibration-free integrated circuit (IC) for energy measurement
+from Shanghai Belling Corp.
+It is used in single-phase electricity meters, smart plugs and smart home devices to enable accurate
+measurements of voltage, current and power via a UART/SPI interface, offering a cost-effective solution
+for energy monitoring. 
 
 ![Tuya Smart Plug PCB view](Tuya_PCB.png)
 
@@ -41,6 +44,7 @@ It is used in single-phase electricity meters, smart plugs and smart home device
 ## Programming
 
 Based on available documentation (links above) the T34 chip can be programmed using ESPHome tools
+
 - pin 25 as UART_RXD
 - pin 26 as UART_TXD
 
@@ -51,6 +55,7 @@ Connect a 5V DC source to the voltage regulator. Start programming and then cycl
 It is important to **limit the download speed to 19200 baud** (--upload_speed 19200) otherwise the programming terminates.
 
 ## ESPHome Hardware definitions
+
 ```yaml
 esphome:
   comment: "Tuya Smart Socket EU 20A with Power Monitor"
