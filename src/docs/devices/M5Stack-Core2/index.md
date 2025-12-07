@@ -1,4 +1,3 @@
-# M5Stack M5Core2
 ---
 title: M5Stack M5Core2
 date-published: 2025-12-05
@@ -6,17 +5,15 @@ type: misc
 standard: global
 board: esp32
 project-url: https://docs.m5stack.com/en/core/core2
-made-for-esphome: False
+made-for-esphome: false
 difficulty: 2
 ---
 
-Product Images
-=============
+## Product Images
 
 ![M5Core2](core2_01.png "M5Stack M5Core2")
 
-GPIO Pinout
-=============
+## GPIO Pinout
 
 | Pin    | Function        |
 | ------ | --------------- |
@@ -31,15 +28,13 @@ GPIO Pinout
 | GPIO0  | I2S LRCLK       |
 | GPIO12 | I2S BCLK        |
 
-External Components
-=============
+## External Components
 
 [ESPHome AXP192 Component by martydingo](https://github.com/martydingo/esphome-axp192)
 
 This component is essential for powering the internal display and enabling power control for other peripherals on the M5Core2.
 
-Example Configuration
-=============
+## Example Configuration
 
 ```yaml
 substitutions:
@@ -199,8 +194,7 @@ binary_sensor:
 #         data: !lambda return startup_raw;
 ```
 
-RTC
-=============
+## RTC
 
 [BM8563 Time Source](https://esphome.io/components/time/bm8563/)
 
@@ -229,8 +223,7 @@ esphome:
       bm8563.read_time:
 ```
 
-Notes
-=============
+## Notes
 
 - **Display**: works reliably with `mipi_spi` (ILI9341)
 - **Touchscreen**: works well with `ft63x6`, including virtual button regions (A/B/C)
