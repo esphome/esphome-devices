@@ -211,7 +211,9 @@ time:
     # repeated synchronization is not necessary unless the external RTC
     # is much more accurate than the internal clock
     update_interval: never
+```
 
+```yaml
 # Second block - more complex example with integration
 time:
   - platform: bm8563
