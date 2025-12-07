@@ -72,7 +72,11 @@ wifi:
 uart:
   id: bl0942_uart
   tx_pin: GPIO6
-  rx_pin: GPIO7
+  rx_pin:
+    number: GPIO7
+    mode:
+      pullup: true
+      input: true
   baud_rate: 9600
   stop_bits: 1
 
@@ -348,7 +352,11 @@ logger:
 uart:
   id: bl0942_uart
   tx_pin: GPIO6
-  rx_pin: GPIO7
+  rx_pin: 
+    number: GPIO7
+    mode:
+      pullup: true
+      input: true
   baud_rate: 9600
   stop_bits: 1
 
