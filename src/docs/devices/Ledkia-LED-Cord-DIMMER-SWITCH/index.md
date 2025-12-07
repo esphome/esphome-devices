@@ -10,7 +10,7 @@ difficulty: 4
 
 ![Ledkia LED Cord DIMMER Switch](Ledkia-LED-Cord-DIMMER-device.webp "Ledkia LED Cord DIMMER Switch")
 
-"The Smart Wi-Fi dimmer is powered by Tuya platform with excellent compatibility to most Dimmable LED lamps 
+"The Smart Wi-Fi dimmer is powered by Tuya platform with excellent compatibility to most Dimmable LED lamps
 also works pefectly with halogen or eclectronic transformer and incandescent lighting.
 Possibiliity of wireless voice control via Alexa or Google home."
 
@@ -29,7 +29,7 @@ by a [**Tuya WR3**](https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?
 |Dimming Method     | Rotary                            |
 |Ambient temperature| 35°C                              |
 |Cables section     | 0.75 mm²                          |
-|Dimension          | 96.7mm * 24.9mm * 39.4mm          |
+|Dimension          | 96.7mm X 24.9mm X 39.4mm          |
 |Item weight        | 41g                               |
 
 ### Original paperwork
@@ -87,7 +87,8 @@ the **EN** pin to **GND**
 
 ## Backing up the original firmware
 
-Before flashing ESPHome, it’s highly recommended to back up the original firmware in case you want to restore the stock tuya functionality later. Run:
+Before flashing ESPHome, it’s highly recommended to back up the original firmware in case you want to restore
+the stock tuya functionality later. Run:
 
 ```shell
 ltchiptool flash read realtek-ambz lcds_backup.uf2
