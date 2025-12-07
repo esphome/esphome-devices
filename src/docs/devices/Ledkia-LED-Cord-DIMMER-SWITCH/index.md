@@ -2,7 +2,7 @@
 title: Ledkia LED Cord DIMMER Switch
 date-published: 2025-12-07
 type: dimmer
-standard: EU
+standard: uk, eu
 board: rtl87xx
 made-for-esphome: False
 difficulty: 4
@@ -14,27 +14,27 @@ difficulty: 4
 also works pefectly with halogen or eclectronic transformer and incandescent lighting.
 Possibiliity of wireless voice control via Alexa or Google home."
 
-Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 microcontrollers. 
-The dimmer side is controlled by stm microcontroller (Tuya MCU), and the Wi-Fi functionality 
+Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 microcontrollers.
+The dimmer side is controlled by stm microcontroller (Tuya MCU), and the Wi-Fi functionality
 by a [**Tuya WR3**](https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1) module.
 
-**Specs**
-|   Description     |    Value |
-|-------------------|-----------------------|
-|Rated input voltage| 220-240 Vac, 50Hz|
-|Power range        | 5-50VA @ 220-240V LED
-|Power range        |10-100W @ 220-240 INC, HAL
-|Type of load       | LED retrofit-Incandescent-halogen|
-|Dimming Method     | Rotary|
-|Ambient temperature| 35°C|
-|Cables section     | 0.75 mm²|
-|Dimension          | 96.7mm * 24.9mm * 39.4mm|
-|Item weight        | 41g|
+### Specs
 
-**Original paperwork**
+|   Description     |    Value                          |
+|-------------------|-----------------------------      |
+|Rated input voltage| 220-240 Vac, 50Hz                 |
+|Power range        | 5-50VA @ 220-240V LED             |
+|Power range        | 10-100W @ 220-240 INC, HAL        |
+|Type of load       | LED retrofit-Incandescent-halogen |
+|Dimming Method     | Rotary                            |
+|Ambient temperature| 35°C                              |
+|Cables section     | 0.75 mm²                          |
+|Dimension          | 96.7mm * 24.9mm * 39.4mm          |
+|Item weight        | 41g                               |
+
+### Original paperwork
 
 ![Ledkia LED Cord DIMMER Switch](Ledkia-LED-Cord-DIMMER-manual.png "Ledkia LED Cord DIMMER Switch")
-
 
 ## Pinout
 
@@ -69,9 +69,9 @@ by a [**Tuya WR3**](https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?
 
 ## Flashing
 
-**IMPORTANT NOTE**
+### IMPORTANT NOTE
 
-> BY NO MEANS SHOULD THE DEVICE BE CONNECTED TO THE MAINS WHILE FLASHING OR DEALING WITH THE DEVICE. 
+> BY NO MEANS SHOULD THE DEVICE BE CONNECTED TO THE MAINS WHILE FLASHING OR DEALING WITH THE DEVICE.
 **RISK OF INJURY OR DEATH**, AT MINIMUM **YOU WILL FRY YOUR PC** IF YOU TRY TO FLASH WHILE THE MAINS IS CONNECTED.
 
 Before flashing or dumping firmware, the device must be placed in **download mode**:
@@ -118,7 +118,6 @@ rtl87xx:
 
 # Enable logging
 logger:
-  
 
 uart:
   rx_pin: RX0
