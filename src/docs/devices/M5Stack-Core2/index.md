@@ -1,3 +1,4 @@
+
 ---
 title: M5Stack M5Core2
 date-published: 2025-12-05
@@ -199,12 +200,6 @@ binary_sensor:
 [BM8563 Time Source](https://esphome.io/components/time/bm8563/)
 
 ```yaml
-esphome:
-  on_boot:
-    then:
-      # read the RTC time once when the system boots
-      bm8563.read_time:
-
 time:
   - platform: bm8563
     # repeated synchronization is not necessary unless the external RTC
@@ -216,6 +211,12 @@ time:
       then:
         # ... and update the RTC when the synchronization was successful
         bm8563.write_time:
+
+esphome:
+  on_boot:
+    then:
+      # read the RTC time once when the system boots
+      bm8563.read_time:
 ```
 
 ## Notes
