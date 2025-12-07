@@ -10,10 +10,13 @@ difficulty: 4
 
 ![Ledkia LED Cord DIMMER Switch](Ledkia-LED-Cord-DIMMER-device.webp "Ledkia LED Cord DIMMER Switch")
 
-"The Smart Wi-Fi dimmer is powered by Tuya platform with excellent compatibility to most Dimmable LED lamps also works pefectly with halogen or eclectronic transformer and incandescent lighting.
+"The Smart Wi-Fi dimmer is powered by Tuya platform with excellent compatibility to most Dimmable LED lamps 
+also works pefectly with halogen or eclectronic transformer and incandescent lighting.
 Possibiliity of wireless voice control via Alexa or Google home."
 
-Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 microcontrollers. The dimmer side is controlled by stm microcontroller, and the Wi-Fi functionality by a [**Tuya WR3**](https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1) module.
+Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 microcontrollers. 
+The dimmer side is controlled by stm microcontroller (Tuya MCU), and the Wi-Fi functionality 
+by a [**Tuya WR3**](https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1) module.
 
 **Specs**
 |   Description     |    Value |
@@ -25,7 +28,7 @@ Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 mic
 |Dimming Method     | Rotary|
 |Ambient temperature| 35°C|
 |Cables section     | 0.75 mm²|
-|Dimension          | 96.7mm*24.9mm*39.4mm|
+|Dimension          | 96.7mm * 24.9mm * 39.4mm|
 |Item weight        | 41g|
 
 **Original paperwork**
@@ -49,12 +52,15 @@ Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 mic
 
 ## Prerequisites
 
+![Ledkia LED Cord DIMMER Switch](Ledkia-LED-Cord-DIMMER-connections.JPG "Ledkia LED Cord DIMMER Switch board top")
+
 - Connect your **serial programming adapter** to the **WR3 module** as follows:
 
   - **GND** → GND
   - **3V3** → 3V3
-  - **RX** → TX2
-  - **TX** → RX2  
+  - **RX** → TX2 (TX in image)
+  - **TX** → RX2 (RX in image)
+
     Refer to the image above for the pinout layout.
 
 - If you haven’t already, download [**ltchiptool**](https://github.com/libretiny-eu/ltchiptool), a command-line utility
@@ -63,12 +69,16 @@ Also known as C152547 WIFI LED Cord Dimmer is a dimmer based on Tuya, with 2 mic
 
 ## Flashing
 
+**IMPORTANT NOTE**
+
+> BY NO MEANS SHOULD THE DEVICE BE CONNECTED TO THE MAINS WHILE FLASHING OR DEALING WITH THE DEVICE. 
+**RISK OF INJURY OR DEATH**, AT MINIMUM **YOU WILL FRY YOUR PC** IF YOU TRY TO FLASH WHILE THE MAINS IS CONNECTED.
+
 Before flashing or dumping firmware, the device must be placed in **download mode**:
 
 1. **Short TX2 to GND.**
-2. **Power on the device** by connecting either:
-   - the **3.3V and GND lines** to an adjustable power supply, or
-   - the device’s **12–24V DC power supply** via the `INPUT` plug connection.
+2. **Power on the device** by connecting 3.3V:
+   - the **3.3V and GND lines** to an adjustable power supply, or the serial adapter.
 3. Connect the programming adapter to your PC.
    > _ltchiptool will prompt you later to disconnect TX2 from GND._
 
@@ -77,8 +87,7 @@ the **EN** pin to **GND**
 
 ## Backing up the original firmware
 
-Before flashing ESPHome, it’s highly recommended to back up the original firmware in case you want to restore the stock
-functionality later. Run:
+Before flashing ESPHome, it’s highly recommended to back up the original firmware in case you want to restore the stock tuya functionality later. Run:
 
 ```shell
 ltchiptool flash read realtek-ambz lcds_backup.uf2
@@ -101,23 +110,36 @@ ltchiptool flash write realtek-ambz firmware.uf2
 
 ```yaml
 esphome:
-  name: miboxer-wl5
-  friendly_name: MiBoxer WL5
-  comment: MiBoxer WiFi 5 in 1 LED Strip Controller
-  project:
-    name: MiBoxer.WL5
-    version: "2025.8.0"
+  name: Ledkia-LED-Cord-DIMMER
+  friendly_name: Ledkia LED Cord DIMMER Switch
 
 rtl87xx:
   board: wr3
-  framework:
-    version: latest
 
 # Enable logging
 logger:
+  
+
+uart:
+  rx_pin: RX0
+  tx_pin: TX0
+  baud_rate: 9600
+
+tuya:
+
+# Create a light using the dimmer
+light:
+  - platform: "tuya"
+    name: "Dimmer"
+    dimmer_datapoint: 3
+    min_value_datapoint: 2
+    switch_datapoint: 1
+    max_value: 1000
 
 # Enable Home Assistant API
 api:
+  encryption:
+    key: !secret api_key
 
 ota:
   - platform: esphome
@@ -128,39 +150,9 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "MiBoxer WL5 Fallback Hotspot"
+    ssid: "Dimmer Fallback Hotspot"
+    password: !secret fallback_wifi_password
 
-# Note: At the time of writing, enabling `web_server` or `captive_portal` causes the firmware compilation to fail.
 captive_portal:
-
-uart:
-  rx_pin: RX0
-  tx_pin: TX0
-  baud_rate: 9600
-
-tuya:
-
-number:
-  - platform: tuya
-    name: Auto-off timer
-    number_datapoint: 26
-    min_value: 0
-    max_value: 86400
-    step: 1
-    multiply: 60
-    unit_of_measurement: min.
-    entity_category: config
-    icon: mdi:timer
-
-select:
-  - platform: tuya
-    name: Mode
-    enum_datapoint: 21
-    optimistic: true
-    options:
-      0: White
-      1: Color
-      2: Scene
-    icon: mdi:menu-open
-    entity_category: config
+    
 ```
