@@ -72,9 +72,6 @@ api:
   encryption:
     # key: "your_api_encryption_key_here"  # Generate your own key using ESPHome dashboard
 
-ota:
-  - platform: esphome
-
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -191,9 +188,11 @@ switch:
 
 ## Battery Factory Reset
 
-To remove your battery's WiFi connection to the cloud, you can perform a factory reset. Press and hold the **DC button**, **light button**, and **USB button** simultaneously for about 5 seconds until you hear a beep.
+To remove your battery's WiFi connection to the cloud, you can perform a factory reset.
+Press and hold the **DC button**, **light button**, and **USB button** simultaneously for
+about 5 seconds until you hear a beep.
 
 ## Links
 
 - [GitHub Repository](https://github.com/Ylianst/ESP-FBot)
-- [M5 ATOM Extras](https://github.com/Ylianst/ESP-FBot/blob/main/docs/m5atom-extras.md) - Additional features for M5 ATOM Light devices
+- [M5 ATOM Extras](https://github.com/Ylianst/ESP-FBot/blob/main/docs/m5atom-extras.md) - Additional features
