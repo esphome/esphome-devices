@@ -1,0 +1,265 @@
+# ==============================================================================
+# Citilab ED1 - Minimal ESPHome Configuration
+# ==============================================================================
+# A self-contained configuration for the ED1 educational board.
+# No external packages required - everything in one file.
+#
+# Features enabled:
+#   - TFT Display (ST7735 128x128)
+#   - 6 Capacitive Touch Buttons
+#   - Buzzer with RTTTL support
+#   - Light Sensor
+#   - WiFi & CPU sensors
+#   - LED Matrix (optional, uncomment to enable)
+#
+# For full-featured configurations with display themes, MQTT, stepper motors:
+#   https://github.com/glifocat/ed1-hoas
+# ==============================================================================
+
+esphome:
+  name: ed1-board
+  friendly_name: ED1 Board
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+  level: INFO
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "ED1-Fallback"
+    password: !secret fallback_ap_password
+
+captive_portal:
+
+# ==============================================================================
+# Hardware Buses
+# ==============================================================================
+
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  miso_pin: GPIO19
+
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+  scan: true
+  id: bus_i2c
+
+# ==============================================================================
+# Fonts (using Google Fonts - no external files needed)
+# ==============================================================================
+
+font:
+  - file: "gfonts://Roboto"
+    id: font_large
+    size: 20
+  - file: "gfonts://Roboto"
+    id: font_medium
+    size: 14
+  - file: "gfonts://Roboto"
+    id: font_small
+    size: 10
+
+# ==============================================================================
+# TFT Display (ST7735 128x128)
+# ==============================================================================
+
+display:
+  - platform: st7735
+    id: internal_display
+    cs_pin: GPIO5
+    dc_pin: GPIO9
+    reset_pin: GPIO10
+    rotation: 0
+    model: "INITR_GREENTAB"
+    device_width: 128
+    device_height: 128
+    col_start: 2
+    row_start: 3
+    update_interval: 1s
+    lambda: |-
+      // Colors
+      auto BLACK = Color(0, 0, 0);
+      auto WHITE = Color(255, 255, 255);
+      auto GREEN = Color(0, 255, 0);
+      auto GRAY = Color(100, 100, 100);
+
+      it.fill(BLACK);
+
+      // Title
+      it.print(64, 20, id(font_large), GREEN, TextAlign::CENTER, "ED1");
+
+      // IP Address
+      it.print(64, 50, id(font_small), WHITE, TextAlign::CENTER, id(wifi_ip).state.c_str());
+
+      // Separator
+      it.horizontal_line(10, 65, 108, GRAY);
+
+      // Sensor readings
+      if (!std::isnan(id(cpu_temp).state)) {
+        it.printf(64, 75, id(font_small), WHITE, TextAlign::CENTER, "CPU: %.1fC", id(cpu_temp).state);
+      }
+
+      if (!std::isnan(id(light_sensor).state)) {
+        it.printf(64, 90, id(font_small), WHITE, TextAlign::CENTER, "Light: %.0f%%", id(light_sensor).state);
+      }
+
+      // WiFi signal
+      if (!std::isnan(id(wifi_signal_sensor).state)) {
+        it.printf(64, 105, id(font_small), GRAY, TextAlign::CENTER, "WiFi: %.0fdBm", id(wifi_signal_sensor).state);
+      }
+
+# ==============================================================================
+# Buzzer
+# ==============================================================================
+
+output:
+  - platform: ledc
+    pin: GPIO26
+    id: buzzer_output
+
+rtttl:
+  output: buzzer_output
+  id: buzzer
+
+switch:
+  - platform: template
+    name: "Buzzer"
+    id: buzzer_switch
+    turn_on_action:
+      - rtttl.play: "beep:d=4,o=5,b=100:c"
+    turn_off_action:
+      - rtttl.stop
+
+# ==============================================================================
+# Touch Buttons
+# ==============================================================================
+
+esp32_touch:
+  setup_mode: false
+
+binary_sensor:
+  - platform: esp32_touch
+    name: "Button Up"
+    id: btn_up
+    pin: GPIO4
+    threshold: 500
+    on_press:
+      - rtttl.play: "beep:d=16,o=5,b=140:c"
+
+  - platform: esp32_touch
+    name: "Button Down"
+    id: btn_down
+    pin: GPIO13
+    threshold: 500
+    on_press:
+      - rtttl.play: "beep:d=16,o=5,b=140:d"
+
+  - platform: esp32_touch
+    name: "Button Left"
+    id: btn_left
+    pin: GPIO2
+    threshold: 500
+    on_press:
+      - rtttl.play: "beep:d=16,o=5,b=140:e"
+
+  - platform: esp32_touch
+    name: "Button Right"
+    id: btn_right
+    pin: GPIO27
+    threshold: 500
+    on_press:
+      - rtttl.play: "beep:d=16,o=5,b=140:f"
+
+  - platform: esp32_touch
+    name: "Button OK"
+    id: btn_ok
+    pin: GPIO15
+    threshold: 500
+    on_press:
+      - rtttl.play: "ok:d=8,o=5,b=160:c,e,g"
+
+  - platform: esp32_touch
+    name: "Button X"
+    id: btn_x
+    pin: GPIO14
+    threshold: 900
+    on_press:
+      - rtttl.play: "alert:d=8,o=5,b=180:c,c,c"
+
+# ==============================================================================
+# Sensors
+# ==============================================================================
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    id: wifi_signal_sensor
+    update_interval: 60s
+
+  - platform: uptime
+    name: "Uptime"
+    id: uptime_sensor
+
+  - platform: internal_temperature
+    name: "CPU Temperature"
+    id: cpu_temp
+
+  - platform: adc
+    pin: GPIO34
+    name: "Light Level"
+    id: light_sensor
+    attenuation: 12db
+    update_interval: 5s
+    unit_of_measurement: "%"
+    filters:
+      - multiply: 30.3
+
+text_sensor:
+  - platform: wifi_info
+    ssid:
+      name: "WiFi SSID"
+      id: wifi_ssid
+    ip_address:
+      name: "IP Address"
+      id: wifi_ip
+
+# ==============================================================================
+# LED Matrix (WS2812 32x8 = 256 LEDs) - Uncomment to enable
+# ==============================================================================
+#
+# light:
+#   - platform: esp32_rmt_led_strip
+#     rgb_order: GRB
+#     chipset: WS2812
+#     pin: GPIO12
+#     num_leds: 256
+#     name: "LED Matrix"
+#     id: led_matrix
+#     default_transition_length: 0s
+#     color_correct: [40%, 40%, 40%]
+
+# ==============================================================================
+# IR Receiver (38kHz) - Uncomment to enable
+# ==============================================================================
+#
+# remote_receiver:
+#   pin:
+#     number: GPIO35
+#     inverted: true
+#   dump: all
