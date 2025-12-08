@@ -15,18 +15,23 @@ It integrates multiple peripherals for learning embedded systems and IoT develop
 
 ![Citilab ED1 Board](ed1-board.png "Citilab ED1 Educational Board")
 
-## Features
+## Built-in Features
 
 - **1.44" TFT Display** (ST7735, 128x128 pixels)
-- **32x8 LED Matrix** (WS2812, 256 LEDs)
 - **6 Capacitive Touch Buttons** (Up, Down, Left, Right, OK, X)
 - **Light Sensor** (ALS-PT19)
 - **Buzzer** with amplifier (PAM8301)
 - **IR Receiver** (38kHz, TSOP75438TT)
 - **Accelerometer** (MXC6655XA on Rev 2.3, LIS3DH on Rev 1.0)
-- **Stepper Motor Support** (2x 28BYJ-48 via MCP23009)
 - **Battery Support** (16340/CR123A Li-Ion)
 - **USB-C** for power and programming
+
+## Expansion Support
+
+The board includes connectors for external peripherals:
+
+- **LED Matrix** - GPIO12 output for WS2812 strips (e.g., 32x8 = 256 LEDs)
+- **Stepper Motors** - 2x 28BYJ-48 via MCP23009 I/O expander and ULN2004A drivers
 
 ## GPIO Pinout
 
@@ -37,7 +42,7 @@ It integrates multiple peripherals for learning embedded systems and IoT develop
 | 5 | TFT CS |
 | 9 | TFT DC |
 | 10 | TFT Reset |
-| 12 | LED Matrix (WS2812) |
+| 12 | D1 Expansion (WS2812) |
 | 13 | Touch Down |
 | 14 | Touch X |
 | 15 | Touch OK |
@@ -191,9 +196,9 @@ text_sensor:
       id: wifi_ip
 ```
 
-## LED Matrix Configuration
+## LED Matrix Configuration (Optional)
 
-Add this to enable the 32x8 WS2812 LED matrix:
+If you connect an external WS2812 LED matrix to GPIO12:
 
 ```yaml
 light:
