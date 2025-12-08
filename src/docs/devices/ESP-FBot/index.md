@@ -70,7 +70,7 @@ esp32:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "(PLACE YOUR KEY HERE)"
+    # key: "your_api_encryption_key_here"  # Generate your own key using ESPHome dashboard
 
 ota:
   - platform: esphome
