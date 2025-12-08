@@ -9,7 +9,9 @@ made-for-esphome: false
 difficulty: 1
 ---
 
-The ED1 is an ESP32-based educational development board designed by [Citilab Edutec](https://citilab.eu) in Barcelona, Spain. It integrates multiple peripherals for learning embedded systems and IoT development.
+The ED1 is an ESP32-based educational development board designed by
+[Citilab Edutec](https://citilab.eu) in Barcelona, Spain.
+It integrates multiple peripherals for learning embedded systems and IoT development.
 
 ![Citilab ED1 Board](ed1-board.png "Citilab ED1 Educational Board")
 
@@ -217,7 +219,8 @@ Check I2C scan on boot to identify your revision.
 
 ## Links
 
-- [Full ESPHome Configuration](https://github.com/glifocat/ed1-hoas) - Modular packages with display themes, MQTT, stepper motors
+- [Full ESPHome Configuration](https://github.com/glifocat/ed1-hoas) -
+  Modular packages with display themes, MQTT, stepper motors
 - [Citilab](https://citilab.eu) - Board manufacturer
 - [MicroBlocks](https://microblocks.fun/) - Official programming environment
 - [Hardware Documentation](https://github.com/glifocat/ed1-hoas/blob/main/docs/HARDWARE.md)
