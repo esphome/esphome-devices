@@ -12,7 +12,8 @@ difficulty: 2
 
 ## Description
 
-ESP-FBot is an ESPHome custom component for locally monitoring and controlling portable power stations via Bluetooth. It provides fast local management without cloud services, making it ideal for outage situations.
+ESP-FBot is an ESPHome custom component for locally monitoring and controlling portable power stations via Bluetooth.
+It provides fast local management without cloud services, making it ideal for outage situations.
 
 Compatible with battery systems that use the "BrightEMS" application, including:
 
