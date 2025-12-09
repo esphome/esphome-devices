@@ -14,7 +14,10 @@ This is a PIR Motion device with an LED and a passive buzzer. It is simple and b
 
 ## Setup
 
-It is not vulnerable to tuya-cloudcutter so you need to solder to the chip and serial flash it. This requires disassembly, soldering, a USB-to-Serial-TTL, and a tool like [ltchiptool](https://github.com/libretiny-eu/ltchiptool) or [BK7231 GUI Flash Tool](https://github.com/openshwprojects/BK7231GUIFlashTool?tab=readme-ov-file). The PIN-out is available [here](https://docs.libretiny.eu/boards/cbu/#usage).
+It is not vulnerable to tuya-cloudcutter so you need to solder to the chip and serial flash it. This requires
+disassembly, soldering, a USB-to-Serial-TTL, and a tool like [ltchiptool](https://github.com/libretiny-eu/ltchiptool)
+or [BK7231 GUI Flash Tool](https://github.com/openshwprojects/BK7231GUIFlashTool).
+The PIN-out is available [here](https://docs.libretiny.eu/boards/cbu/#usage).
 
 ## YAML configuration
 
@@ -140,4 +143,3 @@ output:
       number: P14
       inverted: true
 ```
-
