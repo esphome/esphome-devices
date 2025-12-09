@@ -8,7 +8,7 @@ made-for-esphome: false
 difficulty: 2
 ---
 
-![Tuya Wifi Mini Sensor PIR Motion Alarm](1.jpg "Tuya Wifi Mini Sensor PIR Motion Alarm")
+![Tuya Wifi Mini Sensor PIR Motion Alarm](tuya-pir-motion-alarm.jpg "Tuya Wifi Mini Sensor PIR Motion Alarm")
 
 This is a PIR Motion device with an LED and a passive buzzer. It is simple and built with a CBU chip.
 
