@@ -10,11 +10,11 @@ difficulty: 2
 
 ![Tuya Wifi Mini Sensor PIR Motion Alarm](1.jpg "Tuya Wifi Mini Sensor PIR Motion Alarm")
 
-This is a PIR Motion device with an LED and a passive buzzer. It is a simple and build with a CBU chip. 
+This is a PIR Motion device with an LED and a passive buzzer. It is simple and built with a CBU chip.
 
 ## Setup
 
-It is not vulnerable to tuya-cloudcutter so you need to solder to the chip and serial flash it, hence disassembly, soldering, a USB-to-Serial-TTL and a tool like [ltchiptool](https://github.com/libretiny-eu/ltchiptool) or [BK7231 GUI Flash Tool](https://github.com/openshwprojects/BK7231GUIFlashTool?tab=readme-ov-file) required. The PIN-out can be found here: https://docs.libretiny.eu/boards/cbu/#usage
+It is not vulnerable to tuya-cloudcutter so you need to solder to the chip and serial flash it. This requires disassembly, soldering, a USB-to-Serial-TTL, and a tool like [ltchiptool](https://github.com/libretiny-eu/ltchiptool) or [BK7231 GUI Flash Tool](https://github.com/openshwprojects/BK7231GUIFlashTool?tab=readme-ov-file). The PIN-out is available [here](https://docs.libretiny.eu/boards/cbu/#usage).
 
 ## YAML configuration
 
@@ -27,19 +27,18 @@ bk72xx:
   board: cbu
 
 logger:
-  
+
 web_server:
 
 ota:
   password: "CHANGE-THIS-PASSWORD-OR-REMOVE-OTA"
 
-wifi: #if you dont have secrets setup change the values with your wifi name and password
+wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
 captive_portal:
 
-# Enable Home Assistant API
 api:
   encryption:
     key: "GET-A-KEY-HERE-https://esphome.io/components/api.html#configuration-variables"
@@ -65,30 +64,28 @@ api:
         - output.turn_off: buzzer
     - service: pir_alarm
       then:
-      - repeat:
-          count: 8
-          then:
-            # High siren peak
-            - output.libretiny_pwm.set_frequency:
-                id: buzzer
-                frequency: 5200
-            - output.set_level:
-                id: buzzer
-                level: 90%
-            - delay: 200ms
+        - repeat:
+            count: 8
+            then:
+              - output.libretiny_pwm.set_frequency:
+                  id: buzzer
+                  frequency: 5200
+              - output.set_level:
+                  id: buzzer
+                  level: 90%
+              - delay: 200ms
 
-            # Low siren valley
-            - output.libretiny_pwm.set_frequency:
-                id: buzzer
-                frequency: 2200
-            - output.set_level:
-                id: buzzer
-                level: 90%
-            - delay: 200ms
+              - output.libretiny_pwm.set_frequency:
+                  id: buzzer
+                  frequency: 2200
+              - output.set_level:
+                  id: buzzer
+                  level: 90%
+              - delay: 200ms
 
-      - output.turn_off: buzzer
+        - output.turn_off: buzzer
 
-binary_sensor:    
+binary_sensor:
   - platform: gpio
     pin: P22
     name: "PIR Motion Sensor P22"
@@ -100,15 +97,15 @@ binary_sensor:
       number: P16
       mode: INPUT_PULLUP
       inverted: true
-    on_state: 
+    on_state:
       then:
         - if:
             condition:
               binary_sensor.is_on: pir_button
-            then: 
-                  - output.turn_off: buzzer
+            then:
+              - output.turn_off: buzzer
             else:
-                  - output.turn_on: buzzer
+              - output.turn_on: buzzer
     name: "PIR Button P16"
     device_class: light
 
@@ -119,7 +116,7 @@ light:
 
   - platform: binary
     name: "PIR Button Enabler P14"
-    output: output_p14	
+    output: output_p14
 
   - platform: binary
     name: "PIR Internal LED P20"
@@ -127,18 +124,20 @@ light:
 
 output:
   - platform: libretiny_pwm
-    pin: P6 # Connected to the piezoelectric buzzer
+    pin: P6
     frequency: 1000 Hz
     id: buzzer
 
   - id: internal_led
     platform: gpio
     pin:
-      number: P20 # Connected to the LED
+      number: P20
       inverted: true
-      
+
   - id: output_p14
     platform: gpio
     pin:
       number: P14
       inverted: true
+```
+
