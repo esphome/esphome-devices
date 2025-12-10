@@ -23,6 +23,6 @@ Older models for instance seem to feature an esp
 | 15  | Smoke detection |
 | 28  | Reset button    |
 
-Details mainly taken from 
+Details mainly taken from
 [this discussion at electroda.com](https://www.elektroda.com/rtvforum/topic3941698-90.html).
 Thanks to the authors!
