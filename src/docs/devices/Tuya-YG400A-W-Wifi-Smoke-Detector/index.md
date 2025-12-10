@@ -7,7 +7,10 @@ board: bk72xx
 difficulty: 3
 ---
 
-This is currently about YG400A-W A008. The packaging states "Model No.: YG400A" but that may as well apply to different variants. Older models for instance seem to feature an esp (see https://templates.blakadder.com/YG400A.html)
+This is currently about YG400A-W A008. The packaging states "Model No.: YG400A"
+but that may as well apply to different variants.
+Older models for instance seem to feature an esp
+(see the [Tasmota device template page](https://templates.blakadder.com/YG400A.html))
 
 ## GPIO Pinout
 
@@ -20,4 +23,4 @@ This is currently about YG400A-W A008. The packaging states "Model No.: YG400A" 
 | 15  | Smoke detection |
 | 28  | Reset button    |
 
-Details mainly taken from <https://www.elektroda.com/rtvforum/topic3941698-90.html>. Thanks to the authors!
+Details mainly taken from [this discussion at electroda.com](https://www.elektroda.com/rtvforum/topic3941698-90.html). Thanks to the authors!
