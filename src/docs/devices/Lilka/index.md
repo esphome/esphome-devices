@@ -14,6 +14,7 @@ internal speaker with I2S audio, microSD support, USB-C power, and expandable GP
 
 ## Product Images
 
+src/docs/devices/Lilka/lilka.jpeg
 
 
 ## GPIO Pinout
