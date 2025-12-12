@@ -9,17 +9,12 @@ made-for-esphome: false
 difficulty: 2
 ---
 
-ESP32-S3 based modular handheld device with a 1.69” 280×240 IPS display (ST7789), physical navigation buttons, 
-internal speaker with I2S audio, microSD support, USB-C power, and expandable GPIO for custom projects.
+ESP32-S3 based modular handheld device designed as an educational and gaming open-hardware console (hardware v2.3). It is supplied as a self-assembly kit and features a 1.69” 280×240 IPS display (ST7789), physical navigation buttons, an internal speaker with I2S audio, microSD support, USB-C power, and expandable GPIO for custom projects.
 
 ## Product Images
-
 ![Lilka](./lilka.jpeg)
 
-
-
 ## GPIO Pinout
-
 | Pin | Function |
 |-----|----------|
 | 46  | Display power (GPIO output) |
@@ -42,9 +37,8 @@ internal speaker with I2S audio, microSD support, USB-C power, and expandable GP
 | 4   | Button Start |
 | 0   | Button Select |
 
-Notes: GPIO46 and GPIO16 must be set HIGH - the former controls display power, the latter drives display backlight and button power rail.
-
-
+Notes: GPIO46 and GPIO16 must be set HIGH - the former controls display power, 
+the latter drives display backlight and button power rail.
 
 ```yaml
 esphome:
@@ -182,4 +176,3 @@ binary_sensor:
       inverted: true
     id: button_select
 ```
-
