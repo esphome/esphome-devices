@@ -45,6 +45,7 @@ GPIO for custom projects.
 
 Notes: GPIO46 and GPIO16 must be set HIGH - the former controls display power,
 the latter drives display backlight and button power rail.
+
 ```yaml
 esphome:
   name: lilka
