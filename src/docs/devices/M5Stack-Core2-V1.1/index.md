@@ -189,7 +189,7 @@ font:
 [BM8563 Time Source](https://esphome.io/components/time/bm8563/)
 
 ```yaml
-# First block - componenent definition only
+# First block - component definition only
 esphome:
   min_version: 2025.12.0
 
