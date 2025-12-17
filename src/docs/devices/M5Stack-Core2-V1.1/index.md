@@ -224,4 +224,4 @@ esphome:
   inaccurate
 - **Speaker**: didn't work, but some config is provided
 - **Microphone**: untested
-- **BM8563 RTC**: not configured, no ESPHome component exists for it
+- **BM8563 RTC**: ESPHome component exists for version >=2025.12.0.
