@@ -202,6 +202,10 @@ time:
 
 ```yaml
 # Second block - more complex example with on_boot
+esphome:
+  on_boot:
+    then:
+      bm8563.read_time:
 time:
   - platform: bm8563
     update_interval: never
@@ -209,11 +213,6 @@ time:
     on_time_sync:
       then:
         bm8563.write_time:
-
-esphome:
-  on_boot:
-    then:
-      bm8563.read_time:
 ```
 
 ## Notes
