@@ -200,6 +200,9 @@ binary_sensor:
 
 ```yaml
 # First block - hardware definition only
+esphome:
+  min_version: 2025.12.0
+
 time:
   - platform: bm8563
     # repeated synchronization is not necessary unless the external RTC
