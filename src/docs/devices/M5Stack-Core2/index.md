@@ -230,4 +230,4 @@ esphome:
 - **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and inaccurate
 - **Speaker**: didn't work, but some config is provided
 - **Microphone**: untested
-- **BM8563 RTC**: ESPHome component exists for version >=2025.11.2.
+- **BM8563 RTC**: ESPHome component exists for version >=2025.12.0.
