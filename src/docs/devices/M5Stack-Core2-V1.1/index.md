@@ -184,6 +184,38 @@ font:
     size: 24
 ```
 
+## RTC
+
+[BM8563 Time Source](https://esphome.io/components/time/bm8563/)
+
+```yaml
+# First block - componenent definition only
+esphome:
+  min_version: 2025.12.0
+
+time:
+  - platform: bm8563
+    # repeated synchronization is not necessary unless the external RTC
+    # is much more accurate than the internal clock
+    update_interval: never
+```
+
+```yaml
+# Second block - more complex example with on_boot
+time:
+  - platform: bm8563
+    update_interval: never
+  - platform: homeassistant
+    on_time_sync:
+      then:
+        bm8563.write_time:
+
+esphome:
+  on_boot:
+    then:
+      bm8563.read_time:
+```
+
 ## Notes
 
 - **Display**: works reliably with `mipi_spi` (ILI9341)
