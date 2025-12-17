@@ -200,6 +200,7 @@ esphome:
 
 time:
   - platform: bm8563
+    i2c_id: bus_internal
     # repeated synchronization is not necessary unless the external RTC
     # is much more accurate than the internal clock
     update_interval: never
@@ -213,6 +214,7 @@ esphome:
       bm8563.read_time:
 time:
   - platform: bm8563
+    i2c_id: bus_internal
     update_interval: never
   - platform: homeassistant
     on_time_sync:
