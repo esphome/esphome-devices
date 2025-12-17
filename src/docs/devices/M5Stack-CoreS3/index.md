@@ -189,6 +189,37 @@ light:
     default_transition_length: 250ms
 ```
 
+## RTC
+
+[BM8563 Time Source](https://esphome.io/components/time/bm8563/)
+
+```yaml
+# First block - component definition only
+esphome:
+  min_version: 2025.12.0
+
+time:
+  - platform: bm8563
+    # repeated synchronization is not necessary unless the external RTC
+    # is much more accurate than the internal clock
+    update_interval: never
+```
+
+```yaml
+# Second block - more complex example with on_boot
+esphome:
+  on_boot:
+    then:
+      bm8563.read_time:
+time:
+  - platform: bm8563
+    update_interval: never
+  - platform: homeassistant
+    on_time_sync:
+      then:
+        bm8563.write_time:
+```
+
 ## Notes
 
 - **Power**: Use the AXP2101 external component to read battery status and enable rails like LCD/backlight if they are
