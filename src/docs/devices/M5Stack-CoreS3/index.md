@@ -234,3 +234,4 @@ time:
   and other peripheral power switches. It must be properly configured for the display and touch to function.
 - **IMU (BMI270)**: The built-in BMI270 6-axis IMU is not yet supported in ESPHome.  
   It is available on the internal I2C bus at address 0x68.
+- **RTC (BM8563)**: ESPHome component exists for version >=2025.12.0.
