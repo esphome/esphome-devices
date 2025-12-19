@@ -69,6 +69,16 @@ or 1.27mm dupont pins). When detached you can use something like PCBite hands-fr
 ![CBU-board-1](CBU-board.webp "CBU board")
 ![CBU-board-2](CBU-board-2.webp "CBU board full")
 
+Late 2025 update:
+New PCB format:
+<img width="780" height="652" alt="image" src="https://github.com/user-attachments/assets/30775f51-83e4-4670-b0cb-ecffa694ec59" />
+
+Here is how to attach the wires onto the chip. Steady hand and microscope helps
+<img width="939" height="818" alt="image" src="https://github.com/user-attachments/assets/494464db-b988-44f0-8d8f-490011355eda" />
+
+** info: Power data from the device will only appear once the device is imported into HA
+
+
 ## Disassembly and Reassembly
 
 The rivets holding the device together seem to be DIN 7340 type B (d1 = 2mm, L ~= 16mm) hollow rivets. As the rivets are
