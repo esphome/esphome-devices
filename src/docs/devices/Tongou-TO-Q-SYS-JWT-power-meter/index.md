@@ -78,7 +78,6 @@ Here is how to attach the wires onto the chip. Steady hand and microscope helps
 
 ** info: Power data from the device will only appear once the device is imported into HA
 
-
 ## Disassembly and Reassembly
 
 The rivets holding the device together seem to be DIN 7340 type B (d1 = 2mm, L ~= 16mm) hollow rivets. As the rivets are
