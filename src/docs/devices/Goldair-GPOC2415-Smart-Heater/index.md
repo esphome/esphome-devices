@@ -13,8 +13,8 @@ difficulty: 5
 
 I actually broke my WBR3 Chip during dissassembly so the following config is going to be based on using an ESP8266 Chip.
 
-To get at the chip you will need to pry the front faceplate off using a spudger or screwdriver. 
-Then remove all of the screws and pull off the whole faceplate, the chip is located on the back of the mainboard. 
+To get at the chip you will need to pry the front faceplate off using a spudger or screwdriver.
+Then remove all of the screws and pull off the whole faceplate, the chip is located on the back of the mainboard.
 You will then need to desolder it to flash it.
 
 ![Goldair GPOC2415 Chip](./chip.jpg "Goldair GPOC2415 Chip")
