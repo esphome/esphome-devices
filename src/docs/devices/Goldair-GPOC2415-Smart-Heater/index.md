@@ -6,6 +6,7 @@ standard: au
 board: bk72xx
 difficulty: 5
 ---
+
 ![Goldair GPOC2415 Platinum 2400W Smart Wi-Fi Oil Column Heater](./device.webp "Goldair GPOC2415 Platinum 2400W Smart Wi-Fi Oil Column Heater")
 
 ## General Notes
@@ -16,7 +17,6 @@ To get at the chip you will need to pry the front faceplate off using a spudger 
 
 ![Goldair GPOC2415 Chip](./chip.jpg "Goldair GPOC2415 Chip")
 
-
 ## Flashing Instuctions
 
 This device is based on the WBR3 Tuya Module, you can check for flashing setup
@@ -24,8 +24,6 @@ This device is based on the WBR3 Tuya Module, you can check for flashing setup
 pins soldered you can use ltchiptool to flash it via UART. We strongly recommend using an external power source for the
 3v3 power supply. Make sure to connect the GND of the supply and the serial converter together, so they share the same
 GND reference.
-
-## Features
 
 ## GPIO Pinout
 
@@ -53,7 +51,9 @@ GND reference.
 ## Features
 
 ### Climate Entity
+
 Unified climate control interface exposing:
+
 - Power control
 - Target temperature (5-30°C, 1°C steps)
 - Current temperature reading
@@ -61,17 +61,21 @@ Unified climate control interface exposing:
 - Work state monitoring (Heating/Warm)
 
 ### Scheduling
+
 - **AUTO-ON**: Automatically power on after specified hours (0-24h)
 - **AUTO-OFF**: Automatically power off after specified hours (0-24h)
 - Real-time countdown display for AUTO-OFF
 
 ### Safety Features
+
 - Child lock to prevent accidental changes
 - Optional beep disable for quiet operation
 - Temperature limits enforced (5-30°C)
 
 ## Example ESPHome Configuration
-**The below configuration is for an ESP8226, not the original WBR3 Board, sorry.** 
+
+**The below configuration is for an ESP8226, not the original WBR3 Board, sorry.**
+
 ```yaml
 esphome:
   name: smart-heater
@@ -91,7 +95,7 @@ uart:
 # Enable Home Assistant API
 api:
   encryption:
-    key: !secret encryption_key
+    key: "encryption_key"
 
 ota:
   - platform: esphome
