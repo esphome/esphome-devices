@@ -33,13 +33,11 @@ I also wanted a fully functional esphome fan, including the modes.
 
 This solution is based on mulcmu's approach, enhanced the component (less chatty) and added template fan mapped
 
-
 Manufacturer: [Levoit](http://www.levoit.com)
 
-<img src="./UpdatedUiInHa.png" width="700" alt="Home Assistant UI">
+![Home Assistant UI](./UpdatedUiInHa.png "Home Assistant UI")
 
-<img src="./fan.png" width="400" alt="Home Assistant UI - Fan">
-
+![Home Assistant UI - Fan](./fan.png "Home Assistant UI - Fan")
 
 ## Details and instructions
 
