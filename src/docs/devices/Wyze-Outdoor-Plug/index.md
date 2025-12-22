@@ -18,7 +18,8 @@ upload.
 ### Software Flashing
 
 Some of these devices may be able to be flashed OTA with ESPHome using [this guide][2].
-The firmware is first downgraded to 1.2.0.73 with the [Wyze Updater Tool][3], and then flashing ESPHome OTA for the first upload.
+The firmware is first downgraded to 1.2.0.73 with the [Wyze Updater Tool][3],
+and then flashing ESPHome OTA for the first upload.
 
 [2]: https://www.inlimbo.org/2025/06/wyze-outdoor-plug-esphome/
 [3]: https://github.com/gtxaspec/WyzeUpdater
