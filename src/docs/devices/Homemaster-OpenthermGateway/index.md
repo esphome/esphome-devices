@@ -143,7 +143,7 @@ esphome:
 
 esp32:
   # Target hardware platform
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf                            # Use Espressif IDF framework
     version: recommended

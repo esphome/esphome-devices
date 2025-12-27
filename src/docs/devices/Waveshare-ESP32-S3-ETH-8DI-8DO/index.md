@@ -3,7 +3,7 @@ title: WAVESHARE ESP32-S3-ETH-8DI-8RO
 date-published: 2025-10-10
 type: sensor
 standard: global
-board: esp32-s3
+board: esp32
 ---
 
 ![Device](./device.png "device")
@@ -66,7 +66,7 @@ esphome:
 # ==========================================================
 # Module is ESP32-S3-WROOM-1U-N16R8 (16MB flash, 8MB PSRAM)
 esp32:
-  board: esp32s3box
+  variant: esp32s3
   flash_size: 16MB
   framework:
     type: esp-idf

@@ -3,11 +3,11 @@ import Link from "@docusaurus/Link";
 
 import { splitValues } from "../../utils/deviceUtils";
 import {
-  VALID_TYPE_SLUGS,
-  VALID_BOARD_SLUGS,
-  VALID_STANDARD_SLUGS,
-  getSlugIfValid,
-} from "../../utils/validSlugs";
+  VALID_TYPES,
+  VALID_BOARDS,
+  VALID_STANDARDS,
+} from "../../utils/validFrontmatter";
+import { getSlugIfValid } from "../../utils/validSlugs";
 
 import styles from "./styles.module.css";
 
@@ -138,8 +138,8 @@ function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayProps) {
                         const slug = getSlugIfValid(
                           frontmatter[field.key],
                           field.key === "standard"
-                            ? VALID_STANDARD_SLUGS
-                            : VALID_BOARD_SLUGS
+                            ? VALID_STANDARDS
+                            : VALID_BOARDS
                         );
 
                         return slug ? (
@@ -158,8 +158,8 @@ function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayProps) {
                               const slug = getSlugIfValid(
                                 value,
                                 field.key === "standard"
-                                  ? VALID_STANDARD_SLUGS
-                                  : VALID_BOARD_SLUGS
+                                  ? VALID_STANDARDS
+                                  : VALID_BOARDS
                               );
 
                               return slug ? (
@@ -188,7 +188,7 @@ function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayProps) {
                       {(() => {
                         const slug = getSlugIfValid(
                           frontmatter[field.key],
-                          VALID_TYPE_SLUGS
+                          VALID_TYPES
                         );
 
                         return slug ? (

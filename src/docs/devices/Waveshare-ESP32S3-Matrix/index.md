@@ -58,12 +58,12 @@ esphome:
     - "SensorLib"
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   framework:
     type: arduino
 
 external_components:
-- source: https://github.com/dala318/esphome-qmi8658
+- source: github://dala318/esphome-qmi8658
 
 i2c:
   sda: GPIO11

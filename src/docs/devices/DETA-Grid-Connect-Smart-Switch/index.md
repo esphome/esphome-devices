@@ -223,6 +223,84 @@ binary_sensor:
     internal: True
 ```
 
+### 2 Gang Configuration for ESP
+
+```yaml
+esphome:
+ name: "deta6912ha"
+ friendly_name: DETA Smart Double Switch
+
+esp8266:
+  board: esp01_1m
+  early_pin_init: False
+
+logger:
+  baud_rate: 0
+ 
+captive_portal:
+  
+api:
+  encryption:
+    key: !secret api_key
+  
+ota:
+  platform: esphome
+  password: !secret ota_password
+  
+wifi:
+ ssid: !secret wifi_ssid
+ password: !secret wifi_password
+ ap:
+   ssid: "DETA Smart Double Switch"
+   password: !secret wifi_ap_password
+
+status_led:
+  pin:
+    number: GPIO4
+    inverted: False
+
+output:
+  - platform: gpio
+    pin: GPIO13
+    id: relay1
+  - platform: gpio
+    pin: GPIO14
+    id: relay2
+  
+light:
+  - platform: binary
+    name: "Light 1"
+    output: relay1
+    id: light1
+  - platform: binary
+    name: "Light 2"
+    output: relay2
+    id: light2
+
+binary_sensor:
+  - platform: gpio
+    id: button1
+    pin:
+      number: GPIO16
+      mode: INPUT
+      inverted: True
+    on_press:
+      - light.toggle: light1
+  - platform: gpio
+    id: button2
+    pin:
+      number: GPIO12
+      mode: INPUT
+      inverted: True
+    on_press:
+      - light.toggle: light2
+
+
+switch:
+  - platform: restart
+    name: "Restart"
+```
+
 ### 3 Gang Configuration for BK72XX (Series 2)
 
 ```yaml

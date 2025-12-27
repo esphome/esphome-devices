@@ -30,7 +30,7 @@ esphome:
   friendly_name: M5Stack Tab5
 
 esp32:
-  board: esp32-p4-evboard
+  variant: esp32p4
   flash_size: 16MB
   framework:
     type: esp-idf
@@ -363,4 +363,31 @@ voice_assistant:
     - micro_wake_word.start:
   on_client_disconnected:
     - micro_wake_word.stop:
+```
+
+## RTC
+
+RX8130 Time Source
+
+```yaml
+esphome:
+  on_boot:
+    then:
+      # read the RTC time once when the system boots
+      rx8130.read_time:
+time:
+  - platform: rx8130
+    id: rtc_time
+    i2c_id: bsp_bus
+    # repeated synchronization is not necessary unless the external RTC
+    # is much more accurate than the internal clock
+    update_interval: never
+    timezone: UTC
+  - platform: homeassistant
+    id: ha_time
+    # instead try to synchronize via network repeatedly ...
+    on_time_sync:
+      then:
+        # ... and update the RTC when the synchronization was successful
+        rx8130.write_time:
 ```

@@ -43,7 +43,7 @@ esphome:
     version: "1.0"
 
 esp32:
-  board: nodemcu-32s
+  variant: esp32
 
 wifi:
   ap: {}

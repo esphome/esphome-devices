@@ -53,7 +53,7 @@ esphome:
     - script.execute: set_rgb
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: esp-idf
 

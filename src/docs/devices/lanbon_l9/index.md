@@ -9,6 +9,12 @@ difficulty: 2
 
 ![Product Image](lanbon-l9-us-white.jpg "US Version")
 
+## Note
+
+The latest version of this switch can no longer be opened and reflashed!
+
+![Latest Version](lanbon-l9-us-white-back.jpg "Latest Version")
+
 ## Drivers
 
 - Processor: ESP32-S3-Wroom-1U

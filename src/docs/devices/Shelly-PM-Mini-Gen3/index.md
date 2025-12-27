@@ -46,7 +46,7 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: esp32c3
   flash_size: 8MB
   framework:
     type: esp-idf
@@ -122,7 +122,11 @@ sensor:
 uart:
   id: uart_0
   tx_pin: GPIO6
-  rx_pin: GPIO7
+  rx_pin:
+    number: GPIO7
+    mode:
+      pullup: true
+      input: true
   baud_rate: 9600
   stop_bits: 1
 

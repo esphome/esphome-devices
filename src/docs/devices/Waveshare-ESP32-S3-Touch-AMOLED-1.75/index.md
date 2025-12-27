@@ -3,7 +3,7 @@ title: Waveshare ESP32-S3-Touch-AMOLED-1.75
 date-published: 2025-10-18
 type: misc
 standard: global
-board: esp32-s3
+board: esp32
 difficulty: 2
 ---
 
@@ -41,16 +41,13 @@ substitutions:
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
-  project:
-    name: "${project_name}"
-    version: "${project_version}"
   platformio_options:
     board_build.flash_mode: dio
     board_build.f_flash: 80000000L
     board_build.f_cpu: 240000000L
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   flash_size: 16MB
   framework:
     type: esp-idf
@@ -158,7 +155,7 @@ display:
     bus_mode: quad
     reset_pin: GPIO39
     cs_pin: GPIO12
-    dimenions:
+    dimensions:
       height: 466
       width: 466
 

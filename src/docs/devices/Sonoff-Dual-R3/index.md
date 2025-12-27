@@ -47,7 +47,7 @@ esphome:
   name: sonoff-dual-r3
 
 esp32:
-  board: esp32dev
+  variant: esp32
 
 logger:
   level: INFO

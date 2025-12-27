@@ -28,7 +28,7 @@ esphome:
   name: energy_meter
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
 
 api:
 

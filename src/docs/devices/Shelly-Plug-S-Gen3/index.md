@@ -3,7 +3,7 @@ title: Shelly Plug S Gen3
 date-published: 2024-12-05
 type: plug
 standard: eu
-board: esp32c3
+board: esp32
 difficulty: 4
 ---
 
@@ -58,7 +58,7 @@ esphome:
     - script.execute: set_rgb
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: esp32c3
   framework:
     type: esp-idf
 
