@@ -11,7 +11,7 @@ difficulty: 2
 
 ![Connector image](./Sunton-esp32-8048s043-connector.jpg "Product image")
 
-![GPIO image](./Sunton-esp32-8048s043-gpio.jpg "Product image")
+![GPIO image](./Sunton-esp32-8048s043-gpio.jpeg "Product image")
 
 ## Product specs
 
