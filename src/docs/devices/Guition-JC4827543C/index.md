@@ -34,6 +34,7 @@ esphome:
     priority: -100
     then:
       - script.execute: inactivity_timer
+      - component.update: my_display
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -212,6 +213,15 @@ display:
       - [0xff,0x00]
       - [0x11,0x00]
       - [0x29,0x00]
+
+    lambda: |-
+      it.print(240, 136,id(roboto_20),TextAlign::CENTER, "Hello Viet Nam");
+
+
+font:
+  - file: "gfonts://Roboto" 
+    id: roboto_20 
+    size: 24
 
 script:
   - id: inactivity_timer
