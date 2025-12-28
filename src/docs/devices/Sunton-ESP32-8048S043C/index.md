@@ -1,5 +1,5 @@
 ---
-title: Sunton ESP32-8048S043C
+title: Sunton-ESP32-8048S043C
 type: misc
 standard: global
 board: esp32
