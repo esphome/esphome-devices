@@ -2,7 +2,7 @@
 title: Guition JC4827W543C 4.3" 480*272
 type: misc
 standard: global
-board: esp32 s3
+board: esp32
 difficulty: 2
 ---
 
