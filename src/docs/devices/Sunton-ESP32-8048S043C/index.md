@@ -106,7 +106,7 @@ display:
     update_interval: never
     auto_clear_enabled: false    
     lambda: |-
-      it.print(400, 240,id(roboto_20),TextAlign::CENTER, "Hello Viet Nam");
+      it.print(400, 240,id(roboto_48),TextAlign::CENTER, "Hello Viet Nam");
 
     
     
@@ -134,8 +134,8 @@ light:
 
 font:
   - file: "gfonts://Roboto" 
-    id: roboto_20 
-    size: 24
+    id: roboto_48
+    size: 48
 
 script:
   - id: inactivity_timer
@@ -143,13 +143,13 @@ script:
     then:
       - if:
           condition:
-            light.is_off: display_backlight
+            light.is_off: back_light
           then:
             - light.turn_on:
-                id: display_backlight
+                id: back_light
       - delay: !lambda 'return id(sleep_time).state * 1000;'
       - light.turn_off:
-          id: display_backlight
+          id: back_light
       
 
 number:
