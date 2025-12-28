@@ -5,7 +5,6 @@ standard: global
 board: esp32
 difficulty: 2
 ---
-
 ## Image
 
 ![Product image](./Sunton-esp32-8048s043.jpg "Product image")
@@ -23,7 +22,6 @@ difficulty: 2
 | CPU          | ESP32-S3                |
 | Flash        | 16MB                    |
 | PSRAM        | 8MB                     |
-
 
 ## Basic Config
 
@@ -72,12 +70,10 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-
 i2c:
   - id: bus_a
     scl: GPIO20
     sda: GPIO19
-
 
 display:
   - id: my_display
@@ -107,8 +103,6 @@ display:
     auto_clear_enabled: false    
     lambda: |-
       it.print(400, 240,id(roboto_48),TextAlign::CENTER, "Hello Viet Nam");
-
-    
     
 touchscreen:
   platform: gt911
@@ -118,7 +112,6 @@ touchscreen:
   on_touch:
     then:
       - script.execute: inactivity_timer
-
 output:
   - platform: ledc
     pin: GPIO2
@@ -130,7 +123,6 @@ light:
     name: "Đèn nền"
     id: back_light
     restore_mode: ALWAYS_ON
-
 
 font:
   - file: "gfonts://Roboto" 
@@ -149,9 +141,7 @@ script:
                 id: back_light
       - delay: !lambda 'return id(sleep_time).state * 1000;'
       - light.turn_off:
-          id: back_light
-      
-
+          id: back_light      
 number:
   - platform: template
     name: "Sleep time"
