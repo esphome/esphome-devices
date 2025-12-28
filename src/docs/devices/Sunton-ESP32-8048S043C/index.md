@@ -106,7 +106,7 @@ display:
     update_interval: never
     auto_clear_enabled: false    
     lambda: |-
-      it.print(240, 136,id(roboto_20),TextAlign::CENTER, "Hello Viet Nam");
+      it.print(400, 240,id(roboto_20),TextAlign::CENTER, "Hello Viet Nam");
 
     
     
