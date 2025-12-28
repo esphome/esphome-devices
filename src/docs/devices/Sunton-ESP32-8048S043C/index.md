@@ -1,4 +1,3 @@
-
 ---
 title: Sunton ESP32-8048S043C
 type: misc
@@ -6,6 +5,8 @@ standard: global
 board: esp32
 difficulty: 2
 ---
+
+## Image
 
 ![Product image](./Sunton-esp32-8048s043.jpg "Product image")
 
