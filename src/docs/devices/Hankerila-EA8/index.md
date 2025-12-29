@@ -74,11 +74,6 @@ ethernet:
     pin: GPIO17
     mode: CLK_OUT
   phy_addr: 0
-#if you need static ip to assign  the board
-#  manual_ip:
-#    static_ip: 192.168.1.207
-#    gateway: 192.168.1.1
-#    subnet: 255.255.225.0
 
 # Configure the MCP4725 DAC (Digital-to-Analog-Converter) output
 output:
@@ -295,37 +290,6 @@ binary_sensor:
       number: 7
       mode: INPUT
       inverted: true
-
-#IR codes
-  - platform: remote_receiver
-    name: "Relay1 ON"
-    raw:
-      # prettier-ignore
-      #replace the code with the dumped IR code of the proper button on your IR remote
-      code: [ -9052, 4434, -636, 523, -636, 492, -603, 526, -608, 522, -606, 523, -608, 520, -606, 522, -600, 529, -610, 1594, -633, 1602, -638, 1595, -631, 1601, -628, 1606, -635, 1600, -636, 1595, -637, 1597, -634, 1600, -637, 521, -604, 1600, -637, 1596, -638, 520, -609, 521, -606, 523, -634, 494, -610, 518, -608, 1597, -638, 520, -607, 521, -607, 1597, -635, 1598, -636, 1599, -665, 1568, -644 ]
-    on_press:
-      then:
-        - switch.turn_on: relay1
-
-  - platform: remote_receiver
-    name: "Relay1 OFF"
-    raw:
-      # prettier-ignore
-      #replace the code with the dumped IR code of the proper button on your IR remote
-      code: [ -9008, 4482, -600, 531, -565, 564, -591, 536, -568, 564, -593, 537, -597, 529, -597, 531, -596, 534, -596, 1639, -597, 1635, -597, 1638, -598, 1638, -591, 1644, -568, 1665, -592, 1642, -566, 1670, -592, 1640, -595, 1639, -592, 1643, -567, 1665, -596, 1640, -597, 532, -595, 533, -594, 536, -596, 534, -597, 530, -567, 563, -568, 561, -599, 529, -568, 1667, -593, 1642, -591, 1642, -597 ]
-    on_press:
-      then:
-        - switch.turn_off: relay1
-
-# Settings for monochromatic light using the DAC output (0-10V)
-light:
-  - platform: monochromatic
-    # Name of the light in Home Assistant
-    name: "DAC_LIGHT1"
-    # ID for the light
-    id: dac1
-    # Output source for the light
-    output: dac_output
 
 # Configure sensors connected to the ADS1115
 sensor:
