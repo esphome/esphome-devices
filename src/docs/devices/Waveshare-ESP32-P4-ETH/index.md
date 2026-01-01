@@ -29,20 +29,6 @@ This product is a multimedia development board based on ESP32-P4. It features ri
 
 ## GPIO Pinout
 
-### ESP32 Hosted (ESP32-C6 Coprocessor)
-
-The board uses the ESP32-C6-MINI module as a coprocessor for Wi-Fi and Bluetooth connectivity via SDIO:
-
-| Function | GPIO |
-|----------|------|
-| Reset    | GPIO54 |
-| CMD      | GPIO19 |
-| CLK      | GPIO18 |
-| D0       | GPIO14 |
-| D1       | GPIO15 |
-| D2       | GPIO16 |
-| D3       | GPIO17 |
-
 ### Ethernet (IP101 PHY)
 
 | Function | GPIO |
@@ -51,6 +37,26 @@ The board uses the ESP32-C6-MINI module as a coprocessor for Wi-Fi and Bluetooth
 | MDIO     | GPIO52 |
 | Power    | GPIO51 |
 | CLK      | GPIO50 |
+
+### i2c
+
+| Function | GPIO  |
+|----------|-------|
+| sda      | GPIO7 |
+| scl      | GPIO8 |
+
+* frequency: 400kHz
+* scan: True
+
+### i2s Audio
+| Function | GPIO  | Note |
+|----------|-------|------|
+| i2s_mclk_pin | GPIO13 | |
+| i2s_bclk_pin | GPIO12 | |
+| i2s_lrclk_pin | GPIO10 | Left/Right Clock |
+| i2s_dout_pin | GPIO9 | |
+
+* use_legacy: False
 
 ## Basic Configuration
 
