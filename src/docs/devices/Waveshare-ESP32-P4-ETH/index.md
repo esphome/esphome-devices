@@ -27,14 +27,21 @@ range of application adaptability.
 
 - High-performance MCU with RISC-V 32-bit dual-core and single-core processors
 - 128 KB HP ROM, 16 KB LP ROM, 768 KB HP L2MEM, 32 KB LP SRAM, 8 KB TCM
-- Powerful image and voice processing capability. Provides image and voice processing interfaces 
-including
+- Powerful image and voice processing capability. Provides image and voice processing interfaces
+  including
   - JPEG codecs,
   - Pixel Processing Accelerator (PPA),
   - Image Signal Processor (ISP)
   - H.264 video encoder
 - 32MB PSRAM in the chip's package, onboard 32MB Nor Flash
-- Commonly used peripherals such as MIPI-CSI, MIPI-DSI, USB 2.0 OTG, Ethernet, SDIO 3.0 TF card slot, - microphone, speaker header, etc.
+- Commonly used peripherals such as
+  - MIPI-CSI,
+  - MIPI-DSI,
+  - USB 2.0 OTG,
+  - Ethernet,
+  - SDIO 3.0 TF card slot,
+  - microphone,
+  - speaker header, etc.
 - Adapting 2*20 GPIO headers with 27 x remaining programmable GPIOs
 - Security features:
   - Secure Boot,
