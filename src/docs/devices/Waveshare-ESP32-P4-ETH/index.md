@@ -15,17 +15,35 @@ Product Page: [esp32-p4-eth](https://www.waveshare.com/esp32-p4-eth.htm)
 
 ## Product Description
 
-This product is a multimedia development board based on ESP32-P4. It features rich Human-Machine interfaces, including MIPI-CSI (with integrated Image Signal Processor), MIPI-DSI, SPI, I2S, I2C, LED PWM, MCPWM, RMT, ADC, UART, TWAI, etc. Additionally, it supports USB OTG 2.0 HS, Ethernet port and onboard 40PIN GPIO header which is compatible with some Raspberry Pi Pico HATs, enabling a wider range of application adaptability.
+This product is a multimedia development board based on ESP32-P4. 
+It features rich Human-Machine interfaces, including MIPI-CSI 
+(with integrated Image Signal Processor), 
+MIPI-DSI, SPI, I2S, I2C, LED PWM, MCPWM, RMT, ADC, UART, TWAI, etc. 
+Additionally, it supports USB OTG 2.0 HS, Ethernet port and onboard 40PIN GPIO 
+header which is compatible with some Raspberry Pi Pico HATs, enabling a wider 
+range of application adaptability.
 
 ### Key Features
 
 - High-performance MCU with RISC-V 32-bit dual-core and single-core processors
 - 128 KB HP ROM, 16 KB LP ROM, 768 KB HP L2MEM, 32 KB LP SRAM, 8 KB TCM
-- Powerful image and voice processing capability. Provides image and voice processing interfaces including - JPEG codecs, Pixel Processing Accelerator (PPA), Image Signal Processor (ISP) and H.264 video encoder
+- Powerful image and voice processing capability. Provides image and voice processing interfaces 
+including 
+  - JPEG codecs, 
+  - Pixel Processing Accelerator (PPA), 
+  - Image Signal Processor (ISP) 
+  - H.264 video encoder
 - 32MB PSRAM in the chip's package, onboard 32MB Nor Flash
 - Commonly used peripherals such as MIPI-CSI, MIPI-DSI, USB 2.0 OTG, Ethernet, SDIO 3.0 TF card slot, - microphone, speaker header, etc.
 - Adapting 2*20 GPIO headers with 27 x remaining programmable GPIOs
-- Security features: Secure Boot, Flash Encryption, cryptographic accelerators, and TRNG. Additionally, hardware access protection mechanisms help to enable Access Permission Management and Privilege Separation
+- Security features: 
+  - Secure Boot, 
+  - Flash Encryption, 
+  - cryptographic accelerators, 
+  - and TRNG. 
+  - Additionally, hardware access protection mechanisms help to
+    - enable Access Permission Management and
+    - Privilege Separation
 
 ## GPIO Pinout
 
