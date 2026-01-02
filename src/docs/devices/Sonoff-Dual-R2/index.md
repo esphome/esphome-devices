@@ -14,7 +14,7 @@ board: esp8266
 
 ### Sonoff Dual R2 - PCB version 1.0
 
-based on [https://esphome.io/devices/sonoff.html#sonoff-dual-r2](https://esphome.io/devices/sonoff.html#sonoff-dual-r2)
+based on [https://esphome.io/devices/sonoff.html#sonoff-dual-r2](https://devices.esphome.io/devices/sonoff-dual-r2/)
 
 | Pin    | Function        |
 | ------ | --------------- |
