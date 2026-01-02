@@ -489,4 +489,3 @@ sensor:
 [pc191ha-blakadder]: https://templates.blakadder.com/arlec_PC191HA.html
 [pc191ha-ha-energy]: https://community.home-assistant.io/t/335508/55
 [pc191ha-ha-kickstart]: https://community.home-assistant.io/t/701658
-[cb2s]: https://developer.tuya.com/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq
