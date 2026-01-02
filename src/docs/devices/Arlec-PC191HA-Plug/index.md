@@ -75,7 +75,8 @@ After that, you can use ESPHome's OTA functionality to make any further changes.
 The case is ultrasonic-welded shut. With a spudger, blade, or other thin-edged tool you can pry it open (there will be
 some cosmetic damage). There will also be some silicone holding everything together which can be overcome with some
 effort. The CB2S module is soldered in a thru-hole configuration on the top edge of the main board. Refer to the
-[CB2S datasheet](https://developer.tuya.com/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq) for its pinout, you'll need a USB to
+[CB2S datasheet](https://developer.tuya.com/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq)
+for its pinout, you'll need a USB to
 TTL serial adapter and a soldering iron. It's best to remove the module from the main board, as the serial adapater's
 3.3V power supply probably isn't enough for the module to boot with peripherals attached. Flash with
 [ltchiptool](https://github.com/libretiny-eu/ltchiptool) or similar.
@@ -488,3 +489,4 @@ sensor:
 [pc191ha-blakadder]: https://templates.blakadder.com/arlec_PC191HA.html
 [pc191ha-ha-energy]: https://community.home-assistant.io/t/335508/55
 [pc191ha-ha-kickstart]: https://community.home-assistant.io/t/701658
+[cb2s]: https://developer.tuya.com/docs/iot/cb2s-module-datasheet?id=Kafgfsa2aaypq
