@@ -66,7 +66,7 @@ Once flashed and on your network, remove soldered wires and re-assemble!
 
 Here is my config, with the correct pins and a fallback WiFi for OTA in case I change the name of my wifi.
 To use, you must create a secrets.yaml file next to this file when compiling, and put your secrets in there.
-See this link: [https://esphome.io/guides/faq.html#how-do-i-use-my-home-assistant-secrets-yaml](https://esphome.io/guides/faq.html#how-do-i-use-my-home-assistant-secrets-yaml)
+See this link: [https://esphome.io/guides/faq.html#how-do-i-use-my-home-assistant-secrets-yaml](https://esphome.io/guides/faq/#how-do-i-use-my-home-assistant-secretsyaml-file)
 
 ```yaml
 # YAML config start
@@ -96,7 +96,7 @@ captive_portal:
 
 # Enable logging
 logger:
-  # Set baud to 0 to disable UART logging https://esphome.io/components/logger
+  # Set baud to 0 to disable UART logging https://esphome.io/components/logger/
   baud_rate: 0 # (UART logging may interfere with BL0942)
 
 # Enable Home Assistant API
@@ -114,7 +114,7 @@ status_led:
     number: P20 # Red LED Incorrectly labeled CEN on PCB
     inverted: no # no invert to be normally off, only on when blinking
 
-# Belling BL0942 on RX1 and TX1 https://esphome.io/components/sensor/bl0942.html
+# Belling BL0942 on RX1 and TX1 https://esphome.io/components/sensor/bl0942/
 uart:
   rx_pin: RX1
   tx_pin: TX1
