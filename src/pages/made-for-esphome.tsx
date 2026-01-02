@@ -21,7 +21,7 @@ export default function MadeForESPHomePage() {
       </div>
       <p className="made-for-esphome-description">
         The following devices are designed to work with ESPHome and are preflashed with the firmware. This means you can easily integrate them into your smart home without any additional setup. Their configurations{' '}
-        <Link to="https://esphome.io/guides/made_for_esphome.html">meet requirements</Link>
+        <Link to="https://esphome.io/guides/made_for_esphome/">meet requirements</Link>
         {' '}as set out by the ESPHome project.
       </p>
     </DeviceListingPage>
