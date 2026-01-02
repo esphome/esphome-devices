@@ -106,7 +106,7 @@ sensor:
     update_interval: 3s # default 60s
 
   - platform: total_daily_energy
-    # https://esphome.io/components/sensor/total_daily_energy.html
+    # https://esphome.io/components/sensor/total_daily_energy/
     name: ${friendly_name} Total Daily Energy
     power_id: power_monitor_value
     filters:
@@ -163,7 +163,7 @@ switch:
     id: relay
 
   - platform: template
-    # https://esphome.io/components/switch/template.html
+    # https://esphome.io/components/switch/template/
     name: ${friendly_name}
     id: relay_template
     lambda: |-
