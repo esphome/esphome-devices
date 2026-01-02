@@ -6,7 +6,7 @@ standard: global
 board: esp8266
 ---
 
-This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFUSB)
+This device can be found on [AliExpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFUSB)
 for about 5 USD.
 
 ![alt text](Sinilink.png "Product Image")
