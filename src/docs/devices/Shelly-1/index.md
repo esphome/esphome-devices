@@ -383,7 +383,7 @@ cover:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  # domain: <replace with yourdomain>
+  # domain: <replace with your domain if desired>
   min_auth_mode: WPA2
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
@@ -434,4 +434,5 @@ sensor:
 ```
 
 ## Links
+
 * [AS/NZS 4417 Certificate of Suitability](https://smartcentralsolutions.com.au/wp-content/uploads/2020/10/Shelly_1_AS_NZS_Certificate_Suitability.pdf)
