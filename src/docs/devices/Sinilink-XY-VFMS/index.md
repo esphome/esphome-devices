@@ -6,7 +6,7 @@ standard: global
 board: esp8266
 ---
 
-This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
+This device can be found on [AliExpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFF)
 for about 5 USD.
 
 ## Flashing
@@ -31,10 +31,9 @@ The following configuration is adapted from [this ESPHome devices repository][1]
 device.
 
 [1]:
-https://github.com/esphome/esphome-devices/blob/main/_devices/Sinilink-XY-WFUSB-USB-Switch-Relay/Sinilink-XY-WFUSB-USB-Switch-Relay.md
+https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Sinilink-XY-WFUSB-USB-Switch-Relay/index.md
 
 There is a 3D printable case available from
-[https://www.thingiverse.com/thing:4638431](https://www.thingiverse.com/thing:4638431) which I remixed from
 [https://www.thingiverse.com/thing:4146127](https://www.thingiverse.com/thing:4146127)
 
 ```yaml
