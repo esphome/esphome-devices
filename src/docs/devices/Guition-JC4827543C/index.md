@@ -4,6 +4,7 @@ type: misc
 standard: global
 board: esp32
 difficulty: 2
+date-published: 2025-12-30
 ---
 
 ![Product image](./guition-jc4827w543c.jpg "Product image")
@@ -251,3 +252,4 @@ number:
     min_value: 5
     max_value: 600
     step: 1
+```
