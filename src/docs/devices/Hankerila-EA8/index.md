@@ -352,3 +352,4 @@ sensor:
   - platform: dallas_temp
     address: 0x1c00000123456789 #replace with your sensor's ID
     name: "ds18b20-1"
+```
