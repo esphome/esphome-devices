@@ -19,14 +19,16 @@ It is designed for users who prefer local-only monitoring without cloud dependen
 ## Images
 
 ### Assembled device
+
 ![ESP-Hydropony Light Monitor assembled](device-assembled.jpg "ESP-Hydropony Light Monitor – assembled device")
 
 ### PCB
+
 ![ESP-Hydropony Light Monitor PCB](pcb.jpg "ESP-Hydropony Light Monitor – PCB")
 
 ### Lux display
-![ESP-Hydropony Light Monitor lux display](display-lux.jpg "ESP-Hydropony Light Monitor – lux display")
 
+![ESP-Hydropony Light Monitor lux display](display-lux.jpg "ESP-Hydropony Light Monitor – lux display")
 
 ## ESPHome Integration
 
@@ -49,5 +51,6 @@ sensor:
     value_template: "{{ value_json.lux }}"
     unit_of_measurement: "lx"
     device_class: illuminance
+
     scan_interval: 10s
 
