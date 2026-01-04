@@ -22,9 +22,10 @@ The device exposes a JSON endpoint at `/json` returning a numeric lux value.
 
 ### Example response
 
-
-### ESPHome REST sensor example
-
+```json
+{
+  "lux": 1234.5
+}
 sensor:
   - platform: rest
     name: "Hydropony Lux"
@@ -33,4 +34,3 @@ sensor:
     unit_of_measurement: "lx"
     device_class: illuminance
     scan_interval: 10s
-
