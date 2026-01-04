@@ -28,6 +28,8 @@ The device exposes a JSON endpoint at `/json` returning a numeric lux value.
 }
 
 ```
+
+```yaml
 sensor:
   - platform: rest
     name: "Hydropony Lux"
@@ -36,3 +38,4 @@ sensor:
     unit_of_measurement: "lx"
     device_class: illuminance
     scan_interval: 10s
+---
