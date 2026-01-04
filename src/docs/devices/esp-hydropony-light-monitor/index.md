@@ -1,1 +1,36 @@
+---
+title: ESP-Hydropony Light Monitor
+date-published: 2026-01-05
+type: sensor
+standard: global
+board: esp32
+project-url: https://your-project-or-gumroad-url
+made-for-esphome: false
+difficulty: 2
+---
+
+## ESP-Hydropony Light Monitor
+
+The ESP-Hydropony Light Monitor is a Wi-Fi enabled lux sensor designed for hydroponic and indoor growing environments.
+
+The device measures ambient light using a BH1750 sensor and exposes the value locally over HTTP.
+It is designed for users who prefer local-only monitoring without cloud dependency.
+
+## ESPHome Integration
+
+The device exposes a JSON endpoint at `/json` returning a numeric lux value.
+
+### Example response
+
+
+### ESPHome REST sensor example
+
+sensor:
+  - platform: rest
+    name: "Hydropony Lux"
+    resource: http://DEVICE_IP/json
+    value_template: "{{ value_json.lux }}"
+    unit_of_measurement: "lx"
+    device_class: illuminance
+    scan_interval: 10s
 
