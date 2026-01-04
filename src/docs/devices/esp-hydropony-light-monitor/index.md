@@ -16,6 +16,18 @@ The ESP-Hydropony Light Monitor is a Wi-Fi enabled lux sensor designed for hydro
 The device measures ambient light using a BH1750 sensor and exposes the value locally over HTTP.
 It is designed for users who prefer local-only monitoring without cloud dependency.
 
+## Images
+
+### Assembled device
+![ESP-Hydropony Light Monitor assembled](device-assembled.jpg "ESP-Hydropony Light Monitor – assembled device")
+
+### PCB
+![ESP-Hydropony Light Monitor PCB](pcb.jpg "ESP-Hydropony Light Monitor – PCB")
+
+### Lux display
+![ESP-Hydropony Light Monitor lux display](display-lux.jpg "ESP-Hydropony Light Monitor – lux display")
+
+
 ## ESPHome Integration
 
 The device exposes a JSON endpoint at `/json` returning a numeric lux value.
