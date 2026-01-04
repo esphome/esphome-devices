@@ -26,6 +26,8 @@ The device exposes a JSON endpoint at `/json` returning a numeric lux value.
 {
   "lux": 1234.5
 }
+
+```
 sensor:
   - platform: rest
     name: "Hydropony Lux"
