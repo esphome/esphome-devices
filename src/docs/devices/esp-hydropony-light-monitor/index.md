@@ -4,7 +4,7 @@ date-published: 2026-01-05
 type: sensor
 standard: global
 board: esp32
-project-url: https://your-project-or-gumroad-url
+project-url: https://sulfuroid.gumroad.com/l/hydroponics
 made-for-esphome: false
 difficulty: 2
 ---
