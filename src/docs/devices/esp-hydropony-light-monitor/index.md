@@ -38,4 +38,4 @@ sensor:
     unit_of_measurement: "lx"
     device_class: illuminance
     scan_interval: 10s
----
+
