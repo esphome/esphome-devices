@@ -9,6 +9,7 @@ board: esp8266
 ## General Notes
 
 This configuration is for Pre-2021 versions of the Wyze Smart Plug. Unlike newer versions, it features an ESP8266.
+The model number is WLPP1 (note: no suffix).
 
 ## Initial Install
 
