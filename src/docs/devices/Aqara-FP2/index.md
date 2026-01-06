@@ -13,4 +13,4 @@ The Aqara FP2 is mmWave presence sensor radar based on the IWR6843AOP and an ESP
 
 It supports configurable presence detection zones, and can also stream locations of detected targets in realtime.
 
-Example configuration along with instructions can be found at https://github.com/hansihe/esphome_fp2/
+Example configuration along with instructions can be found at [https://github.com/hansihe/esphome_fp2/](https://github.com/hansihe/esphome_fp2/)
