@@ -278,9 +278,9 @@ display:
 
           // Parameters
           // Drawing the marker over the gauge
-          float pi = 3.141592653589793;
+          // Use M_PI constant provided by ESPHome
           float alpha = 4.71238898038469; // Defined as the gauge angle in radians (270deg)
-          float beta = 2*pi - alpha;
+          float beta = 2*M_PI - alpha;
           int radius = 22;              // Radius of the gauge in pixels
           int thick = 7;                // Size of the marker
 
@@ -301,12 +301,12 @@ display:
 
           float val = (measured - min_range) / abs(max_range - min_range) * alpha;
 
-          int x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          int y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          int x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          int y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          int x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          int y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          int x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          int y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          int x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          int y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          int x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          int y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
@@ -330,12 +330,12 @@ display:
           }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
@@ -360,12 +360,12 @@ display:
           }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
@@ -390,12 +390,12 @@ display:
           }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
