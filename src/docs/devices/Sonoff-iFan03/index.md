@@ -34,8 +34,8 @@ substitutions:
   name: "living-fan"
   friendly_name: "Living Room Fan"
   comment: "Sonoff Ifan03 Fan Controller (ESP8285)"
-  api_key: !secret api_encryption
-  ota_password: !secret ota_password
+  api_key: ""
+  ota_password: ""
   wifi_ssid: !secret wifi_ssid
   wifi_password: !secret wifi_password
   on_boot_light: ALWAYS_OFF # or ALWAYS_ON
