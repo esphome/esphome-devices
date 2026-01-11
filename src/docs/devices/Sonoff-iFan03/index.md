@@ -14,7 +14,7 @@ This project provides a complete firmware configuration for the Sonoff iFan03 Ce
 1.  **Motor Kickstart (Boost):** When switching from OFF to LOW or MEDIUM, the fan will momentarily power the motor at HIGH speed (4s) to overcome static friction (*stiction*). This prevents the motor from stalling and humming without spinning, ensuring a smooth startup.
 2.  **Safety Stop Logic:** Includes a "break-before-make" delay (500ms) that turns off all relays before switching speeds. This protects the relays and capacitors from arcing and stress.
 3.  **Spare RF Button:** The original RF remote "Buzzer" button (row 1, button 2) has been remapped as a "Spare Button" entity. This allows you to trigger Home Assistant automations without affecting the fan or light.
-4.  **Buzzer Feedback:** Short buzzer beeps on all remote commands for audible feedback.
+4.  **Smart Buzzer Feedback:** Provides audible feedback when the fan or light state changes (whether via RF Remote or Home Assistant). Configurable: You can completely disable the buzzer for silent operation by setting buzzer_enabled: "false"
 
 ## GPIO Pinout
 
@@ -317,5 +317,5 @@ binary_sensor:
       code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 103, -104, 104, -103, 104, -103, 104, -104, 107, -721, 105, -206, 207, -518, 105, -931, 104, -104, 103, -725, 104, -104, 103, -725, 104, -104, 103, -207, 104, -414]
     on_release:
       then:
-        - button.press: buzzer
+        - script.execute: beep_feedback
 ```
