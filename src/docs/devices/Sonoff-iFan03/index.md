@@ -6,14 +6,25 @@ standard: global
 board: esp8285
 ---
 
-This project provides a complete firmware configuration for the Sonoff iFan03 Ceiling Fan Controller (ESP8285). It implements custom logic to address common motor inertia issues at low speeds and unlocks programmable functionality for the RF remote.
+This configuration provides a complete firmware configuration for the **Sonoff iFan03** Ceiling Fan Controller (ESP8285).
+It addresses common issues with motor inertia on low speeds and adds programmable functionality to the RF remote.
 
 ## Features & Improvements
 
-1.  **Motor Kickstart (Boost):** When switching from OFF to LOW or MEDIUM, the fan will momentarily power the motor at HIGH speed (4s) to overcome static friction (*stiction*). This prevents the motor from stalling and humming without spinning, ensuring a smooth startup.
-2.  **Safety Stop Logic:** Includes a "break-before-make" delay (500ms) that turns off all relays before switching speeds. This protects the relays and capacitors from arcing and stress.
-3.  **Spare RF Button:** The original RF remote "Buzzer" button (row 1, button 2) has been remapped as a "Spare Button" entity. This allows you to trigger Home Assistant automations without affecting the fan or light.
-4.  **Smart Buzzer Feedback:** Provides audible feedback when the fan or light state changes (whether via RF Remote or Home Assistant). Configurable: You can completely disable the buzzer for silent operation by setting buzzer_enabled: "false"
+1. **Motor Kickstart (Boost):** The iFan03 often struggles to start spinning on "Low" speed due to capacitor limitations
+   and motor inertia. This config forces a "High" speed burst (4s) when transitioning from OFF to LOW/MED to overcome
+   stiction, ensuring a smooth startup.
+
+2. **Safety Stop Logic:** Includes a "break-before-make" delay (500ms) that turns off all relays before switching
+   speeds. This protects the relays and capacitors from arcing and electrical stress.
+
+3. **Smart Buzzer & Silent Mode:**
+    * **Unified Feedback:** Audible feedback is triggered by state changes. You get confirmation beeps whether
+      controlling the fan via the RF Remote or via Home Assistant.
+    * **Silent Mode:** A `buzzer_enabled` substitution allows you to set this to `false` to completely mute the device.
+
+4. **Spare RF Button:** The original RF remote "Buzzer" button (row 1, button 2) has been remapped as a
+   `remote_spare_button` entity. This allows you to trigger Home Assistant automations without affecting the fan.
 
 ## GPIO Pinout
 
@@ -255,66 +266,83 @@ binary_sensor:
     name: "Fan Off"
     id: remote_0
     raw:
-      code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 104, -103, 104, -104, 103, -104, 105, -102, 104, -725, 104, -311, 103, -518, 104, -933, 103, -104, 104, -725, 104, -932, 104, -207, 207, -519]
+      code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 104,
+             -103, 104, -104, 103, -104, 105, -102, 104, -725, 104, -311, 103,
+             -518, 104, -933, 103, -104, 104, -725, 104, -932, 104, -207, 207, -519]
     on_release:
       then:
         - fan.turn_off: ifan03_fan
-    internal: true        
-  # remote button row 3 button 2    
+    internal: true
+  # remote button row 3 button 2
   - platform: remote_receiver
     name: "Fan Low"
     id: remote_1
     raw:
-      code: [-207, 104, -104, 103, -104, 104, -103, 207, -104, 104, -103, 104, -104, 103, -104, 104, -103, 104, -104, 103, -726, 103, -312, 103, -518, 104, -933, 103, -104, 104, -725, 104, -103, 104, -726, 103, -104, 311, -518]
+      code: [-207, 104, -104, 103, -104, 104, -103, 207, -104, 104, -103, 104,
+             -104, 103, -104, 104, -103, 104, -104, 103, -726, 103, -312, 103,
+             -518, 104, -933, 103, -104, 104, -725, 104, -103, 104, -726, 103,
+             -104, 311, -518]
     on_release:
       then:
         - fan.turn_on:
             id: ifan03_fan
             speed: 1
-    internal: true    
-  # remote button row 2 button 2 
+    internal: true
+  # remote button row 2 button 2
   - platform: remote_receiver
     name: "Fan Medium"
     id: remote_2
     raw:
-      code: [-208, 103, -104, 104, -103, 104, -103, 208, -103, 104, -104, 103, -104, 104, -103, 104, -104, 103, -104, 103, -726, 104, -310, 104, -518, 104, -933, 103, -104, 104, -725, 104, -207, 104, -622, 103, -416, 102, -415]
+      code: [-208, 103, -104, 104, -103, 104, -103, 208, -103, 104, -104, 103,
+             -104, 104, -103, 104, -104, 103, -104, 103, -726, 104, -310, 104,
+             -518, 104, -933, 103, -104, 104, -725, 104, -207, 104, -622, 103,
+             -416, 102, -415]
     on_release:
       then:
         - fan.turn_on:
             id: ifan03_fan
             speed: 2
-    internal: true    
-  # remote button row 2 button 1    
+    internal: true
+  # remote button row 2 button 1
   - platform: remote_receiver
     name: "Fan High"
     id: remote_3
     raw:
-      code: [-207, 104, -104, 103, -104, 104, -103, 208, -103, 104, -104, 103, -104, 104, -103, 104, -104, 103, -104, 103, -726, 104, -311, 104, -518, 103, -934, 103, -103, 104, -726, 103, -104, 207, -622, 104, -103, 104, -207, 104, -415]
+      code: [-207, 104, -104, 103, -104, 104, -103, 208, -103, 104, -104, 103,
+             -104, 104, -103, 104, -104, 103, -104, 103, -726, 104, -311, 104,
+             -518, 103, -934, 103, -103, 104, -726, 103, -104, 207, -622, 104,
+             -103, 104, -207, 104, -415]
     on_release:
       then:
         - fan.turn_on:
             id: ifan03_fan
             speed: 3
-    internal: true    
-  # remote button row 1 button 1    
+    internal: true
+  # remote button row 1 button 1
   - platform: remote_receiver
     name: "Fan Light"
     id: remote_light
     raw:
-      code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 104, -103, 104, -103, 104, -104, 103, -104, 104, -725, 104, -311, 103, -518, 104, -933, 103, -104, 103, -726, 103, -311, 104, -518, 104, -207, 104, -103, 104, -414]
+      code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 104,
+             -103, 104, -103, 104, -104, 103, -104, 104, -725, 104, -311, 103,
+             -518, 104, -933, 103, -104, 103, -726, 103, -311, 104, -518, 104,
+             -207, 104, -103, 104, -414]
     on_release:
       then:
         - light.toggle: ifan03_light
-    internal: true      
-  # remote button row 1 button 2 - used to call a home assistant service
+    internal: true
+  # remote button row 1 button 2
   - platform: remote_receiver
     name: "Spare Button"
     id: remote_spare_button
     filters:
           - delayed_off: 200ms
     raw:
-      code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 103, -104, 104, -103, 104, -103, 104, -104, 107, -721, 105, -206, 207, -518, 105, -931, 104, -104, 103, -725, 104, -104, 103, -725, 104, -104, 103, -207, 104, -414]
+      code: [-207, 104, -103, 104, -104, 103, -104, 207, -104, 103, -104, 103,
+             -104, 104, -103, 104, -103, 104, -104, 107, -721, 105, -206, 207,
+             -518, 105, -931, 104, -104, 103, -725, 104, -104, 103, -725, 104,
+             -104, 103, -207, 104, -414]
     on_release:
       then:
-        - script.execute: beep_feedback
+        - button.press: buzzer
 ```
