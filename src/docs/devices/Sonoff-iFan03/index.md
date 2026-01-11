@@ -3,7 +3,7 @@ title: Sonoff iFan03 (with Kickstart & Safety Stop)
 date-published: 2026-01-11
 type: misc
 standard: global
-board: esp8285
+board: esp8266
 ---
 
 This configuration provides a complete firmware configuration for the **Sonoff iFan03** Ceiling Fan Controller (ESP8285).
