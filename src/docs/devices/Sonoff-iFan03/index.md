@@ -1,14 +1,13 @@
 ---
-title: Sonoff iFan03
+title: Sonoff iFan03 (with Kickstart & Safety Stop)
 date-published: 2026-01-11
 type: misc
 standard: global
 board: esp8285
 ---
 
-# Sonoff iFan03 (with Kickstart & Safety Stop)
-
 This project provides a complete firmware configuration for the Sonoff iFan03 Ceiling Fan Controller (ESP8285). It implements custom logic to address common motor inertia issues at low speeds and unlocks programmable functionality for the RF remote.
+
 ## Features & Improvements
 
 1.  **Motor Kickstart (Boost):** When switching from OFF to LOW or MEDIUM, the fan will momentarily power the motor at HIGH speed (4s) to overcome static friction (*stiction*). This prevents the motor from stalling and humming without spinning, ensuring a smooth startup.
