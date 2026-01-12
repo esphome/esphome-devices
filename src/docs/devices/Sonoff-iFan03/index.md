@@ -4,6 +4,8 @@ date-published: 2026-01-11
 type: misc
 standard: global
 board: esp8266
+made-for-esphome: false
+difficulty: 3
 ---
 
 This configuration provides a complete firmware configuration for the **Sonoff iFan03** Ceiling Fan Controller (ESP8285).
@@ -245,12 +247,22 @@ fan:
     name: "$friendly_name"
     speed_count: 3
     restore_mode: NO_RESTORE # important
+    on_turn_on:
+      - lambda: |-
+          // If for any reason the speed is 0, we force 1 (Low).
+          if (id(ifan03_fan).speed == 0) {
+            id(target_speed) = 1;
+          } else {
+            // If it already have speed, we use it.
+            id(target_speed) = id(ifan03_fan).speed;
+          }
+      - script.execute: fan_set_speed
+      - script.execute: beep_feedback
     on_turn_off:
       - lambda: |-
           id(target_speed) = 0;
       - script.execute: fan_set_speed
       - script.execute: beep_feedback
-
     on_speed_set:
       - lambda: |-
           id(target_speed) = id(ifan03_fan).speed;
