@@ -15,7 +15,7 @@ board: esp32
 
 ## ESPHome Configuration
 
-Here is an example YAML configuration for the KinCony F32 ESP32-S3 relay board.
+Here is an example YAML configuration for the KinCony F4 ESP32-S3 relay board.
 
 ```yaml
 esphome:
