@@ -123,20 +123,7 @@ i2c:
 
 display:
   - platform: mipi_spi
-    model: ILI9341
-    id: main_display
-    cs_pin: GPIO5
-    dc_pin: GPIO15
-    data_rate: 40MHz
-    invert_colors: true
-    pixel_mode: 18bit
-    dimensions:
-      width: 320
-      height: 240
-    transform: # must be explicitly set until bug is fixed
-      swap_xy: false
-      mirror_x: false
-      mirror_y: false
+    model: M5CORE2
     show_test_card: true
 
 touchscreen:
