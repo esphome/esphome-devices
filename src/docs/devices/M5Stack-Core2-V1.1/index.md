@@ -205,7 +205,7 @@ time:
 
 ## Notes
 
-- **Display**: works reliably with `mipi_spi` (ILI9341)
+- **Display**: works reliably with `mipi_spi` (M5CORE2)
 - **Touchscreen**: works well with `ft63x6`, including virtual button regions (A/B/C)
 - **MPU6886 IMU**: provides data for accelerometer, gyroscope, and temperature. Temperature readings are erratic and
   inaccurate
