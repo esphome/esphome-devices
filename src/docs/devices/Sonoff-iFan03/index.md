@@ -64,6 +64,11 @@ globals:
     restore_value: no
     initial_value: '0'
 
+  - id: last_rf_ms
+    type: uint32_t
+    restore_value: no
+    initial_value: '0'
+
 esphome:
   name: $name
   comment: $comment
@@ -186,7 +191,7 @@ script:
   - id: fan_set_speed
     mode: restart
     then:
-      # 1. Apagar si estaba girando
+      # 1. Turn off if it was on
       - if:
           condition:
             lambda: 'return id(last_speed) != 0;'
@@ -196,7 +201,7 @@ script:
             - switch.turn_off: fan_relay3
             - delay: 500ms
 
-      # 2. BOOST solo desde OFF hacia LOW o MED
+      # 2. BOOST only from OFF to LOW or MED
       - if:
           condition:
             lambda: |-
@@ -208,7 +213,7 @@ script:
             - switch.turn_off: fan_relay3
             - delay: 500ms
 
-      # 3. Selección definitiva de velocidad
+      # 3. Final velocity set
       - if:
           condition:
             lambda: 'return id(target_speed) == 1;'
@@ -227,7 +232,7 @@ script:
             lambda: 'return id(target_speed) == 3;'
           then:
             - switch.turn_on: fan_relay3
-      # 4. Guardar estado real
+      # 4. Store real state
       - lambda: |-
           id(last_speed) = id(target_speed);
 
@@ -240,6 +245,58 @@ script:
           then:
             - button.press: buzzer
 
+  - id: rf_gate
+    mode: single
+    parameters:
+      action: int
+    then:
+      - lambda: |-
+          uint32_t now = millis();
+          if (now - id(last_rf_ms) < 300) {
+            return;
+          }
+          id(last_rf_ms) = now;
+
+          switch (action) {
+            case 0: { 
+              auto call = id(ifan03_fan).turn_off();
+              call.perform();
+              break;
+            }
+
+            case 1: {
+              auto call = id(ifan03_fan).turn_on();
+              call.set_speed(1);
+              call.perform();
+              break;
+            }
+
+            case 2: {
+              auto call = id(ifan03_fan).turn_on();
+              call.set_speed(2);
+              call.perform();
+              break;
+            }
+
+            case 3: {
+              auto call = id(ifan03_fan).turn_on();
+              call.set_speed(3);
+              call.perform();
+              break;
+            }
+
+            case 4: {
+              auto call = id(ifan03_light).toggle();
+              call.perform();
+              break;
+            }
+
+            case 5: {
+              id(buzzer).press();
+              break;
+            }
+            
+          }
 
 fan:
   - platform: template
@@ -282,8 +339,9 @@ binary_sensor:
              -103, 104, -104, 103, -104, 105, -102, 104, -725, 104, -311, 103,
              -518, 104, -933, 103, -104, 104, -725, 104, -932, 104, -207, 207, -519]
     on_release:
-      then:
-        - fan.turn_off: ifan03_fan
+      - script.execute:
+          id: rf_gate
+          action: 0
     internal: true
   # remote button row 3 button 2
   - platform: remote_receiver
@@ -295,10 +353,9 @@ binary_sensor:
              -518, 104, -933, 103, -104, 104, -725, 104, -103, 104, -726, 103,
              -104, 311, -518]
     on_release:
-      then:
-        - fan.turn_on:
-            id: ifan03_fan
-            speed: 1
+      - script.execute:
+          id: rf_gate
+          action: 1
     internal: true
   # remote button row 2 button 2
   - platform: remote_receiver
@@ -310,10 +367,9 @@ binary_sensor:
              -518, 104, -933, 103, -104, 104, -725, 104, -207, 104, -622, 103,
              -416, 102, -415]
     on_release:
-      then:
-        - fan.turn_on:
-            id: ifan03_fan
-            speed: 2
+      - script.execute:
+          id: rf_gate
+          action: 2
     internal: true
   # remote button row 2 button 1
   - platform: remote_receiver
@@ -325,10 +381,9 @@ binary_sensor:
              -518, 103, -934, 103, -103, 104, -726, 103, -104, 207, -622, 104,
              -103, 104, -207, 104, -415]
     on_release:
-      then:
-        - fan.turn_on:
-            id: ifan03_fan
-            speed: 3
+      - script.execute:
+          id: rf_gate
+          action: 3
     internal: true
   # remote button row 1 button 1
   - platform: remote_receiver
@@ -340,8 +395,9 @@ binary_sensor:
              -518, 104, -933, 103, -104, 103, -726, 103, -311, 104, -518, 104,
              -207, 104, -103, 104, -414]
     on_release:
-      then:
-        - light.toggle: ifan03_light
+      - script.execute:
+          id: rf_gate
+          action: 4
     internal: true
   # remote button row 1 button 2
   - platform: remote_receiver
@@ -355,6 +411,7 @@ binary_sensor:
              -518, 105, -931, 104, -104, 103, -725, 104, -104, 103, -725, 104,
              -104, 103, -207, 104, -414]
     on_release:
-      then:
-        - button.press: buzzer
+      - script.execute:
+          id: rf_gate
+          action: 5
 ```
