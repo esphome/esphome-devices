@@ -96,3 +96,154 @@ The RGB LED on the Rowi2 device indicates the current state:
 [onboarding]: https://github.com/vt-vaio/rowi2/blob/main/docs/ONBOARDING.md
 [building]: https://github.com/vt-vaio/rowi2/blob/main/docs/BUILDING.md
 [calibrating]: https://github.com/vt-vaio/rowi2/blob/main/docs/CALIBRATING.md
+
+## Standard Configuration
+
+```yaml
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #
+# !!!  After adopting the device, update the WiFi configuration accordingly. !!! #
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #
+substitutions:
+  name: rowi2-plug                # Device name used in ESPHome and on the network
+  friendly_name: "Rowi2 Plug"     # Human-friendly device name for Home Assistant
+  climate_update_interval: 10s    # Update interval for climate sensors (temperature, humidity, etc.)
+  sensor_timeout_interval: 30s    # Timeout for climate sensors to return a valid reading
+  energy_update_interval: 1s      # Update interval for energy sensors and overcurrent checks
+  overcurrent_cutoff: '3'         # Number of consecutive energy_update_intervals the current must exceed the limit before overload cutoff
+
+packages:
+
+  remote_package:
+    url: https://github.com/vt-vaio/rowi2
+    ref: main
+    files:
+      - packages/core.yml
+      - packages/climate.yml
+      - packages/energy.yml
+      - packages/ble-proxy.yml
+      - packages/diagnostics.yml
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  name_add_mac_suffix: true
+  min_version: '2025.10.0'
+  on_boot:
+    priority: 375
+    then:
+      # Run the script to refresh the LED status
+      - script.execute: control_leds
+
+      # If after 10 minutes, the device is still initializing (It did not yet connect to Home Assistant),
+      # turn off the init_in_progress variable and run the script to refresh the LED status
+      - delay: 10min
+      - if:
+          condition:
+            lambda: return id(init_in_progress);
+          then:
+            - lambda: id(init_in_progress) = false;
+            - script.execute: control_leds
+
+esp32:
+  board: nodemcu-32s
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+  level: INFO
+
+# Enable Home Assistant API
+api:
+  id: api_id
+  on_client_connected:
+    - lambda: id(init_in_progress) = false;
+    - script.execute: control_leds
+  on_client_disconnected:
+    - script.execute: control_leds
+
+ota:
+  - platform: esphome
+    id: ota_esphome
+
+wifi:
+  id: wifi_id
+
+  # Uncomment ssid and password and add values to your secrets.yaml
+  # ssid: !secret wifi_ssid
+  # password: !secret wifi_password
+
+  on_connect:
+    - lambda: id(init_in_progress) = false;
+    - script.execute: control_leds
+  on_disconnect:
+    - script.execute: control_leds
+
+globals:
+  # Global initialization variable. Initialized to true and set to false once everything is connected. Only used to have a smooth "plugging" experience
+  - id: init_in_progress
+    type: bool
+    restore_value: no
+    initial_value: 'true'
+  # Global variable storing the state of ImprovBLE. Used to draw different LED animations
+  - id: improv_ble_in_progress
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+  # Global variable storing if a factory reset was requested. If it is set to true, the device will factory reset once the center button is released
+  - id: factory_reset_requested
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+  # Global variable storing the state of the overcurrent cutoff detection
+  - id: overcurrent_cutoff_detected
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+```
+
+## Factory Configuration
+
+```yaml
+packages:
+  rowi2-plug: !include rowi2-plug.yaml
+  factory-ota: !include packages/factory-ota.yml
+
+esphome:
+  project:
+    name: Kiwi Warmer.Rowi2 Plug
+    version: dev
+
+dashboard_import:
+  package_import_url: github://vt-vaio/rowi2/rowi2-plug.yaml@main
+  import_full_config: true
+
+wifi:
+  # Uncomment the following lines to upload a new firmware to a already connected device
+  # manual_ip:
+  #   # Set this to the IP of the ESP
+  #   static_ip: 192.168.x.x
+  #   # Set this to the IP address of the router. Often ends with .1
+  #   gateway: 192.168.x.1
+  #   # The subnet of the network. 255.255.255.0 works for most home networks.
+  #   subnet: 255.255.255.0
+  on_connect:
+    - delay: 5s
+    - lambda: id(improv_ble_in_progress) = false;
+
+esp32_ble:
+  name: rowi2-plug
+
+esp32_improv:
+  authorizer: center_button
+  on_start:
+    - lambda: id(improv_ble_in_progress) = true;
+    - script.execute: control_leds
+  on_provisioned:
+    - lambda: id(improv_ble_in_progress) = false;
+    - script.execute: control_leds
+  on_stop:
+    - lambda: id(improv_ble_in_progress) = false;
+    - script.execute: control_leds
+```
+
