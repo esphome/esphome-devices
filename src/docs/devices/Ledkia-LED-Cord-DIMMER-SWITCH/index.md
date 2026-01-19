@@ -160,7 +160,7 @@ captive_portal:
 
 Stability of WR3 is not the best, changing the WR3 for a ESP32 module is recommended.
 I changed the WR3 for ESP12F WT0132C6-S5. You will have to check pad and footprint compatibility if choosing other module.
-Be aware of the thermal fuse in the board, it is 130C reated and will trigger pretty easilly.
+Be aware of the thermal fuse in the board, it is 130C rated and will trigger pretty easilly.
 It is very important to disable uart logging (baud_rate: 0), as the pins used by the tuya MCU are the same as the default UART port of ESP12F WT0132C6-S5.
 
 ```yaml
