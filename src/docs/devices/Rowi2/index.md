@@ -10,7 +10,7 @@ board: esp32
 
 This project is the home of the [ESPHome][esphome] firmware for the [Vaiotech KW600][vaiotech].
 
-![Vaiotech KW600](./docs/rowi2.png)
+![Vaiotech KW600](./rowi2.png)
 
 > **Note:**
 > If you intend to integrate your device with Home Assistant, please ensure you order the **ESPHome firmware** version
