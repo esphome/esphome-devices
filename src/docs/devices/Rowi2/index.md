@@ -13,7 +13,7 @@ This project is the home of the [ESPHome][esphome] firmware for the [Vaiotech KW
 ![Vaiotech KW600](./docs/rowi2.png)
 
 > **Note:**
-> If you intend to integrate your device with Home Assistant, please ensure you order the **ESPHome firmware** version 
+> If you intend to integrate your device with Home Assistant, please ensure you order the **ESPHome firmware** version
 > of Rowi2. The default firmware does **not** support Home Assistant integration.
 
 Rowi2 is available in two different versions:
@@ -74,7 +74,7 @@ The RGB LED on the Rowi2 device indicates the current state:
 
 ## Troubleshooting
 
-- If your device is not discovered during onboarding, ensure Bluetooth is enabled and the device is in onboarding 
+- If your device is not discovered during onboarding, ensure Bluetooth is enabled and the device is in onboarding
 mode (after power-up or factory reset).
 - For manual firmware installation or advanced usage, see the [Developer Guide][building].
 
