@@ -1,0 +1,203 @@
+# Shelly EM Gen3 - Minimal (Hardware definitions only)
+# Model number: S3EM-002CXCEU50
+# PCB markings: "EM Gen3_v0.1.3", "B2519"
+# SoC: ESP-Shelly-C38F (similar to ESP32-C3)
+# CPU: ESP32-C3 (QFN32) (revision v0.4)
+# Features: Wi-Fi, BT 5 (LE), Single Core, 160MHz, Embedded Flash 8MB (GD)
+# Crystal frequency:  40MHz
+# References:
+# - https://devices.esphome.io/devices/shelly-em-gen3/
+# - https://community.home-assistant.io/t/shelly-em-gen3-solved/944171
+# - https://kb.shelly.cloud/knowledge-base/shelly-em-gen3
+#
+# GPIOs:
+#   GPIO0 - Dry-contact relay (normally open)
+#   GPIO1 - Pushbutton
+#   GPIO3 - ADC for NTC temperature sensor
+#   GPIO4 - ADE7953 IRQ pin (active low)
+#   GPIO5 - ADE7953 RESET pin (active low)
+#   GPIO6 - I2C SCL
+#   GPIO7 - I2C SDA
+#   GPIO9 - Status LED (active low)
+#   GPIO18 - Pin 1 of 7-pin header
+#   GPIO20 - UART receive (U0RXD)
+#   GPIO21 - UART transmit (U0TXD)
+#
+# I2C devices:
+#  0x38 - ADE7953 Power Sensor
+#  0x51 - AiP8563 Battery-backed real-time clock (not currently supported by ESPHome)
+
+substitutions:
+  # How often to update the power meter.
+  update_interval: 20s
+
+  # Calibrated on US-style 120V power with 50A current transformers.
+  # You may need to calibrate this yourself if the numbers are inaccurate.
+  calibration_voltage_gain: 0x32c78f
+  calibration_current_gain_a: 0x490bb5
+  calibration_current_gain_b: 0x498c15
+
+esphome:
+  name: "shelly-em-gen3"
+  friendly_name: "Shelly EM Gen3"
+  comment: "Shelly EM Gen3 - Smart wifi and bluetooth energy meter with dual current transformers"
+  name_add_mac_suffix: true
+  min_version: 2025.11.3    # for ade7953 bugfix #12180
+
+esp32:
+  variant: esp32c3
+  flash_size: 8MB
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+  level: DEBUG
+  hardware_uart: uart0
+
+# debug:
+
+# Enable Home Assistant API with dynamic key
+api:
+  encryption:
+
+ota:
+  - platform: esphome
+    id: ota_id
+    # password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+i2c:
+  scl: GPIO6
+  sda: GPIO7
+  scan: true
+
+light:
+  - platform: status_led
+    name: "Status LED"
+    id: status_led_id
+    disabled_by_default: true
+    entity_category: diagnostic
+    pin:
+      number: GPIO9
+      inverted: true
+      ignore_strapping_warning: true
+
+switch:
+  # Dry-contact relay - normally open
+  - platform: gpio
+    name: Relay
+    id: relay_id
+    pin: GPIO0
+
+sensor:
+  - platform: ntc
+    id: ntc_temperature
+    name: "NTC Temperature"
+    entity_category: diagnostic
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    sensor: temp_resistance_reading
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      reference_temperature: 298.15K
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 10kOhm
+  - platform: adc
+    id: temp_analog_reading
+    pin: GPIO3
+    attenuation: 12db
+
+  # Note that on the Shelly EM Gen3, channels "A" and "B" are swapped between the chipset and the labels on the device.
+  # The nIRQ pin of the ade7953 device seems to be connected to pin 9 (GPIO4)
+  # of the ESP-Shelly-C38F.
+  - platform: ade7953_i2c
+    id: ade7953_id
+    irq_pin: GPIO4
+    update_interval: ${update_interval}
+    use_accumulated_energy_registers: true
+
+    voltage_gain: ${calibration_voltage_gain}
+    current_gain_a: ${calibration_current_gain_a}
+    current_gain_b: ${calibration_current_gain_b}
+
+    voltage:
+      id: line_voltage
+      name: Voltage
+    frequency:
+      id: line_frequency
+      name: Frequency
+    current_b:
+      id: current_a
+      name: "Current A"
+      accuracy_decimals: 3
+    current_a:
+      id: current_b
+      name: Current B
+      accuracy_decimals: 3
+    power_factor_b:
+      id: power_factor_a
+      name: "Power Factor A"
+      filters:
+        - multiply: -1
+    power_factor_a:
+      id: power_factor_b
+      name: "Power Factor B"
+      filters:
+        - multiply: -1
+    apparent_power_b:
+      id: apparent_power_a
+      name: "Apparent Power A"
+    apparent_power_a:
+      id: apparent_power_b
+      name: "Apparent Power B"
+    active_power_b:
+      id: active_power_a
+      name: "Power A"
+    active_power_a:
+      id: active_power_b
+      name: "Power B"
+    reactive_power_b:
+      id: reactive_power_a
+      name: "Reactive Power A"
+      filters:
+        - multiply: -1
+    reactive_power_a:
+      id: reactive_power_b
+      name: "Reactive Power B"
+      filters:
+        - multiply: -1
+
+binary_sensor:
+  - platform: gpio
+    id: shelly_button_id
+    name: "Button"
+    entity_category: diagnostic
+    pin:
+      number: GPIO1
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - settle: 10ms
+
+  - platform: gpio
+    id: binary_sensor_header_gpio_id
+    name: "Header GPIO"
+    entity_category: diagnostic
+    disabled_by_default: true
+    pin:
+      number: GPIO18
+      inverted: true
+      mode:
+        input: true
+        pullup: true
