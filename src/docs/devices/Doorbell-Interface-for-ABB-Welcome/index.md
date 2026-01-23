@@ -57,11 +57,11 @@ logger:
 
 api:
   encryption:
-    key: !secret api_encryption_key
+    key: "" # Add your API encryption key here
 
 ota:
   - platform: esphome
-    password: !secret ota_password
+    password: "" # Add your OTA password here
 
 remote_transmitter:
   pin: GPIO26
