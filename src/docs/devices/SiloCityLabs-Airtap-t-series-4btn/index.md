@@ -4,7 +4,7 @@ date-published: 2025-03-02
 type: misc
 standard: global
 board: esp32
-project-url: https://github.com/SiloCityLabs/ac-infinity-esp32/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml
+project-url: https://github.com/SiloCityLabs/esp32-airtap/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml
 made-for-esphome: true
 difficulty: 1
 ---
@@ -31,7 +31,7 @@ work with ESPHome and is compatible with the ESP32. This board supports the 4 bu
 ## Basic Config
 
 The latest state of the configuration is
-[available on GitHub](https://github.com/SiloCityLabs/ac-infinity-esp32/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml).
+[available on GitHub](https://github.com/SiloCityLabs/esp32-airtap/blob/main/Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml).
 
 ## Pictures
 
