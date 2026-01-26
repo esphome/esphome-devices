@@ -17,6 +17,7 @@ It is intended for DIY users who have experience with mains-powered electronics.
 ## Hardware
 
 The project is fully open source, including:
+
 - schematics and PCB files
 - 3D printable enclosure
 
