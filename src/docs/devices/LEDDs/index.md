@@ -16,15 +16,11 @@ project-url: https://github.com/VasilKalchev/LEDDs
 **LEDDs** is an open-hardware, DIY, **trailing-edge** dimmer designed specifically for dimmable LED bulbs.
 It is intended for DIY users who have experience with mains-powered electronics.
 
-Unlike leading-edge dimmers, LEDDs implements **trailing-edge** dimming, which is appropriate for LED bulbs.
+## Hardware
 
 The project is fully open source, including:
  - schematics and PCB files
  - 3D printable enclosure
-
----
-
-## Hardware
 
 ![enclosure and PCB](enclosure-pcb-side-angle-1440p.jpg)
 
@@ -33,20 +29,14 @@ The project is fully open source, including:
 - **Dimming method:** trailing-edge phase cut
 - **Load type:** dimmable LED bulbs (capacitive)
 
-> [!CAUTION]
+> ⚠️ **Warning:**
 > This device operates at **mains voltage**. Building and using it requires experience with high-voltage electronics.
 > Improper assembly can result in serious injury, fire, or equipment damage.
 
----
-
-## ESPHome Configuration
+## ESPHome configuration
 
 LEDDs is configured using ESPHome and exposes itself as a dimmable light entity.
-A complete, working ESPHome configurations are provided in the project repository.
-
-[https://github.com/VasilKalchev/LEDDs](https://github.com/VasilKalchev/LEDDs)
-
----
+Complete, working ESPHome configurations are provided in the project repository: [https://github.com/VasilKalchev/LEDDs/tree/main/fw/esphome/yaml](https://github.com/VasilKalchev/LEDDs/tree/main/fw/esphome/yaml).
 
 ## Installation
 
