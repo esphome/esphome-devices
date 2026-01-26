@@ -7,9 +7,7 @@ board: esp32
 project-url: https://github.com/VasilKalchev/LEDDs
 ---
 
-
 ![LEDDs front view](ledds-on-front-1440p.jpg)
-
 
 ## Overview
 
@@ -19,8 +17,8 @@ It is intended for DIY users who have experience with mains-powered electronics.
 ## Hardware
 
 The project is fully open source, including:
- - schematics and PCB files
- - 3D printable enclosure
+- schematics and PCB files
+- 3D printable enclosure
 
 ![enclosure and PCB](enclosure-pcb-side-angle-1440p.jpg)
 
@@ -43,6 +41,7 @@ Complete, working ESPHome configurations are provided in the project repository:
 This device is **not pre-flashed** and **not commercially available**.
 
 To use it you must:
+
 1. Build the hardware yourself
 2. Flash the ESP32 using ESPHome
 3. Configure and calibrate dimming parameters
