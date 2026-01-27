@@ -107,39 +107,10 @@ i2c:
     ignore_strapping_warning: true
 
 display:
-  - platform: st7701s
+  - platform: mipi_rgb
+    model: GUITION-4848S040
     id: tft_display
-    dimensions:
-      width: 480
-      height: 480
     #    rotation: 270    #uncomment for placement with down-facing USB socket
-    spi_mode: MODE3
-    data_rate: 2MHz
-    color_order: RGB
-    invert_colors: False
-    cs_pin: 39
-    de_pin: 18
-    hsync_pin: 16
-    vsync_pin: 17
-    pclk_pin: 21
-    pclk_frequency: 12MHz
-    pclk_inverted: False
-    hsync_pulse_width: 8
-    hsync_front_porch: 10
-    hsync_back_porch: 20
-    vsync_pulse_width: 8
-    vsync_front_porch: 10
-    vsync_back_porch: 10
-    update_interval: never
-    auto_clear_enabled: False
-    init_sequence:
-      - 1
-      - [0xFF, 0x77, 0x01, 0x00, 0x00, 0x10] # CMD2_BKSEL_BK0
-      - [0xCD, 0x00] # disable MDT flag
-    data_pins:
-      red: [11, 12, 13, 14, 0]
-      green: [8, 20, 3, 46, 9, 10]
-      blue: [4, 5, 6, 7, 15]
 
 touchscreen:
   - platform: gt911
