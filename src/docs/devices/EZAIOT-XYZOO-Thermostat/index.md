@@ -9,9 +9,9 @@ difficulty: 3
 
 ![Product Image](dq6nlukkifyawj9n.png "Product Image")
 
-Maker: The two brands indicated and any possible similar clone
+Maker: The two brands indicated and any possible similar clone with product ID dq6nlukkifyawj9n and version 1.15.0
 
-Available on Aliexpress with many namings, no guarantee.
+Available on Aliexpress with many namings, but there is absolutely no guarantee.
 
 ## Installation
 
