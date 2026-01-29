@@ -17,31 +17,24 @@ Available on Aliexpress with many namings, but there is absolutely no guarantee.
 
 _NOTE_: Before flashing always make a backup of the original firmware.
 
-These units generally ship with a firmware which is no longer exploitable by tuya-fwcutter,
-so some disassembly will be required to flash using serial, no soldering will be required anyway, as pins have holes
-that allows the use of dupont pins directly by inserting them.
+These units generally ship with a firmware which is no longer exploitable by tuya-fwcutter.
+Some disassembly is required for serial flashing; however, no soldering is needed as the board features through-holes
+that accept Dupont pins directly.
 
-First, you need to open the unit, since to apply the unit in the wall you have to open it anyways, instructions to do
-so are already provided with the devices.
-
-Once open, you will find the device, usually with holes for connecting/soldering pins to reprogram the SOC
-(in this case a Beken 7231n).
+To begin, open the unit following the mounting instructions provided with the device. Once opened, you will find the
+PCB with labeled headers for the Beken BK7231N SoC.
 serial connection:
 
 ![Open unit](board_with_holes.png "Open unit with holes visible")
 
-All the pins you need to flash the device are accessible and nomenclated:
+All necessary pins are clearly labeled:
 
-- 3v3 (as visible in the open unit)
-- GND (as visible in the open unit)
-- RX (as visible in open unit)
-- TX (as visible in open unit)
+- GND, RX, TX, 3V3.
 
-_NOTE_: TX and RX are referred for TTL programmer, so you have to connect TX to TX and RX to RX, in case you aren't
-able to flash or read the original firmware, try to invert them!
+_NOTE_: Connection is usually straight (TX to TX, RX to RX) depending on the board. If you cannot read or write the
+firmware, try swapping the RX/TX lines.
 
-You don't need to completely remove the board from the device, as shown in the picture above. But do not attempt to
-flash it while it's connected to the mains!
+Do not attempt to flash the device while it is connected to mains power!
 
 When ltchiptool says `Getting bus... (now, please do reboot by CEN or by power off/on)` disconnect and reconnect the GND
 line, and it should proceed.
@@ -534,4 +527,4 @@ script:
           ESP_LOGD("tuya_schedule", "Complete programming sent (32 byte payload)");
 ```
 
-_NOTE_: this particular configuration mimics tuya protocol exactly as seen on logs on version 1.15.0 in DP 111
+_NOTE_: this particular configuration mimics tuya protocol exactly as seen on logs on version 1.15.0 (DP 111)
