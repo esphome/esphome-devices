@@ -7,7 +7,9 @@ board: bk72xx
 difficulty: 2
 ---
 
-This is a standard openbeken compatible bulb. It works with [Tuya-Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter). Just flash with ESPHome, and it should work.
+This is a standard openbeken compatible bulb.
+It works with [Tuya-Cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter).
+Just flash with ESPHome, and it should work.
 
 ```yml
 substitutions:
@@ -15,16 +17,6 @@ substitutions:
 
 esphome:
   name: $devicename
-  on_boot:
-      priority: 750.0
-      then:
-        - light.turn_on:
-            id: light_feitbulb_65W
-            warm_white: 100%
-            red: 0%
-            green: 0%
-            blue: 0%
-            cold_white: 0%
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
   framework:
