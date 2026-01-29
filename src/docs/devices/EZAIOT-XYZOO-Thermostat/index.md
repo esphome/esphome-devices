@@ -18,11 +18,14 @@ Available on Aliexpress with many namings, but there is absolutely no guarantee.
 _NOTE_: Before flashing always make a backup of the original firmware.
 
 These units generally ship with a firmware which is no longer exploitable by tuya-fwcutter,
-so some disassembly will be required to flash using serial, no soldering will be required anyway, as pins have holes that allows the use of dupont pins directly by inserting them.
+so some disassembly will be required to flash using serial, no soldering will be required anyway, as pins have holes
+that allows the use of dupont pins directly by inserting them.
 
-First, you need to open the unit, since to apply the unit in the wall you have to open it anyways, instructions to do so are already provided with the devices.
+First, you need to open the unit, since to apply the unit in the wall you have to open it anyways, instructions to do
+so are already provided with the devices.
 
-Once open, you will find the device, usually with holes for connecting/soldering pins to reprogram the SOC (in this case a Beken 7231n).
+Once open, you will find the device, usually with holes for connecting/soldering pins to reprogram the SOC
+(in this case a Beken 7231n).
 serial connection:
 
 ![Open unit](board_with_holes.png "Open unit with holes visible")
@@ -34,7 +37,8 @@ All the pins you need to flash the device are accessible and nomenclated:
 - RX (as visible in open unit)
 - TX (as visible in open unit)
 
-_NOTE_: TX and RX are referred for TTL programmer, so you have to connect TX to TX and RX to RX, in case you aren't able to flash or read the original firmware, try to invert them!
+_NOTE_: TX and RX are referred for TTL programmer, so you have to connect TX to TX and RX to RX, in case you aren't
+able to flash or read the original firmware, try to invert them!
 
 You don't need to completely remove the board from the device, as shown in the picture above. But do not attempt to
 flash it while it's connected to the mains!
@@ -65,7 +69,10 @@ line, and it should proceed.
 | 112        | Hysteresis (readonly sensor)     |
 | 115        | Sensor Minimum (readonly sensor) |
 
-_NOTE_: custom datapoints and the whole device must be handled with a special starting script and a repository already present in this guide for weather services and backlight/weekly programming to work. SOME datapoints, like: hysteresis, min and max temperature are programmable with the screen, but this may vary depending on the producer of the unit.
+_NOTE_: custom datapoints and device must be handled with a special starting script and a repository already present.
+(also for weather services and backlight/weekly programming to work).
+SOME datapoints, like: hysteresis, min and max temperature are programmable with the screen, but this may vary
+depending on the producer of the unit.
 
 ## Configuration
 
