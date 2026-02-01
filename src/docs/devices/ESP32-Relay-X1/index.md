@@ -31,9 +31,9 @@ was unable to flash with a USB cable.
 
 | GPIO   | Connected onboard to |
 | ------ | -------------------- |
-| GPIO0  | Button               |
-| GPIO16 | Relay                |
-| GPIO23 | LED                  |
+| GPIO09  | Button               |
+| GPIO19 | Relay                |
+| GPIO02 | LED                  |
 
 ## Basic Config
 
@@ -73,19 +73,19 @@ light:
     name: "ESP32 Led"
     restore_mode: ALWAYS_OFF
     pin:
-      number: GPIO23
+      number: GPIO02
       inverted: False
 
 switch:
   - platform: gpio
-    pin: GPIO16
+    pin: GPIO19
     name: "ESP32 Relay"
     id: ESP32_relay
 
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO0
+      number: GPIO09
       mode: INPUT_PULLUP
     name: Button
     filters:

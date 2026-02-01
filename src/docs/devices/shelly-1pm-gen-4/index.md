@@ -21,6 +21,7 @@ board: esp32
 | GPIO10 | Switch                   |
 | GPIO12 | Add-on module Digital in |
 | GPIO16 | Add-on module Data in    |
+| GPIO9  | Add-on module Data out   |
 | GPIO17 | Add-on module Analog in  |
 
 The Shelly 1PM Gen 4 is based on the ESP32-C6 (Single core, 160MHz, 8MB embedded flash)

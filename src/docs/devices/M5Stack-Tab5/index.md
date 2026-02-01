@@ -120,7 +120,7 @@ switch:
     pin:
       pi4ioe5v6408: pi4ioe2
       number: 7
-
+    restore_mode: ALWAYS_ON
   - platform: gpio
     id: wifi_antenna_int_ext
     pin:
