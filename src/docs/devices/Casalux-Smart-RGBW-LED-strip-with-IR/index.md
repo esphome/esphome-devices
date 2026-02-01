@@ -11,7 +11,7 @@ difficulty: 3-4
 
 ## Casalux Smart RGBW LED-strip with IR-remote (47278 + 852592)
 
-5m 24V RGBW LED strip with 150 LEDS, controller, IR-remote control, and power supply. 
+5m 24V RGBW LED strip with 150 LEDS, controller, IR-remote control, and power supply.
 The packaging claims 11W power usage and 800lm brightness.
 
 Out of the box supported by Tuya app.
@@ -19,7 +19,7 @@ Out of the box supported by Tuya app.
 The custom PCB contains a BK7231N, IR receiver, and a push button.
 
 To flash, the device needs to be opened and wires connected to the clearly marked points.
-For example, `ltchiptool` seems to work for the task. 
+For example, `ltchiptool` seems to work for the task.
 
 ### GPIO Pinout
 
@@ -165,6 +165,7 @@ text_sensor:
 ```
 
 ### Full config
+
 The config below attempts to recreate the full IR remote control functionality, including the scenes.
 
 ```yaml
