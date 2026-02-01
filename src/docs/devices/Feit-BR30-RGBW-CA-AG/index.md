@@ -1,6 +1,6 @@
 ---
-title: Sonoff S20
-date-published: 2026-1-29
+title: Feit BR30-RGBW-CA-AG
+date-published: 2026-01-29
 type: light
 standard: us
 board: bk72xx
