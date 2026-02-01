@@ -5,7 +5,7 @@ type: light
 standard: global
 board: bk72xx
 made-for-esphome: False
-difficulty: 3-4
+difficulty: 4
 ---
 
 
