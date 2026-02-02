@@ -37,7 +37,7 @@ The project is fully open source, including:
 LEDDs is configured using ESPHome and exposes itself as a dimmable light entity.
 Complete ESPHome YAML configurations are provided in the project repository: [https://github.com/VasilKalchev/LEDDs/tree/main/fw/esphome/yaml](https://github.com/VasilKalchev/LEDDs/tree/main/fw/esphome/yaml).
 
-### Example, trimmed configuration for Home Assistant:
+### Example, trimmed configuration for Home Assistant
 
 ```yaml
 substitutions:
