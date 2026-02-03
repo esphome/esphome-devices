@@ -1,6 +1,6 @@
 ---
 title: Flux Open Home Night Light
-date-published: 2025-01-15
+date-published: 2026-02-03
 type: light
 standard: global
 board: esp32
