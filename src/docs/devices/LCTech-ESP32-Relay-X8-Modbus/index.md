@@ -8,28 +8,26 @@ board: esp32
 
 ![Product](product.png "Product Image")
 
-# ESP32 X8 Relay Modbus Board (Type-C Version)
+This is an 8-relay board with an ESP32-WROOM-32E using 74HC595 (outputs)
+and 74HC165 (inputs) shift registers on a **shared bus**.
 
-This is an 8-relay board with an ESP32-WROOM-32E using 74HC595 (outputs) and 74HC165 (inputs) shift registers on a **shared bus**.
-
-Each relay has COM+NO+NC exposed. Each relay supports 10Amp max load.
-
-- **8 Relays** with COM+NO+NC exposed
-- **8 Optocoupled inputs** (require external voltage 12-24V DC)
-- Type-C USB connector for programming
-- Bluetooth Proxy capable
+Each relay has COM+NO+NC exposed and supports 10Amp max load.
 
 ## ⚠️ Important: Shared Bus Architecture
 
-Unlike older ESP32 relay boards where each relay was connected to a direct GPIO, this version uses shift registers with **shared Clock and Latch lines**.
+Unlike older ESP32 relay boards where each relay was connected to a
+direct GPIO, this version uses shift registers with **shared Clock and
+Latch lines**.
 
-You cannot trigger relays by simply setting a GPIO to HIGH. You must "shift out" the data through the shared bus.
+You cannot trigger relays by simply setting a GPIO to HIGH. You must
+"shift out" the data through the shared bus.
 
 ## Why Lambda Instead of Standard ESPHome Components?
 
-This board uses a **shared bus** architecture where 74HC595 (outputs) and 74HC165 (inputs) share the same Clock (GPIO26) and Latch (GPIO25) lines.
+This board uses a **shared bus** architecture where 74HC595 (outputs) and
+74HC165 (inputs) share the same Clock (GPIO26) and Latch (GPIO25) lines.
 
-### The Problem:
+### The Problem
 
 When using standard ESPHome components:
 
@@ -42,9 +40,10 @@ sn74hc165:
     ...
 ```
 
-**Result:** Components interfere with each other. Relay 1 controls all relays, inputs don't work.
+**Result:** Components interfere with each other. Relay 1 controls all
+relays, inputs don't work.
 
-### The Solution:
+### The Solution
 
 Manual control via lambda with proper timing:
 
@@ -109,16 +108,16 @@ switch:
 | 12V | 2.3mA | ✅ OK |
 | 24V | 4.9mA | ✅ Best |
 
-### Wiring:
+### Wiring
 
-```
+```text
 +12V/24V ──► INx
      GND ──► GND (near input)
 ```
 
-### Optional indicator LED:
+### Optional indicator LED
 
-```
+```text
 +12V/24V ──┬──► INx
            │
           LED + 1kΩ (for 12V) or 2.2kΩ (for 24V)
