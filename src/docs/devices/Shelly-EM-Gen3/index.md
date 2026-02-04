@@ -660,7 +660,8 @@ binary_sensor:
 
 Programming voltage: 3.3 V (LVTTL)
 Supply voltage: 3.3 V from external source
-Note: Whole PCB is live if connected to mains voltage. Programming pins are not isolated. Connect programming port to serial cable only if all other contacts are disconnected.
+Note: Whole PCB is live if connected to mains voltage. Programming pins are not isolated. 
+Connect programming port to serial cable only if all other contacts are disconnected.
 
 ## CT connector
 
