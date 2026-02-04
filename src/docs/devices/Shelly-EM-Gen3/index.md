@@ -656,9 +656,11 @@ binary_sensor:
 |   4     | +3.3_ESP        | connect to 3.3V power supply  |           |
 |   5     | EN              | connect to serial RTS pin     |           |
 |   6     | GPIO0           | connect to serial DTR pin     | GPIO0     |
-|   7     | U0RXD           | connect to serial GND pin     |           |
+|   7     | GND             | connect to serial GND pin     |           |
 
-Programming voltage: 0 to 3.3V
+Programming voltage: 3.3 V (LVTTL)
+Supply voltage: 3.3 V from external source
+Note: Whole PCB is live if connected to mains voltage. Programming pins are not isolated. Connect programming port to serial cable only if all other contacts are disconnected.
 
 ## CT connector
 
