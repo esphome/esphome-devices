@@ -151,46 +151,46 @@ binary_sensor:
 
 ##pull-up resistance on PCB
   - platform: gpio
-    name: "b8-W1-io47"
+    name: "b4-W1-io47"
     pin: 
       number: 47
       inverted: true
 
   - platform: gpio
-    name: "b8-W1-io48"
+    name: "b4-W1-io48"
     pin: 
       number: 48
       inverted: true
 
   - platform: gpio
-    name: "b8-W1-io17"
+    name: "b4-W1-io17"
     pin: 
       number: 17
       inverted: true
 
   - platform: gpio
-    name: "b8-W1-io40"
+    name: "b4-W1-io40"
     pin: 
       number: 40
       inverted: true
 ## without resistance on PCB
   - platform: gpio
-    name: "b8-13"
+    name: "b4-13"
     pin: 
       number: 13
       inverted:  false
   - platform: gpio
-    name: "b8-14"
+    name: "b4-14"
     pin: 
       number: 14
       inverted:  false
   - platform: gpio
-    name: "b8-21"
+    name: "b4-21"
     pin: 
       number: 21
       inverted:  false
   - platform: gpio
-    name: "b8-0"
+    name: "b4-0"
     pin: 
       number: 0
       inverted:  false
