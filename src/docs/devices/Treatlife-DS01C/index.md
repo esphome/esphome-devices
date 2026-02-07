@@ -6,7 +6,7 @@ standard: us
 board: bk72xx
 ---
 
-Treatlife DS01C Dimmer![image](treatlife_DS01C.jpg)
+![Treatlife DS01C Dimmer](treatlife_DS01C.jpg)
 
 [Amazon Link](https://amzn.to/4teogQK)
 
