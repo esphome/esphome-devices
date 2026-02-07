@@ -9,7 +9,7 @@ project-url: https://www.lilygo.cc/en-ca/products/t-display-s3
 
 ## Schematic
 
-Modified form original Image to fix I2C SDA <-> SCL GPIO error
+Modified form original Image to fix I2C SDA \<-\> SCL GPIO error
 
 ![TDisplay S3 Touch Schematic](tdisplay-s3-touch.webp "TDisplay S3 Touch Schematic")
 
