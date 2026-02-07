@@ -8,7 +8,7 @@ board: bk72xx
 
 Treatlife DS01C Dimmer![image](treatlife_DS01C.jpg)
 
-[Amazon Link](https://a.co/d/0erbdRtn)
+[Amazon Link]([https://a.co/d/0erbdRtn](https://amzn.to/4teogQK))
 
 ## Notes
 
@@ -100,3 +100,4 @@ select:
       0: LED # Index 0
       1: Incandescent # Index 1
       2: Halogen # Index 2
+```
