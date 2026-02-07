@@ -37,6 +37,7 @@ the side, and replace them after swapping out the WB3S.
 
 [1]: https://community.home-assistant.io/t/treatlife-dual-outlet-indoor-dimmer-plug-wb3s-to-esp-12-transplant/256798
 The Tuya MCU UART runs at a baud rate of 9600.
+
 ## GPIO Pinout
 
 ### BK72XX-Based Pinout
@@ -45,7 +46,6 @@ The Tuya MCU UART runs at a baud rate of 9600.
 | --- | -------- |
 | RX1 | Tuya Rx  |
 | TX1 | Tuya Tx  |
-
 
 ## Basic Configuration
 
