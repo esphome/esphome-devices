@@ -1,6 +1,6 @@
 ---
 title: LEDDs v2
-date-published: 2026-01-25
+date-published: 2026-02-07
 type: dimmer
 standard: eu, uk, in, au
 board: esp32
