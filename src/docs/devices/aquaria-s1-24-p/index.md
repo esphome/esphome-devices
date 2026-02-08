@@ -1,7 +1,7 @@
 ---
 title: Aquaria S1 24 P
 date-published: 2026-02-07
-type: dehumidifier
+type: misc
 standard: eu
 board: rtl87xx
 made-for-esphome: False
