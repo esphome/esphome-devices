@@ -10,23 +10,32 @@ difficulty: 3
 
 The Olympia/Aquaria S1 24 P is a dehumidifier (Italian I believe) that uses a Tuya module for its WIFI/BT capabilities.
 
-It uses this Tuya [chip](https://developer.tuya.com/en/docs/iot/wbr1-module-datasheet?id=K9duisiao4qpa), ([LibreTiny ref](https://docs.libretiny.eu/boards/wbr1/)) on this Tuya [module](https://developer.tuya.com/en/docs/iot/jwbr2s5v-datasheet?id=K9mxm59oqep1q)
+It uses this Tuya [chip](https://developer.tuya.com/en/docs/iot/wbr1-module-datasheet?id=K9duisiao4qpa),
+([LibreTiny ref](https://docs.libretiny.eu/boards/wbr1/)) on this Tuya
+[module](https://developer.tuya.com/en/docs/iot/jwbr2s5v-datasheet?id=K9mxm59oqep1q)
 
-The chip is a RTL8720CF, but its main constraint is that its flash is tiny, the most barebones ESPHome binary already uses more than 50% of it, which means OTA is not possible, so this is a flash once and forget.
+The chip is a RTL8720CF, but its main constraint is that its flash is tiny, the most barebones ESPHome binary already
+uses more than 50% of it, which means OTA is not possible, so this is a flash once and forget.
 
-Despite the warn on the LibreTiny website about the need for desoldering to strap pin PA00, on this particular module is not needed, as the PCB has holes (a label/sticker with the module serial may need to be removed) to allow access to said pins, the module also has pin holes, so if you have pogo pin clamps, you can do all this without soldering.
+Despite the warn on the LibreTiny website about the need for desoldering to strap pin PA00, on this particular module is
+not needed, as the PCB has holes (a label/sticker with the module serial may need to be removed) to allow access to said
+pins, the module also has pin holes, so if you have pogo pin clamps, you can do all this without soldering.
 
-I initially took the module out, but then for testing and flashing test configs, I did it all with the module being plugged straight to the device, as the pogo clamps can hold themselves, I've used 2, one for the pins on the side, where you need to connect these pins to your USB-TTL
+I initially took the module out, but then for testing and flashing test configs, I did it all with the module being
+plugged straight to the device, as the pogo clamps can hold themselves, I've used 2, one for the pins on the side, where
+you need to connect these pins to your USB-TTL
 
 - Log_TX -> RX
 - Log_RX -> TX
 - GND -> GND
 
-power comes from the device, so don't plug 3.3v to your USB device, but, do take a dupont cable from it and using a second pogo clamp, plug it back to PA00 (this puts the chip in download mode, yes, you need to give it 3.3v)
+power comes from the device, so don't plug 3.3v to your USB device, but, do take a dupont cable from it and using a
+second pogo clamp, plug it back to PA00 (this puts the chip in download mode, yes, you need to give it 3.3v)
 
-If you have multiple of these devices, you will likely need to make each device name unique across the same network (I'd recommend enabling mac suffix if you plan to have more than one cause the OTA restriction)
+If you have multiple of these devices, you will likely need to make each device name unique across the same network (I'd
+recommend enabling mac suffix if you plan to have more than one cause the OTA restriction)
 
-# Full configuration
+## Full configuration
 
 ```yaml
 esphome:
