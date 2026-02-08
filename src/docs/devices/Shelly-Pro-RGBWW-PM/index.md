@@ -8,6 +8,12 @@ board: esp32
 
 ![Product Image](Shelly-Pro-RGBWW-PM.png "Shelly Pro RGBWW PM")
 
+## Internal Images
+
+![Internal Front](Shelly-Pro-Internal-Front.jpg "Shelly Pro Internal Front")
+
+![Internal Back](Shelly-Pro-Internal-Back.jpg "Shelly Pro Internal Back")
+
 ## GPIO Pinout
 
 The SW inputs are connected via AiP4052 multiplexers (compatible with other 4052 chips). The multiplexer select lines S0
