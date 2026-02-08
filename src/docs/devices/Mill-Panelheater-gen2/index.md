@@ -12,7 +12,8 @@ difficulty: 5
 ## General Notes
 
 Mill panel heaters are available in various versions. This component is specifically designed for **Generation 2 panel
-heaters** (not compatible with portable heater models). Below is a table that helps you determine which generation you have based on the **Wi-Fi serial number prefix** (originally linked from Mill’s support article):
+heaters** (not compatible with portable heater models). Below is a table that helps you determine which generation you
+have based on the **Wi-Fi serial number prefix** (originally linked from Mill’s support article):
 
 ### Generation overview
 
@@ -27,7 +28,6 @@ heaters** (not compatible with portable heater models). Below is a table that he
 | `SKAN*****`              | 3 / 3M     | 2022         |
 | `SKAO*****`              | 3 / 3M     | 2023         |
 | `MI***...`               | 3 / 3M     | 2024         |
-
 
 If you have a **Generation 3** panel heater (which comes with a built-in ESP32), check out this component:
 [https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater](https://github.com/ssieb/esphome_components/tree/mill/components/mill_heater)
@@ -102,5 +102,6 @@ climate:
 
 This component builds on the work by:
 
-- [JDolven: Replacing HF LPT120A in a Millheat heater](https://github.com/JDolven/Replacing-HF_LPT120A-in-a-millheat-heater)
+-
+  [JDolven: Replacing HF LPT120A in a Millheat heater](https://github.com/JDolven/Replacing-HF_LPT120A-in-a-millheat-heater)
 - [trondsundt: MillHeat ESPHome NodeMCU](https://github.com/trondsundt/MillHeat-ESPHome-NodeMCU)
