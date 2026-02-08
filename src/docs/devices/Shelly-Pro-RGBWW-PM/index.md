@@ -16,8 +16,10 @@ board: esp32
 
 ## GPIO Pinout
 
-The SW inputs are connected via AiP4052 multiplexers (compatible with other 4052 chips). The multiplexer select lines S0
-and S1 are connected to GPIO0 and GPIO2 respectively.
+The SW inputs are connected via AiP4052 multiplexers (compatible with other 4052 chips).
+The multiplexer select lines S0 and S1 are connected to GPIO0 and GPIO2 respectively.
+There are two multiplexers present on the board, it's possible the other one might be used
+for the ADC to scan current sensors.
 
 | Pin    | Condition        | Function        |
 |--------|------------------|-----------------|
@@ -43,6 +45,10 @@ and S1 are connected to GPIO0 and GPIO2 respectively.
 Use it for flashing. Connect GPIO0 to GND during reset. Do not connect +12V pin (neither +12V power to other connectors).
 
 ![Addon interface pinout](Pro-addon-interface.png "Shelly Pro RGBWW PM addon interface")
+
+## Ethernet Interface
+
+The Shelly Pro RGBWW PM has an 8720 ethernet module.
 
 ## Configuration monochromatic channel
 
