@@ -9,9 +9,12 @@ difficulty: 2
 
 ![Sonoff SV](Sonoff_SV.jpg "Sonoff SV")
 
-The Sonoff SV is 5-24V DC powered SPST relay board with three GPIOs provided on 3-way headers (3.3V, GND and the IO).
+The Sonoff SV is 5-24V DC powered SPST relay board with three GPIOs provided on 3-way headers (3.3V,
+GND and the IO).
 
-It has an ESP8266 with 25Q80DVSIG serial flash. Flashing ESPHome can be easily achieved via the [unpopulated programming header](https://esphome.io/guides/physical_device_connection/#unpopulated-programming-header) and the button connected to GPIO0.
+It has an ESP8266 with 25Q80DVSIG serial flash. Flashing ESPHome can be easily achieved via the
+[unpopulated programming header](https://esphome.io/guides/physical_device_connection/#unpopulated-programming-header)
+and the button connected to GPIO0.
 
 ## GPIO Pinout
 
