@@ -1,6 +1,6 @@
 ---
 title: glowswitch WiFi
-date-published: 2025-11-20
+date-published: 2026-02-10
 type: misc
 standard: global
 board: esp32
