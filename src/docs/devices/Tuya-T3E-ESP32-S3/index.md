@@ -19,10 +19,11 @@ and an Asian version with a square box and four relays.
 
 The board also contains a TuYa Zigbee ZT3L module connected to the ESP32 on GPIO 19 (TX of Zigbee module)
 and GPIO 20 (RX of module)
-This configuration does not support it at this time.  
-It is probably possible to use this module as a zigbee router to improve the mesh of the Zigbee network with a little R&D.
-(UART Spec of the module here : [ZT3L Datasheet](https://developer.tuya.com/en/docs/mcu-standard-protocol/mcusdk-zigbee-uart-protocol?id=Kdg17v4544p37)).
-A thread following this reverse engineering is open here : [Home Assistant Forum Thread](https://community.home-assistant.io/t/tuya-t3e-480-480-screen-zigbee-reverse-engineering/985925)
+
+[ZT3L Datasheet](https://developer.tuya.com/en/docs/iot/zt3l-module-datasheet?id=Ka438n1j8nuvu) and
+[Tuya Zigbee UART Specification](https://developer.tuya.com/en/docs/mcu-standard-protocol/mcusdk-zigbee-uart-protocol?id=Kdg17v4544p37)
+
+[See below](#zigbee-router) for usage.
 
 ## Product specs
 
@@ -70,8 +71,8 @@ On other versions, the pinouts for the screen and touchscreen appear to be ident
 | GPIO16 | Red 4 (Screen)               |
 | GPIO17 | Red 3 (Screen)               |
 | GPIO18 | Red 2 (Screen)               |
-| GPIO19 |                              |
-| GPIO20 |                              |
+| GPIO19 | TX Pin of ZT3L               |
+| GPIO20 | RX Pin of ZT3L               |
 | GPIO21 | Blue 4 (Screen)              |
 | GPIO35 | PSRAM                        |
 | GPIO36 | PSRAM                        |
@@ -122,6 +123,8 @@ psram:
   speed: 80MHz
 
 logger:
+  # Default logger hardware_uart on esp32-s3 is wired on the Tuya Zigbee Module
+  hardware_uart: UART0
 
 api:
   encryption:
@@ -247,4 +250,76 @@ touchscreen:
 #      mirror_x: true
 
 lvgl:
+```
+
+## Zigbee Router
+
+To enable the onboard Zigbee Module as a Zigbee router and extend your Zigbee mesh network,
+you can use this custom component.
+Use the pairing button to pair the module on your zigbee network.
+
+### ESPHome Config
+
+Add the following configuration on your esphome :
+
+```yaml
+external_components:
+  - source: github://rtorrente/esphome-tuya-zigbee-router
+
+uart:
+  id: uart_zigbee
+  tx_pin: GPIO20
+  rx_pin: GPIO19
+  baud_rate: 115200
+
+tuya_zigbee_router:
+  uart_id: uart_zigbee
+  id: zigbee_router_id
+
+button:
+  - platform: template
+    name: "Zigbee Module Restart"
+    icon: "mdi:restart"
+    on_press:
+      - tuya_zigbee_router.reset:
+          id: zigbee_router_id
+  - platform: template
+    name: "Zigbee Module Pairing"
+    icon: "mdi:restart"
+    on_press:
+      - tuya_zigbee_router.leave_and_rejoin:
+          id: zigbee_router_id
+
+text_sensor:
+  - platform: tuya_zigbee_router
+    zigbee_status:
+      name: "Zigbee Router Status"
+```
+
+### Zigbee2Mqtt
+
+As a simple Zigbee router, this module works seamlessly with Zigbee2MQTT or other without any configuration required.
+The module will appear as: `TZE200_T-ZB-RT`
+
+#### Optional: External Converters
+
+To avoid unmanaged device warnings, you can configure external converters for Zigbee2MQTT.
+Custom converters will be provided to enhance device integration and eliminate unmanaged status.
+
+Refer to the [Z2Mqtt External Converters doc](https://www.zigbee2mqtt.io/advanced/more/external_converters.html)
+for integration instructions.
+
+Add the file `external_converters/tuya-zigbee-router.mjs` with the following content :
+
+```javascript
+import * as tuya from "zigbee-herdsman-converters/lib/tuya";
+
+export default {
+    zigbeeModel: ['TS0601'],
+    fingerprint: [...tuya.fingerprint("TS0601", ["_TZE200_T-ZB-RT"])],
+    model: "T-ZB-RT",
+    vendor: "Tuya",
+    description: 'Tuya Zigbee Router from https://github.com/rtorrente/esphome-tuya-zigbee-router',
+    extend: [],
+};
 ```
