@@ -21,13 +21,7 @@ There's detailed teardown info at [Elektroda](https://www.elektroda.com/rtvforum
 | P6  | Button         |
 | P8  | LED            |
 | P26 | IR Transmitter |
-
-An IR receiver on pin 8 is mentioned in a few places, but it's definitely connected to the LED.
-I tried other pins, but nothing receives and I don't see any mention of that being a capability in any seller
-descriptions.
-You can ignore the tuya component warning about the status pin.
-The wifi status works over the Tuya protocol, so I assume the setting just points to the LED because that's the stock
-use for it.
+| P9  | Status pin     |
 
 ## Flashing
 
@@ -52,6 +46,9 @@ time:
 
 tuya:
   time_id: sntptime
+  status_pin:
+    number: 9
+    inverted: true
 
 sensor:
   - platform: tuya
@@ -68,16 +65,6 @@ sensor:
     unit_of_measurement: "%"
     device_class: humidity
 
-output:
-  - platform: libretiny_pwm
-    id: led
-    pin: 8
-
-light:
-  - platform: monochromatic
-    name: LED
-    output: led
-
 binary_sensor:
   - platform: gpio
     id: btn
@@ -89,4 +76,13 @@ binary_sensor:
 remote_transmitter:
   pin: 26
   carrier_duty_percent: 50%
+
+remote_receiver:
+  pin:
+    number: 8
+    inverted: True
+    mode:
+      input: true
+      pullup: true
+  tolerance: 55%
 ```
