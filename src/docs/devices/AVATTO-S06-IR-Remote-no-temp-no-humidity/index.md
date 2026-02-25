@@ -5,11 +5,14 @@ type: misc
 standard: global
 board: esp8266
 ---
-![Product Image](/AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
+
+![Product Image](./AVATTO-S06-WiFi-IR-Universal-Remote-Controller.jpg "Product Image")
 
 ## General Notes
 
-There's two hardware iterations of this particular IR blaster: the older version documented here that uses an ESP01 module, and [a newer one that uses a CB3S module](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version) (a Beken BK7231N module in the same form factor as the older ESP01). Outwardly, both appear identical.
+There's two hardware iterations of this particular IR blaster: the older version documented here that uses an ESP01
+module, and [a newer one that uses a CB3S module](/devices/AVATTO-S06-IR-Remote-no-temp-no-humidity-new-version) (a
+Beken BK7231N module in the same form factor as the older ESP01). Outwardly, both appear identical.
 
 ## GPIO Pinout
 
@@ -27,7 +30,7 @@ a mobile charger during the flashing procedure, as the used serial cable sets to
 Which is 3.3V in this case.
 
 | Serial | ESP         |
-| ---    | ----        |
+| ------ | ----------- |
 | RX     | TX          |
 | TX     | RX          |
 | RTS    | RESET       |
@@ -58,7 +61,6 @@ between the GPIO13 and the RESET pin of the ESP8266 MCU.
 ```yaml
 # Basic Config
 ---
-
 # https://esphome.io/devices/esp8266.html
 esphome:
   name: ir_remote
@@ -113,7 +115,7 @@ climate:
 
 switch:
   - platform: template
-    name: 'AC Preset'
+    name: "AC Preset"
     id: ac_preset
     icon: mdi:cached
     turn_on_action:

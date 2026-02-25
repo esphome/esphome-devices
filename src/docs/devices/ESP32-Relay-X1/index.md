@@ -22,15 +22,18 @@ They are available from aliexpress.
 
 ## GPIO Pinout
 
-This board has headers for every GPIO pin on its ESP32 via 2 sets of 2x10 headers, and an additional 6 pin header below the ESP32 for flashing. The micro USB is for power only, no serial connection.
+This board has headers for every GPIO pin on its ESP32 via 2 sets of 2x10 headers, and an additional 6 pin header below
+the ESP32 for flashing. The micro USB is for power only, no serial connection.
 
-I was able to flash it using the ESPhome web tool and an FTDI connector. I was able to use the 5V pin with the FTDI set to 5V as well and connected to the GPIO pins, but 3.3V should be used if possible (it would not flash for me at 3.3V). I was unable to flash with a USB cable.
+I was able to flash it using the ESPHome web tool and an FTDI connector. I was able to use the 5V pin with the FTDI set
+to 5V as well and connected to the GPIO pins, but 3.3V should be used if possible (it would not flash for me at 3.3V). I
+was unable to flash with a USB cable.
 
-| GPIO  | Connected onboard to
-| ----- | --------------------- |
-| GPIO0  | Button               |
-| GPIO16 | Relay                |
-| GPIO23 | LED                  |
+| GPIO   | Connected onboard to |
+| ------ | -------------------- |
+| GPIO09  | Button               |
+| GPIO19 | Relay                |
+| GPIO02 | LED                  |
 
 ## Basic Config
 
@@ -39,7 +42,7 @@ esphome:
   name: ESP32 relayboard
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: esp-idf
 
@@ -70,19 +73,19 @@ light:
     name: "ESP32 Led"
     restore_mode: ALWAYS_OFF
     pin:
-      number: GPIO23
+      number: GPIO02
       inverted: False
 
 switch:
   - platform: gpio
-    pin: GPIO16
+    pin: GPIO19
     name: "ESP32 Relay"
     id: ESP32_relay
 
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO0
+      number: GPIO09
       mode: INPUT_PULLUP
     name: Button
     filters:
@@ -95,4 +98,5 @@ binary_sensor:
 
 ## Enclosure
 
-A 3D-printable case design for this board is available [here](https://github.com/clydebarrow/3dmodels/tree/main/ESP32%20Relay%20x1).
+A 3D-printable case design for this board is
+[available on GitHub](https://github.com/clydebarrow/3dmodels/tree/main/ESP32%20Relay%20x1).

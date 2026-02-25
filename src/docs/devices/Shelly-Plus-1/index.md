@@ -26,7 +26,7 @@ Please calibrate the NTC, the value below is just a rough estimate!
 
 Credit and thanks to
 
-- https://templates.blakadder.com/shelly_plus_1.html
+- [https://templates.blakadder.com/shelly_plus_1.html](https://templates.blakadder.com/shelly_plus_1.html)
 
 ## Configuration as relay with overtemperature protection
 
@@ -44,7 +44,7 @@ esphome:
     board_build.f_cpu: 160000000L
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -63,7 +63,8 @@ api:
     key: !secret api_encryption_key
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
+    password: !secret ota_password
 
 output:
   - platform: gpio

@@ -18,4 +18,4 @@ The Elevated Sensors Bed Presence mk1 is a bed occupancy sensor with:
 
 The sensor is available for purchase at [ElevatedSensors.com](https://www.elevatedsensors.com/store/p/bed-presence-for-esphome)
 
-![Elevated Sensors Bed Presence mk1](/Elevated-Sensors-Bed-Presence-mk1.png "Elevated Sensors Bed Presence mk1")
+![Elevated Sensors Bed Presence mk1](./Elevated-Sensors-Bed-Presence-mk1.png "Elevated Sensors Bed Presence mk1")

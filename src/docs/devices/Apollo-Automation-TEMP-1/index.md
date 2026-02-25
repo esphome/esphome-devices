@@ -19,7 +19,8 @@ The Apollo Automation TEMP-1 ( battery and non battery version ) is a temperatur
 - Temperature probe, different variants:
   - 1.5m waterproof flat cable DS18B20: Great for fridges, freezers, fish tanks, hot tubs. Max 85°C 185°F
   - 20cm / 7.8 inch waterproof flat cable DS18B20: Great for fridges, freezers, fish tanks, hot tubs. Max 85°C 185°F
-  - 1m / 40 inch stainless steel food safe probe with NTC sensor: Great for grills, ovens, or other high temperature needs Max 350°C 662°F
+  - 1m / 40 inch stainless steel food safe probe with NTC sensor: Great for grills, ovens, or other high temperature
+    needs Max 350°C 662°F
 - RGB Pixel: Notify you of the status
 - Buzzer: Can play beeps, and RTTTL tones when outside a specified temperature range
 - Bluetooth tracking and Bluetooth proxy
@@ -42,5 +43,5 @@ The Apollo Automation TEMP-1 ( battery and non battery version ) is a temperatur
 
 ## Product Images
 
-![Apollo TEMP-1](Apollo-TEMP-1_2.jpg "Apollo TEMP-1")
-![Apollo TEMP-1](Apollo-TEMP-1_1.jpg "Apollo TEMP-1")
+![Apollo TEMP-1](Apollo-Temp-1_2.JPG "Apollo TEMP-1")
+![Apollo TEMP-1](Apollo-TEMP-1_1.JPG "Apollo TEMP-1")

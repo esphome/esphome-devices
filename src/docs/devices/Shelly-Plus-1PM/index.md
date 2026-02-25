@@ -29,7 +29,7 @@ Please calibrate the NTC and the voltage / power measurements, the values below 
 
 Credit and thanks to
 
-- https://templates.blakadder.com/shelly_plus_1.html
+- [https://templates.blakadder.com/shelly_plus_1.html](https://templates.blakadder.com/shelly_plus_1.html)
 
 ## Configuration as relay with overpower and overtemperature protection
 
@@ -47,7 +47,7 @@ esphome:
     board_build.f_cpu: 160000000L
 
 esp32:
-  board: esp32doit-devkit-v1
+  variant: esp32
   framework:
     type: esp-idf
     sdkconfig_options:
@@ -161,7 +161,7 @@ sensor:
     name: "${device_name} Daily energy consumed"
     power_id: power
     filters:
-        - multiply: 0.001
+      - multiply: 0.001
     unit_of_measurement: kWh
     icon: mdi:clock-alert
 

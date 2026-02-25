@@ -5,7 +5,7 @@ type: plug
 standard: au
 board: esp8266
 ---
-  ![alt text](/Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpeg "Product Image")
+  ![alt text](./Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpeg "Product Image")
   
 [https://www.officeworks.com.au/shop/officeworks/p/brilliant-lighting-smart-wifi-plug-with-energy-monitoring-bl20925](https://www.officeworks.com.au/shop/officeworks/p/brilliant-lighting-smart-wifi-plug-with-energy-monitoring-bl20925)
 

@@ -5,8 +5,8 @@ type: plug
 standard: eu
 board: esp8266
 ---
-  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
-  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
+  ![alt text](./Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
+  ![alt text](./Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S
 

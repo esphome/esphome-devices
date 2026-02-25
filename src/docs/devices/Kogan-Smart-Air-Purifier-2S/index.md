@@ -17,10 +17,10 @@ board: esp8266
 
 ## GPIO Pinout
 
-| Pin   | Function |
-| ----- | -------- |
-| GPIO13 | RX      |
-| GPIO15 | TX      |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO13 | RX       |
+| GPIO15 | TX       |
 
 ## Basic Config
 

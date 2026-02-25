@@ -5,8 +5,8 @@ type: plug
 standard: eu
 board: esp8266
 ---
-  ![alt text](/BlitzWolf-BW-SHP2-Power-Monitoring-Plug.jpg "Product Image")
-  ![alt text](/BlitzWolf-BW-SHP2-Power-Monitoring-Plug-Back.jpg "Product Back Image")
+  ![alt text](./BlitzWolf-BW-SHP2-Power-Monitoring-Plug.jpg "Product Image")
+  ![alt text](./BlitzWolf-BW-SHP2-Power-Monitoring-Plug-Back.jpg "Product Back Image")
 
 Model reference: BW-SHP2
 

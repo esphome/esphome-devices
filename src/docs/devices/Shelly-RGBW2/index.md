@@ -266,7 +266,7 @@ captive_portal:
 
 status_led:
   pin: GPIO2
-  
+
 light:
   - platform: cwww
     restore_mode: ALWAYS_OFF
