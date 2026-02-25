@@ -8,12 +8,14 @@ difficulty: 4
 ---
 
 ## General Notes
+
 This configuration is for the [LSC Smart Connect Ledstrip 3203632.1](https://www.action.com/nl-nl/p/3203632/lsc-smart-connect-ledstrip/)
 which comes as a colour and white changing LED strip with controller, IR remote and transformer.
 
 ![LSC Smart Connect Ledstrip 3203632.1](https://community-assets.home-assistant.io/original/4X/d/8/7/d877da0dbfad26879514ee561a48a09a1b6a1b51.png)
 
 ## GPIO Pinout
+
 | Pin    | Function      |
 | ------ | ------------- |
 | P16    | Data RGB and CCT leds |
@@ -25,9 +27,11 @@ which comes as a colour and white changing LED strip with controller, IR remote 
 | ADC3   | Mic           |
 
 ## Complete guide and walktrough flashing process
+
 This [guide](https://www.twoenter.nl/blog/en/smarthome-en/flash-lscs-addressable-led-strip-with-esphome-and-use-it-in-home-assistant/) walks through all steps needed to flash and integrate in Home Assistant.   
 
 ## Config
+
 ```yaml
 esphome:
   name: lsc-32036322-l
