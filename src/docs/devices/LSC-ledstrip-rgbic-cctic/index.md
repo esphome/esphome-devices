@@ -28,7 +28,8 @@ which comes as a colour and white changing LED strip with controller, IR remote 
 
 ## Complete guide and walktrough flashing process
 
-This [guide](https://www.twoenter.nl/blog/en/smarthome-en/flash-lscs-addressable-led-strip-with-esphome-and-use-it-in-home-assistant/) walks through all steps needed to flash and integrate in Home Assistant.   
+This [guide](https://www.twoenter.nl/blog/en/smarthome-en/flash-lscs-addressable-led-strip-with-esphome-and-use-it-in-home-assistant/)
+walks through all steps needed to flash and integrate in Home Assistant.
 
 ## Config
 
