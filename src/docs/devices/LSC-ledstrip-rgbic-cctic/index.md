@@ -243,4 +243,4 @@ light:
       - id: RGBIC_CCTIC_ledstrip
         from: 49
         to: 49
-````
+```
