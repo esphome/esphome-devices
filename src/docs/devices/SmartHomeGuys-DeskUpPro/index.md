@@ -16,14 +16,10 @@ DeskUp Pro has full integration with Home Assistant but any smart home hub that 
 
 All the existing functionality of the desk's controller is retained. 
 
-<p align="center">
-  <img src="DeskUpPro-Top.jpg" height="180px" />
-  <img src="DeskUpPro-UnderDesk.jpg" height="180px" />
-  <img src="DeskUpPro-C6-Controls-HomeAssistant.png" height="180px" />
-  <img src="DeskUpPro-Sensors-black.jpg" height="180px" />
-</p>
-<p align="center">
-
+![DeskUp Pro](DeskUpPro-Top.jpg "DeskUp Pro")
+![DeskUp Pro Under Desk](DeskUpPro-UnderDesk.jpg "DeskUp Pro Under Desk")
+![DeskUp Pro Controls](DeskUpPro-C6-Controls-HomeAssistant.png "DeskUp Pro Controls")
+![DeskUp Pro Sensors](DeskUpPro-Sensors-black.jpg "DeskUp Pro Sensors")
 
 ## Support
 
