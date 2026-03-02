@@ -14,7 +14,7 @@ Use the DeskUp Pro to control your standing desk that has an RJ12 port.
 
 Full Integration with Home Assistant or use it's API from any smart home automation system.
 
-All the existing functionality of the desk's controller is retained. 
+All the existing functionality of the desk's controller is retained.
 
 ![DeskUp Pro](DeskUpPro-Top.jpg "DeskUp Pro")
 ![DeskUp Pro Under Desk](DeskUpPro-UnderDesk.jpg "DeskUp Pro Under Desk")
