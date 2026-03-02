@@ -42,8 +42,8 @@ your devices as soon as possible.
 | GPIO19 | Large/Main Relay pin 1, pull high for relay ON  |
 | GPIO22 | Large/Main Relay pin 2, pull high for relay OFF |
 | GPIO23 | Display (TM1621) Read                           |
-| GPI025 | Pin 2 of the RJ-9 connector                    |
-| GPI027 | Pin 1 of the RJ-9 connector                    |
+| GPIO25 | Pin 2 of the RJ-9 connector                    |
+| GPIO27 | Pin 1 of the RJ-9 connector                    |
 
 
 ## Basic Configuration
