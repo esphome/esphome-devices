@@ -10,10 +10,8 @@ difficulty: 1
 
 ## Description
 
-If your standing desk controller has an RJ11 / RJ12 port use the DeskUp Pro to integrate your desk with your smart home automation system to control your standing desk from your phone, dashboards, automations or voice.
-
-DeskUp Pro has full integration with Home Assistant but any smart home hub that can send a Rest Api request is also supported using its Api.
-
+Use the DeskUp Pro to control your standing desk that has an RJ12 port.
+Full Integration with Home Assistant or use it's API from any smart home automation system.
 All the existing functionality of the desk's controller is retained. 
 
 ![DeskUp Pro](DeskUpPro-Top.jpg "DeskUp Pro")
