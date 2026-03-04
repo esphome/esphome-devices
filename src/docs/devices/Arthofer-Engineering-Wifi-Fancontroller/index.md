@@ -1,7 +1,7 @@
 ---
 title: Wifi Fancontroller
 date-published: 2026-03-04
-type: fan
+type: misc
 standard: global
 board: esp32
 project-url: https://github.com/zeroflow/wifi-fancontroller
