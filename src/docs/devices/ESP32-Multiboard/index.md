@@ -94,3 +94,4 @@ sensor:
     name: "Grove Analog (GPIO34)"
     update_interval: 5s
     attenuation: 11db
+```
