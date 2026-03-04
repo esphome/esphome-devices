@@ -8,7 +8,7 @@ project-url: https://github.com/thebeaverdam/ESP32_MultiBoard
 difficulty: 1
 ---
 
-# ESP32 MultiBoard
+## ESP32 MultiBoard
 
 The ESP32 MultiBoard is a custom board that helps makers connect an ESP32 with all kinds of sensors and actuators,
 using common connectors such as Qwiic and Grove.
@@ -20,7 +20,7 @@ new code via OTA in ESPHome or Arduino IDE.
 
 ---
 
-## 🧩 Specifications
+### 🧩 Specifications
 
 - **Power Supply:** 5V DC input
 - **Qwiic Connector:** For I²C peripherals (3.3V)
@@ -35,7 +35,7 @@ new code via OTA in ESPHome or Arduino IDE.
 
 ---
 
-## Pinout
+### Pinout
 
 ![Pinout](Multiboard_Pinout.png "Pinout")
 
@@ -56,7 +56,6 @@ i2c:
     id: bus_a
 
 # UART Configuration (Grove UART: 1:GND, 2:3V3, 3:GPIO17, 4:GPIO16)
-# Note: TX usually goes to Pin 3 (17) and RX to Pin 4 (16)
 uart:
   - id: uart_bus
     tx_pin: 17
