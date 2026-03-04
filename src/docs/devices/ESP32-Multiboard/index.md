@@ -8,39 +8,30 @@ project-url: https://github.com/thebeaverdam/ESP32_MultiBoard
 difficulty: 1
 ---
 
-
-
-
 # ESP32 MultiBoard
 
-The ESP32 MultiBoard is a custom board that helps makers to connect an ESP32 with all kind of sensors and actuators, using most common connectors such as Qwiic and Grove. 
+The ESP32 MultiBoard is a custom board that helps makers connect an ESP32 with all kinds of sensors and actuators,
+using common connectors such as Qwiic and Grove.
 
-A serial adapter is needed for programming the board for the first time. Once configured, you can update the new code via OTA in ESPHome or Arduino IDE.
-
-
-<br></br>
-
+A serial adapter is needed for programming the board for the first time. Once configured, you can update the
+new code via OTA in ESPHome or Arduino IDE.
 
 ![MultiBoard](MultiBoard.png "MultiBoard")
-
 
 ---
 
 ## 🧩 Specifications
 
-- **Power Supply:** 5V DC input  
-- **Qwiic Connector:** For I²C peripherals (3,3V)  
+- **Power Supply:** 5V DC input
+- **Qwiic Connector:** For I²C peripherals (3.3V)
 - **Grove Connectors:**
   - UART type (TX/RX communication)
   - Analog type
   - Digital type
-  - I²C (5V compatible)  
-- **Pin Header:** For expansion modules or shields  
+  - I²C (5V compatible)
+- **Pin Header:** For expansion modules or shields
 - **SPI Connector**
-- **ESPHome Compatible:** Designed to easily integrate with ESPHome-based devices and automation platforms.  
-
-
-
+- **ESPHome Compatible:** Designed to easily integrate with ESPHome-based devices.
 
 ---
 
@@ -49,10 +40,9 @@ A serial adapter is needed for programming the board for the first time. Once co
 ![Pinout](Multiboard_Pinout.png "Pinout")
 
 ---
- 
- ```YAML
 
- esphome:
+```yaml
+esphome:
   name: esp32-multiboard
 
 esp32:
@@ -60,72 +50,48 @@ esp32:
 
 # I2C Configuration (Qwiic Connector)
 i2c:
-  sda: 21
-  scl: 22
-  scan: true
-  id: bus_a
+  - sda: 21
+    scl: 22
+    scan: true
+    id: bus_a
 
-# UART Configuration (Grove UART)
+# UART Configuration (Grove UART: 1:GND, 2:3V3, 3:GPIO17, 4:GPIO16)
+# Note: TX usually goes to Pin 3 (17) and RX to Pin 4 (16)
 uart:
-  id: uart_bus
-  tx_pin: 17
-  rx_pin: 16
-  baud_rate: 9600
+  - id: uart_bus
+    tx_pin: 17
+    rx_pin: 16
+    baud_rate: 9600
 
 # SPI Configuration
 spi:
-    clk_pin: GPIO18
-    mosi_pin: GPIO23
-    miso_pin: GPIO19
-    interface: hardware
+  clk_pin: 18
+  mosi_pin: 23
+  miso_pin: 19
 
-# Grove Digital Connector Configuration Examples
+# Grove Digital Connector (3:GPIO25, 4:GPIO26)
 binary_sensor:
   - platform: gpio
-    pin: 
+    pin:
       number: 26
-      inverted: false
-      mode:
-        input: true
-        pullup: true
-    name: "Grove Digital Input (IO_1)"
-
+      mode: INPUT_PULLUP
+    name: "Grove Digital Input (GPIO26)"
 
 switch:
   - platform: gpio
     pin: 25
-    name: "Grove Digital Output (IO_0)"
+    name: "Grove Digital Output (GPIO25)"
 
-# Grove Analog Connector Configuration Examples
-
+# Grove Analog Connector (3:GPIO35, 4:GPIO34)
 sensor:
-  # Analog Sensor 1 (e.g., Light Sensor or Potentiometer)
   - platform: adc
     pin: 35
-    name: "Grove Analog AN1"
-    id: analog_sensor_a1
-    update_interval: 5s
-    unit_of_measurement: "V"
-    accuracy_decimals: 2
-    attenuation: 11db  # Essential for 0-3.3V range
-    filters:
-      - multiply: 1.0  # Optional: Calibration factor
-
-  # Analog Sensor 2 (e.g., Soil Moisture Sensor)
-  - platform: adc
-    pin: 34
-    name: "Grove Analog AN0"
-    id: analog_sensor_a0
+    name: "Grove Analog (GPIO35)"
     update_interval: 5s
     attenuation: 11db
-    # Example: Converting voltage to percentage (0.5V = 0%, 2.5V = 100%)
-    filters:
-      - calibrate_linear:
-          - 0.5 -> 0.0
-          - 2.5 -> 100.0
-    unit_of_measurement: "%"
 
-
-```
-
----
+  - platform: adc
+    pin: 34
+    name: "Grove Analog (GPIO34)"
+    update_interval: 5s
+    attenuation: 11db
