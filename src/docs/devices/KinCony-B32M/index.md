@@ -16,6 +16,7 @@ board: esp32
 ## ESPHome Configuration
 
 Here is an example YAML configuration for the KinCony B32M ESP32-S3 mosfet board.
+
 ```yaml
 esphome:
   name: b32m
@@ -385,49 +386,49 @@ binary_sensor:
 ##pull-up resistance on PCB
   - platform: gpio
     name: "b32-W1-io48"
-    pin: 
+    pin:
       number: 48
       inverted: true
 
   - platform: gpio
     name: "b32-W1-io47"
-    pin: 
+    pin:
       number: 47
       inverted: true
 
   - platform: gpio
     name: "b32-W1-io40"
-    pin: 
+    pin:
       number: 40
       inverted: true
 
   - platform: gpio
     name: "b32-W1-io7"
-    pin: 
+    pin:
       number: 7
       inverted: true
 ## without resistance on PCB
   - platform: gpio
     name: "b32-W1-io13"
-    pin: 
+    pin:
       number: 13
       inverted: false
 
   - platform: gpio
     name: "b32-W1-io14"
-    pin: 
+    pin:
       number: 14
       inverted:  false
 
   - platform: gpio
     name: "b32-W1-io21"
-    pin: 
+    pin:
       number: 21
       inverted:  false
 
   - platform: gpio
     name: "b32-W1-io0"
-    pin: 
+    pin:
       number: 0
       inverted:  false
 
@@ -766,3 +767,4 @@ display:
     address: 0x3C
     lambda: |-
       it.printf(0, 0, id(roboto), "KinCony B32M");
+```
