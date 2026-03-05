@@ -11,8 +11,8 @@ difficulty: 1
 
 ## Product Images
 
-![HAT Geiger Counter mounted outdoors](device-outdoor.jpg "Installed outdoors")
-![HAT Geiger Counter internals](device-internals.jpg "Internal components")
+![HAT Geiger Counter mounted outdoors](device-outdoor.png "Installed outdoors")
+![HAT Geiger Counter internals](device-internals.png "Internal components")
 
 ## Overview
 
