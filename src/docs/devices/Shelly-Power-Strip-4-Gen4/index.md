@@ -35,11 +35,13 @@ board: esp32
 
 ## Flashing
 
-> **Note:** OTA flashing from the original Shelly firmware is **not possible**. Shelly Gen4 verifies OTA images with an ECDSA signature using their private key. The device must be flashed via UART.
+> **Note:** OTA flashing from the original Shelly firmware is **not possible**. 
+Shelly Gen4 verifies OTA images with an ECDSA signature using their private key. The device must be flashed via UART.
 
 ### Wiring
 
-Connect a **3.3V** USB-to-serial adapter to the UART pads on the ESP-Shelly-C68F module (J1 connector). Testpoints are also available on the PCB.
+Connect a **3.3V** USB-to-serial adapter to the UART pads on the ESP-Shelly-C68F module (J1 connector).
+Testpoints are also available on the PCB.
 
 #### J1 Connector Pinout
 
@@ -55,7 +57,9 @@ Connect a **3.3V** USB-to-serial adapter to the UART pads on the ESP-Shelly-C68F
 
 #### PCB Testpoints
 
-The testpoints are labeled on the PCB. When using an [ESP-Prog](https://docs.espressif.com/projects/espressif-esp-iot-solution/en/latest/hw-reference/ESP-Prog_guide.html), connect as follows:
+The testpoints are labeled on the PCB. 
+When using an [ESP-Prog](https://docs.espressif.com/projects/espressif-esp-iot-solution/en/latest/hw-reference/ESP-Prog_guide.html), 
+connect as follows:
 
 | PCB Label | ESP-Prog |
 | --------- | -------- |
@@ -85,9 +89,8 @@ esphome compile shelly-powerstrip4-gen4.yaml
 ```
 
 The factory binary is located at:
-```
-.esphome/build/shelly-power-strip-gen4/.pioenvs/shelly-power-strip-gen4/firmware-factory.bin
-```
+
+`.esphome/build/shelly-power-strip-gen4/.pioenvs/shelly-power-strip-gen4/firmware-factory.bin`
 
 ### Flash
 
