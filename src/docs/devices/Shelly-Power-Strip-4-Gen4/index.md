@@ -35,7 +35,7 @@ board: esp32
 
 ## Flashing
 
-> **Note:** OTA flashing from the original Shelly firmware is **not possible**. 
+**Note:** OTA flashing from the original Shelly firmware is **not possible**. 
 Shelly Gen4 verifies OTA images with an ECDSA signature using their private key. The device must be flashed via UART.
 
 ### Wiring
@@ -57,9 +57,7 @@ Testpoints are also available on the PCB.
 
 #### PCB Testpoints
 
-The testpoints are labeled on the PCB. 
-When using an [ESP-Prog](https://docs.espressif.com/projects/espressif-esp-iot-solution/en/latest/hw-reference/ESP-Prog_guide.html), 
-connect as follows:
+The testpoints are labeled on the PCB. When using an ESP-Prog, connect as follows:
 
 | PCB Label | ESP-Prog |
 | --------- | -------- |
