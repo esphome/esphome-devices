@@ -35,7 +35,9 @@ board: esp32
 
 ## Flashing
 
->**Note:** OTA flashing from the original Shelly firmware is **not possible**. Shelly Gen4 verifies OTA images with an ECDSA signature using their private key. The device must be flashed via UART.
+> **Note:** OTA flashing from the original Shelly firmware is **not possible**.
+> Shelly Gen4 verifies OTA images with an ECDSA signature using their private key.
+> The device must be flashed via UART.
 
 ### Wiring
 
