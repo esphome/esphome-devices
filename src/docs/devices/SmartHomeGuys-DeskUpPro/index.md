@@ -6,6 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/SmartHomeGuys/DeskUp-Pro-Controller-RJ12
 difficulty: 1
+made-for-esphome: true
 ---
 
 ## Description
