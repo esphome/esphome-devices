@@ -18,13 +18,13 @@ board: esp32
 | GPIO2  | Relay 2 (Outlet 2)              |
 | GPIO3  | Relay 3 (Outlet 3)              |
 | GPIO4  | Relay 1 (Outlet 1)              |
-| GPIO6  | ADE7953 #0 IRQ (Outlets 1+2)    |
-| GPIO7  | ADE7953 #1 IRQ (Outlets 3+4)    |
-| GPIO10 | SPI CS1 – ADE7953 #1            |
+| GPIO6  | ADE7953 #0 IRQ (Outlets 1+2)   |
+| GPIO7  | ADE7953 #1 IRQ (Outlets 3+4)   |
+| GPIO10 | SPI CS1 – ADE7953 #1           |
 | GPIO11 | SPI MOSI                        |
 | GPIO12 | SPI MISO                        |
 | GPIO13 | SPI SCLK                        |
-| GPIO15 | SPI CS0 – ADE7953 #0            |
+| GPIO15 | SPI CS0 – ADE7953 #0           |
 | GPIO16 | UART TX (Debug / Flash)         |
 | GPIO17 | UART RX (Debug / Flash)         |
 | GPIO18 | WS2812B Data (12 LEDs, via R36) |
@@ -35,8 +35,7 @@ board: esp32
 
 ## Flashing
 
-**Note:** OTA flashing from the original Shelly firmware is **not possible**. 
-Shelly Gen4 verifies OTA images with an ECDSA signature using their private key. The device must be flashed via UART.
+>**Note:** OTA flashing from the original Shelly firmware is **not possible**. Shelly Gen4 verifies OTA images with an ECDSA signature using their private key. The device must be flashed via UART.
 
 ### Wiring
 
