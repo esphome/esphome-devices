@@ -96,45 +96,6 @@ esptool.py --chip esp32c6 --port /dev/ttyUSB0 --baud 460800 \
   write_flash 0x0 firmware-factory.bin
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------------------------------------------
-
-## Flashing
-
-The device can be flashed via the UART pads on the ESP-Shelly-C68F module (J1 connector). Or use the Testpoints.
-
-![UART Image](uart.png "UART Image")
-
-
-Like always, backup the Firmware! 
-```bash
-esptool.py --chip esp32c6 --port /dev/ttyUSB0 --baud 460800 --before no-reset --after no-reset read-flash 0 dump_x.bin
-```
-### Build the binary
-```bash
-esphome compile shelly-powerstrip4-gen4.yaml
-```
-
-### Flash the Binary
-```bash
-esptool.py --chip esp32c6 --port /dev/ttyUSB0 --baud 460800 write_flash 0x0 shelly-power-strip-gen4.factory.bin
-```
-
 ## Basic Configuration
 
 ```yaml
