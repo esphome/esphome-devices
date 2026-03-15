@@ -2,7 +2,7 @@
 title: KinCony-DM4 (ESP32-S3 4CH Dimmer board)
 date-published: 2026-03-15
 
-type: Dimmers
+type: dimmer
 standard: global
 board: esp32
 ---
