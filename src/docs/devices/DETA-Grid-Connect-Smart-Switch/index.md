@@ -71,7 +71,6 @@ switches.
 - **Microcontroller**: Beken BK7231N
 - **Flashing Method**: Serial
 
-
 ## Setup Guide
 
 ### Using Cloudcutter
