@@ -30,7 +30,8 @@ switches. Some 4 gang switches are on random Tuya firmware 1.1.5 and may need to
 
 ### Series 3
 
-Recently purchased devices are using the Beken BK7231N microcontroller and need flashing with a serial flasher. There are headers on the board.
+Recently purchased devices are using the Beken BK7231N microcontroller and need flashing with a serial flasher. There
+are headers on the board.
 
 ## Getting it up and running
 
@@ -65,7 +66,7 @@ of the [Grid Connect ecosystem][3]. These switches are available at Bunnings sto
 
 > **Note**: The [Triple 6903HA][4] and [Quad 6904HA][5] models have different pinouts compared to the 1 and 2 gang
 switches.
-> 
+>
 ### Series 3 - Flashing
 
 - **Microcontroller**: Beken BK7231N
