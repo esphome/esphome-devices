@@ -71,10 +71,10 @@ or 1.27mm dupont pins). When detached you can use something like PCBite hands-fr
 
 Late 2025 update:
 New PCB format:
-<img width="780" height="652" alt="image" src="https://github.com/user-attachments/assets/30775f51-83e4-4670-b0cb-ecffa694ec59" />
+![New PCB format](TO-Q-SYS-JWT-1.png "New PCB format")
 
 Here is how to attach the wires onto the chip. Steady hand and microscope helps
-<img width="939" height="818" alt="image" src="https://github.com/user-attachments/assets/494464db-b988-44f0-8d8f-490011355eda" />
+![Here is how to attach the wires onto the chip](TO-Q-SYS-JWT-2.png "Here is how to attach the wires onto the chip")
 
 ** info: Power data from the device will only appear once the device is imported into HA
 
