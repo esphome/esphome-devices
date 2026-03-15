@@ -267,3 +267,4 @@ light:
     id: dm4_dac_4
     output: ac_dimmer_4
     gamma_correct: 1.0
+```
