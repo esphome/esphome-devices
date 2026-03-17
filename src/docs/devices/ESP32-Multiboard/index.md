@@ -6,7 +6,6 @@ standard: global
 board: esp32
 project-url: https://github.com/thebeaverdam/ESP32_MultiBoard
 difficulty: 1
-made-for-esphome: true
 ---
 
 ## ESP32 MultiBoard
