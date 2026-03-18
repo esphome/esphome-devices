@@ -15,6 +15,7 @@ GPIO mapping decoded from Tasmota template (BASE:18 Sonoff Basic, new format v8.
 `{"NAME":"Westek In-Wall","GPIO":[0,0,0,0,544,0,0,0,224,32,33,0,0,0],"FLAG":0,"BASE":18}`
 
 New-format function codes differ from the old Tasmota format:
+
 - `32` = Button1 (active LOW, INPUT_PULLUP)
 - `33` = Button2 (active LOW, INPUT_PULLUP)
 - `224` = Relay1 (active HIGH output)
