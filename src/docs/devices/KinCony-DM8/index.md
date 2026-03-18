@@ -1,7 +1,6 @@
 ---
 title: KinCony-DM8 (ESP32-S3 8CH Dimmer board)
 date-published: 2026-03-17
-
 type: dimmer
 standard: global
 board: esp32
