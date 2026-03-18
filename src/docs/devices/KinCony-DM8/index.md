@@ -181,9 +181,6 @@ output:
       uint16_t reg = (uint16_t) round(x * 4095.0);
       return reg;
 
-# -------------------
-# 8 路 Light (调光灯)
-# -------------------
 light:
   - platform: monochromatic
     name: "DAC CH1"
