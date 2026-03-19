@@ -2,7 +2,7 @@
 name: Shelly 1 Gen4
 manufacturer: Shelly
 chip: ESP32-C6
-board: esp32-c6-devkitm-1
+board: esp32
 image: shelly-1-gen4.webp
 ---
 
