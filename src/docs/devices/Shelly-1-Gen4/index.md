@@ -1,9 +1,7 @@
 ---
 name: Shelly 1 Gen4
 manufacturer: Shelly
-board: esp32
 image: shelly-1-gen4.webp
-description: A smart relay with potential-free dry contacts powered by the new ESP32-C6 chip.
 ---
 
 # Shelly 1 Gen4
