@@ -5,8 +5,8 @@ type: plug
 standard: eu
 board: esp8266
 ---
-  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
-  ![alt text](/Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
+  ![alt text](./Loetad-EU3S-Power-Monitoring-Plug.jpg "Product Image")
+  ![alt text](./Loetad-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S
 
@@ -41,7 +41,8 @@ substitutions:
 esphome:
   name: ${devicename}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

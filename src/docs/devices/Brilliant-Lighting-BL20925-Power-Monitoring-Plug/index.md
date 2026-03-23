@@ -5,7 +5,7 @@ type: plug
 standard: au
 board: esp8266
 ---
-  ![alt text](/Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpeg "Product Image")
+  ![alt text](./Brilliant-Lighting-BL20925-Power-Monitoring-Plug.jpeg "Product Image")
   
 [https://www.officeworks.com.au/shop/officeworks/p/brilliant-lighting-smart-wifi-plug-with-energy-monitoring-bl20925](https://www.officeworks.com.au/shop/officeworks/p/brilliant-lighting-smart-wifi-plug-with-energy-monitoring-bl20925)
 
@@ -32,21 +32,13 @@ substitutions:
 esphome:
   name: $devicename
   comment: ${device_description}
-  platform: ESP8266
 
+esp8266:
+  board: esp01_1m
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Brilliant Plug 1"
-    password: !secret AP_Password
-
-  manual_ip:
-      static_ip: 192.168.x.xx
-      gateway: 192.168.x.x
-      subnet: 255.255.255.0
 
 captive_portal:
 

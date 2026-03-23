@@ -18,9 +18,10 @@ Model Reference: AWP02L2
 
 Manufacturer: [Avatar](https://www.avatarcontrols.com/)
 
-The [Avatar Smart Mini WiFi Plug](https://shop.avatarcontrols.com/smart-mini-wifi-plug.html) is available at [Amazon.com](https://amzn.to/3ACOgKO). The product is sold under the Round Arc style.
+The [Avatar Smart Mini WiFi Plug](https://shop.avatarcontrols.com/smart-mini-wifi-plug.html) is available at
+[Amazon.com](https://amzn.to/3ACOgKO). The product is sold under the Round Arc style.
 
-This plug can be converted using [tuya-convert to flash ESPHome](/guides/tuya-convert/) (as of January 2022).
+This plug can be converted using [tuya-convert to flash ESPHome](/devices/tuya-convert) (as of January 2022).
 
 ## GPIO Pinout
 
@@ -39,16 +40,14 @@ substitutions:
 
 esphome:
   name: "${device_name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
   ap:
-    ssid: "${device_name} Fallback Hotspot"
-    password: !secret wifi_fallback_pw
 
 # Enable logging
 logger:

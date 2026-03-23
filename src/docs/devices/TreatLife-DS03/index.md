@@ -10,7 +10,8 @@ board: esp8266
 
 ## Notes
 
-This TuyaMCU requires a baud rate of 115200. This will generate a error in the log saying 9600 is requested. This is to be expected and will be ignored. Setting baud rate to 9600 will cause boot issues
+This TuyaMCU requires a baud rate of 115200. This will generate a error in the log saying 9600 is requested. This is to
+be expected and will be ignored. Setting baud rate to 9600 will cause boot issues
 
 ## GPIO Pinout
 
@@ -28,7 +29,8 @@ substitutions:
 
 esphome:
   name: ${devicename}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

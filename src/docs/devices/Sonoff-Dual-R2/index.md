@@ -8,13 +8,13 @@ board: esp8266
 
 ## Product Images
 
-![alt text](/inside_pcb_1_4.jpg "PCB v1.4")
+![alt text](./inside_pcb_1_4.jpg "PCB v1.4")
 
 ## GPIO Pinout
 
 ### Sonoff Dual R2 - PCB version 1.0
 
-based on <https://esphome.io/devices/sonoff.html#sonoff-dual-r2>
+based on [https://esphome.io/devices/sonoff.html#sonoff-dual-r2](https://esphome.io/devices/sonoff.html#sonoff-dual-r2)
 
 | Pin    | Function        |
 | ------ | --------------- |
@@ -44,7 +44,8 @@ substitutions:
 
 esphome:
   name: ${dev_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

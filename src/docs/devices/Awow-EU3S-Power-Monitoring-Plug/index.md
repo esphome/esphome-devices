@@ -5,8 +5,8 @@ type: plug
 standard: eu
 board: esp8266
 ---
-  ![alt text](/Awow-EU3S-Power-Monitoring-Plug.jpg "Product Image")
-  ![alt text](/Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
+  ![alt text](./Awow-EU3S-Power-Monitoring-Plug.jpg "Product Image")
+  ![alt text](./Awow-EU3S-Power-Monitoring-Plug-Reference.jpg "Product Reference Image")
 
 Model reference: EU3S  
 
@@ -41,17 +41,14 @@ substitutions:
 esphome:
   name: ${devicename}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ${friendly_name}
-    password: !secret AP_Password
 
   manual_ip:
       static_ip: 192.168.x.xx

@@ -33,7 +33,7 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+esp8266:
   board: esp8285
 
 wifi:
@@ -110,12 +110,15 @@ switch:
 status_led:
   pin:
     number: GPIO13
+    allow_other_uses: true
     inverted: true
 
 output:
   - platform: esp8266_pwm
     id: blue_led
-    pin: GPIO13
+    pin:
+      number: GPIO13
+      allow_other_uses: true
     inverted: True
 
 light:
@@ -137,7 +140,8 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
@@ -213,6 +217,7 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO13
+    allow_other_uses: true
     inverted: true
 
 output:
@@ -223,7 +228,9 @@ output:
   # the 3 lines below control the Blue LED
   - platform: esp8266_pwm
     id: blue_led
-    pin: GPIO13
+    pin:
+      number: GPIO13
+      allow_other_uses: true
     inverted: True
 
 light:
