@@ -274,7 +274,6 @@ api:
 # Enable OTA
 ota:
   - platform: esphome
-    password: !secret ota_password
 
 safe_mode:
 

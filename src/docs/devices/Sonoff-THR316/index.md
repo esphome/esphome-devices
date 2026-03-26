@@ -70,7 +70,10 @@ esp32:
   variant: esp32
   framework:
     type: esp-idf
-
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
 captive_portal:
 
 logger:

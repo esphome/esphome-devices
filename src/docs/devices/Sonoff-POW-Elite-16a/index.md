@@ -61,7 +61,6 @@ api:
 
 ota:
   - platform: esphome
-    password: !secret ota_pwd
 
 #optional
 web_server:
