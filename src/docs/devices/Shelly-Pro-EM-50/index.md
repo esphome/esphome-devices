@@ -23,7 +23,7 @@ the ADE7953 energy metering IC via **I2C**. It also has an AiP8563 RTC
 
 ## Pinout
 
-ESP32 DOWDQ6   | Component
+ESP32-D0WDQ6   | Component
 ---------------|-------------
 GPIO 2         | Relay (dry contact, 2A)
 GPIO 4         | ADE7953 IRQ
@@ -78,6 +78,62 @@ is supported by the built-in ESPHome `bm8563` component. The RTC maintains
 time through power cycles using a coin cell battery on the board.
 
 ## Basic Configuration
+
+```yaml
+esphome:
+  name: shelly-pro-em-50
+  friendly_name: Shelly Pro EM-50
+  platformio_options:
+    board_build.flash_mode: dio
+  on_boot:
+    priority: 900
+    then:
+      - output.turn_on: ade7953_reset
+      - delay: 10ms
+      - output.turn_off: ade7953_reset
+      - delay: 50ms
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "Shelly-Pro-EM-50"
+
+captive_portal:
+
+# ethernet:
+#   type: LAN8720
+#   mdc_pin: GPIO23
+#   mdio_pin: GPIO18
+#   clk_mode: GPIO17_OUT
+
+i2c:
+  sda:
+    number: GPIO15
+    ignore_strapping_warning: true
+  scl: GPIO13
+
+output:
+  - platform: gpio
+    id: ade7953_reset
+    pin:
+      number: GPIO16
+      inverted: true
+```
+
+## Full Configuration
 
 ```yaml
 esphome:
