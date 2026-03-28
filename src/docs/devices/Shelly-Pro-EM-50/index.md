@@ -62,8 +62,9 @@ Note that the pin pitch is 1.27mm, so standard 2.54mm Dupont cables won't work.
 
 The ADE7953 is configured for I2C mode on this board (CS and SCLK pins are
 tied high on the chip). The reset pin (GPIO16) is active low and must be
-driven high for the chip to operate. The `output` component with
-`inverted: true` handles this automatically.
+driven high for the chip to operate. Defining it as a GPIO `output` with
+`inverted: true` is sufficient — the pin is driven high on initialization
+and no explicit boot sequence is needed.
 
 The voltage reading requires a calibration multiplier. The value `0.7951` was
 determined by comparing against a reference meter at 120V. You may need to
@@ -85,13 +86,6 @@ esphome:
   friendly_name: Shelly Pro EM-50
   platformio_options:
     board_build.flash_mode: dio
-  on_boot:
-    priority: 900
-    then:
-      - output.turn_on: ade7953_reset
-      - delay: 10ms
-      - output.turn_off: ade7953_reset
-      - delay: 50ms
 
 esp32:
   board: esp32dev
@@ -141,13 +135,6 @@ esphome:
   friendly_name: Shelly Pro EM-50
   platformio_options:
     board_build.flash_mode: dio
-  on_boot:
-    priority: 900
-    then:
-      - output.turn_on: ade7953_reset
-      - delay: 10ms
-      - output.turn_off: ade7953_reset
-      - delay: 50ms
 
 esp32:
   board: esp32dev
