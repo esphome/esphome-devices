@@ -301,5 +301,5 @@ time:
   - platform: homeassistant
     on_time_sync:
       then:
-        bm8563.write_time:
+        - bm8563.write_time: rtc_time
 ```
