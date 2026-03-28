@@ -11,50 +11,58 @@ difficulty: 4
 
 ![Product Image](product.png "Product Image")
 
-Battery-powered WiFi temperature/humidity sensor with a segment E-Paper display (UC8119 controller). <br>
+Battery-powered WiFi temperature/humidity sensor with a segment E-Paper display (UC8119 controller).
 Uses an ESP32-C3 with 8MB flash, a Sensirion SHT31 sensor, and a UltraChip UC8119 E-Paper segment display with 91 active segments, 10 digits and 13 icons.
 
-*Requires a custom ESPHome external component for the UC8119 display*
+*Requires custom ESPHome external components for the UC8119 display and Shelly H&T display layer.*
 
 ## GPIO Pinout
 
-| GPIO   | Function         | Notes                                       |
-|--------|------------------|---------------------------------------------|
-| GPIO0  | Button           | XTAL_32K_P, external pull-up   |
-| GPIO2 | Power Rail ADC  | Via voltage divider |
-| GPIO1  | I2C SDA          | Shared bus (SHT31 + UC8119), external pull-up         |
-| GPIO3  | I2C SCL          | 100kHz, external pull-up                              |
-| GPIO4 | Battery ADC       | Via voltage divider (4x AA LR6)              |
-| GPIO5 | Battery presence | High when Battery are connectred |
-| GPIO6  | UC8119 BUSY_N    | LOW=busy, external pull-up             |
-| GPIO7  | UC8119 RESET_N   | Active LOW                                   |
-| GPIO10 | UC8119 Enable    | Display power gate, HIGH=on                  |
-| GPIO18 | Battery power enable  | Enables Power-Path for Battery |
+| GPIO   | Function             | Notes                                                  |
+|--------|----------------------|--------------------------------------------------------|
+| GPIO0  | Button               | XTAL_32K_P, external pull-up, deep sleep wakeup        |
+| GPIO1  | I2C SDA              | Shared bus (SHT31 + UC8119), external pull-up on FPC   |
+| GPIO2  | Power Rail ADC       | Reads regulated 3.3V rail (not raw battery voltage)    |
+| GPIO3  | I2C SCL              | 100kHz, external pull-up on FPC                        |
+| GPIO4  | Battery ADC          | Via voltage divider (÷3), requires GPIO18 enable       |
+| GPIO5  | Battery Presence     | HIGH when batteries are connected                      |
+| GPIO6  | UC8119 BUSY_N        | LOW=busy, external pull-up on FPC                      |
+| GPIO7  | UC8119 RESET_N       | Active LOW, 10ms pulse                                 |                        
+| GPIO10 | UC8119 Enable        | Display power gate, HIGH=on                            |
+| GPIO18 | Battery Power Enable | Enables power-path for battery ADC measurement         |
 
+## I2C Devices
 
-## Serial Pinout (Debug Header)
+| Device | Address | Function                     |
+|--------|---------|------------------------------|
+| SHT31  | 0x44    | Temperature & Humidity       |
+| UC8119 | 0x50    | E-Paper Segment Display      |
 
-![UART-Pinout](PCB_Pinout.png "UART-Pinout")
+## Serial Pinout (PCB Test Pads)
 
-| Pad | Function |
-|-----|----------|
-| 1   | NC       |
-| 2   | RXD      |
-| 3   | CHIP_EN  |
-| 4   | GND      |
-| 5   | TXD      |
-| 6   | VCC 3V3  |
-| 7   | BOOT / GPIO9 |
+![UART Pinout](PCB_Pinout.png "UART Pinout")
+
+The UART pads are bare test points on the PCB (no header installed). Use pogo pins, test clips, or solder temporary wires for flashing.
+
+| Pad | Function       |
+|-----|----------------|
+| 1   | NC             |
+| 2   | RXD            |
+| 3   | CHIP_EN        |
+| 4   | GND            |
+| 5   | TXD            |
+| 6   | VCC 3V3        |
+| 7   | BOOT / GPIO9   |
 
 ## Flashing
 
 > **Note:** OTA flashing from the original Shelly firmware is **not possible**.
-> Shelly Gen4 verifies OTA images with an ECDSA signature using their private key.
-> The device must be flashed via UART.
+> Shelly Gen3 verifies OTA images with an ECDSA signature using their private key.
+> The device must be flashed via UART using the PCB test pads.
 
-To enter download mode, hold **IO9** low (connect to GND) while powering on the device. Release after boot.
+To enter download mode, short **pad 7 (GPIO9)** to **pad 4 (GND)** while powering on the device. Release after boot.
 
-### Backup the original firmware
+### Backup the Original Firmware
 
 Always back up the original firmware before flashing:
 
@@ -64,28 +72,15 @@ esptool.py --chip esp32c3 --port /dev/ttyUSB0 --baud 460800 \
   read_flash 0 0x800000 shelly-ht-gen3-backup.bin
 ```
 
-### Compile
+### Compile and Flash
 
 ```bash
 esphome compile shelly-ht-gen3.yaml
-```
-
-The factory binary is located at:
-
-`.esphome/build/shelly-ht-gen3/.pioenvs/shelly-ht-gen3/firmware-factory.bin`
-
-### Flash
-
-```bash
 esptool.py --chip esp32c3 --port /dev/ttyUSB0 --baud 460800 \
-  write_flash 0x0 firmware-factory.bin
+  write_flash 0x0 .esphome/build/shelly-ht-gen3/.pioenvs/shelly-ht-gen3/firmware-factory.bin
 ```
 
-##  Configuration
-
-Requires the `uc8119` and `shelly_ht_display` external components.
-
-### Basic USB Powered Configuration 
+## Basic Configuration (USB Powered)
 
 ```yaml
 esphome:
@@ -103,29 +98,30 @@ esp32:
       COMPILER_OPTIMIZATION_SIZE: y
     advanced:
       enable_ota_rollback: false
-    
 
 logger:
 wifi:
-api: 
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+api:
 ota:
-  on_begin:
-    - lambda: id(display).show_ota_begin();
-  on_progress:
-    - lambda: id(display).show_ota_progress(x);
-  on_end:
-    - lambda: id(display).show_ota_end();
-  on_error:
-    - lambda: id(display).show_ota_error();   
+  - platform: esphome
+    on_begin:
+      - lambda: id(display).show_ota_begin();
+    on_progress:
+      - lambda: id(display).show_ota_progress(x);
+    on_end:
+      - lambda: id(display).show_ota_end();
+    on_error:
+      - lambda: id(display).show_ota_error();
 
 external_components:
   - source: github://oxynatOr/esphome-shelly_ht_gen3
-    refresh: 5s
     components: [shelly_ht_display]
-  - source: github://oxynatOr/esphome-uc8119
-    components: [uc8119]    
     refresh: 5s
-
+  - source: github://oxynatOr/esphome-uc8119
+    components: [uc8119]
+    refresh: 5s
 
 i2c:
   sda: GPIO1
@@ -157,13 +153,13 @@ sensor:
     attenuation: 12db
     update_interval: never
     internal: true
-    samples: 15    
+    samples: 15
 
 time:
   - platform: homeassistant
     id: ha_time
 
-# Layer 1: Generic UC8119 EPD driver
+# Layer 1: Generic UC8119 EPD segment display driver
 uc8119:
   id: epd
   address: 0x50
@@ -178,8 +174,8 @@ shelly_ht_display:
   id: display
   display_id: epd
   update_interval: 1sec
-  wifi_update_every: 20      
-  font: siekoo                
+  wifi_update_every: 20
+  font: siekoo
   battery_adc_sensor: batt_adc
   battery_presence_sensor: batt_presence
   battery_power_enable: batt_power_en
@@ -187,41 +183,48 @@ shelly_ht_display:
   battery_full_voltage: 6.0
   battery_empty_voltage: 4.0
   battery_update_interval: 15sec
-  # Battery output sensors
   battery_voltage:
     name: "Battery Voltage"
   battery_percent:
     name: "Battery Percent"
   external_power:
     name: "External Power"
-  # Input sensors
   temperature_sensor: temp_sensor
   humidity_sensor: humi_sensor
   wifi_signal_sensor: wifi_rssi
   time_id: ha_time
-
 
 output:
   - platform: gpio
     id: batt_power_en
     pin: GPIO18
 
-
 binary_sensor:
   - platform: gpio
     id: batt_presence
-    pin: 
+    pin:
       number: GPIO5
       inverted: true
     internal: true
 
+  - platform: gpio
+    name: "Button"
+    pin:
+      number: GPIO0
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+      allow_other_uses: true
+    filters:
+      - delayed_on_off: 50ms
+
 button:
   - platform: restart
     name: "Restart"
-    id: restart_btn
 ```
 
-### Basic Battery Powered Configuration 
+## Battery Powered Configuration (Deep Sleep)
 
 ```yaml
 esphome:
@@ -237,7 +240,7 @@ esphome:
             - deep_sleep.prevent: deep_sleep_ctrl
   on_shutdown:
     then:
-      - lambda: id(epd).power_off();  
+      - lambda: id(epd).power_off();
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -250,42 +253,43 @@ esp32:
       COMPILER_OPTIMIZATION_SIZE: y
     advanced:
       enable_ota_rollback: false
-    
 
 logger:
 wifi:
-api: 
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+api:
 ota:
-  on_begin:
-    - lambda: id(display).show_ota_begin();
-  on_progress:
-    - lambda: id(display).show_ota_progress(x);
-  on_end:
-    - lambda: id(display).show_ota_end();
-  on_error:
-    - lambda: id(display).show_ota_error();   
+  - platform: esphome
+    on_begin:
+      - lambda: id(display).show_ota_begin();
+    on_progress:
+      - lambda: id(display).show_ota_progress(x);
+    on_end:
+      - lambda: id(display).show_ota_end();
+    on_error:
+      - lambda: id(display).show_ota_error();
 
 external_components:
   - source: github://oxynatOr/esphome-shelly_ht_gen3
-    refresh: 5s
     components: [shelly_ht_display]
+    refresh: 5s
   - source: github://oxynatOr/esphome-uc8119
-    components: [uc8119]    
+    components: [uc8119]
     refresh: 5s
 
 deep_sleep:
+  id: deep_sleep_ctrl
   run_duration: 20s
   sleep_duration: 1min
-  id: deep_sleep_ctrl
   wakeup_pin:
-   - pin:
-      number: GPIO0
-      mode:
-        input: true
-        pullup: true
-      inverted: true
-      allow_other_uses: true  
-
+    - pin:
+        number: GPIO0
+        mode:
+          input: true
+          pullup: true
+        inverted: true
+        allow_other_uses: true
 
 i2c:
   sda: GPIO1
@@ -317,13 +321,13 @@ sensor:
     attenuation: 12db
     update_interval: never
     internal: true
-    samples: 15    
+    samples: 15
 
 time:
   - platform: homeassistant
     id: ha_time
 
-# Layer 1: Generic UC8119 EPD driver
+# Layer 1: Generic UC8119 EPD segment display driver
 uc8119:
   id: epd
   address: 0x50
@@ -338,8 +342,8 @@ shelly_ht_display:
   id: display
   display_id: epd
   update_interval: 1sec
-  wifi_update_every: 20      
-  font: siekoo                
+  wifi_update_every: 20
+  font: siekoo
   battery_adc_sensor: batt_adc
   battery_presence_sensor: batt_presence
   battery_power_enable: batt_power_en
@@ -347,19 +351,16 @@ shelly_ht_display:
   battery_full_voltage: 6.0
   battery_empty_voltage: 4.0
   battery_update_interval: 15sec
-  # Battery output sensors
   battery_voltage:
     name: "Battery Voltage"
   battery_percent:
     name: "Battery Percent"
   external_power:
     name: "External Power"
-  # Input sensors
   temperature_sensor: temp_sensor
   humidity_sensor: humi_sensor
   wifi_signal_sensor: wifi_rssi
   time_id: ha_time
-  # on_ready - fires after non-WiFi display update
   on_ready:
     then:
       - lambda: id(epd).power_off();
@@ -370,17 +371,95 @@ output:
     id: batt_power_en
     pin: GPIO18
 
-
 binary_sensor:
   - platform: gpio
     id: batt_presence
-    pin: 
+    pin:
       number: GPIO5
       inverted: true
     internal: true
 
+  - platform: gpio
+    name: "Button"
+    pin:
+      number: GPIO0
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+      allow_other_uses: true
+    filters:
+      - delayed_on_off: 50ms
+
 button:
   - platform: restart
     name: "Restart"
-    id: restart_btn
 ```
+
+## Display Layout
+
+The UC8119 segment display has the following layout (all segments shown):
+
+```
+┌──────────────────────────────────────────────┐
+│                                              │
+│  88:88              ▲  ▐████▌                │
+│  T1 T2 : T3 T4    Arrow Battery              │
+│                                              │
+│                        ┌───┐                 │
+│  88.8                  │ 8 │  °              │
+│  D1 D2 . D3            └───┘  Unit           │
+│  Temperature           UNIT  (°C/°F)         │
+│                                              │
+│  ❄  ♨  ❀  ☰  📅                           │
+│  Frost Heat Vent  ?  Calendar                │
+│                                              │
+│  ▐▌▐▌▐▌▐▌  ✱  🌐      88 %                  │
+│  Signal    BT Globe    H1 H2                 │
+│                        Humidity              │
+│                                              │
+└──────────────────────────────────────────────┘
+```
+
+**Zones:**
+
+| Zone | Digits | Function |
+|------|--------|----------|
+| Top left | T1 T2 : T3 T4 | Clock (HH:MM) |
+| Top right | Arrow + Battery | Arrow icon, 5-segment battery |
+| Center left | D1 D2 . D3 | Temperature (XX.X) |
+| Center right | UNIT | °C or °F (small digit + degree symbol) |
+| Icon row 1 | ❄ ♨ ❀ ☰ 📅 | Frost, Heating, Ventilator, ?, Calendar |
+| Icon row 2 | Signal, BT, Globe | WiFi bars, Bluetooth, Globe |
+| Bottom right | H1 H2 % | Humidity (XX%) |
+
+## Battery Measurement
+
+The battery voltage is measured via GPIO4 (ADC1) through a voltage divider (÷3). The measurement circuit requires GPIO18 to be set HIGH to enable the power path before reading. The component handles this automatically via the `battery_power_enable` output.
+
+- **4× AA (LR6):** 4.0V (empty) to 6.4V (fresh)
+- **ADC range:** ~1.33V to ~2.13V after divider
+- **GPIO5:** Battery presence detection (HIGH when batteries connected)
+- **GPIO8:** USB detection (HIGH when USB connected)
+
+## Deep Sleep Behavior
+
+The component auto-detects deep sleep mode from the YAML configuration:
+
+- **WiFi wake** (every Nth cycle): Full boot with WiFi, HA time sync, sensor publish (~5s)
+- **Non-WiFi wake** (other cycles): WiFi disabled, RTC time + sensor read, display update (~1.5s)
+- **USB connected:** Deep sleep prevented automatically, always-on mode
+- **Button press (GPIO0):** Wakes from deep sleep
+
+The `on_ready` trigger fires after non-WiFi display updates, allowing the YAML to control when to enter deep sleep. The `on_shutdown` handler saves the framebuffer to RTC memory, enabling partial refresh on the next wake (no white flash).
+
+## Known Limitations
+
+- **OTA from Shelly firmware not possible:** ECDSA signature verification prevents flashing ESPHome over the air from stock firmware. UART flashing required.
+- **Battery percentage accuracy:** The voltage-to-percentage mapping may need calibration depending on battery chemistry and temperature. The default range (4.0V–6.0V) is a rough estimate for 4× AA alkaline batteries.
+
+## References
+
+- [UC8119 ESPHome Component](https://github.com/oxynatOr/esphome-uc8119)
+- [Shelly H&T Display Component](https://github.com/oxynatOr/esphome-shelly_ht_gen3)
+- [Hardware Reverse Engineering Documentation](https://github.com/oxynatOr/esphome-shelly_ht_gen3/blob/main/HARDWARE.md)
