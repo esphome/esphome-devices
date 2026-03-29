@@ -12,7 +12,10 @@ board: esp32
 
 The **Shelly 1 Gen4** is a smart relay equipped with **Dry Contacts** (potential-free) and powered by the new ESP32-C6 chip.
 
-⚠️ **Important Note:** This is the standard Shelly 1 Gen4 model. It **DOES NOT** feature Power Metering (PM). Because it uses dry contacts, the relay is galvanically isolated from the power supply, making it ideal for automating garage doors, gates, boilers, or switching different voltages (AC or DC). If you need to measure energy consumption, you should look for the [Shelly 1PM Gen4](/devices/shelly-1pm-gen-4).
+⚠️ **Important Note:** This is the standard Shelly 1 Gen4 model. It **DOES NOT** feature Power Metering (PM).
+Because it uses dry contacts, the relay is galvanically isolated from the power supply,
+making it ideal for automating garage doors, gates, boilers, or switching different voltages (AC or DC).
+If you need to measure energy consumption, you should look for the [Shelly 1PM Gen4](/devices/shelly-1pm-gen-4).
 
 ## ESPHome Configuration
 
