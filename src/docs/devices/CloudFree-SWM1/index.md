@@ -78,14 +78,11 @@ time:
 
 ota:
   - platform: esphome
-  - platform: web_server
 
 wifi:
   ap: {}
 
 captive_portal:
-
-web_server:
 
 # GPIO Mapping (CloudFree SWM1):
 # GPIO0  - Physical button (active LOW, INPUT_PULLUP)
