@@ -6,8 +6,6 @@ standard: us
 board: bk72xx
 ---
 
-[Amazon Search](https://www.amazon.com/s?k=ultrapro+WFD3001+dimmer)
-
 ## Notes
 
 The WFD3001 uses a BK7231N Wi-Fi chip (BK72xx family) with a secondary MCU that controls
@@ -44,15 +42,15 @@ the light is off).
 
 ## GPIO Pinout
 
-| Pin | Function                                              |
-| --- | ----------------------------------------------------- |
-| P6  | Reset button (behind wall plate, active LOW; hold 5 s = factory reset) |
-| P7  | Upper paddle button (active LOW)                      |
-| P8  | Lower paddle button (active LOW)                      |
-| P10 | UART RX (from secondary dimmer MCU)                   |
-| P11 | UART TX (to secondary dimmer MCU)                     |
-| P24 | Blue status LED (active HIGH)                         |
-| ADC3| 3-way companion switch sense (analog voltage divider) |
+| Pin  | Function                                                              |
+| ---- | --------------------------------------------------------------------- |
+| P6   | Reset button (behind wall plate, active LOW; hold 5 s = factory reset) |
+| P7   | Upper paddle button (active LOW)                                      |
+| P8   | Lower paddle button (active LOW)                                      |
+| P10  | UART RX (from secondary dimmer MCU)                                   |
+| P11  | UART TX (to secondary dimmer MCU)                                     |
+| P24  | Blue status LED (active HIGH)                                         |
+| ADC3 | 3-way companion switch sense (analog voltage divider)                 |
 
 ## Basic Configuration
 
@@ -88,7 +86,6 @@ time:
 
 ota:
   - platform: esphome
-  - platform: web_server
 
 wifi:
   ap: {}
@@ -102,8 +99,6 @@ wifi:
         effect: strobe
 
 captive_portal:
-
-web_server:
 
 # GPIO / Pin Mapping (BK7231N):
 # P7  - Toggle button (upper paddle)      — active LOW
@@ -120,12 +115,10 @@ uart:
   rx_pin: P10
 
 output:
-  #-------------- Blue Status LED --------------------------
   - id: blue_ledout
     platform: gpio
     pin: P24
 
-  #-------------- Main Light (UART to dimmer MCU) --------------------------
   - platform: template
     id: output_template
     type: float
@@ -135,7 +128,6 @@ output:
       - uart.write: !lambda return {0x65, 0xAA, 0x00, 0x01, 0x05, 0x00, 0x00, 0x00, (uint8_t)(state * 255), 0x00, (uint8_t)((277 + (uint8_t)(state * 255)) % 256)};
 
 light:
-  #-------------- Blue Status LED (on while light is off so switch is visible in the dark) --------------------------
   - platform: binary
     id: blue_led
     output: blue_ledout
@@ -143,7 +135,6 @@ light:
     effects:
       - strobe:
 
-  #-------------- Primary Dimmable Light --------------------------
   - platform: monochromatic
     name: "Light"
     id: light_primary
@@ -157,7 +148,6 @@ light:
         - light.turn_on: blue_led
 
 binary_sensor:
-  #-------------- Upper Paddle — single click toggles, hold dims up --------------------------
   - platform: gpio
     id: button_up
     pin:
@@ -190,7 +180,6 @@ binary_sensor:
                 transition_length: 0.1s
             - delay: 0.1s
 
-  #-------------- Lower Paddle — single click toggles, hold dims down --------------------------
   - platform: gpio
     id: button_down
     pin:
@@ -232,8 +221,6 @@ binary_sensor:
                     transition_length: 0.1s
                 - delay: 0.1s
 
-  #-------------- Reset Button (behind wall plate) --------------------------
-  # Hold 5 seconds to trigger factory reset
   - platform: gpio
     id: button_reset
     pin:
