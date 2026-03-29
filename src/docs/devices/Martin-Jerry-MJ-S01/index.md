@@ -6,13 +6,7 @@ standard: us
 board: esp8266
 ---
 
-[Amazon Search](https://www.amazon.com/s?k=martin+jerry+MJ-S01)
-
 ## Notes
-
-GPIO mapping decoded from Tasmota template (BASE:18 Sonoff Basic):
-
-`{"NAME":"MJ-S01 Switch","GPIO":[0,0,0,0,56,57,0,0,21,17,0,0,0],"FLAG":0,"BASE":18}`
 
 - Blue LED (GPIO4) mirrors relay state — on when relay is on
 - Red LED (GPIO5) is inverted — on when relay is off (power indicator)
@@ -59,22 +53,17 @@ time:
 
 ota:
   - platform: esphome
-  - platform: web_server
 
 wifi:
   ap: {}
 
 captive_portal:
 
-web_server:
-
-# GPIO Mapping decoded from Tasmota template (BASE:18 Sonoff Basic):
-# {"NAME":"MJ-S01 Switch","GPIO":[0,0,0,0,56,57,0,0,21,17,0,0,0],"FLAG":0,"BASE":18}
-#
-# GPIO4  - LedLink  (56) — Blue status LED, mirrors relay state (on when relay on)
-# GPIO5  - LedLinkI (57) — Red power LED, inverted (on when relay off)
-# GPIO12 - Relay1   (21) — Main relay output, active HIGH
-# GPIO13 - Button1  (17) — Physical button, active LOW
+# GPIO Pin Mapping:
+# GPIO4  - Blue status LED (on when relay is on)
+# GPIO5  - Red power LED, inverted (on when relay is off)
+# GPIO12 - Relay output, active HIGH
+# GPIO13 - Physical button, active LOW
 
 switch:
   - platform: gpio
