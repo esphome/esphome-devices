@@ -1,25 +1,27 @@
 ---
 title: Shelly 1 Gen4
-date-published: 2026-03-29
+date-published: 2026-03-30
 type: relay
 standard: global
 board: esp32
 ---
 
-# Shelly 1 Gen4
-
 ![Shelly 1 Gen4](shelly-1-gen4.webp)
 
-The **Shelly 1 Gen4** is a smart relay equipped with **Dry Contacts** (potential-free) and powered by the new ESP32-C6 chip.
+The **Shelly 1 Gen4** is a smart relay equipped with **Dry Contacts** (potential-free)
+and powered by the new ESP32-C6 chip.
 
-⚠️ **Important Note:** This is the standard Shelly 1 Gen4 model. It **DOES NOT** feature Power Metering (PM).
-Because it uses dry contacts, the relay is galvanically isolated from the power supply,
-making it ideal for automating garage doors, gates, boilers, or switching different voltages (AC or DC).
-If you need to measure energy consumption, you should look for the [Shelly 1PM Gen4](/devices/shelly-1pm-gen-4).
+⚠️ **Important Note:** This is the standard Shelly 1 Gen4 model. It **DOES NOT** feature Power
+Metering (PM). Because it uses dry contacts, the relay is galvanically isolated from the power
+supply, making it ideal for automating garage doors, gates, boilers, or switching different
+voltages (AC or DC). If you need to measure energy consumption, you should look for the
+[Shelly 1PM Gen4](/devices/shelly-1pm-gen-4).
 
 ## ESPHome Configuration
 
-Below is a complete ESPHome configuration for the Shelly 1 Gen4. It sets up the relay, the external switch input, the internal device button, the status LED, and the internal temperature sensor.
+Below is a complete ESPHome configuration for the Shelly 1 Gen4. It sets up the relay,
+the external switch input, the internal device button, the status LED, and the internal
+temperature sensor.
 
 ```yaml
 substitutions:
