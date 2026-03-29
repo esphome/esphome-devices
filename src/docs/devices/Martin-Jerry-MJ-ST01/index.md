@@ -6,20 +6,13 @@ standard: us
 board: esp8266
 ---
 
-[Amazon Search](https://www.amazon.com/s?k=martin+jerry+MJ-ST01+3+way)
-
 ## Notes
-
-GPIO mapping decoded from Tasmota template (BASE:18 Sonoff Basic):
-
-`{"NAME":"MJ 3Way Switch","GPIO":[255,255,255,255,52,53,0,0,21,9,157,255,0],"FLAG":0,"BASE":18}`
 
 This is the **smart** (master) unit in a 3-way switch pair. The companion (non-smart) switch
 connects to the traveler wires as usual. The smart unit's physical paddle is momentary
 (springs back after press), so only `on_press` is used for toggling.
 
-GPIO14 (function code 157) is present in the Tasmota template but its function is unknown;
-it may be a second/companion switch input. It is left unconfigured.
+GPIO14 function is unknown; it may be a second/companion switch input. It is left unconfigured.
 
 ## GPIO Pinout
 
@@ -63,27 +56,18 @@ time:
 
 ota:
   - platform: esphome
-  - platform: web_server
 
 wifi:
   ap: {}
 
 captive_portal:
 
-web_server:
-
-# GPIO Mapping decoded from Tasmota template (BASE:18 Sonoff Basic):
-# {"NAME":"MJ 3Way Switch","GPIO":[255,255,255,255,52,53,0,0,21,9,157,255,0],"FLAG":0,"BASE":18}
-#
-# GPIO4  - LedLink  (52)  — Blue status LED, mirrors relay state (on when relay on)
-# GPIO5  - LedLinkI (53)  — Red power LED, inverted (on when relay off)
-# GPIO12 - Relay1   (21)  — Main relay output, active HIGH
-# GPIO13 - Switch1  (9)   — Physical 3-way wall switch, latching rocker (active LOW)
-# GPIO14 -          (157) — Unknown function; possibly second/companion switch input
-#
-# The ST01's physical paddle is momentary (springs back after press).
-# on_press only is used — matching the S01 behavior. The companion
-# (non-smart) 3-way switch toggles via the active edge on the traveler.
+# GPIO Pin Mapping:
+# GPIO4  - Blue status LED (on when relay is on)
+# GPIO5  - Red power LED, inverted (on when relay is off)
+# GPIO12 - Relay output, active HIGH
+# GPIO13 - Physical 3-way wall switch, active LOW
+# GPIO14 - Unknown function; possibly second/companion switch input
 
 switch:
   - platform: gpio
