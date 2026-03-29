@@ -6,22 +6,9 @@ standard: us
 board: esp8266
 ---
 
-[Amazon Search](https://www.amazon.com/s?k=westek+in-wall+smart+switch)
-
 ## Notes
 
-GPIO mapping decoded from Tasmota template (BASE:18 Sonoff Basic, new format v8.2+):
-
-`{"NAME":"Westek In-Wall","GPIO":[0,0,0,0,544,0,0,0,224,32,33,0,0,0],"FLAG":0,"BASE":18}`
-
-New-format function codes differ from the old Tasmota format:
-
-- `32` = Button1 (active LOW, INPUT_PULLUP)
-- `33` = Button2 (active LOW, INPUT_PULLUP)
-- `224` = Relay1 (active HIGH output)
-- `544` = 512 + 32 (512 = inverted flag; base function = Button1)
-
-GPIO4 (code 544) is used as a status LED across similar MJ S01/ST01 devices.
+GPIO4 is used as a status LED — the same GPIO used for status LEDs across similar MJ S01/ST01 devices.
 If the LED state appears inverted, toggle `inverted: true` on the status LED output.
 
 This switch has two paddle buttons (upper and lower), both of which toggle the relay.
@@ -67,31 +54,17 @@ time:
 
 ota:
   - platform: esphome
-  - platform: web_server
 
 wifi:
   ap: {}
 
 captive_portal:
 
-web_server:
-
-# GPIO Mapping decoded from Tasmota template (BASE:18 Sonoff Basic, NEW format v8.2+):
-# {"NAME":"Westek In-Wall","GPIO":[0,0,0,0,544,0,0,0,224,32,33,0,0,0],"FLAG":0,"BASE":18}
-#
-# New format function codes (different from old format):
-#   32  = Button1   (active LOW, INPUT_PULLUP)
-#   33  = Button2   (active LOW, INPUT_PULLUP)
-#  224  = Relay1    (active HIGH output)
-#  544  = 512 + 32  (512 = inverted flag in new format; base function = Button1)
-#         On GPIO4 this pin is most likely a status LED — same GPIO used for
-#         status LEDs across MJ S01/ST01. If the LED is on when it should be
-#         off (or vice versa), toggle inverted: on the output below.
-#
-# GPIO4  - 544 — Status LED (active HIGH assumed; adjust inverted if needed)
-# GPIO12 - 224 — Relay1, main relay output, active HIGH
-# GPIO13 -  32 — Upper paddle button (active LOW, INPUT_PULLUP)
-# GPIO14 -  33 — Lower paddle button (active LOW, INPUT_PULLUP)
+# GPIO Pin Mapping:
+# GPIO4  - Status LED (active HIGH; toggle inverted if LED is on when it should be off)
+# GPIO12 - Relay output, active HIGH
+# GPIO13 - Upper paddle button, active LOW
+# GPIO14 - Lower paddle button, active LOW
 
 switch:
   - platform: gpio
