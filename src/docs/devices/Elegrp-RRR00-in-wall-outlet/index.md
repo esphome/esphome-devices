@@ -88,7 +88,6 @@ api:
 
 ota:
   - platform: esphome
-  - platform: web_server
 
 wifi:
   ap: {}
@@ -98,10 +97,6 @@ captive_portal:
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-web_server:
-  port: 80
-  version: 3
 
 # Status LED - Red LED (P20, incorrectly labeled CEN on PCB)
 status_led:
