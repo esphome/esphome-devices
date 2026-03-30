@@ -147,14 +147,16 @@ esphome:
         - switch.turn_on: TempSens_EN
 
   on_shutdown:
-    then:
-      - switch.turn_off: ultrasonic_en
-      - output.turn_off: LED_pwm
-      - if:
-          condition:
-            - switch.is_on: deep_sleep_trig
-          then:
-            - switch.turn_on: sleep_1hr
+    - priority: 800
+      then:
+        - if:
+            condition:
+              - switch.is_on: deep_sleep_trig
+            then:
+              - lambda: 'delay(50);'
+              - switch.turn_on: Done
+
+
 
 esp8266:
   board: esp_wroom_02
@@ -291,6 +293,13 @@ switch:
       - output.set_level:
           id: LED_pwm
           level: ${Auto_Sleep_On_dc}
+
+  - platform: gpio
+    pin: GPIO13 # Done Signal to TPL5111
+    id: Done # Use Deep_Sleep_EN
+    entity_category: "config"
+    disabled_by_default: true
+    name: "Done"
 
   - platform: template
     name: "Variable Check"
