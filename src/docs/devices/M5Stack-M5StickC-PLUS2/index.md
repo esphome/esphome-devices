@@ -197,8 +197,8 @@ display:
 # note: Audio hasn't been tested
 i2s_audio:
   id: bus_i2s
-  i2s_lrclk_pin: G26
-  i2s_bclk_pin: G0
+  i2s_lrclk_pin: GPIO26
+  i2s_bclk_pin: GPIO0
 
 microphone:
   - platform: i2s_audio
