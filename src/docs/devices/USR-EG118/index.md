@@ -26,6 +26,7 @@ It uses a ESP32-WROVER-IE-N4R8 as it's main processor.
 ### External interfaces
 
 The module has the following external interfaces:
+
 - Ethernet (IP101 chip)
 - Combined RS232/485 port
 - 1x Digital input
@@ -37,19 +38,19 @@ The module has the following external interfaces:
 IO modules can be connected to the main module via a connector on the side.
 This connector supplies power to the IO modules, has a UART TX pin for configuration, and RS485/Modbus for the actual IO control.
 
-On the UART TX pin, the following 12 configuration bytes need te be send (@9600 baud):
-1: 0xDB
-2: This device address, usually 0x00 for the main module.
-3: Next device address, usually 0x01 for the first IO expansion module.
-4-7: Baudrate as 32 bit value, officially supported values:
-  4800: [0x00, 0x00, 0x12, 0xC0]
-  9600: [0x00, 0x00, 0x25, 0x80]
-  115200: [0x00, 0x01, 0xC2, 0x00]
-  230400: [0x00, 0x03, 0x84, 0x00]
-8: Data bits, always 8
-9: Stop bits, usually 1
-10: Parity, 0: None, 1: Odd, 2: Even
-11-12: CRC16/MODBUS
+On the UART TX pin, the following 12 configuration bytes need te be send (@9600 baud):  
+> 1: Always 0xDB  
+> 2: This device address, usually 0x00 for the main module.  
+> 3: Next device address, usually 0x01 for the first IO expansion module.  
+> 4-7: Baudrate as 32 bit value, officially supported values:  
+>> 4800: [0x00, 0x00, 0x12, 0xC0]  
+>> 9600: [0x00, 0x00, 0x25, 0x80]  
+>> 115200: [0x00, 0x01, 0xC2, 0x00]  
+>> 230400: [0x00, 0x03, 0x84, 0x00]  
+> 8: Data bits, always 8  
+> 9: Stop bits, usually 1  
+> 10: Parity, 0: None, 1: Odd, 2: Even  
+> 11-12: CRC16/MODBUS  
 
 Each IO module increments bytes 2 and 3, calculates the CRC16, and sends its data to the next module.
 The IO modules can be controlled with the [ESPHome Modbus Controller Component](https://esphome.io/components/modbus_controller/).
@@ -158,7 +159,7 @@ interval:
     then:
       - uart.write: 
           id: PUSR_expansion_config
-          data: [0xDB, 0x00, 0x01, 0x00, 0x01 0xC2, 0x00, 0x08, 0x01, 0x00, 0x3C, 0xD5]
+          data: [0xDB, 0x00, 0x01, 0x00, 0x01, 0xC2, 0x00, 0x08, 0x01, 0x00, 0x3C, 0xD5]
 
 modbus:
   - uart_id: PUSR_expansion_rs485
