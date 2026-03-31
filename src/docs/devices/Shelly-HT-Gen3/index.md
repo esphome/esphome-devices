@@ -12,37 +12,45 @@ difficulty: 4
 ![Product Image](product.png "Product Image")
 
 Battery-powered WiFi temperature/humidity sensor with a segment E-Paper display (UC8119 controller).
-Uses an ESP32-C3 with 8MB flash, a Sensirion SHT31 sensor, and a UltraChip UC8119 E-Paper segment display with 91 active segments, 10 digits and 13 icons.
+Uses an ESP32-C3 with 8MB flash, a Sensirion SHT31 sensor, and a UltraChip UC8119
+E-Paper segment display with 91 active segments, 10 digits and 13 icons.
 
 *Requires custom ESPHome external components for the UC8119 display and Shelly H&T display layer.*
 
+## Product Images
+
+![PCB Front](PCB_Front.png "PCB Front")
+![PCB Back](PCB_Back.png "PCB Back")
+
 ## GPIO Pinout
 
-| GPIO   | Function             | Notes                                                  |
-|--------|----------------------|--------------------------------------------------------|
-| GPIO0  | Button               | XTAL_32K_P, external pull-up, deep sleep wakeup        |
-| GPIO1  | I2C SDA              | Shared bus (SHT31 + UC8119), external pull-up on FPC   |
-| GPIO2  | Power Rail ADC       | Reads regulated 3.3V rail (not raw battery voltage)    |
-| GPIO3  | I2C SCL              | 100kHz, external pull-up on FPC                        |
-| GPIO4  | Battery ADC          | Via voltage divider (÷3), requires GPIO18 enable       |
-| GPIO5  | Battery Presence     | HIGH when batteries are connected                      |
-| GPIO6  | UC8119 BUSY_N        | LOW=busy, external pull-up on FPC                      |
-| GPIO7  | UC8119 RESET_N       | Active LOW, 10ms pulse                                 |                        
-| GPIO10 | UC8119 Enable        | Display power gate, HIGH=on                            |
-| GPIO18 | Battery Power Enable | Enables power-path for battery ADC measurement         |
+| GPIO | Function | Notes |
+|--------|----------------|-----------------------------------------------|
+| GPIO0 | Button | XTAL_32K_P, ext. pull-up, deep sleep wakeup |
+| GPIO1 | I2C SDA | Shared bus (SHT31 + UC8119), ext. pull-up |
+| GPIO2 | Power Rail ADC | Reads regulated 3.3V rail, not battery |
+| GPIO3 | I2C SCL | 100kHz, external pull-up on FPC |
+| GPIO4 | Battery ADC | Via voltage divider (÷3), GPIO18 enable |
+| GPIO5 | Battery Presence | HIGH when batteries are connected |
+| GPIO6 | UC8119 BUSY_N | LOW=busy, external pull-up on FPC |
+| GPIO7 | UC8119 RESET_N | Active LOW, 10ms pulse |
+| GPIO8 | USB Detect | HIGH=USB connected, LOW=battery |
+| GPIO10 | UC8119 Enable | Display power gate, HIGH=on |
+| GPIO18 | Batt Power En | Enables power-path for battery ADC |
 
 ## I2C Devices
 
-| Device | Address | Function                     |
-|--------|---------|------------------------------|
-| SHT31  | 0x44    | Temperature & Humidity       |
-| UC8119 | 0x50    | E-Paper Segment Display      |
+| Device | Address | Function |
+|--------|---------|--------------------------|
+| SHT31 | 0x44 | Temperature & Humidity |
+| UC8119 | 0x50 | E-Paper Segment Display |
 
 ## Serial Pinout (PCB Test Pads)
 
 ![UART Pinout](PCB_Pinout.png "UART Pinout")
 
-The UART pads are bare test points on the PCB (no header installed). Use pogo pins, test clips, or solder temporary wires for flashing.
+The UART pads are bare test points on the PCB (no header installed).
+Use pogo pins, test clips, or solder temporary wires for flashing.
 
 | Pad | Function       |
 |-----|----------------|
@@ -400,25 +408,24 @@ button:
 
 The UC8119 segment display has the following layout (all segments shown):
 
-```
-┌──────────────────────────────────────────────┐
-│                                              │
-│  88:88              ▲  ▐████▌                │
-│  T1 T2 : T3 T4    Arrow Battery              │
-│                                              │
-│                        ┌───┐                 │
-│  88.8                  │ 8 │  °              │
-│  D1 D2 . D3            └───┘  Unit           │
-│  Temperature           UNIT  (°C/°F)         │
-│                                              │
-│  ❄  ♨  ❀  ☰  📅                           │
-│  Frost Heat Vent  ?  Calendar                │
-│                                              │
-│  ▐▌▐▌▐▌▐▌  ✱  🌐      88 %                  │
-│  Signal    BT Globe    H1 H2                 │
-│                        Humidity              │
-│                                              │
-└──────────────────────────────────────────────┘
+```text
++--------------------------------------------+
+|                                            |
+|  88:88            Arrow  Battery           |
+|  T1 T2 : T3 T4     ^    [||||]             |
+|                                            |
+|  88.8              [8] °                   |
+|  D1 D2 . D3       UNIT (C/F)               |
+|  Temperature                               |
+|                                            |
+|  Frost Heat Vent  ?  Calendar              |
+|   *     ~    @    =    #                   |
+|                                            |
+|  Signal  BT  Globe      88 %               |
+|  ||||    *    @         H1 H2              |
+|                         Humidity           |
+|                                            |
++--------------------------------------------+
 ```
 
 **Zones:**
@@ -426,40 +433,44 @@ The UC8119 segment display has the following layout (all segments shown):
 | Zone | Digits | Function |
 |------|--------|----------|
 | Top left | T1 T2 : T3 T4 | Clock (HH:MM) |
-| Top right | Arrow + Battery | Arrow icon, 5-segment battery |
+| Top right | Arrow + Battery | Arrow, 5-segment battery |
 | Center left | D1 D2 . D3 | Temperature (XX.X) |
-| Center right | UNIT | °C or °F (small digit + degree symbol) |
-| Icon row 1 | ❄ ♨ ❀ ☰ 📅 | Frost, Heating, Ventilator, ?, Calendar |
-| Icon row 2 | Signal, BT, Globe | WiFi bars, Bluetooth, Globe |
+| Center right | UNIT | °C/°F (small digit + °) |
+| Icon row 1 | ❄ ♨ ❀ ☰ 📅 | Frost, Heat, Vent, ?, Cal |
+| Icon row 2 | Signal, BT, Globe | WiFi, Bluetooth, Globe |
 | Bottom right | H1 H2 % | Humidity (XX%) |
 
 ## Battery Measurement
 
-The battery voltage is measured via GPIO4 (ADC1) through a voltage divider (÷3). The measurement circuit requires GPIO18 to be set HIGH to enable the power path before reading. The component handles this automatically via the `battery_power_enable` output.
+The battery voltage is measured via GPIO4 (ADC1) through a voltage
+divider (÷3). The measurement circuit requires GPIO18 to be set HIGH
+to enable the power path before reading. The component handles this
+automatically via the `battery_power_enable` output.
 
 - **4× AA (LR6):** 4.0V (empty) to 6.4V (fresh)
 - **ADC range:** ~1.33V to ~2.13V after divider
-- **GPIO5:** Battery presence detection (HIGH when batteries connected)
+- **GPIO5:** Battery presence (HIGH when connected)
 - **GPIO8:** USB detection (HIGH when USB connected)
 
 ## Deep Sleep Behavior
 
-The component auto-detects deep sleep mode from the YAML configuration:
+The component auto-detects deep sleep mode from the YAML config:
 
-- **WiFi wake** (every Nth cycle): Full boot with WiFi, HA time sync, sensor publish (~5s)
-- **Non-WiFi wake** (other cycles): WiFi disabled, RTC time + sensor read, display update (~1.5s)
-- **USB connected:** Deep sleep prevented automatically, always-on mode
-- **Button press (GPIO0):** Wakes from deep sleep
+- **WiFi wake** (every Nth cycle): Full boot, HA time sync (~5s)
+- **Non-WiFi wake** (other cycles): No WiFi, RTC time, fast (~1.5s)
+- **USB connected:** Deep sleep prevented, always-on mode
+- **Button press (GPIO0):** Wakes device from deep sleep
 
-The `on_ready` trigger fires after non-WiFi display updates, allowing the YAML to control when to enter deep sleep. The `on_shutdown` handler saves the framebuffer to RTC memory, enabling partial refresh on the next wake (no white flash).
+The `on_ready` trigger fires after non-WiFi display updates, allowing
+the YAML to control when to enter deep sleep. The `on_shutdown` handler
+saves the framebuffer to RTC memory, enabling partial refresh on the
+next wake (no white flash).
 
 ## Known Limitations
 
-- **OTA from Shelly firmware not possible:** ECDSA signature verification prevents flashing ESPHome over the air from stock firmware. UART flashing required.
-- **Battery percentage accuracy:** The voltage-to-percentage mapping may need calibration depending on battery chemistry and temperature. The default range (4.0V–6.0V) is a rough estimate for 4× AA alkaline batteries.
-
-## References
-
-- [UC8119 ESPHome Component](https://github.com/oxynatOr/esphome-uc8119)
-- [Shelly H&T Display Component](https://github.com/oxynatOr/esphome-shelly_ht_gen3)
-- [Hardware Reverse Engineering Documentation](https://github.com/oxynatOr/esphome-shelly_ht_gen3/blob/main/HARDWARE.md)
+- **OTA from Shelly firmware not possible:** ECDSA signature
+  verification prevents flashing ESPHome OTA from stock firmware.
+  UART flashing required.
+- **Battery percentage accuracy:** The voltage-to-percentage mapping
+  may need calibration for your battery chemistry and temperature.
+  Default range (4.0V–6.0V) is for 4× AA alkaline batteries.
