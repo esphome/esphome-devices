@@ -15,7 +15,7 @@ The Yozisital Surge Protector has a total of eight outlets, with six outlets ind
 two outlets and four USB ports are not software switchable.
 The on\off toggle button controls power to the whole board while the connect button (with default firmware) has the dual
 function of toggling power to all software switchable plugs and placing the integrated chip into pairing mode.
-The device is manufactured under the brand name _**Yozisital**_ and can be found on [Amazon](https://amzn.to/4qdj9yZ) as
+The device is manufactured under the brand name _**Yozisital**_ and can be found on [Amazon](https://www.amazon.com/dp/B0DZWLRKGW) as
 well as other various sites. (ASIN: B0DZWLRKGW)
 
 Internally the strip contains a CB2S module, which uses the BK7231N controller.
