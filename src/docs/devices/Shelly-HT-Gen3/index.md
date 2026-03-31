@@ -17,11 +17,6 @@ E-Paper segment display with 91 active segments, 10 digits and 13 icons.
 
 *Requires custom ESPHome external components for the UC8119 display and Shelly H&T display layer.*
 
-## Product Images
-
-![PCB Front](PCB_Front.png "PCB Front")
-![PCB Back](PCB_Back.png "PCB Back")
-
 ## GPIO Pinout
 
 | GPIO | Function | Notes |
