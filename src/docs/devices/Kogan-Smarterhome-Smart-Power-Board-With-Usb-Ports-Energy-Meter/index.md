@@ -37,6 +37,26 @@ Attach 3.3v, GND, TX and RX to your serial adapter and tap CEN to GND while atte
 ## Basic Config
 
 ```yaml
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  manual_ip:
+    static_ip: 192.168.x.xx
+    gateway: 192.168.x.x
+    subnet: 255.255.255.0
+
+# Enable logging
+logger:
+
+# Enable Web Server (optional)
+web_server:
+  port: 80
+  
+# Enable Home Assistant API
+api:
+
+ota:
+
 esphome:
   name: powerboard
   platformio_options:
