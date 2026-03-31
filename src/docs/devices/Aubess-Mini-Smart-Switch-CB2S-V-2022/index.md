@@ -32,9 +32,13 @@ Also on Aliexpress.
 
 ## UART Pinout
 
+VERY IMPORTANT INFO:
+Before programing, you must desolder the pin RX1 from the main board (is not necessary to desold all the CB2S board)
+
 !\[UART PINOUT Image 1](./Aubess-Mini-Smart-Switch-V2022-Pinout1.jpg "Pinout 1")
 
 !\[UART PINOUT Image 2](./Aubess-Mini-Smart-Switch-V2022-Pinout2.jpg "Pinout 2")
+
 
 ## Basic Configuration
 
