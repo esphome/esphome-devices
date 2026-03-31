@@ -12,13 +12,16 @@ board: bk72xx
 
 ## Programming Notes
 
-**Warning** This board is mains powered. Do not do ANYTHING while the board is powered. Power the board via the 3.3v and GND pin and do not connect the board to main until you are fully disconnected and the board is fully reassembled.
+**Warning** This board is mains powered. Do not do ANYTHING while the board is powered. 
+Power the board via the 3.3v and GND pin and do not connect the board to main until you are fully disconnected and the board is fully reassembled.
 
-To program the board you will need to disasseble the powerboard and solder jumper cables to the CEN, TX, RX, 3.3v and GND pins. You will also need to bridge the CSN pin on the back of the module to GND (e.g back of the chip) to put the board into programming mode.
+To program the board you will need to disasseble the powerboard and solder jumper cables to the CEN, TX, RX, 3.3v and GND pins.
+You will also need to bridge the CSN pin on the back of the module to GND (e.g back of the chip) to put the board into programming mode.
 
 ![pins go where](kogan-pins-where.png "Pins go where")
 
-Attach 3.3v, GND, TX and RX to your serial adapter and tap CEN to GND while attempting to flash the board in lchiptool. It may take a couple attempts to get the timing right, but you should see the board flash and then disconnect the CEN-GND bridge after flashing is complete.
+Attach 3.3v, GND, TX and RX to your serial adapter and tap CEN to GND while attempting to flash the board in lchiptool.
+It may take a couple attempts to get the timing right, but you should see the board flash and then disconnect the CEN-GND bridge after flashing is complete.
 
 ## GPIO Pinout
 
