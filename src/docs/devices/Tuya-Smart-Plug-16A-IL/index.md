@@ -10,7 +10,7 @@ difficulty: 4
 ## General Notes
 
 While a specifc model number was not specificed on the exterior, `a8tyv1.3` is written on the board inside.
-These plugs are available in various models, with or without energy monitoring and USB ports. They come in both 16A and 20A versions.
+These plugs are available in various models, with or without energy monitoring and USB ports.
 
 The 16A smart plug with energy monitor is _not_ flashable using tuya-cloudcutter. The main module version on smart life
 app is V1.1.23, which is on the known patched firmware list.
@@ -27,17 +27,16 @@ Some dissasembly and soldering is requried in order to flash the device via UART
 There are three external Phillips screws that must be removed to open the device (see image above).
 Additionally, two internal screws secure the board to the plastic casing and must also be removed.
 
-
 ![Plug inner screws](tuya-smart-plug-16A-IL-dissasemble.png)
 
 The CB2S Wi-Fi module pins are exposed on the underside of the board and are clearly labeled.
 
 ![CB2S Flashing Pins](tuya-smart-plug-16A-IL-breakout.png)
 
-Connect the pins to a UART TTL adapter, then hold the CEN pin to GND for a few seconds while flashing the ESPHome firmware using `itchiptool`.
+Connect the pins to a UART TTL adapter, then hold the CEN pin to GND for a few seconds while
+flashing the ESPHome firmware using `itchiptool`.
 
 ![Itchiptool view](tuya-smart-plug-16A-IL-flasher.png)
-
 
 ## GPIO Pinout
 
