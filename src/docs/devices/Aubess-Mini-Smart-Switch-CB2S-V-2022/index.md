@@ -7,7 +7,7 @@ board: bk72xx
 pcb: CB2S
 ---
 
-![Product Image](./aubess-Mini-Smart-Switch-V2022-Product-image.jpg)
+![Product Image](./Aubess-Mini-Smart-Switch-V2022-Product-image.jpg)
 
 ![General View](./Aubess-Mini-Smart-Switch-V2022-General-View.jpg)
 
