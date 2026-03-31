@@ -19,14 +19,16 @@ difficulty: 2
 
 ## Product description
 
-This devices sold as 'Arduino Open Source IoT Gateway' can be easy flashed to ESPHome.
-Thanks to the expansion slot, the base module can easily be expanded with multiple IO modules.
-It uses a ESP32-WROVER-IE-N4R8 as it's main processor.
+This devices sold as 'Arduino Open Source IoT Gateway' can be easy flashed to ESPHome.  
+Thanks to the expansion slot, the base module can easily be expanded with multiple IO modules.  
+It uses a ESP32-WROVER-IE-N4R8 as it's main processor.  
 
 ### External interfaces
 
 The module has the following external interfaces:
 
+- 9-36V DC Power Supply input
+- External WiFi/Bluetooth antenna
 - Ethernet (IP101 chip)
 - Combined RS232/485 port
 - 1x Digital input
@@ -35,39 +37,42 @@ The module has the following external interfaces:
 
 ### IO expansion modules
 
-IO modules can be connected to the main module via a connector on the side.
-This connector supplies power to the IO modules, has a UART TX pin for configuration, and RS485/Modbus for the actual IO control.
+IO modules can be connected to the main module via a connector on the side.  
+This connector supplies power to the IO modules, one UART pin for configuration, and RS485/Modbus for the actual IO control.
 
 On the UART TX pin, the following 12 configuration bytes need te be send (@9600 baud):  
-> 1: Always 0xDB  
-> 2: This device address, usually 0x00 for the main module.  
-> 3: Next device address, usually 0x01 for the first IO expansion module.  
-> 4-7: Baudrate as 32 bit value, officially supported values:  
->> 4800: [0x00, 0x00, 0x12, 0xC0]  
->> 9600: [0x00, 0x00, 0x25, 0x80]  
->> 115200: [0x00, 0x01, 0xC2, 0x00]  
->> 230400: [0x00, 0x03, 0x84, 0x00]  
-> 8: Data bits, always 8  
-> 9: Stop bits, usually 1  
-> 10: Parity, 0: None, 1: Odd, 2: Even  
-> 11-12: CRC16/MODBUS  
+1. Always 0xDB  
+2. This device address, usually 0x00 for the main module.  
+3. Next device address, usually 0x01 for the first IO expansion module.  
+4-7. Baudrate as 32 bit value, officially supported values:  
+    - 4800: [0x00, 0x00, 0x12, 0xC0]  
+    - 9600: [0x00, 0x00, 0x25, 0x80]  
+    - 115200: [0x00, 0x01, 0xC2, 0x00]  
+    - 230400: [0x00, 0x03, 0x84, 0x00]  
 
-Each IO module increments bytes 2 and 3, calculates the CRC16, and sends its data to the next module.
-The IO modules can be controlled with the [ESPHome Modbus Controller Component](https://esphome.io/components/modbus_controller/).
+8. Data bits, always 8  
+9. Stop bits, usually 1  
+10. Parity, 0: None, 1: Odd, 2: Even  
+11-12. CRC16/MODBUS  
+
+Each IO module increments bytes 2 and 3, calculates the CRC16, and sends its data to the next module.  
+The IO modules can be controlled with the [ESPHome Modbus Controller Component](https://esphome.io/components/modbus_controller/).  
 Follow the [IO module manual](https://www.pusr.com/support/download/User-Manual-USR-IO0080-8000-0440-4040-0404-Manual.html) for correct modbus registers and settings.
 
 ### Watchdog timer
 
-A SGM820B supervisory IC is present that resets the ESP32 in case of undervoltage and also features a watchdog timer. It requires a regular input pulse from the ESP32 to prevent a reset from being performed. 
-Without a signal, the watchdog timer will perform a reset after approximately 70-80 seconds.
+A SGM820B supervisory IC is present that resets the ESP32 in case of undervoltage and also features a watchdog timer.
+It requires a regular input pulse from the ESP32 to prevent a reset from being performed.  
+Without a signal, the watchdog timer will perform a reset after approximately 70-80 seconds.  
 Since the watchdog trigger pin is shared with the UART0 RX pin, it is important to disable UART logging and don't leave the USB cable disconnected.
 
 ### Flashing
 
-A USB cable is supplied from the factory to flash the firmware. This is not an ordinary USB cable, but a USB to UART adapter. 
-To flash firmware, the 'reload' button must be pressed during power-on.
-After releasing the button, you have approximately 70 seconds to start the firmware update before the watchdog timer triggers a reset.
-If the programming cable is connected, the watchdog timer is triggered by RX data and not by the ESP32. Therefore it is important to disconnect the cable after programming.
+A USB cable is supplied from the factory to flash the firmware. This is not an ordinary USB cable, but a USB to UART adapter.  
+To flash firmware, the 'reload' button must be pressed during power-on.  
+After releasing the button, you have approximately 70 seconds to start the firmware update before the watchdog timer triggers a reset.  
+If the programming cable is connected, the watchdog timer is triggered by RX data and not by the ESP32.
+Therefore it is important to disconnect the cable after programming.
 
 ### GPIO Pinout
 
