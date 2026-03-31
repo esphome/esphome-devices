@@ -7,10 +7,9 @@ board: bk72xx
 pcb: CB2S
 ---
 
+![Product Image](./aubess-Mini-Smart-Switch-V2022-Product-image.jpg)
 
-!\[Product Image](./Aubess-Mini-Smart-Switch-V2022-Product-image.jpg "Product Image")
-
-!\[General View](./Aubess-Mini-Smart-Switch-V2022-General-View.jpg "General View")
+![General View](./Aubess-Mini-Smart-Switch-V2022-General-View.jpg)
 
 
 Maker: [https://aubess.net/](https://aubess.net/)
@@ -28,16 +27,16 @@ Also on Aliexpress.
 
 ## Internals
 
-!\[Internals Image](./Aubess-Mini-Smart-Switch-V2022-bottom.jpg "Bottom")
+![Internals Image](./Aubess-Mini-Smart-Switch-V2022-bottom.jpg)
 
 ## UART Pinout
 
 VERY IMPORTANT INFO:
 Before programing, you must desolder the pin RX1 from the main board (is not necessary to desold all the CB2S board)
 
-!\[UART PINOUT Image 1](./Aubess-Mini-Smart-Switch-V2022-Pinout1.jpg "Pinout 1")
+![UART PINOUT Image 1](./Aubess-Mini-Smart-Switch-V2022-Pinout1.jpg)
 
-!\[UART PINOUT Image 2](./Aubess-Mini-Smart-Switch-V2022-Pinout2.jpg "Pinout 2")
+![UART PINOUT Image 2](./Aubess-Mini-Smart-Switch-V2022-Pinout2.jpg)
 
 
 ## Basic Configuration
