@@ -7,10 +7,15 @@ board: esp32
 difficulty: 2
 ---
 
-The Pill by Shelly (S3SN-0U53X) is a compact multi-purpose low-voltage Wi-Fi & Bluetooth sensor hub powered by 5V via USB-C. It features 3 configurable GPIO pins exposed through a Micro-USB output connector, supporting DS18B20 temperature probes, DHT22 sensors, analog voltage measurement (0-2.5V built-in, 0-30V with add-on), digital I/O, and I2C peripherals. It measures just 26 x 20 x 8.5 mm and weighs 3 grams.
+The Pill by Shelly (S3SN-0U53X) is a compact multi-purpose low-voltage Wi-Fi & Bluetooth sensor hub powered by 5V via USB-C.
+It features 3 configurable GPIO pins exposed through a Micro-USB output connector, supporting DS18B20 temperature probes,
+DHT22 sensors, analog voltage measurement (0-2.5V built-in, 0-30V with add-on), 
+digital I/O, and I2C peripherals. It measures just 26 x 20 x 8.5 mm and weighs 3 grams.
 
-The device uses an ESP32-C3 (ESP-Shelly-C38F) with 8 MB embedded flash. The top USB-C connector provides power and native USB-SERIAL-JTAG for flashing. The bottom Micro-USB connector is NOT a USB data port -- it is repurposed as a compact 5-pin GPIO connector for sensor and actuator connections.
+The device uses an ESP32-C3 (ESP-Shelly-C38F) with 8 MB embedded flash. 
+The top USB-C connector provides power and native USB-SERIAL-JTAG for flashing. 
 
+The bottom Micro-USB connector is NOT a USB data port -- it is repurposed as a compact 5-pin GPIO connector for sensor and actuator connections.
 
 
 ![The Pill by Shelly](shelly-pill.png "The Pill by Shelly")
@@ -50,11 +55,13 @@ Shelly offers plug-in accessories that connect via the Micro-USB sensor port. Al
 | IO3      | Pin 4 (ID)    | **GPIO6** | Digital I/O only (no ADC)                         |
 | GND      | Pin 5 (GND)   | --        | Ground reference                                  |
 
-With the 5-Terminal Add-on or a custom Micro-USB breakout, you can also attach I2C sensors (e.g. BME280, BH1750) using IO1/GPIO4 (SDA) + IO2/GPIO3 (SCL), or UART devices using any two of the three I/O terminals.
+With the 5-Terminal Add-on or a custom Micro-USB breakout, you can also attach I2C sensors (e.g. BME280, BH1750) using IO1/GPIO4 (SDA) + IO2/GPIO3 (SCL), 
+or UART devices using any two of the three I/O terminals.
 
 ## Flashing
 
-This device can be flashed directly over the top USB-C connector using the ESP32-C3's native USB-SERIAL-JTAG interface. No external UART adapter or soldering is needed.
+This device can be flashed directly over the top USB-C connector using the ESP32-C3's native USB-SERIAL-JTAG interface. 
+No external UART adapter or soldering is needed.
 
 1. Connect the USB-C cable to your computer.
 2. Open [https://web.esphome.io/](https://web.esphome.io/) and click **Connect**.
