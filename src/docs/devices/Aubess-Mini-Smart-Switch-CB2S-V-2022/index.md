@@ -11,7 +11,6 @@ pcb: CB2S
 
 ![General View](./Aubess-Mini-Smart-Switch-V2022-General-View.jpg)
 
-
 Maker: [https://aubess.net/](https://aubess.net/)
 
 Also on Aliexpress.
@@ -37,7 +36,6 @@ Before programing, you must desolder the pin RX1 from the main board (is not nec
 ![UART PINOUT Image 1](./Aubess-Mini-Smart-Switch-V2022-Pinout1.jpg)
 
 ![UART PINOUT Image 2](./Aubess-Mini-Smart-Switch-V2022-Pinout2.jpg)
-
 
 ## Basic Configuration
 
@@ -148,4 +146,3 @@ text\_sensor:
     ssid:
       name: "Connected SSID"
 ```
-
