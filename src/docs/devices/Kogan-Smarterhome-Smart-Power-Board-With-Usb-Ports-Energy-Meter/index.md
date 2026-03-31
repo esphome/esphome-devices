@@ -13,27 +13,27 @@ board: bk72xx
 ## Programming Notes
 
 **Warning** This board is mains powered. Do not do ANYTHING while the board is powered. 
-Power the board via the 3.3v and GND pin and do not connect the board to main until you are fully disconnected and the board is fully reassembled.
+Power the board via the 3.3v and GND pin and do not connect the board to the mains until you are fully disconnected and the board is fully reassembled.
 
-To program the board you will need to disasseble the powerboard and solder jumper cables to the CEN, TX, RX, 3.3v and GND pins.
+To program the board you will need to disassemble the powerboard and solder jumper cables to the CEN, TX, RX, 3.3v and GND pins.
 You will also need to bridge the CSN pin on the back of the module to GND (e.g back of the chip) to put the board into programming mode.
 
 ![pins go where](kogan-pins-where.png "Pins go where")
 
-Attach 3.3v, GND, TX and RX to your serial adapter and tap CEN to GND while attempting to flash the board in lchiptool.
+Attach 3.3v, GND, TX and RX to your serial adapter and tap CEN to GND while attempting to flash the board in ltchiptool.
 It may take a couple attempts to get the timing right, but you should see the board flash and then disconnect the CEN-GND bridge after flashing is complete.
 
 ## GPIO Pinout
 
-| Pin  | Function                     |
-|------|------------------------------|
-| TX1  | BL0942 UART TX               |
-| RX1  | BL0942 UART RX               |
-| PWM0 | Port 1 relay                 |
-| PWM1 | Port 2 relay                 |
-| PWM2 | Port 3 relay                 |
-| PWM4 | Push button                  |
-| PWM5 | Status LED (inverted)  |
+| Pin       | Function                     |
+|-----------|------------------------------|
+| P9 (TX1)  | BL0942 UART TX               |
+| P10 (RX1) | BL0942 UART RX               |
+| P6 (PWM0) | Port 1 relay                 |
+| P7 (PWM1) | Port 2 relay                 |
+| P26(PWM2) | Port 3 relay                 |
+| P24(PWM4) | Push button                  |
+| P8 (PWM5) | Status LED (inverted)        |
 
 **Note:** The button and LED are not configured to do anything in this configuration, but they are included for completeness.
 
@@ -51,10 +51,6 @@ wifi:
 # Enable logging
 logger:
 
-# Enable Web Server (optional)
-web_server:
-  port: 80
-  
 # Enable Home Assistant API
 api:
 
