@@ -42,7 +42,7 @@ All are compatible with ESPHome using the GPIO mapping above.
 
 - **5-Terminal Add-on** -- Exposes all 3 GPIOs + 5V + GND on screw terminals. Ideal for custom wiring, I2C sensors,
 and UART devices.
-- **SSR Add-on** -- Dual-channel solid-state relay (30V/300mA). 
+- **SSR Add-on** -- Dual-channel solid-state relay (30V/300mA).
 LOAD1 and LOAD2 are driven internally via IO1 + IO2, IO3 (GPIO6) remains free as digital I/O.
 - **Analog 0-30V Add-on** -- Voltage divider on IO1 (GPIO4), use `multiply: 12.0` filter in ESPHome.
 - **DS18B20 3.5mm cable** -- Temperature probe via 1-Wire on IO1 (GPIO4), included in box.
@@ -58,13 +58,13 @@ LOAD1 and LOAD2 are driven internally via IO1 + IO2, IO3 (GPIO6) remains free as
 | IO3      | Pin 4 (ID)    | **GPIO6** | Digital I/O only (no ADC)                         |
 | GND      | Pin 5 (GND)   | --        | Ground reference                                  |
 
-With the 5-Terminal Add-on or a custom Micro-USB breakout, 
-you can also attach I2C sensors (e.g. BME280, BH1750) using IO1/GPIO4 (SDA) + IO2/GPIO3 (SCL), 
+With the 5-Terminal Add-on or a custom Micro-USB breakout,
+you can also attach I2C sensors (e.g. BME280, BH1750) using IO1/GPIO4 (SDA) + IO2/GPIO3 (SCL),
 or UART devices using any two of the three I/O terminals.
 
 ## Flashing
 
-This device can be flashed directly over the top USB-C connector using the ESP32-C3's native USB-SERIAL-JTAG interface. 
+This device can be flashed directly over the top USB-C connector using the ESP32-C3's native USB-SERIAL-JTAG interface.
 No external UART adapter or soldering is needed.
 
 1. Connect the USB-C cable to your computer.
@@ -77,7 +77,7 @@ After initial flash, OTA updates work over Wi-Fi.
 
 ![PCB Top](PCB_Top.png "PCB Top -- Component side with ESP32-C3, crystal, and LDO")
 
-The test pads on the right edge of the PCB (visible in the top photo) provide a serial UART interface 
+The test pads on the right edge of the PCB (visible in the top photo) provide a serial UART interface
 as an alternative programming method:
 
 | Colour    | Signal    |
@@ -89,7 +89,7 @@ as an alternative programming method:
 | Brown     | CHIP_EN   |
 | Black     | GND       |
 
-**Warning:** The bottom Micro-USB connector outputs 5V and 3.3V GPIO signals. 
+**Warning:** The bottom Micro-USB connector outputs 5V and 3.3V GPIO signals.
 Do NOT connect it to a computer or USB charger.
 
 ## Basic Configuration -- DS18B20 + Digital Outputs
