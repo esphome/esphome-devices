@@ -112,6 +112,10 @@ esp32:
   framework:
     type: esp-idf
     version: recommended
+    sdkconfig_options:
+      COMPILER_OPTIMIZATION_SIZE: y
+    advanced:
+      enable_ota_rollback: false
 
 logger:
 api:
