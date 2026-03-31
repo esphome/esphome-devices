@@ -9,14 +9,14 @@ difficulty: 2
 
 The Pill by Shelly (S3SN-0U53X) is a compact multi-purpose low-voltage Wi-Fi & Bluetooth sensor hub powered by 5V via USB-C.
 It features 3 configurable GPIO pins exposed through a Micro-USB output connector, supporting DS18B20 temperature probes,
-DHT22 sensors, analog voltage measurement (0-2.5V built-in, 0-30V with add-on), 
+DHT22 sensors, analog voltage measurement (0-2.5V built-in, 0-30V with add-on),
 digital I/O, and I2C peripherals. It measures just 26 x 20 x 8.5 mm and weighs 3 grams.
 
-The device uses an ESP32-C3 (ESP-Shelly-C38F) with 8 MB embedded flash. 
-The top USB-C connector provides power and native USB-SERIAL-JTAG for flashing. 
+The device uses an ESP32-C3 (ESP-Shelly-C38F) with 8 MB embedded flash.
+The top USB-C connector provides power and native USB-SERIAL-JTAG for flashing.
 
-The bottom Micro-USB connector is NOT a USB data port -- it is repurposed as a compact 5-pin GPIO connector for sensor and actuator connections.
-
+The bottom Micro-USB connector is NOT a USB data port
+it is repurposed as a compact 5-pin GPIO connector for sensor and actuator connections.
 
 ![The Pill by Shelly](shelly-pill.png "The Pill by Shelly")
 
@@ -37,10 +37,13 @@ The Micro-USB pin numbering follows the standard connector pinout (VBUS, D-, D+,
 
 ## Compatible Add-ons
 
-Shelly offers plug-in accessories that connect via the Micro-USB sensor port. All are compatible with ESPHome using the GPIO mapping above.
+Shelly offers plug-in accessories that connect via the Micro-USB sensor port.
+All are compatible with ESPHome using the GPIO mapping above.
 
-- **5-Terminal Add-on** -- Exposes all 3 GPIOs + 5V + GND on screw terminals. Ideal for custom wiring, I2C sensors, and UART devices.
-- **SSR Add-on** -- Dual-channel solid-state relay (30V/300mA). LOAD1 and LOAD2 are driven internally via IO1 + IO2, IO3 (GPIO6) remains free as digital I/O.
+- **5-Terminal Add-on** -- Exposes all 3 GPIOs + 5V + GND on screw terminals. Ideal for custom wiring, I2C sensors,
+and UART devices.
+- **SSR Add-on** -- Dual-channel solid-state relay (30V/300mA). 
+LOAD1 and LOAD2 are driven internally via IO1 + IO2, IO3 (GPIO6) remains free as digital I/O.
 - **Analog 0-30V Add-on** -- Voltage divider on IO1 (GPIO4), use `multiply: 12.0` filter in ESPHome.
 - **DS18B20 3.5mm cable** -- Temperature probe via 1-Wire on IO1 (GPIO4), included in box.
 - **Splitter 1-to-5** -- Connects up to 5x DS18B20 sensors on the same 1-Wire bus.
@@ -55,7 +58,8 @@ Shelly offers plug-in accessories that connect via the Micro-USB sensor port. Al
 | IO3      | Pin 4 (ID)    | **GPIO6** | Digital I/O only (no ADC)                         |
 | GND      | Pin 5 (GND)   | --        | Ground reference                                  |
 
-With the 5-Terminal Add-on or a custom Micro-USB breakout, you can also attach I2C sensors (e.g. BME280, BH1750) using IO1/GPIO4 (SDA) + IO2/GPIO3 (SCL), 
+With the 5-Terminal Add-on or a custom Micro-USB breakout, 
+you can also attach I2C sensors (e.g. BME280, BH1750) using IO1/GPIO4 (SDA) + IO2/GPIO3 (SCL), 
 or UART devices using any two of the three I/O terminals.
 
 ## Flashing
@@ -73,7 +77,8 @@ After initial flash, OTA updates work over Wi-Fi.
 
 ![PCB Top](PCB_Top.png "PCB Top -- Component side with ESP32-C3, crystal, and LDO")
 
-The test pads on the right edge of the PCB (visible in the top photo) provide a serial UART interface as an alternative programming method:
+The test pads on the right edge of the PCB (visible in the top photo) provide a serial UART interface 
+as an alternative programming method:
 
 | Colour    | Signal    |
 | --------- | --------- |
@@ -84,7 +89,8 @@ The test pads on the right edge of the PCB (visible in the top photo) provide a 
 | Brown     | CHIP_EN   |
 | Black     | GND       |
 
-**Warning:** The bottom Micro-USB connector outputs 5V and 3.3V GPIO signals. Do NOT connect it to a computer or USB charger.
+**Warning:** The bottom Micro-USB connector outputs 5V and 3.3V GPIO signals. 
+Do NOT connect it to a computer or USB charger.
 
 ## Basic Configuration -- DS18B20 + Digital Outputs
 
