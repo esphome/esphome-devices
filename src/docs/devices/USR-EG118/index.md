@@ -54,7 +54,7 @@ On the UART TX pin, the following 12 configuration bytes need te be send (@9600 
 | 11-12 | CRC16 (Modbus type)                                                  |
 
 Each IO module increments bytes 2 and 3, calculates the CRC16, and sends its data to the next module.  
-The IO modules can be controlled with the 
+The IO modules can be controlled with the
 [ESPHome Modbus Controller Component](https://esphome.io/components/modbus_controller/).  
 Follow the
 [IO module manual](https://www.pusr.com/support/download/User-Manual-USR-IO0080-8000-0440-4040-0404-Manual.html)
