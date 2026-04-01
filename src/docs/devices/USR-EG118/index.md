@@ -125,6 +125,9 @@ logger:
 
 api:
 
+ota:
+  platform: esphome
+
 ethernet:
   type: IP101
   mdc_pin: GPIO23
