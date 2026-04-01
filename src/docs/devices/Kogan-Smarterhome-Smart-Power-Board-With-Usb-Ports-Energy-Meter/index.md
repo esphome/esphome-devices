@@ -21,7 +21,7 @@ You will also need to bridge the CSN pin on the back of the module to GND (e.g b
 ![pins go where](kogan-pins-where.png "Pins go where")
 
 Attach 3.3v, GND, TX and RX to your serial adapter and tap CEN to GND while attempting to flash the board in ltchiptool.
-It may take a couple attempts to get the timing right, but you should see the board flash and then disconnect the CEN-GND bridge after flashing is complete.
+It may take a couple attempts to get the timing right, but you should see the board flash and then disconnect the CSN-GND bridge after flashing is complete.
 
 ## GPIO Pinout
 
@@ -43,10 +43,6 @@ It may take a couple attempts to get the timing right, but you should see the bo
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  manual_ip:
-    static_ip: 192.168.x.xx
-    gateway: 192.168.x.x
-    subnet: 255.255.255.0
 
 # Enable logging
 logger:
