@@ -11,14 +11,14 @@ difficulty: 2
 
 | Feature | Spec |
 |---------|------|
-| Screen | EK9716BD3 driver, 800×480, RGB parallel interface |
+| Screen | EK9716BD3 driver, 800x480, RGB parallel interface |
 | Touch | GT911 capacitive, 5-point multi-touch |
 | CPU | ESP32-S3-WROOM-1-N4R8 |
 | Flash | 4MB |
 | PSRAM | 8MB (Octal) |
 | I/O Expander | PCA9557 at I2C 0x18 |
 | Backlight | PWM on GPIO 2 |
-| USB | USB-C (USB-OTG on GPIO 19/20 shared with I2C — see notes) |
+| USB | USB-C (USB-OTG on GPIO 19/20 shared with I2C -- see notes) |
 | Power | 5V via USB-C or JST connector |
 
 Product page: [Elecrow CrowPanel 7.0" ESP32-S3 HMI](https://www.elecrow.com/esp32-display-7-inch-hmi-display-rgb-tft-lcd-touch-screen-support-lvgl.html)
@@ -42,34 +42,10 @@ Here's why it works without PCA9557 manipulation:
 ### GT911 Address Varies Between Units
 
 The GT911 I2C address is set by the state of GPIO38 during power-on:
-- **GPIO38 LOW** → address **0x5D** (most common)
-- **GPIO38 HIGH** → address **0x14**
+- **GPIO38 LOW** -> address **0x5D** (most common)
+- **GPIO38 HIGH** -> address **0x14**
 
 This varies between individual units due to internal pull-up/pull-down differences. If touch doesn't work, try the other address.
-
-### First-Time USB Flash — `firmware.factory.bin` vs `firmware.bin`
-
-ESPHome produces two binary files when it compiles:
-
-| File | Contents | Flash Address |
-|------|----------|---------------|
-| `firmware.factory.bin` | **Complete image** — bootloader + partition table + application | `0x0` |
-| `firmware.bin` | **Application only** — just the ESPHome code | `0x10000` |
-
-The ESP32-S3 flash is laid out in regions: bootloader at `0x0`, partition table at `0x8000`, NVS storage at `0x9000`, and application at `0x10000`. The `firmware.factory.bin` overwrites everything from address `0x0`. The `firmware.bin` only writes the application at `0x10000`, assuming a compatible bootloader and partition table already exist.
-
-**First-time flash: you MUST use `firmware.factory.bin`.** The CrowPanel ships with Elecrow's demo firmware which has an incompatible bootloader and partition table. If you flash `firmware.bin` (app only), the existing Elecrow bootloader tries to load your ESPHome app and fails — resulting in a `rst:0x3` boot loop with no useful log output.
-
-```bash
-# Flash the factory image at address 0x0 (overwrites bootloader + partition table + app)
-esptool.py --chip esp32s3 --port COM4 write_flash 0x0 firmware.factory.bin
-```
-
-Or use the [ESPHome Web Flasher](https://web.esphome.io) — click Install, select the `.factory.bin` file.
-
-**Note:** You do NOT need to erase the flash first. The `firmware.factory.bin` overwrites the bootloader, partition table, and application regions. The ESP32-S3's ROM bootloader is in silicon (not flash), so USB download mode always works regardless of what's on the flash. If you *do* want a completely clean slate, you can run `esptool.py erase_flash` before flashing — this is safe as long as you immediately flash the factory image afterward. A device with erased flash will appear "dead" (no display, no WiFi) but will still accept a new flash over USB.
-
-**After first flash:** Once the device boots ESPHome and connects to WiFi, use OTA for all subsequent updates (ESPHome Dashboard → Install → Wirelessly). OTA uses `firmware.bin` internally and only updates the application partition, preserving the bootloader, partition table, and saved WiFi credentials. If an OTA update fails mid-transfer, the device rolls back to the previous firmware automatically (dual OTA partition scheme).
 
 ### I2C Scan Breaks GT911
 
@@ -106,7 +82,7 @@ Setting `scan: true` on the I2C bus can interfere with GT911 communication. Alwa
 
 ## Basic Configuration
 
-Minimal working config with display, touch, and backlight — no LVGL:
+Minimal working config with display, touch, and backlight -- no LVGL:
 
 ```yaml
 esphome:
@@ -119,14 +95,11 @@ esphome:
 esp32:
   board: esp32-s3-devkitc-1
   flash_size: 4MB
+  cpu_frequency: 240MHz
   framework:
     type: esp-idf
-    sdkconfig_options:
-      CONFIG_ESP32S3_DEFAULT_CPU_FREQ_240: "y"
-      CONFIG_ESP32S3_DATA_CACHE_64KB: "y"
-      CONFIG_SPIRAM_FETCH_INSTRUCTIONS: y
-      CONFIG_SPIRAM_RODATA: y
-      CONFIG_SPIRAM_ALLOW_STACK_EXTERNAL_MEMORY: "y"
+    advanced:
+      execute_from_psram: true
 
 psram:
   mode: octal
@@ -180,7 +153,8 @@ light:
     default_transition_length: 0s
 
 display:
-  - platform: rpi_dpi_rgb
+  - platform: mipi_rgb
+    model: RPI
     id: my_display
     invert_colors: true
     dimensions:
@@ -307,7 +281,3 @@ lvgl:
                     animation: MOVE_RIGHT
                     time: 300ms
 ```
-
-## Disclosure
-
-This configuration was developed with the help of Claude (Anthropic's AI). The low-level I2C debugging, GT911 driver analysis, and ESP-IDF internals exceeded the contributor's personal skill level. Results are accurate and tested on two physical units. See [ESPHome Issue #13307](https://github.com/esphome/esphome/issues/13307) for the full discussion.
