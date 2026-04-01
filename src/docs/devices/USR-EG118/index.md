@@ -40,37 +40,41 @@ The module has the following external interfaces:
 IO modules can be connected to the main module via a connector on the side.  
 This connector supplies power to the IO modules, one UART pin for configuration, and RS485/Modbus for the actual IO control.
 
-On the UART TX pin, the following 12 configuration bytes need te be send (@9600 baud):  
-1. Always 0xDB  
-2. This device address, usually 0x00 for the main module.  
-3. Next device address, usually 0x01 for the first IO expansion module.  
-4-7. Baudrate as 32 bit value, officially supported values:  
-    - 4800: [0x00, 0x00, 0x12, 0xC0]  
-    - 9600: [0x00, 0x00, 0x25, 0x80]  
-    - 115200: [0x00, 0x01, 0xC2, 0x00]  
-    - 230400: [0x00, 0x03, 0x84, 0x00]  
+On the UART TX pin, the following 12 configuration bytes need te be send (@9600 baud):
 
-8. Data bits, always 8  
-9. Stop bits, usually 1  
-10. Parity, 0: None, 1: Odd, 2: Even  
-11-12. CRC16/MODBUS  
+| Byte  | Description                                                          |
+|-------|----------------------------------------------------------------------|
+| 1     | Start bytes, always 0xDB                                             |
+| 2     | This device address, usually 0x00 for the main module.               |
+| 3     | Next device address, usually 0x01 for the first IO expansion module. |
+| 4-7   | Baudrate as 32 bit value                                             |
+| 8     | Data bits, always 8                                                  |
+| 9     | Stop bits, usually 1                                                 |
+| 10    | Parity; 0: None, 1: Odd, 2: Even                                     |
+| 11-12 | CRC16 (Modbus type)                                                  |
 
 Each IO module increments bytes 2 and 3, calculates the CRC16, and sends its data to the next module.  
-The IO modules can be controlled with the [ESPHome Modbus Controller Component](https://esphome.io/components/modbus_controller/).  
-Follow the [IO module manual](https://www.pusr.com/support/download/User-Manual-USR-IO0080-8000-0440-4040-0404-Manual.html) for correct modbus registers and settings.
+The IO modules can be controlled with the 
+[ESPHome Modbus Controller Component](https://esphome.io/components/modbus_controller/).  
+Follow the
+[IO module manual](https://www.pusr.com/support/download/User-Manual-USR-IO0080-8000-0440-4040-0404-Manual.html)
+for correct modbus registers and settings.
 
 ### Watchdog timer
 
 A SGM820B supervisory IC is present that resets the ESP32 in case of undervoltage and also features a watchdog timer.
 It requires a regular input pulse from the ESP32 to prevent a reset from being performed.  
 Without a signal, the watchdog timer will perform a reset after approximately 70-80 seconds.  
-Since the watchdog trigger pin is shared with the UART0 RX pin, it is important to disable UART logging and don't leave the USB cable disconnected.
+Since the watchdog trigger pin is shared with the UART0 RX pin,
+it is important to disable UART logging and don't leave the USB cable disconnected.
 
 ### Flashing
 
-A USB cable is supplied from the factory to flash the firmware. This is not an ordinary USB cable, but a USB to UART adapter.  
+A USB cable is supplied from the factory to flash the firmware.
+This is not an ordinary USB cable, but a USB to UART adapter.  
 To flash firmware, the 'reload' button must be pressed during power-on.  
-After releasing the button, you have approximately 70 seconds to start the firmware update before the watchdog timer triggers a reset.  
+After releasing the button, you have approximately 70 seconds to
+start the firmware update before the watchdog timer triggers a reset.  
 If the programming cable is connected, the watchdog timer is triggered by RX data and not by the ESP32.
 Therefore it is important to disconnect the cable after programming.
 
@@ -175,12 +179,6 @@ modbus:
   - uart_id: PUSR_external_rs485
     id: PUSR_external_modbus
 
-modbus_controller:
-  - id: PUSR_IO_Module_1
-    address: 1
-    modbus_id: PUSR_expansion_rs485
-    update_interval: 500ms
-
 sn74hc595:
   - id: 'sn74hc595_hub'
     data_pin: GPIO4
@@ -200,24 +198,44 @@ switch:
       sn74hc595: sn74hc595_hub
       number: 2
 
-  - platform: modbus_controller
-    modbus_controller_id: PUSR_IO_Module_1
-    register_type: coil
-    address: 0
-    name: "DO1.1"
-
 binary_sensor:
   - platform: gpio
-    pin: GPIO39
     name: "DI1"
+    pin:
+        number: GPIO39
+        inverted: true
   - platform: gpio
+    name: "Reload"
     pin:
         number: GPIO36
         inverted: true
-    name: "Reload"
 
 sensor:
   - platform: adc
     pin: GPIO35
     name: "AI1"
+```
+
+### IO Module example
+
+```yaml
+modbus_controller:
+  - id: PUSR_IO_Module_1
+    address: 1
+    modbus_id: PUSR_expansion_rs485
+    update_interval: 500ms
+
+binary_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: PUSR_IO_Module_1
+    register_type: discrete_input
+    address: 0
+    name: "I1.1"
+    
+switch:
+  - platform: modbus_controller
+    modbus_controller_id: PUSR_IO_Module_1
+    register_type: coil
+    address: 0
+    name: "DO1.1"
 ```
