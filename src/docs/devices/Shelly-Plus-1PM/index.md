@@ -8,6 +8,13 @@ board: esp32
 
 ![Shelly Plus 1PM](shelly_plus_1pm_pinout.jpg "Shelly Plus 1PM")
 
+## Hardware Versions
+
+There are currently 2 known hardware versions of the Shelly Plus 1PM.
+
+- PCB v0.1.9 with ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash) Sold 2021
+- PCB v0.2.0 with ESP32-U4WDH (Dual core,   240MHz, 4MB embedded flash) Sold 2026
+
 ## GPIO Pinout
 
 | Pin    | Function                                          |
@@ -25,13 +32,13 @@ board: esp32
 | GPIO32 | NTC                                               |
 | GPIO33 | Relay supply voltage sensor                       |
 
-The Shelly Plus 1PM is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash)
-
-Please calibrate the NTC and the voltage / power measurements, the values below are just a rough estimate!
-
 Credit and thanks to
 
 - [https://templates.blakadder.com/shelly_plus_1.html](https://templates.blakadder.com/shelly_plus_1.html)
+
+## Internal Temperature Sensor
+
+Please calibrate the NTC and the voltage / power measurements, the values below are just a rough estimate!
 
 ## Configuration as relay with overpower and overtemperature protection
 
