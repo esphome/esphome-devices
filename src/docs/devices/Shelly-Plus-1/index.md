@@ -62,11 +62,11 @@ logger:
 
 api:
   encryption:
-    key: !secret api_encryption_key
+    key: "" # Add your API encryption key here
 
 ota:
   - platform: esphome
-    password: !secret ota_password
+    password: "" # Add your OTA password here
 
 output:
   - platform: gpio
@@ -138,4 +138,5 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+    ignore_strapping_warning: true
 ```
