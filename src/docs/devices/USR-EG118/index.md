@@ -1,6 +1,6 @@
 ---
 title: PUSR USR-EG118
-date-published: 2026-04-01
+date-published: 2026-04-03
 type: misc
 standard: global
 board: esp32
@@ -29,7 +29,7 @@ to ESPHome with factory supplied USB to UART cable.
 The module has the following external interfaces:
 
 - 9-36V DC Power Supply input
-- UART programming port
+- UART programming port (**Marked as USB**)
 - External WiFi/Bluetooth antenna
 - Ethernet (IP101 chip)
 - Combined RS232/485 port
@@ -37,10 +37,6 @@ The module has the following external interfaces:
 - 2x Digital relay output (Controlled by SN74HC595 chip)
 - 1x Analog input(4~20mA)
 - Expansion slot
-
-> [!IMPORTANT]  
-> The micro-USB connector labeled USB is actually a UART port.
-> The included USB to micro-USB cable is a USB to UART converter with the correct pinout.
 
 ### IO expansion modules
 
@@ -54,7 +50,7 @@ On the UART TX pin, the following 12 configuration bytes need te be send (@9600 
 | 1     | Start bytes, always 0xDB                                             |
 | 2     | This device address, usually 0x00 for the main module.               |
 | 3     | Next device address, usually 0x01 for the first IO expansion module. |
-| 4-7   | Baudrate as 32 bit value                                             |
+| 4-7   | Baudrate as 32 bit integer                                           |
 | 8     | Data bits, always 8                                                  |
 | 9     | Stop bits, usually 1                                                 |
 | 10    | Parity; 0: None, 1: Odd, 2: Even                                     |
@@ -82,41 +78,43 @@ This is not an ordinary USB cable, but a USB to UART adapter.
 To flash firmware, the 'reload' button must be pressed during power-on.  
 After releasing the button, you have approximately 70 seconds to
 start the firmware update before the watchdog timer triggers a reset.  
-If the programming cable is connected, the watchdog timer is triggered by RX data and not by the ESP32.
-Therefore it is important to disconnect the cable after programming.
+During programming, the watchdog timer is triggered by the data transfer, preventing a reset during flashing.  
 
 ### GPIO Pinout
 
-| Pin    | Interface            | Function     |
-| ------ | -------------------- | ------------ |
-| GPIO3  | Watchdog + work led  | WDT Trigger  |
-| GPIO18 | Ethernet             | RMII_MDIO    |
-| GPIO23 | Ethernet             | RMII_MDC     |
-| GPIO0  | Ethernet             | RMII_REF_CLK |
-| GPIO19 | Ethernet             | RMII_TXD0    |
-| GPIO22 | Ethernet             | RMII_TXD1    |
-| GPIO25 | Ethernet             | RMII_RX0     |
-| GPIO26 | Ethernet             | RMII_RX1     |
-| GPIO21 | Ethernet             | RMII_TXEN    |
-| GPIO27 | Ethernet             | RMII_CRS_DV  |
-| GPIO5  | Ethernet             | PHY_RESET    |
-| GPIO32 | RS485/232            | TXD          |
-| GPIO33 | RS485/232            | RXD          |
-| GPIO12 | RS485/232            | RS485 DE/RE  |
-| GPIO13 | IO expansion - RS485 | TXD          |
-| GPIO34 | IO expansion - RS485 | RXD          |
-| GPIO14 | IO expansion - RS485 | RS485 DE/RE  |
-| GPIO1  | IO expansion - UART  | TXD          |
-| GPIO4  | SN74HC595 - Relays   | DATA         |
-| GPIO15 | SN74HC595 - Relays   | CLOCK        |
-| GPIO2  | SN74HC595 - Relays   | LATCH        |
-| GPIO35 | Analog input         | AI           |
-| GPIO39 | Digital input        | DI           |
-| GPIO36 | Reload button        | DI           |
+| Pin    | Interface             | Function     |
+| ------ | --------------------- | ------------ |
+| GPIO3  | Watchdog + work led   | WDT Trigger  |
+| GPIO18 | Ethernet              | RMII_MDIO    |
+| GPIO23 | Ethernet              | RMII_MDC     |
+| GPIO0  | Ethernet              | RMII_REF_CLK |
+| GPIO19 | Ethernet              | RMII_TXD0    |
+| GPIO22 | Ethernet              | RMII_TXD1    |
+| GPIO25 | Ethernet              | RMII_RX0     |
+| GPIO26 | Ethernet              | RMII_RX1     |
+| GPIO21 | Ethernet              | RMII_TXEN    |
+| GPIO27 | Ethernet              | RMII_CRS_DV  |
+| GPIO5  | Ethernet              | PHY_RESET    |
+| GPIO32 | RS485/232             | TXD          |
+| GPIO33 | RS485/232             | RXD          |
+| GPIO12 | RS485/232             | RS485 DE/RE  |
+| GPIO13 | IO expansion - RS485  | TXD          |
+| GPIO34 | IO expansion - RS485  | RXD          |
+| GPIO14 | IO expansion - RS485  | RS485 DE/RE  |
+| GPIO1  | IO expansion - UART   | TXD          |
+| GPIO4  | SN74HC595 - Relays    | DATA         |
+| GPIO15 | SN74HC595 - Relays    | CLOCK        |
+| GPIO2  | SN74HC595 - Relays    | LATCH        |
+| GPIO35 | Analog input          | AI           |
+| GPIO39 | Digital input         | DI           |
+| GPIO36 | Reload button (pulse) | DI           |
 
 ## Example Configuration
 
 ```yaml
+esphome:
+  name: usr-eg118
+
 esp32:
   variant: esp32
   framework:
@@ -232,7 +230,7 @@ sensor:
 modbus_controller:
   - id: PUSR_IO_Module_1
     address: 1
-    modbus_id: PUSR_expansion_rs485
+    modbus_id: PUSR_expansion_modbus
     update_interval: 500ms
 
 binary_sensor:
