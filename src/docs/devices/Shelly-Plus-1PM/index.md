@@ -10,18 +10,20 @@ board: esp32
 
 ## GPIO Pinout
 
-| Pin    | Function                    |
-| ------ | --------------------------- |
-| GPIO0  | LED (Inverted)              |
-| GPIO4  | Switch input                |
-| GPIO5  | BL0937 CF                   |
-| GPIO18 | BL0937 CF1                  |
-| GPIO19 | Future external sensors?    |
-| GPIO23 | BL0937 SEL (Inverted)       |
-| GPIO25 | Button (Inverted, Pull-up)  |
-| GPIO26 | Relay                       |
-| GPIO32 | NTC                         |
-| GPIO33 | Relay supply voltage sensor |
+| Pin    | Function                                          |
+| ------ | ------------------------------------------------- |
+| GPIO0  | LED (Inverted), Shelly Plus Add-On: DATA (Output) |
+| GPIO1  | Shelly Plus Add-On: DATA (Input)                  |
+| GPIO3  | Shelly Plus Add-On: ANALOG IN                     |
+| GPIO4  | Switch input                                      |
+| GPIO5  | BL0937 CF                                         |
+| GPIO18 | BL0937 CF1                                        |
+| GPIO19 | Shelly Plus Add-On: DIGITAL IN                    |
+| GPIO23 | BL0937 SEL (Inverted)                             |
+| GPIO25 | Button (Inverted, Pull-up)                        |
+| GPIO26 | Relay                                             |
+| GPIO32 | NTC                                               |
+| GPIO33 | Relay supply voltage sensor                       |
 
 The Shelly Plus 1PM is based on the ESP32-U4WDH (Single core, 160MHz, 4MB embedded flash)
 
