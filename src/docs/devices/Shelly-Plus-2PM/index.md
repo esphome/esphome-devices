@@ -87,8 +87,12 @@ esp32:
 logger:
 
 api:
+  encryption:
+    key: "" # Add your API encryption key here
 
 ota:
+  - platform: esphome
+    password: "" # Add your OTA password here
 
 wifi:
   ssid: !secret wifi_ssid
@@ -104,7 +108,9 @@ output:
     pin: GPIO13
   - platform: gpio
     id: "relay_output_2"
-    pin: GPIO12
+    pin:
+      number: GPIO12
+      ignore_strapping_warning: true
 
 switch:
   - platform: output
@@ -130,7 +136,9 @@ binary_sensor:
   # Input 1
   - platform: gpio
     name: "${input_name_1}"
-    pin: GPIO5
+    pin:
+      number: GPIO5
+      ignore_strapping_warning: true
     filters:
       - delayed_on_off: 50ms
     on_press:
@@ -262,9 +270,12 @@ logger:
 
 # Enable Home Assistant API
 api:
+  encryption:
+    key: "" # Add your API encryption key here
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
+    password: "" # Add your OTA password here
 
 wifi:
   ssid: !secret wifi_ssid
@@ -273,7 +284,7 @@ wifi:
 
   ap:
     ssid: "${upper_devicename} fallback AP"
-    password: !secret fallback_password
+    password: "" # Add your fallback AP password here
 
 captive_portal:
 
@@ -291,7 +302,9 @@ output:
 
   - platform: gpio
     id: "relay_output_2"
-    pin: GPIO12
+    pin:
+      number: GPIO12
+      ignore_strapping_warning: true
 
 #Shelly Switch Output
 switch:
@@ -329,7 +342,9 @@ binary_sensor:
   #Shelly Switch Input 1
   - platform: gpio
     name: "${device_name_1} Input"
-    pin: GPIO5
+    pin:
+      number: GPIO5
+      ignore_strapping_warning: true
     #small delay to prevent debouncing
     filters:
       - delayed_on_off: 50ms
@@ -502,6 +517,7 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+    ignore_strapping_warning: true
  ```
 
 ## Current Based Cover Configuration Example for PCB v0.1.9 and Dual Core
@@ -549,13 +565,14 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: !secret api_key
+    key: "" # Add your API encryption key here
   on_client_disconnected: # failsafe
     then:
       - script.execute: blinds_open_if_no_manual_override
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
+    password: "" # Add your OTA password here
 
 wifi:
   ssid: !secret wifi_ssid
@@ -568,7 +585,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${devicename}-AP"
-    password: !secret ap_password
+    password: "" # Add your fallback AP password here
 
 captive_portal:
 
@@ -580,8 +597,8 @@ time:
 web_server:
   port: 80
   auth:
-    username: !secret web_server_username
-    password: !secret web_server_password
+    username: "" # Add your web server username here
+    password: "" # Add your web server password here
 
 
 i2c:
@@ -623,7 +640,9 @@ switch:
     interlock_wait_time: 200ms
   - platform: gpio
     id: "switch_close"
-    pin: GPIO12
+    pin:
+      number: GPIO12
+      ignore_strapping_warning: true
     internal: true
     restore_mode: ALWAYS_OFF
     interlock: [switch_open]
@@ -700,7 +719,9 @@ binary_sensor:
   - platform: gpio
     id: "input_open"
     name: "Open Input"
-    pin: GPIO5
+    pin:
+      number: GPIO5
+      ignore_strapping_warning: true
     #small delay for debouncing
     filters:
       - delayed_on_off: 50ms
@@ -866,6 +887,7 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+    ignore_strapping_warning: true
 
 text_sensor:
   - platform: wifi_info
