@@ -11,29 +11,36 @@ difficulty: 2
 
 ## Product Images
 
-**USR-EG118**
-![USR-EG118](USR-EG118.png "PUSR USR-EG118")
+![USR-EG118](USR-EG118.png "PUSR USR-EG118")  
+**USR-EG118**  
 
+![USR-M100](USR-M100-expansion.png "PUSR USR-M100 with IO modules")  
 **Similar USR-M100 module with connected IO modules**
-![USR-M100](USR-M100-expansion.png "PUSR USR-M100 with IO modules")
 
 ## Product description
 
-This devices sold as 'Arduino Open Source IoT Gateway' can be easy flashed to ESPHome.  
+This devices is sold as 'Arduino Open Source IoT Gateway' and previously had the product number USR-M100-ARD.  
 Thanks to the expansion slot, the base module can easily be expanded with multiple IO modules.  
-It uses a ESP32-WROVER-IE-N4R8 as it's main processor.  
+It uses a ESP32-WROVER-IE-N4R8 as it's main processor and can be easy flashed
+to ESPHome with factory supplied USB to UART cable.
 
 ### External interfaces
 
 The module has the following external interfaces:
 
 - 9-36V DC Power Supply input
+- UART programming port
 - External WiFi/Bluetooth antenna
 - Ethernet (IP101 chip)
 - Combined RS232/485 port
 - 1x Digital input
 - 2x Digital relay output (Controlled by SN74HC595 chip)
 - 1x Analog input(4~20mA)
+- Expansion slot
+
+> [!IMPORTANT]  
+> The micro-USB connector labeled USB is actually a UART port.
+> The included USB to micro-USB cable is a USB to UART converter with the correct pinout.
 
 ### IO expansion modules
 
@@ -64,7 +71,7 @@ for correct modbus registers and settings.
 
 A SGM820B supervisory IC is present that resets the ESP32 in case of undervoltage and also features a watchdog timer.
 It requires a regular input pulse from the ESP32 to prevent a reset from being performed.  
-Without a signal, the watchdog timer will perform a reset after approximately 70-80 seconds.  
+Without a signal, the watchdog timer will perform a full power reset after approximately 70-80 seconds.  
 Since the watchdog trigger pin is shared with the UART0 RX pin,
 it is important to disable UART logging and don't leave the USB cable disconnected.
 
