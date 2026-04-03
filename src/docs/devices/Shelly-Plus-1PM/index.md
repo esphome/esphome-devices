@@ -52,14 +52,14 @@ substitutions:
 
 esphome:
   name: shelly-plus-1pm
-  platformio_options:
+  platformio_options: # Only needed for the single core 160MHz variant
     board_build.f_cpu: 160000000L
 
 esp32:
   variant: esp32
   framework:
     type: esp-idf
-    sdkconfig_options:
+    sdkconfig_options: # Only needed for the single core 160MHz variant
       CONFIG_FREERTOS_UNICORE: y
       CONFIG_ESP32_DEFAULT_CPU_FREQ_160: y
       CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: "160"
@@ -72,10 +72,11 @@ logger:
 
 api:
   encryption:
-    key: !secret api_encryption_key
+    key: "" # Add your API encryption key here
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
+    password: "" # Add your OTA password here
 
 time:
   - platform: homeassistant
@@ -141,7 +142,9 @@ sensor:
     sel_pin:
       number: GPIO23
       inverted: true
-    cf_pin: GPIO5
+    cf_pin:
+      number: GPIO5
+      ignore_strapping_warning: true
     cf1_pin: GPIO18
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
@@ -178,4 +181,5 @@ status_led:
   pin:
     number: GPIO0
     inverted: true
+    ignore_strapping_warning: true
 ```
