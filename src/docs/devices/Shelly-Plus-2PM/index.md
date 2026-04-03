@@ -35,18 +35,21 @@ contains 8 characters starting with "H", the chip is single core 160MHz. If the 
 
 ## GPIO Pinout
 
-| Function                    | v0.1.5 | v0.1.9 |
-| --------------------------- | ------ | ------ |
-| LED (Inverted)              | GPIO0  | GPIO0  |
-| Button (Inverted, Pull-up)  | GPIO27 | GPIO4  |
-| Switch 1 Input              | GPIO2  | GPIO5  |
-| Switch 2 Input              | GPIO18 | GPIO18 |
-| Relay 1                     | GPIO13 | GPIO13 |
-| Relay 2                     | GPIO12 | GPIO12 |
-| I2C SCL                     | GPIO25 | GPIO25 |
-| I2C SDA                     | GPIO33 | GPIO26 |
-| ADE7953_IRQ (power meter)   | GPIO36 | GPIO27 |
-| Internal Temperature        | GPIO37 | GPIO35 |
+| Function                                          | v0.1.5 | v0.1.9 |
+| ------------------------------------------------- | ------ | ------ |
+| LED (Inverted), Shelly Plus Add-On: DATA (Output) | GPIO0  | GPIO0  |
+| Shelly Plus Add-On: DATA (Input)                  | GPIO1  | GPIO1  |
+| Shelly Plus Add-On: ANALOG IN                     | GPIO3  | GPIO3  |
+| Button (Inverted, Pull-up)                        | GPIO27 | GPIO4  |
+| Switch 1 Input                                    | GPIO2  | GPIO5  |
+| Switch 2 Input                                    | GPIO18 | GPIO18 |
+| Relay 1                                           | GPIO13 | GPIO13 |
+| Relay 2                                           | GPIO12 | GPIO12 |
+| Shelly Plus Add-On: DIGITAL IN                    | ?      | GPIO22 |
+| I2C SCL                                           | GPIO25 | GPIO25 |
+| I2C SDA                                           | GPIO33 | GPIO26 |
+| ADE7953_IRQ (power meter)                         | GPIO36 | GPIO27 |
+| Internal Temperature                              | GPIO37 | GPIO35 |
 
 ## Internal Temperature Sensor
 
