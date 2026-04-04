@@ -25,6 +25,46 @@ Product page: [Elecrow CrowPanel 7.0" ESP32-S3 HMI](https://www.elecrow.com/esp3
 
 ## Important Notes
 
+### I2C Fix Required for GPIO 19/20 (USB_SERIAL_JTAG Pins)
+
+GPIO19 and GPIO20 are shared with the ESP32-S3 USB_SERIAL_JTAG peripheral. The USB PHY pad holds these pins even after the I2C driver tries to release them, causing continuous `I2C software timeout` errors. This affects ESPHome 2026.3.0+ (ESP-IDF 5.5.3+).
+
+The fix requires a C header file (`usb_disable.h`) that disables the USB PHY pad before the I2C driver initializes. Create this file in your ESPHome config directory alongside your YAML:
+
+**usb_disable.h:**
+
+```c
+#pragma once
+
+#include "soc/usb_serial_jtag_reg.h"
+#include "soc/io_mux_reg.h"
+#include "hal/usb_serial_jtag_ll.h"
+
+static __attribute__((constructor(101))) void disable_usb_serial_jtag_phy() {
+    usb_serial_jtag_ll_phy_enable_pad(false);
+    CLEAR_PERI_REG_MASK(USB_SERIAL_JTAG_CONF0_REG, USB_SERIAL_JTAG_USB_PAD_ENABLE);
+    CLEAR_PERI_REG_MASK(USB_SERIAL_JTAG_CONF0_REG, USB_SERIAL_JTAG_DP_PULLUP);
+    PIN_FUNC_SELECT(IO_MUX_GPIO19_REG, PIN_FUNC_GPIO);
+    PIN_FUNC_SELECT(IO_MUX_GPIO20_REG, PIN_FUNC_GPIO);
+    PIN_INPUT_ENABLE(IO_MUX_GPIO19_REG);
+    PIN_INPUT_ENABLE(IO_MUX_GPIO20_REG);
+    REG_SET_BIT(IO_MUX_GPIO19_REG, FUN_PU);
+    REG_SET_BIT(IO_MUX_GPIO20_REG, FUN_PU);
+    REG_CLR_BIT(IO_MUX_GPIO19_REG, FUN_PD);
+    REG_CLR_BIT(IO_MUX_GPIO20_REG, FUN_PD);
+}
+```
+
+Then include it in your YAML under `esphome:`:
+
+```yaml
+esphome:
+  includes:
+    - usb_disable.h
+```
+
+See [#15356](https://github.com/esphome/esphome/issues/15356) for details.
+
 ### Flash Size is 4MB, Not 16MB
 
 The ESP32-S3-WROOM-1-**N4**R8 has 4MB flash. The "N4" = 4MB flash, "R8" = 8MB PSRAM. Setting `flash_size: 16MB` causes a `rst:0x3` boot loop with no log output. This is easy to get wrong because many online examples and even some Elecrow documentation reference 16MB.
@@ -79,10 +119,11 @@ Setting `scan: true` on the I2C bus can interfere with GT911 communication. Alwa
 | PCA9557 writes in `on_boot` | Touch stops working | Remove all PCA9557 code |
 | Adding `interrupt_pin: 38` | Touch intermittent | Remove it, use polling |
 | Adding `calibration:` to touchscreen | "Communication failed" | Remove it |
+| Missing `usb_disable.h` | `I2C software timeout` | Add the header file (see notes above) |
 
 ## Basic Configuration
 
-Minimal working config with display, touch, and backlight -- no LVGL:
+Minimal working config with display, touch, and backlight -- no LVGL. Requires `usb_disable.h` (see Important Notes above).
 
 ```yaml
 esphome:
@@ -91,6 +132,8 @@ esphome:
   platformio_options:
     board_build.esp-idf.memory_type: qio_opi
     board_build.flash_mode: dio
+  includes:
+    - usb_disable.h
 
 esp32:
   board: esp32-s3-devkitc-1
