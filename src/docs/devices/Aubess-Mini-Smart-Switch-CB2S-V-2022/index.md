@@ -4,7 +4,6 @@ date-published: 2026-03-31
 type: switch
 standard: global
 board: bk72xx
-pcb: CB2S
 ---
 
 ![Product Image](./Aubess-Mini-Smart-Switch-V2022-Product-image.jpg)
@@ -42,7 +41,7 @@ Before programing, you must desolder the pin RX1 from the main board (is not nec
 ```yaml
 esphome:
   name: Wifi-Switch
-  friendly\_name: Wifi Switch
+  friendly_name: Wifi Switch
 
 bk72xx:
   board: cb2s
@@ -56,27 +55,27 @@ api:
 ota:
 
 wifi:
-  ssid: !secret wifi\_ssid
-  password: !secret wifi\_password
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
 
-captive\_portal:
+captive_portal:
 
 ## -----------------------##
 ## Substitution Variables ##
 ## -----------------------##
 substitutions:
-  device\_friendly\_name: Wifi Switch
-  device\_icon: "mdi:power"
+  device_friendly_name: Wifi Switch
+  device_icon: "mdi:power"
 
 ## ---------------- ##
 ##    Status LED    ##
 ## ---------------- ##
 
 light:
-  - platform: status\_led
+  - platform: status_led
     name: "Switch state"
     id: led
     pin:
@@ -86,28 +85,28 @@ light:
 ## ---------------- ##
 ##  Binary Sensors  ##
 ## ---------------- ##
-binary\_sensor:
+binary_sensor:
   # Button 1
   - platform: gpio
-    id: button\_back
+    id: button_back
     pin:
       number: P10
       inverted: true
-      mode: INPUT\_PULLUP
-    on\_press:
+      mode: INPUT_PULLUP
+    on_press:
       then:
         - switch.toggle: relay
     filters:
-      - delayed\_on\_off: 50ms
+      - delayed_on_off: 50ms
   # Rocker switch
   - platform: gpio
-    name: "${device\_friendly\_name} Switch S1-S2"
+    name: "${device_friendly_name} Switch S1-S2"
     pin: P26
-    on\_press:
+    on_press:
       then:
         - switch.toggle: relay
     filters:
-      - delayed\_on\_off: 50ms
+      - delayed_on_off: 50ms
 
 ## ---------------- ##
 ##      Switch      ##
@@ -115,15 +114,15 @@ binary\_sensor:
 switch:
   #Relay
   - platform: output
-    name: "${device\_friendly\_name} Relay"
-    icon: ${device\_icon}
+    name: "${device_friendly_name} Relay"
+    icon: ${device_icon}
     output: relayoutput
     id: relay
-    on\_turn\_on:
-      - light.turn\_on: led
-    on\_turn\_off:
-      - light.turn\_off: led
-    restore\_mode: ALWAYS\_OFF
+    on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led
+    restore_mode: ALWAYS_OFF
 
 ## ---------------- ##
 ##      Relays      ##
@@ -137,11 +136,11 @@ output:
 
 time:
   - platform: homeassistant
-    id: homeassistant\_time
+    id: homeassistant_time
 
-text\_sensor:
-  - platform: wifi\_info
-    ip\_address:
+text_sensor:
+  - platform: wifi_info
+    ip_address:
       name: "IP Address"
     ssid:
       name: "Connected SSID"
