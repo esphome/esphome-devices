@@ -20,7 +20,8 @@ This device is specifically designed for temperature monitoring with up to 8 the
 
 Key features:
 
-- 8x 1-wire interfaces for DS18B20 Dallas temperature sensors using 2.5mm 4p audio jack connectors (available out-of-the-box on most e-commerce>
+- 8x 1-wire interfaces for DS18B20 Dallas temperature sensors using 2.5mm 4p audio jack connectors
+  (available out-of-the-box on most e-commerce)
 - 2x general-purpose, user programmable buttons
 - 128x64 OLED display
 - Powered via USB-C
