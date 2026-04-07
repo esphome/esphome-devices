@@ -8,6 +8,8 @@ difficulty: 4
 project-url: https://nous.technology/product/a8m.html
 ---
 
+![Nous A8M Smart Matter Socket 16A](A8M.jpg "Nous A8M Smart Matter Socket 16A")
+
 ## Product Description
 
 The Nous A8M is a 16A EU smart socket with energy monitoring, a physical button, and an LED status indicator.
