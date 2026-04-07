@@ -1,6 +1,6 @@
 ---
 title: temp-1w8-pro
-date-published: 2025-05-09
+date-published: 2026-04-08
 type: sensor
 standard: global
 board: esp32
