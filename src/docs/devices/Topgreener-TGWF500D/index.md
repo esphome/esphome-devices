@@ -31,9 +31,10 @@ substitutions:
 
 esphome:
   name: ${device_name}
-  platform: ESP8266
-  board: esp01_1m
   name_add_mac_suffix: true
+
+esp8266:
+  board: esp01_1m
 
 wifi:
   ssid: !secret wifi_ssid

@@ -6,11 +6,12 @@ standard: eu
 board: esp8266
 ---
 
-This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
+This plug can be found under many brand names (Lonsonho, Avatto, Vansware, … ) Identified by the packaging and the
+sticker inside the plug. At this time seems to be only EU plug with 16A, RGB color led and power metering.
 
 More info:
-<https://templates.blakadder.com/XS-A12.html>
-<https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A>
+[https://templates.blakadder.com/XS-A12.html](https://templates.blakadder.com/XS-A12.html)
+[https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A](https://tasmota.github.io/docs/#/devices/RGB-Smart-Plug-16A)
 
 ## GPIO Pinout
 
@@ -26,7 +27,7 @@ More info:
 
 ## Basic Configuration
 
-Most of this code is from from <https://devices.esphome.io/devices/awp04l/>
+Most of this code is from from [https://devices.esphome.io/devices/awp04l/](https://devices.esphome.io/devices/awp04l/)
 
 ```yaml
 # Check or edit all secrets to match yours.
@@ -40,7 +41,8 @@ substitutions:
 esphome:
   name: $devicename
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

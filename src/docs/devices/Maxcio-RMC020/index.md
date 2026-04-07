@@ -12,7 +12,7 @@ difficulty: 5
 ![alt text](MaxcioRMC020.jpg "Maxcio RMC020 IT Product Image")
 ![alt text](MaxcioRMC020retro.jpg "Maxcio RMC020 IT Product Back Image")
 
-Maker: https://maxcio.com/collections/plug-and-strip/
+Maker: [https://maxcio.com/collections/plug-and-strip/](https://maxcio.com/collections/plug-and-strip/)
 
 ## ESP-02S GPIO Pinout
 
@@ -40,7 +40,8 @@ substitutions:
 esphome:
   name: ${devicename}
   comment: ${device_description}
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:

@@ -8,25 +8,26 @@ project-url: https://smart-plant.readthedocs.io
 difficulty: 2
 made-for-esphome: True
 ---
+
 ![Smart Plant](Smart-Plant.png)
 
 ## Pinout
 
-ESP32-S2    | Sensor        | e-Paper  | Other
-------------|---------------|----------|----------
-GPIO 00     |Flash button   |          |
-GPIO 01     |Soil moisture  |          |
-GPIO 02     |Battery volts  |          |
-GPIO 03     |Solar charge   |          |
-GPIO 04     |               |          |Sensor powering
-GPIO 10     |               |CS        |
-GPIO 11     |               |MOSI      |
-GPIO 12     |               |CLK       |
-GPIO 13     |               |DC/MISO   |
-GPIO 14     |               |BUSY      |
-GPIO 15     |               |RST       |
-GPIO 33     |SDA            |          |
-GPIO 34     |SCL            |          |
+| ESP32-S2 | Sensor        | e-Paper | Other           |
+| -------- | ------------- | ------- | --------------- |
+| GPIO 00  | Flash button  |         |                 |
+| GPIO 01  | Soil moisture |         |                 |
+| GPIO 02  | Battery volts |         |                 |
+| GPIO 03  | Solar charge  |         |                 |
+| GPIO 04  |               |         | Sensor powering |
+| GPIO 10  |               | CS      |                 |
+| GPIO 11  |               | MOSI    |                 |
+| GPIO 12  |               | CLK     |                 |
+| GPIO 13  |               | DC/MISO |                 |
+| GPIO 14  |               | BUSY    |                 |
+| GPIO 15  |               | RST     |                 |
+| GPIO 33  | SDA           |         |                 |
+| GPIO 34  | SCL           |         |                 |
 
 ## Basic Configuration
 
@@ -48,15 +49,14 @@ esphome:
   on_boot:
     priority: 600
     then:
-     - lambda: |-
-        Wire.begin();
-        delay(100);
+      - lambda: |-
+          Wire.begin();
+          delay(100);
 
-     - script.execute: consider_deep_sleep
-
+      - script.execute: consider_deep_sleep
 
 esp32:
-  board: esp32-s2-saola-1
+  variant: esp32s2
   framework:
     type: arduino
 
@@ -83,7 +83,6 @@ wifi:
   ap:
     password: "${ap_pwd}"
 
-
 i2c:
   scl: GPIO34
   sda: GPIO33
@@ -91,7 +90,7 @@ i2c:
   id: bus_a
 
 spi:
-  clk_pin:  GPIO12
+  clk_pin: GPIO12
   mosi_pin: GPIO11
 
 image:
@@ -108,7 +107,7 @@ font:
   - file: "gfonts://Audiowide"
     id: font_parameters
     size: 15
-  - file: 'gfonts://Material+Symbols+Outlined'
+  - file: "gfonts://Material+Symbols+Outlined"
     id: font_icon
     size: 20
     glyphs:
@@ -132,7 +131,6 @@ switch:
     name: "Excitation switch"
     icon: "mdi:power"
     restore_mode: ALWAYS_ON
-
 
 sensor:
   # Battery level sensor
@@ -164,14 +162,14 @@ sensor:
     icon: mdi:battery-medium
     filters:
       - calibrate_linear:
-         method: exact
-         datapoints:
-          - 0.00 -> 0.0
-          - 3.30 -> 1.0
-          - 3.39 -> 10.0
-          - 3.75 -> 50.0
-          - 4.11 -> 90.0
-          - 4.20 -> 100.0
+          method: exact
+          datapoints:
+            - 0.00 -> 0.0
+            - 3.30 -> 1.0
+            - 3.39 -> 10.0
+            - 3.75 -> 50.0
+            - 4.11 -> 90.0
+            - 4.20 -> 100.0
       - lambda: |-
           if (x <= 100) {
             return x;
@@ -211,20 +209,20 @@ sensor:
   - platform: adc
     pin: GPIO1
     name: "Soil Moisture"
-    id : soil
+    id: soil
     icon: "mdi:cup-water"
     update_interval: 1s
     unit_of_measurement: "%"
     attenuation: 12db
     filters:
-    - median:
-        window_size: 5
-        send_every: 5
+      - median:
+          window_size: 5
+          send_every: 5
 
-    - calibrate_linear:
-        - 1.25 -> 100.00
-        - 2.8 -> 0.00
-    - lambda: if (x < 1) return 0; else if (x > 100) return 100; return (x);
+      - calibrate_linear:
+          - 1.25 -> 100.00
+          - 2.8 -> 0.00
+      - lambda: if (x < 1) return 0; else if (x > 100) return 100; return (x);
     accuracy_decimals: 0
 
 display:
@@ -280,9 +278,9 @@ display:
 
           // Parameters
           // Drawing the marker over the gauge
-          float pi = 3.141592653589793;
+          // Use M_PI constant provided by ESPHome
           float alpha = 4.71238898038469; // Defined as the gauge angle in radians (270deg)
-          float beta = 2*pi - alpha;
+          float beta = 2*M_PI - alpha;
           int radius = 22;              // Radius of the gauge in pixels
           int thick = 7;                // Size of the marker
 
@@ -303,12 +301,12 @@ display:
 
           float val = (measured - min_range) / abs(max_range - min_range) * alpha;
 
-          int x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          int y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          int x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          int y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          int x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          int y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          int x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          int y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          int x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          int y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          int x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          int y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
@@ -332,12 +330,12 @@ display:
           }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
@@ -362,12 +360,12 @@ display:
           }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);
@@ -392,12 +390,12 @@ display:
           }
 
           val = (measured - min_range) / abs(max_range - min_range) * alpha;
-          x0 = static_cast<int>(xc + radius + radius * cos(pi / 2 + beta / 2 + val));
-          y0 = static_cast<int>(yc + radius + radius * sin(pi / 2 + beta / 2 + val));
-          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
-          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
-          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
-          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          x0 = static_cast<int>(xc + radius + radius * cos(M_PI / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius + radius * sin(M_PI / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + radius + (radius+thick) * cos(M_PI / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + radius + (radius+thick) * sin(M_PI / 2 + beta / 2 + val - 0.1));
           it.line(x0, y0, x1, y1);
           it.line(x1, y1, x2, y2);
           it.line(x2, y2, x0, y0);

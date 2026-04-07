@@ -1,7 +1,7 @@
 ---
 title: OpenSpool Mini
 date-published: 2024-11-21
-type: Miscellaneous Devices
+type: misc
 standard: global
 board: esp32
 project-url: https://github.com/spuder/OpenSpool

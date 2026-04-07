@@ -6,7 +6,6 @@ standard: global
 board: esp32
 ---
 
-
 ## GPIO Pinout
 
 | Pin    | Function           |
@@ -28,7 +27,7 @@ esphome:
   friendly_name: KinCony KC868-AG Hub
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 

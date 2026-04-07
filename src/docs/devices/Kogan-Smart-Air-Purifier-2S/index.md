@@ -17,10 +17,10 @@ board: esp8266
 
 ## GPIO Pinout
 
-| Pin   | Function |
-| ----- | -------- |
-| GPIO13 | RX      |
-| GPIO15 | TX      |
+| Pin    | Function |
+| ------ | -------- |
+| GPIO13 | RX       |
+| GPIO15 | TX       |
 
 ## Basic Config
 
@@ -30,7 +30,8 @@ substitutions:
 
 esphome:
   name: "${name}"
-  platform: ESP8266
+
+esp8266:
   board: esp01_1m
 
 wifi:
