@@ -1,6 +1,6 @@
 ---
 title: SmartHomeGuys - DeskUp Pro RJ12
-date-published: 2026-03-03
+date-published: 2026-04-08
 type: misc
 standard: global
 board: esp32
