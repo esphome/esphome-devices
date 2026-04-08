@@ -21,7 +21,7 @@
   "dependencies": {
     "@docusaurus/core": "3.9.2",
     "@docusaurus/plugin-ideal-image": "^3.9.2",
-    "@docusaurus/plugin-sitemap": "^3.9.2",
+    "@docusaurus/plugin-sitemap": "^3.10.0",
     "@docusaurus/preset-classic": "3.9.2",
     "@getcanary/docusaurus-theme-search-pagefind": "^1.0.2",
     "@mdx-js/react": "^3.0.0",
