@@ -104,7 +104,7 @@ The PCB is encased in silicone potting compound, so extraction takes some patien
 Once the CB3L is removed, solder wires to the UART pads as per the pinout table
 above, then connect to a USB-to-TTL serial adapter.
 
-![Flashing points wired to TTL serial converter](flahing_points.png "Soldered wires on CB3L connected to a TTL serial converter")
+![Flashing points wired to TTL serial converter](flashing_points.png "Soldered wires on CB3L connected to a TTL serial converter")
 
 1. Connect the wired CB3L to your USB-UART adapter.
 2. Start the flashing process with `ltchiptool`.
@@ -125,19 +125,10 @@ bk72xx:
 
 logger:
 
-api:
-  encryption:
-    key: !secret api_encryption_key
-
-ota:
-  - platform: esphome
-    password: !secret ota_password
-
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: "LED-Strip-Driver"
 
 captive_portal:
 
