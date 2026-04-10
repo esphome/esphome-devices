@@ -44,16 +44,16 @@ The internal module is a CB3L (BK7231N-based), controllable via ESPHome using Li
 
 The TYZ150-W2V24 uses a **Tuya CB3L** Wi-Fi module based on the **Beken BK7231N** MCU.
 
-| Property   | Value                        |
-| ---------- | ---------------------------- |
-| MCU        | Beken BK7231N                |
-| Frequency  | 120 MHz                      |
-| Flash      | 2 MiB                        |
-| RAM        | 256 KiB                      |
-| Voltage    | 3.0 V – 3.6 V                |
-| Wi-Fi      | 802.11 b/g/n                 |
-| Bluetooth  | BLE 5.1                      |
-| I/O        | 12x GPIO, 6x PWM, 2x UART, 1x ADC |
+| Property  | Value                               |
+| --------- | ----------------------------------- |
+| MCU       | Beken BK7231N                       |
+| Frequency | 120 MHz                             |
+| Flash     | 2 MiB                               |
+| RAM       | 256 KiB                             |
+| Voltage   | 3.0 V - 3.6 V                       |
+| Wi-Fi     | 802.11 b/g/n                        |
+| Bluetooth | BLE 5.1                             |
+| I/O       | 12x GPIO, 6x PWM, 2x UART, 1x ADC   |
 
 ### CB3L Carrier Board Connector (left to right)
 
@@ -67,31 +67,42 @@ The TYZ150-W2V24 uses a **Tuya CB3L** Wi-Fi module based on the **Beken BK7231N*
 
 ### CB3L UART Pinout (for flashing)
 
-| CB3L Pin      | Connect to         |
-| ------------- | ------------------ |
-| P10 / RX1     | TX of USB-UART adapter |
-| P11 / TX1     | RX of USB-UART adapter |
-| CEN           | GND (to reset chip) |
-| 3V3           | 3.3 V              |
-| GND           | GND                |
+| CB3L Pin  | Connect to             |
+| --------- | ---------------------- |
+| P10 / RX1 | TX of USB-UART adapter |
+| P11 / TX1 | RX of USB-UART adapter |
+| CEN       | GND (to reset chip)    |
+| 3V3       | 3.3 V                  |
+| GND       | GND                    |
 
 ## Opening the Unit and Extracting the CB3L
 
-> **Warning:** This device is mains-powered. Always disconnect from mains power before opening the enclosure and working on the PCB.
+> **Warning:** This device is mains-powered. Always disconnect from mains power
+> before opening the enclosure and working on the PCB.
 
 The PCB is encased in silicone potting compound, so extraction takes some patience.
 
-1. **Open the enclosure** — Use a flat-head screwdriver to pop the clips along the casing. Once the clips release, work the screwdriver around to lever off the bottom plastic cover.
-2. **Remove the PCB** — The PCB sits inside the outer casing. Push in on the Wago-style connectors at each end and the PCB should drop free.
-3. **Cut out the silicone** — Use a knife to carefully cut away the silicone potting compound around the board. Work around the heatsink area and remove the single screw holding the MOSFET to the heatsink. Once the screw is out and enough silicone is cleared, you should be able to separate the heatsink from the silicone and PCB entirely, which gives you much better access to the rest of the board.
-4. **Free the CB3L module** — Continue cutting away the silicone around the CB3L module until it is fully exposed.
-5. **Desolder the CB3L** — The module is attached at a single connection point on the underside of the PCB, making it straightforward to desolder and remove.
+1. **Open the enclosure** — Use a flat-head screwdriver to pop the clips along the
+   casing. Once the clips release, work the screwdriver around to lever off the
+   bottom plastic cover.
+2. **Remove the PCB** — The PCB sits inside the outer casing. Push in on the
+   Wago-style connectors at each end and the PCB should drop free.
+3. **Cut out the silicone** — Use a knife to carefully cut away the silicone potting
+   compound around the board. Work around the heatsink area and remove the single
+   screw holding the MOSFET to the heatsink. Once the screw is out and enough
+   silicone is cleared, you should be able to separate the heatsink from the silicone
+   and PCB entirely, which gives you much better access to the rest of the board.
+4. **Free the CB3L module** — Continue cutting away the silicone around the CB3L
+   module until it is fully exposed.
+5. **Desolder the CB3L** — The module is attached at a single connection point on the
+   underside of the PCB, making it straightforward to desolder and remove.
 
 ![CB3L extraction point](extract_from_unit.png "CB3L module location inside the potted unit")
 
 ## Flashing
 
-Once the CB3L is removed, solder wires to the UART pads as per the pinout table above, then connect to a USB-to-TTL serial adapter.
+Once the CB3L is removed, solder wires to the UART pads as per the pinout table
+above, then connect to a USB-to-TTL serial adapter.
 
 ![Flashing points wired to TTL serial converter](flahing_points.png "Soldered wires on CB3L connected to a TTL serial converter")
 
