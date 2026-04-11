@@ -74,6 +74,9 @@ const config: Config = {
   ],
 
   markdown: {
+    mdx1Compat: {
+      comments: true,
+    },
     hooks: {
       onBrokenMarkdownImages: "throw",
     },
