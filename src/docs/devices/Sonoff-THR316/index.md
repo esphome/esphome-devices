@@ -276,7 +276,8 @@ climate:
 
 ## Using a WTS01 temperature sensor
 
-The following yaml enables the [WTS01 sensor](https://esphome.io/components/sensor/wts01/) on the Sonoff THR316 and exposes the measured value as `temp`.
+The following yaml enables the [WTS01 sensor](https://esphome.io/components/sensor/wts01/) on the Sonoff THR316
+and exposes the measured value as `temp`.
 
 ```yaml
 switch:
