@@ -1,6 +1,6 @@
 ---
 title: Arthofer Engineering WiFi Fan Controller
-date-published: 2026-03-06
+date-published: 2026-04-13
 type: misc
 standard: global
 board: esp32
