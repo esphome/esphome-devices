@@ -6,7 +6,7 @@
   "author": "",
   "license": "GPL-3.0",
   "scripts": {
-"docusaurus": "docusaurus",
+    "docusaurus": "docusaurus",
     "start": "pnpm extract-metadata && docusaurus start",
     "build": "pnpm extract-metadata && docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -19,25 +19,28 @@
     "extract-metadata": "tsx scripts/extract-device-metadata.ts"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/plugin-ideal-image": "^3.9.2",
-    "@docusaurus/plugin-sitemap": "^3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
+    "@docusaurus/core": "3.10.0",
+    "@docusaurus/faster": "^3.10.0",
+    "@docusaurus/plugin-ideal-image": "^3.10.0",
+    "@docusaurus/plugin-sitemap": "^3.10.0",
+    "@docusaurus/preset-classic": "3.10.0",
     "@getcanary/docusaurus-theme-search-pagefind": "^1.0.2",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
+    "@mdx-js/react": "^3.1.1",
+    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "tsx": "^4.21.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
-    "@types/node": "^25.0.3",
-    "typescript": "~5.9.3"
+    "@docusaurus/module-type-aliases": "3.10.0",
+    "@docusaurus/tsconfig": "3.10.0",
+    "@docusaurus/types": "3.10.0",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "~6.0.2"
   },
   "browserslist": {
     "production": [

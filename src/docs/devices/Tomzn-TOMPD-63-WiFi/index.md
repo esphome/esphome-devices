@@ -34,7 +34,7 @@ If flashing fails, desoldering the CBU chip may help by improving 3.3V line stab
 [01:21:47][C][tuya:056]:   Datapoint 11: switch (value: OFF)
 [01:21:47][C][tuya:058]:   Datapoint 13: int value (value: 0)
 [01:21:47][C][tuya:054]:   Datapoint 6: raw (value: 09.0A.00.0F.FA.00.03.59 (8))
-[01:21:47][C][tuya:060]:   Datapoint 19: string value (value: )
+[01:21:47][C][tuya:060]:   Datapoint 19: string value (value: \x0E)
 [01:21:47][C][tuya:056]:   Datapoint 12: switch (value: OFF)
 [01:21:47][C][tuya:056]:   Datapoint 16: switch (value: ON)
 [01:21:47][C][tuya:058]:   Datapoint 15: int value (value: 18)
