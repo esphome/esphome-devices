@@ -11,9 +11,9 @@ difficulty: 2
 
 ## Product Description
 
-ESP32-S3 development board with a 4.2-inch reflective LCD (ST7305, 400x300 monochrome), 
-dual microphone array (ES7210 ADC), speaker output (ES8311 DAC), SHTC3 temperature/humidity sensor, 
-18650 battery holder with ADC monitoring, and two user buttons. 
+ESP32-S3 development board with a 4.2-inch reflective LCD (ST7305, 400x300 monochrome),
+dual microphone array (ES7210 ADC), speaker output (ES8311 DAC), SHTC3 temperature/humidity sensor,
+18650 battery holder with ADC monitoring, and two user buttons
 The reflective LCD has no backlight and reads like e-paper in sunlight.
 
 ## Product Images
@@ -229,9 +229,9 @@ binary_sensor:
 
 ## Voice Assistant Configuration
 
-This extends the basic configuration above to add a full voice assistant pipeline 
-with on-device wake word detection, 
-push-to-talk, mute toggle, and media playback. 
+This extends the basic configuration above to add a full voice assistant pipeline
+with on-device wake word detection,
+push-to-talk, mute toggle, and media playback.
 Requires a Home Assistant instance with a Voice Assistant pipeline configured.
 
 ```yaml
