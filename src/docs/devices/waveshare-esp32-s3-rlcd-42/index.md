@@ -165,7 +165,7 @@ switch:
 
 ### Battery Monitoring
 
-Battery voltage is read via ADC on GPIO4 with a 3x voltage divider. 
+Battery voltage is read via ADC on GPIO4 with a 3x voltage divider.
 The 18650 cell ranges from 2.5V (empty) to 4.2V (full).
 
 ```yaml
