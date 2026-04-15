@@ -11,7 +11,10 @@ difficulty: 2
 
 ## Product Description
 
-ESP32-S3 development board with a 4.2-inch reflective LCD (ST7305, 400x300 monochrome), dual microphone array (ES7210 ADC), speaker output (ES8311 DAC), SHTC3 temperature/humidity sensor, 18650 battery holder with ADC monitoring, and two user buttons. The reflective LCD has no backlight and reads like e-paper in sunlight.
+ESP32-S3 development board with a 4.2-inch reflective LCD (ST7305, 400x300 monochrome), 
+dual microphone array (ES7210 ADC), speaker output (ES8311 DAC), SHTC3 temperature/humidity sensor, 
+18650 battery holder with ADC monitoring, and two user buttons. 
+The reflective LCD has no backlight and reads like e-paper in sunlight.
 
 ## Product Images
 
@@ -162,7 +165,8 @@ switch:
 
 ### Battery Monitoring
 
-Battery voltage is read via ADC on GPIO4 with a 3x voltage divider. The 18650 cell ranges from 2.5V (empty) to 4.2V (full).
+Battery voltage is read via ADC on GPIO4 with a 3x voltage divider. 
+The 18650 cell ranges from 2.5V (empty) to 4.2V (full).
 
 ```yaml
 sensor:
@@ -225,7 +229,10 @@ binary_sensor:
 
 ## Voice Assistant Configuration
 
-This extends the basic configuration above to add a full voice assistant pipeline with on-device wake word detection, push-to-talk, mute toggle, and media playback. Requires a Home Assistant instance with a Voice Assistant pipeline configured.
+This extends the basic configuration above to add a full voice assistant pipeline 
+with on-device wake word detection, 
+push-to-talk, mute toggle, and media playback. 
+Requires a Home Assistant instance with a Voice Assistant pipeline configured.
 
 ```yaml
 api:
