@@ -43,9 +43,9 @@ More information:
 ```yaml
 # Variables
 substitutions:
-  device_name: "waveshare-001"
+  device_name: "ESP32-S3-Relay-1CH"
   device_comment: "WaveShare ESP32-S3-Relay-1CH device"
-  device_friendly: "Waveshare001"
+  device_friendly: "ESP32-S3-Relay-1CH"
 
 # ESPHome initialisation
 esphome:
