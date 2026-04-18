@@ -10,7 +10,7 @@ board: esp32
 
 ## Product description
 
-Industrial 1-Channel ESP32-S3 WiFi Relay Module, Supports Wi-Fi / Bluetooth, Onboard RS485 interface, 
+Industrial 1-Channel ESP32-S3 WiFi Relay Module, Supports Wi-Fi / Bluetooth, Onboard RS485 interface,
 With Multiple Isolation Protection Circuits, Industrial-Grade Rail-Mount Case
 
 Features
