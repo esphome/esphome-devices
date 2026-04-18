@@ -74,15 +74,27 @@ ota:
 
 # Wifi configuration 
 wifi:
-  ssid: "SSID" # Your SSID here
-  password: "password" # Your password here
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Waveshare002 Fallback Hotspot"
-    password: "12345678"
+    ssid: ${device_name} AP
+    password: !secret wifi_hotspot_pass
 
 captive_portal:
+
+text_sensor:
+ - platform: wifi_info
+   ip_address:
+     name: "${device_name} - IP Address"
+   ssid:
+     name: "${device_name} - Wi-Fi SSID"
+   bssid:
+     name: "${device_name} - Wi-Fi BSSID"
+ - platform: version
+   name: "${device_name} - ESPHome Version"
+   hide_timestamp: true
     
 # Enable Web server
 web_server:
