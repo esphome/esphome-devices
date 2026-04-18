@@ -6,7 +6,7 @@ standard: global
 board: esp32
 ---
 
-![Product](./image1.jpg "Product Image")
+![Product](./image1.png "Product Image")
 
 ## Product description
 
@@ -36,7 +36,7 @@ More information:
 
 ## GPIO Pinout
 
-![GPIO](./image2.jpg "GPIO Image")
+![GPIO](./image2.png "GPIO Image")
 
 ## Basic Config
 
