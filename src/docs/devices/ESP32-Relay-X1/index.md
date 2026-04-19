@@ -49,22 +49,14 @@ esp32:
 # Enable logging
 logger:
 
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "xxxx"
-
-ota:
-  password: "xxxx"
-
 wifi:
-  ssid: "wifi_ssid"
-  password: "wifi_password"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "ESP32 Fallback Hotspot"
-    password: "xxxx"
+    password: !secret wifi_password
 
 captive_portal:
 
