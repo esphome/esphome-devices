@@ -17,7 +17,7 @@ The right‑angle versions are especially useful for wall sockets with USB-A por
 
 We designed these to look good, be as small as possible and blend in with your home.
 
-![DeskUp Pro](DeskUpPro-Top.jpg "DeskUp Pro")
+![Bluetooth Proxy Stick All Models](Bluetooth-Proxy-Stick-All-Models.jpg "Bluetooth Proxy Stick All Models")
 
 
 ## Support
