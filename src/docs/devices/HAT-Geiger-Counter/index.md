@@ -1,6 +1,6 @@
 ---
 title: HAT Geiger Counter
-date-published: 2026-03-04
+date-published: 2026-04-22
 type: sensor
 standard: global
 board: esp32
