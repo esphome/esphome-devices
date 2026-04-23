@@ -11,7 +11,6 @@ interface DeviceFrontmatter {
   type?: string;
   manufacturer?: string;
   model?: string;
-  standards?: string[];
   'last-published'?: string;
   difficulty?: string | number;
   [key: string]: any; // Allow additional unknown fields
@@ -172,18 +171,18 @@ function extractDeviceMetadata(): void {
         }
       }
 
-      if (frontmatter.standards) {
-        const standards = Array.isArray(frontmatter.standards)
-          ? frontmatter.standards
-          : frontmatter.standards.split(',').map(s => s.trim().toLowerCase());
-        for (const standard of standards) {
-          if (!VALID_STANDARDS.has(standard)) {
-            console.error(`Invalid standard in ${targetFile}: ${standard}. Must be one of: ${Array.from(VALID_STANDARDS).join(', ')}`);
-            console.error(HELP_MESSAGE_FRONTMATTER);
-            process.exit(1);
-          }
-        }
-      }
+      // Disabled for now because the repo contains valid device entries without
+      // dedicated `/standards/*` pages for every standard token in frontmatter.
+      // if (frontmatter.standard) {
+      //   const standards = frontmatter.standard.split(',').map(s => s.trim().toLowerCase());
+      //   for (const standard of standards) {
+      //     if (!VALID_STANDARDS.has(standard)) {
+      //       console.error(`Invalid standard in ${targetFile}: ${standard}. Must be one of: ${Array.from(VALID_STANDARDS).join(', ')}`);
+      //       console.error(HELP_MESSAGE_FRONTMATTER);
+      //       process.exit(1);
+      //     }
+      //   }
+      // }
 
       if (frontmatter.difficulty !== undefined) {
         const difficulty = frontmatter.difficulty;

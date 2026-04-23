@@ -5,6 +5,7 @@ type: light
 board: bk72xx
 made-for-esp-home: False
 difficulty: 4
+standard: in
 ---
 
 ## Device Info

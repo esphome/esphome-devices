@@ -61,7 +61,7 @@ async function unregisterLegacyServiceWorkers(): Promise<void> {
   }
 }
 
-export default function Root({ children }: RootProps): JSX.Element {
+export default function Root({ children }: RootProps): React.JSX.Element {
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
@@ -71,4 +71,3 @@ export default function Root({ children }: RootProps): JSX.Element {
 
   return <>{children}</>;
 }
-
