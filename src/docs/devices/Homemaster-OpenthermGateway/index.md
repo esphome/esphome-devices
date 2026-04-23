@@ -26,7 +26,7 @@ This page includes the full ESPHome configuration used on shipped devices (inclu
 
 For complete product documentation (connections, compliance/certifications, wiring, and schematics), see:
 
-- Product page: [OpenTherm_Gateway](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+- Product page: [home-master.eu shop](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
 - Repository: [GitHub repository](https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway)
 - Datasheet (PDF):
   [OpenTherm_Datasheet.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Manuals/OpenTherm_Datasheet.pdf)
@@ -241,6 +241,7 @@ Use this minimal configuration to connect the device to your network and import 
 ```yaml
 esphome:
   name: homemaster-opentherm
+  name_add_mac_suffix: true
   friendly_name: HomeMaster OpenTherm Gateway
   project:
     name: homemaster.opentherm_gateway
@@ -311,6 +312,7 @@ switch:
 ```yaml
 esphome:
   name: homemaster-opentherm
+  name_add_mac_suffix: true
   friendly_name: HomeMaster OpenTherm Gateway
   project:
     name: homemaster.opentherm_gateway
