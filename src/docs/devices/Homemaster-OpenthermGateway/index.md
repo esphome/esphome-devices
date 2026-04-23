@@ -26,7 +26,7 @@ This page includes the full ESPHome configuration used on shipped devices (inclu
 
 For complete product documentation (connections, compliance/certifications, wiring, and schematics), see:
 
-- Product page: [home-master.eu shop](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+- Product page: [OpenTherm_Gateway](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
 - Repository: [GitHub repository](https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway)
 - Datasheet (PDF):
   [OpenTherm_Datasheet.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Manuals/OpenTherm_Datasheet.pdf)
