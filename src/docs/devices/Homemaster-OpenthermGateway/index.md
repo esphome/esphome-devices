@@ -15,22 +15,28 @@ difficulty: 1
 
 ## Description
 
-The HomeMaster OpenTherm Gateway is an ESP32-based DIN-rail device designed to interface with OpenTherm-compatible boilers.
+The HomeMaster OpenTherm Gateway is an ESP32-based DIN-rail device designed to
+interface with OpenTherm-compatible boilers.
 
-The device provides a hardware OpenTherm interface together with one relay output and 1-Wire temperature sensor support. It is designed for local operation using ESPHome and integrates directly with Home Assistant.
+The device provides a hardware OpenTherm interface together with one relay
+output and 1-Wire temperature sensor support. It is designed for local
+operation using ESPHome and integrates directly with Home Assistant.
 
 This page includes the full ESPHome configuration used on shipped devices (including vendor OTA update settings).
 
 For complete product documentation (connections, compliance/certifications, wiring, and schematics), see:
 
-- Product page: https://www.home-master.eu/shop/esp32-opentherm-gateway-59
-- Repository: https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway
-- Datasheet (PDF): https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Manuals/OpenTherm_Datasheet.pdf
+- Product page: [home-master.eu shop](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+- Repository: [GitHub repository](https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway)
+- Datasheet (PDF):
+  [OpenTherm_Datasheet.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Manuals/OpenTherm_Datasheet.pdf)
 - Schematics (PDF):
-  - MCU Board: https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Schematic/MCUBoard.pdf
-  - Relay Board: https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Schematic/RelayBorard.pdf
+  - MCU Board:
+    [MCUBoard.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Schematic/MCUBoard.pdf)
+  - Relay Board:
+    [RelayBorard.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Schematic/RelayBorard.pdf)
 
-- Maker: https://www.home-master.eu/
+- Maker: [home-master.eu](https://www.home-master.eu/)
 
 ## Hardware Details
 
@@ -52,6 +58,7 @@ Use **only one** power input method at a time:
 ## Terminal Connections
 
 ### Signal terminals (top)
+
 | Label | Function | GPIO |
 |---|---|---|
 | GND | Ground | — |
@@ -62,6 +69,7 @@ Use **only one** power input method at a time:
 | OT+ | OpenTherm plus | GPIO26 (out) |
 
 ### Power and relay terminals (bottom)
+
 | Label | Function |
 |---|---|
 | 0V / +V | 24V DC input |
@@ -87,6 +95,7 @@ ESP32 initializes — no external pull-up or firmware workaround is needed.
 ## Compliance
 
 CE marked. Complies with:
+
 - EMC Directive 2014/30/EU
 - LVD Directive 2014/35/EU
 - RED Directive 2014/53/EU
@@ -138,7 +147,7 @@ The device supports two setup methods:
 ### Improv Wi-Fi Setup (Recommended)
 
 1. Power on the device
-2. Open https://improv-wifi.com
+2. Open [improv-wifi.com](https://improv-wifi.com)
 3. Connect via USB or Bluetooth
 4. Enter Wi-Fi credentials
 5. Wait for connection
@@ -160,7 +169,7 @@ If the device cannot connect to Wi-Fi, it starts a fallback Access Point.
 
 1. Power on the device and wait approximately 60 seconds
 2. Connect to: HomeMaster OT Fallback
-3. Open a browser and navigate to: http://192.168.4.1
+3. Open a browser and navigate to: [http://192.168.4.1](http://192.168.4.1)
 4. Enter your Wi-Fi credentials and save
 
 The device will restart and connect to your network.
@@ -188,7 +197,8 @@ After taking control in ESPHome Dashboard, firmware can be updated manually:
 
 The device also supports vendor-provided firmware updates.
 
-A firmware update entity is exposed in Home Assistant, allowing the device to check for new firmware versions and install updates directly.
+A firmware update entity is exposed in Home Assistant, allowing the device to
+check for new firmware versions and install updates directly.
 
 This mechanism uses:
 
@@ -276,54 +286,24 @@ one_wire:
     id: ow_bus_2
     pin: GPIO5
 
+status_led:
+  pin:
+    number: GPIO33
+    inverted: true
+
 binary_sensor:
   - platform: gpio
     id: button_1
-    name: "Button"
     pin:
       number: GPIO35
       inverted: true
       mode:
         input: true
 
-  - platform: opentherm
-    flame_on:
-      id: ot_flame_on
-      name: "Boiler Flame On"
-    fault_indication:
-      id: ot_fault_indication
-      name: "Boiler Fault Indication"
-      entity_category: diagnostic
-
-sensor:
-  - platform: opentherm
-    t_boiler:
-      id: ot_t_boiler
-      name: "Boiler Water Temperature"
-      unit_of_measurement: "°C"
-
-  - platform: dallas_temp
-    id: ow_bus_1_temperature
-    one_wire_id: ow_bus_1
-    name: "1-Wire Bus 1 Temperature"
-    unit_of_measurement: "°C"
-
-  - platform: dallas_temp
-    id: ow_bus_2_temperature
-    one_wire_id: ow_bus_2
-    name: "1-Wire Bus 2 Temperature"
-    unit_of_measurement: "°C"
-
 switch:
   - platform: gpio
     id: relay_1
-    name: "Relay"
     pin: GPIO32
-
-status_led:
-  pin:
-    number: GPIO33
-    inverted: true
 ```
 
 ## Full ESPHome Configuration (Shipped Device)
