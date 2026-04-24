@@ -9,9 +9,11 @@ project-url: https://github.com/zuidwijk/SlimmeLezer/tree/main/Pro
 difficulty: 1
 ---
 
-# SlimmeLezer Pro
+![SlimmeLezerPro](SlimmeLezer-Pro.png "SlimmeLezerPro")
 
-ESP32 C3 based device to read out the P1 port of a Smart Meter and send data via ethernet or wifi.
+## Description
+
+SlimmeLezer Pro, an ESP32C3 based device to read out the P1 port of a Smart Meter and send data via ethernet or wifi to Home Assistant. It has an P1 passthrough port to connect another P1 device.
 
 ## Basic Configuration
 
