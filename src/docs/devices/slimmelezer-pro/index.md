@@ -13,7 +13,7 @@ difficulty: 1
 
 ## Description
 
-SlimmeLezer Pro, an ESP32C3 based device to read out the P1 port of a Smart Meter and send data via ethernet or wifi to Home Assistant. It has an P1 passthrough port to connect another P1 device.
+ESP32C3 based device to read out the P1 port of a Smart Meter and send data via ethernet or wifi to Home Assistant.
 
 ## Basic Configuration
 
