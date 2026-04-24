@@ -3,7 +3,7 @@ title: SlimmeLezer Pro
 date-published: 2026-04-24
 type: sensor
 standard: global
-board: esp32c3
+board: esp32
 made-for-esphome: true
 project-url: https://github.com/zuidwijk/SlimmeLezer/tree/main/Pro
 difficulty: 1
