@@ -3,6 +3,8 @@
 (function () {
   "use strict";
 
+  var DEFAULT_REPO = "esphome-devices";
+
   function slugify(value) {
     return value
       .trim()
@@ -13,21 +15,39 @@
       .replace(/^-+|-+$/g, "");
   }
 
-  // Accepts a bare username, or any common GitHub URL/path form, e.g.:
+  // Accepts a bare username, `user/repo`, or any common GitHub URL form:
   //   octocat
-  //   octocat/esphome-devices
+  //   octocat/my-fork
   //   github.com/octocat
   //   https://github.com/octocat/esphome-devices
-  //   https://github.com/octocat/esphome-devices.git
-  // Returns just the username.
-  function parseUsername(value) {
+  //   https://github.com/octocat/my-fork.git
+  // Returns { user, repo } where repo falls back to DEFAULT_REPO when not
+  // specified in the input.
+  function parseFork(value) {
     var v = value.trim();
-    if (!v) return "";
+    if (!v) return null;
     v = v.replace(/^https?:\/\//i, "");
     v = v.replace(/^(www\.)?github\.com\//i, "");
-    var match = v.match(/^([^\/\?#\s]+)/);
-    if (!match) return "";
-    return match[1].replace(/\.git$/i, "");
+    var match = v.match(/^([^\/\?#\s]+)(?:\/([^\/\?#\s]+))?/);
+    if (!match) return null;
+    var user = match[1];
+    var repo = (match[2] || DEFAULT_REPO).replace(/\.git$/i, "");
+    return { user: user, repo: repo };
+  }
+
+  // YAML double-quoted scalar — safely encodes any string (including names
+  // containing ':', '"', '#', newlines, etc.) so the emitted front matter
+  // always parses.
+  function yamlDoubleQuotedString(value) {
+    return (
+      '"' +
+      String(value)
+        .replace(/\\/g, "\\\\")
+        .replace(/"/g, '\\"')
+        .replace(/\r/g, "\\r")
+        .replace(/\n/g, "\\n") +
+      '"'
+    );
   }
 
   function buildTemplate(name) {
@@ -35,7 +55,7 @@
     var fence = "```";
     return [
       "---",
-      "title: " + name,
+      "title: " + yamlDoubleQuotedString(name),
       "date-published: " + today,
       "type: ",
       "standard: ",
@@ -65,14 +85,18 @@
       return;
     }
 
-    var user = parseUsername(userInput.value);
+    var fork = parseFork(userInput.value);
     var name = nameInput.value.trim();
     var slug = slugify(name);
 
-    if (user && slug) {
+    if (fork && slug) {
       if (pathHint) {
         pathHint.innerHTML =
-          "File will be created at <code>src/docs/devices/" +
+          "File will be created in <code>" +
+          fork.user +
+          "/" +
+          fork.repo +
+          "</code> at <code>src/docs/devices/" +
           slug +
           "/index.md</code>";
       }
@@ -82,8 +106,10 @@
       });
       link.href =
         "https://github.com/" +
-        encodeURIComponent(user) +
-        "/esphome-devices/new/main/src/docs/devices?" +
+        encodeURIComponent(fork.user) +
+        "/" +
+        encodeURIComponent(fork.repo) +
+        "/new/main/src/docs/devices?" +
         params.toString();
       link.style.display = "inline-block";
       placeholder.style.display = "none";
