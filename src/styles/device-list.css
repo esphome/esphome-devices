@@ -109,12 +109,13 @@ a.deviceTag:hover {
 }
 
 .sortButton--active {
-  background-color: var(--sl-color-accent-low);
-  color: var(--sl-color-text-accent);
+  background-color: var(--sl-color-text-accent);
+  color: var(--sl-color-text-invert);
 }
 
 .sortButton--active:hover {
-  background-color: var(--sl-color-accent-low);
+  background-color: var(--sl-color-text-accent);
+  color: var(--sl-color-text-invert);
 }
 
 .text-center {

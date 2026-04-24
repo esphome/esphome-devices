@@ -1,22 +1,30 @@
 /* ESPHome Devices custom styles (teal palette) */
 
+/*
+ * Starlight expects the accent palette to follow a low→mid→high lightness
+ * gradient that crosses the page background lightness:
+ *   accent-low  — close to page bg (light mode: light, dark mode: dark)
+ *   accent      — the mid-tone, used for buttons/icons
+ *   accent-high — far from page bg (light mode: dark, dark mode: light)
+ *
+ * text-accent defaults to accent-high, text-invert defaults to accent-low,
+ * so the active-sidebar pair (bg=accent-high, text=accent-low) needs a real
+ * luminance gap between the two ends for readable contrast.
+ */
+
 :root {
   --sl-line-height: 1.6;
   --sl-content-width: 55rem;
 
   --sl-color-accent-low: #d1eeee;
   --sl-color-accent: #007070;
-  --sl-color-accent-high: #178699;
-
-  --sl-color-text-accent: #007070;
+  --sl-color-accent-high: #003d3d;
 }
 
 :root[data-theme="dark"] {
-  --sl-color-accent-low: #2a9bab;
-  --sl-color-accent: #5bd7e5;
+  --sl-color-accent-low: #0a3d45;
+  --sl-color-accent: #2a9bab;
   --sl-color-accent-high: #b8f1f7;
-
-  --sl-color-text-accent: #5bd7e5;
 }
 
 /* Limit logo height in header */
