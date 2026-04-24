@@ -1,0 +1,67 @@
+/* ESPHome Devices custom styles (teal palette) */
+
+:root {
+  --sl-line-height: 1.6;
+  --sl-content-width: 55rem;
+
+  --sl-color-accent-low: #d1eeee;
+  --sl-color-accent: #007070;
+  --sl-color-accent-high: #178699;
+
+  --sl-color-text-accent: #007070;
+}
+
+:root[data-theme="dark"] {
+  --sl-color-accent-low: #2a9bab;
+  --sl-color-accent: #5bd7e5;
+  --sl-color-accent-high: #b8f1f7;
+
+  --sl-color-text-accent: #5bd7e5;
+}
+
+/* Limit logo height in header */
+.site-title img {
+  max-height: 30px;
+  width: auto;
+}
+
+/* Remove search blur overlay */
+dialog::backdrop {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Sidebar nav item spacing */
+.sidebar-content ul li summary {
+  padding-block: 0.5em;
+}
+
+.sidebar-content ul li > a {
+  padding-block: 0.5em;
+}
+
+/* Made for ESPHome splash logo */
+.made-for-esphome-logo-container {
+  margin-bottom: 1rem;
+}
+.made-for-esphome-logo-image {
+  height: 80px;
+  width: 200px;
+  background-image: url("/img/made-for-esphome-black-on-white.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+:root[data-theme="dark"] .made-for-esphome-logo-image {
+  background-image: url("/img/made-for-esphome-white-on-black.svg");
+}
+.made-for-esphome-description {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Homepage helpers */
+.margin-bottom-lg {
+  margin-bottom: 2rem;
+}
