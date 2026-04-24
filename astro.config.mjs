@@ -3,6 +3,7 @@ import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "url";
 import path from "path";
+import deviceAssets from "./src/integrations/device-assets";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -128,5 +129,6 @@ export default defineConfig({
       ],
     }),
     sitemap(),
+    deviceAssets(),
   ],
 });
