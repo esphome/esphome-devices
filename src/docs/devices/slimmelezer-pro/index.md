@@ -17,6 +17,7 @@ An ESP32C3 based device to read out the P1 port of a Smart Meter and send data v
 ## Basic Configuration
 
 ### Ethernet config
+
 ```yaml
 substitutions:
   device_name: slimmelezer-pro
@@ -299,6 +300,7 @@ text_sensor:
 ```
 
 ### WiFi config
+
 ```yaml
 substitutions:
   device_name: slimmelezer-pro
