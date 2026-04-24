@@ -10,7 +10,7 @@ project-url: https://github.com/zuidwijk/SlimmeLezer/tree/main/Mini
 ---
 
 # SlimmeLezer Mini
-
+An ESP32C3 based device to read out the P1 port of a Smart Meter and send data via wifi to Home Assistant.
 <!-- Describe the device here. See the front-matter table on the contributing page for valid options. -->
 
 ## Basic Configuration
