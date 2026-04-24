@@ -4,31 +4,156 @@ title: "Contributing: Adding Devices"
 permalink: /adding-devices/
 ---
 
+import Head from "@docusaurus/Head";
 import {
   TypeOptions,
   BoardOptions,
   StandardOptions,
 } from "../../components/ValidOptions";
 
+<Head>
+  <script src="/js/adding-devices-quickstart.js" defer />
+</Head>
+
 ## Create device folder and markdown file
 
-1. To add a new device create a new folder named after your device under the `src/docs/devices` directory in the
-   [GitHub Repository](https://github.com/esphome/esphome-devices). In that folder, create a markdown (`.md`) file named
-   `index.md` with the content. Please avoid using underscores or spaces in the filenames and use hypens instead as this
-   makes for easier to understand the URLs generated when the site is built. When using the _Add file_ -> _Create new
-   file_
-   button in the `Devices` folder or by following
-   [this link](https://github.com/esphome/esphome-devices/new/main/src/docs/devices),
-   Github will automatically create a fork of the repository and a new branch for your changes. Just type the device
-   name for
-   the folder followed by a `/index.md` (including the slash).
+### Step 1: Fork the repository
 
-   [Fork](https://github.com/esphome/esphome-devices/fork) on GitHub
+Go to [github.com/esphome/esphome-devices/fork](https://github.com/esphome/esphome-devices/fork) and click
+**Create fork**. This gives you your own copy of the repo at `github.com/<your-username>/esphome-devices`.
 
-2. Once you have written your file commit your changes and raise a pull request on GitHub. A guide for creating a pull
-   request from a fork can be found
-   [in the GitHub documentation](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork)
-   if you are unsure.
+Once your fork is created, **come back to this page** to continue.
+
+### Step 2: Create the device file
+
+The fastest way is to use the link generator below — fill in the link to your fork (or just your GitHub username) and
+the device name, and it will open GitHub's new file page with the filename and front matter pre-filled.
+
+<div
+  className="card"
+  style={{
+    padding: "1rem 1.25rem",
+    marginBottom: "1.5rem",
+    maxWidth: "560px",
+  }}
+>
+  <label style={{ display: "block", marginBottom: "0.75rem" }}>
+    <span style={{ fontWeight: 600, display: "block", marginBottom: "0.25rem" }}>Your fork URL or GitHub username</span>
+    <input
+      id="quickstart-username"
+      type="text"
+      placeholder="https://github.com/octocat/esphome-devices"
+      spellCheck={false}
+      autoCapitalize="off"
+      autoCorrect="off"
+      style={{
+        width: "100%",
+        boxSizing: "border-box",
+        padding: "0.5rem 0.75rem",
+        border: "1px solid var(--ifm-color-emphasis-300)",
+        borderRadius: "var(--ifm-global-radius)",
+        background: "var(--ifm-background-surface-color)",
+        color: "var(--ifm-font-color-base)",
+        font: "inherit",
+      }}
+    />
+  </label>
+
+  <label style={{ display: "block", marginBottom: "0.75rem" }}>
+    <span style={{ fontWeight: 600, display: "block", marginBottom: "0.25rem" }}>Device name</span>
+    <input
+      id="quickstart-device"
+      type="text"
+      placeholder="Sonoff S20"
+      style={{
+        width: "100%",
+        boxSizing: "border-box",
+        padding: "0.5rem 0.75rem",
+        border: "1px solid var(--ifm-color-emphasis-300)",
+        borderRadius: "var(--ifm-global-radius)",
+        background: "var(--ifm-background-surface-color)",
+        color: "var(--ifm-font-color-base)",
+        font: "inherit",
+      }}
+    />
+  </label>
+
+  <p
+    id="quickstart-path"
+    style={{ margin: "0.5rem 0 1rem", minHeight: "1.5em", fontSize: "0.9rem" }}
+  ></p>
+
+  <a
+    id="quickstart-link"
+    className="button button--primary"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ display: "none", alignSelf: "flex-start" }}
+  >Open pre-filled new file page on GitHub</a>
+  <button
+    id="quickstart-placeholder"
+    type="button"
+    className="button button--primary"
+    disabled
+    style={{ alignSelf: "flex-start", cursor: "not-allowed" }}
+  >Fill in both fields to generate a link</button>
+</div>
+
+<details>
+<summary>Or create the file manually</summary>
+
+Follow these steps in your fork:
+
+1. **Open the devices folder.** Navigate to `src/docs/devices` in your fork.
+2. **Click _Add file_ → _Create new file_.**
+3. **Name the file.** Start by typing your device's folder name — e.g. `some-new-device`:
+
+   ![GitHub's filename field with "some-new-device" typed in and no folder yet created.](/img/adding-devices-filename-before-slash.png)
+
+   Then type a `/` (forward slash) after the name. GitHub will automatically turn what you typed into a folder and
+   move the cursor into a new filename field inside it. Finish by typing `index.md`:
+
+   ![GitHub's breadcrumb now shows "some-new-device" as a folder, with "index.md" in the filename field.](/img/adding-devices-filename-after-slash.png)
+
+   Use hyphens (`-`) in folder names instead of underscores or spaces. This keeps the generated URLs clean and
+   readable.
+
+</details>
+
+### Step 3: Write the content
+
+The file needs a [YAML front matter](#yaml-front-matter) block at the top, followed by the device's documentation in
+Markdown.
+
+If you used the link generator in Step 2, the filename and a starter template are already filled in for you — but you
+still need to **fill in the empty front matter fields** (`type`, `standard`, and optionally `board`) and write the
+documentation in the body.
+
+If you created the file manually, you'll need to add the entire front matter block plus the documentation yourself.
+
+See the [YAML front matter](#yaml-front-matter) section below for the list of valid options for each field.
+
+### Step 4: Commit your changes
+
+Click **Commit changes...** at the top right. A dialog will appear:
+
+![The GitHub Propose changes dialog, with "Create a new branch for this commit and start a pull request" selected and a branch name entered.](/img/adding-devices-propose-changes.png)
+
+- Leave the default commit message or write your own.
+- **Important:** select **Create a new branch for this commit and start a pull request**, and give the branch a short
+  name like `some-new-device`. Do **not** commit directly to `main` — committing to `main` in your fork makes it
+  harder to open clean pull requests later.
+- Click **Propose changes**.
+
+### Step 5: Open the pull request
+
+GitHub will take you to the pull request page automatically. Check that the base repository is
+`esphome/esphome-devices` and the base branch is `main`, then click **Create pull request** to submit it.
+
+If the base repository is set to your own fork instead of `esphome/esphome-devices`, click the
+**compare across forks** link near the top of the page. That will reveal the **base repository** dropdown — switch it
+to `esphome/esphome-devices` and make sure the base branch is `main` before clicking **Create pull request**.
 
 ## YAML Front Matter
 
