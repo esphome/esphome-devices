@@ -155,7 +155,7 @@ wifi:
 # RGB LED Strip - The 4 Colorful LEDs
 # ============================================================================
 # The ATOM S3 Lite has 4 RGB LEDs built-in on GPIO35
-# Documentation: https://esphome.io/components/light/fastled
+# Documentation: https://esphome.io/components/light/fastled/
 light:
   # Use FastLED library for addressable LED control
   - platform: fastled_clockless
@@ -336,9 +336,9 @@ configuration using automations, or extend the configuration with Home Assistant
 ### ESPHome Resources
 
 - [ESPHome Documentation](https://esphome.io/)
-- [ESP32 Platform](https://esphome.io/components/esp32.html)
-- [FastLED Light Component](https://esphome.io/components/light/fastled.html)
-- [Remote Transmitter](https://esphome.io/components/remote_transmitter.html)
+- [ESP32 Platform](https://esphome.io/components/esp32/)
+- [FastLED Light Component](https://esphome.io/components/light/fastled/)
+- [Remote Transmitter](https://esphome.io/components/remote_transmitter/)
 
 ## 🙏 Acknowledgments
 
