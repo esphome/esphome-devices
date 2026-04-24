@@ -7,7 +7,7 @@ board: esp32
 difficulty: 3
 ---
 
-# Dingtian DT-R002
+## Product description
 
 A 2-channel relay board with an ESP32 and an Ethernet interface. Available direct from the manufacturer on
 [AliExpress](https://www.aliexpress.com/item/4001232791244.html).
