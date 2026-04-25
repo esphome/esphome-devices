@@ -26,7 +26,7 @@ ota:
   platform: esphome
   
 wifi:
-  # You should define these in their secrets.yaml
+  # You should define these in your secrets.yaml
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
