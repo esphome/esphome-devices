@@ -5,3 +5,6 @@ type: LED strip
 standard: eu
 board: Beken BK7231T
 ---
+
+## Flashing
+To flash this device follow https://docs.libretiny.eu/docs/platform/beken-72xx/
