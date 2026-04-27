@@ -27,7 +27,7 @@ function fail(msg: string, help?: string): never {
 function main(): void {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const devicesDir = path.join(__dirname, "..", "src", "content", "docs", "devices");
+  const devicesDir = path.join(__dirname, "..", "src", "docs", "devices");
 
   if (!fs.existsSync(devicesDir)) {
     console.warn(`Devices directory not found: ${devicesDir}`);

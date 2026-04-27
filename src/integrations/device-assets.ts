@@ -4,8 +4,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 /**
- * Copy non-image, non-markdown files from src/content/docs/devices/<slug>/
- * into dist/devices/<slug>/ so `<a href="./foo.pdf">` links resolve.
+ * Copy non-image, non-markdown files from src/docs/devices/<slug>/ into
+ * dist/devices/<slug>/ so `<a href="./foo.pdf">` links resolve.
  *
  * Astro's image pipeline already handles inline markdown images. Other
  * asset types (PDFs, YAML, firmware blobs, SVG, etc.) are not copied
@@ -28,7 +28,7 @@ export default function deviceAssets(): AstroIntegration {
     hooks: {
       "astro:build:done": async ({ dir, logger }) => {
         const projectRoot = path.dirname(fileURLToPath(import.meta.url));
-        const devicesSrc = path.resolve(projectRoot, "../content/docs/devices");
+        const devicesSrc = path.resolve(projectRoot, "../docs/devices");
         const devicesOut = path.join(fileURLToPath(dir), "devices");
 
         if (!fs.existsSync(devicesSrc)) return;

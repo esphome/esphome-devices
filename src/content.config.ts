@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { docsLoader } from "@astrojs/starlight/loaders";
+import { glob } from "astro/loaders";
 import { docsSchema } from "@astrojs/starlight/schema";
 import {
   VALID_TYPES,
@@ -47,9 +47,16 @@ const deviceSchemaExtension = z.object({
   description: z.coerce.string().optional(),
 });
 
+// Devices live at src/docs/devices/ (preserved from the legacy structure)
+// rather than the Starlight default src/content/docs/. The custom glob loader
+// generates entry IDs prefixed with "devices/" so URLs resolve as
+// /devices/<slug>/.
 export const collections = {
   docs: defineCollection({
-    loader: docsLoader(),
+    loader: glob({
+      base: "./src/docs",
+      pattern: "**/[^_]*.{md,mdx}",
+    }),
     schema: docsSchema({
       extend: deviceSchemaExtension,
     }),
