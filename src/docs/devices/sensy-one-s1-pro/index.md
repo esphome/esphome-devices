@@ -13,7 +13,9 @@ difficulty: 1
 
 ## Description
 
-The SENSY-ONE S1 Pro Multi Sense is a compact Wi-Fi mmWave presence and environmental multisensor designed for ESPHome and Home Assistant. It delivers real-time multi-target tracking, indoor air quality sensing, and seamless smart home automation support.
+The SENSY-ONE S1 Pro Multi Sense is a compact Wi-Fi mmWave presence and environmental multisensor designed for
+ESPHome and Home Assistant. It delivers real-time multi-target tracking, indoor air quality sensing, and
+seamless smart home automation support.
 
 ## Links
 
