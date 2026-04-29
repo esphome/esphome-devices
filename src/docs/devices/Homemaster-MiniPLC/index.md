@@ -142,7 +142,7 @@ captive_portal:
 # Ethernet Configuration (optional, currently commented out)
 # This section allows using a LAN8720 PHY with ESP32 over RMII interface.
 # It can be used instead of Wi-Fi by uncommenting and configuring.
-# See: https://esphome.io/components/ethernet.html
+# See: https://esphome.io/components/ethernet/
 # ------------------------------------------------------------------------------
 # ethernet:
 #   type: LAN8720               # Ethernet PHY chip type
