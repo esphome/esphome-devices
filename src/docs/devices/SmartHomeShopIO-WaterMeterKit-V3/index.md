@@ -1,6 +1,6 @@
 ---
 title: SmartHomeShopIO WaterMeterKit V3
-date-published: 2026-04-16
+date-published: 2026-04-30
 type: sensor
 standard: global
 board: esp32
