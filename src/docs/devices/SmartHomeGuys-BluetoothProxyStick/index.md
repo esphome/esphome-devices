@@ -1,5 +1,6 @@
 ---
 title: SmartHomeGuys - Bluetooth Proxy Stick
+date-published: 2026-04-30
 type: misc
 standard: global
 board: esp32
