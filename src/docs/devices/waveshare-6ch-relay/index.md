@@ -34,8 +34,6 @@ It can bought from: [https://www.waveshare.com/esp32-s3-relay-6ch.htm](https://w
 # Your secrets file needs to have these entries:
 # wifi_ssid: "SSID"
 # wifi_password: "PASS"
-# api_encryption_key: 'API_Key'
-# API_Key is generated with:  openssl rand -base64 32
 
 esphome:
   name: waveshare-6ch-relay
@@ -50,8 +48,6 @@ esp32:
 logger:
   level: DEBUG
 api:
-  encryption:
-    key: !secret api_encryption_key
   actions:
   - action: rtttl_play
     variables:
