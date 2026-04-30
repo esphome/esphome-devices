@@ -13,7 +13,8 @@ difficulty: 1
 
 ## Description
 
-The SENSY-ONE E1 Pro Multi Sense is a PoE-enabled mmWave presence and environmental multisensor designed for high-performance room tracking, occupancy detection, and smart automation with ESPHome and Home Assistant.
+The SENSY-ONE E1 Pro Multi Sense is a PoE-enabled mmWave presence and environmental multisensor designed for
+high-performance room tracking, occupancy detection, and smart automation with ESPHome and Home Assistant.
 
 ## Links
 
