@@ -23,7 +23,7 @@
     "@docusaurus/faster": "^3.10.0",
     "@docusaurus/plugin-ideal-image": "^3.10.0",
     "@docusaurus/plugin-sitemap": "^3.10.0",
-    "@docusaurus/preset-classic": "3.10.0",
+    "@docusaurus/preset-classic": "3.10.1",
     "@getcanary/docusaurus-theme-search-pagefind": "^1.0.2",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
