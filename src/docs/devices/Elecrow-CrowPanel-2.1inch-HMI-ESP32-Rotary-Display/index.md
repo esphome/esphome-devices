@@ -18,7 +18,6 @@ difficulty: 2
 | Touch screen | Capacitive (cst826)              |
 | Size         | 79\*79\*30mm                     |
 
-
 ## Product description
 
 A circular 2.1in IPS display with touchscreen, esp32s3 microcontroller, and rotary encoder.
@@ -249,4 +248,3 @@ lvgl:
     sensor: encoder
     enter_button: encoder_button
 ```
-
