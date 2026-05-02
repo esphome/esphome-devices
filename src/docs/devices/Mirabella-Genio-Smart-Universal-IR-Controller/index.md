@@ -22,6 +22,11 @@ short the two pads "IO0" and "G" in the block of test points while powering the 
 It would also be possible to solder to the test points, however they are fine pitched so using the cable simplifies
 things.
 
+Another method is to use [jumper wires with DuPoint connectors](https://en.wikipedia.org/wiki/Jump_wire) inserted into the test points,
+alternating them so that adjacent connectors are inserted from opposite sides.
+This gives a tight fit and good electrical connections without any cutting or soldering. As well as the four wires for the USB UART adapter (V,G,TXD,RXD), also inserting one into IO0 and one into RST assists with entering boot mode. RST can be shorted to ground (G) instead of powering the device off and on.
+Note that the test point spacing is such that the round style of connectors fit well but the square profile connectors do not.
+
 ## GPIO Pinout
 
 | Pin    | Function           |
