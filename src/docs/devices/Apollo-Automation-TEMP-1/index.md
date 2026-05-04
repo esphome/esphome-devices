@@ -35,7 +35,7 @@ The Apollo Automation TEMP-1 ( battery and non battery version ) is a temperatur
 
 ## Links
 
-- [Shop](https://apolloautomation.com/products/temp-1-temperature-probe-for-home-assistant?utm_source=esphome&utm_medium=social)
+- [Shop](https://apolloautomation.com/products/temp-1-temperature-probe-for-home-assistant)
 - [GitHub](https://github.com/ApolloAutomation/TEMP-1)
 - [Wiki](https://wiki.apolloautomation.com/)
 - [Discord](https://dsc.gg/ApolloAutomation)
