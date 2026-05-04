@@ -1,19 +1,78 @@
 ---
-layout: default
 title: "Contributing: Adding Devices"
-permalink: /adding-devices/
+head:
+  - tag: script
+    attrs:
+      src: /js/adding-devices-quickstart.js
+      defer: true
 ---
 
-import Head from "@docusaurus/Head";
-import {
-  TypeOptions,
-  BoardOptions,
-  StandardOptions,
-} from "../../components/ValidOptions";
+import ValidOptions from "@components/ValidOptions.astro";
 
-<Head>
-  <script src="/js/adding-devices-quickstart.js" defer />
-</Head>
+<style>{`
+  .quickstart-card {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background-color: var(--sl-color-gray-6);
+  }
+  .quickstart-card label {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .quickstart-card .quickstart-label-text {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .quickstart-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font: inherit;
+  }
+  .quickstart-card .quickstart-path {
+    margin: 0.5rem 0 1rem;
+    min-height: 1.5em;
+    font-size: 0.9rem;
+    font-family: var(--sl-font-mono, ui-monospace, monospace);
+    color: var(--sl-color-gray-3);
+  }
+  #quickstart-link {
+    display: none;
+  }
+  .quickstart-button {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--sl-color-accent);
+    border-radius: 0.375rem;
+    background-color: var(--sl-color-accent);
+    color: var(--sl-color-black);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .quickstart-button:hover {
+    background-color: var(--sl-color-accent-high);
+    border-color: var(--sl-color-accent-high);
+    color: var(--sl-color-black);
+  }
+  .quickstart-button--disabled,
+  .quickstart-button--disabled:hover {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--sl-color-gray-5);
+    border-color: var(--sl-color-gray-5);
+    color: var(--sl-color-text);
+  }
+`}</style>
 
 ## Create device folder and markdown file
 
@@ -29,74 +88,42 @@ Once your fork is created, **come back to this page** to continue.
 The fastest way is to use the link generator below — fill in the link to your fork (or just your GitHub username) and
 the device name, and it will open GitHub's new file page with the filename and front matter pre-filled.
 
-<div
-  className="card"
-  style={{
-    padding: "1rem 1.25rem",
-    marginBottom: "1.5rem",
-    maxWidth: "560px",
-  }}
->
-  <label style={{ display: "block", marginBottom: "0.75rem" }}>
-    <span style={{ fontWeight: 600, display: "block", marginBottom: "0.25rem" }}>Your fork URL or GitHub username</span>
+<div class="quickstart-card">
+  <label>
+    <span class="quickstart-label-text">Your fork URL or GitHub username</span>
     <input
       id="quickstart-username"
       type="text"
       placeholder="https://github.com/octocat/esphome-devices"
-      spellCheck={false}
-      autoCapitalize="off"
-      autoCorrect="off"
-      style={{
-        width: "100%",
-        boxSizing: "border-box",
-        padding: "0.5rem 0.75rem",
-        border: "1px solid var(--ifm-color-emphasis-300)",
-        borderRadius: "var(--ifm-global-radius)",
-        background: "var(--ifm-background-surface-color)",
-        color: "var(--ifm-font-color-base)",
-        font: "inherit",
-      }}
+      spellcheck="false"
+      autocapitalize="off"
+      autocorrect="off"
     />
   </label>
 
-  <label style={{ display: "block", marginBottom: "0.75rem" }}>
-    <span style={{ fontWeight: 600, display: "block", marginBottom: "0.25rem" }}>Device name</span>
+  <label>
+    <span class="quickstart-label-text">Device name</span>
     <input
       id="quickstart-device"
       type="text"
       placeholder="Sonoff S20"
-      style={{
-        width: "100%",
-        boxSizing: "border-box",
-        padding: "0.5rem 0.75rem",
-        border: "1px solid var(--ifm-color-emphasis-300)",
-        borderRadius: "var(--ifm-global-radius)",
-        background: "var(--ifm-background-surface-color)",
-        color: "var(--ifm-font-color-base)",
-        font: "inherit",
-      }}
     />
   </label>
 
-  <p
-    id="quickstart-path"
-    style={{ margin: "0.5rem 0 1rem", minHeight: "1.5em", fontSize: "0.9rem" }}
-  ></p>
+  <p id="quickstart-path" class="quickstart-path"></p>
 
   <a
     id="quickstart-link"
-    className="button button--primary"
+    class="quickstart-button"
     href="#"
     target="_blank"
     rel="noopener noreferrer"
-    style={{ display: "none", alignSelf: "flex-start" }}
   >Open pre-filled new file page on GitHub</a>
   <button
     id="quickstart-placeholder"
     type="button"
-    className="button button--primary"
+    class="quickstart-button quickstart-button--disabled"
     disabled
-    style={{ alignSelf: "flex-start", cursor: "not-allowed" }}
   >Fill in both fields to generate a link</button>
 </div>
 
@@ -173,9 +200,9 @@ standard: uk, us
 | ------------------ | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `title`            | Device Title                                                                                        |                                                                                                                             | Yes                                      |
 | `date-published`   | Date Published                                                                                      | Formatting: `YYYY-MM-DD HH:MM:SS +/-TTTT` (Time and Timezone offset are optional)                                           | Yes                                      |
-| `type`             | Type of Device                                                                                      | <TypeOptions />                                                                                                             | Yes                                      |
-| `standard`         | Electrical standard country                                                                         | <StandardOptions />                                                                                                         | Yes                                      |
-| `board`            | Type of board used in product                                                                       | <BoardOptions />                                                                                                            | No (but required to show on Boards page) |
+| `type`             | Type of Device                                                                                      | <ValidOptions set="type" />                                                                                                 | Yes                                      |
+| `standard`         | Electrical standard country                                                                         | <ValidOptions set="standard" />                                                                                             | Yes                                      |
+| `board`            | Type of board used in product                                                                       | <ValidOptions set="board" />                                                                                                | No (but required to show on Boards page) |
 | `project-url`      | URL for product or GitHub. Points to working Yaml file or page where yaml file is easily accessible |                                                                                                                             | No                                       |
 | `made-for-esphome` | Has the manufacturer certified the device for ESPHome                                               | `True`, `False`                                                                                                             | No                                       |
 | `difficulty`       | Difficulty rating                                                                                   | `1`: Comes with ESPHome, `2`: Plug-n-flash, `3`: Disassembly required, `4`: Soldering required, `5`: Chip needs replacement | No                                       |
