@@ -1,5 +1,4 @@
 ---
-slug: tuya-convert
 title: Prepare a device with tuya-convert
 ---
 
