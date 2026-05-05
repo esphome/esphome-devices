@@ -19,11 +19,14 @@ Manufacturer: [PG LAB Electronics](https://www.pglab.dev/)
 
 ## Overview
 
-The **E-VLXESP32** is a compact ESP32-based module with an integrated temperature and humidity sensor. 
-It is designed to interface with battery-powered VELUX® wall remote controls, enabling smart automation and remote operation of motorized skylight windows. 
-The module electrically interfaces with the wall remote via pogo pins, enabling it to emulate button presses via software control.
+The **E-VLXESP32** is a compact ESP32-based module with an integrated temperature and humidity sensor.
+It is designed to interface with battery-powered VELUX® wall remote controls,
+enabling smart automation and remote operation of motorized skylight windows.
+The module electrically interfaces with the wall remote via pogo pins,
+enabling it to emulate button presses via software control.
 
-The device ships pre-flashed with ESPHome firmware and can be adopted directly from the ESPHome dashboard or provisioned via BLE using the ESPHome mobile app. 
+The device ships pre-flashed with ESPHome firmware and can be adopted directly from the ESPHome dashboard
+or provisioned via BLE using the ESPHome mobile app. 
 It is mains-powered (220V AC) and designed for permanent wall installation.
 
 The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vlxesp32).
@@ -54,7 +57,8 @@ The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vl
 
 Installation guide is available [here](https://pglab-electronics.github.io/docs/evlxesp32/evlxesp32/).
 
-⚠️ **This product must be installed by qualified personnel. Incorrect installation may result in equipment damage, electric shock, or personal injury. 
+⚠️ **This product must be installed by qualified personnel. Incorrect installation may result in 
+equipment damage, electric shock, or personal injury. 
 The manufacturer assumes no liability for improper use or installation.**
 
 ## Getting Started
@@ -83,10 +87,11 @@ The manufacturer assumes no liability for improper use or installation.**
 
 ## Disclaimers
 
-The E-VLXESP32 is an independent third-party product developed and manufactured by PG LAB Electronics S.R.L.S. It is not affiliated with, endorsed by, 
-or sponsored by VELUX A/S or its affiliates.
+The E-VLXESP32 is an independent third-party product developed and manufactured by PG LAB Electronics S.R.L.S.
+It is not affiliated with, endorsed by, or sponsored by VELUX A/S or its affiliates.
 
-VELUX® is a registered trademark of its respective owner. References to VELUX® products are provided solely to indicate compatibility.
+VELUX® is a registered trademark of its respective owner. References to VELUX® products are provided solely
+to indicate compatibility.
 
-Compatibility is limited to the following remote control models: KLI311, KLI312, KLI313. Compatibility with other devices or future revisions is not guaranteed.
-
+Compatibility is limited to the following remote control models: KLI311, KLI312, KLI313. Compatibility with
+other devices or future revisions is not guaranteed.
