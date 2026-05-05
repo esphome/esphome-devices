@@ -23,11 +23,11 @@ It has the HLW8032 power monitor ic and relay control.
 
 There are two options to get it flashed.
 
-Option 1: Carefully drill/cut a single larger hole or a series of smaller holes to create a hole/slot at the blue 
-circle indicated to expose the CB2S modules pads to reprogram the CB2S module. Extreme care should be taken not 
+Option 1: Carefully drill/cut a single larger hole or a series of smaller holes to create a hole/slot at the blue
+circle indicated to expose the CB2S modules pads to reprogram the CB2S module. Extreme care should be taken not
 to drill into the board when making a hole.
 
-Option 2: Carefully use a flat bladed item along the red lines to carefully break the ultrasonic welds in the 
+Option 2: Carefully use a flat bladed item along the red lines to carefully break the ultrasonic welds in the
 case without deforming the outside of the case too much so that you can glue it shut again.
 
 **WARNING - if you do open the case, remember these devices have no isolation between the mains and low voltage side.
@@ -36,11 +36,11 @@ NEVER connect anything to the device while connected to the mains supply.**
 ![alt text](Board_Top.jpg "Board Top View")
 ![alt text](Board_Bottom.jpg "Board Bottom View")
 
-To remove the board you need to desolder the board from the plug pins and connect the USB to RS232-TTL module that 
+To remove the board you need to desolder the board from the plug pins and connect the USB to RS232-TTL module that
 is 3.3V as shown.
 
-To put the CB2S module into boot mode for flashing, the CEN pin needs to be pulled to ground on power-up of the 
-CB2S module using the 3.3v supply from the USB to RS232 converter to be flashed with ESPhome. 
+To put the CB2S module into boot mode for flashing, the CEN pin needs to be pulled to ground on power-up of the
+CB2S module using the 3.3v supply from the USB to RS232 converter to be flashed with ESPhome.
 **DO NOT PLUG INTO WALL SOCKET FOR FLASHING!**
 
 ### GPIO Pinout
