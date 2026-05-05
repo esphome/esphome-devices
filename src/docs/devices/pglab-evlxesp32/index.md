@@ -26,7 +26,7 @@ The module electrically interfaces with the wall remote via pogo pins,
 enabling it to emulate button presses via software control.
 
 The device ships pre-flashed with ESPHome firmware and can be adopted directly from the ESPHome dashboard
-or provisioned via BLE using the ESPHome mobile app.
+or provisioned via BLE using [Improv standard](https://www.improv-wifi.com/) for configuring Wi-Fi credentials.
 It is mains-powered (220V AC) and designed for permanent wall installation.
 
 The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vlxesp32).
