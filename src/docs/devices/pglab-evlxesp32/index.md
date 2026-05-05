@@ -26,7 +26,7 @@ The module electrically interfaces with the wall remote via pogo pins,
 enabling it to emulate button presses via software control.
 
 The device ships pre-flashed with ESPHome firmware and can be adopted directly from the ESPHome dashboard
-or provisioned via BLE using the ESPHome mobile app. 
+or provisioned via BLE using the ESPHome mobile app.
 It is mains-powered (220V AC) and designed for permanent wall installation.
 
 The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vlxesp32).
@@ -57,8 +57,8 @@ The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vl
 
 Installation guide is available [here](https://pglab-electronics.github.io/docs/evlxesp32/evlxesp32/).
 
-⚠️ **This product must be installed by qualified personnel. Incorrect installation may result in 
-equipment damage, electric shock, or personal injury. 
+⚠️ **This product must be installed by qualified personnel. Incorrect installation may result in
+equipment damage, electric shock, or personal injury.
 The manufacturer assumes no liability for improper use or installation.**
 
 ## Getting Started
@@ -83,7 +83,6 @@ The manufacturer assumes no liability for improper use or installation.**
 | Box                                    | Back view                        | Wall installed                         |
 |----------------------------------------|----------------------------------|----------------------------------------|
 | ![Product box](evlxesp32_with_box.png) | ![Back view](evlxesp32_back.png) | ![Wall installed](evlxesp32_cover.png) |
-
 
 ## Disclaimers
 
