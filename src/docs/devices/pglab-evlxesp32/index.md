@@ -9,7 +9,7 @@ made-for-esphome: true
 difficulty: 1
 ---
 
-![image](evlxesp32.png)
+![E-VLXESP32](evlxesp32.png)
 
 ## Device Information
 
@@ -19,9 +19,12 @@ Manufacturer: [PG LAB Electronics](https://www.pglab.dev/)
 
 ## Overview
 
-The **E-VLXESP32** is a compact ESP32-based module with an integrated temperature and humidity sensor. It is designed to interface with battery-powered VELUX® wall remote controls, enabling smart automation and remote operation of motorized skylight windows. The module electrically interfaces with the wall remote via pogo pins, enabling it to emulate button presses via software control.
+The **E-VLXESP32** is a compact ESP32-based module with an integrated temperature and humidity sensor. 
+It is designed to interface with battery-powered VELUX® wall remote controls, enabling smart automation and remote operation of motorized skylight windows. 
+The module electrically interfaces with the wall remote via pogo pins, enabling it to emulate button presses via software control.
 
-The device ships pre-flashed with ESPHome firmware and can be adopted directly from the ESPHome dashboard or provisioned via BLE using the ESPHome mobile app. It is mains-powered (220V AC) and designed for permanent wall installation.
+The device ships pre-flashed with ESPHome firmware and can be adopted directly from the ESPHome dashboard or provisioned via BLE using the ESPHome mobile app. 
+It is mains-powered (220V AC) and designed for permanent wall installation.
 
 The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vlxesp32).
 
@@ -34,7 +37,6 @@ The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vl
 - No batteries required
 - Compatible with standard 501 wall boxes
 - CE and RoHS certified
-
 
 ## Hardware
 
@@ -52,8 +54,8 @@ The **E-VLXESP32** is available at [pglab.dev](https://www.pglab.dev/shop/p/e-vl
 
 Installation guide is available [here](https://pglab-electronics.github.io/docs/evlxesp32/evlxesp32/).
 
-⚠️ **This product must be installed by qualified personnel. Incorrect installation may result in equipment damage, electric shock, or personal injury. The manufacturer assumes no liability for improper use or installation.**
-
+⚠️ **This product must be installed by qualified personnel. Incorrect installation may result in equipment damage, electric shock, or personal injury. 
+The manufacturer assumes no liability for improper use or installation.**
 
 ## Getting Started
 
@@ -67,23 +69,22 @@ Installation guide is available [here](https://pglab-electronics.github.io/docs/
 6. Adopt the device in Home Assistant via the ESPHome integration.
 
 ## Links
+
 - [Shop](https://www.pglab.dev)
 - [GitHub Repository](https://github.com/pglab-electronics/e-vlxesp32)
 - [Installation Guide](https://pglab-electronics.github.io/docs/evlxesp32/evlxesp32/)
 
 ## Product Images
 
-<table>
-  <tr>
-    <td><img src="evlxesp32_with_box.png" width="250"></td>
-    <td><img src="evlxesp32_back.png" width="250"></td>
-    <td><img src="evlxesp32_cover.png" width="250"></td>
-  </tr>
-</table>
+| Box                                    | Back view                        | Wall installed                         |
+|----------------------------------------|----------------------------------|----------------------------------------|
+| ![Product box](evlxesp32_with_box.png) | ![Back view](evlxesp32_back.png) | ![Wall installed](evlxesp32_cover.png) |
+
 
 ## Disclaimers
 
-The E-VLXESP32 is an independent third-party product developed and manufactured by PG LAB Electronics S.R.L.S. It is not affiliated with, endorsed by, or sponsored by VELUX A/S or its affiliates.
+The E-VLXESP32 is an independent third-party product developed and manufactured by PG LAB Electronics S.R.L.S. It is not affiliated with, endorsed by, 
+or sponsored by VELUX A/S or its affiliates.
 
 VELUX® is a registered trademark of its respective owner. References to VELUX® products are provided solely to indicate compatibility.
 
