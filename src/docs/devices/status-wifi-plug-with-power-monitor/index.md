@@ -1,20 +1,17 @@
 ---
-title: "Status Wifi Plug with Power Monitor"
+title: Status Wifi Plug with Power Monitor
 date-published: 2026-05-05
 type: plug
 standard: uk
 board: BK72xx
-difficulty: 4/5 Disassembly Soldering Required
+difficulty: 4
 ---
 
-# Status Wifi Plug with Power Monitor
-
-<!-- Describe the device here. See the front-matter table on the contributing page for valid options. -->
 ![alt text](plug.jpg "Status WiFi Plug with Power Monitor")
 
 These are Tuya manufactured devices branded by Status International (UK) LTD. and sold by Aldi UK. The model number is ALDISMARTSKT6
 
-https://statussmart.com/
+[https://statussmart.com/](https://statussmart.com/)
 
 It has the HLW8032 power monitor ic and relay control.
 
@@ -38,19 +35,19 @@ NEVER connect anything to the device while connected to the mains supply.**
 ![alt text](Board_Bottom.jpg "Board Bottom View")
 
 To remove the board you need to desolder the board from the plug pins and connect the USB to RS232-TTL module that is 3.3V as shown.
-To put the CB2S module into boot mode for flashing, the CEN pin needs to be pulled to ground on power-up of the CB2S module using the 3.3v supply from the USB to RS232 converter to be flashed with ESPhome. **DO NOT PLUG INTO WALL SOCKET FOR FLASHING**
+To put the CB2S module into boot mode for flashing, the CEN pin needs to be pulled to ground on power-up of the CB2S module using the 3.3v supply from the USB to RS232 converter to be flashed with ESPhome. **DO NOT PLUG INTO WALL SOCKET FOR FLASHING!**
 
+### GPIO Pinout
 
-# GPIO Pinout
-| Pin | Function (CB2S Module) |
-| --- | ---------------- |
-| P6  | Red LED          |
-| P7  | Blue LED         |
-| P8  | Button           |
-| P10 | UART RX to HLW8032 power monitor IC           |
-| P24 | Relay            |
+| Pin | Function (CB2S Module)             |
+| --- | -----------------------------------|
+| P6  | Red LED                            |
+| P7  | Blue LED                           |
+| P8  | Button                             |
+| P10 | UART RX to HLW8032 power monitor IC|
+| P24 | Relay                              |
 
-## Basic Configuration
+### Basic Configuration
 
 ```yaml
 substitutions:
