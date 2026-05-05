@@ -12,20 +12,21 @@ difficulty: 4/5 Disassembly Soldering Required
 <!-- Describe the device here. See the front-matter table on the contributing page for valid options. -->
 ![alt text](plug.jpg "Status WiFi Plug with Power Monitor")
 
-These are Tuya manufactured devices branded by Status International (UK) LTD. and sold by Aldi UK. The model numer is ALDISMARTSKT6
+These are Tuya manufactured devices branded by Status International (UK) LTD. and sold by Aldi UK. The model number is ALDISMARTSKT6
 
 https://statussmart.com/
 
-It has the HLW8032 power monitor and only relay control.
+It has the HLW8032 power monitor ic and relay control.
 
-![alt text](Plug-model.jpg "Plug Model")
+![alt text](Plug_model.jpg "Plug Model")
 
-This model has been patched and tuya cloudcutter does not work.
+**Note:** This model has been patched and tuya cloudcutter does not work.
 
-![alt text](Plug-bottom.jpg "Plug Bottom View")
+![alt text](Plug_bottom.jpg "Plug Bottom View")
 
-There are two options to get it flashed.
-Option 1: Drill a hole at the blue circle indicated and connect to the CB2S module trough the hole.
+There are two options to get it flashed. 
+
+Option 1: Carefully drill/cut a single larger hole or a series of smaller holes to create a hole/slot at the blue circle indicated to expose the CB2S modules pads to reprogram the CB2S module. Extreme care should be taken not to drill into the board when making a hole.
 
 Option 2: Carefully use a flat bladed item along the red lines to carefully break the ultrasonic welds in the case without deforming
 the outside of the case too much so that you can glue it shut again.
@@ -37,7 +38,7 @@ NEVER connect anything to the device while connected to the mains supply.**
 ![alt text](Board_Bottom.jpg "Board Bottom View")
 
 To remove the board you need to desolder the board from the plug pins and connect the USB to RS232-TTL module that is 3.3V as shown.
-To put the CB2S module into boot mode, the CEN pin needs to be pulled to ground on power-up to enable the plug to be flashed with ESPhome.
+To put the CB2S module into boot mode for flashing, the CEN pin needs to be pulled to ground on power-up of the CB2S module using the 3.3v supply from the USB to RS232 converter to be flashed with ESPhome. **DO NOT PLUG INTO WALL SOCKET FOR FLASHING**
 
 
 # GPIO Pinout
