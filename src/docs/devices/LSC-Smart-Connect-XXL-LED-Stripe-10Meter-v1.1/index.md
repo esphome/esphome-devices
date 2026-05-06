@@ -182,9 +182,9 @@ binary_sensor:
 
 ### Remote Receiver
 In case you want to use the remote that comes with this device i have dumped all the ir codes and turned them into yaml
-
 **Note:** I have tried to match some of the functionality, but not everything can be replicated in ESPHome, in these cases i left the actions empty.
-![The Remote for the Led Strip](remote.jpg "The Remote for the Led Strip")
+#### Picture of the remote that comes with this LED Strip
+![Picture of the remote that comes with this led strip](remote.jpg "Picture of the remote that comes with this led strip")
 
 ```yaml
 
