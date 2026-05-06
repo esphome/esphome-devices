@@ -31,7 +31,7 @@ To flash the controller, open up the controller and take the board out.
 On the back of the board there are 4 pins you need to solder
 | GND | 3.3V | 1TX | 1RX |
 
-### Warning: It is important to connect the board to a stable 3.3V supply, unstable supplies may cause the flash to fail!
+#### Warning: It is important to connect the board to a stable 3.3V supply, unstable supplies may cause the flash to fail
 
 Connect the 1TX pin to the RX pin on your flasher and connect the 1RX pin to the TX pin on your flasher.
 Use the ltchiptool to take a backup and flash the board with a new firmware
@@ -181,9 +181,12 @@ binary_sensor:
 ```
 
 ### Remote Receiver
+
 In case you want to use the remote that comes with this device i have dumped all the ir codes and turned them into yaml
 **Note:** I have tried to match some of the functionality, but not everything can be replicated in ESPHome, in these cases i left the actions empty.
+
 #### Picture of the remote that comes with this LED Strip
+
 ![Picture of the remote that comes with this led strip](remote.jpg "Picture of the remote that comes with this led strip")
 
 ```yaml
@@ -510,6 +513,7 @@ remote_receiver:
           lambda: 'return x.rc_code_1 == 0x000C;'
         then:
 ```
+
 #### If you want to use some of the buttons in Home Assistant, this will expose them as binary sensors
 
 ```yaml
@@ -563,6 +567,7 @@ remote_receiver:
     pioneer:
       rc_code_1: 0x000E
 ```
+
 #### If you want to expose the built in IR receiver to Home Assistant
 
 ```yaml
