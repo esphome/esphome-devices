@@ -37,7 +37,7 @@ Connect the 1TX pin to the RX pin on your flasher and connect the 1RX pin to the
 Use the ltchiptool to take a backup and flash the board with a new firmware
 The tool should automatically detect what port the flasher is on
 
-#### To take a backup
+### To take a backup
 
 If you are not using the GUI tool take a backup using
 
