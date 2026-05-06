@@ -10,11 +10,23 @@ difficulty: 1
 
 ## ESP32 MultiBoard
 
-The BeaverDam Sprinkler System is designed to bring advanced, automated control to your irrigation system, leveraging the power of the ESP32 microcontroller and seamless integration with Home Assistant.
+The BeaverDam Sprinkler System is designed to bring advanced, 
+automated control to your irrigation system, 
+leveraging the power of the ESP32 microcontroller and 
+seamless integration with Home Assistant.
 
-This board offers a robust and flexible platform for managing up to 8 independent irrigation zones. It’s engineered for reliability and ease of use, making it ideal for both DIY enthusiasts and professional installers looking to upgrade traditional irrigation systems to a smart, app-controlled environment.
+This board offers a robust and flexible platform
+for managing up to 8 independent irrigation zones. 
+It’s engineered for reliability and ease of use, 
+making it ideal for both DIY enthusiasts and professional 
+installers looking to upgrade traditional irrigation systems to a smart, 
+app-controlled environment.
 
-Is designed to be compatible with both 12V DC and 24V AC irrigation solenoid valves, depending on the specific model of the board. This flexibility ensures it can integrate with a wide range of existing irrigation systems, reducing the need for costly valve replacements.
+Is designed to be compatible with both 12V DC and 24V AC
+irrigation solenoid valves, depending on the specific model
+of the board. This flexibility ensures it can integrate
+with a wide range of existing irrigation systems, 
+reducing the need for costly valve replacements.
 
 ![Sprinkler](Sprinkler.jpg "Sprinkler")
 
