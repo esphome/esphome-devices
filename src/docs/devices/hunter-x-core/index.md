@@ -8,8 +8,6 @@ project-url: https://github.com/marek-polak/esphome-hunter-xcore
 difficulty: 3
 ---
 
-# Hunter X-Core
-
 ![Hunter X-Core Controller](hunter-xcore.jpg "Hunter X-Core Controller")
 
 This project integrates the **Hunter X-Core** irrigation controller into Home Assistant using ESPHome. It acts as a smart WiFi remote, preserving the controller's manual functions and physical dials while enabling remote control and automations.
