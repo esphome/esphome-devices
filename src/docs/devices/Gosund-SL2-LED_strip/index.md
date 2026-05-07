@@ -1,0 +1,106 @@
+---
+title: Gosund SL2 LED_strip / nitebird-led-strip
+date-published: 2026-4-25
+type: LED strip
+standard: eu
+board: Beken BK7231T
+---
+
+## Flashing
+To flash this device follow https://docs.libretiny.eu/docs/platform/beken-72xx/
+
+## Basic Configuration
+```yaml
+esphome:
+  name: nitebird-led-strip     #AKA Gosund LED strip
+
+bk72xx:
+  board: generic-bk7231t-qfn32-tuya
+
+# Standard ESPHome blocks...
+logger:
+  
+api:
+    # Encryption key would go here
+ota:
+  platform: esphome
+  
+wifi:
+  # You should define these in your secrets.yaml
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Nitebird-Strip2 Fallback Hotspot"
+    password: "fallback"
+
+captive_portal:
+
+output:
+  - platform: libretiny_pwm
+    id: output_red
+    pin: P26                  #PWM5
+  - platform: libretiny_pwm
+    id: output_blue           
+    pin: P24                  #PWM4
+  - platform: libretiny_pwm
+    id: output_green
+    pin: P9                   #PWM3
+
+light:
+  - platform: rgb
+    name: "Nitebird Strip Light"
+    id: led_strip
+    red: output_red
+    green: output_green
+    blue: output_blue
+    restore_mode: RESTORE_DEFAULT_OFF  
+    effects:                #Basic Effects
+      - pulse:
+      - flicker:
+      - lambda:
+          name: "Slow Rainbow"
+          update_interval: 50ms
+          lambda: |-
+            static float hue = 0.0;
+            auto call = id(led_strip).make_call();
+            float r, g, b;
+            hsv_to_rgb(hue, 1.0, 1.0, r, g, b);
+            call.set_rgb(r, g, b);
+            call.set_transition_length(0);
+            call.perform();
+            hue += 2.0;
+            if (hue >= 360.0) hue = 0.0;
+
+binary_sensor:
+  # POWER BUTTON
+  - platform: gpio
+    pin: {number: P7, inverted: true, mode: INPUT_PULLUP}
+    name: "Power Button"
+    on_press:
+      - light.toggle: led_strip
+
+  # BRIGHTNESS BUTTON (Cycles brightness)
+  - platform: gpio
+    pin: {number: P8, inverted: true, mode: INPUT_PULLUP}
+    name: "Brightness Button"
+    on_press:
+      - light.control:
+          id: led_strip
+          brightness: !lambda |-
+            float new_b = id(led_strip).remote_values.get_brightness() + 0.25;
+            if (new_b > 1.0) return 0.25;
+            return new_b;
+
+  # MODE BUTTON (Cycles effects)
+  - platform: gpio
+    pin: {number: P14, inverted: true, mode: INPUT_PULLUP}
+    name: "Mode Button"
+    on_press:
+      - light.control:
+          id: led_strip
+          effect: !lambda |-
+            auto curr = id(led_strip).get_effect_name();
+            if (curr == "None") return "Slow Rainbow";
+            return "None";
