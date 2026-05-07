@@ -11,9 +11,9 @@ difficulty: 3
 ## General Notes
 
 This device contains an ESP32 and ships with Tasmota firmware.
-To flash it, follow [this guide to migrate from Tasmota over the air](https://esphome.io/guides/migrate_sonoff_tasmota/)
-and follow the steps for ESP32 devices with Tasmota v12 or higher.
-Alternatively, the device can be disassembled by unscrewing the screw in the hole at the bottom side of the plug.
+To flash it with ESPHome over the air, refer to the [**Migrating from Tasmota**](https://esphome.io/guides/migrate_sonoff_tasmota/)
+guide and follow the steps for ESP32 devices with Tasmota v12 or higher.
+Alternatively, the device can be disassembled by unscrewing the screw in the hole at the bottom side of the plug for serial flashing.
 
 > [!WARNING]
 If you want to avoid having to disassemble your device in the future, make sure the initial ESPHome firmware uploaded
