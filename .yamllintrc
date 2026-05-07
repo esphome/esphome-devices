@@ -1,1 +1,4 @@
-document-start: disable
+extends: default
+
+rules:
+  document-start: disable
