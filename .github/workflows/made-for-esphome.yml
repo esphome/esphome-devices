@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0 # Ensure we have full history for diff
+          fetch-depth: 0  # Ensure we have full history for diff
 
       - name: Check for made-for-esphome
         id: check-made-for-esphome
@@ -46,7 +46,9 @@ jobs:
             const baseBranch = context.payload.pull_request.base.ref;
 
             // Get the diff for src/docs/devices/**/index.md files
-            const { exitCode, stdout, stderr } = await exec.getExecOutput(`git diff origin/${baseBranch} -- src/docs/devices/**/index.md`);
+            const { exitCode, stdout, stderr } = await exec.getExecOutput(
+              `git diff origin/${baseBranch} -- src/docs/devices/**/index.md`
+            );
 
             // Check if any line contains 'made-for-esphome: true'
             return stdout.includes('+made-for-esphome: true') || stdout.includes('+made-for-esphome: True');
@@ -89,7 +91,8 @@ jobs:
               body: updatedBody
             });
 
-            const message = "This PR has been labeled as **Made for ESPHome** and is pending review. Please complete the checklist added to the description above.";
+            const message = "This PR has been labeled as **Made for ESPHome** and is pending review. " +
+              "Please complete the checklist added to the description above.";
 
             await github.rest.pulls.createReview({
               pull_number: pr.number,

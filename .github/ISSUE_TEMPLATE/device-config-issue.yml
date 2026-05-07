@@ -5,8 +5,10 @@ type: Bug
 body:
   - type: markdown
     attributes:
-      value: |
-        Thank you for reporting an issue with a device configuration! Please provide as much detail as possible to help us resolve the problem.
+      value: >
+        Thank you for reporting an issue with a device configuration!
+        Please provide as much detail as possible to help us resolve the
+        problem.
 
   - type: input
     id: device-name
