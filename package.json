@@ -10,7 +10,8 @@
     "dev": "npm run validate-devices && astro dev --host",
     "build": "npm run validate-devices && astro build",
     "preview": "astro preview",
-    "validate-devices": "tsx scripts/validate-devices.ts"
+    "validate-devices": "tsx scripts/validate-devices.ts",
+    "check-links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",

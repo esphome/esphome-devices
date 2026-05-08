@@ -1,0 +1,133 @@
+name: Weekly Link Check
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: weekly-link-check
+  cancel-in-progress: false
+
+jobs:
+  link-check:
+    name: Check all external links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903  # v6.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run link checker
+        run: |
+          set +e
+          npm run check-links -- --all --json > results.json
+          echo "exitcode=$?"
+
+      - name: Update tracking issue
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        with:
+          script: |
+            const fs = require('fs');
+            const TITLE = 'Broken external links';
+            const LABEL = 'broken-links';
+            const MARKER = '<!-- weekly-link-check -->';
+
+            const { failures } = JSON.parse(
+              fs.readFileSync('results.json', 'utf8'),
+            );
+
+            const { owner, repo } = context.repo;
+            const slug = `${owner}/${repo}`;
+            const date = new Date().toISOString().slice(0, 10);
+            const runUrl = `https://github.com/${slug}/actions/runs/${context.runId}`;
+
+            let body = `${MARKER}\n\n`;
+            body += `_Last checked: **${date}** ` +
+              `([workflow run](${runUrl}))_\n\n`;
+
+            if (failures.length === 0) {
+              body += '✅ No broken external links found across the docs.\n';
+            } else {
+              body += `Found **${failures.length}** broken external ` +
+                `link(s). These URLs did not return a good HTTP status ` +
+                `(2xx/3xx, or 403/429 which we treat as anti-bot ` +
+                `false-positives).\n\n` +
+                `Contributors: pick any link below, edit the affected ` +
+                `file, and either fix or remove the URL. PRs welcome ` +
+                `for any single entry — no need to fix them all at once.\n\n` +
+                `| Status | URL | Found in |\n` +
+                `| ------ | --- | -------- |\n`;
+              for (const f of failures) {
+                const cell = f.locations.map(({ file, line }) => {
+                  const href =
+                    `https://github.com/${slug}/blob/main/${file}#L${line}`;
+                  return `[\`${file}:${line}\`](${href})`;
+                }).join('<br>');
+                // Escape pipe in URL so it doesn't break the markdown table.
+                const safeUrl = f.url.replace(/\|/g, '\\|');
+                const reason = f.status ?? f.error ?? 'no response';
+                body += `| \`${reason}\` | <${safeUrl}> | ${cell} |\n`;
+              }
+            }
+
+            // Find existing tracking issue (by label + marker in body).
+            const existing = await github.paginate(
+              github.rest.issues.listForRepo,
+              { owner, repo, state: 'open', labels: LABEL, per_page: 100 },
+            ).then((items) =>
+              items.find((i) => i.body && i.body.includes(MARKER)),
+            );
+
+            let issue;
+            if (existing) {
+              const updated = await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: existing.number,
+                title: TITLE,
+                body,
+              });
+              issue = updated.data;
+              core.info(`Updated issue #${issue.number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner,
+                repo,
+                title: TITLE,
+                body,
+                labels: [LABEL, 'help wanted', 'good first issue'],
+              });
+              issue = created.data;
+              core.info(`Created issue #${issue.number}`);
+            }
+
+            // Pin the issue. The REST API can't do this; use GraphQL.
+            // Fails harmlessly if already pinned or if the 3-pin limit is
+            // reached - log and continue.
+            try {
+              await github.graphql(
+                `mutation Pin($id: ID!) {
+                  pinIssue(input: { issueId: $id }) {
+                    issue { number }
+                  }
+                }`,
+                { id: issue.node_id },
+              );
+              core.info(`Pinned issue #${issue.number}`);
+            } catch (e) {
+              core.warning(`Could not pin issue #${issue.number}: ${e.message}`);
+            }
