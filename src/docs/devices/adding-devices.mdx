@@ -207,6 +207,41 @@ standard: uk, us
 | `made-for-esphome` | Has the manufacturer certified the device for ESPHome                                               | `True`, `False`                                                                                                             | No                                       |
 | `difficulty`       | Difficulty rating                                                                                   | `1`: Comes with ESPHome, `2`: Plug-n-flash, `3`: Disassembly required, `4`: Soldering required, `5`: Chip needs replacement | No                                       |
 
+## Configuration YAML files
+
+Each example configuration on a device page lives in its own `.yaml` file alongside `index.md` and is included
+into the page via a fenced code block of the form:
+
+````md
+```yaml file=config.yaml
+```
+````
+
+The build pipeline replaces the empty fence with the file's contents at render time, so the rendered page still
+shows a normal yaml code block. Linking from a `.yaml` URL elsewhere (e.g. a download link) also continues to work
+because `.yaml` files are mirrored into the published site.
+
+The following rules are enforced by `npm run validate-devices`:
+
+| Scope                       | Rule                                                                                          |
+| --------------------------- | --------------------------------------------------------------------------------------------- |
+| Every yaml file             | Must parse as valid YAML.                                                                     |
+| Every yaml file             | No passwords (literal **or** `!secret`) on any `password:`, `*_password:`, or `psk:` key.     |
+| Every yaml file             | No `!secret` references anywhere. Example configs must not depend on the user's secrets.yaml. |
+| First fence on a page       | Must reference `config.yaml`, and `config.yaml` must appear first on the rendered page.       |
+| `config.yaml` only          | No top-level `api:`, `ota:`, `mqtt:`, `web_server:`, `improv_serial:`, `bluetooth_proxy:`, etc. |
+| `config.yaml` only          | `wifi:` is allowed for radio/hardware tunables (`country`, `power_save_mode`, `output_power`, …). It must not contain `ssid`, `password`, `networks`, `manual_ip`, `eap`, or `use_address`. An empty `ap:` block is allowed (and recommended) so the device boots into a default fallback hotspot. |
+| `config.yaml` only          | No `platform: homeassistant`, `platform: mqtt`, or `platform: template` anywhere — those are network-dependent or user-derived, not hardware. |
+
+Additional yaml files (e.g. `voice-assistant.yaml`, `battery-percentage.yaml`) can hold derived sensors,
+automations, or anything else specific to one feature — they just have to be valid YAML and follow the
+no-passwords / no-`!secret` rules.
+
+If you have inline yaml in an existing markdown page, extract it to files with `npm run extract-yaml -- <path>`.
+The script is idempotent — it leaves already-migrated fences alone and writes the first fence on each page as
+`config.yaml`. Quotes around the file attribute are optional (`file=config.yaml` and `file="config.yaml"` both
+parse).
+
 ## Images
 
 To add images to your files do the following:
