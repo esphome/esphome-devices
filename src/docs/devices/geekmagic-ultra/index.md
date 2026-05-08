@@ -15,7 +15,7 @@ The GeekMagic Ultra is an LCD display designed to look like a mini computer.
 
 It is USB-C powered and has an ESP8266 inside.
 
-The LCD panel has a 28x28mm size resulting in a 240x240 pixels resolution.
+The LCD panel has a 28x28mm size resulting in a 240x240 pixel resolution.
 
 ## Product Images
 
@@ -50,7 +50,7 @@ Pinout:
 **NOTE:**
 LVGL is not supported on this model due to the small memory size of the board,
 but it is supported on the GeekMagic Pro model (with ESP32 inside).
-Currently you can only use a custom lambda to show something on the screen.
+As of now, displaying content on the screen is limited to the use of custom lambdas.
 
 ```yaml
 esphome:
