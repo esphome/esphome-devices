@@ -3,13 +3,13 @@ name: Check Made for ESPHome
 on:
   pull_request_target:
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   pre-check:
     runs-on: ubuntu-latest
     name: Pre-check for made-for-esphome label
+    permissions: {}
     outputs:
       run: ${{ steps.check-label.outputs.result }}
     steps:
@@ -28,6 +28,8 @@ jobs:
     needs:
       - pre-check
     if: ${{ needs.pre-check.outputs.run == 'true' }}
+    permissions:
+      contents: read
     outputs:
       run: ${{ steps.check-made-for-esphome.outputs.result }}
     steps:
@@ -60,6 +62,7 @@ jobs:
       - check
     if: ${{ needs.check.outputs.run == 'true' }}
     permissions:
+      contents: read
       pull-requests: write
     steps:
       - name: Checkout code
