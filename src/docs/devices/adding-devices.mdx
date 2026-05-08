@@ -252,6 +252,11 @@ at the upstream yaml directly instead of vendoring a copy:
 ```
 ````
 
+That fence renders live on this page as:
+
+```yaml url=https://github.com/esphome/firmware/blob/main/esp-web-tools/esp32.yaml
+```
+
 The build emits a `<remote-yaml-include>` element that fetches the file from `raw.githubusercontent.com` at visit
 time and renders it inside the same Expressive Code container as a `file=` block. An explanatory paragraph
 ("The current firmware configuration is fetched live from the upstream repository:") is auto-injected above each
