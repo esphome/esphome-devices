@@ -86,40 +86,71 @@ jobs:
               }
             }
 
-            // Find existing tracking issue (by label + marker in body).
-            const existing = await github.paginate(
-              github.rest.issues.listForRepo,
-              { owner, repo, state: 'open', labels: LABEL, per_page: 100 },
-            ).then((items) =>
-              items.find((i) => i.body && i.body.includes(MARKER)),
+            // Find existing tracking issue (by label + marker in body),
+            // grab repo + label IDs in one query. GraphQL throughout
+            // because POST /repos/{owner}/{repo}/issues is deprecated
+            // (scheduled for removal 2028-03-10).
+            const wantedLabels = [LABEL, 'help wanted', 'good first issue'];
+            const lookup = await github.graphql(
+              `query($owner: String!, $name: String!, $label: String!) {
+                repository(owner: $owner, name: $name) {
+                  id
+                  labels(first: 100) { nodes { id name } }
+                  issues(
+                    first: 50,
+                    states: OPEN,
+                    filterBy: { labels: [$label] }
+                  ) {
+                    nodes { id number body }
+                  }
+                }
+              }`,
+              { owner, name: repo, label: LABEL },
+            );
+            const repoId = lookup.repository.id;
+            const labelIds = wantedLabels
+              .map((n) =>
+                lookup.repository.labels.nodes.find((l) => l.name === n)?.id,
+              )
+              .filter(Boolean);
+            const existing = lookup.repository.issues.nodes.find(
+              (i) => i.body && i.body.includes(MARKER),
             );
 
             let issue;
             if (existing) {
-              const updated = await github.rest.issues.update({
-                owner,
-                repo,
-                issue_number: existing.number,
-                title: TITLE,
-                body,
-              });
-              issue = updated.data;
+              const result = await github.graphql(
+                `mutation($id: ID!, $title: String!, $body: String!) {
+                  updateIssue(input: { id: $id, title: $title, body: $body }) {
+                    issue { id number }
+                  }
+                }`,
+                { id: existing.id, title: TITLE, body },
+              );
+              issue = result.updateIssue.issue;
               core.info(`Updated issue #${issue.number}`);
             } else {
-              const created = await github.rest.issues.create({
-                owner,
-                repo,
-                title: TITLE,
-                body,
-                labels: [LABEL, 'help wanted', 'good first issue'],
-              });
-              issue = created.data;
+              const result = await github.graphql(
+                `mutation($input: CreateIssueInput!) {
+                  createIssue(input: $input) {
+                    issue { id number }
+                  }
+                }`,
+                {
+                  input: {
+                    repositoryId: repoId,
+                    title: TITLE,
+                    body,
+                    labelIds,
+                  },
+                },
+              );
+              issue = result.createIssue.issue;
               core.info(`Created issue #${issue.number}`);
             }
 
-            // Pin the issue. The REST API can't do this; use GraphQL.
-            // Fails harmlessly if already pinned or if the 3-pin limit is
-            // reached - log and continue.
+            // Pin the issue. Fails harmlessly if already pinned or if the
+            // 3-pin limit is reached - log and continue.
             try {
               await github.graphql(
                 `mutation Pin($id: ID!) {
@@ -127,7 +158,7 @@ jobs:
                     issue { number }
                   }
                 }`,
-                { id: issue.node_id },
+                { id: issue.id },
               );
               core.info(`Pinned issue #${issue.number}`);
             } catch (e) {
