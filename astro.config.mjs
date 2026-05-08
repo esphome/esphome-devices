@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "url";
 import path from "path";
 import deviceAssets from "./src/integrations/device-assets";
+import remarkYamlInclude from "./src/integrations/remark-yaml-include";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,6 +19,9 @@ export default defineConfig({
   },
   image: {
     responsiveStyles: true,
+  },
+  markdown: {
+    remarkPlugins: [remarkYamlInclude],
   },
   integrations: [
     starlight({
@@ -51,7 +55,11 @@ export default defineConfig({
         MarkdownContent: "./src/components/MarkdownContent.astro",
         Footer: "./src/components/Footer.astro",
       },
-      customCss: ["./src/styles/custom.css", "./src/styles/device-list.css"],
+      customCss: [
+        "./src/styles/custom.css",
+        "./src/styles/device-list.css",
+        "./src/styles/remote-yaml.css",
+      ],
       head: [
         {
           tag: "meta",
@@ -60,6 +68,14 @@ export default defineConfig({
         {
           tag: "meta",
           attrs: { name: "twitter:card", content: "summary_large_image" },
+        },
+        {
+          tag: "script",
+          attrs: { src: "/js/remote-yaml-include.js", defer: true },
+        },
+        {
+          tag: "script",
+          attrs: { src: "/js/yaml-include-action.js", defer: true },
         },
       ],
       sidebar: [

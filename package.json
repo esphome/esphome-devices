@@ -10,7 +10,10 @@
     "dev": "npm run validate-devices && astro dev --host",
     "build": "npm run validate-devices && astro build",
     "preview": "astro preview",
-    "validate-devices": "tsx scripts/validate-devices.ts",
+    "validate-devices": "tsx scripts/validate-devices.ts && tsx scripts/validate-yaml-configs.ts",
+    "validate-yaml": "tsx scripts/validate-yaml-configs.ts",
+    "extract-yaml": "tsx scripts/extract-inline-yaml.ts",
+    "extract-yaml:check": "tsx scripts/extract-inline-yaml.ts --check",
     "check-links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
