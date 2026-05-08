@@ -87,4 +87,4 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: npm run check-links -- --annotations
+        run: npm run --silent check-links -- --annotations

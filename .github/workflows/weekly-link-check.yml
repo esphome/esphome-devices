@@ -34,7 +34,9 @@ jobs:
       - name: Run link checker
         run: |
           set +e
-          npm run check-links -- --all --json > results.json
+          # --silent suppresses npm's "> pkg@ver script\n> cmd" preamble so
+          # stdout is purely the script's JSON output.
+          npm run --silent check-links -- --all --json > results.json
           echo "exitcode=$?"
 
       - name: Update tracking issue
