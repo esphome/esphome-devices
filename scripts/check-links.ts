@@ -26,7 +26,9 @@
  *
  * Reserved/private/loopback hostnames (RFC 2606, RFC 1918, mDNS .local,
  * link-local, loopback, 0.0.0.0) are skipped - they are unreachable from
- * CI and treated as explicit example/placeholder URLs.
+ * CI and treated as explicit example/placeholder URLs. Links to GitHub's
+ * `octocat` mascot account (github.com/octocat/...) are skipped for the
+ * same reason - they are conventional placeholders, not real resources.
  */
 
 import { readFileSync } from "node:fs";
@@ -59,6 +61,7 @@ const SKIP = new RegExp(
     "|127\\.|10\\.|192\\.168\\." +
     "|172\\.(1[6-9]|2[0-9]|3[01])\\." +
     "|169\\.254\\.|0\\.0\\.0\\.0" +
+    "|github\\.com/octocat(/|$)" +
     ")",
   "i",
 );
