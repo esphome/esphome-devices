@@ -15,7 +15,7 @@ media_player:
           then:
             - micro_wake_word.stop:
     on_idle:
-      # Since VA isn't running, this is the end of user-intiated media playback. Restart the wake word.
+      # Since VA isn't running, this is the end of user-initiated media playback. Restart the wake word.
       - if:
           condition:
             not:

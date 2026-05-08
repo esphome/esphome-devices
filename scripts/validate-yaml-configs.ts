@@ -1,20 +1,32 @@
 #!/usr/bin/env tsx
 /**
- * Enforce the device-config rules across every yaml file shipped under
- * src/docs/devices/, plus the page-level conventions for any markdown file
- * that has been migrated to the `file="…"` form.
+ * Enforce the device-config rules across every yaml file referenced by a
+ * markdown `file=` fence under src/docs/devices/, plus the page-level
+ * conventions on each migrated markdown.
  *
- * Rules — applied to every yaml file (any device):
+ * Rules — applied to every referenced yaml file (any device):
  *   1. The file must parse as valid YAML.
- *   2. No literal passwords: any `password:` (or `*_password:`, `psk:`)
- *      assignment must use a `!secret` reference, not a plain string.
+ *   2. No passwords on any `password:`, `*_password:`, or `psk:` key —
+ *      neither literal strings nor `!secret` references. Example configs
+ *      must not carry credentials of any form; the user supplies them in
+ *      their own config.
+ *   3. No `!secret` references anywhere (not just on password keys).
+ *      Example configs must not depend on entries the user may not have
+ *      defined in their secrets file.
  *
- * Additional rules for migrated pages (markdown contains a yaml fence with
- * `file="…"`):
- *   3. The first such fence must reference `config.yaml`.
- *   4. `config.yaml` must be hardware-only — no top-level connectivity
- *      sections (wifi, api, ota, mqtt, web_server, improv_serial,
- *      captive_portal, bluetooth_proxy).
+ * Additional rules for the page-level form (markdown with `file=` fences):
+ *   4. The first yaml fence on a page must reference `config.yaml`.
+ *   5. `config.yaml` must be hardware-only:
+ *        - No top-level `api:`, `ota:`, `mqtt:`, `web_server:`,
+ *          `web_server_idf:`, `improv_serial:`, `captive_portal:`,
+ *          `bluetooth_proxy:`, or `dashboard_import:`.
+ *        - `wifi:` is allowed for radio tunables (country, power_save_mode,
+ *          output_power, …) but must not contain `ssid`, `password`,
+ *          `networks`, `manual_ip`, `eap`, or `use_address`. An empty
+ *          `ap:` is allowed (and recommended) for first-flash usability.
+ *        - No `platform: homeassistant`, `platform: mqtt`, or
+ *          `platform: template` anywhere in the tree — those are
+ *          network-dependent or user-derived, not hardware.
  */
 import * as fs from "fs";
 import * as path from "path";
@@ -97,7 +109,6 @@ function checkSensitiveInTree(
       // through their own config, never through the example.
       if (value.trim() !== "") {
         const where = [...pathStack, key].join(".");
-        const display = value.slice(0, 60);
         issues.push({
           file: rel,
           message: `password at \`${where}\` — example configs must not carry passwords (literal or \`!secret\`); leave the key out and let the user add it`,

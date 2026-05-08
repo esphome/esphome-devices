@@ -254,7 +254,11 @@
       this._render(STATE.loading, "Loading " + url + "…", { url: url });
 
       var self = this;
-      fetch(rawUrl, { credentials: "omit", redirect: "follow" })
+      fetch(rawUrl, {
+        credentials: "omit",
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+      })
         .then(function (res) {
           if (!res.ok) {
             throw new Error("HTTP " + res.status + " " + res.statusText);
@@ -281,7 +285,8 @@
           class: "remote-yaml-source",
           href: meta.url || this.getAttribute("url") || "#",
           target: "_blank",
-          rel: "noopener",
+          rel: "noopener noreferrer",
+          referrerpolicy: "no-referrer",
           title: "Open the source on GitHub",
         },
         meta.url || this.getAttribute("url") || ""

@@ -29,6 +29,12 @@ const FILE_ATTR = /(^|\s)file=(?:"([^"]+)"|'([^']+)'|([^\s"']+))/;
 const URL_ATTR = /(^|\s)url=(?:"([^"]+)"|'([^']+)'|([^\s"']+))/;
 const YAML_LANGS = new Set(["yaml", "yml"]);
 
+// Hosts a `url=` fence may point at. We don't want a device page to be able
+// to make a reader's browser fetch arbitrary origins (tracking, mixed-
+// content failures, surprise content), so the allowlist is GitHub only —
+// which is also the only host the `Copy !include` directive can target.
+const URL_HOST_ALLOWLIST = new Set(["github.com", "raw.githubusercontent.com"]);
+
 // Used to build a one-click `!include github://…@<branch>` directive that
 // users can paste into their own ESPHome config to pull this device's yaml
 // straight from GitHub. Tracks the editLink baseUrl in astro.config.mjs.
@@ -190,6 +196,30 @@ const remarkYamlInclude: Plugin<[], Root> = () => {
       }
 
       if (url) {
+        // Validate the URL before we emit any markup that would cause a
+        // visit-time fetch. Reject anything not https:// on an allowlisted
+        // host so a device page can't redirect readers' browsers at an
+        // attacker-controlled origin.
+        let parsed: URL;
+        try {
+          parsed = new URL(url);
+        } catch (_) {
+          warn(file, node, `url="${url}" is not a valid URL`);
+          return;
+        }
+        if (parsed.protocol !== "https:") {
+          warn(file, node, `url="${url}" must use https://`);
+          return;
+        }
+        if (!URL_HOST_ALLOWLIST.has(parsed.hostname)) {
+          warn(
+            file,
+            node,
+            `url="${url}" host \`${parsed.hostname}\` is not allowed; only ${[...URL_HOST_ALLOWLIST].join(", ")} are permitted`,
+          );
+          return;
+        }
+
         // Replace the code node with raw HTML for the custom element, plus
         // a leading explanatory paragraph (so individual device pages don't
         // need to write the same boilerplate sentence above each url=
@@ -206,7 +236,7 @@ const remarkYamlInclude: Plugin<[], Root> = () => {
           value: [
             `<remote-yaml-include url="${safeUrl}">`,
             `  <pre class="remote-yaml-placeholder"><code class="language-yaml"># Loading ${safeUrl}…</code></pre>`,
-            `  <noscript>JavaScript is required to load this YAML inline. <a href="${safeUrl}" target="_blank" rel="noopener">View source</a></noscript>`,
+            `  <noscript>JavaScript is required to load this YAML inline. <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">View source</a></noscript>`,
             `</remote-yaml-include>`,
           ].join("\n"),
         } as Html;
