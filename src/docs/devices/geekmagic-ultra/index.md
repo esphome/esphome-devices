@@ -29,8 +29,9 @@ Flashing the device can be done in 2 different ways.
 
 The original firmware comes with the option to upload a custom .bin file.
 This can be done by connecting to the device's access point over Wi-Fi.
-Open a browser and navigate to the IP address that is displayed on the screen of the device.
-Find the "Firmware update" section in the web interface and upload your .bin file that can be generated with ESPHome Device builder.
+Open a browser and navigate to the IP address displayed on the screen of the device.
+Find the "Firmware update" section in the web interface and upload your .bin file.
+The .bin file can be generated with ESPHome Device Builder using the correct config below.
 
 ### 2. Manual flashing via Serial (Disassembly needed)
 
