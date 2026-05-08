@@ -71,6 +71,12 @@ function escapeHtml(s: string): string {
 // github.com / raw.githubusercontent.com URL. Returns null for everything
 // else (gitlab, raw HTTP, malformed input) so the caller can skip rendering
 // the button rather than emit a broken directive.
+//
+// Branch names that contain `/` are inherently ambiguous from a github.com
+// blob URL (`/blob/feature/foo/path/file.yaml` could be branch `feature`
+// + path `foo/path/...` OR branch `feature/foo` + path `path/...`); we
+// only handle the explicit `/blob/refs/{heads,tags}/<ref>/` form for those
+// and return null otherwise so the user can paste the raw URL directly.
 function githubIncludeDirective(url: string): string | null {
   let u: URL;
   try {
@@ -78,12 +84,24 @@ function githubIncludeDirective(url: string): string | null {
   } catch (_) {
     return null;
   }
+  // Decode each segment so `%2F` in a branch name, `%20` in a path, etc.
+  // round-trip back to their literal form in the directive.
+  const decode = (s: string) => {
+    try {
+      return decodeURIComponent(s);
+    } catch (_) {
+      return null;
+    }
+  };
+  const segments = u.pathname.replace(/^\/+|\/+$/g, "").split("/").map(decode);
+  if (segments.some((s) => s === null)) return null;
+  const p = segments as string[];
+
   let owner: string | undefined;
   let repo: string | undefined;
   let ref: string | undefined;
   let rest: string | undefined;
   if (u.hostname === "raw.githubusercontent.com") {
-    const p = u.pathname.replace(/^\/+|\/+$/g, "").split("/");
     if (p.length < 4) return null;
     owner = p[0];
     repo = p[1];
@@ -95,21 +113,20 @@ function githubIncludeDirective(url: string): string | null {
       rest = p.slice(3).join("/");
     }
   } else if (u.hostname === "github.com") {
-    const parts = u.pathname.replace(/^\/+|\/+$/g, "").split("/");
-    if (parts.length < 5) return null;
-    owner = parts[0];
-    repo = parts[1];
-    if (parts[2] !== "blob" && parts[2] !== "raw") return null;
+    if (p.length < 5) return null;
+    owner = p[0];
+    repo = p[1];
+    if (p[2] !== "blob" && p[2] !== "raw") return null;
     if (
-      parts[3] === "refs" &&
-      (parts[4] === "heads" || parts[4] === "tags") &&
-      parts.length >= 7
+      p[3] === "refs" &&
+      (p[4] === "heads" || p[4] === "tags") &&
+      p.length >= 7
     ) {
-      ref = parts[5];
-      rest = parts.slice(6).join("/");
+      ref = p[5];
+      rest = p.slice(6).join("/");
     } else {
-      ref = parts[3];
-      rest = parts.slice(4).join("/");
+      ref = p[3];
+      rest = p.slice(4).join("/");
     }
   } else {
     return null;

@@ -242,6 +242,29 @@ The script is idempotent — it leaves already-migrated fences alone and writes 
 `config.yaml`. Quotes around the file attribute are optional (`file=config.yaml` and `file="config.yaml"` both
 parse).
 
+### Live yaml from a GitHub URL (`url=` form)
+
+For made-for-ESPHome devices whose configuration lives in the manufacturer's own GitHub repository, you can point
+at the upstream yaml directly instead of vendoring a copy:
+
+````md
+```yaml url=https://github.com/owner/repo/blob/main/path/to/config.yaml
+```
+````
+
+The build emits a `<remote-yaml-include>` element that fetches the file from `raw.githubusercontent.com` at visit
+time and renders it inside the same Expressive Code container as a `file=` block. An explanatory paragraph
+("The current firmware configuration is fetched live from the upstream repository:") is auto-injected above each
+`url=` block — pages don't need to write that sentence themselves.
+
+The host is allowlisted at build time: only `https://github.com/...` and `https://raw.githubusercontent.com/...`
+URLs are accepted. Any other host (or non-`https://` URL) triggers a build warning and the block is dropped.
+
+`url=` blocks **are not validated** by `npm run validate-yaml`. Validation only inspects the yaml referenced via
+`file=` because we can only check what's in the repo — the upstream file's contents are out of our control. If you
+want the same compile-time guarantees, vendor a snapshot into the repo as `config.yaml` (`file=` form) instead, or
+pin the URL to a specific commit SHA so the rendered page can't drift after the device ships.
+
 ## Images
 
 To add images to your files do the following:

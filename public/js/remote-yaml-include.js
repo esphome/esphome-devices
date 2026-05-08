@@ -23,7 +23,17 @@
       // /refs/{heads|tags}/ form are preserved.
       // Note: branch names containing "/" are inherently ambiguous from a
       // github.com URL — author should paste the raw URL directly.
-      var parts = u.pathname.replace(/^\/+|\/+$/g, "").split("/");
+      // Path segments are URL-decoded first so `%2F` in a branch name and
+      // `%20` in a path round-trip correctly through `encodeURIComponent`.
+      var rawSegments = u.pathname.replace(/^\/+|\/+$/g, "").split("/");
+      var parts = [];
+      for (var i = 0; i < rawSegments.length; i++) {
+        try {
+          parts.push(decodeURIComponent(rawSegments[i]));
+        } catch (_) {
+          return url;
+        }
+      }
       if (parts.length < 5) return url;
       var owner = parts[0];
       var repo = parts[1];
@@ -46,7 +56,7 @@
         refPart = "refs/heads/" + encodeURIComponent(parts[3]);
         restStart = 4;
       }
-      var rest = parts.slice(restStart).join("/");
+      var restSegments = parts.slice(restStart).map(encodeURIComponent);
       return (
         "https://raw.githubusercontent.com/" +
         encodeURIComponent(owner) +
@@ -55,7 +65,7 @@
         "/" +
         refPart +
         "/" +
-        rest
+        restSegments.join("/")
       );
     } catch (_) {
       return url;
