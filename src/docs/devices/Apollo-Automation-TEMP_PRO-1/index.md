@@ -38,7 +38,7 @@ The Apollo Automation TEMP_PRO-1 is a PoE temperature multisensor with the follo
 
 ## Links
 
-- [Shop](https://apolloautomation.com/products/temp-pro-1?utm_source=esphome&utm_medium=social)
+- [Shop](https://apolloautomation.com/products/temp-pro-1)
 - [GitHub](https://github.com/ApolloAutomation/TEMP_PRO-1)
 - [Wiki](https://wiki.apolloautomation.com/)
 - [Discord](https://dsc.gg/ApolloAutomation)

@@ -10,15 +10,18 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   markdown_lint:
     name: Markdown Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - name: markdownlint-cli
-        uses: nosborn/github-action-markdown-cli@508d6cefd8f0cc99eab5d2d4685b1d5f470042c1 # v3.5.0
+        uses: nosborn/github-action-markdown-cli@508d6cefd8f0cc99eab5d2d4685b1d5f470042c1  # v3.5.0
         with:
           config_file: ".markdownlintrc"
           files: src
@@ -27,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - name: yamllint-cli
         uses: "docker://pipelinecomponents/yamllint:latest"
         with:
@@ -37,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - name: Check for CRLF line endings
         run: |
           echo "Checking for files with CRLF line endings..."
@@ -46,7 +49,11 @@ jobs:
           files_with_crlf=$(find . -type f \
             -not -path "./.git/*" \
             -not -path "./node_modules/*" \
-            \( -name "*.md" -o -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.py" -o -name "*.sh" -o -name "*.js" -o -name "*.ts" \) \
+            \( \
+              -name "*.md" -o -name "*.yml" -o -name "*.yaml" \
+              -o -name "*.json" -o -name "*.py" -o -name "*.sh" \
+              -o -name "*.js" -o -name "*.ts" \
+            \) \
             -exec file {} \; | grep "CRLF" || true)
 
           if [ -n "$files_with_crlf" ]; then
@@ -60,3 +67,25 @@ jobs:
           else
             echo "✅ All files have correct LF line endings"
           fi
+  link_check:
+    name: External Link Check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903  # v6.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check external links in changed markdown
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: npm run --silent check-links -- --annotations

@@ -43,7 +43,7 @@ intrusive way to place the sensor in a room.
 
 ## Links
 
-- [Shop](https://apolloautomation.com/products/r-1?utm_source=esphome&utm_medium=social)
+- [Shop](https://apolloautomation.com/products/r-1)
 - [GitHub](https://github.com/ApolloAutomation/R_PRO-1)
 - [Wiki](https://wiki.apolloautomation.com/)
 - [Discord](https://dsc.gg/ApolloAutomation)
