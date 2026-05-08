@@ -10,6 +10,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   markdown_lint:
     name: Markdown Lint
@@ -68,8 +71,6 @@ jobs:
     name: External Link Check
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
-    permissions:
-      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
