@@ -13,6 +13,8 @@ The GeekMagic Ultra is a LCD display desgined to look like a mini computer.
 It is USB-C powered and has a ESP8266 inside.
 The LCD panel has a 28mx28mm size resulting in a 240x240pixels resolution.
 
+![GeekMagic Ultra](GeekMagic_Ultra.png "GeekMagic Ultra")
+
 ## Basic Configuration
 
 ```yaml
