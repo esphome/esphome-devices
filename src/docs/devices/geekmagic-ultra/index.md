@@ -99,7 +99,8 @@ light:
     output: pwm_output
     id: backlight
     name: "Backlight"
-    default_transition_length: 0s
+    default_transition_length: 1s
+    restore_mode: ALWAYS_ON
 
 font:
   - file: "gfonts://Roboto"
