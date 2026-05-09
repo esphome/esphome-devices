@@ -40,8 +40,8 @@ SKU: CCF-903
 5. Locate the contact points required for physically connecting to your device. Use the following photos for reference:
    ![alt text](Connections-Front.jpg "Front Flashing Contact Points")
    ![alt text](Connections-Back.jpg "Back Flashing Contact Points")
-6. Solderless connections to some of the contact point can be made using IC hook test leads such as these:
-   [https://www.sparkfun.com/ic-hook-test-leads.html](https://www.sparkfun.com/ic-hook-test-leads.html)
+6. Solderless connections to the edge contact points can be made using hook test leads such as these:
+   [https://www.sparkfun.com/hook-test-lead-set.html](https://www.sparkfun.com/hook-test-lead-set.html)
    ![alt text](Flashing-Front.jpg "Front Flashing Connection")
    ![alt text](Flashing-Edge.jpg "Edge Flashing Connection")
 7. Follow the directions as outlined by ESPHome for physically connecting to your device:
