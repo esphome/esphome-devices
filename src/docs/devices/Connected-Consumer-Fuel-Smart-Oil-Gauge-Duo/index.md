@@ -34,14 +34,16 @@ SKU: CCF-903
 ## Flashing
 
 1. REMOVE THE BATTERIES!!
-2. Remove the control board
-3. Locate the contact points required for physically connecting to your device. Use the following photos for reference:
+2. Open the internal electronics (2 screws)
+3. Unplug the distance sensor
+4. Remove the control board
+5. Locate the contact points required for physically connecting to your device. Use the following photos for reference:
    ![alt text](Connections-Front.jpg "Front Flashing Contact Points")
    ![alt text](Connections-Back.jpg "Back Flashing Contact Points")
-4. Solderless connections to the contact point can be made using IC hook test leads such as these:
+6. Solderless connections to the contact point can be made using IC hook test leads such as these:
    [https://www.sparkfun.com/ic-hook-test-leads.html](https://www.sparkfun.com/ic-hook-test-leads.html)
    ![alt text](Flashing-Front.jpg "Front Flashing Connection")
    ![alt text](Flashing-Edge.jpg "Edge Flashing Connection")
-5. Follow the directions as outlined by ESPHome for physically connecting to your device:
+7. Follow the directions as outlined by ESPHome for physically connecting to your device:
   
 [https://esphome.io/guides/physical_device_connection#physically-connecting-to-your-device](https://esphome.io/guides/physical_device_connection/)
