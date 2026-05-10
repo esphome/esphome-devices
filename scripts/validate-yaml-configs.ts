@@ -15,7 +15,11 @@
  *      defined in their secrets file.
  *
  * Additional rules for the page-level form (markdown with `file=` fences):
- *   4. The first yaml fence on a page must reference `config.yaml`.
+ *   4. The first yaml fence on a page must reference `config.yaml`. Pages
+ *      added or modified in the current PR (detected via BASE_SHA/HEAD_SHA
+ *      env vars) must use `file=`-based fences exclusively — no inline
+ *      yaml. Pages untouched by the PR remain unchecked for inline yaml so
+ *      the in-flight migration of legacy pages isn't blocked.
  *   5. `config.yaml` must be hardware-only:
  *        - No top-level `api:`, `ota:`, `mqtt:`, `web_server:`,
  *          `web_server_idf:`, `improv_serial:`, `captive_portal:`,
@@ -30,6 +34,7 @@
  */
 import * as fs from "fs";
 import * as path from "path";
+import { execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 // js-yaml is a transitive dep of gray-matter; import directly to parse.
 import yaml from "js-yaml";
@@ -119,14 +124,14 @@ function checkSensitiveInTree(
   }
 }
 
-interface FenceRef {
-  fileAttr: string;
+interface YamlFence {
+  fileAttr: string | null; // null when the fence is inline (no `file=` attr)
   lineNumber: number; // 1-indexed source line of the fence opener
 }
 
-function findFenceRefs(md: string): FenceRef[] {
+function findYamlFences(md: string): YamlFence[] {
   const lines = md.split(/\r?\n/);
-  const refs: FenceRef[] = [];
+  const fences: YamlFence[] = [];
   let inFence: { char: string; len: number } | null = null;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -146,11 +151,12 @@ function findFenceRefs(md: string): FenceRef[] {
     inFence = { char: fenceChar, len: fenceLen };
     if (lang !== "yaml" && lang !== "yml") continue;
     const fileMatch = meta.match(/(^|\s)file=(?:"([^"]+)"|'([^']+)'|([^\s"']+))/);
-    if (!fileMatch) continue;
-    const fileAttr = fileMatch[2] ?? fileMatch[3] ?? fileMatch[4] ?? "";
-    refs.push({ fileAttr, lineNumber: i + 1 });
+    const fileAttr = fileMatch
+      ? fileMatch[2] ?? fileMatch[3] ?? fileMatch[4] ?? ""
+      : null;
+    fences.push({ fileAttr, lineNumber: i + 1 });
   }
-  return refs;
+  return fences;
 }
 
 interface Issue {
@@ -282,6 +288,52 @@ function walkMarkdown(dir: string, out: string[]): void {
   }
 }
 
+// Resolve the set of markdown files in `devicesRoot` that the current PR
+// adds or modifies, between BASE_SHA and HEAD_SHA. Returns absolute paths so
+// callers can match against the same form `walkMarkdown` produces. Returns
+// null if the env vars are absent (the no-inline-yaml rule is then skipped —
+// local runs and `push` builds don't have a meaningful diff base).
+function findChangedMarkdown(devicesRoot: string): Set<string> | null {
+  const base = process.env.BASE_SHA;
+  const head = process.env.HEAD_SHA;
+  if (!base || !head) return null;
+  let out: string;
+  try {
+    out = execFileSync(
+      "git",
+      [
+        "diff",
+        "--name-only",
+        // A = added, M = modified. Renames/copies are intentionally excluded:
+        // a pure rename of an inline-yaml page shouldn't force migration.
+        "--diff-filter=AM",
+        `${base}..${head}`,
+        "--",
+        "src/docs/devices",
+      ],
+      { encoding: "utf8" }
+    );
+  } catch (err) {
+    console.error(`git diff failed: ${(err as Error).message}`);
+    process.exit(1);
+  }
+  const changed = new Set<string>();
+  for (const line of out.split("\n")) {
+    const p = line.trim();
+    if (!p) continue;
+    if (!/\.(md|mdx)$/i.test(p)) continue;
+    const abs = path.resolve(process.cwd(), p);
+    // Restrict to the devices tree (the diff filter already does, but be
+    // defensive against future trigger changes).
+    if (!abs.startsWith(devicesRoot + path.sep) && abs !== devicesRoot) continue;
+    changed.add(abs);
+  }
+  return changed;
+}
+
+const ADDING_DEVICES_HELP_URL =
+  "https://devices.esphome.io/devices/adding-devices#configuration-yaml-files";
+
 function main(): void {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
@@ -296,6 +348,12 @@ function main(): void {
 
   const issues: Issue[] = [];
 
+  // Pages added or modified by the current PR (when BASE_SHA/HEAD_SHA are
+  // set) must be on the migrated `file=`-based form — no inline yaml fences
+  // allowed. Pages the PR doesn't touch are mid-migration and remain
+  // unchecked here.
+  const changedMarkdown = findChangedMarkdown(devicesRoot);
+
   // Walk markdown first to collect every yaml file referenced via a `file=`
   // fence. Pre-existing yaml files that no markdown points at (legacy
   // downloadable examples) are intentionally out of scope: this validator
@@ -305,9 +363,30 @@ function main(): void {
 
   const referencedYaml = new Set<string>();
   for (const md of mdFiles) {
-    const refs = findFenceRefs(fs.readFileSync(md, "utf8"));
-    if (refs.length === 0) continue;
+    const fences = findYamlFences(fs.readFileSync(md, "utf8"));
+    if (fences.length === 0) continue;
     const rel = path.relative(process.cwd(), md);
+    const isChangedPage = changedMarkdown?.has(md) ?? false;
+
+    const refs = fences.filter(
+      (f): f is YamlFence & { fileAttr: string } => f.fileAttr !== null
+    );
+
+    if (isChangedPage) {
+      for (const f of fences) {
+        if (f.fileAttr === null) {
+          issues.push({
+            file: rel,
+            line: f.lineNumber,
+            message:
+              "added or modified device pages must use `file=`-based yaml fences — inline yaml is no longer accepted; move the config into a sibling yaml file and reference it. " +
+              `See ${ADDING_DEVICES_HELP_URL}`,
+          });
+        }
+      }
+    }
+
+    if (refs.length === 0) continue;
     if (refs[0].fileAttr.toLowerCase() !== "config.yaml") {
       issues.push({
         file: rel,
