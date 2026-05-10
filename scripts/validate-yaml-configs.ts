@@ -289,10 +289,18 @@ function walkMarkdown(dir: string, out: string[]): void {
 }
 
 // Resolve the set of markdown files in `devicesRoot` that the current PR
-// adds or modifies, between BASE_SHA and HEAD_SHA. Returns absolute paths so
-// callers can match against the same form `walkMarkdown` produces. Returns
-// null if the env vars are absent (the no-inline-yaml rule is then skipped —
-// local runs and `push` builds don't have a meaningful diff base).
+// adds, modifies, or substantively renames/copies, between BASE_SHA and
+// HEAD_SHA. Returns absolute paths so callers can match against the same
+// form `walkMarkdown` produces. Returns null if the env vars are absent
+// (the no-inline-yaml rule is then skipped — local runs and `push` builds
+// don't have a meaningful diff base).
+//
+// `--name-status -z` (instead of `--diff-filter=AM --name-only`) so we can
+// see git's per-entry status code: a rename-with-edits comes back as `R85`
+// — the AM filter would skip it entirely and let a moved-and-modified
+// inline-yaml page evade the rule. We include A, M, T, any copy, and
+// renames where the similarity index is less than 100 (i.e. there were
+// edits). Pure renames (`R100`) and deletions are ignored.
 function findChangedMarkdown(devicesRoot: string): Set<string> | null {
   const base = process.env.BASE_SHA;
   const head = process.env.HEAD_SHA;
@@ -303,10 +311,8 @@ function findChangedMarkdown(devicesRoot: string): Set<string> | null {
       "git",
       [
         "diff",
-        "--name-only",
-        // A = added, M = modified. Renames/copies are intentionally excluded:
-        // a pure rename of an inline-yaml page shouldn't force migration.
-        "--diff-filter=AM",
+        "--name-status",
+        "-z",
         `${base}..${head}`,
         "--",
         "src/docs/devices",
@@ -318,12 +324,33 @@ function findChangedMarkdown(devicesRoot: string): Set<string> | null {
     process.exit(1);
   }
   const changed = new Set<string>();
-  for (const line of out.split("\n")) {
-    const p = line.trim();
-    if (!p) continue;
-    if (!/\.(md|mdx)$/i.test(p)) continue;
-    const abs = path.resolve(process.cwd(), p);
-    // Restrict to the devices tree (the diff filter already does, but be
+  const tokens = out.split("\0");
+  let i = 0;
+  while (i < tokens.length) {
+    const status = tokens[i];
+    if (!status) { i++; continue; }
+    const code = status[0];
+    let candidatePath: string | null = null;
+    if (code === "R" || code === "C") {
+      // Format: <Rxx|Cxx>\0<old>\0<new>
+      const newPath = tokens[i + 2];
+      i += 3;
+      // R100 = pure rename, no content change — leave it alone. Copies
+      // (Cxx) are always a new path, so flag them regardless of similarity.
+      if (code === "R" && status === "R100") continue;
+      candidatePath = newPath;
+    } else {
+      // Format: <code>\0<path>
+      const p = tokens[i + 1];
+      i += 2;
+      // A = added, M = modified, T = type change. D (deleted) and U
+      // (unmerged — shouldn't appear in CI) are ignored.
+      if (code === "A" || code === "M" || code === "T") candidatePath = p;
+    }
+    if (!candidatePath) continue;
+    if (!/\.(md|mdx)$/i.test(candidatePath)) continue;
+    const abs = path.resolve(process.cwd(), candidatePath);
+    // Restrict to the devices tree (the path-spec already does, but be
     // defensive against future trigger changes).
     if (!abs.startsWith(devicesRoot + path.sep) && abs !== devicesRoot) continue;
     changed.add(abs);
