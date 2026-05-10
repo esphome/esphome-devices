@@ -289,18 +289,19 @@ function walkMarkdown(dir: string, out: string[]): void {
 }
 
 // Resolve the set of markdown files in `devicesRoot` that the current PR
-// adds, modifies, or substantively renames/copies, between BASE_SHA and
-// HEAD_SHA. Returns absolute paths so callers can match against the same
-// form `walkMarkdown` produces. Returns null if the env vars are absent
-// (the no-inline-yaml rule is then skipped — local runs and `push` builds
-// don't have a meaningful diff base).
+// adds, modifies, renames, copies, or changes type for, between BASE_SHA
+// and HEAD_SHA. Returns absolute paths so callers can match against the
+// same form `walkMarkdown` produces. Returns null if the env vars are
+// absent (the no-inline-yaml rule is then skipped — local runs and `push`
+// builds don't have a meaningful diff base).
 //
-// `--name-status -z` (instead of `--diff-filter=AM --name-only`) so we can
-// see git's per-entry status code: a rename-with-edits comes back as `R85`
-// — the AM filter would skip it entirely and let a moved-and-modified
-// inline-yaml page evade the rule. We include A, M, T, any copy, and
-// renames where the similarity index is less than 100 (i.e. there were
-// edits). Pure renames (`R100`) and deletions are ignored.
+// `--name-status -z` (instead of `--diff-filter=… --name-only`) so we can
+// see git's per-entry status code and pull the *new* path on R/C entries.
+// Any entry whose new path lands on a device markdown counts as changed —
+// including pure renames (`R100`). A pure rename is still a file
+// modification from the contributor's perspective, and the new-rules
+// requirement applies. Only `D` (deletion) and `U` (unmerged, shouldn't
+// appear in CI) are ignored.
 function findChangedMarkdown(devicesRoot: string): Set<string> | null {
   const base = process.env.BASE_SHA;
   const head = process.env.HEAD_SHA;
@@ -332,13 +333,11 @@ function findChangedMarkdown(devicesRoot: string): Set<string> | null {
     const code = status[0];
     let candidatePath: string | null = null;
     if (code === "R" || code === "C") {
-      // Format: <Rxx|Cxx>\0<old>\0<new>
-      const newPath = tokens[i + 2];
+      // Format: <Rxx|Cxx>\0<old>\0<new> — take the new path, similarity
+      // index ignored: any rename/copy onto a device markdown must follow
+      // the rules.
+      candidatePath = tokens[i + 2];
       i += 3;
-      // R100 = pure rename, no content change — leave it alone. Copies
-      // (Cxx) are always a new path, so flag them regardless of similarity.
-      if (code === "R" && status === "R100") continue;
-      candidatePath = newPath;
     } else {
       // Format: <code>\0<path>
       const p = tokens[i + 1];
