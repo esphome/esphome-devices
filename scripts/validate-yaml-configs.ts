@@ -17,9 +17,17 @@
  * Additional rules for the page-level form (markdown with `file=` fences):
  *   4. The first yaml fence on a page must reference `config.yaml`. Pages
  *      added or modified in the current PR (detected via BASE_SHA/HEAD_SHA
- *      env vars) must use `file=`-based fences exclusively — no inline
- *      yaml. Pages untouched by the PR remain unchecked for inline yaml so
- *      the in-flight migration of legacy pages isn't blocked.
+ *      env vars) must use `file=`- or `url=`-based fences exclusively — no
+ *      inline yaml. Pages untouched by the PR remain unchecked for inline
+ *      yaml so the in-flight migration of legacy pages isn't blocked.
+ *
+ *   6. Pages with `made-for-esphome: true` in frontmatter that are added
+ *      or modified in the current PR must include at least one `url=`
+ *      yaml fence pointing at the manufacturer's config on GitHub
+ *      (`github.com` or `raw.githubusercontent.com`). The Made-for-ESPHome
+ *      programme requires the firmware config to be open and reachable;
+ *      a live link to the upstream yaml is how we surface that on the
+ *      device page.
  *   5. `config.yaml` must be hardware-only:
  *        - No top-level `api:`, `ota:`, `mqtt:`, `web_server:`,
  *          `web_server_idf:`, `improv_serial:`, `captive_portal:`,
@@ -36,8 +44,41 @@ import * as fs from "fs";
 import * as path from "path";
 import { execFileSync } from "child_process";
 import { fileURLToPath } from "url";
+import matter from "gray-matter";
 // js-yaml is a transitive dep of gray-matter; import directly to parse.
 import yaml from "js-yaml";
+
+// Hosts a `url=` yaml fence may point at — kept in sync with the build-time
+// allowlist in src/integrations/remark-yaml-include.ts. A `url=` fence is
+// only counted as "the upstream config is reachable" if its host is one of
+// these; anything else is dropped at render time and shouldn't satisfy the
+// made-for-esphome rule either.
+const URL_HOST_ALLOWLIST = new Set(["github.com", "raw.githubusercontent.com"]);
+
+function isAllowedGitHubUrl(value: string): boolean {
+  try {
+    const u = new URL(value);
+    return u.protocol === "https:" && URL_HOST_ALLOWLIST.has(u.hostname);
+  } catch {
+    return false;
+  }
+}
+
+// Truthy `made-for-esphome` covers the YAML boolean (`true`/`True` parse to
+// the JS boolean `true`) and the rare string form. Anything else — missing,
+// `false`, `pending` — is treated as not made-for-esphome.
+function isMadeForEsphome(content: string): boolean {
+  let data: Record<string, unknown>;
+  try {
+    data = matter(content).data as Record<string, unknown>;
+  } catch {
+    return false;
+  }
+  const v = data["made-for-esphome"];
+  if (typeof v === "boolean") return v;
+  if (typeof v === "string") return /^true$/i.test(v.trim());
+  return false;
+}
 
 const HARDWARE_ONLY_FORBIDDEN = new Set([
   "api",
@@ -125,7 +166,8 @@ function checkSensitiveInTree(
 }
 
 interface YamlFence {
-  fileAttr: string | null; // null when the fence is inline (no `file=` attr)
+  fileAttr: string | null; // null when the fence has no `file=` attr
+  urlAttr: string | null; // null when the fence has no `url=` attr
   lineNumber: number; // 1-indexed source line of the fence opener
 }
 
@@ -154,7 +196,11 @@ function findYamlFences(md: string): YamlFence[] {
     const fileAttr = fileMatch
       ? fileMatch[2] ?? fileMatch[3] ?? fileMatch[4] ?? ""
       : null;
-    fences.push({ fileAttr, lineNumber: i + 1 });
+    const urlMatch = meta.match(/(^|\s)url=(?:"([^"]+)"|'([^']+)'|([^\s"']+))/);
+    const urlAttr = urlMatch
+      ? urlMatch[2] ?? urlMatch[3] ?? urlMatch[4] ?? ""
+      : null;
+    fences.push({ fileAttr, urlAttr, lineNumber: i + 1 });
   }
   return fences;
 }
@@ -389,10 +435,11 @@ function main(): void {
 
   const referencedYaml = new Set<string>();
   for (const md of mdFiles) {
-    const fences = findYamlFences(fs.readFileSync(md, "utf8"));
-    if (fences.length === 0) continue;
+    const rawMd = fs.readFileSync(md, "utf8");
+    const fences = findYamlFences(rawMd);
     const rel = path.relative(process.cwd(), md);
     const isChangedPage = changedMarkdown?.has(md) ?? false;
+    const madeForEsphome = isMadeForEsphome(rawMd);
 
     const refs = fences.filter(
       (f): f is YamlFence & { fileAttr: string } => f.fileAttr !== null
@@ -400,12 +447,36 @@ function main(): void {
 
     if (isChangedPage) {
       for (const f of fences) {
-        if (f.fileAttr === null) {
+        // A fence is "inline" only when it has neither `file=` nor `url=`.
+        // `url=` blocks pull from the manufacturer's repo at visit time —
+        // they're a valid migrated form for made-for-esphome devices that
+        // don't want their config vendored into this repo.
+        if (f.fileAttr === null && f.urlAttr === null) {
           issues.push({
             file: rel,
             line: f.lineNumber,
             message:
-              "added or modified device pages must use `file=`-based yaml fences — inline yaml is no longer accepted; move the config into a sibling yaml file and reference it. " +
+              "added or modified device pages must use `file=`- or `url=`-based yaml fences — inline yaml is no longer accepted; move the config into a sibling yaml file and reference it. " +
+              `See ${ADDING_DEVICES_HELP_URL}`,
+          });
+        }
+      }
+
+      // Made-for-ESPHome devices certify that their config is open and
+      // available to end users (see .github/made-for-esphome-checklist.md).
+      // The way we surface that on a device page is a `url=` yaml fence
+      // pointing at the manufacturer's repo so the rendered page shows the
+      // current upstream config. Require at least one such fence on every
+      // PR that adds or modifies a made-for-esphome page.
+      if (madeForEsphome) {
+        const hasGitHubUrlFence = fences.some(
+          (f) => f.urlAttr !== null && isAllowedGitHubUrl(f.urlAttr)
+        );
+        if (!hasGitHubUrlFence) {
+          issues.push({
+            file: rel,
+            message:
+              "`made-for-esphome: true` pages must include a yaml fence with `url=` pointing at the manufacturer's config on `github.com` or `raw.githubusercontent.com` — e.g. ```` ```yaml url=https://github.com/<owner>/<repo>/blob/<ref>/<path>.yaml ```` — so the rendered page shows the upstream config live. " +
               `See ${ADDING_DEVICES_HELP_URL}`,
           });
         }

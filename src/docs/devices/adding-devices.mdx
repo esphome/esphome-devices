@@ -232,6 +232,7 @@ The following rules are enforced by `npm run validate-devices`:
 | `config.yaml` only          | No top-level `api:`, `ota:`, `mqtt:`, `web_server:`, `improv_serial:`, `bluetooth_proxy:`, etc. |
 | `config.yaml` only          | `wifi:` is allowed for radio/hardware tunables (`country`, `power_save_mode`, `output_power`, …). It must not contain `ssid`, `password`, `networks`, `manual_ip`, `eap`, or `use_address`. An empty `ap:` block is allowed (and recommended) so the device boots into a default fallback hotspot. |
 | `config.yaml` only          | No `platform: homeassistant`, `platform: mqtt`, or `platform: template` anywhere — those are network-dependent or user-derived, not hardware. |
+| `made-for-esphome: true` pages added/modified by the PR | Must include at least one `url=` yaml fence pointing at the manufacturer's config on `github.com` or `raw.githubusercontent.com` — see [Live yaml from a GitHub URL](#live-yaml-from-a-github-url-url-form) below. |
 
 Additional yaml files (e.g. `voice-assistant.yaml`, `battery-percentage.yaml`) can hold derived sensors,
 automations, or anything else specific to one feature — they just have to be valid YAML and follow the
@@ -269,6 +270,12 @@ URLs are accepted. Any other host (or non-`https://` URL) triggers a build warni
 `file=` because we can only check what's in the repo — the upstream file's contents are out of our control. If you
 want the same compile-time guarantees, vendor a snapshot into the repo as `config.yaml` (`file=` form) instead, or
 pin the URL to a specific commit SHA so the rendered page can't drift after the device ships.
+
+Pages that opt into [Made for ESPHome](https://devices.esphome.io/made-for-esphome) by setting
+`made-for-esphome: true` in frontmatter **must** include at least one `url=` fence pointing at a host on the
+allowlist. The programme requires the firmware config to be open and reachable; a live link to the upstream yaml
+is how we surface that on the device page. `npm run validate-yaml` enforces this on every PR that adds or modifies
+a made-for-esphome page.
 
 ## Images
 
