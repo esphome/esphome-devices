@@ -11,10 +11,6 @@ logger:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${device_name} Fallback"
-    password: "12345678"
 
 api:
   encryption:
@@ -68,27 +64,23 @@ color:
 display:
   - id: disp
     platform: mipi_spi
-    model: ST7789V      
+    model: ST7789V     
     spi_id: spihwd
-    
     dimensions:
       height: 240
       width: 240
-      offset_height: 0 
+      offset_height: 0
       offset_width: 0
-
     dc_pin: GPIO00
     reset_pin: GPIO02
-    
     buffer_size: 12.5%
     invert_colors: true
     color_depth: 16
     color_order: BGR
     spi_mode: mode3
     data_rate: 40000000
-  
     rotation: 0°
-    auto_clear_enabled: False
+    auto_clear_enabled: false
     update_interval: 1s
     lambda: |-
       it.fill(color_black);
