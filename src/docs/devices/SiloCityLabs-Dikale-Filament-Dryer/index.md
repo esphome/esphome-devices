@@ -42,6 +42,6 @@ be connected to the original heater and fan, and can be controlled via the origi
 
 ## Pictures
 
-![Picture of ESP32 PCB Front](https://shop.silocitylabs.com/cdn/shop/files/dikale-esp32-pcb-front.jpg "Picture of ESP32 PCB Front")
-![Picture of ESP32 PCB Back](https://shop.silocitylabs.com/cdn/shop/files/dikale-esp32-pcb-back.jpg "Picture of ESP32 PCB Back")
+![Picture of ESP32 PCB Front](https://shop.silocitylabs.com/cdn/shop/files/dikale-esp32-pcb-front.webp "Picture of ESP32 PCB Front")
+![Picture of ESP32 PCB Back](https://shop.silocitylabs.com/cdn/shop/files/dikale-esp32-pcb-back.webp "Picture of ESP32 PCB Back")
 ![Picture of OEM Dikale Unit](https://shop.silocitylabs.com/cdn/shop/files/compatible-dikale-unit.jpg "Picture of OEM Dikale Unit")
