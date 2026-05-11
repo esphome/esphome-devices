@@ -64,7 +64,7 @@ color:
 display:
   - id: disp
     platform: mipi_spi
-    model: ST7789V     
+    model: ST7789V
     spi_id: spihwd
     dimensions:
       height: 240
