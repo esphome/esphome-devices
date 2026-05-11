@@ -22,13 +22,5 @@ Designed with super durable Kailh MX Brown Switches, you can be sure your deck w
 
 ## Configuration
 
-The LocalDeck firmware is published as an ESPHome package
-([github://LocalBytes/localdeck-config](https://github.com/LocalBytes/localdeck-config)). Pull it into
-your own config with
-`packages.localbytes.plug-pm: github://LocalBytes/localdeck-config/packages/localdeck-codegen/esphome-localdeck.yaml`,
-then set the device `name`/`friendly_name` and your own `wifi:` credentials.
-
-The upstream package:
-
 ```yaml url=https://github.com/LocalBytes/localdeck-config/blob/main/packages/localdeck-codegen/esphome-localdeck.yaml
 ```
