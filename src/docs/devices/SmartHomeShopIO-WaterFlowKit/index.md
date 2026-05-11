@@ -69,6 +69,16 @@ It is designed for fully local use with **ESPHome** and **Home Assistant**, with
 Please check our [full documentation and Quick Start Guide](https://smarthomeshop.io/quick-start-waterflowkit)
 and the [product page](https://smarthomeshop.io/waterflowkit) for supported flow sensor details.
 
+## V1 Configuration
+
+```yaml url=https://github.com/smarthomeshop/watermeterkit/blob/main/watermeterkit-v1/watermeterkit.yaml
+```
+
+## V2 Configuration
+
+```yaml url=https://github.com/smarthomeshop/watermeterkit/blob/main/watermeterkit-v2/watermeterkit.yaml
+```
+
 ## Links
 
 - [Shop](https://smarthomeshop.io/waterflowkit)
