@@ -207,6 +207,88 @@ standard: uk, us
 | `made-for-esphome` | Has the manufacturer certified the device for ESPHome                                               | `True`, `False`                                                                                                             | No                                       |
 | `difficulty`       | Difficulty rating                                                                                   | `1`: Comes with ESPHome, `2`: Plug-n-flash, `3`: Disassembly required, `4`: Soldering required, `5`: Chip needs replacement | No                                       |
 
+## Configuration YAML files
+
+Each example configuration on a device page lives in its own `.yaml` file alongside `index.md` and is included
+into the page via a fenced code block of the form:
+
+````md
+```yaml file=config.yaml
+```
+````
+
+The build pipeline replaces the empty fence with the file's contents at render time, so the rendered page still
+shows a normal yaml code block. Linking from a `.yaml` URL elsewhere (e.g. a download link) also continues to work
+because `.yaml` files are mirrored into the published site.
+
+The following rules are enforced by `npm run validate-devices`:
+
+| Scope                       | Rule                                                                                          |
+| --------------------------- | --------------------------------------------------------------------------------------------- |
+| Every yaml file             | Must parse as valid YAML.                                                                     |
+| Every yaml file             | No passwords (literal **or** `!secret`) on any `password:`, `*_password:`, or `psk:` key.     |
+| Every yaml file             | No `!secret` references anywhere. Example configs must not depend on the user's secrets.yaml. |
+| First `file=` fence on a page | Must reference `config.yaml`. `url=` fences may appear before or after — only `file=` fences count toward this ordering rule. |
+| `config.yaml` only          | No top-level `api:`, `ota:`, `mqtt:`, `web_server:`, `improv_serial:`, `bluetooth_proxy:`, etc. |
+| `config.yaml` only          | `wifi:` is allowed for radio/hardware tunables (`country`, `power_save_mode`, `output_power`, …). It must not contain `ssid`, `password`, `networks`, `manual_ip`, `eap`, or `use_address`. An empty `ap:` block is allowed (and recommended) so the device boots into a default fallback hotspot. |
+| `config.yaml` only          | No `platform: homeassistant`, `platform: mqtt`, or `platform: template` anywhere — those are network-dependent or user-derived, not hardware. |
+| `made-for-esphome: true` pages added/modified by the PR | Must include at least one `url=` yaml fence pointing at a `.yaml`/`.yml` file in the manufacturer's GitHub repo (`github.com/<owner>/<repo>/(blob\|raw)/<ref>/...` or `raw.githubusercontent.com/<owner>/<repo>/<ref>/...`) — see [Live yaml from a GitHub URL](#live-yaml-from-a-github-url-url-form) below. |
+
+Additional yaml files (e.g. `voice-assistant.yaml`, `battery-percentage.yaml`) can hold derived sensors,
+automations, or anything else specific to one feature — they just have to be valid YAML and follow the
+no-passwords / no-`!secret` rules.
+
+If you have inline yaml in an existing markdown page, extract it to files with `npm run extract-yaml -- <path>`.
+The script is idempotent — it leaves already-migrated fences alone and writes the first fence on each page as
+`config.yaml`. Quotes around the file attribute are optional (`file=config.yaml` and `file="config.yaml"` both
+parse).
+
+### Live yaml from a GitHub URL (`url=` form)
+
+For made-for-ESPHome devices whose configuration lives in the manufacturer's own GitHub repository, you can point
+at the upstream yaml directly instead of vendoring a copy. `url=` is allowed on any device page, but it isn't the
+standard form outside of made-for-ESPHome — for ordinary devices, prefer `file=config.yaml` and only fall back to
+`url=` for upstream-pinned references. When a page mixes both, the first `file=` fence must still be
+`config.yaml`; `url=` fences can appear anywhere on the page.
+
+````md
+```yaml url=https://github.com/esphome/firmware/blob/main/esp-web-tools/esp32.yaml
+```
+````
+
+That fence renders live on this page as:
+
+```yaml url=https://github.com/esphome/firmware/blob/main/esp-web-tools/esp32.yaml
+```
+
+The build emits a `<remote-yaml-include>` element that fetches the file from `raw.githubusercontent.com` at visit
+time and renders it inside the same Expressive Code container as a `file=` block. An explanatory paragraph
+("The current firmware configuration is fetched live from the upstream repository:") is auto-injected above each
+`url=` block — pages don't need to write that sentence themselves.
+
+The host is allowlisted at build time: only `https://github.com/...` and `https://raw.githubusercontent.com/...`
+URLs are accepted. Any other host (or non-`https://` URL) triggers a build warning and the block is dropped.
+
+To satisfy the made-for-esphome rule, the URL must also point at an actual yaml file the renderer can fetch as
+raw bytes:
+
+- `https://github.com/<owner>/<repo>/(blob|raw)/<ref>/<path>.yaml`
+- `https://raw.githubusercontent.com/<owner>/<repo>/<ref>/<path>.yaml`
+
+(`.yml` works too; `refs/heads/<branch>` and `refs/tags/<tag>` are both accepted in the ref slot.) A bare repo
+URL, a tree/directory URL, or a non-yaml file all render as HTML or 404 in the browser, so they don't count.
+
+`url=` blocks **are not validated** by `npm run validate-yaml`. Validation only inspects the yaml referenced via
+`file=` because we can only check what's in the repo — the upstream file's contents are out of our control. If you
+want the same compile-time guarantees, vendor a snapshot into the repo as `config.yaml` (`file=` form) instead, or
+pin the URL to a specific commit SHA so the rendered page can't drift after the device ships.
+
+Pages that opt into [Made for ESPHome](https://devices.esphome.io/made-for-esphome) by setting
+`made-for-esphome: true` in frontmatter **must** include at least one `url=` fence pointing at a host on the
+allowlist. The programme requires the firmware config to be open and reachable; a live link to the upstream yaml
+is how we surface that on the device page. `npm run validate-yaml` enforces this on every PR that adds or modifies
+a made-for-esphome page.
+
 ## Images
 
 To add images to your files do the following:
