@@ -91,14 +91,18 @@
 
     if (fork && slug) {
       if (pathHint) {
-        pathHint.innerHTML =
-          "File will be created in <code>" +
-          fork.user +
-          "/" +
-          fork.repo +
-          "</code> at <code>src/docs/devices/" +
-          slug +
-          "/index.md</code>";
+        pathHint.textContent = "";
+        pathHint.appendChild(document.createTextNode("File will be created in "));
+
+        var repoCode = document.createElement("code");
+        repoCode.textContent = fork.user + "/" + fork.repo;
+        pathHint.appendChild(repoCode);
+
+        pathHint.appendChild(document.createTextNode(" at "));
+
+        var fileCode = document.createElement("code");
+        fileCode.textContent = "src/docs/devices/" + slug + "/index.md";
+        pathHint.appendChild(fileCode);
       }
       var params = new URLSearchParams({
         filename: slug + "/index.md",

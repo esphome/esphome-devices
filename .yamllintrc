@@ -1,1 +1,8 @@
-document-start: disable
+extends: default
+
+rules:
+  document-start: disable
+  line-length:
+    max: 120
+  truthy:
+    check-keys: false

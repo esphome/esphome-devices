@@ -10,17 +10,21 @@
     "dev": "npm run validate-devices && astro dev --host",
     "build": "npm run validate-devices && astro build",
     "preview": "astro preview",
-    "validate-devices": "tsx scripts/validate-devices.ts"
+    "validate-devices": "tsx scripts/validate-devices.ts && tsx scripts/validate-yaml-configs.ts",
+    "validate-yaml": "tsx scripts/validate-yaml-configs.ts",
+    "extract-yaml": "tsx scripts/extract-inline-yaml.ts",
+    "extract-yaml:check": "tsx scripts/extract-inline-yaml.ts --check",
+    "check-links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/starlight": "^0.38.4",
-    "astro": "^6.1.9",
+    "@astrojs/starlight": "^0.39.1",
+    "astro": "^6.3.1",
     "gray-matter": "^4.0.3",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.6.2",
     "tsx": "^4.21.0"
   }
 }
