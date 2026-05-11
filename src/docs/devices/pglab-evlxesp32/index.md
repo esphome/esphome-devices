@@ -84,6 +84,11 @@ The manufacturer assumes no liability for improper use or installation.**
 |----------------------------------------|----------------------------------|----------------------------------------|
 | ![Product box](evlxesp32_with_box.png) | ![Back view](evlxesp32_back.png) | ![Wall installed](evlxesp32_cover.png) |
 
+## Configuration
+
+```yaml url=https://github.com/pglab-electronics/e-vlxesp32/blob/main/evlxesp32.yaml
+```
+
 ## Disclaimers
 
 The E-VLXESP32 is an independent third-party product developed and manufactured by PG LAB Electronics S.R.L.S.
