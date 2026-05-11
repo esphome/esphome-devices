@@ -364,13 +364,23 @@ function checkYamlFile(absPath: string, isHardwareOnly: boolean): Issue[] {
   return issues;
 }
 
-function walkMarkdown(dir: string, out: string[]): void {
+// Walk subdirectories of devicesRoot only. Top-level files like
+// `adding-devices.mdx` and `tuya-convert.md` are docs about the devices
+// tree, not device pages — they contain illustrative yaml examples
+// (inline frontmatter, `url=` demos) that aren't bound by the
+// per-device rules. Real device pages always live one level deeper at
+// `src/docs/devices/<Device>/index.md`.
+function walkMarkdown(dir: string, out: string[], depth = 0): void {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
-      walkMarkdown(p, out);
-    } else if (entry.isFile() && /\.(md|mdx)$/i.test(entry.name)) {
+      walkMarkdown(p, out, depth + 1);
+    } else if (
+      entry.isFile() &&
+      depth > 0 &&
+      /\.(md|mdx)$/i.test(entry.name)
+    ) {
       out.push(p);
     }
   }
