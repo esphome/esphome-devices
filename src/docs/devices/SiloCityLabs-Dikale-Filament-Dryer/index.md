@@ -35,10 +35,10 @@ be connected to the original heater and fan, and can be controlled via the origi
 | D7       | GPIO20 | BTN up       | Up Button                 |
 | D8       | GPIO8  | BTN down     | Down Button               |
 
-## Basic Config
+## Configuration
 
-The latest state of the configuration is
-[available on GitHub](https://github.com/SiloCityLabs/esp32-dikale-dryer/blob/main/config.yaml).
+```yaml url=https://github.com/SiloCityLabs/esp32-dikale-dryer/blob/main/config.yaml
+```
 
 ## Pictures
 
