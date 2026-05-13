@@ -5,15 +5,13 @@ esphome:
   name: "ekf-connect-rce-1-wf"
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
 
 captive_portal:
 
 # Enable logging
 logger:
-  baud_rate: 0 #disable UART logging
+  baud_rate: 0 
 
 # Enable Home Assistant API
 api:
