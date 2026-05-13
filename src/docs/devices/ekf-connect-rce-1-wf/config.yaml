@@ -9,19 +9,8 @@ wifi:
 
 captive_portal:
 
-# Enable logging
 logger:
   baud_rate: 0 
-
-# Enable Home Assistant API
-api:
-
-# Enable OTA updates
-ota:
-
-# Enable web server
-web_server:
-  port: 80
 
 switch:
   - platform: gpio
