@@ -8,14 +8,13 @@ wifi:
   ap:
 
 logger:
-  baud_rate: 0 
-
+  baud_rate: 0
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
 uart:
-  id: uart_bus 
+  id: uart_bus
   tx_pin: P11
   rx_pin: P10
   baud_rate: 4800
@@ -24,9 +23,9 @@ uart:
 globals:
   - id: is_relays_on
     type: bool
-    restore_value: no
+    restore_value: false
     initial_value: "false"
-   
+
 light:
   - platform: status_led
     id: wifi_led
@@ -34,12 +33,12 @@ light:
       number: P6
       inverted: true
     internal: false
- 
+
 switch:
   - platform: gpio
     id: relay_1
     name: "socket1"
-    icon: mdi:fridge-variant-outline #icon: mdi:power-socket-eu
+    icon: mdi:fridge-variant-outline  # icon: mdi:power-socket-eu
     pin: P7
     on_turn_on:
       - script.execute: check_relays_state
@@ -49,7 +48,7 @@ switch:
   - platform: gpio
     id: relay_2
     name: "socket2"
-    icon: mdi:water-pump #icon: mdi:power-socket-eu
+    icon: mdi:water-pump  # icon: mdi:power-socket-eu
     pin: P22
     on_turn_on:
       - script.execute: check_relays_state
@@ -69,7 +68,7 @@ switch:
   - platform: gpio
     id: relay_4
     name: "socket4"
-    icon: mdi:robot-vacuum #icon: mdi:power-socket-eu  
+    icon: mdi:robot-vacuum  # icon: mdi:power-socket-eu
     pin: P8
     on_turn_on:
       - script.execute: check_relays_state
@@ -79,7 +78,7 @@ switch:
   - platform: gpio
     id: relay_5
     name: "USB"
-    icon: mdi:cellphone #icon: mdi:usb
+    icon: mdi:cellphone  # icon: mdi:usb
     pin: P26
     on_turn_on:
       - script.execute: check_relays_state
@@ -104,12 +103,12 @@ binary_sensor:
           - ON for at most 0.5s
           - OFF for at least 0.5s
         then:
-          - lambda: |-  
+          - lambda: |-
               id(relays_toggle).execute();
       - timing:
           - ON for at least 1s
         then:
-          - lambda: |-  
+          - lambda: |-
               if (id(is_relays_on) == true) {
                 id(off_relays).execute();
               } else {
@@ -121,7 +120,7 @@ binary_sensor:
           - ON for at most 0.5s
           - OFF for at least 0.5s
         then:
-          - lambda: |-  
+          - lambda: |-
               id(off_relays).execute();
 
   - platform: analog_threshold
@@ -151,7 +150,7 @@ binary_sensor:
         - switch.turn_off: relay_3
         - switch.turn_off: relay_4
         - switch.turn_off: relay_5
- 
+
 script:
   - id: on_relays
     then:
@@ -195,7 +194,7 @@ script:
           else:
             - lambda: "id(is_relays_on) = false;"
             - light.turn_off: wifi_led
-            
+
   - id: relays_toggle
     then:
       - if:
@@ -271,7 +270,6 @@ script:
                                     - lambda: "id(is_relays_on) = false;"
                                     - light.turn_off: wifi_led
 
-
 button:
   - platform: template
     id: toggle_relays_btn
@@ -279,27 +277,26 @@ button:
     icon: mdi:toggle-switch
     on_press:
       then:
-        - lambda: |-  
+        - lambda: |-
             if (id(is_relays_on) == true) {
               id(off_relays).execute();
             } else {
               id(on_relays).execute();
             }
-             
- 
-sensor:    
+
+sensor:
   - platform: bl0942
     uart_id: uart_bus
     voltage:
       id: voltage
       name: voltage
-      filters: 
+      filters:
         - delta: 0.5
     voltage_reference: 15170
     current:
       id: current
       name: current
-      filters: 
+      filters:
         - delta: 0.1
     power:
       id: power
