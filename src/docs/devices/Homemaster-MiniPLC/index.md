@@ -76,7 +76,10 @@ Wi-Fi Configuration with Improv
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-After provisioning, the device appears automatically in Home Assistant and in the ESPHome Dashboard. Its hostname (with a MAC suffix to avoid collisions, e.g. `homemaster-miniplc-<mac>.local`) is shown in the ESPHome Dashboard — the built-in web UI is reachable at that address on port 80.
+After provisioning, the device appears automatically in Home Assistant and
+in the ESPHome Dashboard. Its hostname (with a MAC suffix to avoid
+collisions, e.g. `homemaster-miniplc-<mac>.local`) is shown in the ESPHome
+Dashboard — the built-in web UI is reachable at that address on port 80.
 
 ### One-Click Import (ESPHome Dashboard Import)
 
@@ -92,7 +95,8 @@ The MiniPLC supports dashboard import, automatically pulling its official config
 2. Download the YAML configuration file from our [GitHub repository](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Firmware/miniplc.yaml).
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
-5. The MiniPLC supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
+5. The MiniPLC supports automatic reset and boot control — there is no
+   need to press reset or boot buttons during programming.
 6. After flashing, the device will reboot automatically and run the updated firmware.
 
 ## Bus system configuration
