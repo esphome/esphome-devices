@@ -18,9 +18,19 @@ Designed for seamless integration with Home Assistant using ESPHome, it combines
 relay outputs, analog inputs, an analog output, RTD and 1-Wire temperature inputs, an OLED display,
 front-panel buttons, a battery-backed RTC, and an isolated RS-485 / Modbus RTU bus.
 
-Maker: <https://www.home-master.eu/>
+Maker: [home-master.eu](https://www.home-master.eu/)
 
-Product page: <https://www.home-master.eu/shop/esp32-miniplc-55> Schematics: <https://github.com/isystemsautomation/homemaster-dev/tree/main/MiniPLC/Schematic>
+Product page: [home-master.eu/shop/esp32-miniplc-55](https://www.home-master.eu/shop/esp32-miniplc-55)
+
+Repository: [GitHub — isystemsautomation/homemaster-dev/MiniPLC](https://github.com/isystemsautomation/homemaster-dev/tree/main/MiniPLC)
+
+Schematics: [MiniPLC/Schematic](https://github.com/isystemsautomation/homemaster-dev/tree/main/MiniPLC/Schematic)
+
+Datasheet: [MiniPLC_Datasheet.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Manuals/MiniPLC_Datasheet.pdf)
+
+User Manual: [User Manual.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Manuals/User%20Manual.pdf)
+
+Declaration of Conformity: [DoC-MiniPLC-V1.0.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Manuals/DoC-MiniPLC-V1.0.pdf)
 
 ## Features
 
@@ -61,7 +71,7 @@ The MiniPLC comes with ESPHome pre-installed and can be configured via:
 Wi-Fi Configuration with Improv
 
 1. Power on your HomeMaster MiniPLC.
-2. Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
+2. Go to [improv-wifi.com](https://improv-wifi.com) (works in Chrome/Edge on desktop or mobile).
 3. Connect via USB (Serial) or Bluetooth LE.
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
@@ -79,12 +89,10 @@ The MiniPLC supports dashboard import, automatically pulling its official config
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
 
 1. Connect the MiniPLC to your computer with a USB Type-C cable.
-2. Download the YAML configuration file from our GitHub
-repository.(<https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Firmware/miniplc.yaml>)
+2. Download the YAML configuration file from our [GitHub repository](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Firmware/miniplc.yaml).
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
-5. The MiniPLC supports automatic reset and boot control — there is no need to press reset or boot buttons during
-programming.
+5. The MiniPLC supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
 6. After flashing, the device will reboot automatically and run the updated firmware.
 
 ## Bus system configuration
