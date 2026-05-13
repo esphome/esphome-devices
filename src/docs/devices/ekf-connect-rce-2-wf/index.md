@@ -1,9 +1,9 @@
 ---
 title: "EKF Connect RCE-2-WF"
 date-published: 2026-05-13
-type: plug
-standard: eu
-board: bk72xx
+type: plug           
+standard: eu         
+board: bk72xx        
 ---
 
 <!-- Surge protector EKF Connect RCE-2-WF. -->
@@ -11,5 +11,4 @@ board: bk72xx
 ## Basic Configuration
 
 ```yaml file=config.yaml
-
 
