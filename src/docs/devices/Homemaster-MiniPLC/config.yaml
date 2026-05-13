@@ -1,11 +1,11 @@
 esphome:
   name: homemaster-miniplc
-  friendly_name: HomeMaster MiniPLC
+  friendly_name: Homemaster MiniPLC
   name_add_mac_suffix: true
   min_version: 2025.7.0
   project:
     name: homemaster.miniplc
-    version: "1.0.0"
+    version: "1.0.1"
 
 esp32:
   board: esp32dev
@@ -282,6 +282,7 @@ output:
     pin: GPIO2
   - platform: mcp4725
     id: dac_output
+    address: 0x60
 
 status_led:
   id: st_led
