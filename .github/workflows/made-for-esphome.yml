@@ -63,13 +63,26 @@ jobs:
     if: ${{ needs.check.outputs.run == 'true' }}
     permissions:
       contents: read
-      pull-requests: write
     steps:
-      - name: Checkout code
+      - name: Checkout checklist from base
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          sparse-checkout: |
+            .github/made-for-esphome-checklist.md
+          sparse-checkout-cone-mode: false
+
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3  # v3.1.1
+        with:
+          client-id: ${{ vars.ESPHOME_GITHUB_APP_CLIENT_ID }}
+          private-key: ${{ secrets.ESPHOME_GITHUB_APP_PRIVATE_KEY }}
+
       - name: Update Pull Request
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
         with:
+          github-token: ${{ steps.generate-token.outputs.token }}
           script: |
             const pr = context.payload.pull_request;
             await github.rest.issues.addLabels({
