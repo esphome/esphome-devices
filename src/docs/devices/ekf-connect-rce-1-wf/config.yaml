@@ -8,14 +8,14 @@ wifi:
   ap:
 
 logger:
-  baud_rate: 0 
+  baud_rate: 0
 
 switch:
   - platform: gpio
     name: "socket"
     pin: GPIO15
     id: relay_AC
-    icon: mdi:power-socket-eu    
+    icon: mdi:power-socket-eu
 
 binary_sensor:
   - platform: gpio
