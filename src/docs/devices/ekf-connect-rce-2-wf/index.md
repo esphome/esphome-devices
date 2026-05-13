@@ -6,7 +6,7 @@ standard:
 board: 
 ---
 
-# EKF Connect RCE-2-WF
+## EKF Connect RCE-2-WF
 
 <!--  Surge protector EKF Connect RCE-2-WF. -->
 
