@@ -20,7 +20,7 @@ via the pre-installed ESPHome firmware.
 
 Maker: [home-master.eu](https://www.home-master.eu/)
 
-Product page: [home-master.eu/shop/esp32-opentherm-gateway-59](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+Product page: [home-master.eu/shop/opentherm-gateway-59](https://www.home-master.eu/shop/opentherm-gateway-59)
 
 Repository: [GitHub — isystemsautomation/homemaster-dev/OpenthermGateway](https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway)
 
