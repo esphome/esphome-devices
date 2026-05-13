@@ -7,8 +7,6 @@ esphome:
 wifi:
   ap:
 
-captive_portal:
-
 logger:
   baud_rate: 0 
 
