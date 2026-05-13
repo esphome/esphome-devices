@@ -6,6 +6,8 @@ standard: eu
 board: esp8266
 ---
 
+# EKF Connect RCE-1-WF
+
 <!-- Surge protector EKF Connect RCE-1-WF. -->
 
 ## Basic Configuration
