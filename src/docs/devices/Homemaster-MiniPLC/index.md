@@ -66,7 +66,7 @@ Wi-Fi Configuration with Improv
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-After provisioning, the device appears automatically in Home Assistant and in the ESPHome Dashboard. Its hostname (with a MAC suffix to avoid collisions, e.g. `miniplc-<mac>.local`) is shown in the ESPHome Dashboard — the built-in web UI is reachable at that address on port 80.
+After provisioning, the device appears automatically in Home Assistant and in the ESPHome Dashboard. Its hostname (with a MAC suffix to avoid collisions, e.g. `homemaster-miniplc-<mac>.local`) is shown in the ESPHome Dashboard — the built-in web UI is reachable at that address on port 80.
 
 ### One-Click Import (ESPHome Dashboard Import)
 
