@@ -1,0 +1,293 @@
+esphome:
+  name: homemaster-miniplc
+  friendly_name: HomeMaster MiniPLC
+  name_add_mac_suffix: true
+  min_version: 2025.7.0
+  project:
+    name: homemaster.miniplc
+    version: "1.0.0"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+wifi:
+  ap: {}
+
+uart:
+  id: uart_modbus
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 19200
+
+i2c:
+  - id: bus_a
+    sda: GPIO32
+    scl: GPIO33
+    frequency: 400kHz
+    scan: true
+
+one_wire:
+  - platform: gpio
+    id: ow_bus_1
+    pin: GPIO5
+  - platform: gpio
+    id: ow_bus_2
+    pin: GPIO4
+
+pcf8574:
+  - id: pcf8574_hub_a
+    address: 0x20
+    pcf8575: false
+  - id: pcf8574_hub_b
+    address: 0x21
+    pcf8575: false
+
+ads1115:
+  - id: ads1115_hub
+    address: 0x48
+
+time:
+  - platform: pcf8563
+    id: pcf8563_time
+    address: 0x51
+
+font:
+  - file: "gfonts://Roboto"
+    id: font_small
+    size: 8
+  - file: "gfonts://Roboto"
+    id: font_large
+    size: 48
+
+display:
+  - platform: ssd1306_i2c
+    id: oled_display
+    model: "SH1106 128x64"
+    address: 0x3C
+    rotation: 180
+    update_interval: 1s
+    lambda: |-
+      it.printf(64, 0, id(font_small), TextAlign::TOP_CENTER, "HOMEMASTER");
+      it.strftime(0, 60, id(font_large), TextAlign::BASELINE_LEFT, "%H:%M", id(pcf8563_time).now());
+
+binary_sensor:
+  - platform: status
+    id: esp_status
+    name: "ESP Status"
+    entity_category: diagnostic
+
+  - platform: gpio
+    id: di_1
+    name: "DI #1"
+    pin:
+      number: GPIO36
+  - platform: gpio
+    id: di_2
+    name: "DI #2"
+    pin:
+      number: GPIO39
+  - platform: gpio
+    id: di_3
+    name: "DI #3"
+    pin:
+      number: GPIO34
+  - platform: gpio
+    id: di_4
+    name: "DI #4"
+    pin:
+      number: GPIO35
+
+  - platform: gpio
+    id: button_1
+    name: "Button #1"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 0
+      inverted: true
+  - platform: gpio
+    id: button_2
+    name: "Button #2"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 1
+      inverted: true
+  - platform: gpio
+    id: button_3
+    name: "Button #3"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 2
+      inverted: true
+  - platform: gpio
+    id: button_4
+    name: "Button #4"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 3
+      inverted: true
+
+switch:
+  - platform: gpio
+    id: relay_1
+    name: "RELAY #1"
+    pin:
+      pcf8574: pcf8574_hub_b
+      number: 2
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    id: relay_2
+    name: "RELAY #2"
+    pin:
+      pcf8574: pcf8574_hub_b
+      number: 1
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    id: relay_3
+    name: "RELAY #3"
+    pin:
+      pcf8574: pcf8574_hub_b
+      number: 0
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    id: relay_4
+    name: "RELAY #4"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 6
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    id: relay_5
+    name: "RELAY #5"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 5
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    id: relay_6
+    name: "RELAY #6"
+    pin:
+      pcf8574: pcf8574_hub_a
+      number: 4
+      mode:
+        output: true
+      inverted: true
+
+  - platform: gpio
+    id: led_2
+    name: "LED #2"
+    pin:
+      pcf8574: pcf8574_hub_b
+      number: 3
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    id: led_3
+    name: "LED #3"
+    pin:
+      pcf8574: pcf8574_hub_b
+      number: 4
+      mode:
+        output: true
+      inverted: true
+
+fan:
+  - platform: speed
+    id: dac_fan
+    output: dac_output
+    name: "DAC 0-10V"
+
+sensor:
+  - platform: uptime
+    id: esp_uptime
+    name: "Uptime"
+    update_interval: 60s
+    entity_category: diagnostic
+  - platform: wifi_signal
+    id: wifi_signal_db
+    name: "WiFi Signal"
+    update_interval: 60s
+    entity_category: diagnostic
+  - platform: internal_temperature
+    id: esp32_temperature
+    name: "ESP32 Temperature"
+    update_interval: 60s
+    entity_category: diagnostic
+
+  - platform: ads1115
+    id: ai_1
+    ads1115_id: ads1115_hub
+    multiplexer: 'A3_GND'
+    gain: 6.144
+    name: "AI 1"
+    update_interval: 60s
+    filters:
+      - multiply: 3
+  - platform: ads1115
+    id: ai_2
+    ads1115_id: ads1115_hub
+    multiplexer: 'A2_GND'
+    gain: 6.144
+    name: "AI 2"
+    update_interval: 60s
+    filters:
+      - multiply: 3
+  - platform: ads1115
+    id: ai_3
+    ads1115_id: ads1115_hub
+    multiplexer: 'A1_GND'
+    gain: 6.144
+    name: "AI 3"
+    update_interval: 60s
+    filters:
+      - multiply: 3
+  - platform: ads1115
+    id: ai_4
+    ads1115_id: ads1115_hub
+    multiplexer: 'A0_GND'
+    gain: 6.144
+    name: "AI 4"
+    update_interval: 60s
+    filters:
+      - multiply: 3
+
+text_sensor:
+  - platform: version
+    id: esphome_version
+    name: "ESPHome Version"
+    entity_category: diagnostic
+  - platform: wifi_info
+    ip_address:
+      id: wifi_ip_address
+      name: "IP Address"
+      entity_category: diagnostic
+
+output:
+  - platform: ledc
+    id: buzzer_output
+    pin: GPIO2
+  - platform: mcp4725
+    id: dac_output
+
+status_led:
+  id: st_led
+  pin:
+    pcf8574: pcf8574_hub_a
+    number: 7
+    mode:
+      output: true
+    inverted: false
