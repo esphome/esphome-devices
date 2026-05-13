@@ -18,9 +18,15 @@ that interfaces with OpenTherm-compatible boilers. It provides a hardware OpenTh
 with one relay output and two 1-Wire temperature buses, and integrates directly with Home Assistant
 via the pre-installed ESPHome firmware.
 
-Maker: <https://www.home-master.eu/>
+Maker: [home-master.eu](https://www.home-master.eu/)
 
-Product page: <https://www.home-master.eu/shop/esp32-opentherm-gateway-59> Schematics: <https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway/Schematic>
+Product page: [home-master.eu/shop/esp32-opentherm-gateway-59](https://www.home-master.eu/shop/esp32-opentherm-gateway-59)
+
+Repository: [GitHub — isystemsautomation/homemaster-dev/OpenthermGateway](https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway)
+
+Schematics: [OpenthermGateway/Schematic](https://github.com/isystemsautomation/homemaster-dev/tree/main/OpenthermGateway/Schematic)
+
+Datasheet: [OpenTherm_Datasheet.pdf](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Manuals/OpenTherm_Datasheet.pdf)
 
 ## Features
 
@@ -43,6 +49,10 @@ Wi-Fi Connectivity – Integrated Wi-Fi for wireless access and Home Assistant i
 
 ![alt text](pinout.png "pinout")
 
+## OpenTherm Gateway Functional Block Diagram
+
+![alt text](diagram.png "Functional Block Diagram")
+
 ## Programming
 
 The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via:
@@ -52,12 +62,16 @@ The OpenTherm Gateway comes with ESPHome pre-installed and can be configured via
 Wi-Fi Configuration with Improv
 
 1. Power on your HomeMaster OpenTherm Gateway.
-2. Go to 👉 improv-wifi.com (works in Chrome/Edge on desktop or mobile).
+2. Go to [improv-wifi.com](https://improv-wifi.com) (works in Chrome/Edge on desktop or mobile).
 3. Connect via USB (Serial) or Bluetooth LE.
 4. Enter your Wi-Fi SSID and password, then press Connect.
 5. The device joins your Wi-Fi and is now ready.
 
-After provisioning, the device appears automatically in Home Assistant and in the ESPHome Dashboard. Its hostname (with a MAC suffix to avoid collisions, e.g. `homemaster-opentherm-<mac>.local`) is shown in the ESPHome Dashboard — the built-in web UI is reachable at that address on port 80.
+After provisioning, the device appears automatically in Home Assistant and
+in the ESPHome Dashboard. Its hostname (with a MAC suffix to avoid
+collisions, e.g. `homemaster-opentherm-<mac>.local`) is shown in the
+ESPHome Dashboard — the built-in web UI is reachable at that address on
+port 80.
 
 ### One-Click Import (ESPHome Dashboard Import)
 
@@ -70,11 +84,11 @@ The device supports dashboard import, automatically pulling its official configu
 ### USB Type-C: Use the ESPHome Dashboard to upload the configuration
 
 1. Connect the device to your computer with a USB Type-C cable.
-2. Download the YAML configuration file from our GitHub
-repository.(<https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Firmware/opentherm.yaml>)
+2. Download the YAML configuration file from our [GitHub repository](https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Firmware/opentherm.yaml).
 3. Open the ESPHome Dashboard, import the YAML file, and update it with your Wi-Fi SSID and password.
 4. Flash the device directly from ESPHome Dashboard.
-5. The device supports automatic reset and boot control — there is no need to press reset or boot buttons during programming.
+5. The device supports automatic reset and boot control — there is no
+   need to press reset or boot buttons during programming.
 6. After flashing, the device will reboot automatically and run the updated firmware.
 
 ## GPIO map
