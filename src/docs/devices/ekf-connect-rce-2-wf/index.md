@@ -14,7 +14,7 @@ board:
 
 ```yaml
 esphome:
-  name: "ekf-connect-rce-1-wf"
+  name: "ekf-connect-rce-2-wf"
   on_boot:
     then:
       - script.execute: check_relays_state
@@ -29,7 +29,7 @@ captive_portal:
 
 # Enable logging
 logger:
-  baud_rate: 0 #disable UART logging
+  baud_rate: 0 
 
 # Enable Home Assistant API
 api:
