@@ -14,15 +14,7 @@ captive_portal:
 logger:
   baud_rate: 0 
 
-# Enable Home Assistant API
-api:
 
-# Enable OTA updates
-ota:
-
-# Enable web server
-web_server:
-  port: 80
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
