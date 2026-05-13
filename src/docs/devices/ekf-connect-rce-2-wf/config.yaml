@@ -4,13 +4,9 @@ esphome:
     then:
       - script.execute: check_relays_state
 
-
 wifi:
   ap:
 
-captive_portal:
-
-# Enable logging
 logger:
   baud_rate: 0 
 
