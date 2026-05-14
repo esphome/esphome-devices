@@ -48,5 +48,5 @@ reducing the need for costly valve replacements.
 
 ---
 
-```yaml file=sprinkler.yaml
+```yaml file=config.yaml
 ```
