@@ -147,7 +147,9 @@ The MiniPLC supports dashboard import, automatically pulling its official config
 The SPI bus is used internally by the two on-board MAX31865 RTD interfaces with
 chip-select on **GPIO1** (RTD #1) and **GPIO3** (RTD #2).
 
-The RTD inputs and 1-Wire sensors are disabled in the factory firmware; see the [project README](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/README.md) for configuration.
+The RTD inputs and 1-Wire sensors are disabled in the factory firmware;
+see the [project README](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/README.md)
+for configuration.
 
 ## Specifications
 
@@ -176,6 +178,7 @@ omitted here per `esphome-devices` rules and is provided by the upstream shipped
 ```
 
 ## Full shipped firmware (factory)
+
 This is the actual YAML the device ships with from the factory and is what `dashboard_import` pulls in when you click **Take Control**.
 
 ```yaml url=https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/Firmware/miniplc.yaml
