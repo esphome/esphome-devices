@@ -56,19 +56,8 @@ integration. Enabled by default in the shipped firmware.
 
 **Optional wired Ethernet** via on-board LAN8720 PHY (RMII). Not enabled by
 default. ESPHome does not allow `wifi:` and `ethernet:` simultaneously, so
-switching to Ethernet replaces Wi-Fi rather than adding to it.
-
-```yaml
-ethernet:
-  type: LAN8720
-  id: eth_phy
-  mdc_pin: GPIO23
-  mdio_pin: GPIO18
-  clk_mode: GPIO0_OUT
-  phy_addr: 1
-```
-
-See the [project README](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/README.md)
+switching to Ethernet replaces Wi-Fi rather than adding to it. See the
+[project README](https://github.com/isystemsautomation/homemaster-dev/blob/main/MiniPLC/README.md)
 for the full Ethernet configuration.
 
 ## Pinout
