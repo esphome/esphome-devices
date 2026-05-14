@@ -48,5 +48,5 @@ reducing the need for costly valve replacements.
 
 ---
 
-```yaml url=https://github.com/thebeaverdam/ESP32_SprinklerSystem/blob/main/firmware/sprinkler.yaml
+```yaml file=sprinkler.yaml
 ```
