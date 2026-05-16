@@ -8,8 +8,6 @@ difficulty: 3
 made-for-esphome: false
 ---
 
-# Generic Tuya S06 Pro Wi-Fi IR Blaster (WB3S)
-
 ![S06 Pro](tuya-s06-pro.jpg)
 
 [S06 Pro](https://s.click.aliexpress.com/e/_c4WmrJJt) universal remote controller with built-in temperature and humidity sensor (AHT10), based on the WB3S Wi-Fi module.
