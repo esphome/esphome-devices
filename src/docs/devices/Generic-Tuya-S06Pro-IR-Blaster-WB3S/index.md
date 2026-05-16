@@ -45,5 +45,5 @@ briefly short CEN to GND while LTChipTool shows Connecting...
 
 ## Basic Configuration
 
-```yaml file=ir-s06-pro.yaml
+```yaml file=config.yaml
 ```
