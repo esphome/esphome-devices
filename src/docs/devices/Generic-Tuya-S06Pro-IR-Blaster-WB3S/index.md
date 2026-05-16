@@ -1,5 +1,5 @@
 ---
-title: "Generic Tuya S06 Pro Wifi IR Blaster (WB3S)"
+title: "Generic Tuya S06 Pro IR Blaster (WB3S)"
 date-published: 2026-05-15
 type: misc
 standard: global
@@ -8,7 +8,7 @@ difficulty: 3
 made-for-esphome: false
 ---
 
-# Generic Tuya S06 Pro Wifi IR Blaster (WB3S)
+# Generic Tuya S06 Pro Wi-Fi IR Blaster (WB3S)
 
 ![S06 Pro](tuya-s06-pro.jpg)
 
@@ -32,7 +32,7 @@ This device is based on PCB version `S06Pro-WB3S-AHT10-V2`. I also have a full d
 ## Flashing
 This device can be flashed directly over UART using [LTChipTool](https://docs.libretiny.eu/docs/flashing/tools/ltchiptool/).
 
-| Serial | CB3S        |
+| Serial | WB3S        |
 | ------ | ----------- |
 | RX     | TX1         |
 | TX     | RX1         |
