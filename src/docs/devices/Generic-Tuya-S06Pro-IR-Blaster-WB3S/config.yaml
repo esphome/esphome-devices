@@ -75,3 +75,5 @@ sensor:
     sensor_datapoint: 102
     id: humidity
     name: "Humidity"
+    unit_of_measurement: "%"
+    accuracy_decimals: 0
