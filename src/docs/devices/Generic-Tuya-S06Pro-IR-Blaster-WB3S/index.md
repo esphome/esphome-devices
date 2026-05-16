@@ -10,12 +10,12 @@ made-for-esphome: false
 
 ![S06 Pro](tuya-s06-pro.jpg)
 
-[S06 Pro](https://s.click.aliexpress.com/e/_c4WmrJJt) 
-universal remote controller with built-in temperature and 
+[S06 Pro](https://s.click.aliexpress.com/e/_c4WmrJJt)
+universal remote controller with built-in temperature and
 humidity sensor (AHT10), based on the WB3S Wi-Fi module.
 
-This device supports both IR transmitting and receiving, 
-making it suitable for ESPHome IR remote projects such as 
+This device supports both IR transmitting and receiving,
+making it suitable for ESPHome IR remote projects such as
 air conditioners, TVs, fans, and other IR-controlled devices.
 
 This device is based on PCB version `S06Pro-WB3S-AHT10-V2`.
