@@ -18,22 +18,8 @@ logger:
 
 mdns:
 
-api:
-
-ota:
-  - platform: esphome
-
 wifi:
   ap: {}
-
-captive_portal:
-
-improv_serial:
-
-dashboard_import:
-  package_import_url: github://thebeaverdam/ESP32_SprinklerSystem/firmware/sprinkler.yaml
-
-web_server:
 
 sprinkler:
   - id: ${id_prefix}_sprinklers
