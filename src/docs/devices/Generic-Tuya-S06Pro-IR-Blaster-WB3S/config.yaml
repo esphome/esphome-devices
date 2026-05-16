@@ -8,25 +8,6 @@ bk72xx:
 # Enable logging
 logger:
 
-# Enable Home Assistant API
-api:
-
-# Allow OTA updates
-ota:
-  - platform: esphome
-
-# Allow provisioning Wi-Fi via serial
-improv_serial:
-
-wifi:
-  # Set up a wifi access point
-  ap:
-    ssid: "ESP Web Tools"
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device via WiFi AP.
-
-captive_portal:
-
 remote_transmitter:
   pin: P26
   carrier_duty_percent: 50%
