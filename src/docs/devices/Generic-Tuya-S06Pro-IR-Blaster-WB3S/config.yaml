@@ -1,4 +1,4 @@
-esphome: 
+esphome:
   name: ir-s06-pro
   friendly_name: IR S06 Pro
 
