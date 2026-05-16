@@ -18,7 +18,7 @@ This device supports both IR transmitting and receiving, making it suitable for 
 
 This device is based on PCB version `S06Pro-WB3S-AHT10-V2`. I also have a full detailed teardown and flashing instruction here: [Tuya S06 Pro Teardown](https://simplymaker.net/smart-home/tuya-s06-pro-ir-blaster-wb3s-teardown-and-esphome-flashing/)
 
-![S06 Pro(WB3S) Teardown](Tuya-S06-Pro-WB3S-pcb-v2_1k.jpg)
+![S06 Pro(WB3S) Teardown](tuya-s06-pro-wb3s-pcb-v2.jpg)
 
 ## GPIO Pinout
 | Pin     | Function           |
