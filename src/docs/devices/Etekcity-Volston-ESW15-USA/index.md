@@ -144,6 +144,11 @@ running, or your instance does not meet the requirements to flash devices, you c
 ```yaml file=config.yaml
 ```
 
+### Full Configuration with Nightlight Control Script
+
+```yaml file=esw15.yaml
+```
+
 ### Energy Monitoring Tuning
 
 Energy monitoring for this plug is provided by an HLW8012 module. Luckily for us, unlike some other models of this plug,
