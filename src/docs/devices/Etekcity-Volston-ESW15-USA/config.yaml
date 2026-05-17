@@ -4,7 +4,7 @@ esphome:
 
 esp8266:
   board: esp01_1m
-  restore_from_flash: True
+  restore_from_flash: true
 
 preferences:
   flash_write_interval: 60min
@@ -37,7 +37,7 @@ web_server:
   version: 3
 
 binary_sensor:
-    # Button
+  # Button
   - platform: gpio
     pin:
       number: GPIO14
@@ -48,14 +48,14 @@ binary_sensor:
       - switch.toggle: relay
 
 switch:
-   # Outlet Relay
+  # Outlet Relay
   - platform: gpio
     name: "Outlet"
     pin: GPIO5
     id: relay
     restore_mode: RESTORE_DEFAULT_OFF
 
-    # Internal Switch for auto nightlight logic
+  # Internal Switch for auto nightlight logic
   - platform: template
     id: nightlight_gate
     internal: true
@@ -77,7 +77,7 @@ number:
     on_value:
       then:
         - script.execute: refresh_output
-  
+
 sensor:
   # Ambient Light Sensor (LDR)
   - platform: adc
@@ -86,7 +86,7 @@ sensor:
     id: ambient_light
     update_interval: 1s
     filters:
-      - multiply: 1.0 
+      - multiply: 1.0
     # Trigger the script immediately when the light level changes
     on_value:
       then:
@@ -111,7 +111,7 @@ sensor:
     update_interval: 5s
 
 light:
-    # Internal light handles the soft ramp (1s)
+  # Internal light handles the soft ramp (1s)
   - platform: monochromatic
     id: nightlight_managed
     output: nightlight_pwm
@@ -144,7 +144,7 @@ output:
     id: status_led_out
 
 select:
-    # Nightlight On/Off/Auto
+  # Nightlight On/Off/Auto
   - platform: template
     name: "Nightlight Mode"
     id: nightlight_mode
@@ -195,7 +195,7 @@ script:
                 // If it gets darker than 0.03, turn ON
                 if (current_lux < 0.03) {
                   id(nightlight_gate).turn_on();
-                } 
+                }
                 // If it gets brighter than 0.05, turn OFF
                 else if (current_lux > 0.05) {
                   id(nightlight_gate).turn_off();
