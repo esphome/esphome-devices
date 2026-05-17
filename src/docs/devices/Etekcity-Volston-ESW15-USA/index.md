@@ -143,8 +143,8 @@ running, or your instance does not meet the requirements to flash devices, you c
 
 ```yaml
 esphome:
-  name: ${name}
-  friendly_name: ${friendly_name}
+  name: esw15
+  friendly_name: ESW15
 
 esp8266:
   board: esp01_1m
