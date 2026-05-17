@@ -11,16 +11,6 @@ preferences:
 
 logger:
 
-api:
-
-ota:
-  - platform: esphome
-
-captive_portal:
-
-web_server:
-  version: 3
-
 binary_sensor:
   # Button
   - platform: gpio
