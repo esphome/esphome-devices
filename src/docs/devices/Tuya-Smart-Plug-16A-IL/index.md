@@ -152,4 +152,4 @@ sensor:
 
 ### Additional notes
 
-This guide was based on the [WHDZO3 guide](../Tuya-Smart-Plug-20A-WHDZ03/index.md) and adapter to this board.
+This guide was based on the [WHDZO3 guide](/devices/tuya-smart-plug-20a-whdz03/) and adapter to this board.
