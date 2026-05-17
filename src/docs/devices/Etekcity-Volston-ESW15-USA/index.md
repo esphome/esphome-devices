@@ -12,7 +12,7 @@ difficulty: 3
 ![A front view of the Etekcity Voltson ESW15-USA Smart Outlet.](ESW15_Stock.png "Etekcity Voltson ESW15-USA Front View")
 ![A back view of the Etekcity Voltson ESW15-USA Smart Outlet, displaying the sticker with all its product details.](IMG_1789.jpg "Etekcity Voltson ESW15-USA Back View")
 
-The Etekcity Voltson ESW15-USA is a Wi-Fi connected 15-amp Smart Outlet with energy monitoring, 
+The Etekcity Voltson ESW15-USA is a Wi-Fi connected 15-amp Smart Outlet with energy monitoring,
 controlled via the VeSync app when running OEM firmware.
 
 | Specification | Details                                                        |
@@ -30,10 +30,10 @@ There are no screws. The plastic shell is held together by plastic clips.
 You will a spudger to get between the seam of the plastic shell and disengage each of the 5 clips.
 
 ![Opening up the ESW15](IMG_1787.jpg "Opening the ESW15")
-![](IMG_1788_2.jpg "Opening the ESW15")
-![](IMG_1767.jpg "Opened the ESW15")
-![](IMG_1766.jpg "Opened the ESW15")
-![](IMG_1790.jpg "Opened the ESW15")
+![Opening the ESW15](IMG_1788_2.jpg "Opening the ESW15")
+![Opened ESW15](IMG_1767.jpg "Opened ESW15")
+![Opened ESW15](IMG_1766.jpg "Opened ESW15")
+![Opened ESW15](IMG_1790.jpg "Opened ESW15")
 
 ## Flashing New Firmware
 
@@ -41,8 +41,8 @@ You will a spudger to get between the seam of the plastic shell and disengage ea
 
 With the plastic shell separated, you will now have access to the top of the PCB.
 
-![](IMG_1791.jpg "ESW15 pins")
-![](IMG_1792.jpg "ESW15 connected to serial adapter")
+![ESW15 pins](IMG_1791.jpg "ESW15 pins")
+![ESW15 connected to serial adapter](IMG_1792.jpg "ESW15 connected to serial adapter")
 
 Using the table below as a guide, connect each pin of a USB serial converter to its corresponding test pad on the PCB.
 
@@ -57,7 +57,8 @@ Using the table below as a guide, connect each pin of a USB serial converter to 
 **_NOTE:_** The IO0 test pad must be pulled low (grounded) during power on, it will put the ESP module into Flash Mode.
 You can either connect this to the GND pin of the USB serial converter or the GND test pad on the device.
 **You will need to disconnect this pad from ground for the device to boot normally.
-If you want to test the firmware before reassembling the plug, wire this in such a way that you can easily detach it from ground.**
+If you want to test the firmware before reassembling the plug,
+wire this in such a way that you can easily detach it from ground.**
 
 ### 2. Boot Into Flash Mode
 
