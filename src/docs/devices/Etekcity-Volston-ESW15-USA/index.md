@@ -141,7 +141,7 @@ running, or your instance does not meet the requirements to flash devices, you c
 
 ### Basic ESPHome Configuration
 
-```yaml file=esw15.yaml
+```yaml file=config.yaml
 ```
 
 ### Energy Monitoring Tuning
