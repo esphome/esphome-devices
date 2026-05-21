@@ -6,7 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/CodeMakesItGo/NeatoFx_Public/tree/main/Audio/NeatoAudio50
 made-for-esphome: true
-difficulty: 3
+difficulty: 1
 ---
 
 ## Overview

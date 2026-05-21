@@ -6,7 +6,7 @@ standard: global
 board: esp32
 project-url: https://github.com/CodeMakesItGo/NeatoFx_Public/tree/main/Controllers/NeatoMotor
 made-for-esphome: true
-difficulty: 3
+difficulty: 2
 ---
 
 ## Overview
