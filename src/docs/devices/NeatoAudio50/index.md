@@ -108,12 +108,12 @@ For standalone operation (no hub), skip steps 3–5 and use the web UI at `192.1
 
 ### Variants
 
-| File | Board | RFTX connector mode |
-|------|-------|---------------------|
-| `main.yaml` | Rev 2.4 / 2.5 / 2.6 | Trigger outputs (default) |
-| `main_rftx.yaml` | Rev 2.4 / 2.5 / 2.6 | 4 RF trigger inputs |
-| `main_rev2_3.yaml` | Rev 2.3 | Trigger outputs |
-| `main_rev2_3_rftx.yaml` | Rev 2.3 | 4 RF trigger inputs |
+All variants are selected via commented includes in `main.yaml`:
+
+| Option | Choices |
+|--------|---------|
+| Board revision | `boards/rev2_4.yaml` (Rev 2.4/2.5/2.6, default) or `boards/rev2_3.yaml` (Rev 2.3) |
+| RFTX connector | `boards/rftx_outputs.yaml` (trigger outputs, default) or `boards/rftx_inputs.yaml` (4 RF inputs) |
 
 ### Operating modes
 
