@@ -101,6 +101,21 @@ connected to the hotspot.
 
 ## Configuration
 
+```yaml
+substitutions:
+  id: "1"
+  name: target-${id}
+  friendly_name: "NEATO Target ${id}"
+  project_name: "CodeMakesItGo.Target"
+  project_version: "1.0.0"
+
+packages:
+  board: github://CodeMakesItGo/NeatoFx_Public/Targets/NeatoTargetIR/boards/rev3.yaml@main
+```
+
+For a fully networked install with Home Assistant, IR protocol selection, servo, and FPP support,
+import the complete configuration:
+
 ```yaml url=https://github.com/CodeMakesItGo/NeatoFx_Public/blob/main/Targets/NeatoTargetIR/main.yaml
 ```
 
