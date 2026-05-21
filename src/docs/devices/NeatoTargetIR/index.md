@@ -27,7 +27,7 @@ or in batch via Home Assistant.
 - 38 kHz IR receiver — ambient-light tolerant, up to 20 ft range; laser tag, NEC, and raw protocols
 - WS2811/WS2812 RGB LEDs — 6 face LEDs onboard + independent strip output (up to 100 LEDs)
 - SPDT relay — 2 A @ 120 VAC or 24 VDC (motors, solenoids, bells, air cannons, AC lighting)
-- GND switch (NPN) — 3 A continuous, 12 V max, auto-reset at 4 A
+- GND switch — switch to ground, 20 V, 1.6 A
 - Servo output — PWM 50 Hz, 0–180°, 5 V @ 3 A auxiliary power
 - 3 debounced digital inputs + 1 analog input (0–3.3 V) for buttons, PIR, pressure pads
 - Browser-based configuration: point value, LED colors/animations, relay hold time, servo angles, IR sensitivity, static IP
@@ -41,11 +41,11 @@ or in batch via Home Assistant.
 | Component | Specification |
 |-----------|--------------|
 | MCU | ESP32 Mini D1 (replaceable) |
-| Input voltage | 5–24 V DC, reverse-polarity protected |
+| Input voltage | 5–18 V DC, reverse-polarity protected |
 | WiFi | 802.11 b/g/n 2.4 GHz, static IP supported |
 | IR receiver | 38 kHz, up to 20 ft range |
-| Relay | SPDT, 2 A @ 120 VAC or 24 VDC |
-| GND switch | NPN, 3 A continuous, 12 V max, auto-reset at 4 A |
+| Relay | SPDT, 2 A @ 120 VAC or 24 VDC (GPIO-23) |
+| GND switch | Switch to ground, 20 V, 1.6 A (GPIO-33) |
 | LED strips | WS2811/WS2812 — 6 face LEDs + up to 100 on strip output |
 | Servo | PWM 50 Hz, 0–180°, 5 V @ 3 A aux |
 | Digital inputs | 3 × debounced, 3.3 V logic |
@@ -64,19 +64,27 @@ or in batch via Home Assistant.
 | GPIO | Function |
 |------|----------|
 | GPIO5 | Face LED strip — WS2812 (6 onboard LEDs) |
-| GPIO22 | External LED strip output — WS2811/WS2812 (up to 100 LEDs) |
+| GPIO22 | External WS2811/WS2812 LED strip signal (up to 100 LEDs) |
 | GPIO19 | IR receiver (38 kHz) |
-| GPIO23 | Relay output (SPDT) |
-| GPIO33 | GND switch (NPN low-side) |
-| GPIO4 | Servo PWM output (50 Hz) |
-| GPIO26 | Auxiliary power control |
-| GPIO18 | External trigger input (TRIGGER net, H4 connector) |
-| GPIO25 | GPIO25 hit trigger input (optional) |
-| GPIO16 | Digital input / expansion |
-| GPIO17 | Digital input / expansion |
-| GPIO34 | Analog input (0–3.3 V, ADC) |
+| GPIO23 | Internal relay — SPDT, 2 A @ 24 VDC / 120 VAC |
+| GPIO33 | Switch to ground — 20 V, 1.6 A |
+| GPIO4 | Servo signal — PWM 50 Hz |
+| GPIO26 | 5 V, 3 A auxiliary power output (servo connector power) |
+| GPIO18 | External trigger input (TRIGGER net) |
+| GPIO25 | General IO |
+| GPIO16 | General IO |
+| GPIO17 | General IO |
+| GPIO34 | Analog input (0–3.3 V) |
+| GPIO1 | RS232 TX |
+| GPIO3 | RS232 RX |
 
-![ESP32 pinout schematic](./esp32-pinout.png)
+![PCB top — ESP32 module, servo connector, power LEDs](./hardware-pcb-top.png)
+
+![Relay and daisy-chain power connections](./hardware-relay-power.png)
+
+![Servo, 5V aux, WS2811 LED strip, and GND switch connectors](./hardware-servo-leds.png)
+
+![GPIO expansion connector — general IO, RS232, analog input](./hardware-gpio-expansion.png)
 
 ## Quick Start
 
