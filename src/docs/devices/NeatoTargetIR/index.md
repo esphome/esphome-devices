@@ -9,6 +9,8 @@ made-for-esphome: true
 difficulty: 1
 ---
 
+![Neato Target IR](./product.png)
+
 ## Overview
 
 The Neato Target IR is a self-contained WiFi-enabled infrared hit detector and prop controller.
