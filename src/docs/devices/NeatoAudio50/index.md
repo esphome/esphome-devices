@@ -61,7 +61,7 @@ progression, scavenger hunt clues, museum exhibit narration, themed restaurant m
 ### PCB revisions
 
 - **Rev 2.3** — original design
-- **Rev 2.4** — current production; RFTX connector configurable as 4 RF inputs or trigger outputs
+- **Rev 2.4 / 2.5 / 2.6** — same pinouts; RFTX connector configurable as 4 RF inputs or trigger outputs; Rev 2.6 is the latest
 
 ## Hardware Pinout
 
@@ -110,8 +110,8 @@ For standalone operation (no hub), skip steps 3–5 and use the web UI at `192.1
 
 | File | Board | RFTX connector mode |
 |------|-------|---------------------|
-| `main.yaml` | Rev 2.4 | Trigger outputs (default) |
-| `main_rftx.yaml` | Rev 2.4 | 4 RF trigger inputs |
+| `main.yaml` | Rev 2.4 / 2.5 / 2.6 | Trigger outputs (default) |
+| `main_rftx.yaml` | Rev 2.4 / 2.5 / 2.6 | 4 RF trigger inputs |
 | `main_rev2_3.yaml` | Rev 2.3 | Trigger outputs |
 | `main_rev2_3_rftx.yaml` | Rev 2.3 | 4 RF trigger inputs |
 
