@@ -9,6 +9,8 @@ made-for-esphome: true
 difficulty: 1
 ---
 
+![Neato Audio 50](./product.png)
+
 ## Overview
 
 The Neato Audio 50 is a WiFi-enabled audio and automation controller for themed attractions,
@@ -60,6 +62,10 @@ progression, scavenger hunt clues, museum exhibit narration, themed restaurant m
 
 - **Rev 2.3** — original design
 - **Rev 2.4** — current production; RFTX connector configurable as 4 RF inputs or trigger outputs
+
+## Hardware Pinout
+
+![Audio 50 PCB pinout](./hardware-pinout.png)
 
 ## GPIO Pinout
 
