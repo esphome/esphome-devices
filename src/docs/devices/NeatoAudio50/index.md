@@ -11,53 +11,62 @@ difficulty: 1
 
 ## Overview
 
-The Neato Audio 50 is a WiFi-enabled MP3 audio controller designed for shooting galleries,
-escape rooms, and interactive entertainment attractions. Built on ESP32, it plays sound effects
-from a MicroSD card via a DFPlayer Mini module in response to hardwired trigger inputs, wireless
-RF buttons, or Home Assistant automations.
+The Neato Audio 50 is a WiFi-enabled audio and automation controller for themed attractions,
+escape rooms, haunted houses, and interactive installations. It combines a 50 W amplified MP3
+player, two relay outputs, two dimmable spotlight outputs, and optional 4-channel RF wireless
+inputs in a single pre-flashed networked unit.
+
+Ships with a Kenwood KFC-1666S 6.5" 2-way speaker and includes battery backup with automatic
+switchover on power loss.
+
+**Applications:** haunted house scares, shooting gallery hit audio, escape room narrative
+progression, scavenger hunt clues, museum exhibit narration, themed restaurant moments.
 
 **Key features:**
 
-- DFPlayer Mini MP3 player — up to 255 sound files on MicroSD
-- 2 hardwired trigger inputs (debounced, active-low)
-- 4 RF wireless button inputs (A/B/C/D) via on-board receiver
-- Per-input configurable: specific file or random from SD card
-- Background ambient loop with auto-return after triggered playback
-- 30-level software volume control (saved across reboots)
-- 2 relay outputs + 2 FET (PWM spotlight) outputs assignable per input
-- Amplifier wake/mute management (GPIO-controlled)
-- Playback timeout watchdog (5–300 s, resets stuck DFPlayer)
+- TPA3116D2 50 W amplifier with included Kenwood KFC-1666S 6.5" speaker (4–8 Ω)
+- DFPlayer Mini MP3 playback from MicroSD (FAT32, up to 32 GB, 4-digit filename prefix)
+- Playback modes: single file, random from folder, sequential playlist, background loop with event interruption
+- 2 wired trigger inputs (digital, debounced, 3.3 V logic)
+- Optional 4-channel 433 MHz RF receiver (A/B/C/D wireless buttons)
+- Per-input configurable: specific track or random selection
+- 2 × SPDT relay outputs — 15 A @ 12 VDC / 250 VAC; trigger at audio start, end, or after delay
+- 2 × FET dimmable spotlight outputs — 4.2 A each, 12 V, PWM 0–100%, sync to audio events
+- Software volume control (0–30, persistent across reboots)
+- Battery backup with automatic switchover
+- Home Assistant native (ESPHome API), FPP, and MQTT compatible
+- Standalone AP mode; hotspot `audio-XX`, web UI at `192.168.4.1`
 - OTA firmware updates
-- Home Assistant integration in networked mode
 
 ## Hardware
 
 | Component | Specification |
 |-----------|--------------|
 | MCU | ESP32 (Wemos D1 Mini32 form factor) |
-| Flash | 4 MB |
-| Input voltage | 7–12 V DC |
+| Input voltage | 12 V DC |
+| Amplifier | TPA3116D2, 50 W |
+| Speaker (included) | Kenwood KFC-1666S 6.5" 2-way, 4–8 Ω |
+| Audio storage | MicroSD, FAT32, up to 32 GB |
+| Audio format | MP3 (128 kbps minimum recommended), 4-digit filename prefix |
+| Max files | Up to 255 in standard operation (3,000 on card) |
+| Relay outputs | 2 × SPDT, 15 A @ 12 VDC / 250 VAC |
+| Spotlight outputs | 2 × FET, 4.2 A each, 12 V, PWM dimmable |
+| Wired inputs | 2 × digital, debounced, 3.3 V logic |
+| RF inputs | 4-channel 433 MHz (optional add-on, A/B/C/D) |
 | WiFi | 802.11 b/g/n 2.4 GHz |
-| Audio | DFPlayer Mini (UART, MicroSD) |
-| Relay outputs | 2 × relay (N.O.) |
-| FET outputs | 2 × LEDC PWM (spotlight dimming) |
-| RF inputs | 4 × digital (A/B/C/D) |
-| Trigger inputs | 2 × hardwired (active-low) |
+| Battery backup | Yes — automatic switchover on power loss |
 
-Two PCB revisions are supported:
+### PCB revisions
 
 - **Rev 2.3** — original design
-- **Rev 2.4** — current production, RF transmitter option on RFTX connector
-
-The RFTX connector can be configured as either 4 RF trigger inputs (`boards/rftx_inputs.yaml`)
-or as trigger outputs (`boards/rftx_outputs.yaml`).
+- **Rev 2.4** — current production; RFTX connector configurable as 4 RF inputs or trigger outputs
 
 ## GPIO Pinout
 
 | GPIO | Function |
 |------|----------|
-| GPIO17 | DFPlayer Mini TX (UART RX on DFPlayer) |
-| GPIO16 | DFPlayer Mini RX (UART TX on DFPlayer) |
+| GPIO17 | DFPlayer Mini UART TX (→ DFPlayer RX) |
+| GPIO16 | DFPlayer Mini UART RX (← DFPlayer TX) |
 | GPIO26 | Relay 1 output |
 | GPIO27 | Relay 2 output |
 | GPIO33 | FET 1 — SpotLight 1 (LEDC PWM) |
@@ -65,15 +74,26 @@ or as trigger outputs (`boards/rftx_outputs.yaml`).
 | GPIO0 | Amplifier wake (active-high) |
 | GPIO5 | Amplifier unmute (active-low) |
 | GPIO22 | Heartbeat LED output |
-| GPIO23 | Status LED (COM LED, active-low) |
+| GPIO23 | Status LED (active-low) |
 | GPIO4 | RF TX power enable |
-| GPIO34 | Input 1 (hardwired trigger, active-low) |
-| GPIO39 | Input 2 (hardwired trigger, active-low) |
+| GPIO34 | Wired input 1 (active-low) |
+| GPIO39 | Wired input 2 (active-low) |
 | GPIO32 | Push button (INPUT_PULLUP) |
 | GPIO36 | RF remote button A |
 | GPIO2 | RF remote button B |
 | GPIO15 | RF remote button C |
 | GPIO35 | RF remote button D |
+
+## Quick Start
+
+1. Power on — device broadcasts WiFi hotspot `audio-XX` (unit-specific)
+2. Connect phone or laptop to the hotspot — captive portal opens at `192.168.4.1`
+3. Select your venue WiFi network and enter credentials
+4. Device reboots and joins the network
+5. Home Assistant discovers the device within 60 seconds
+6. Access web UI via local hostname (e.g., `audio-1.local`) to configure tracks, volume, and outputs
+
+For standalone operation (no hub), skip steps 3–5 and use the web UI at `192.168.4.1`.
 
 ## Configuration
 
@@ -82,19 +102,20 @@ or as trigger outputs (`boards/rftx_outputs.yaml`).
 
 ### Variants
 
-| File | Board | RFTX mode |
-|------|-------|-----------|
-| `main.yaml` | Rev 2.4 | Transmitter outputs (default) |
-| `main_rftx.yaml` | Rev 2.4 | 4 trigger inputs |
-| `main_rev2_3.yaml` | Rev 2.3 | Transmitter outputs |
-| `main_rev2_3_rftx.yaml` | Rev 2.3 | 4 trigger inputs |
+| File | Board | RFTX connector mode |
+|------|-------|---------------------|
+| `main.yaml` | Rev 2.4 | Trigger outputs (default) |
+| `main_rftx.yaml` | Rev 2.4 | 4 RF trigger inputs |
+| `main_rev2_3.yaml` | Rev 2.3 | Trigger outputs |
+| `main_rev2_3_rftx.yaml` | Rev 2.3 | 4 RF trigger inputs |
 
 ### Operating modes
 
-- **Standalone** — creates its own WiFi AP for direct web control. Use `configs/standalone.yaml`.
-- **Networked** — joins home WiFi and exposes the Home Assistant ESPHome API. Use
-  `configs/networked.yaml`.
+- **Standalone** — creates its own WiFi AP. Use `configs/standalone.yaml`.
+- **Networked** — joins home WiFi and exposes the Home Assistant ESPHome API. Use `configs/networked.yaml`.
 
 ## Links
 
+- [Product page](https://neatofx.com/products/neato-fx-audio-50)
+- [Support & documentation](https://neatofx.com/pages/support-audio)
 - [GitHub repository](https://github.com/CodeMakesItGo/NeatoFx_Public/tree/main/Audio/NeatoAudio50)
