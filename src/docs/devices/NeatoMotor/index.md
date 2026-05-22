@@ -62,16 +62,7 @@ hardware limit switches, real-time current sensing, and automatic stall protecti
 
 ## Configuration
 
-```yaml
-substitutions:
-  id: "1"
-  name: motor-${id}
-  friendly_name: "Neato Motor ${id}"
-  project_name: "CodeMakesItGo.Motor"
-  project_version: "1.0.0"
-
-packages:
-  board: github://CodeMakesItGo/NeatoFx_Public/Controllers/NeatoMotor/boards/rev3.yaml@main
+```yaml file=motor-hardware.yaml
 ```
 
 For a fully networked install with Home Assistant, limit switch config, and travel mode controls,

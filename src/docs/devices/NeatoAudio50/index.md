@@ -103,17 +103,7 @@ For standalone operation (no hub), skip steps 3–5 and use the web UI at `192.1
 
 ## Configuration
 
-```yaml
-substitutions:
-  id: "1"
-  name: audio-${id}
-  friendly_name: "NEATO Audio ${id}"
-  project_name: "CodeMakesItGo.Audio50"
-  project_version: "1.0.0"
-
-packages:
-  board: github://CodeMakesItGo/NeatoFx_Public/Audio/NeatoAudio50/boards/rev2_4.yaml@main
-  rftx:  github://CodeMakesItGo/NeatoFx_Public/Audio/NeatoAudio50/boards/rftx_outputs.yaml@main
+```yaml file=audio-hardware.yaml
 ```
 
 For a fully networked install with Home Assistant, RF inputs, FPP support, and audio scripts,
