@@ -32,7 +32,7 @@ or in batch via Home Assistant.
 - GND switch — switch to ground, 20 V, 1.6 A
 - Servo output — PWM 50 Hz, 0–180°, 5 V @ 3 A auxiliary power
 - 3 debounced digital inputs + 1 analog input (0–3.3 V) for buttons, PIR, pressure pads
-- Browser-based configuration: point value, LED colors/animations, relay hold time, servo angles, IR sensitivity, static IP
+- Browser-based configuration: point value, LED colors/animations, relay hold time, servo angles, IR sensitivity
 - Home Assistant native (ESPHome API) — discovered automatically within 60 seconds of joining WiFi
 - Standalone AP mode — no hub required; hotspot `NEATO-target-1` / `neato123`, web UI at `192.168.4.1`
 - OTA firmware updates
@@ -130,5 +130,4 @@ import the complete configuration:
 - [Product page](https://neatofx.com/products/neato-fx-target-ir)
 - [Support & documentation](https://neatofx.com/pages/support-target)
 - [GitHub repository](https://github.com/CodeMakesItGo/NeatoFx_Public/tree/main/Targets/NeatoTargetIR)
-- [Rev 3.x manual (PDF)](https://github.com/CodeMakesItGo/NeatoFx_Public/blob/main/Targets/NeatoTargetIR/docs/Smart%20Target%20Rev3.x%20Manual.pdf)
-- [Rev 1.x manual (PDF)](https://github.com/CodeMakesItGo/NeatoFx_Public/blob/main/Targets/NeatoTargetIR/docs/Smart%20Target%20Rev1.x%20Manual.pdf)
+- [Device manuals (PDF)](https://github.com/CodeMakesItGo/NeatoFx_Public/tree/main/Targets/NeatoTargetIR/docs)

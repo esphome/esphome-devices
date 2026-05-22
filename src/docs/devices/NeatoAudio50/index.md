@@ -61,7 +61,8 @@ progression, scavenger hunt clues, museum exhibit narration, themed restaurant m
 ### PCB revisions
 
 - **Rev 2.3** — original design
-- **Rev 2.4 / 2.5 / 2.6** — same pinouts; RFTX connector configurable as 4 RF inputs or trigger outputs; Rev 2.6 is the latest
+- **Rev 2.4 / 2.5 / 2.6** — same pinouts; RFTX connector configurable as 4 RF inputs or
+  trigger outputs; Rev 2.6 is the latest
 
 ## Hardware Pinout
 
