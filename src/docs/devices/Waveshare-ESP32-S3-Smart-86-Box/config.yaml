@@ -23,6 +23,15 @@ wifi:
   power_save_mode: none
   ap:
 
+external_components:
+  - source:
+      type: git
+      url: https://github.com/salnajjar/Waveshare-ESP32-S3-Smart-86-Box-ESPHome-Home-Assistant
+      ref: main
+      path: local_components
+    components:
+      - axp2101_powerkey
+
 psram:
   mode: octal
   speed: 80MHz
@@ -196,6 +205,11 @@ binary_sensor:
       ignore_strapping_warning: true
       mode: INPUT_PULLUP
       inverted: true
+
+  - platform: axp2101_powerkey
+    name: Power Button
+    i2c_id: i2c_bus
+    update_interval: 100ms
 
 font:
   - file:

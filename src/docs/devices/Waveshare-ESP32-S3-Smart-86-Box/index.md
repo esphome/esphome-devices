@@ -13,7 +13,7 @@ difficulty: 2
 
 The Waveshare ESP32-S3 Smart 86 Box is a wall-panel style ESP32-S3 device with a 4 inch 480x480 capacitive touch display, ES7210 microphone ADC, ES8311 speaker DAC, onboard speaker, 16MB flash, 8MB octal PSRAM, Wi-Fi, Bluetooth, and an AXP2101 power-management IC.
 
-This base configuration covers the onboard display, GT911 touchscreen, backlight, I2C expander, ES7210 microphone input, ES8311 speaker output, speaker amplifier enable, Wi-Fi fallback hotspot, and the GPIO0 boot button.
+This base configuration covers the onboard display, GT911 touchscreen, backlight, I2C expander, ES7210 microphone input, ES8311 speaker output, speaker amplifier enable, Wi-Fi fallback hotspot, GPIO0 boot button, and the AXP2101 power key.
 
 ## Product Specs
 
@@ -74,5 +74,5 @@ A full Home Assistant voice-assistant configuration with display pages, wake wor
 
 - The display reset, display SPI control lines, and speaker amplifier enable are driven through the PCA9554 I/O expander.
 - The speaker amplifier must be enabled before audio will play.
-- The AXP2101 power key is used by the full firmware, but is not included in the minimal hardware example because it currently uses a project-local ESPHome component.
+- The AXP2101 power key uses a small external ESPHome component from the linked full-firmware repository.
 - PSRAM is required for reliable display and audio operation.
