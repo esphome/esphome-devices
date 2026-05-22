@@ -4,16 +4,20 @@ date-published: 2026-05-22
 type: misc
 standard: global
 board: esp32
-project-url: https://www.waveshare.com/esp32-s3-touch-lcd-4b.htm
+project-url: https://github.com/salnajjar/Waveshare-ESP32-S3-Smart-86-Box-ESPHome-Home-Assistant
 made-for-esphome: false
 difficulty: 2
 ---
 
 ## Product Description
 
-The Waveshare ESP32-S3 Smart 86 Box is a wall-panel style ESP32-S3 device with a 4 inch 480x480 capacitive touch display, ES7210 microphone ADC, ES8311 speaker DAC, onboard speaker, 16MB flash, 8MB octal PSRAM, Wi-Fi, Bluetooth, and an AXP2101 power-management IC.
+The Waveshare ESP32-S3 Smart 86 Box is a wall-panel style ESP32-S3 device with a 4 inch
+480x480 capacitive touch display, ES7210 microphone ADC, ES8311 speaker DAC, onboard
+speaker, 16MB flash, 8MB octal PSRAM, Wi-Fi, Bluetooth, and an AXP2101 power-management IC.
 
-This base configuration covers the onboard display, GT911 touchscreen, backlight, I2C expander, ES7210 microphone input, ES8311 speaker output, speaker amplifier enable, Wi-Fi fallback hotspot, GPIO0 boot button, and the AXP2101 power key.
+This base configuration covers the onboard display, GT911 touchscreen, backlight, I2C expander,
+ES7210 microphone input, ES8311 speaker output, speaker amplifier enable, Wi-Fi fallback hotspot,
+GPIO0 boot button, and the AXP2101 power key.
 
 ## Product Specs
 
@@ -31,17 +35,17 @@ This base configuration covers the onboard display, GT911 touchscreen, backlight
 
 ## Basic Configuration
 
-The base configuration below defines the device hardware. Add your own `api:`, `ota:`, and any Home Assistant specific voice-assistant configuration before flashing.
+The base configuration below defines the device hardware. Add your own `api:`, `ota:`, and any
+Home Assistant specific voice-assistant configuration before flashing.
 
 ```yaml file=config.yaml
 ```
 
 ## Full Voice Assistant Firmware
 
-A full Home Assistant voice-assistant configuration with display pages, wake word support, Bluetooth proxy, OTA progress display, timer UI, volume controls, and diagnostics is maintained separately.
-
-```yaml url=https://github.com/salnajjar/Waveshare-ESP32-S3-Smart-86-Box-ESPHome-Home-Assistant/blob/main/esp32-s3-box-3.yaml
-```
+A full Home Assistant voice-assistant configuration with display pages, wake word support,
+Bluetooth proxy, OTA progress display, timer UI, volume controls, and diagnostics is maintained
+in the linked project repository.
 
 ## GPIO Pinout
 
@@ -72,7 +76,8 @@ A full Home Assistant voice-assistant configuration with display pages, wake wor
 
 ## Notes
 
-- The display reset, display SPI control lines, and speaker amplifier enable are driven through the PCA9554 I/O expander.
+- The display reset, display SPI control lines, and speaker amplifier enable are driven through
+  the PCA9554 I/O expander.
 - The speaker amplifier must be enabled before audio will play.
-- The AXP2101 power key uses a small external ESPHome component from the linked full-firmware repository.
+- The AXP2101 power key uses a small external ESPHome component from the linked project repository.
 - PSRAM is required for reliable display and audio operation.
