@@ -62,7 +62,7 @@ hardware limit switches, real-time current sensing, and automatic stall protecti
 
 ## Configuration
 
-```yaml file=motor-hardware.yaml
+```yaml file=config.yaml
 ```
 
 For a fully networked install with Home Assistant, limit switch config, and travel mode controls,

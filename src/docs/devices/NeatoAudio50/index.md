@@ -104,7 +104,7 @@ For standalone operation (no hub), skip steps 3–5 and use the web UI at `192.1
 
 ## Configuration
 
-```yaml file=audio-hardware.yaml
+```yaml file=config.yaml
 ```
 
 For a fully networked install with Home Assistant, RF inputs, FPP support, and audio scripts,

@@ -101,7 +101,7 @@ connected to the hotspot.
 
 ## Configuration
 
-```yaml file=target-hardware.yaml
+```yaml file=config.yaml
 ```
 
 For a fully networked install with Home Assistant, IR protocol selection, servo, and FPP support,
