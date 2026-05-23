@@ -31,7 +31,7 @@ esphome:
 external_components:
   - source:
       type: git
-      url: https://github.com/Makerfabs/Home-Assistan-Weather-Station
+      url: https://github.com/Makerfabs/Home-Assistant-Weather-Station
       ref: main
       path: common_components
     components: [ ssap10 ]
