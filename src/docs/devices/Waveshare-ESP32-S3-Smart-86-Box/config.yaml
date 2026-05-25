@@ -5,6 +5,14 @@ esphome:
     board_build.flash_mode: qio
     board_build.f_flash: 80000000L
     board_build.f_cpu: 240000000L
+  on_boot:
+    priority: 600
+    then:
+      - switch.turn_on: speaker_enable
+      - light.turn_on:
+          id: display_backlight
+          brightness: 100%
+      - component.update: s3_box_lcd
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -145,6 +153,11 @@ touchscreen:
     display: s3_box_lcd
     i2c_id: i2c_bus
     update_interval: 50ms
+    calibration:
+      x_min: 0
+      x_max: 480
+      y_min: 0
+      y_max: 480
 
 i2s_audio:
   - id: i2s_audio_bus
