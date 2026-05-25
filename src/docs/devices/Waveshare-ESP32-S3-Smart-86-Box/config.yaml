@@ -104,6 +104,7 @@ display:
     reset_pin:
       pca9554: io_expander
       number: 7
+      allow_other_uses: true
       mode:
         output: true
     pclk_frequency: 12MHz
@@ -153,6 +154,12 @@ touchscreen:
     display: s3_box_lcd
     i2c_id: i2c_bus
     update_interval: 50ms
+    reset_pin:
+      pca9554: io_expander
+      number: 7
+      allow_other_uses: true
+      mode:
+        output: true
     calibration:
       x_min: 0
       x_max: 480
