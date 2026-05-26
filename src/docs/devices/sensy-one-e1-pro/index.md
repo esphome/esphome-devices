@@ -37,3 +37,8 @@ high-performance room tracking, occupancy detection, and smart automation with E
 - 4x front-facing RGB LEDs
 - Integrated piezo buzzer (~80–90 dB)
 - Home Assistant custom add-on with 2D & 3D floorplan support, live positioning, heatmaps, and 3D visualization
+
+## Configuration
+
+```yaml url=https://github.com/sensy-one/E1-Pro-Multi-Sense/blob/main/assets/source/main_wifi.yaml
+```
