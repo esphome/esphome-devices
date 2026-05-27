@@ -1,6 +1,6 @@
 ---
 title: "GeekMagic Ultra"
-date-published: 2026-05-08
+date-published: 2026-05-27
 type: misc
 standard: global
 board: esp8266
