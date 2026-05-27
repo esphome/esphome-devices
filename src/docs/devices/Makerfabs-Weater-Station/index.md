@@ -18,5 +18,5 @@ It can be purchased from [Makerfabs](https://www.makerfabs.com/weather-station-f
 
 ## Basic Config
 
-```yaml file="weather_station.yaml"
+```yaml url=https://github.com/Makerfabs/Home-Assistant-Weather-Station/blob/main/weather_station.yaml
 ```
