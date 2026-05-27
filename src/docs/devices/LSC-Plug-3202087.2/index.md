@@ -47,11 +47,7 @@ Because the Wi-Fi status LED is wired to `P11` / `TX1`, the example configuratio
 
 At the time of writing, BK7238 support is still being worked on in ESPHome/LibreTiny. The example configuration therefore pins the Beken SDK version and pulls LibreTiny from the BK7238 feature branch:
 
-```yaml
-custom_versions.beken-bdk: 3.0.78
-framework:
-  version: 0.0.0
-  source: https://github.com/libretiny-eu/libretiny#feature/bk7238
+```yaml file=bk7238-note.yaml
 ```
 
 Once BK7238 support lands in regular releases, these overrides may no longer be required.
