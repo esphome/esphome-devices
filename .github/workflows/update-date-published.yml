@@ -58,7 +58,13 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          # Pin to the immutable approved SHA, not the mutable branch ref.
+          # If a contributor pushes between approval and this workflow
+          # running, the createCommitOnBranch expectedHeadOid check below
+          # will see the branch has moved past head.sha and fail loudly —
+          # the safe behavior, rather than silently rewriting whatever the
+          # branch tip now happens to be.
+          ref: ${{ github.event.pull_request.head.sha }}
           token: ${{ steps.generate-token.outputs.token }}
 
       # Domain-specific: rewrite the date-published frontmatter line in each
