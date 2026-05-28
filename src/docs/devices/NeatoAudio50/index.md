@@ -44,7 +44,7 @@ progression, scavenger hunt clues, museum exhibit narration, themed restaurant m
 
 | Component | Specification |
 |-----------|--------------|
-| MCU | ESP32 (Wemos D1 Mini32 form factor) |
+| MCU | ESP32-WROOM-32UE |
 | Input voltage | 12 V DC |
 | Amplifier | TPA3116D2, 50 W |
 | Speaker (included) | Kenwood KFC-1666S 6.5" 2-way, 4–8 Ω |

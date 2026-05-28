@@ -18,11 +18,11 @@ hardware limit switches, real-time current sensing, and automatic stall protecti
 
 **Key features:**
 
-- Dual BTN8962TA H-bridge — up to 8 A per direction, 12 V or 24 V supply
+- Dual BTN8962TA H-bridge — 30 A continuous per half-bridge, 12 V or 24 V supply
 - PWM speed control (0–100%) independently on each H-bridge channel
 - Open and closed limit switches with configurable behavior
 - Two momentary toggle inputs for local physical control
-- Automatic stall detection via current sense ADC (default threshold: 8 A)
+- Automatic stall detection via current sense ADC (default threshold: 8 A, configurable)
 - Travel modes: 1-Direction (stop at end) or Bi-direction (auto-reverse)
 - Configurable open-position hold dwell time before auto-close
 - Timed runs or run-until-limit operation selectable via web UI
@@ -37,7 +37,7 @@ hardware limit switches, real-time current sensing, and automatic stall protecti
 | MCU | ESP32 (Wemos D1 Mini32) |
 | Flash | 4 MB |
 | Motor driver | 2 × BTN8962TA half-bridge (H-bridge pair) |
-| Max motor current | 8 A (stall cutoff) |
+| Max motor current | 30 A continuous (BTN8962TA rated); 8 A software stall cutoff (configurable) |
 | Supply voltage | 7–14 V DC (12 V typical) or 24 V variant |
 | WiFi | 802.11 b/g/n 2.4 GHz |
 | Limit switches | 2 × N.C. (INPUT_PULLUP) |
