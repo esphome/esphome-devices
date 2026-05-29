@@ -73,18 +73,13 @@ external_components:
       type: git
       url: https://github.com/fuzzybear62/esphome-waveshare_io_ch32v003
       ref: main
-    components: [ waveshare_io_ch32v003 ]
+    components: [waveshare_io_ch32v003]
 
 logger:
   level: DEBUG
 
-ota:
-  - platform: esphome
-
 wifi:
   ap:
-
-captive_portal:
 
 i2c:
   sda: GPIO8
@@ -104,7 +99,7 @@ display:
     auto_clear_enabled: false
     update_interval: never
     color_order: RGB
-    pclk_frequency: 20MHz # Adjust downward if screen jitters
+    pclk_frequency: 20MHz  # Adjust downward if screen jitters
     pclk_inverted: true
     dimensions:
       width: 800
@@ -337,7 +332,7 @@ media_player:
       format: FLAC
       sample_rate: 44100
       num_channels: 1
-    on_play: 
+    on_play:
       then:
         - switch.turn_on: pa_ctrl
     on_idle:
