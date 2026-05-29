@@ -8,6 +8,8 @@ board: esp32
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/faadfba9-d354-40d0-b3c8-09ebe46da29b" />
 
+![Waveshare ESP32-S3-RLCD-4.2 Front](esp-ws-disp.jpg "Waveshare ESP32-S3-RLCD-4.2 Front")
+
 # Waveshare ESP32-S3-Touch-LCD-4.3C
 
 ![ESP32-S3-Touch-LCD-4.3C](https://docs.waveshare.com/ESP32-S3-Touch-LCD-4.3C)
