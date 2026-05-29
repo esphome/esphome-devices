@@ -130,11 +130,7 @@ ota:
   - platform: esphome
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
-    ssid: "Display Fallback AP"
-    password: "12345678"
 
 captive_portal:
 
@@ -238,14 +234,6 @@ time:
     on_time_sync:
       then:
         - logger.log: "RTC time synced"
-
-  - platform: homeassistant
-    id: ha_time
-    on_time_sync:
-      then:
-        - pcf85063.write_time:
-            id: rtc_time
-        - logger.log: "RTC written from Home Assistant"
 
 binary_sensor:
   - platform: gpio
