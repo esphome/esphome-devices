@@ -9,6 +9,10 @@ esp32:
   framework:
     type: esp-idf
 
+wifi:
+  # Set up a wifi access point using the device name above
+  ap:
+
 light:
   - platform: status_led
     name: "Status LED"
