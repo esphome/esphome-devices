@@ -8,31 +8,6 @@ esp32:
   flash_size: 8MB
   framework:
     type: esp-idf
-  
-# Enable logging
-logger:
-
-# API is a requirement of the dashboard import.
-api:
-  id: api_id
-  encryption:   # Uses key set by Home Assistant
-
-ota:
-  - platform: esphome
-    id: ota_esphome
-
-wifi:
-  # Set up a wifi access point using the device name above
-  ap:
-
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device.
-captive_portal:
-
-network:
-  enable_ipv6: true
-
-web_server:
 
 light:
   - platform: status_led
