@@ -8,10 +8,9 @@ difficulty: 2
 project-url: https://docs.m5stack.com/en/core/M5NanoC6
 ---
 
-# M5Stack NanoC6
+## Description
 
 M5Stack NanoC6 is a tiny USB-powered devkit based on the ESP32-C6.
-
 
 ## GPIO Pinout
 
