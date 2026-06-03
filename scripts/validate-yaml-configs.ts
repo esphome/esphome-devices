@@ -45,6 +45,9 @@
  *      surface that on the device page. `url=` is also permitted on
  *      non-made-for-esphome pages (e.g. to mirror an upstream config) but
  *      isn't the standard form there — `file=config.yaml` is.
+ *   7. One device per pull request: a PR may add at most one new device
+ *      page (a newly-added `src/docs/devices/<Device>/index.md`). Detected
+ *      via BASE_SHA/HEAD_SHA, so enforced on pull_request events only.
  */
 import * as fs from "fs";
 import * as path from "path";
@@ -455,6 +458,58 @@ function findChangedMarkdown(devicesRoot: string): Set<string> | null {
   return changed;
 }
 
+// Identify the device directories this PR newly adds — i.e. each
+// `src/docs/devices/<Device>/index.md` that appears with git status `A`.
+// A new device always introduces a new `index.md` one level under the
+// devices root, so that addition is the signal. Renames (status `R`) move
+// an existing device to a new slug and don't count; only true additions do
+// (`C` copies, which git only emits with `-C`, are treated as additions
+// defensively). Returns null when BASE_SHA/HEAD_SHA are absent (local runs
+// and `push` builds have no meaningful diff base), so the one-device rule
+// is enforced on pull_request events only.
+function findAddedDevices(): string[] | null {
+  const base = process.env.BASE_SHA;
+  const head = process.env.HEAD_SHA;
+  if (!base || !head) return null;
+  let out: string;
+  try {
+    out = execFileSync(
+      "git",
+      ["diff", "--name-status", "-z", `${base}..${head}`, "--", "src/docs/devices"],
+      { encoding: "utf8" }
+    );
+  } catch (err) {
+    console.error(`git diff failed: ${(err as Error).message}`);
+    process.exit(1);
+  }
+  const devices = new Set<string>();
+  const tokens = out.split("\0");
+  let i = 0;
+  while (i < tokens.length) {
+    const status = tokens[i];
+    if (!status) { i++; continue; }
+    const code = status[0];
+    let candidatePath: string | null = null;
+    if (code === "R" || code === "C") {
+      // <Rxx|Cxx>\0<old>\0<new>. A rename relocates an existing device, so
+      // it isn't a new one; a copy spawns a new device dir, so take the new
+      // path.
+      if (code === "C") candidatePath = tokens[i + 2];
+      i += 3;
+    } else {
+      const p = tokens[i + 1];
+      i += 2;
+      if (code === "A") candidatePath = p;
+    }
+    if (!candidatePath) continue;
+    const m = candidatePath.match(
+      /^src\/docs\/devices\/([^/]+)\/index\.(?:md|mdx)$/i
+    );
+    if (m) devices.add(m[1]);
+  }
+  return [...devices].sort();
+}
+
 const ADDING_DEVICES_HELP_URL =
   "https://devices.esphome.io/devices/adding-devices#configuration-yaml-files";
 
@@ -477,6 +532,19 @@ function main(): void {
   // allowed. Pages the PR doesn't touch are mid-migration and remain
   // unchecked here.
   const changedMarkdown = findChangedMarkdown(devicesRoot);
+
+  // One device per pull request: a PR may add at most one new device page so
+  // each can be reviewed on its own and a failure points at a single device.
+  const addedDevices = findAddedDevices();
+  if (addedDevices && addedDevices.length > 1) {
+    issues.push({
+      file: "src/docs/devices",
+      message:
+        `this PR adds ${addedDevices.length} new devices (${addedDevices.join(", ")}) — ` +
+        "add a single device per pull request and split the rest into separate PRs. " +
+        `See ${ADDING_DEVICES_HELP_URL}`,
+    });
+  }
 
   // Walk markdown first to collect every yaml file referenced via a `file=`
   // fence. Pre-existing yaml files that no markdown points at (legacy
