@@ -39,7 +39,7 @@ const URL_HOST_ALLOWLIST = new Set(["github.com", "raw.githubusercontent.com"]);
 // users can paste into their own ESPHome config to pull this device's yaml
 // straight from GitHub. Tracks the editLink baseUrl in astro.config.mjs.
 const REPO_OWNER = "esphome";
-const REPO_NAME = "esphome-devices";
+const REPO_NAME = "devices.esphome.io";
 const REPO_BRANCH = "main";
 
 function stripAttrs(meta: string, ...attrs: string[]): string {
