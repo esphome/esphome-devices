@@ -1,6 +1,6 @@
 ---
 title: E-VLXESP32
-date-published: 2026-05-05
+date-published: 2026-06-04
 type: misc
 standard: eu
 board: esp32
