@@ -17,7 +17,7 @@
     "check-links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/starlight": "^0.39.3",
     "astro": "^6.3.8",
     "gray-matter": "^4.0.3",
