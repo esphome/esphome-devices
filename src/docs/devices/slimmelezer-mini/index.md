@@ -17,5 +17,5 @@ SlimmeLezer Mini, an ESP32C3 based device to read out the P1 port of a Smart Met
 
 ## Basic Configuration
 
-The full yaml code can be found at
-[https://github.com/zuidwijk/SlimmeLezer/blob/main/Mini/config.yaml](https://github.com/zuidwijk/SlimmeLezer/blob/main/Mini/config.yaml)
+```yaml url=https://github.com/zuidwijk/SlimmeLezer/blob/main/Mini/config.yaml
+```
