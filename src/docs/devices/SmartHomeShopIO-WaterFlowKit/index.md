@@ -71,12 +71,12 @@ and the [product page](https://smarthomeshop.io/waterflowkit) for supported flow
 
 ## V1 Configuration
 
-```yaml url=https://github.com/smarthomeshop/watermeterkit/blob/main/watermeterkit-v1/watermeterkit.yaml
+```yaml url=https://github.com/smarthomeshop/waterflowkit/blob/main/waterflowkit-v1/waterflowkit-wifi.yaml
 ```
 
 ## V2 Configuration
 
-```yaml url=https://github.com/smarthomeshop/watermeterkit/blob/main/watermeterkit-v2/watermeterkit.yaml
+```yaml url=https://github.com/smarthomeshop/waterflowkit/blob/main/waterflowkit-v2/waterflowkit-wifi.yaml
 ```
 
 ## Links
