@@ -33,7 +33,7 @@ reducing the need for costly valve replacements.
 
 ---
 
-### 🧩 Specifications
+## 🧩 Specifications
 
 - **Power Supply:** 12V or 24V DC input
 - **Qwiic Connector:** For I²C peripherals (3.3V)
@@ -42,11 +42,13 @@ reducing the need for costly valve replacements.
 
 ---
 
-### Pinout
+## Pinout
 
 ![Pinout](Sprinkler%20pinout_bck.png "Pinout")
 
 ---
 
-```yaml file=config.yaml
+## Configuration
+
+```yaml url=https://github.com/thebeaverdam/ESP32_SprinklerSystem/blob/main/firmware/sprinkler.yaml
 ```
