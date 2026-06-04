@@ -36,3 +36,6 @@ seamless smart home automation support.
 - RGB LED status indicator
 - Integrated piezo buzzer (~80–90 dB)
 - Home Assistant custom add-on with 2D & 3D floorplan support, live presence visualization, and heatmaps
+
+```yaml url=https://github.com/sensy-one/S1-Pro-Multi-Sense/blob/main/assets/source/main.yaml
+```
