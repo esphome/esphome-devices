@@ -27,8 +27,8 @@ adapter for 6x1.25mm but the Vin- screw terminal could also be used for conveien
 
 ## Basic Config
 
-The following configuration is adapted from [this ESPHome devices repository][1] with only minor changes to fit the new
-device.
+The following configuration is adapted from the [Sinilink XY-WFUSB USB Switch Relay][1] device page with only minor
+changes to fit the new device.
 
 [1]: /devices/Sinilink-XY-WFUSB-USB-Switch-Relay/
 
