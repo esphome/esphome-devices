@@ -17,5 +17,5 @@ ESP32C3 based device to read out the P1 port of a Smart Meter and send data via 
 
 ## Basic Configuration
 
-The full yaml code for ethernet can be found at
-[https://github.com/zuidwijk/SlimmeLezer/blob/main/Pro/config-ethernet.yaml](https://github.com/zuidwijk/SlimmeLezer/blob/main/Pro/config-ethernet.yaml)
+```yaml url=https://github.com/zuidwijk/SlimmeLezer/blob/main/Pro/config-ethernet.yaml
+```
