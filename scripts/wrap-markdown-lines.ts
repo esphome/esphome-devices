@@ -22,14 +22,17 @@ interface MarkdownLink {
   text: string;
 }
 
-function isInCodeBlock(lines: string[], index: number): boolean {
-  let codeBlockCount = 0;
-  for (let i = 0; i < index; i++) {
+/** Precompute, in one pass, whether each line sits inside a fenced code block. */
+function computeInCodeBlock(lines: string[]): boolean[] {
+  const inBlock: boolean[] = new Array(lines.length);
+  let fenceCount = 0;
+  for (let i = 0; i < lines.length; i++) {
+    inBlock[i] = fenceCount % 2 === 1;
     if (lines[i].trim().startsWith("```")) {
-      codeBlockCount++;
+      fenceCount++;
     }
   }
-  return codeBlockCount % 2 === 1;
+  return inBlock;
 }
 
 function isTableLine(line: string): boolean {
@@ -196,6 +199,7 @@ async function processMarkdownFile(
 ): Promise<number> {
   const content = await readFile(filepath, "utf-8");
   const lines = splitKeepingNewlines(content);
+  const inCodeBlock = computeInCodeBlock(lines);
 
   const newLines: string[] = [];
   let linesWrapped = 0;
@@ -203,7 +207,7 @@ async function processMarkdownFile(
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    if (isInCodeBlock(lines, i)) {
+    if (inCodeBlock[i]) {
       newLines.push(line);
       continue;
     }
@@ -232,6 +236,31 @@ async function processMarkdownFile(
   }
 
   return linesWrapped;
+}
+
+/** Max files processed concurrently, to avoid exhausting file descriptors. */
+const MAX_CONCURRENCY = 8;
+
+/**
+ * Map over items with bounded concurrency. Results are written by index, so the
+ * returned array preserves input order regardless of completion order.
+ */
+async function mapWithConcurrency<T, R>(
+  items: T[],
+  limit: number,
+  fn: (item: T, index: number) => Promise<R>
+): Promise<R[]> {
+  const results: R[] = new Array(items.length);
+  let next = 0;
+  async function worker(): Promise<void> {
+    while (next < items.length) {
+      const i = next++;
+      results[i] = await fn(items[i], i);
+    }
+  }
+  const workerCount = Math.min(limit, items.length);
+  await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  return results;
 }
 
 async function main(): Promise<void> {
@@ -272,14 +301,16 @@ async function main(): Promise<void> {
     process.exit(2);
   }
 
-  const results = await Promise.all(
-    files.map(async (filepath) => {
+  const results = await mapWithConcurrency(
+    files,
+    MAX_CONCURRENCY,
+    async (filepath) => {
       if (!existsSync(filepath)) {
         return { filepath, found: false, wrapped: 0 };
       }
       const wrapped = await processMarkdownFile(filepath, maxLength, dryRun);
       return { filepath, found: true, wrapped };
-    })
+    }
   );
 
   let totalWrapped = 0;
