@@ -52,8 +52,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Install yamllint
-        run: pipx install yamllint
       - name: Lint frontmatter in changed markdown
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
