@@ -1,6 +1,6 @@
 ---
 title: "M5Stack NanoC6"
-date-published: 2026-05-30
+date-published: 2026-06-05
 type: misc
 standard: global
 board: esp32
