@@ -1,6 +1,6 @@
 ---
 title: LSC Smart Connect Power Plug 3202087.2
-date-published: 2026-05-26
+date-published: 2026-06-05
 type: plug
 standard: eu
 board: bk72xx
