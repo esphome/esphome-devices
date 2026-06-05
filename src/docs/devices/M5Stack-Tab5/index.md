@@ -24,7 +24,8 @@ The Tab5 has many peripherals built in including but not limited to:
 
 ## Note
 
-Only the original hardware revision (with the ILI9881C display driver and GT911 touchscreen) is currently supported. Later revisions using the ST7123 or ST7121 display drivers are not yet supported.
+Only the original hardware revision (with the ILI9881C display driver and GT911 touchscreen) is currently
+supported. Later revisions using the ST7123 or ST7121 display drivers are not yet supported.
 
 ## Example Configuration
 
