@@ -14,7 +14,8 @@
     "validate-yaml": "tsx scripts/validate-yaml-configs.ts",
     "extract-yaml": "tsx scripts/extract-inline-yaml.ts",
     "extract-yaml:check": "tsx scripts/extract-inline-yaml.ts --check",
-    "check-links": "tsx scripts/check-links.ts"
+    "check-links": "tsx scripts/check-links.ts",
+    "wrap-markdown": "tsx scripts/wrap-markdown-lines.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
