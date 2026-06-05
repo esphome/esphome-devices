@@ -515,6 +515,14 @@ function findAddedDevices(): string[] | null {
 const ADDING_DEVICES_HELP_URL =
   "https://devices.esphome.io/devices/adding-devices#configuration-yaml-files";
 
+// The report is posted verbatim as a bot review on the PR, and parts of it
+// derive from fork-controlled input (device slugs, file paths). Insert a
+// zero-width space after any `@` that precedes a word character so those
+// values can't turn into `@mention` notifications to third parties.
+function neutralizeMentions(text: string): string {
+  return text.replace(/@(?=[A-Za-z0-9_-])/g, "@" + String.fromCharCode(0x200b));
+}
+
 // Render the collected issues as a markdown report suitable for a PR review
 // body. Grouped by file so a contributor sees, per page, exactly what to fix.
 // Written to the path in VALIDATION_REPORT (set in CI) so a follow-up
@@ -547,7 +555,7 @@ function buildReport(issues: Issue[]): string {
   }
   lines.push("---");
   lines.push(`Need help? See the [Adding Devices guide](${ADDING_DEVICES_HELP_URL}).`);
-  return lines.join("\n") + "\n";
+  return neutralizeMentions(lines.join("\n") + "\n");
 }
 
 function main(): void {
@@ -577,7 +585,8 @@ function main(): void {
     issues.push({
       file: "src/docs/devices",
       message:
-        `this PR adds ${addedDevices.length} new devices (${addedDevices.join(", ")}) — ` +
+        `this PR adds ${addedDevices.length} new devices ` +
+        `(${addedDevices.map((d) => `\`${d}\``).join(", ")}) — ` +
         "add a single device per pull request and split the rest into separate PRs. " +
         `See ${ADDING_DEVICES_HELP_URL}`,
     });

@@ -91,14 +91,22 @@ jobs:
             if (hasReport) {
               const body = `${MARKER}\n${fs.readFileSync(reportPath, 'utf8').trim()}`;
               if (existing) {
-                await github.rest.pulls.updateReview({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  pull_number: prNumber,
-                  review_id: existing.id,
-                  body,
-                });
-                core.info(`Updated review ${existing.id} on PR #${prNumber}.`);
+                // workflow_run fires on every CI completion, so skip the write
+                // when nothing changed. updateReview edits the submitted
+                // review's summary body in place; its CHANGES_REQUESTED state
+                // is preserved, which is what keeps the PR blocked.
+                if (existing.body === body) {
+                  core.info(`Review ${existing.id} already up to date.`);
+                } else {
+                  await github.rest.pulls.updateReview({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: prNumber,
+                    review_id: existing.id,
+                    body,
+                  });
+                  core.info(`Updated review ${existing.id} on PR #${prNumber}.`);
+                }
               } else {
                 await github.rest.pulls.createReview({
                   owner: context.repo.owner,
