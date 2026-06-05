@@ -213,6 +213,7 @@ function checkSensitiveInTree(
 interface YamlFence {
   fileAttr: string | null; // null when the fence has no `file=` attr
   urlAttr: string | null; // null when the fence has no `url=` attr
+  inline: boolean; // true when the fence carries the bare `inline` marker
   lineNumber: number; // 1-indexed source line of the fence opener
 }
 
@@ -245,7 +246,8 @@ function findYamlFences(md: string): YamlFence[] {
     const urlAttr = urlMatch
       ? urlMatch[2] ?? urlMatch[3] ?? urlMatch[4] ?? ""
       : null;
-    fences.push({ fileAttr, urlAttr, lineNumber: i + 1 });
+    const inline = /(^|\s)inline(?=\s|$)/.test(meta);
+    fences.push({ fileAttr, urlAttr, inline, lineNumber: i + 1 });
   }
   return fences;
 }
@@ -605,8 +607,10 @@ function main(): void {
         // A fence is "inline" only when it has neither `file=` nor `url=`.
         // `url=` blocks pull from the manufacturer's repo at visit time —
         // they're a valid migrated form for made-for-esphome devices that
-        // don't want their config vendored into this repo.
-        if (f.fileAttr === null && f.urlAttr === null) {
+        // don't want their config vendored into this repo. The bare `inline`
+        // marker is an explicit opt-out for tiny snippets that shouldn't be
+        // extracted to a file at all.
+        if (f.fileAttr === null && f.urlAttr === null && !f.inline) {
           issues.push({
             file: rel,
             line: f.lineNumber,
