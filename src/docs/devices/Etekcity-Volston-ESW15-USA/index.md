@@ -1,8 +1,8 @@
----  
+---
 title: Etekcity ESW15
-date-published:  2026-05-16  
-type: plug  
-standard: us  
+date-published:  2026-05-16
+type: plug
+standard: us
 board: esp8266
 difficulty: 3
 ---
