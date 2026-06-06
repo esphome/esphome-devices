@@ -46,7 +46,7 @@ SKU: CCF-903
    ![alt text](Flashing-Edge.jpg "Edge Flashing Connection")
 7. Follow the directions as outlined by ESPHome for physically connecting to your device:
   
-[https://esphome.io/guides/physical_device_connection#physically-connecting-to-your-device](https://esphome.io/guides/physical_device_connection/)
+[https://esphome.io/guides/physical_device_connection/](https://esphome.io/guides/physical_device_connection/)
 
 ## Setup and Configuration Notes
 
@@ -93,7 +93,7 @@ code updates.
 ## Ultrasonic DYP-A22 with PWM Control
 
 Datasheet:
-[https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf](https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf)
+https://www.dypcn.com/2cm-blind-zone-ip67-high-precision-ultrasonic-sensor-product/
 
 ![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder")
 
@@ -107,7 +107,7 @@ like an HC-SR04 ultrasonic distance sensor.
 ### TPL5111 - Nano-Power System Timer for Power Gating
 
 SMD Marking: ZFVX \
-[https://www.ti.com/lit/ds/symlink/tpl5111.pdf?ts=1739630376626&ref_url=https%253A%252F%252Fwww.google.com%252F](https://www.ti.com/lit/ds/symlink/tpl5111.pdf)
+[https://www.ti.com/lit/ds/symlink/tpl5111.pdf](https://www.ti.com/lit/ds/symlink/tpl5111.pdf)
 
 Power Gating of 3.3VDC to the ESP8266.\
 Hardwired to restart the controller every hour.\
@@ -117,7 +117,7 @@ Timer will cut 3.3V when DONE pin goes HIGH, will wake after 1hr.
 
 SMD Marking: C5F \
 Datasheet:
-[https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf?ts=1740393486499](https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf)
+[https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf](https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf)
 
 Switches the connection to A0 (GPIO17)
 
@@ -138,8 +138,8 @@ Datasheet:
 
 ```yaml
 substitutions:
-  device_name: "hacked-oil-duo"
-  friendly_name: "Hacked_Oil_Duo"
+  device_name: "smart-oil-gauge-duo"
+  friendly_name: "Smart Oil Gauge Duo"
   Samples_Before_Sleep: '6'
   Auto_Sleep_On_dc: '2.5%'
   Auto_Sleep_Off_dc: '87%'
@@ -149,7 +149,7 @@ substitutions:
   tank_size: "330" # 275, 330, 500, 550, or 1000
   tank_orientation: '1'  # 1 = Vertical,  2 = Horizontal
   volume_calc_method: '2' # 1 = Geometric, 2 = Table
-  oil_depth_offset: '-0.3795' # inches
+  oil_depth_offset: '-0.0' # inches
 
 
 ### Tank Chart Sources ###
@@ -226,7 +226,7 @@ esp8266:
 # SPDT - Select Low -> Pin3 - 10MOhm to Batt and 1MOhm to GND
 # SPDT - Select High -> Pin1 - Temperature - smdcode: AFT3 - MCP9700AT-E/TT  https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf
 
-# UltraSonic is DYP-A22 with PWM Control   https://components101.com/sites/default/files/component_datasheet/JSN-SR04-Datasheet.pdf
+# UltraSonic is DYP-A22 with PWM Control  https://www.dypcn.com/2cm-blind-zone-ip67-high-precision-ultrasonic-sensor-product/
 
 # Timer Chip - smdcode: ZFVX - TPL5111
 # Timer will cut 3.3V when Done goes High, will wake after 1hr. Expect to cause ESP8266 reset every hour. 
@@ -737,7 +737,7 @@ sensor:
                           - lambda: 'return (id(Tank_Size) == 330);'
                         then:
                           - sensor.template.publish:
-                              id: Oil_Volume_Table_330V_Granby # Granby Table
+                              id: Oil_Volume_Table_330V
                               state: !lambda 'return x;'
                     - if:
                         condition:
