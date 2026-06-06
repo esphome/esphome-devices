@@ -149,7 +149,8 @@ substitutions:
   tank_size: "330" # 275, 330, 500, 550, or 1000
   tank_orientation: '1'  # 1 = Vertical,  2 = Horizontal
   volume_calc_method: '2' # 1 = Geometric, 2 = Table
-  oil_depth_offset: '-0.3795' # inches 
+  oil_depth_offset: '-0.3795' # inches
+
 
 ### Tank Chart Sources ###
 # https://www.fuelsnap.com/heating_oil_tank_charts.php
@@ -312,11 +313,6 @@ globals:
 
 
 
-
-
-
-
-
 switch:
   - platform: restart
     name: Reboot
@@ -338,7 +334,7 @@ switch:
     name: "Deep Sleep Trigger"
     id: deep_sleep_trig
     optimistic: True
-    on_turn_on: 
+    on_turn_on:
       then:
         - script.stop: ultrasonic_loop
         - switch.turn_off: ultrasonic_en
@@ -478,7 +474,7 @@ sensor:
     state_class: measurement
     accuracy_decimals: 3
     unit_of_measurement: '°C'
-    on_value: 
+    on_value:
       then:
         - component.update: VP_Oil
 
@@ -517,7 +513,7 @@ sensor:
             - 26.66666667 -> 0.08273712
             - 32.22222222 -> 0.11031616
             - 37.77777778 -> 0.15168472
-    
+
     on_value:
       then:
         - component.update: MW_Total_Vapor
@@ -530,7 +526,7 @@ sensor:
     entity_category: "diagnostic"
     icon: mdi:scale-unbalanced
     lambda: |-
-          
+
           // Calc Molecular Weight of Vapor above Oil
 
           double MW_Oil = 167.31102; // g_Oil/mol_Oil  (C12H23)
@@ -653,7 +649,7 @@ sensor:
       // Calc Distance to Oil Surface
       double time_s = id(Time_of_Flight).state / 1000.0;
       double speed_sound_m_per_s = id(Speed_of_Sound).state;
-      
+
       double total_dist_m = time_s * speed_sound_m_per_s;
 
       return (total_dist_m / 2.0) * 100.0; // cm
@@ -672,7 +668,6 @@ sensor:
     name: "Oil Depth"
     unit_of_measurement: 'in'
     device_class: distance
-    state_class: measurement
     update_interval: never
     icon: mdi:arrow-expand-vertical
     accuracy_decimals: 4
@@ -742,7 +737,7 @@ sensor:
                           - lambda: 'return (id(Tank_Size) == 330);'
                         then:
                           - sensor.template.publish:
-                              id: Oil_Volume_Table_330V
+                              id: Oil_Volume_Table_330V_Granby # Granby Table
                               state: !lambda 'return x;'
                     - if:
                         condition:
@@ -776,6 +771,7 @@ sensor:
     update_interval: never
     device_class: area
     entity_category: "diagnostic"
+    internal: True
     filters:
       - lambda: |-
           // Calculate the Oil Area
@@ -856,13 +852,14 @@ sensor:
         - sensor.template.publish:
             id: Oil_Volume_Geo
             state: !lambda 'return x;'
-  
+
   - platform: template
     id: Oil_Volume_Geo
     name: 'Oil Volume Geo'
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
+    internal: True
     filters: 
       - lambda: |-
           // Calculate Oil Volume in Tank
@@ -871,12 +868,12 @@ sensor:
     on_value: 
       then:
         - sensor.template.publish:
-            id: Max_Refill_Volume_Geo
+            id: Oil_Volume
             state: !lambda 'return x;'
 
   - platform: template
     id: Oil_Volume_Table_330V
-    #name: "Oil Volume"
+    name: "Oil Volume FuelSnap Table"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -937,14 +934,143 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
             state: !lambda 'return x;'
-  
 
+  - platform: template
+    id: Oil_Volume_Table_330V_Highland
+    name: "Oil Volume Highland Table"
+    unit_of_measurement: 'gal'
+    update_interval: never
+    device_class: volume_storage
+    internal: True
+    accuracy_decimals: 4
+    filters: 
+      - calibrate_linear: # inches to Gallons
+          method: exact
+          datapoints:
+            # https://www.highlandtank.com/wp-content/uploads/2018/10/highland_gauge_chart_book.pdf
+            # Map 0.0 (from sensor) to 1.0 (true value)
+            # inches to gallons
+            - 0	-> 0
+            - 1	-> 3
+            - 2	-> 6
+            - 3	-> 11
+            - 4	-> 17
+            - 5	-> 23
+            - 6	-> 30
+            - 7	-> 37
+            - 8	-> 44
+            - 9	-> 52
+            - 10	-> 60
+            - 11	-> 68
+            - 12	-> 77
+            - 13	-> 85
+            - 14	-> 93
+            - 15	-> 102
+            - 16	-> 110
+            - 17	-> 119
+            - 18	-> 127
+            - 19	-> 136
+            - 20	-> 144
+            - 21	-> 152
+            - 22	-> 161
+            - 23	-> 169
+            - 24	-> 178
+            - 25	-> 186
+            - 26	-> 194
+            - 27	-> 203
+            - 28	-> 211
+            - 29	-> 220
+            - 30	-> 228
+            - 31	-> 237
+            - 32	-> 245
+            - 33	-> 253
+            - 34	-> 262
+            - 35	-> 270
+            - 36	-> 278
+            - 37	-> 285
+            - 38	-> 292
+            - 39	-> 299
+            - 40	-> 306
+            - 41	-> 311
+            - 42	-> 317
+            - 43	-> 320
+            - 44	-> 325
+    on_value:
+      then:
+        - sensor.template.publish:
+            id: Oil_Volume
+            state: !lambda 'return x;'
+
+  - platform: template
+    id: Oil_Volume_Table_330V_AllAmerican
+    name: "Oil Volume All American Table"
+    unit_of_measurement: 'gal'
+    update_interval: never
+    device_class: volume_storage
+    internal: True
+    accuracy_decimals: 4
+    filters: 
+      - calibrate_linear: # inches to Gallons
+          method: exact
+          datapoints:
+            # https://allamericanenviro.com/determine-residential-heating-oil-tank-size-home-oil-tank-size-chart/
+            # Map 0.0 (from sensor) to 1.0 (true value)
+            # inches to gallons
+            - 0	-> 0
+            - 1	-> 3
+            - 2	-> 6
+            - 3	-> 11
+            - 4	-> 17
+            - 5	-> 23
+            - 6	-> 30
+            - 7	-> 37
+            - 8	-> 44
+            - 9	-> 52
+            - 10	-> 60
+            - 11	-> 68
+            - 12	-> 77
+            - 13	-> 85
+            - 14	-> 93
+            - 15	-> 102
+            - 16	-> 110
+            - 17	-> 119
+            - 18	-> 127
+            - 19	-> 136
+            - 20	-> 144
+            - 21	-> 152
+            - 22	-> 161
+            - 23	-> 169
+            - 24	-> 178
+            - 25	-> 186
+            - 26	-> 194
+            - 27	-> 203
+            - 28	-> 211
+            - 29	-> 220
+            - 30	-> 228
+            - 31	-> 237
+            - 32	-> 245
+            - 33	-> 253
+            - 34	-> 262
+            - 35	-> 270
+            - 36	-> 278
+            - 37	-> 285
+            - 38	-> 292
+            - 39	-> 299
+            - 40	-> 306
+            - 41	-> 311
+            - 42	-> 317
+            - 43	-> 320
+            - 44	-> 325
+    on_value:
+      then:
+        - sensor.template.publish:
+            id: Oil_Volume
+            state: !lambda 'return x;'
 
   - platform: template
     id: Oil_Volume_Table_275V
-    #name: "Oil Volume"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1005,12 +1131,77 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
+            state: !lambda 'return x;'
+
+  - platform: template
+    id: Oil_Volume_Table_330V_Granby
+    name: "Oil Volume Granby Table"
+    unit_of_measurement: 'gal'
+    update_interval: never
+    device_class: volume_storage
+    internal: True
+    accuracy_decimals: 4
+    filters: 
+      - calibrate_linear: # inches to Gallons
+          method: exact
+          datapoints:
+            # https://www.granbyindustries.com/wp-content/uploads/2017/04/GranbyInd_Capacity-Chart_VerticalTanks_USA_v1.pdf
+            # Map 0.0 (from sensor) to 1.0 (true value)
+            # inches to gallons
+            - 0	-> 0
+            - 1	-> 2.1
+            - 2	-> 6.0
+            - 3	-> 10.8
+            - 4	-> 16.5
+            - 5	-> 22.8
+            - 6	-> 30.2
+            - 7	-> 37.5
+            - 8	-> 45.2
+            - 9	-> 53.2
+            - 10	-> 61.4
+            - 11	-> 69.8
+            - 12	-> 78.3
+            - 13	-> 86.9
+            - 14	-> 95.5
+            - 15	-> 104.1
+            - 16	-> 112.7
+            - 17	-> 121.3
+            - 18	-> 129.9
+            - 19	-> 138.5
+            - 20	-> 147.1
+            - 21	-> 155.7
+            - 22	-> 164.3
+            - 23	-> 172.9
+            - 24	-> 181.5
+            - 25	-> 190.1
+            - 26	-> 198.7
+            - 27	-> 207.3
+            - 28	-> 215.9
+            - 29	-> 224.5
+            - 30	-> 233.1
+            - 31	-> 241.7
+            - 32	-> 250.3
+            - 33	-> 258.8
+            - 34	-> 267.2
+            - 35	-> 275.4
+            - 36	-> 283.4
+            - 37	-> 291.7
+            - 38	-> 298.4
+            - 39	-> 305.3
+            - 40	-> 311.7
+            - 41	-> 317.5
+            - 42	-> 322.5
+            - 43	-> 326.4
+            - 44	-> 328.6
+    on_value:
+      then:
+        - sensor.template.publish:
+            id: Oil_Volume
             state: !lambda 'return x;'
   
   - platform: template
     id: Oil_Volume_Table_275H
-    #name: "Oil Volume"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1055,12 +1246,11 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
             state: !lambda 'return x;'
 
   - platform: template
     id: Oil_Volume_Table_330H
-    #name: "Oil Volume"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1105,12 +1295,11 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
             state: !lambda 'return x;'
 
   - platform: template
     id: Oil_Volume_Table_500
-    #name: "Oil Volume"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1175,12 +1364,11 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
             state: !lambda 'return x;'
 
   - platform: template
     id: Oil_Volume_Table_550
-    #name: "Oil Volume"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1245,12 +1433,11 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
             state: !lambda 'return x;'
 
   - platform: template
     id: Oil_Volume_Table_1000
-    #name: "Oil Volume"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1315,12 +1502,12 @@ sensor:
     on_value:
       then:
         - sensor.template.publish:
-            id: Oil_Volume_Table
+            id: Oil_Volume
             state: !lambda 'return x;'
 
   - platform: template
-    id: Oil_Volume_Table
-    name: "Oil Volume"
+    id: Oil_Volume
+    name: "Oil In Tank"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1333,24 +1520,24 @@ sensor:
             state: !lambda 'return x;'
 
 
-  - platform: template
-    id: Max_Refill_Volume_Geo
-    name: "Max Refill Volume Geo"
-    unit_of_measurement: 'gal'
-    device_class: volume
-    state_class: total
-    update_interval: never
-    accuracy_decimals: 4
-    filters:
-      - lambda: |-
-          // x = Oil Volume in Tank gallons
-          
-          double Max_Refill = id(Max_Fill) - x;
-          return Max_Refill;
+#  - platform: template
+#    id: Max_Refill_Volume_Geo
+#    name: "Max Refill Volume Geo"
+#    unit_of_measurement: 'gal'
+#    device_class: volume
+#    update_interval: never
+#    state_class: total
+#    accuracy_decimals: 4
+#    filters:
+#      - lambda: |-
+#          // x = Oil Volume in Tank gallons
+#          
+#          double Max_Refill = id(Max_Fill) - x;
+#          return Max_Refill;
 
   - platform: template
     id: Max_Refill_Volume
-    name: "Max Refill Volume"
+    name: "Max Fill"
     unit_of_measurement: 'gal'
     device_class: volume
     state_class: total
@@ -1397,6 +1584,18 @@ script:
                 then:
                   - switch.turn_on: deep_sleep_trig
       - lambda: 'ESP_LOGD("MeasureCount", "%i", id(Measure_Count));'
+
+#      - if:
+#          condition: 
+#            - switch.is_on: VarCheck
+#          then:
+#            - script.execute: Log_Values
+
+
+#  - id: Log_Values
+#    mode: queued
+#    then:
+
 
  # Tank Dimensions:
  # https://www.fuelsnap.com/heating_oil_tank_charts.php
