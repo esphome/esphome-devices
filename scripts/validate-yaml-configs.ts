@@ -213,6 +213,7 @@ function checkSensitiveInTree(
 interface YamlFence {
   fileAttr: string | null; // null when the fence has no `file=` attr
   urlAttr: string | null; // null when the fence has no `url=` attr
+  inline: boolean; // true when the fence carries the bare `inline` marker
   lineNumber: number; // 1-indexed source line of the fence opener
 }
 
@@ -245,7 +246,8 @@ function findYamlFences(md: string): YamlFence[] {
     const urlAttr = urlMatch
       ? urlMatch[2] ?? urlMatch[3] ?? urlMatch[4] ?? ""
       : null;
-    fences.push({ fileAttr, urlAttr, lineNumber: i + 1 });
+    const inline = /(^|\s)inline(?=\s|$)/.test(meta);
+    fences.push({ fileAttr, urlAttr, inline, lineNumber: i + 1 });
   }
   return fences;
 }
@@ -513,6 +515,49 @@ function findAddedDevices(): string[] | null {
 const ADDING_DEVICES_HELP_URL =
   "https://devices.esphome.io/devices/adding-devices#configuration-yaml-files";
 
+// The report is posted verbatim as a bot review on the PR, and parts of it
+// derive from fork-controlled input (device slugs, file paths). Insert a
+// zero-width space after any `@` that precedes a word character so those
+// values can't turn into `@mention` notifications to third parties.
+function neutralizeMentions(text: string): string {
+  return text.replace(/@(?=[A-Za-z0-9_-])/g, "@" + String.fromCharCode(0x200b));
+}
+
+// Render the collected issues as a markdown report suitable for a PR review
+// body. Grouped by file so a contributor sees, per page, exactly what to fix.
+// Written to the path in VALIDATION_REPORT (set in CI) so a follow-up
+// workflow can surface it as a `REQUEST_CHANGES` review.
+function buildReport(issues: Issue[]): string {
+  const byFile = new Map<string, Issue[]>();
+  for (const issue of issues) {
+    const list = byFile.get(issue.file) ?? [];
+    list.push(issue);
+    byFile.set(issue.file, list);
+  }
+
+  const lines: string[] = [];
+  lines.push("## ❌ Device configuration checks failed");
+  lines.push("");
+  lines.push(
+    `The automated checks for the device pages in this pull request found ` +
+      `**${issues.length} issue${issues.length === 1 ? "" : "s"}**. ` +
+      `Please address the items below and push an update — this review ` +
+      `refreshes automatically and will be dismissed once the checks pass.`
+  );
+  lines.push("");
+  for (const file of [...byFile.keys()].sort()) {
+    lines.push(`### \`${file}\``);
+    for (const issue of byFile.get(file) ?? []) {
+      const prefix = issue.line !== undefined ? `**line ${issue.line}** — ` : "";
+      lines.push(`- ${prefix}${issue.message}`);
+    }
+    lines.push("");
+  }
+  lines.push("---");
+  lines.push(`Need help? See the [Adding Devices guide](${ADDING_DEVICES_HELP_URL}).`);
+  return neutralizeMentions(lines.join("\n") + "\n");
+}
+
 function main(): void {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
@@ -540,7 +585,8 @@ function main(): void {
     issues.push({
       file: "src/docs/devices",
       message:
-        `this PR adds ${addedDevices.length} new devices (${addedDevices.join(", ")}) — ` +
+        `this PR adds ${addedDevices.length} new devices ` +
+        `(${addedDevices.map((d) => `\`${d}\``).join(", ")}) — ` +
         "add a single device per pull request and split the rest into separate PRs. " +
         `See ${ADDING_DEVICES_HELP_URL}`,
     });
@@ -570,8 +616,10 @@ function main(): void {
         // A fence is "inline" only when it has neither `file=` nor `url=`.
         // `url=` blocks pull from the manufacturer's repo at visit time —
         // they're a valid migrated form for made-for-esphome devices that
-        // don't want their config vendored into this repo.
-        if (f.fileAttr === null && f.urlAttr === null) {
+        // don't want their config vendored into this repo. The bare `inline`
+        // marker is an explicit opt-out for tiny snippets that shouldn't be
+        // extracted to a file at all.
+        if (f.fileAttr === null && f.urlAttr === null && !f.inline) {
           issues.push({
             file: rel,
             line: f.lineNumber,
@@ -627,6 +675,11 @@ function main(): void {
   if (issues.length === 0) {
     console.log(`Validated ${yamlFiles.length} yaml file(s) — clean.`);
     return;
+  }
+
+  const reportPath = process.env.VALIDATION_REPORT;
+  if (reportPath) {
+    fs.writeFileSync(reportPath, buildReport(issues), "utf8");
   }
 
   console.error(`Found ${issues.length} issue(s):`);
