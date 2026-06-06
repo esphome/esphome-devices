@@ -659,15 +659,12 @@ sensor:
             id: Oil_Depth
             state: !lambda 'return x;'
 
-
-
-
-
   - platform: template
     id: Oil_Depth
     name: "Oil Depth"
     unit_of_measurement: 'in'
     device_class: distance
+    state_class: measurement
     update_interval: never
     icon: mdi:arrow-expand-vertical
     accuracy_decimals: 4
