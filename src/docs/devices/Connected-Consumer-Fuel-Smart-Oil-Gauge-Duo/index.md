@@ -93,9 +93,9 @@ code updates.
 ## Ultrasonic DYP-A22 with PWM Control
 
 Datasheet:
-https://www.dypcn.com/2cm-blind-zone-ip67-high-precision-ultrasonic-sensor-product/
+[https://www.dypcn.com/2cm-blind-zone-ip67-high-precision-ultrasonic-sensor-product/](https://www.dypcn.com/2cm-blind-zone-ip67-high-precision-ultrasonic-sensor-product/)
 
-![alt text](Ultrasonic.jpg "JSN-SR04T Waterproof Ultrasonic Range Finder")
+![alt text](Ultrasonic.png "JSN-SR04T Waterproof Ultrasonic Range Finder")
 
 The Ultrasonic sensor seems to be a DYP-A22 with PWM Control. In this configuration, the DYP-A22 operates using trigger and echo pulses
 like an HC-SR04 ultrasonic distance sensor. 
