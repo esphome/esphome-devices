@@ -55,7 +55,7 @@ Be sure to modify the substitution section of the code for your specific setup: 
 #### Oil Depth Offset
 Used to correct the distance offset between the ultrasonic sensor's zero distance and the top of the oil tank.
 
-The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. This distance is being referred to as the Oil Depth. \
+The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. \
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
 #### Volume Calculation Method
