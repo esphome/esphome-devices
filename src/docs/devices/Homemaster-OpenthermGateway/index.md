@@ -127,8 +127,6 @@ omitted here per `esphome-devices` rules and is provided by the upstream shipped
 
 ## Full shipped firmware (factory)
 
-This is the actual YAML the device ships with from the factory. It is fetched live from the project
-repository and is what `dashboard_import` pulls in when you click **Take Control**.
 
 ```yaml url=https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Firmware/opentherm.yaml
 ```
