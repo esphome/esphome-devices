@@ -167,7 +167,6 @@ esphome:
       then:
         - switch.turn_off: ultrasonic_en
         - switch.turn_off: deep_sleep_trig
-        - switch.turn_off: VarCheck
         - switch.turn_off: ultrasonic_pwr
         - switch.turn_off: Auto_Sleep_Disable
     - priority: -100
@@ -191,44 +190,6 @@ esphome:
       
 esp8266:
   board: esp_wroom_02
-
-##########################
-### PIN Identification ###
-##########################
-# 1 - 3V3
-# 2 - EN, Pulled High
-# 3 - GPIO14, Pulled Low, Output, Ultrasonic Sensor PWR EN
-# 4 - GPIO12, Pulled High, Input, Control Button
-# 5 - GPIO13, Pulled Low, Output, Timer TPL5111 - Done
-# 6 - GPIO15, Pulled Low, Output, ADC SPDT Select Switch
-# 7 - GPIO2, Pulled High, Output, Board LED
-# 8 - GPIO0, Pulled High, Input, Front Surface Pad Second From Antenna
-# 9 - GND
-##########################
-# 10 - GND
-# 11 - GPIO16, Pulled High, Connected to RST
-# 12 - TOUT, A0, Input, ADC, SPDT Common 
-# 13 - RST, Pulled High, Connected to GPIO16
-# 14 - GPIO5, Pulled High, Input, Ultrasonic Echo
-# 15 - GND, Surface Pad near Ant (Both Sides)
-# 16 - TXD, Back Surface Pad Closest to Edge
-# 17 - RXD, Back Surface Pad Second from Edge
-# 18 - GPIO4, Pulled High, Output, Ultrasonic Trigger
-##########################
-##########################
-
-# SPDT - Select Low -> Pin3 - 10MOhm to Batt and 1MOhm to GND
-# SPDT - Select High -> Pin1 - Temperature - smdcode: AFT3 - MCP9700AT-E/TT  https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf
-
-# UltraSonic is DYP-A22 with PWM Control  https://www.dypcn.com/2cm-blind-zone-ip67-high-precision-ultrasonic-sensor-product/
-
-# Timer Chip - smdcode: ZFVX - TPL5111
-# Timer will cut 3.3V when Done goes High, will wake after 1hr. Expect to cause ESP8266 reset every hour. 
-# https://www.ti.com/lit/ds/symlink/tpl5111.pdf
-
-# Unstable operation when Battery Voltage is down to around 6.33V
-
-
 
 # Enable logging
 logger:
@@ -300,7 +261,6 @@ globals:
   - id: Volume_Calc_Method
     type: int
     initial_value: ${volume_calc_method}
-
 
 
 switch:
