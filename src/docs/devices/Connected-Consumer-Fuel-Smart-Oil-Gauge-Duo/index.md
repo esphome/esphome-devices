@@ -180,14 +180,8 @@ esphome:
         - switch.turn_on: TempSens_EN  
   
   on_shutdown:
-    #- priority: -100
-    #  then:
-    #    - switch.turn_off: ultrasonic_en
-    #    - output.turn_off: LED_pwm
     - priority: 800
       then:
-        #- switch.turn_off: ultrasonic_en
-        #- output.turn_off: LED_pwm
         - if:
             condition:
               - switch.is_on: deep_sleep_trig
@@ -230,7 +224,7 @@ esp8266:
 
 # Timer Chip - smdcode: ZFVX - TPL5111
 # Timer will cut 3.3V when Done goes High, will wake after 1hr. Expect to cause ESP8266 reset every hour. 
-# https://www.ti.com/lit/ds/symlink/tpl5111.pdf?ts=1739630376626&ref_url=https%253A%252F%252Fwww.google.com%252F
+# https://www.ti.com/lit/ds/symlink/tpl5111.pdf
 
 # Unstable operation when Battery Voltage is down to around 6.33V
 
@@ -265,10 +259,6 @@ deep_sleep:
   id: my_deep_sleep
   sleep_duration: 30s
     
-debug:
-  update_interval: 5s
-
-
 
 globals:
   - id: Tank_Width
@@ -354,12 +344,6 @@ switch:
       - output.set_level:
           id: LED_pwm
           level: ${Auto_Sleep_On_dc}
-  
-  - platform: template
-    name: "Variable Check"
-    entity_category: "config"
-    id: VarCheck
-    optimistic: True
 
   - platform: gpio
     pin: GPIO15
@@ -415,15 +399,7 @@ binary_sensor:
         then:
           - switch.turn_on: deep_sleep_trig
 
-
-
-
 sensor:
-  - platform: debug
-    loop_time: 
-      name: "loop Time"
-    free:
-      name:  "Heep Free"
 
   - platform: adc
     pin: A0
@@ -457,7 +433,6 @@ sensor:
               - sensor.template.publish:
                   id: TempC
                   state: !lambda 'return id(ADC_Input).state;'
-              #- component.update: VP_Oil
               - switch.turn_off: TempSens_EN
               - delay: 1s
               - switch.turn_on: ultrasonic_pwr
@@ -1517,21 +1492,6 @@ sensor:
             state: !lambda 'return x;'
 
 
-#  - platform: template
-#    id: Max_Refill_Volume_Geo
-#    name: "Max Refill Volume Geo"
-#    unit_of_measurement: 'gal'
-#    device_class: volume
-#    update_interval: never
-#    state_class: total
-#    accuracy_decimals: 4
-#    filters:
-#      - lambda: |-
-#          // x = Oil Volume in Tank gallons
-#          
-#          double Max_Refill = id(Max_Fill) - x;
-#          return Max_Refill;
-
   - platform: template
     id: Max_Refill_Volume
     name: "Max Fill"
@@ -1582,16 +1542,6 @@ script:
                   - switch.turn_on: deep_sleep_trig
       - lambda: 'ESP_LOGD("MeasureCount", "%i", id(Measure_Count));'
 
-#      - if:
-#          condition: 
-#            - switch.is_on: VarCheck
-#          then:
-#            - script.execute: Log_Values
-
-
-#  - id: Log_Values
-#    mode: queued
-#    then:
 
 
  # Tank Dimensions:
