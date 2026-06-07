@@ -115,7 +115,7 @@ Timer will cut 3.3V when DONE pin goes HIGH, will wake after 1hr.
 
 ### SN74LVC1G3157 - Single-Pole Double-Throw Analog Switch
 
-SMD Marking: C5F \
+SMD Marking: C5J \
 Datasheet:
 [https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf](https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf)
 
@@ -130,7 +130,7 @@ Switches the connection to A0 (GPIO17)
 
 ### MCP9700AT-E/TT - Low-Power Linear Active Thermistor IC
 
-SMD Marking: AFT3 \
+SMD Marking: AFST \
 Datasheet:
 [https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf)
 
