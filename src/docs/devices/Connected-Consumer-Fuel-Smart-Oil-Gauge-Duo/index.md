@@ -59,7 +59,7 @@ The removable electronics module design of the Smart Oil Gauge Duo allows for ea
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
 #### Volume Calculation Method
-The oil volume can be calculated from the oil depth either geometrically, or using a look-up table.
+The oil volume in the tank based on the oil depth, can be calculated either geometrically, or using a look-up table.
 
 The Geometric Method uses geometry to calculate the volume of oil needed to fill an oil tank of somewhat standard dimensions up to the level of the measured oil depth.
 
