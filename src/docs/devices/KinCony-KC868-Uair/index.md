@@ -35,7 +35,7 @@ board: esp32
 | GPIO39 | Free GPIO                   |
 | GPIO35 | Free GPIO                   |
 
-[Additional pinout/design details](https://www.kincony.com/esp32-wifi-temperatur)
+[Additional pinout/design details](https://www.kincony.com/forum/showthread.php?tid=1450)
 
 ## Basic Configuration
 
