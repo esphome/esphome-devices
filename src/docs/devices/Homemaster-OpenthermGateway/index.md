@@ -124,9 +124,7 @@ omitted here per `esphome-devices` rules and is provided by the upstream shipped
 
 ```yaml file=config.yaml
 ```
-
 ## Full shipped firmware (factory)
-
 
 ```yaml url=https://github.com/isystemsautomation/homemaster-dev/blob/main/OpenthermGateway/Firmware/opentherm.yaml
 ```
