@@ -157,15 +157,6 @@ for configuration.
 | Mounting          | 35 mm DIN rail (9 modules)                                      |
 | Firmware          | ESPHome (pre-installed)                                         |
 
-## Example configuration
-
-Hardware-only example showing the pinout, expanders, sensors and outputs of the MiniPLC. Network plumbing
-(`api`, `ota`, `wifi`, `captive_portal`, `improv_*`, `dashboard_import`, vendor HTTP OTA) is intentionally
-omitted here per `esphome-devices` rules and is provided by the upstream shipped configuration linked below.
-
-```yaml file=config.yaml
-```
-
 ## Full shipped firmware (factory)
 
 This is the actual YAML the device ships with from the factory and is what
