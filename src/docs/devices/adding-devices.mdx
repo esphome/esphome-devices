@@ -243,6 +243,24 @@ The script is idempotent — it leaves already-migrated fences alone and writes 
 `config.yaml`. Quotes around the file attribute are optional (`file=config.yaml` and `file="config.yaml"` both
 parse).
 
+### Small snippets that stay inline (`inline` marker)
+
+The `file=` rule exists so full example configs live in their own files. For a very small illustrative snippet —
+a couple of lines showing one option, not a runnable config — extracting it to a file is overkill. Mark the fence
+`inline` and it stays on the page verbatim; the validator and `npm run extract-yaml` both leave it alone.
+
+````md
+```yaml inline
+sensor:
+  - platform: adc
+    pin: GPIO34
+```
+````
+
+Use this only for short snippets. Anything that is (or grows into) a real, runnable config belongs in its own
+`.yaml` file via `file=` — `inline` is not an escape hatch for skipping the no-passwords / no-`!secret` rules on a
+full config.
+
 ### Live yaml from a GitHub URL (`url=` form)
 
 For made-for-ESPHome devices whose configuration lives in the manufacturer's own GitHub repository, you can point
