@@ -6,7 +6,7 @@ standard: us
 board: esp8266
 ---
 
-[CloudFree SWM1 Product Page](https://cloudfree.shop/product/cloudfree-smart-switch-runs-esphome/)
+[CloudFree SWM1 Product Page](https://cloudfree.shop/product/cloudfree-motion-light-switch/)
 
 ## Notes
 
