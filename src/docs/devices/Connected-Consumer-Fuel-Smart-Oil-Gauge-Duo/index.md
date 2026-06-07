@@ -50,10 +50,12 @@ SKU: CCF-903
 
 ## Setup and Configuration Notes
 
-Be sure to modify the substitution section of the code for your `tank_size`, `tank_orientation`, `oil_depth_offset`, and `volume_calc_method`.
+Be sure to modify the substitution section of the code for your specific setup: `tank_size`, `tank_orientation`, `oil_depth_offset`, `volume_calc_method`.
 
 #### Oil Depth Offset
-The removeable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. This distance is being refered to as the Oil Depth. \
+Used to correct the distance offset between the ultrasonic sensor's zero distance and the top of the oil tank.
+
+The removeable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. This distance is being referred to as the Oil Depth. \
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
 #### Volume Calculation Method
