@@ -17,7 +17,7 @@ SKU: CCF-903
 
 | Pin    | Function                                 |
 | ------ | ---------------------------------------- |
-| GPIO14 | Ultrasonic Power                         |
+| GPIO14 | Ultrasonic Power*                        |
 | GPIO12 | Control Button (HIGH = off, LOW = on)    |
 | GPIO13 | System Timer DONE (TP5111)               |
 | GPIO15 | Analog Switch SELECT (SN74LVC1G3157)     |
@@ -30,6 +30,8 @@ SKU: CCF-903
 | TXD    | UART0_TXD                                |
 | RXD    | UART0_RXD                                |
 | GPIO4  | Ultrasonic Trigger (DYP-A22)             |
+
+*Both the Duo (CCF-903) and the Original (CCF-901) Smart Oil Gauge can run on the same firmware. On the Original, GPIO14 switches a 5 VDC power supply to the Ultrasonic Sensor.  On the Duo, the Ultrasonic Sensor uses the same 3.3 VDC supply that powers the ESP8266. As such, on the Duo, GPIO14 has no connection beyond being pulled low with a 10K resistor.
 
 ## Flashing
 
@@ -52,16 +54,16 @@ SKU: CCF-903
 
 Be sure to modify the substitution section of the code for your specific setup: `tank_size`, `tank_orientation`, `oil_depth_offset`, `volume_calc_method`.
 
-#### Oil Depth Offset
-Used to correct the distance offset between the ultrasonic sensor's zero distance and the top of the oil tank.
+#### Oil Depth Offset (inches)
+Used to correct the distance offset between the ultrasonic sensor's zero point and the top of the oil tank.
 
-The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. \
+The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. To find the oil_depth_offset, subtract the oil depth reported by the sensor from the oil depth as directly measured.\
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
 #### Volume Calculation Method
-The oil volume in the tank based on the oil depth, can be calculated either geometrically, or using a look-up table.
+Calculating the oil volume in the tank from the oil depth can be performed either geometrically, or using a look-up table.
 
-The Geometric Method uses geometry to calculate the volume of oil needed to fill an oil tank of somewhat standard dimensions up to the level of the measured oil depth.
+The Geometric Method uses geometry to calculate the volume of oil to fill an oil tank of somewhat standard dimensions up to the level of the measured oil depth.
 
 The Table Method uses ESPHome's Calibrate Linear Filter to go directly from oil depth to oil volume. If the manufacturer of your tank provides an oil volume chart, it may be possible to get a more accurate oil volume measurement by inputting their chart data and using the table method.
 The Basic Configuration below has chart data as published by [Fuel Snap](https://www.fuelsnap.com/heating_oil_tank_charts.php) for all configurable tank sizes. There are also links to other published oil volume charts.
