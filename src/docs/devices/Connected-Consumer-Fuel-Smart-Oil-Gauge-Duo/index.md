@@ -35,8 +35,8 @@ SKU: CCF-903
 
 ## Flashing
 
-1. REMOVE THE BATTERIES!!
-2. Open the internal electronics (2 screws)
+1. Remove the batteries
+2. Open the internal electronics module (2 screws)
 3. Unplug the distance sensor
 4. Remove the control board
 5. Locate the contact points required for physically connecting to your device. Use the following photos for reference:
@@ -57,7 +57,7 @@ Be sure to modify the substitution section of the code for your specific setup: 
 #### Oil Depth Offset (inches)
 Used to correct the distance offset between the ultrasonic sensor's zero point and the top of the oil tank.
 
-The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. To find the oil_depth_offset, subtract the oil depth reported by the sensor from the oil depth as directly measured.\
+The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the distance from the bottom of the tank to the surface of the oil using an appropriate measuring stick. To find the oil_depth_offset, using units of inches, subtract the oil depth reported by the sensor from the directly measured oil depth:\
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
 #### Volume Calculation Method
@@ -77,7 +77,7 @@ The oil gauge must be fully reassembled with all gaskets in place in order for t
 
 ## Operation
 
-The controller wakes every hour, sends one level reading to Home Assistant, and then powers down for another hour
+The controller wakes every hour, sends six distance measurements and one oil volume measurement to Home Assistant, and then powers down for another hour
 waiting for the TPL5111 to power it back up.
 
 Pressing the control button once will either wake up the controller, or power it back down.
