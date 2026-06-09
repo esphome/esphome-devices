@@ -18,9 +18,8 @@ You may need to repartition your device after conversion to ESPhome to regain OT
 
 For this to work **YOU MUST INCLUDE THE `allow_partition_access` option in the `ota:` block**.
 
-See [Updating the partition table](https://esphome.io/components/ota/esphome/#updating-the-partition-table-on-esp32)
-
-Follow the [tasmota migration guide](https://esphome.io/guides/migrate_sonoff_tasmota/).
+ - See [Updating the partition table](https://esphome.io/components/ota/esphome/#updating-the-partition-table-on-esp32).
+ - Follow the [tasmota migration guide](https://esphome.io/guides/migrate_sonoff_tasmota/).
 
 ## Basic Configuration
 
