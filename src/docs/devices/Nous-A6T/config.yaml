@@ -13,7 +13,6 @@ esphome:
     name: "NOUS.Smart-Wifi-Socket"
     version: "A6T"
 
-
 esp32:
   variant: esp32
   flash_size: 4MB
@@ -23,35 +22,15 @@ esp32:
 # Enable logging
 logger:
 
-# Enable Home Assistant API
-api:
-  encryption:
-    key: !secret api_key
-
-ota:
-  platform: esphome
-  allow_partition_access: true
-  password: !secret ota_password
-  
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: on
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "${devicename}-AP"
-
-captive_portal:
-
 # see: https://esphome.io/components/time/
 time:
-  - platform: homeassistant
-    id: homeassistant_time
-
-# Enable Web server
-web_server:
-  port: 80
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Amsterdam
+    servers:
+     - 0.pool.ntp.org
+     - 1.pool.ntp.org
+     - 2.pool.ntp.org
 
 light:
   - platform: status_led
