@@ -86,42 +86,46 @@ sensor:
     icon: mdi:calendar-clock
 
   - platform: hlw8012
+    model: BL0937
     sel_pin:
       number: GPIO14
       inverted: true
     cf_pin: GPIO26
     cf1_pin: GPIO27
-    change_mode_every: 4
+    change_mode_every: 1
     current_resistor: ${current_res}
     voltage_divider: ${voltage_div}
-    update_interval: 3s
+    update_interval: 5s
 
     current:
-      name: "${devicename} - Ampere"
+      id: current
+      name: "Current"
       unit_of_measurement: A
       accuracy_decimals: 3
       icon: mdi:current-ac
 
     voltage:
-      name: "${devicename} - Voltage"
+      id: voltage
+      name: "Voltage"
       unit_of_measurement: V
       accuracy_decimals: 1
       icon: mdi:flash-outline
 
     power:
-      name: "${devicename} - Power"
+      name: "Power"
       id: "nous_a1t_watt"
       unit_of_measurement: W
       icon: mdi:gauge
+      force_update: true
 
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: "${devicename} - IP Address"
+      name: "IP Address"
     ssid:
-      name: "${devicename} - Wi-Fi SSID"
+      name: "Wi-Fi SSID"
     bssid:
-      name: "${devicename} - Wi-Fi BSSID"
+      name: "Wi-Fi BSSID"
   - platform: version
-    name: "${devicename} - ESPHome Version"
+    name: "ESPHome Version"
     hide_timestamp: true
