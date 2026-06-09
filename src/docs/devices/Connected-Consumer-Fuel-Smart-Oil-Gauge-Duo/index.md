@@ -159,3 +159,8 @@ Datasheet:
 
 ```yaml file=config.yaml
 ```
+
+## Advanced Configuration
+
+```yaml file=advanced.yaml
+```
