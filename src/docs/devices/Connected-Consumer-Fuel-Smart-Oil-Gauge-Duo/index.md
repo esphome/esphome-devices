@@ -142,5 +142,3 @@ Datasheet:
 
 ```yaml file=config.yaml
 ```
-
-
