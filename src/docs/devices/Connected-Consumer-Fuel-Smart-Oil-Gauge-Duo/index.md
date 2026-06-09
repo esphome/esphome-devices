@@ -57,7 +57,8 @@ that powers the ESP8266. As such, on the Duo, GPIO14 has no connection beyond be
 Be sure to modify the substitution section of the code for your specific setup: `tank_size`, `tank_orientation`,
 `oil_depth_offset`, `volume_calc_method`.
 
-#### Oil Depth Offset (inches)
+### Oil Depth Offset (inches)
+
 Used to correct the distance offset between the ultrasonic sensor's zero point and the top of the oil tank.
 
 The removable electronics module design of the Smart Oil Gauge Duo allows for easy access to directly measure the
@@ -66,25 +67,27 @@ oil_depth_offset, using units of inches, subtract the oil depth reported by the
 sensor from the directly measured oil depth:\
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
-#### Volume Calculation Method
+### Volume Calculation Method
 
 Calculating the oil volume in the tank from the oil depth can be performed either geometrically, or using a look-up table.
 
-The Geometric Method uses geometry to calculate the volume of oil to fill an oil tank of somewhat standard dimensions up 
+The Geometric Method uses geometry to calculate the volume of oil to fill an oil tank of somewhat standard dimensions up
 to the level of the measured oil depth.
 
-The Table Method uses ESPHome's Calibrate Linear Filter to go directly from oil depth to oil volume. If the manufacturer 
-of your tank provides an oil volume chart, it may be possible to get a more accurate oil volume measurement by inputting 
-their chart data and using the table method.
-The Basic Configuration below has chart data as published by [Fuel Snap](https://www.fuelsnap.com/heating_oil_tank_charts.php) for all configurable tank sizes. There are also links to other published oil volume charts.
+The Table Method uses ESPHome's Calibrate Linear Filter to go directly from oil depth to oil volume. If the manufacturer
+of your tank provides an oil volume chart, it may be possible to get a more accurate oil volume measurement by inputting
+their chart data and using the table method. The Basic Configuration below has chart data as published by 
+[Fuel Snap](https://www.fuelsnap.com/heating_oil_tank_charts.php) for all configurable tank sizes. There are also links
+to other published oil volume charts.
 
-#### Power Supply
+### Power Supply
 
 It is highly recommended to use an external 6.5 to 7.4 VDC power supply. Running this code will likely deplete the
 batteries faster than the stock firmware. Power leads can be soldered onto the battery contacts and pass through a hole
 drilled into the top cap.
 
-#### Assembly
+### Assembly
+
 The oil gauge must be fully reassembled with all gaskets in place in order for the vapor seal to be maintained.
 
 ## Operation
