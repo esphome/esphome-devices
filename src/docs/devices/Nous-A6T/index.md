@@ -22,16 +22,8 @@ For this to work **YOU MUST INCLUDE THE `allow_partition_access` option in the `
  - Follow the [tasmota migration guide](https://esphome.io/guides/migrate_sonoff_tasmota/).
 
 
-Note: The required `ota:` block is not part of the basic configuration below. Add:
-
-```yaml
-ota:
-  - platform: esphome
-    allow_partition_access: true
-```
-
-to your configuration so the procedure linked above can be applied.
-
+Note: The required `ota:` block is not part of the basic configuration below.
+Refer to the documentation above when adding it.
 
 ## Basic Configuration
 
