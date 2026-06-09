@@ -7,10 +7,10 @@ substitutions:
   ultrasonic_interval: '70ms'
   throttle_average_duration: '15s'
   skip_initial_count: '1'
-  tank_size: "330" # 275, 330, 500, 550, or 1000
-  tank_orientation: '1'  # 1 = Vertical,  2 = Horizontal
-  volume_calc_method: '1' # 1 = Geometric, 2 = Table
-  oil_depth_offset: '0.0' # inches
+  tank_size: "330"  # 275, 330, 500, 550, or 1000
+  tank_orientation: '1'   # 1 = Vertical,  2 = Horizontal
+  volume_calc_method: '1'  # 1 = Geometric, 2 = Table
+  oil_depth_offset: '0.0'  # inches
 
 
 ### Tank Chart Sources ###
@@ -35,8 +35,8 @@ esphome:
         - output.set_level:
             id: LED_pwm
             level: ${Auto_Sleep_On_dc}
-        - switch.turn_on: TempSens_EN  
-  
+        - switch.turn_on: TempSens_EN 
+
   on_shutdown:
     - priority: 800
       then:
@@ -46,7 +46,7 @@ esphome:
             then:
               - lambda: 'delay(50);'
               - switch.turn_on: Done
-      
+
 esp8266:
   board: esp_wroom_02
 
@@ -56,7 +56,7 @@ wifi:
 deep_sleep:
   id: my_deep_sleep
   sleep_duration: 30s
-    
+
 globals:
   - id: Tank_Width
     type: float
@@ -123,8 +123,8 @@ switch:
         - switch.turn_on: ultrasonic_en
 
   - platform: gpio
-    pin: GPIO13 # Done Signal to TPL5111
-    id: Done # Use Deep_Sleep_EN
+    pin: GPIO13  # Done Signal to TPL5111
+    id: Done  # Use Deep_Sleep_EN
     entity_category: "config"
     disabled_by_default: true
     name: "Done"
@@ -135,7 +135,7 @@ output:
     id: LED_pwm
     period: 1s
     pin: GPIO2
-    inverted: True
+    inverted: true
 
 binary_sensor:
   - platform: gpio
@@ -157,7 +157,7 @@ sensor:
     icon: mdi:current-dc
     filters:
       - lambda: |-
-          
+
           // Battery Voltage Divider R Values
           int R1 = 10.0;  // MOhm
           int R2 = 1.0;   // MOhm
@@ -181,9 +181,9 @@ sensor:
               - switch.turn_on: ultrasonic_pwr
 
   - platform: ultrasonic
-    trigger_pin: 
+    trigger_pin:
       number: GPIO4
-      inverted: True
+      inverted: true
     echo_pin: GPIO5
     name: "Ultrasonic Distance"
     id: Ultrasonic_Distance
@@ -194,7 +194,7 @@ sensor:
     disabled_by_default: true
     entity_category: "diagnostic"
     filters:
-      - multiply: 100 # convert m to cm
+      - multiply: 100  # convert m to cm
       - median:
           window_size: 5
           send_every: 1
@@ -212,6 +212,5 @@ script:
           condition:
             switch.is_on: ultrasonic_en
           then:
-            - component.update: Ultrasonic_Distance #Oil_In_Tank
+            - component.update: Ultrasonic_Distance # Oil_In_Tank
             - delay: ${ultrasonic_interval}
-
