@@ -1,6 +1,6 @@
 ---
 title: SENSY-ONE E1 Pro Multi Sense
-date-published: 2026-02-17
+date-published: 2026-06-09
 type: sensor
 standard: global
 board: esp32
