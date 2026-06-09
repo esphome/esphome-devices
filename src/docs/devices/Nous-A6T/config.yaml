@@ -28,9 +28,9 @@ time:
     id: sntp_time
     timezone: Europe/Amsterdam
     servers:
-     - 0.pool.ntp.org
-     - 1.pool.ntp.org
-     - 2.pool.ntp.org
+      - 0.pool.ntp.org
+      - 1.pool.ntp.org
+      - 2.pool.ntp.org
 
 light:
   - platform: status_led
@@ -100,7 +100,7 @@ sensor:
   - platform: hlw8012
     sel_pin:
       number: GPIO14
-      inverted: True
+      inverted: true
     cf_pin: GPIO26
     cf1_pin: GPIO27
     change_mode_every: 4
