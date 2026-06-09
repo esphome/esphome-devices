@@ -1,6 +1,6 @@
 ---
 title: Homemaster-MiniPLC
-date-published: 2026-05-13
+date-published: 2025-05-13
 type: relay
 standard: global
 board: esp32
