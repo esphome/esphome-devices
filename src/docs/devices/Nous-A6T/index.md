@@ -16,11 +16,15 @@ board: esp32
 
 You may need to repartition your device after conversion to ESPhome to regain OTA capability.
 
+For this to work **YOU MUST INCLUDE THE `allow_partition_access` option in the `ota:` block**.
+
+See [Updating the partition table](https://esphome.io/components/ota/esphome/#updating-the-partition-table-on-esp32)
+
 Follow the [tasmota migration guide](https://esphome.io/guides/migrate_sonoff_tasmota/).
 
 ## Basic Configuration
 
-This configuration is adopted from the Nous A1T device example, with updates for esp32,
+This configuration is adopted from the Nous A1T and A8T device examples, with updates for esp32,
 the partition update option to repartition modern Tasmota layout, and adjusted GPIOs.
 
 ```yaml file=config.yaml
