@@ -39,8 +39,8 @@ esphome:
         - output.set_level:
             id: LED_pwm
             level: ${Auto_Sleep_On_dc}
-        - switch.turn_on: TempSens_EN  
-  
+        - switch.turn_on: TempSens_EN
+
   on_shutdown:
     - priority: 800
       then:
@@ -50,7 +50,7 @@ esphome:
             then:
               - lambda: 'delay(50);'
               - switch.turn_on: Done
-      
+
 esp8266:
   board: esp_wroom_02
 
@@ -60,7 +60,7 @@ wifi:
 deep_sleep:
   id: my_deep_sleep
   sleep_duration: 30s
-    
+
 globals:
   - id: Tank_Width
     type: float
@@ -113,17 +113,17 @@ switch:
     entity_category: "config"
     disabled_by_default: true
     optimistic: true
-    on_turn_on: 
+    on_turn_on:
       then:
         - script.execute: ultrasonic_loop
     on_turn_off:
       then:
         - switch.turn_off: ultrasonic_pwr
-  
+
   - platform: template
     name: "Deep Sleep Trigger"
     id: deep_sleep_trig
-    optimistic: True
+    optimistic: true
     on_turn_on:
       then:
         - script.stop: ultrasonic_loop
@@ -131,11 +131,11 @@ switch:
         - output.turn_off: LED_pwm
         - deep_sleep.enter:
             id: my_deep_sleep
-        
+
   - platform: template
     name: "Auto Sleep Disable"
     id: Auto_Sleep_Disable
-    optimistic: True
+    optimistic: true
     on_turn_on:
       - output.set_level:
           id: LED_pwm
@@ -176,7 +176,7 @@ output:
     id: LED_pwm
     period: 1s
     pin: GPIO2
-    inverted: True
+    inverted: true
 
 binary_sensor:
   - platform: gpio
@@ -211,7 +211,7 @@ sensor:
     icon: mdi:current-dc
     filters:
       - lambda: |-
-          
+
           // Battery Voltage Divider R Values
           int R1 = 10.0;  // MOhm
           int R2 = 1.0;   // MOhm
@@ -308,7 +308,7 @@ sensor:
 
           double MW_Oil = 167.31102; // g_Oil/mol_Oil  (C12H23)
           double MW_Air = 28.9639475; // g_Air/mol_Air
-          
+
           double P_Total = 101.325; // kPa (Could use a measured pressure here)
           double P_Oil = id(VP_Oil).state; // Partial Pressure of Oil kPa
           double P_Air = P_Total - P_Oil; // Partial Pressure Of Air kPa
@@ -337,22 +337,22 @@ sensor:
     entity_category: "diagnostic"
     disabled_by_default: true
     lambda: |-
-          
+
           // Calc Speed of Sound in Vapor above Oil
           // https://en.wikipedia.org/wiki/Speed_of_sound
           double gamma = 1.4; // Oil is small enough fraction that large change in gamma is not expected
           double R = 8.31446261815324;
           double Sc = sqrt(gamma * R * 273.15 / id(MW_Total_Vapor).state);
           double speed_sound_m_per_s = Sc * sqrt(1+(id(TempC).state/273.15)); // ideal diatomic gas
-          
+
           return speed_sound_m_per_s;
 
 
 
   - platform: ultrasonic
-    trigger_pin: 
+    trigger_pin:
       number: GPIO4
-      inverted: True
+      inverted: true
     echo_pin: GPIO5
     name: "Ultrasonic Distance"
     id: Ultrasonic_Distance
@@ -385,7 +385,7 @@ sensor:
     icon: mdi:timer-outline
     filters:
       - lambda: |-
-          
+
           // x = cm as measured by ultrasonic sensor
 
           // Back Calc Time of Flight
@@ -401,7 +401,7 @@ sensor:
         - sensor.template.publish:
             id: Time_of_Flight_Avg
             state: !lambda 'return x;'
-  
+
   - platform: template
     id: Time_of_Flight_Avg
     name: 'Time of Flight Avg'
@@ -410,7 +410,7 @@ sensor:
     entity_category: "diagnostic"
     icon: mdi:timer-outline
     filters:
-      - sliding_window_moving_average: 
+      - sliding_window_moving_average:
           window_size: ${Samples_Before_Sleep}
           send_every: ${Samples_Before_Sleep}
           send_first_at: ${Samples_Before_Sleep}
@@ -448,12 +448,12 @@ sensor:
     icon: mdi:arrow-expand-vertical
     accuracy_decimals: 3
     filters:
-      - sliding_window_moving_average: 
+      - sliding_window_moving_average:
           window_size: ${Samples_Before_Sleep}
           send_every: ${Samples_Before_Sleep}
           send_first_at: ${Samples_Before_Sleep}
       - lambda: |-
-          
+
           // x = speed corrected cm to oil
 
           double Oil_Distance = x * 10 /25.4; // cm to inches
@@ -467,7 +467,7 @@ sensor:
 
           return Oil_Depth; // inches
       - offset: ${oil_depth_offset}
-    on_raw_value: 
+    on_raw_value:
       then:
         - script.execute: Sleep_Check
     on_value:
@@ -546,7 +546,7 @@ sensor:
     update_interval: never
     device_class: area
     entity_category: "diagnostic"
-    internal: True
+    internal: true
     filters:
       - lambda: |-
           // Calculate the Oil Area
@@ -633,13 +633,13 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
-    filters: 
+    internal: true
+    filters:
       - lambda: |-
           // Calculate Oil Volume in Tank
           // x = Total Area in²
           return x * id(Tank_Length) / 231; // gallons
-    on_value: 
+    on_value:
       then:
         - sensor.template.publish:
             id: Oil_Volume
@@ -650,9 +650,9 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
-    filters: 
+    filters:
       - calibrate_linear: # inches to Gallons
           method: exact
           datapoints:
@@ -715,9 +715,9 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
-    filters: 
+    filters:
       - calibrate_linear: # inches to Gallons
           method: exact
           datapoints:
@@ -780,9 +780,9 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
-    filters: 
+    filters:
       - calibrate_linear: # inches to Gallons
           method: exact
           datapoints:
@@ -845,9 +845,9 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
-    filters: 
+    filters:
       - calibrate_linear: # inches to Gallons
           method: exact
           datapoints:
@@ -910,9 +910,9 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
-    filters: 
+    filters:
       - calibrate_linear: # inches to Gallons
           method: exact
           datapoints:
@@ -969,15 +969,15 @@ sensor:
         - sensor.template.publish:
             id: Oil_Volume
             state: !lambda 'return x;'
-  
+
   - platform: template
     id: Oil_Volume_Table_275H
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
-    filters: 
+    filters:
       - calibrate_linear: # inches to Gallons
           method: exact
           datapoints:
@@ -1024,7 +1024,7 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
     filters: 
       - calibrate_linear: # inches to Gallons
@@ -1073,7 +1073,7 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
     filters: 
       - calibrate_linear: # inches to Gallons
@@ -1142,7 +1142,7 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
     filters: 
       - calibrate_linear: # inches to Gallons
@@ -1211,7 +1211,7 @@ sensor:
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
-    internal: True
+    internal: true
     accuracy_decimals: 4
     filters: 
       - calibrate_linear: # inches to Gallons
@@ -1301,7 +1301,7 @@ sensor:
     filters:
       - lambda: |-
           // x = Oil Volume in Tank gallons
-          
+
           double Max_Refill = id(Max_Fill) - x;
           return Max_Refill;
 
