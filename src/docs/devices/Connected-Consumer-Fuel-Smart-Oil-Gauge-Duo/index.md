@@ -152,8 +152,8 @@ substitutions:
   skip_initial_count: '1'
   tank_size: "330" # 275, 330, 500, 550, or 1000
   tank_orientation: '1'  # 1 = Vertical,  2 = Horizontal
-  volume_calc_method: '2' # 1 = Geometric, 2 = Table
-  oil_depth_offset: '-0.0' # inches
+  volume_calc_method: '1' # 1 = Geometric, 2 = Table
+  oil_depth_offset: '0.0' # inches
 
 
 ### Tank Chart Sources ###
@@ -436,6 +436,7 @@ sensor:
     unit_of_measurement: kPa
     entity_category: "diagnostic"
     accuracy_decimals: 8
+    disabled_by_default: true
     lambda: |-
       return id(TempC).state;
     filters:
@@ -464,6 +465,7 @@ sensor:
     unit_of_measurement: 'kg/mol'
     entity_category: "diagnostic"
     icon: mdi:scale-unbalanced
+    disabled_by_default: true
     lambda: |-
 
           // Calc Molecular Weight of Vapor above Oil
@@ -497,6 +499,7 @@ sensor:
     device_class: speed
     update_interval: never
     entity_category: "diagnostic"
+    disabled_by_default: true
     lambda: |-
           
           // Calc Speed of Sound in Vapor above Oil
@@ -518,9 +521,10 @@ sensor:
     name: "Ultrasonic Distance"
     id: Ultrasonic_Distance
     update_interval: never
-    accuracy_decimals: 4
+    accuracy_decimals: 2
     unit_of_measurement: 'cm'
     device_class: distance
+    disabled_by_default: true
     entity_category: "diagnostic"
     filters:
       - multiply: 100 # convert m to cm
@@ -606,7 +610,7 @@ sensor:
     state_class: measurement
     update_interval: never
     icon: mdi:arrow-expand-vertical
-    accuracy_decimals: 4
+    accuracy_decimals: 3
     filters:
       - sliding_window_moving_average: 
           window_size: ${Samples_Before_Sleep}
@@ -702,7 +706,6 @@ sensor:
 
   - platform: template
     id: Oil_Area_Geo
-    name: 'Oil Area Geo'
     unit_of_measurement: 'in²'
     update_interval: never
     device_class: area
@@ -791,7 +794,6 @@ sensor:
 
   - platform: template
     id: Oil_Volume_Geo
-    name: 'Oil Volume Geo'
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -809,7 +811,6 @@ sensor:
 
   - platform: template
     id: Oil_Volume_Table_330V
-    name: "Oil Volume FuelSnap Table"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -875,7 +876,6 @@ sensor:
 
   - platform: template
     id: Oil_Volume_Table_330V_Highland
-    name: "Oil Volume Highland Table"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -941,7 +941,6 @@ sensor:
 
   - platform: template
     id: Oil_Volume_Table_330V_AllAmerican
-    name: "Oil Volume All American Table"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
@@ -1072,7 +1071,6 @@ sensor:
 
   - platform: template
     id: Oil_Volume_Table_330V_Granby
-    name: "Oil Volume Granby Table"
     unit_of_measurement: 'gal'
     update_interval: never
     device_class: volume_storage
