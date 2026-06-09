@@ -30,5 +30,5 @@ Manufacturer: [Awow](https://www.awow-tech.com/)
 
 ## Basic Config
 
-```yaml files-config.yaml
+```yaml file=config.yaml
 ```
