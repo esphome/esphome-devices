@@ -12,6 +12,12 @@ board: esp32
 
 [see pinout](https://nous.technology/product/manual?slug=a6t&alias=EN+-+User+Manual)
 
+## Partitioning Caveat
+
+You may need to repartition your device after conversion to ESPhome to regain OTA capability.
+
+Follow the [tasmota migration guide](https://esphome.io/guides/migrate_sonoff_tasmota/).
+
 ## Basic Configuration
 
 This configuration is adopted from the Nous A1T device example, with updates for esp32,
