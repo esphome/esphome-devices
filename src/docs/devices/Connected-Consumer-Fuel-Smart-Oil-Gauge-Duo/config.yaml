@@ -35,7 +35,7 @@ esphome:
         - output.set_level:
             id: LED_pwm
             level: ${Auto_Sleep_On_dc}
-        - switch.turn_on: TempSens_EN 
+        - switch.turn_on: TempSens_EN
 
   on_shutdown:
     - priority: 800
@@ -212,5 +212,5 @@ script:
           condition:
             switch.is_on: ultrasonic_en
           then:
-            - component.update: Ultrasonic_Distance # Oil_In_Tank
+            - component.update: Ultrasonic_Distance  # Oil_In_Tank
             - delay: ${ultrasonic_interval}
