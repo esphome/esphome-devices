@@ -40,7 +40,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/esphome/esphome-devices",
+          href: "https://github.com/esphome/devices.esphome.io",
         },
         {
           icon: "discord",
@@ -49,7 +49,7 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl: "https://github.com/esphome/esphome-devices/edit/main/",
+        baseUrl: "https://github.com/esphome/devices.esphome.io/edit/main/",
       },
       components: {
         MarkdownContent: "./src/components/MarkdownContent.astro",
