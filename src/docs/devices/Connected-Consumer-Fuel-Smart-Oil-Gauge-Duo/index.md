@@ -76,7 +76,7 @@ to the level of the measured oil depth.
 
 The Table Method uses ESPHome's Calibrate Linear Filter to go directly from oil depth to oil volume. If the manufacturer
 of your tank provides an oil volume chart, it may be possible to get a more accurate oil volume measurement by inputting
-their chart data and using the table method. The Basic Configuration below has chart data as published by 
+their chart data and using the table method. The Basic Configuration below has chart data as published by
 [Fuel Snap](https://www.fuelsnap.com/heating_oil_tank_charts.php) for all configurable tank sizes. There are also links
 to other published oil volume charts.
 
