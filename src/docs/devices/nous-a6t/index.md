@@ -1,0 +1,181 @@
+---
+title: "Nous A6T"
+date-published: 2026-06-09
+type: plug
+standard: eu
+board: esp32
+---
+
+<!-- Describe the device here. See the front-matter table on the contributing page for valid options. -->
+
+## GPIO Pinout
+
+[see pinout](https://nous.technology/product/manual?slug=a6t&alias=EN+-+User+Manual)
+
+## Basic Configuration
+
+This configuration is adopted from the Nous A1T device example, with updates for esp32,
+the partition update option to repartition modern Tasmota layout, and adjusted GPIOs.
+
+```yaml
+substitutions:
+  devicename: nous-a6t
+  # Higher value gives lower watt readout
+  current_res: "0.00280"
+  # Lower value gives lower voltage readout
+  voltage_div: "775"
+
+esphome:
+  name: $devicename
+  comment: "Nous Smart Wifi Socket A6T (Tasmota)"
+  name_add_mac_suffix: true
+  project:
+    name: "NOUS.Smart-Wifi-Socket"
+    version: "A6T"
+
+
+esp32:
+  variant: esp32
+  flash_size: 4MB
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  platform: esphome
+  allow_partition_access: true
+  password: !secret ota_password
+  
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: on
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${devicename}-AP"
+
+captive_portal:
+
+# see: https://esphome.io/components/time/
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Enable Web server
+web_server:
+  port: 80
+
+light:
+  - platform: status_led
+    id: led
+    restore_mode: RESTORE_DEFAULT_ON
+    pin:
+      number: GPIO02
+      inverted: true
+
+binary_sensor:
+  - platform: status
+    name: "${devicename} - Status"
+
+  # toggle relay on/off
+  - platform: gpio
+    pin:
+      number: GPIO04
+      mode: INPUT_PULLUP
+    id: "button_state"
+    on_press:
+      - switch.toggle: "button_switch"
+
+switch:
+  - platform: template
+    name: "${devicename} - Switch"
+    icon: mdi:power
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    id: "button_switch"
+    lambda: |-
+      if (id(relay).state) {
+        return true;
+      } else {
+        return false;
+      }
+    turn_on_action:
+      - switch.turn_on: relay
+      - light.turn_on: led
+    turn_off_action:
+      - switch.turn_off: relay
+      - light.turn_off: led
+  - platform: gpio
+    restore_mode: RESTORE_DEFAULT_ON
+    pin: GPIO13
+    id: relay
+
+sensor:
+  - platform: wifi_signal
+    name: "${devicename} - Wifi Signal"
+    update_interval: 60s
+    icon: mdi:wifi
+
+  - platform: uptime
+    name: "${devicename} - Uptime"
+    update_interval: 60s
+    icon: mdi:clock-outline
+
+  - platform: total_daily_energy
+    name: "${devicename} - Electric Consumption [kWh]"
+    power_id: "nous_a1t_watt"
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    icon: mdi:calendar-clock
+
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO14
+      inverted: True
+    cf_pin: GPIO26
+    cf1_pin: GPIO27
+    change_mode_every: 4
+    current_resistor: ${current_res}
+    voltage_divider: ${voltage_div}
+    update_interval: 3s
+
+    current:
+      name: "${devicename} - Ampere"
+      unit_of_measurement: A
+      accuracy_decimals: 3
+      icon: mdi:current-ac
+
+    voltage:
+      name: "${devicename} - Voltage"
+      unit_of_measurement: V
+      accuracy_decimals: 1
+      icon: mdi:flash-outline
+
+    power:
+      name: "${devicename} - Power"
+      id: "nous_a1t_watt"
+      unit_of_measurement: W
+      icon: mdi:gauge
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "${devicename} - IP Address"
+    ssid:
+      name: "${devicename} - Wi-Fi SSID"
+    bssid:
+      name: "${devicename} - Wi-Fi BSSID"
+  - platform: version
+    name: "${devicename} - ESPHome Version"
+    hide_timestamp: true
+```
