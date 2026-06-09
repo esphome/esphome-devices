@@ -51,31 +51,19 @@ binary_sensor:
       mode: INPUT_PULLUP
     id: "button_state"
     on_press:
-      - switch.toggle: "button_switch"
+      - switch.toggle: "relay"
 
 switch:
-  - platform: template
-    name: "${devicename} - Switch"
-    icon: mdi:power
-    optimistic: true
-    restore_mode: RESTORE_DEFAULT_ON
-    id: "button_switch"
-    lambda: |-
-      if (id(relay).state) {
-        return true;
-      } else {
-        return false;
-      }
-    turn_on_action:
-      - switch.turn_on: relay
-      - light.turn_on: led
-    turn_off_action:
-      - switch.turn_off: relay
-      - light.turn_off: led
   - platform: gpio
-    restore_mode: RESTORE_DEFAULT_ON
     pin: GPIO13
     id: relay
+    name: "Relay"
+    restore_mode: RESTORE_DEFAULT_OFF
+    icon: mdi:power
+    on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led
 
 sensor:
   - platform: wifi_signal
