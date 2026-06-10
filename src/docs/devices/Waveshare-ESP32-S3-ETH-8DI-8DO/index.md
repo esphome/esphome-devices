@@ -10,7 +10,9 @@ board: esp32
 
 ## Product description
 
-This is a feature packed I/o board with an ESP32-S3-WROOM-1U-N16R8.
+This is a feature packed I/o board with an ESP32-S3-WROOM-1U-N16R8. 
+
+This has two varients, one with and one without POE support.
 
 It has
 
@@ -33,9 +35,11 @@ Outputs provide current sinking up to 500ma
 
 More information:
 
-- Product page (NOTE: POE and ETH :
-  [https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm](https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm)
-- Wiki: [https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO](https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO)
+- Product page (Non-POE varient not listed) :
+  - [https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm](https://www.waveshare.com/esp32-s3-poe-eth-8di-8do.htm)
+- Wiki:
+  - [ESP32-S3-ETH-8DI-8RO](https://www.waveshare.com/wiki/ESP32-S3-ETH-8DI-8RO)
+  - [ESP32-S3-POE-ETH-8DI-8DO](https://www.waveshare.com/wiki/ESP32-S3-POE-ETH-8DI-8DO)
 
 ## Basic Config
 
