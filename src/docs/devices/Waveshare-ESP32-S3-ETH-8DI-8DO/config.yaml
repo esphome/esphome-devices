@@ -1,6 +1,7 @@
 substitutions:
   device_name: waveshare-di8-do8
   device_comment: "WaveShare ESP32-S3-POE-ETH-8DI-8DO Device"
+  ## device_comment: "WaveShare ESP32-S3-ETH-8DI-8DO Device"
   friendly_name: "WaveShare DI8-DO8"
 
 esphome:
@@ -38,8 +39,8 @@ logger:
 # Network Configuration
 # ==========================================================
 # Wi-FI or Ethernet can be enabled, not both concurrently.
-## wifi:
-### Your Wifi Settings
+wifi:
+  ap:
 
 ## ethernet:
 ##   type: W5500
