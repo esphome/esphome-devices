@@ -52,12 +52,26 @@ that powers the ESP8266. As such, on the Duo, GPIO14 has no connection beyond be
   
 [https://esphome.io/guides/physical_device_connection/](https://esphome.io/guides/physical_device_connection/)
 
-## Setup and Configuration Notes (Using the Advanced Configuration below)
+## Considerations
+
+### Power Supply
+
+It is highly recommended to use an external 6.5 to 7.4 VDC power supply. Running this code will likely deplete the
+batteries faster than the stock firmware. Power leads can be soldered onto the battery contacts and pass through a hole
+drilled into the top cap.
+
+### Assembly
+
+The oil gauge must be fully reassembled with all gaskets in place in order for the vapor seal to be maintained.
+
+## Features of the Advanced Configuration
+
+### Setup and Configuration Notes
 
 Be sure to modify the substitution section of the code for your specific setup: `tank_size`, `tank_orientation`,
 `oil_depth_offset`, `volume_calc_method`.
 
-### Oil Depth Offset (inches)
+#### Oil Depth Offset (inches)
 
 Used to correct the distance offset between the ultrasonic sensor's zero point and the top of the oil tank.
 
@@ -67,7 +81,7 @@ oil_depth_offset, using units of inches, subtract the oil depth reported by the
 sensor from the directly measured oil depth:\
 `oil_depth_offset = (Oil Depth by Stick Measurement) - (Oil Depth reported by the sensor)`
 
-### Volume Calculation Method
+#### Volume Calculation Method
 
 Calculating the oil volume in the tank from the oil depth can be performed either geometrically, or using a look-up table.
 
@@ -80,17 +94,7 @@ their chart data and using the table method. The Basic Configuration below has c
 [Fuel Snap](https://www.fuelsnap.com/heating_oil_tank_charts.php) for all configurable tank sizes. There are also links
 to other published oil volume charts.
 
-### Power Supply
-
-It is highly recommended to use an external 6.5 to 7.4 VDC power supply. Running this code will likely deplete the
-batteries faster than the stock firmware. Power leads can be soldered onto the battery contacts and pass through a hole
-drilled into the top cap.
-
-### Assembly
-
-The oil gauge must be fully reassembled with all gaskets in place in order for the vapor seal to be maintained.
-
-## Operation
+### Operation
 
 The controller wakes every hour, sends six distance measurements and one oil volume measurement to Home Assistant,
 andthen powers down for another hour waiting for the TPL5111 to power it back up.
@@ -157,8 +161,8 @@ Datasheet:
 ## Basic Configuration
 
 The Basic Configuration below covers hardware level access to the Ultrasonic Sensor, Control Button Input, LED,
-Analog Swich, Analog Input, and Ultrasonic Power Switch. Use the Advanced Configuration below is recomended
-if you want a device that is capable of monitoring the volume of oil in a tank.
+Analog Swich, Analog Input, and Ultrasonic Power Switch. The Advanced Configuration below is recomended
+if you want a device that has the extra calculations and features for monitoring the volume of oil in a tank.
 Add your own `wifi:`, `api:`, and `ota:` sections before flashing. The example also leaves out passwords
 and `!secret` references so you can merge it into your own setup and fill in your local credentials separately.
 
