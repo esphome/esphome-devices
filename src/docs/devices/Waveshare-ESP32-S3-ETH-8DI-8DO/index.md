@@ -143,6 +143,12 @@ pca9554:
 ##    data_bits: 8
 ##    parity: NONE
 
+### Modbus over RS485
+##modbus:
+##  id: modbus_hub
+##  uart_id: modbus_uart
+##  flow_control_pin: GPIO21
+
 ### CANbus
 ##canbus:
 ##  - platform: esp32_can
