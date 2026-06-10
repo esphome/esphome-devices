@@ -1,5 +1,4 @@
 substitutions:
-substitutions:
   device_name: waveshare-di8-do8
   device_comment: "WaveShare ESP32-S3-POE-ETH-8DI-8DO Device"
   friendly_name: "WaveShare DI8-DO8"
