@@ -10,7 +10,7 @@ board: esp32
 
 ## Product description
 
-This is a feature packed I/o board with an ESP32-S3-WROOM-1U-N16R8. 
+This is a feature packed I/o board with an ESP32-S3-WROOM-1U-N16R8.
 
 This has two varients, one with and one without POE support.
 
