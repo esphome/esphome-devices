@@ -52,7 +52,7 @@ that powers the ESP8266. As such, on the Duo, GPIO14 has no connection beyond be
   
 [https://esphome.io/guides/physical_device_connection/](https://esphome.io/guides/physical_device_connection/)
 
-## Setup and Configuration Notes
+## Setup and Configuration Notes (Using the Advanced Configuration below)
 
 Be sure to modify the substitution section of the code for your specific setup: `tank_size`, `tank_orientation`,
 `oil_depth_offset`, `volume_calc_method`.
@@ -92,9 +92,8 @@ The oil gauge must be fully reassembled with all gaskets in place in order for t
 
 ## Operation
 
-The controller wakes every hour, sends six distance measurements and one oil volume measurement to Home Assistant, and
-then powers down for another hour
-waiting for the TPL5111 to power it back up.
+The controller wakes every hour, sends six distance measurements and one oil volume measurement to Home Assistant,
+andthen powers down for another hour waiting for the TPL5111 to power it back up.
 
 Pressing the control button once will either wake up the controller, or power it back down.
 
@@ -157,10 +156,22 @@ Datasheet:
 
 ## Basic Configuration
 
+The Basic Configuration below covers hardware level access to the Ultrasonic Sensor, Control Button Input, LED,
+Analog Swich, Analog Input, and Ultrasonic Power Switch. Use the Advanced Configuration below is recomended
+if you want a device that is capable of monitoring the volume of oil in a tank.
+Add your own `wifi:`, `api:`, and `ota:` sections before flashing. The example also leaves out passwords
+and `!secret` references so you can merge it into your own setup and fill in your local credentials separately.
+
 ```yaml file=config.yaml
 ```
 
 ## Advanced Configuration
+
+The advanced configuration below adds more calculations and functionality to create a device that has the
+capability of monitoring the volume of oil in a tank. This Advanced Configuration would completely replace the
+Basic Configuration above. Add your own `wifi:`, `api:`, and `ota:` sections before flashing. The example also
+leaves out passwords and `!secret` references so you can merge it into your own setup and fill in your local
+credentials separately.
 
 ```yaml file=advanced.yaml
 ```
