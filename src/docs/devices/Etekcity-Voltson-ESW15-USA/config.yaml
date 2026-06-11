@@ -43,7 +43,7 @@ sensor:
   - platform: copy
     source_id: ambient_light_internal
     name: "Ambient Light Sensor"
-    filters: 
+    filters:
       - heartbeat: 60s
 
   # HLW8012 Power Monitoring
