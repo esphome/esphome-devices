@@ -79,18 +79,25 @@ number:
         - script.execute: refresh_output
 
 sensor:
-  # Ambient Light Sensor (LDR)
+  # Ambient Light Sensor (LDR) - Internal sensor with 1s interval for quick update to the night light PID
   - platform: adc
     pin: A0
-    name: "Ambient Light Sensor"
-    id: ambient_light
+    name: "Ambient Light Sensor Internal"
+    internal: true
     update_interval: 1s
-    filters:
-      - multiply: 1.0
+    id: ambient_light_internal
     # Trigger the script immediately when the light level changes
     on_value:
       then:
         - script.execute: update_nightlight
+
+  # Ambient Light Sensor (LDR) - External copy with slower HA reporting interval
+  - platform: copy
+    source_id: ambient_light_internal
+    name: "Ambient Light Sensor"
+    filters: 
+      - heartbeat: 
+          seconds: 60
 
   # HLW8012 Power Monitoring
   - platform: hlw8012
@@ -190,7 +197,7 @@ script:
             lambda: 'return id(nightlight_mode).current_option() == "Auto";'
           then:
             - lambda: |-
-                float current_lux = id(ambient_light).state;
+                float current_lux = id(ambient_light_internal).state;
                 // Deadband Logic:
                 // If it gets darker than 0.03, turn ON
                 if (current_lux < 0.03) {

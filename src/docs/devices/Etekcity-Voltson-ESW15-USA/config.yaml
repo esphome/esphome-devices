@@ -31,18 +31,20 @@ switch:
     restore_mode: RESTORE_DEFAULT_OFF
 
 sensor:
-  # Ambient Light Sensor (LDR)
+  # Ambient Light Sensor (LDR) - Internal sensor with 1s interval for quick update to the night light PID
   - platform: adc
     pin: A0
-    name: "Ambient Light Sensor"
-    id: ambient_light
+    name: "Ambient Light Sensor Internal"
+    internal: true
     update_interval: 1s
-    filters:
-      - multiply: 1.0
-    # Trigger the script immediately when the light level changes
-    on_value:
-      then:
-        - script.execute: update_nightlight
+    id: ambient_light_internal
+
+  # Ambient Light Sensor (LDR) - External copy with slower HA reporting interval
+  - platform: copy
+    source_id: ambient_light_internal
+    name: "Ambient Light Sensor"
+    filters: 
+      - heartbeat: 60s
 
   # HLW8012 Power Monitoring
   - platform: hlw8012
