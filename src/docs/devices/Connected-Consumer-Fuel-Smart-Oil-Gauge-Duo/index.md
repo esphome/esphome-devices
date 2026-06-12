@@ -160,21 +160,27 @@ Datasheet:
 
 ## Basic Configuration
 
-The Basic Configuration below covers hardware level access to the Ultrasonic Sensor, Control Button Input, LED,
-Analog Swich, Analog Input, and Ultrasonic Power Switch. The Advanced Configuration below is recomended
-if you want a device that has the extra calculations and features for monitoring the volume of oil in a tank.
-Add your own `wifi:`, `api:`, and `ota:` sections before flashing. The example also leaves out passwords
-and `!secret` references so you can merge it into your own setup and fill in your local credentials separately.
+The Basic Configuration below will give a basic functioning Smart Oil Gauge.
+It will operate as descibed in the Operation Section.
+It will let you monitor the geometrically calculated number of gallons in the tank and the supply voltage.
+Add your own `wifi:`, `api:`, and `ota:` sections before flashing.
+The example also leaves out passwords and `!secret` references so you can merge it into your own setup
+and fill in your local credentials separately.
 
 ```yaml file=config.yaml
 ```
 
 ## Advanced Configuration
 
-The advanced configuration below adds more calculations and functionality to create a device that has the
-capability of monitoring the volume of oil in a tank. This Advanced Configuration would completely replace the
-Basic Configuration above. Add your own `wifi:`, `api:`, and `ota:` sections before flashing. The example also
-leaves out passwords and `!secret` references so you can merge it into your own setup and fill in your local
+The Advanced Configuration below adds more calculations and functionality.
+This Advanced Configuration would completely replace the Basic Configuration above.
+Added template sensors include: `Oil Depth`, `Max Fill`, Seperate `Temperature` and `Battery Voltage`.
+Added `Auto Sleep Disable` control.
+Multiple additional Diagnostic sensors.
+Includes a built in otion to use a look-up table to convert directly from `Oil Depth` to gallons.
+Add your own `wifi:`, `api:`, and `ota:` sections before flashing.
+The example also leaves out passwords and `!secret` references so you can merge it into your own setup
+and fill in your local
 credentials separately.
 
 ```yaml file=advanced.yaml
