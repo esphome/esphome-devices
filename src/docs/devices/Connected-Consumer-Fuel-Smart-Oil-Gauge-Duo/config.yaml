@@ -50,11 +50,11 @@ esphome:
     - priority: 800
       then:
       - if:
-            condition:
-              - lambda: 'return (id(Deep_Sleep) == 1);'  # Deep_Sleep is ON
-            then:
-              - lambda: 'delay(50);'
-              - switch.turn_on: Done
+        condition:
+          - lambda: 'return (id(Deep_Sleep) == 1);'  # Deep_Sleep is ON
+        then:
+          - lambda: 'delay(50);'
+          - switch.turn_on: Done
 
 esp8266:
   # board: huzzah
@@ -69,7 +69,7 @@ globals:
   - id: Deep_Sleep
     type: int
     initial_value: '0'
-  
+
   - id: Auto_Sleep_Disable
     type: int
     initial_value: '0'
@@ -117,7 +117,7 @@ globals:
   - id: TempC
     type: float
     initial_value: '0'
-    #restore_value: true
+    # restore_value: true
 
   - id: BattV
     type: float
@@ -234,10 +234,10 @@ binary_sensor:
 sensor:
 
   - platform: debug
-    loop_time: 
+    loop_time:
       name: "loop Time"
     free:
-      name:  "Heep Free"
+      name: "Heep Free"
 
   - platform: adc
     pin: A0
@@ -385,7 +385,7 @@ sensor:
 
           return id(Distance_to_Oil);  // cm
 
-      - sliding_window_moving_average: 
+      - sliding_window_moving_average:
           window_size: ${Samples_Before_Sleep}
           send_every: ${Samples_Before_Sleep}
           send_first_at: ${Samples_Before_Sleep}
@@ -490,7 +490,7 @@ sensor:
           id(Oil_Volume_Geo) = x * id(Tank_Length) / 231; // gallons
           return id(Oil_Volume_Geo);
 
-    on_value: 
+    on_value:
       then:
         - script.execute: Sleep_Check
 
