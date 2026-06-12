@@ -49,12 +49,12 @@ esphome:
   on_shutdown:
     - priority: 800
       then:
-      - if:
-        condition:
-          - lambda: 'return (id(Deep_Sleep) == 1);'  # Deep_Sleep is ON
-        then:
-          - lambda: 'delay(50);'
-          - switch.turn_on: Done
+        - if:
+            condition:
+              - lambda: 'return (id(Deep_Sleep) == 1);'  # Deep_Sleep is ON
+            then:
+              - lambda: 'delay(50);'
+              - switch.turn_on: Done
 
 esp8266:
   # board: huzzah
