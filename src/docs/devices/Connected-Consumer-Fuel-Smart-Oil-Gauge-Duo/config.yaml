@@ -1,6 +1,17 @@
+# Enable logging
+logger:
+  level: DEBUG
+
+debug:
+  update_interval: 5s
+
+wifi:
+  ap:
+
+
 substitutions:
-  device_name: "smart-oil-gauge-duo"
-  friendly_name: "Smart Oil Gauge Duo"
+  device_name: esp8266-dev
+  friendly_name: ESP8266_Dev
   Samples_Before_Sleep: '6'
   Auto_Sleep_On_dc: '2.5%'
   Auto_Sleep_Off_dc: '87%'
@@ -26,11 +37,9 @@ esphome:
   on_boot:
     - priority: 800
       then:
-        - switch.turn_off: ultrasonic_en
         - switch.turn_off: ultrasonic_pwr
     - priority: -100
       then:
-        - script.execute: set_tank_dimensions
         - output.turn_on: LED_pwm
         - output.set_level:
             id: LED_pwm
@@ -40,24 +49,31 @@ esphome:
   on_shutdown:
     - priority: 800
       then:
-        - if:
+      - if:
             condition:
-              - switch.is_on: deep_sleep_trig
+              - lambda: 'return (id(Deep_Sleep) == 1);'  # Deep_Sleep is ON
             then:
               - lambda: 'delay(50);'
               - switch.turn_on: Done
 
 esp8266:
+  # board: huzzah
   board: esp_wroom_02
 
-wifi:
-  ap:
 
 deep_sleep:
   id: my_deep_sleep
   sleep_duration: 30s
 
 globals:
+  - id: Deep_Sleep
+    type: int
+    initial_value: '0'
+  
+  - id: Auto_Sleep_Disable
+    type: int
+    initial_value: '0'
+
   - id: Tank_Width
     type: float
     initial_value: '0'
@@ -98,11 +114,52 @@ globals:
     type: int
     initial_value: ${volume_calc_method}
 
+  - id: TempC
+    type: float
+    initial_value: '0'
+    #restore_value: true
+
+  - id: BattV
+    type: float
+    initial_value: '0'
+
+  - id: Speed_of_Sound  # m/s
+    type: float
+    initial_value: '0'
+
+  - id: VP_Oil
+    type: float
+    initial_value: '0'
+
+  - id: MW_Total_kg_p_mol
+    type: float
+    initial_value: '0'
+
+  - id: Time_of_Flight  # ms
+    type: float
+    initial_value: '0'
+
+  - id: Distance_to_Oil  # cm
+    type: float
+    initial_value: '0'
+
+  - id: Oil_Depth_in  # inches
+    type: float
+    initial_value: '0'
+
+  - id: Oil_Area_Geo  # in²
+    type: float
+    initial_value: '0'
+
+  - id: Oil_Volume_Geo  # gallons
+    type: float
+    initial_value: '0'
+
 
 switch:
+
   - platform: restart
     name: Reboot
-
 
   - platform: gpio
     pin: GPIO15
@@ -120,7 +177,7 @@ switch:
     on_turn_on:
       then:
         - delay: 3s
-        - switch.turn_on: ultrasonic_en
+        - script.execute: ultrasonic_loop
 
   - platform: gpio
     pin: GPIO13  # Done Signal to TPL5111
@@ -137,6 +194,7 @@ output:
     pin: GPIO2
     inverted: true
 
+
 binary_sensor:
   - platform: gpio
     pin:
@@ -144,8 +202,42 @@ binary_sensor:
       inverted: true
     id: ctrl_btn
     name: "Control Button"
+    on_multi_click:
+      - timing:  # Double Click
+          - ON for at most 1s
+          - OFF for at most 1s
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          - if:
+              condition:
+                - lambda: 'return (id(Auto_Sleep_Disable) == 1);'  # Auto Sleep Disabled
+              then:
+                - output.set_level:
+                    id: LED_pwm
+                    level: ${Auto_Sleep_On_dc}
+                - lambda: '(id(Auto_Sleep_Disable) = 0);'
+                - switch.turn_on: ultrasonic_pwr
+              else:
+                - output.set_level:
+                    id: LED_pwm
+                    level: ${Auto_Sleep_Off_dc}
+                - lambda: '(id(Auto_Sleep_Disable) = 1);'
+                - switch.turn_off: ultrasonic_pwr
+      - timing:  # Single Click
+          - ON for at most 1s
+          - OFF for at least 0.5s
+        then:
+          - script.execute: Sleep_Trigger
+
 
 sensor:
+
+  - platform: debug
+    loop_time: 
+      name: "loop Time"
+    free:
+      name:  "Heep Free"
 
   - platform: adc
     pin: A0
@@ -162,12 +254,79 @@ sensor:
           int R1 = 10.0;  // MOhm
           int R2 = 1.0;   // MOhm
 
-          float offset = -1.1; // Temperature correction offset (degC)
+          float offset = -1.1;  // Temperature correction offset (degC)
 
           if (id(TempSens_EN).state){
-            return (((x*1000.0)-500.0)/10.0) + offset; // Temperature Sensor (degC)
+            id(TempC) = (((x*1000.0)-500.0)/10.0) + offset;  // Temperature Sensor (degC)
+            return id(TempC);
           } else {
-            return (x * (R1+R2))/R2; // Battery Voltage
+            id(BattV) =  (x * (R1+R2))/R2;  // Battery Voltage
+            return id(TempC);
+          }
+
+      - calibrate_linear:
+          method: exact
+          datapoints:
+            # https://www.eng-tips.com/threads/typical-diesel-info.109718/post-424028
+            # Map 0.0 (from sensor) to 1.0 (true value)
+            # degC to Oil Vapor Pressure kPa
+            - 4.444444444 -> 0.021373756
+            - 10.0 -> 0.03102642
+            - 15.55555556 -> 0.051021224
+            - 21.11111111 -> 0.06205284
+            - 26.66666667 -> 0.08273712
+            - 32.22222222 -> 0.11031616
+            - 37.77777778 -> 0.15168472
+
+      - lambda: |-
+
+          id(VP_Oil) = x;
+
+          // Calc Molecular Weight of Vapor above Oil
+
+          double MW_Oil = 167.31102;  // g_Oil/mol_Oil  (C12H23)
+          double MW_Air = 28.9639475;  // g_Air/mol_Air
+
+          double P_Total = 101.325;  // kPa (Could use a measured pressure here)
+          double P_Oil = id(VP_Oil);  // Partial Pressure of Oil kPa
+          double P_Air = P_Total - P_Oil;  // Partial Pressure Of Air kPa
+
+          double nOil_per_nTotal = P_Oil / P_Total;  // mol_Oil/mol_Total
+          double nAir_per_nTotal = P_Air / P_Total;  // mol_Air/mol_Total
+
+          double g_Oil_per_nTotal = nOil_per_nTotal * MW_Oil;  // g_Oil/mol_Total
+          double g_Air_per_nTotal = nAir_per_nTotal * MW_Air;  // g_Air/mol_Total
+
+          double MW_Total = g_Oil_per_nTotal + g_Air_per_nTotal;  // g_Total/mol_Total
+          MW_Total = MW_Total / 1000.0; // kg_Total/mol_Total
+
+          id(MW_Total_kg_p_mol) = MW_Total;
+
+          return id(MW_Total_kg_p_mol);
+
+      - lambda: |-
+
+          // Calc Speed of Sound in Vapor above Oil
+          // https://en.wikipedia.org/wiki/Speed_of_sound
+          double gamma = 1.4; // Oil is small enough fraction that large change in gamma is not expected
+          double R = 8.31446261815324;
+          double Sc = sqrt(gamma * R * 273.15 / id(MW_Total_kg_p_mol));
+          double speed_sound_m_per_s = Sc * sqrt(1+(id(TempC)/273.15));  // ideal diatomic gas
+
+          id(Speed_of_Sound) = speed_sound_m_per_s;
+          return id(Speed_of_Sound);
+
+      - lambda: |-
+
+          ESP_LOGD("VarCheck", "TempC %.15g", id(TempC));
+          ESP_LOGD("VarCheck", "BattV %.15g", id(BattV));
+          ESP_LOGD("VarCheck", "Speed_of_Sound %.15g", id(Speed_of_Sound));
+          ESP_LOGD("VarCheck", "Auto Sleep Disable %i", id(Auto_Sleep_Disable));
+
+          if (id(TempSens_EN).state){
+            return id(TempC);
+          } else {
+            return id(BattV);
           }
 
     on_value:
@@ -185,14 +344,14 @@ sensor:
       number: GPIO4
       inverted: true
     echo_pin: GPIO5
-    name: "Ultrasonic Distance"
+    name: "Oil in Tank"
     id: Ultrasonic_Distance
     update_interval: never
-    accuracy_decimals: 2
-    unit_of_measurement: 'cm'
-    device_class: distance
-    disabled_by_default: true
-    entity_category: "diagnostic"
+    accuracy_decimals: 4
+    unit_of_measurement: 'gal'
+    device_class: volume_storage
+    disabled_by_default: false
+    entity_category: ''
     filters:
       - multiply: 100  # convert m to cm
       - median:
@@ -202,6 +361,139 @@ sensor:
       - throttle_average: ${throttle_average_duration}
       - skip_initial: ${skip_initial_count}
 
+      - lambda: |-
+
+          // x = cm as measured by ultrasonic sensor
+
+          // Back Calc Time of Flight
+          double ESP_speed_sound_m_per_s = 343.0;
+          double distance_m = x / 100.0;
+          double total_dist = distance_m * 2.0;
+          double time_s = total_dist / ESP_speed_sound_m_per_s;
+          double time_ms = time_s * 1000.0;
+
+          id(Time_of_Flight) = time_ms;
+
+
+          // Calc Distance to Oil Surface
+          // double time_s = id(Time_of_Flight) / 1000.0;
+          double speed_sound_m_per_s = id(Speed_of_Sound);
+
+          double total_dist_m = time_s * speed_sound_m_per_s;
+
+          id(Distance_to_Oil) = (total_dist_m / 2.0) * 100.0;  // cm
+
+          return id(Distance_to_Oil);  // cm
+
+      - sliding_window_moving_average: 
+          window_size: ${Samples_Before_Sleep}
+          send_every: ${Samples_Before_Sleep}
+          send_first_at: ${Samples_Before_Sleep}
+
+      - lambda: |-
+
+          // x = speed corrected cm to oil
+
+          double Oil_Distance = x * 10 /25.4;  // cm to inches
+          double Oil_Depth;
+
+          if (id(Tank_Orientation) == 1){  // Vertical
+            Oil_Depth = id(Tank_Height) - Oil_Distance;
+          } else {  // Horizontal
+            Oil_Depth = id(Tank_Width) - Oil_Distance;
+          }
+
+          id(Oil_Depth_in) = Oil_Depth;  // inches
+
+          return Oil_Depth;  // inches
+      - offset: ${oil_depth_offset}
+
+      - lambda: |-
+          // Calculate the Oil Area
+
+
+          // Calculate Rectangle and Arc Heights
+
+          double Oil_Height = x;  // Inches
+          double Rectangle_Height = 0.0;
+          double Arc_Height = 0.0;
+
+          if (id(Tank_Orientation) == 0){  // Horizontal
+
+            Rectangle_Height = Oil_Height;
+            Arc_Height = Oil_Height;
+
+          } else {  // Vertical
+
+            if (Oil_Height >= (id(Tank_Height) - id(Tank_Radius))) {
+              Rectangle_Height = id(Tank_Height) - id(Tank_Width);
+              Arc_Height = Oil_Height - Rectangle_Height;
+            }
+
+            if ((Oil_Height >= id(Tank_Radius))&&(Oil_Height < (id(Tank_Height) - id(Tank_Radius)))) {
+              Rectangle_Height = Oil_Height - id(Tank_Radius);
+              Arc_Height = id(Tank_Radius);
+            }
+
+            if ((Oil_Height >= 0)&&(Oil_Height < id(Tank_Radius))){
+              Rectangle_Height = 0;
+              Arc_Height = Oil_Height;
+            }
+
+            if (Oil_Height < 0){
+              Rectangle_Height = 0;
+              Arc_Height = 0;
+            }
+          }
+
+          // Calculate Arc Area
+
+          double Arc_Area;
+
+          double d;
+          double r;
+          double arc;
+
+          d = Arc_Height;
+          r = id(Tank_Radius);
+          arc = 2 * (acos((r-d)/r));
+          Arc_Area = ((r*r) * (arc - sin(arc))) / 2;
+
+          // Calculate Rectangle Area
+          double Rectangle_Area;
+
+          if (id(Tank_Orientation) == 1){  // Vertical
+            Rectangle_Area = Rectangle_Height * id(Tank_Width);
+          } else {  // Horizontal
+            Rectangle_Area = Rectangle_Height * (id(Tank_Height) - id(Tank_Width));
+          }
+
+          //ESP_LOGD("VarCheck", "Tank_Orientation %.15g", id(Tank_Orientation));
+          //ESP_LOGD("VarCheck", "Tank_Size %.15g", id(Tank_Size));
+          //ESP_LOGD("VarCheck", "Tank_Width %.15g", id(Tank_Width));
+          //ESP_LOGD("VarCheck", "Tank_Height %.15g", id(Tank_Height));
+          //ESP_LOGD("VarCheck", "Tank_Length %.15g", id(Tank_Length));
+          //ESP_LOGD("VarCheck", "Tank_Radius %.15g", id(Tank_Radius));
+          //ESP_LOGD("VarCheck", "Oil_Height %.15g", Oil_Height);
+          //ESP_LOGD("VarCheck", "Arc_Height %.15g", Arc_Height);
+          //ESP_LOGD("VarCheck", "Rectangle_Height %.15g", Rectangle_Height);
+          //ESP_LOGD("VarCheck", "Arc_Area %.15g", Arc_Area);
+          //ESP_LOGD("VarCheck", "Rectangle_Area %.15g", Rectangle_Area);
+
+          id(Oil_Area_Geo) = Rectangle_Area + Arc_Area;  // Total Area in²
+          return id(Oil_Area_Geo);
+
+      - lambda: |-
+          // Calculate Oil Volume in Tank
+          // x = Total Area in²
+
+          id(Oil_Volume_Geo) = x * id(Tank_Length) / 231; // gallons
+          return id(Oil_Volume_Geo);
+
+    on_value: 
+      then:
+        - script.execute: Sleep_Check
+
 script:
 
   - id: ultrasonic_loop
@@ -210,7 +502,73 @@ script:
       - delay: ${ultrasonic_interval}
       - while:
           condition:
-            switch.is_on: ultrasonic_en
+            switch.is_on: ultrasonic_pwr
           then:
             - component.update: Ultrasonic_Distance  # Oil_In_Tank
             - delay: ${ultrasonic_interval}
+
+  - id: Sleep_Check
+    then:
+      - if:
+          condition:
+            - lambda: 'return (id(Auto_Sleep_Disable) == 1);'  # Auto Sleep Disabled
+          then:
+            - globals.set:
+                id: Measure_Count
+                value: '0'
+          else:
+            - globals.set:
+                id: Measure_Count
+                value: !lambda 'return id(Measure_Count) += 1;'
+            - if:
+                condition:
+                  - lambda: 'return id(Measure_Count) > id(Samples_Before_Sleep);'
+                then:
+                  - script.execute: Sleep_Trigger
+      - lambda: 'ESP_LOGD("MeasureCount", "%i", id(Measure_Count));'
+
+  - id: Sleep_Trigger
+    then:
+      - script.stop: ultrasonic_loop
+      - switch.turn_off: ultrasonic_pwr
+      - output.turn_off: LED_pwm
+      - lambda: '(id(Deep_Sleep) = 1);'  # Turn ON Deep_Sleep
+      - deep_sleep.enter:
+          id: my_deep_sleep
+
+
+  - id: set_tank_dimensions
+    then:
+      - lambda: |-
+          if (id(Tank_Size) == 275){
+              id(Max_Fill) = 250.0;
+              id(Tank_Width) = 27.8;
+              id(Tank_Height) = 44.0;
+              id(Tank_Length) = 60.0;
+          }
+          if (id(Tank_Size) == 330){
+              id(Max_Fill) = 300.0;
+              id(Tank_Width) = 27.8;
+              id(Tank_Height) = 44.0;
+              id(Tank_Length) = 72;
+          }
+          if (id(Tank_Size) == 500){
+              id(Max_Fill) = 450.0;
+              id(Tank_Width) = 48.0;
+              id(Tank_Height) = 48.0;
+              id(Tank_Length) = 63.8;
+          }
+          if (id(Tank_Size) == 550){
+              id(Max_Fill) = 500.0;
+              id(Tank_Width) = 48.0;
+              id(Tank_Height) = 48.0;
+              id(Tank_Length) = 70.25;
+          }
+          if (id(Tank_Size) == 1000){
+              id(Max_Fill) = 900.0;
+              id(Tank_Width) = 48.0;
+              id(Tank_Height) = 48.0;
+              id(Tank_Length) = 127.6;
+          }
+
+          id(Tank_Radius) = id(Tank_Width)/2.0;
