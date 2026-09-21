@@ -12,7 +12,7 @@ made-for-esphome: False
 The [Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light][3] is a Tuya-based smart home lamp, featuring a strip of
 individually addressable leds with a corner stand frame.
 
-[3]: https://www.mirabellagenio.com.au/product-range/mirabella-genio-wi-fi-1-4m-pixel-led-corner-light/
+[3]: https://www.mirabella.com.au/products/i004608
 
 ![Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light][1]
 
@@ -38,75 +38,12 @@ reference and is expected to not function until driver support for this platform
 
 ## Basic Configuration
 
-```yaml
-# Config for Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light
-# https://devices.esphome.io/devices/Mirabella-Genio Wi-Fi-1.4m-Pixel-LED-Corner-Light/
-
-rtl87xx:
-  board: t103-v1.0
+```yaml file=config.yaml
 ```
 
 ## Example Configuration
 
-```yaml
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: PA12
-      mode: INPUT_PULLUP
-      inverted: true
-    name: "Power Button"
-    on_press:
-      - light.toggle: corner_light
-
-  - platform: gpio
-    pin:
-      number: PA05
-      mode: INPUT_PULLUP
-      inverted: true
-    name: "LED Button"
-    on_press:
-      - light.toggle: corner_light
-
-  - platform: gpio
-    pin:
-      number: PA00
-      mode: INPUT_PULLUP
-      inverted: true
-    name: "Sound Button"
-    on_press:
-      - switch.toggle: sound_reactive_mode
-
-switch:
-  - platform: template
-    name: "Sound Reactive Mode"
-    id: sound_reactive_mode
-    optimistic: true
-    restore_mode: RESTORE_DEFAULT_OFF
-
-sensor:
-  - platform: adc
-    pin: ADC2
-    name: "Microphone Raw"
-    id: mic_raw
-    update_interval: 50ms
-
-# FastLED and NeoPixelBus led drivers are unsupported on the RTL8710BX platform (see notes above), so this light
-# will not function. It is included for reference only, in case platform support is added in future.
-light:
-  - platform: fastled_clockless
-    id: corner_light
-    name: "Corner Light"
-    chipset: UCS1903
-    # LED data pin is unverified; PA23 is based on the suspected GPIO mapping above.
-    pin: PA23
-    rgb_order: BRG
-    num_leds: 28
-    restore_mode: RESTORE_DEFAULT_OFF
-    default_transition_length: 0s
-    effects:
-      - addressable_rainbow:
-      - pulse:
+```yaml file=example-configuration.yaml
 ```
 
 [1]: ./Mirabella-Genio-Wi-Fi-1.4m-Pixel-LED-Corner-Light-Packaging.png "Mirabella Genio Wi-Fi 1.4m Pixel LED Corner Light"
