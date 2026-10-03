@@ -30,8 +30,8 @@ The chip is printed on the sticker on the back.
 - **ILI9881C + GT911** (units made before 14 October 2025): the base configuration below.
 - **ST7123** (units made from 14 October 2025): ESPHome 2026.7.0 or later. Use the `display:` and `touchscreen:`
   sections from [ST7123 Revision](#st7123-revision) in place of the ones in the base configuration.
-- **ST7121** (units made from 28 April 2026): ESPHome has a `M5STACK-TAB5-ST7121` display model since 2026.7.0,
-  but no configuration for this revision has been tested for this page yet.
+- **ST7121** (units made from 28 April 2026): ESPHome 2026.7.0 or later. Use the `display:` and `touchscreen:`
+  sections from [ST7121 Revision](#st7121-revision) in place of the ones in the base configuration.
 
 Some units carry a pre-production ESP32-P4 (chip revision below v3.0). Those need `engineering_sample: true` under
 `esp32:`. ESPHome prints a warning about this when compiling, with how to check the chip revision.
@@ -52,6 +52,16 @@ Display and touchscreen sections for units with the ST7123 display driver. They 
 `touchscreen:` sections of the base configuration above.
 
 ```yaml file=st7123.yaml
+```
+
+## ST7121 Revision
+
+Display and touchscreen sections for units with the ST7121 display driver. They replace the `display:` and
+`touchscreen:` sections of the base configuration above. There is no ST7121 touchscreen platform: the `st7123` one
+is used, a pairing reported working on ST7121 units (display and touch) in
+[esphome/esphome#17471](https://github.com/esphome/esphome/issues/17471).
+
+```yaml file=st7121.yaml
 ```
 
 ## WiFi Antenna Selector
