@@ -88,7 +88,9 @@ wifi:
 
 # SPI bus for LoRa radio
 spi:
-  clk_pin: GPIO5
+  clk_pin:
+    number: GPIO5
+    ignore_strapping_warning: true
   mosi_pin: GPIO27
   miso_pin: GPIO19
 
