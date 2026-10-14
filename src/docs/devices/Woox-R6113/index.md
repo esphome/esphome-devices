@@ -14,15 +14,14 @@ board: bk72xx
 
 ## GPIO Pinout
 
-| Pin | Function      |
-| --- | ------------- |
-| P6  | LED           |
-| P7  | Button        |
-| P8  | Relay         |
-| P11 | SEL           |
-| P24 | CF1           |
-| P26 | CF            |
-
+| Pin | Function |
+| --- | -------- |
+| P6  | LED      |
+| P7  | Button   |
+| P8  | Relay    |
+| P11 | SEL      |
+| P24 | CF1      |
+| P26 | CF       |
 
 ## Board Configuration
 
