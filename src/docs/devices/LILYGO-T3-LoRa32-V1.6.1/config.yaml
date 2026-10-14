@@ -1,5 +1,5 @@
 esphome:
-  name: "t3-lora32"
+  name: t3-lora32
   friendly_name: T3 LoRa32 V1.6.1
 
 esp32:

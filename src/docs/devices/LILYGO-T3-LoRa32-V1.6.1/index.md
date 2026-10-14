@@ -15,21 +15,30 @@ Manufacturer: [LILYGO](https://lilygo.cc/)
 ## Product Description
 
 The LILYGO T3 LoRa32 V1.6.1 is a development board featuring an ESP32 microcontroller with integrated
-WiFi, Bluetooth, and a Semtech SX1276/SX1278 LoRa radio transceiver. It includes a 0.96" OLED display and is
+WiFi, Bluetooth, and a Semtech SX1276/SX1278 LoRa radio transceiver. It includes a 0.96″ OLED display and is
 designed for IoT applications requiring long-range wireless communication.
 
 ### Key Features
 
-- [ESP32](https://esphome.io/components/esp32/#esp32) dual-core 240MHz processor
-- 4MB Flash memory
-- [SX1276/SX1278](https://esphome.io/components/packet_transport/sx127x) LoRa radio (433MHz or 868/915MHz variants)
-- [SSD1306](https://esphome.io/components/display/ssd1306/#over-ic) 128x64 0.96″ OLED display
-- LiPo battery connector with charging circuit
-- CP2104 USB-to-UART bridge
+- [ESP32](https://esphome.io/components/esp32/#esp32)
+dual-core 240MHz processor
+- 4 MB Flash memory
+- [SX1276 (868/915/923 MHz) / SX1278 (433 MHz)](https://esphome.io/components/packet_transport/sx127x)
+LoRa radio (+14 dBm TX, 9.9 mA RX)
+- [SSD1306](https://esphome.io/components/display/ssd1306/#over-ic)
+128x64 0.96″ OLED display
+- LEDs:
+  - 🔴 Red: USB power
+  - 🟢 Green: GPIO-controlled
+  - 🔵 Blue: Battery is charging or missing
+- LiPo battery connector with TP4054 charging circuit
+- CP2104 or CH9102 USB-to-UART bridge
 - Micro-USB connector
-- SD card slot
+- microSD card slot
 - WiFi 802.11 b/g/n
 - Bluetooth Classic and BLE
+- Battery switch
+- Reset button
 
 ## GPIO Pinout
 
@@ -53,7 +62,7 @@ designed for IoT applications requiring long-range wireless communication.
 | SDA      | GPIO21 |
 | SCL      | GPIO22 |
 
-### SD Card slot
+### microSD card slot
 
 | Function | GPIO   |
 |----------|--------|
@@ -66,8 +75,8 @@ designed for IoT applications requiring long-range wireless communication.
 
 | Function    | GPIO   |
 |-------------|--------|
-| LED         | GPIO25 |
 | Battery ADC | GPIO35 |
+| Green LED   | GPIO25 |
 
 ## Basic Configuration
 
@@ -76,37 +85,45 @@ designed for IoT applications requiring long-range wireless communication.
 
 ## LoRa Modulation
 
-Configuration for LoRa modulation:
-
 ```yaml file=lora.yaml
 ```
 
 ## FSK Modulation
 
-Configuration for FSK modulation in packet mode:
+In packet mode:
 
 ```yaml file=fsk.yaml
 ```
 
 ## OOK Modulation with Remote Transmitter/Receiver
 
-Configuration for OOK modulation in continuous mode using the remote transmitter and receiver components:
+In continuous mode using the remote transmitter and receiver components:
 
 ```yaml file=ook.yaml
 ```
 
 ## OLED Display
 
-Configuration to use the onboard 0.96" OLED display:
-
 ```yaml file=oled.yaml
 ```
 
 ## Battery Monitoring
 
-Configuration to monitor LiPo battery voltage:
+LiPo battery voltage:
 
 ```yaml file=battery.yaml
+```
+
+## Status LED
+
+Green LED flashes when ESPHome API disconnected, plus on/off control:
+
+```yaml file=led_status.yaml
+```
+
+or just dimmable control:
+
+```yaml file=led_monochromatic.yaml
 ```
 
 ## Links
