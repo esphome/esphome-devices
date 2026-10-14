@@ -6,7 +6,7 @@ standard: eu
 board: bk72xx
 ---
 
-## Notes
+## Images
 
 ![Woox R6113](./woox-r6113.png "Woox R6113")
 
@@ -26,35 +26,18 @@ board: bk72xx
 
 ## Board Configuration
 
+Full working config: [config.yaml](./config.yaml)
+
+```yaml file=config.yaml
+```
+
+Specific ralay settings:
+
 ```yaml
-esphome:
-  name: woox-r6113
-  friendly_name: WOOX Smart Plug
-  on_boot:
-    priority: -100
-    then:
-      - if:
-          condition:
-            lambda: 'return id(saved_relay_state);'
-          then:
-            - switch.turn_on: relay
-          else:
-            - switch.turn_off: relay
-            
+           
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
-logger:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-globals:
-  - id: saved_relay_state
-    type: bool
-    restore_value: yes
-    initial_value: 'false'
 
 switch:
   - platform: gpio
@@ -63,14 +46,8 @@ switch:
     pin: P8
     restore_mode: ALWAYS_OFF
     on_turn_on:
-      - globals.set:
-          id: saved_relay_state
-          value: 'true'
       - light.turn_on: plug_led
     on_turn_off:
-      - globals.set:
-          id: saved_relay_state
-          value: 'false'
       - light.turn_off: plug_led
 
 light:
@@ -104,13 +81,13 @@ output:
       number: P6
       inverted: false
 
-web_server:
-  port: 80   
-
 sensor:
   - platform: hlw8012
     model: BL0937
+
+    # trying to calibrate voltage
     voltage_divider: 829
+    # trying to calibrate power
     current_resistor: 0.0011707441386340468
     
     sel_pin:
@@ -128,6 +105,7 @@ sensor:
     current:
       name: "Current"
       filters:
+      # trying to calibrate
         - multiply: 0.5322126205722884
 
     voltage:
@@ -143,16 +121,4 @@ sensor:
     initial_mode: CURRENT
     change_mode_every: 4
     update_interval: 10s
-
-  - platform: integration
-    name: 'Total Energy'
-    id: total_power
-    sensor: power
-    time_unit: h
-    restore: true
-    state_class: total_increasing
-    device_class: energy
-    filters:
-        - multiply: 0.001
-    unit_of_measurement: kW
 ```
