@@ -11,7 +11,7 @@ esphome:
             - switch.turn_on: relay
           else:
             - switch.turn_off: relay
-            
+
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
@@ -20,7 +20,7 @@ wifi:
 globals:
   - id: saved_relay_state
     type: bool
-    restore_value: yes
+    restore_value: true
     initial_value: 'false'
 
 switch:
@@ -44,7 +44,7 @@ light:
   - platform: binary
     id: plug_led
     output: plug_led_output
-    internal: true        
+    internal: true
 
 binary_sensor:
   - platform: gpio
@@ -59,7 +59,7 @@ binary_sensor:
     filters:
       - delayed_on: 30ms
       - delayed_off: 30ms
-    internal: true  
+    internal: true
     on_press:
       then:
         - switch.toggle: relay
@@ -76,7 +76,7 @@ sensor:
     model: BL0937
     voltage_divider: 829
     current_resistor: 0.0011707441386340468
-    
+
     sel_pin:
       number: P11
       inverted: true
@@ -117,5 +117,5 @@ sensor:
     state_class: total_increasing
     device_class: energy
     filters:
-        - multiply: 0.001
-    unit_of_measurement: kW
+      - multiply: 0.001
+    unit_of_measurement: kWh
