@@ -31,7 +31,7 @@ Full working config: [config.yaml](./config.yaml)
 ```yaml file=config.yaml
 ```
 
-Specific ralay settings:
+Specific relay settings:
 
 ```yaml
            
@@ -85,9 +85,9 @@ sensor:
   - platform: hlw8012
     model: BL0937
 
-    # trying to calibrate voltage
+    # Voltage calibration
     voltage_divider: 829
-    # trying to calibrate power
+    # Power calibration
     current_resistor: 0.0011707441386340468
     
     sel_pin:
@@ -105,7 +105,7 @@ sensor:
     current:
       name: "Current"
       filters:
-      # trying to calibrate
+      # Current calibration factor
         - multiply: 0.5322126205722884
 
     voltage:
