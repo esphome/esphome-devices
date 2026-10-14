@@ -16,8 +16,6 @@ bk72xx:
   board: generic-bk7231n-qfn32-tuya
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
 
 globals:
   - id: saved_relay_state
