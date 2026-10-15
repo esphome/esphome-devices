@@ -20,7 +20,9 @@ difficulty: 2
 | GPIO7 | TX pin (CSE7759B meter)            |
 
 ## Notes
-Can be flashed wirelessly without disassembly using [Sonoff-OTA](https://github.com/adamsthws/Sonoff-OTA) to Tasmota then to ESPHome [Migrating from Tasmota](https://esphome.io/guides/migrate_sonoff_tasmota/)
+
+Can be flashed wirelessly without disassembly using [Sonoff-OTA](https://github.com/adamsthws/Sonoff-OTA) to Tasmota
+then to ESPHome [Migrating from Tasmota](https://esphome.io/guides/migrate_sonoff_tasmota/)
 
 ## Links
 
