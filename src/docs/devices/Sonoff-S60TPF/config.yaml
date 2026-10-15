@@ -1,4 +1,3 @@
-```yaml
 # You should only need to modify the substitutions.
 substitutions:
   device_name: sonoff-s60tpf
@@ -64,4 +63,3 @@ uart:
   rx_pin: GPIO7
   baud_rate: 4800
   parity: EVEN
-```
