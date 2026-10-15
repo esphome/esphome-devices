@@ -13,16 +13,6 @@ esp32:
   framework:
     type: esp-idf
 
-logger:
-api:
-captive_portal:
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-
 status_led:
   pin:
     number: GPIO5
@@ -58,6 +48,12 @@ sensor:
       name: ${friendly_name} Power
     energy:
       name: ${friendly_name} Energy
+    apparent_power:
+      name: ${friendly_name} Apparent Power
+    reactive_power:
+      name: ${friendly_name} Reactive Power
+    power_factor:
+      name: ${friendly_name} Power Factor
 
 uart:
   rx_pin: GPIO7
