@@ -1,7 +1,7 @@
 ```yaml
 # You should only need to modify the substitutions.
 substitutions:
-  device_name: ssonoff-s60tpf
+  device_name: sonoff-s60tpf
   friendly_name: Sonoff S60TPF
 
 # Nothing below should need modification.
