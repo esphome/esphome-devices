@@ -1,7 +1,7 @@
 ---
 title: Woox R6113 Smart Plug 16A
 date-published: 2026-10-14
-type: relay
+type: plug
 standard: eu
 board: bk72xx
 ---

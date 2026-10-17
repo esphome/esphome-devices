@@ -6,11 +6,11 @@ esphome:
     then:
       - if:
           condition:
-            lambda: "return id(saved_relay_state);"
+            lambda: "return id(saved_plug_state);"
           then:
-            - switch.turn_on: relay
+            - switch.turn_on: plug
           else:
-            - switch.turn_off: relay
+            - switch.turn_off: plug
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
@@ -18,25 +18,25 @@ bk72xx:
 wifi:
 
 globals:
-  - id: saved_relay_state
+  - id: saved_plug_state
     type: bool
     restore_value: true
     initial_value: "false"
 
 switch:
   - platform: gpio
-    id: relay
-    name: "Relay"
+    id: plug
+    name: "Plug"
     pin: P8
     restore_mode: ALWAYS_OFF
     on_turn_on:
       - globals.set:
-          id: saved_relay_state
+          id: saved_plug_state
           value: "true"
       - light.turn_on: plug_led
     on_turn_off:
       - globals.set:
-          id: saved_relay_state
+          id: saved_plug_state
           value: "false"
       - light.turn_off: plug_led
 
@@ -62,7 +62,7 @@ binary_sensor:
     internal: true
     on_press:
       then:
-        - switch.toggle: relay
+        - switch.toggle: plug
 
 output:
   - platform: gpio
