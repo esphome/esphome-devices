@@ -6,7 +6,7 @@ esphome:
     then:
       - if:
           condition:
-            lambda: 'return id(saved_relay_state);'
+            lambda: "return id(saved_relay_state);"
           then:
             - switch.turn_on: relay
           else:
@@ -21,7 +21,7 @@ globals:
   - id: saved_relay_state
     type: bool
     restore_value: true
-    initial_value: 'false'
+    initial_value: "false"
 
 switch:
   - platform: gpio
@@ -32,12 +32,12 @@ switch:
     on_turn_on:
       - globals.set:
           id: saved_relay_state
-          value: 'true'
+          value: "true"
       - light.turn_on: plug_led
     on_turn_off:
       - globals.set:
           id: saved_relay_state
-          value: 'false'
+          value: "false"
       - light.turn_off: plug_led
 
 light:
@@ -109,8 +109,8 @@ sensor:
     update_interval: 10s
 
   - platform: integration
-    name: 'Total Energy'
-    id: total_power
+    name: "Total Energy"
+    id: total_energy
     sensor: power
     time_unit: h
     restore: true
