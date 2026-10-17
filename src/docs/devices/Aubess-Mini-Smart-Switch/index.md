@@ -78,7 +78,7 @@ button:
 switch:
   - platform: gpio
     name: "Relay"
-    pin: P26
+    pin: P15
     id: aubesMini01
 
 status_led:
