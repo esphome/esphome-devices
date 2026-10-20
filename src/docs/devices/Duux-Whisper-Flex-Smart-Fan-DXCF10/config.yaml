@@ -30,15 +30,7 @@ uart:
   tx_pin: GPIO15
   rx_pin: GPIO13
   baud_rate: 9600
-  # debug:
-  #   direction: BOTH
-  #   dummy_receiver: false
-  #   debug_prefix: "[MODBUS] "
-  #   after:
-  #     delimiter: "\n"
-  #   sequence:
-  #     - lambda: UARTDebug::log_string(direction, bytes, debug_prefix);
-# Register the Tuya MCU connection
+
 tuya:
   time_id: homeassistant_time
 
@@ -49,27 +41,6 @@ fan:
     speed_datapoint: 3
     speed_count: 26
     oscillation_datapoint: 4
-
-switch:
-  - platform: template
-    name: "Oscillate vertically"
-    icon: mdi:arrow-up-down
-    turn_on_action: 
-      then:
-        - select.set: 
-            id: "vertically"
-            option: "on"
-    turn_off_action: 
-      then:
-        - select.set: 
-            id: "vertically"
-            option: "off"
-    lambda: |-
-      if (id(vertically).current_option() == "on") {
-        return true;
-      } else {
-        return false;
-      }
 
 select:
 
