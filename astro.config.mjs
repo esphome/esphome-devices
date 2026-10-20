@@ -1,9 +1,11 @@
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "url";
 import path from "path";
 import deviceAssets from "./src/integrations/device-assets";
+import deviceAliases from "./src/integrations/device-aliases";
 import remarkYamlInclude from "./src/integrations/remark-yaml-include";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -21,7 +23,7 @@ export default defineConfig({
     responsiveStyles: true,
   },
   markdown: {
-    remarkPlugins: [remarkYamlInclude],
+    processor: unified({ remarkPlugins: [remarkYamlInclude] }),
   },
   integrations: [
     starlight({
@@ -146,5 +148,6 @@ export default defineConfig({
     }),
     sitemap(),
     deviceAssets(),
+    deviceAliases(),
   ],
 });
