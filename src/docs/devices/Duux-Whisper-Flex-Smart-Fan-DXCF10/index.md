@@ -31,93 +31,208 @@ difficulty: 3
 
 ## Basic Configuration
 
-```yaml
+```yaml file=config.yaml
 substitutions:
-  devicename: "smart-fan"
+  devicename: "ventilator"
+  friendly: "Ventilator"
+# Define logging level: NONE, ERROR, WARN, INFO, DEBUG (Default), VERBOSE, VERY_VERBOSE
+  log_level: "WARN"
 
 esphome:
   name: $devicename
   comment: "Duux Whisper Flex Smart Fan (DXCF10)"
-  friendly_name: "Duux Whisper Flex Smart Fan"
+  friendly_name: $friendly
   project:
     name: "Duux.Whisper-Flex-Smart-Fan"
-    version: "1.0.0"
+    version: "1.1.0"
 
 esp8266:
   board: esp07
-  restore_from_flash: true
 
 # Enable logging
+# baud_rate: 0 is required, because the Tuya UART (GPIO15/GPIO13) is the
+# swapped hardware UART0, which the logger would otherwise also use.
+# Logs remain available via the API and the web server.
 logger:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key:
-
-ota:
-  password:
+  baud_rate: 0
+  level: $log_level
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid:
-    password:
-
-captive_portal:
-
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-
-# Enable Web server
-web_server:
-  port: 80
 
 uart:
   tx_pin: GPIO15
   rx_pin: GPIO13
   baud_rate: 9600
+  # debug:
+  #   direction: BOTH
+  #   dummy_receiver: false
+  #   debug_prefix: "[MODBUS] "
+  #   after:
+  #     delimiter: "\n"
+  #   sequence:
+  #     - lambda: UARTDebug::log_string(direction, bytes, debug_prefix);
 
 # Register the Tuya MCU connection
 tuya:
+  id: tuya_component
+
+  on_datapoint_update:
+    - sensor_datapoint: 1
+      datapoint_type: bool
+      then:
+        - lambda: |-
+            if (id(waiting_for_off_response)) {
+              if (x) {
+                ESP_LOGD(
+                  "smart_fan",
+                  "Tuya MCU reported DP1=ON after OFF command; forcing OFF"
+                );
+
+                id(waiting_for_off_response) = false;
+                id(tuya_component).force_set_boolean_datapoint_value(1, false);
+              } else {
+                ESP_LOGD(
+                  "smart_fan",
+                  "Tuya MCU confirmed DP1=OFF"
+                );
+
+                id(waiting_for_off_response) = false;
+              }
+            }
+
+globals:
+  # True only while we are waiting for the response to an OFF command
+  # issued through the ESPHome/HA fan entity. Reset automatically by
+  # off_response_timeout if the MCU does not answer.
+  - id: waiting_for_off_response
+    type: bool
+    restore_value: false
+    initial_value: "false"
+
+script:
+  # Clears waiting_for_off_response if the Tuya MCU does not report DP1
+  # within 3 seconds after an OFF command. Without this, a later ON from
+  # the device itself would be wrongly forced OFF.
+  - id: off_response_timeout
+    mode: restart
+    then:
+      - delay: 3s
+      - lambda: |-
+          if (id(waiting_for_off_response)) {
+            ESP_LOGD(
+              "smart_fan",
+              "No DP1 response from Tuya MCU after OFF command; clearing flag"
+            );
+            id(waiting_for_off_response) = false;
+          }
 
 fan:
+  # ---------------------------------------------------------------------------
+  # Internal Tuya fan
+  #
+  # This is the actual interface to the Tuya MCU.
+  # It is hidden from Home Assistant. The template fan below is the public
+  # interface.
+  # ---------------------------------------------------------------------------
   - platform: "tuya"
+    id: duux_fan
     name: None
+    internal: true
+    # Do not change the fan state on ESP reboot/OTA; the MCU keeps its state.
+    restore_mode: NO_RESTORE
     switch_datapoint: 1
     speed_datapoint: 3
     speed_count: 26
     oscillation_datapoint: 4
 
+    on_state:
+      - lambda: |-
+          // Keep the public template fan synchronized with the actual
+          // state reported by the Tuya MCU.
+          id(ha_fan).state = id(duux_fan).state;
+          id(ha_fan).speed = id(duux_fan).speed;
+          id(ha_fan).oscillating = id(duux_fan).oscillating;
+          id(ha_fan).publish_state();
+
+  # ---------------------------------------------------------------------------
+  # Public fan entity
+  #
+  # This is the fan exposed to Home Assistant / ESPHome.
+  # ---------------------------------------------------------------------------
+  - platform: template
+    id: ha_fan
+    name: "Fan"
+    restore_mode: NO_RESTORE
+    has_oscillating: true
+    speed_count: 26
+
+    # Turning the fan ON from HA/ESPHome.
+    on_turn_on:
+      - fan.turn_on:
+          id: duux_fan
+
+    # Turning the fan OFF from HA/ESPHome.
+    #
+    # Set the flag BEFORE sending the command to the Tuya fan. The response
+    # from the Tuya MCU is then examined by tuya.on_datapoint_update.
+    # The timeout script clears the flag if no response arrives.
+    on_turn_off:
+      - if:
+          condition:
+            lambda: |-
+              return id(duux_fan).state;
+          then:
+            - lambda: |-
+                id(waiting_for_off_response) = true;
+                ESP_LOGD(
+                  "smart_fan",
+                  "HA/ESPHome requested OFF; waiting for Tuya MCU response"
+                );
+
+            - script.execute: off_response_timeout
+
+            - fan.turn_off:
+                id: duux_fan
+
+    # Forward speed changes to the real Tuya fan.
+    on_speed_set:
+      - lambda: |-
+          id(duux_fan).make_call()
+            .set_speed(x)
+            .perform();
+
+    # Forward oscillation changes to the real Tuya fan.
+    on_oscillating_set:
+      - lambda: |-
+          id(duux_fan).make_call()
+            .set_oscillating(x)
+            .perform();
+
 switch:
+  # Reads its state directly from the Tuya select, so changes made on the
+  # device or via the remote are reflected as well.
   - platform: template
     name: "Oscillate vertically"
     icon: mdi:arrow-up-down
-    turn_on_action:
-      then:
-        - select.set:
-            id: "vertically"
-            option: "on"
-    turn_off_action:
-      then:
-        - select.set:
-            id: "vertically"
-            option: "off"
     lambda: |-
-      if (id(vertically).state == "on") {
-        return true;
-      } else {
-        return false;
-      }
+      auto idx = id(vertically).active_index();
+      return idx.has_value() && *idx == 1;  // index 1 = "on"
+
+    turn_on_action:
+      - select.set:
+          id: vertically
+          option: "on"
+
+    turn_off_action:
+      - select.set:
+          id: vertically
+          option: "off"
 
 select:
   - platform: "tuya"
     id: "vertically"
     internal: true
-    name: "Oscillate vertically"
     enum_datapoint: 5
     optimistic: true
     options:
@@ -153,26 +268,42 @@ select:
       11: "11h"
       12: "12h"
 
+binary_sensor:
+  - platform: status
+    name: "Status"
+
 sensor:
   - platform: wifi_signal
     name: "Wifi Signal"
     update_interval: 60s
     icon: mdi:wifi
+    entity_category: diagnostic
 
   - platform: uptime
     name: "Uptime"
     update_interval: 60s
     icon: mdi:clock-outline
+    entity_category: diagnostic
 
 text_sensor:
   - platform: wifi_info
     ip_address:
       name: "IP Address"
+      entity_category: diagnostic
     ssid:
       name: "Wi-Fi SSID"
+      entity_category: diagnostic
     bssid:
       name: "Wi-Fi BSSID"
+      entity_category: diagnostic
+
   - platform: version
     name: "ESPHome Version"
     hide_timestamp: true
+    entity_category: diagnostic
+
+button:
+  - platform: restart
+    name: "Restart"
+    entity_category: config
 ```
