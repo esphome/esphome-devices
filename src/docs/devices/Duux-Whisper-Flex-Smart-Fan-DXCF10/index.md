@@ -32,11 +32,14 @@ difficulty: 3
 ## Basic Configuration
 
 ```yaml file=config.yaml
+```
+
+## Better Configuration for Home Assistant
+The used Tuya MCU has a bug where it doesn't respond to the power off command when the display dims. Then it only wakes up the display and one has to press power off again. To remmedy this, the tuya fan component is kept internal and a template is exposed to Home Assistant. It checks if the device really powered off and if it didn't, it resends the power off command.
+```yaml
 substitutions:
   devicename: "ventilator"
   friendly: "Ventilator"
-# Define logging level: NONE, ERROR, WARN, INFO, DEBUG (Default), VERBOSE, VERY_VERBOSE
-  log_level: "WARN"
 
 esphome:
   name: $devicename
@@ -49,16 +52,10 @@ esphome:
 esp8266:
   board: esp07
 
-# Enable logging
-# baud_rate: 0 is required, because the Tuya UART (GPIO15/GPIO13) is the
-# swapped hardware UART0, which the logger would otherwise also use.
-# Logs remain available via the API and the web server.
-logger:
-  baud_rate: 0
-  level: $log_level
-
-wifi:
-  ap:
+# Enable Web server
+web_server:
+  port: 80
+  version: 3
 
 uart:
   tx_pin: GPIO15
@@ -267,43 +264,4 @@ select:
       10: "10h"
       11: "11h"
       12: "12h"
-
-binary_sensor:
-  - platform: status
-    name: "Status"
-
-sensor:
-  - platform: wifi_signal
-    name: "Wifi Signal"
-    update_interval: 60s
-    icon: mdi:wifi
-    entity_category: diagnostic
-
-  - platform: uptime
-    name: "Uptime"
-    update_interval: 60s
-    icon: mdi:clock-outline
-    entity_category: diagnostic
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "IP Address"
-      entity_category: diagnostic
-    ssid:
-      name: "Wi-Fi SSID"
-      entity_category: diagnostic
-    bssid:
-      name: "Wi-Fi BSSID"
-      entity_category: diagnostic
-
-  - platform: version
-    name: "ESPHome Version"
-    hide_timestamp: true
-    entity_category: diagnostic
-
-button:
-  - platform: restart
-    name: "Restart"
-    entity_category: config
 ```
