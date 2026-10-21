@@ -4,7 +4,7 @@ date-published: 2023-12-01
 type: relay
 standard: global
 board: esp32
-made-for-esphome: False
+made-for-esphome: false
 difficulty: 2
 ---
 
