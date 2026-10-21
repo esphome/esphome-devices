@@ -11,9 +11,13 @@ difficulty: 2
 
 ## Product Description
 
-The **SP-ESP32-S3-1.28-BOX** (commonly sold on AliExpress as the "Xiaozhi AI Desktop Companion") is an all-in-one circular smart display in a spherical desktop enclosure.
+The **SP-ESP32-S3-1.28-BOX** (commonly sold on AliExpress as the "Xiaozhi AI Desktop Companion")
+is an all-in-one circular smart display in a spherical desktop enclosure.
 
-It features an ESP32-S3 SoC with 16MB Flash and 8MB Octal PSRAM, a 1.28" circular IPS LCD (GC9A01A over 80MHz SPI), CST816D capacitive touch screen, Everest ES8311 I2S audio DAC with an onboard Class-D speaker amplifier (NS4168), a rechargeable 1S LiPo battery with ADC monitoring, and USB-C connectivity.
+It features an ESP32-S3 SoC with 16MB Flash and 8MB Octal PSRAM, a 1.28" circular IPS LCD
+(GC9A01A over 80MHz SPI), CST816D capacitive touch screen, Everest ES8311 I2S audio DAC
+with an onboard Class-D speaker amplifier (NS4168), a rechargeable 1S LiPo battery with ADC
+monitoring, and USB-C connectivity.
 
 ## Product Images
 
@@ -48,6 +52,10 @@ It features an ESP32-S3 SoC with 16MB Flash and 8MB Octal PSRAM, a 1.28" circula
 
 ## Notes
 
-- **Full Firmware & UI**: A complete turn-key firmware featuring LVGL 8 circular UI, LIFO 10-notification carousel, live weather, TTS announcements, and passive Bluetooth proxy is available in the [pasmimmo/SmartDisplay](https://github.com/pasmimmo/SmartDisplay) repository.
-- **PSRAM**: Requires 8MB Octal PSRAM configuration for LittlevGL display rendering and I2S audio pipelines.
-- **Audio Power Gating**: GPIO46 must be pulled HIGH during audio playback to enable the NS4168 speaker amplifier; pulling it LOW during standby saves ~20mA and eliminates speaker hiss.
+- **Full Firmware & UI**: A complete turn-key firmware featuring LVGL 8 circular UI,
+  LIFO 10-notification carousel, live weather, TTS announcements, and passive Bluetooth
+  proxy is available in the [pasmimmo/SmartDisplay](https://github.com/pasmimmo/SmartDisplay) repository.
+- **PSRAM**: Requires 8MB Octal PSRAM configuration for LittlevGL display rendering
+  and I2S audio pipelines.
+- **Audio Power Gating**: GPIO46 must be pulled HIGH during audio playback to enable the
+  NS4168 speaker amplifier; pulling it LOW during standby saves ~20mA and eliminates speaker hiss.
