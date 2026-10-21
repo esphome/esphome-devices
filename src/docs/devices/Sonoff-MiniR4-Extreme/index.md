@@ -5,7 +5,7 @@ type: relay
 standard: global
 board: esp32
 made-for-esphome: False
-difficulty: 4
+difficulty: 2
 ---
 
 ![Sonoff MiniR4 Extreme](sonoff-mini-r4.jpg "Product Image")
@@ -31,7 +31,13 @@ Detected with esptool:
 
 ## Programming
 
-Firmware programming need disassembly (easy) and moderate soldering skills to attach USB-RS232 converter cables.
+### Over-the-air flashing
+
+Devices running stock 1.2.0 firmware can be flashed over-the-air using [minir4-ota](https://github.com/d0tkom/minir4-ota).
+
+### Serial flashing
+
+Serial flashing need disassembly (easy) and moderate soldering skills to attach USB-RS232 converter cables.
 Pins are very easy to find as they are lebelled, but due to small size they are quite hard to solder.
 
 ![Sonoff MiniR4 Extreme](view_top.jpg "Top View")
