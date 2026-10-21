@@ -13,9 +13,7 @@ See the [Waveshare wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-1.46B
 
 ## ESPHome Support
 
-This configuration requires the display model from [esphome/esphome#19056][display-pr] and the touchscreen
-platform from [esphome/esphome#19057][touch-pr]. Both changes are pending merge. Use an ESPHome version
-containing both changes. Hardware validation is still pending.
+This configuration requires ESPHome 2026.10.0 or newer.
 
 ## Pin Mapping
 
@@ -61,6 +59,3 @@ Use touchscreen automations or LVGL to handle touch input and gestures.
 - [SPD2010 Touchscreen](https://esphome.io/components/touchscreen/spd2010/)
 - [PCA9554 GPIO Expander](https://esphome.io/components/pca9554/)
 - [LVGL Graphics](https://esphome.io/components/lvgl/)
-
-[display-pr]: https://github.com/esphome/esphome/pull/19056
-[touch-pr]: https://github.com/esphome/esphome/pull/19057
