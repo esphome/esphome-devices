@@ -1,7 +1,7 @@
 ---
 title: LocalBytes Smart Bulb (RGB+CT)
 date-published: 2024-03-14
-type: bulb
+type: light
 standard: uk,eu
 board: esp8266
 project-url: github://JamesSwift/localbytes-bulb-9w-rgbct/localbytes-bulb-9w-rgbct.yaml

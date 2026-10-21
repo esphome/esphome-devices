@@ -12,8 +12,6 @@ board: esp32
 
 ## GPIO Pinout
 
-based on [https://esphome.io/devices/sonoff.html#sonoff-dual-r3-v1-x-v2-x](https://esphome.io/devices/sonoff.html#sonoff-dual-r3-v1-x-v2-x)
-
 ### Sonoff Dual R3 Lite - PCB version 1.x
 
 | Pin    | Function                   |
@@ -47,7 +45,7 @@ esphome:
   name: sonoff-dual-r3
 
 esp32:
-  board: esp32dev
+  variant: esp32
 
 logger:
   level: INFO

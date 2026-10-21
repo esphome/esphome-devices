@@ -21,6 +21,7 @@ board: esp32
 | GPIO10 | Switch                   |
 | GPIO12 | Add-on module Digital in |
 | GPIO16 | Add-on module Data in    |
+| GPIO9  | Add-on module Data out   |
 | GPIO17 | Add-on module Analog in  |
 
 The Shelly 1PM Gen 4 is based on the ESP32-C6 (Single core, 160MHz, 8MB embedded flash)
@@ -34,7 +35,7 @@ esphome:
   name: shelly1pm-gen-4
 
 esp32:
-  board: esp32-c6-devkitc-1
+  variant: esp32c6
   flash_size: 8MB
   framework:
     type: esp-idf
@@ -59,7 +60,11 @@ web_server:
 uart:
   id: bl0942_uart
   tx_pin: GPIO6
-  rx_pin: GPIO7
+  rx_pin:
+    number: GPIO7
+    mode:
+      pullup: true
+      input: true
   baud_rate: 9600
   stop_bits: 1
 
@@ -169,7 +174,7 @@ esphome:
   name: shelly-1pm-gen-4
 
 esp32:
-  board: esp32-c6-devkitc-1
+  variant: esp32c6
   flash_size: 8MB
   framework:
     type: esp-idf
@@ -194,7 +199,11 @@ web_server:
 uart:
   id: bl0942_uart
   tx_pin: GPIO6
-  rx_pin: GPIO7
+  rx_pin:
+    number: GPIO7
+    mode:
+      pullup: true
+      input: true
   baud_rate: 9600
   stop_bits: 1
 

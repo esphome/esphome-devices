@@ -1,7 +1,7 @@
 ---
 title: Hama WiFi LED Lamp GU10 400lm CWWW 5.5W (176601)
 date-published: 2025-09-28
-type: bulb
+type: light
 standard: eu
 board: bk72xx
 ---

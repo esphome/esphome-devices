@@ -105,7 +105,7 @@ esphome:
   name: m5stackfire
 
 esp32:
-  board: m5stack-fire
+  variant: esp32
 
 wifi:
   ssid: !secret wifi_ssid

@@ -3,7 +3,7 @@ title: Unexpected Maker FeatherS3D
 date-published: 2025-07-21
 type: misc
 standard: global
-board: esp32-s3
+board: esp32
 difficulty: 2
 ---
 

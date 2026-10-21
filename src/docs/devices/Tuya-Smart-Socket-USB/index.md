@@ -1,7 +1,7 @@
 ---
 title: Tuya Smart Socket USB
 date-published: 2024-07-11
-type: relay, plug
+type: plug
 standard: global
 board: bk72xx
 ---

@@ -109,7 +109,7 @@ esphome:
         effect: fast_blink
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 

@@ -3,7 +3,7 @@ title: Athom Multi Target Radar Sensor (PS02C3MZ)
 date-published: 2025-08-25
 type: sensor
 standard: global
-board: esp32c3
+board: esp32
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-ld2450-sensor.yaml
 difficulty: 1
 ---

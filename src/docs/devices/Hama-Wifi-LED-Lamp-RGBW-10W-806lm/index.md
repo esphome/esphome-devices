@@ -1,7 +1,7 @@
 ---
 title: Hama Wifi Led Lamp RGBW 10W 806lm
 date-published: 2024-01-09
-type: bulb
+type: light
 standard: eu
 board: bk72xx
 ---

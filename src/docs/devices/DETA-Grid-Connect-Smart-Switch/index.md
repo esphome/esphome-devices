@@ -21,14 +21,17 @@ Series 1 models could be OTA flashed using using tuya-convert.
 
 ### Series 2
 
-Recently purchased devices are using the Beken BK7231T microcontroller and can be OTA flashed using using Cloudcutter.
-
 [Triple 6903HA][4] and [Quad 6904HA][5] The pin outs on the 3 & 4 gang switches are different to the 1 and 2 gang
 switches. Some 4 gang switches are on random Tuya firmware 1.1.5 and may need to use the "Lonsonho" brand
 "X804A 4 Gang Smart Wifi Switch" option in Cloudcutter, otherwise use the Deta single gang switch.
 
 [4]: https://www.bunnings.com.au/deta-smart-touch-activated-triple-gang-light-switch-with-grid-connect_p0161014
 [5]: https://www.bunnings.com.au/deta-smart-touch-activated-quad-gang-light-switch-with-grid-connect_p0161015
+
+### Series 3
+
+Recently purchased devices are using the Beken BK7231N microcontroller and need flashing with a serial flasher. There
+are headers on the board.
 
 ## Getting it up and running
 
@@ -63,6 +66,11 @@ of the [Grid Connect ecosystem][3]. These switches are available at Bunnings sto
 
 > **Note**: The [Triple 6903HA][4] and [Quad 6904HA][5] models have different pinouts compared to the 1 and 2 gang
 switches.
+>
+### Series 3 - Flashing
+
+- **Microcontroller**: Beken BK7231N
+- **Flashing Method**: Serial
 
 ## Setup Guide
 
@@ -221,6 +229,84 @@ binary_sensor:
       then:
         - light.toggle: light_right
     internal: True
+```
+
+### 2 Gang Configuration for ESP
+
+```yaml
+esphome:
+ name: "deta6912ha"
+ friendly_name: DETA Smart Double Switch
+
+esp8266:
+  board: esp01_1m
+  early_pin_init: False
+
+logger:
+  baud_rate: 0
+ 
+captive_portal:
+  
+api:
+  encryption:
+    key: !secret api_key
+  
+ota:
+  platform: esphome
+  password: !secret ota_password
+  
+wifi:
+ ssid: !secret wifi_ssid
+ password: !secret wifi_password
+ ap:
+   ssid: "DETA Smart Double Switch"
+   password: !secret wifi_ap_password
+
+status_led:
+  pin:
+    number: GPIO4
+    inverted: False
+
+output:
+  - platform: gpio
+    pin: GPIO13
+    id: relay1
+  - platform: gpio
+    pin: GPIO14
+    id: relay2
+  
+light:
+  - platform: binary
+    name: "Light 1"
+    output: relay1
+    id: light1
+  - platform: binary
+    name: "Light 2"
+    output: relay2
+    id: light2
+
+binary_sensor:
+  - platform: gpio
+    id: button1
+    pin:
+      number: GPIO16
+      mode: INPUT
+      inverted: True
+    on_press:
+      - light.toggle: light1
+  - platform: gpio
+    id: button2
+    pin:
+      number: GPIO12
+      mode: INPUT
+      inverted: True
+    on_press:
+      - light.toggle: light2
+
+
+switch:
+  - platform: restart
+    name: "Restart"
 ```
 
 ### 3 Gang Configuration for BK72XX (Series 2)

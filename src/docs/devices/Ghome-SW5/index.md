@@ -3,7 +3,7 @@ title: GHome SW5
 date-published: 2024-09-02
 type: switch
 standard: US
-board: BK7231N
+board: bk72xx
 ---
 
 ![Product Image](ghome-sw5.jpg "Product Image")

@@ -65,7 +65,7 @@ esphome:
   comment: "Sonoff MiniR4M"
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: esp32c3
   framework:
     type: arduino
 

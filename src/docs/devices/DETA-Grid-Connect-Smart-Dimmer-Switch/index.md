@@ -3,7 +3,7 @@ title: DETA Grid Connect Smart Dimmer Switch 6910HA
 date-published: 2024-09-18
 type: dimmer
 standard: au
-board: bk7231t
+board: bk72xx
 ---
 
 ## General Notes

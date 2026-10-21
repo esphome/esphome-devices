@@ -71,7 +71,7 @@ esphome:
   name: Sonoff M5 2gang
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 
@@ -244,7 +244,7 @@ substitutions:
 
 # Define the board for the compiler
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 
@@ -270,14 +270,12 @@ logger:
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "${apikey}"
 
 # Enable OTA
 ota:
   - platform: esphome
-    safe_mode: true
-    password: !secret ota_password
+
+safe_mode:
 
 # Enable WiFi and AP for captive portal
 wifi:

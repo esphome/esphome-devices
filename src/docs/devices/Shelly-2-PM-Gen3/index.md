@@ -11,7 +11,7 @@ difficulty: 2
 Generation 3 of Shelly 2. With Powermeter. \
 Generation 3 configurations are not compatible with earlier Shelly 2 generation hardware. \
 General hardware info, including serial pinout is on the
-[Shelly Knowledgebase](https://kb.shelly.cloud/knowledge-base/shelly-plus-2pm).
+[Shelly Knowledgebase](https://kb.shelly.cloud/knowledge-base/shelly-2pm-gen3).
 
 ## GPIO Pinout
 
@@ -62,7 +62,7 @@ esphome:
   friendly_name: ${friendly_name}
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: esp32c3
   flash_size: 8MB
   framework:
     type: esp-idf

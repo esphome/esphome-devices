@@ -3,7 +3,7 @@ title: Dingtian DT-R016
 date-published: 2024-10-31
 type: relay
 standard: global
-board: esp32dev
+board: esp32
 ---
 
 ## Product description
@@ -46,7 +46,7 @@ esphome:
   friendly_name: Sprinkler
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 

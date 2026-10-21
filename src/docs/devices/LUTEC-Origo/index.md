@@ -51,7 +51,7 @@ esphome:
   friendly_name: Lutec Origo
 
 esp32:
-  board: esp32dev
+  variant: esp32
   framework:
     type: arduino
 

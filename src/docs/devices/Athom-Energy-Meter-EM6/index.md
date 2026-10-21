@@ -3,7 +3,7 @@ title: Athom Energy Meter (EM6)
 date-published: 2024-11-01
 type: sensor
 standard: global
-board: esp32-c3
+board: esp32
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-energy-monitor-x6.yaml
 difficulty: 1
 made-for-esphome: true
@@ -25,7 +25,7 @@ Also on Aliexpress, available pre-flashed with ESPHome or Tasmota.
 | GPIO9  | button    |
 | GPIO10 | led       |
 
-## Basic Configuration
+## Configuration
 
-The [Latest configuration](https://github.com/athom-tech/esp32-configs/blob/main/athom-energy-monitor-x6.yaml)
-can be found on Athom's GitHub repo.
+```yaml url=https://github.com/athom-tech/esp32-configs/blob/main/athom-energy-monitor-x6.yaml
+```

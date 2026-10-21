@@ -28,7 +28,7 @@ to be pulled low during flashing, use the following board to achieve this you ca
 the boot button while powering up and flash!
 
 [1]: https://www.aliexpress.com/item/1005002668365356.html
-[2]: https://amzn.to/3o8owSb
+[2]: https://www.amazon.com/dp/B083QB2XVP
 [3]: https://www.banggood.com/ESP8266-Test-Board-Burner-Development-Board-WIFI-Module-For-ESP-01-ESP-01S-ESP-12E-ESP-12F-ESP-12S-ESP-18T-p-1684992.html
 
 ![Test Board](test_board.jpg "Test Board")
@@ -89,7 +89,7 @@ esphome:
     version: "${project_version}"
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: esp32c3
   framework:
     type: esp-idf
 
@@ -293,7 +293,7 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  board: esp32-c3-devkitm-1
+  variant: esp32c3
   framework:
     type: arduino
     version: 2.0.5

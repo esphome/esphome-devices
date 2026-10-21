@@ -3,7 +3,7 @@ title: Athom Mini Relay (RS01C3)
 date-published: 2024-11-01
 type: relay
 standard: global
-board: esp32-c3
+board: esp32
 project-url: https://github.com/athom-tech/esp32-configs/blob/main/athom-mini-relay-v2.yaml
 difficulty: 1
 made-for-esphome: true
@@ -32,7 +32,7 @@ Maximum support current 10A
 | GPIO7  | Led        |
 | GPIO20 | CSE7766 RX |
 
-## Basic Configuration
+## Configuration
 
-The [Latest configuration](https://github.com/athom-tech/esp32-configs/blob/main/athom-mini-relay-v2.yaml)
-can be found on Athom's GitHub repo.
+```yaml url=https://github.com/athom-tech/esp32-configs/blob/main/athom-mini-relay-v2.yaml
+```

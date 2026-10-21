@@ -1,7 +1,7 @@
 ---
 title: Arlec DCF4002WHA/DCF4002BHA Ceiling Fan+Light
 date-published: 2023-12-17
-type: fan
+type: light
 standard: au
 board: rtl87xx
 ---
