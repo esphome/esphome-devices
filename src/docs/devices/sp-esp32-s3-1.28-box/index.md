@@ -11,7 +11,7 @@ difficulty: 2
 
 ## Product Description
 
-The **SP-ESP32-S3-1.28-BOX** (popularly sold on AliExpress as the "Xiaozhi AI Desktop Companion") is an all-in-one circular smart display in a compact desktop enclosure.
+The **SP-ESP32-S3-1.28-BOX** (commonly sold on AliExpress as the "Xiaozhi AI Desktop Companion") is an all-in-one circular smart display in a spherical desktop enclosure.
 
 It features an ESP32-S3 SoC with 16MB Flash and 8MB Octal PSRAM, a 1.28" circular IPS LCD (GC9A01A over 80MHz SPI), CST816D capacitive touch screen, Everest ES8311 I2S audio DAC with an onboard Class-D speaker amplifier (NS4168), a rechargeable 1S LiPo battery with ADC monitoring, and USB-C connectivity.
 
@@ -43,37 +43,7 @@ It features an ESP32-S3 SoC with 16MB Flash and 8MB Octal PSRAM, a 1.28" circula
 
 ## Basic Configuration
 
-```yaml
-substitutions:
-  name: "smartdisplay"
-  friendly_name: "SmartDisplay"
-
-esphome:
-  name: "${name}"
-  friendly_name: "${friendly_name}"
-
-esp32:
-  board: esp32-s3-devkitc-1
-  framework:
-    type: esp-idf
-
-psram:
-  mode: octal
-  speed: 80MHz
-
-logger:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-api:
-
-ota:
-  - platform: esphome
-
-# Complete modular packages or standalone config available at:
-# https://github.com/pasmimmo/SmartDisplay
+```yaml file=config.yaml
 ```
 
 ## Notes
