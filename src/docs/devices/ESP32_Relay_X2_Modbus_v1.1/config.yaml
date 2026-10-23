@@ -44,13 +44,13 @@ switch:
 binary_sensor:
   - platform: gpio
     pin:
-      number: 27 # TBC
+      number: 27  # TBC
       inverted: true
     name: "Input 1"
 
   - platform: gpio
     pin:
-      number: 26 # TBC
+      number: 26  # TBC
       inverted: true
     name: "Input 2"
 
@@ -104,7 +104,7 @@ binary_sensor:
 # RS485 (MODBUS) UART
 # ==========================
 uart:
-  rx_pin: 18 # RS485 RX
-  tx_pin: 19 # RS485 TX
-  flow_control_pin: 32 # RS485 DE (TBC)
+  rx_pin: 18  # RS485 RX
+  tx_pin: 19  # RS485 TX
+  flow_control_pin: 32  # RS485 DE (TBC)
   baud_rate: 9600
