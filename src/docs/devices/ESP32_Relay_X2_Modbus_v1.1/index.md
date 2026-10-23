@@ -141,7 +141,7 @@ binary_sensor:
       number: 5
       inverted: true
       mode: INPUT_PULLUP
-	  ignore_strapping_warning: true
+      ignore_strapping_warning: true
     name: "Pad G5 as input"
 
   - platform: gpio
